@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-28 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .warning-box { background: #fee2e2; border-left: 4px solid #dc2626; padding: 12px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .red-flag { color: #dc2626; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 6.3 — Protección contra Fraude al Consumidor</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>Alex</strong> recibió un correo electrónico que parecía ser de su banco indicando "actividad sospechosa" en su cuenta. El correo urgía a "hacer clic aquí inmediatamente" para verificar su información. La dirección del remitente era BankofAmerica1@secure-verify.net—¿cuántas señales de advertencia puede identificar?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Identificar diferentes tipos de fraude al consumidor</li>
+        <li>Reconocer señales de advertencia de estafas comunes</li>
+        <li>Desarrollar estrategias para proteger información personal</li>
+        <li>Conocer los pasos a seguir si es víctima de fraude</li>
+    </ul>
+
+    <div class="section-header">Tipos de Fraude al Consumidor</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 25%;">Tipo</th>
+            <th>Descripción</th>
+            <th style="width: 30%;">Señales de Advertencia</th>
+        </tr>
+        <tr>
+            <td><strong>Phishing</strong></td>
+            <td>Correos/mensajes fraudulentos para obtener información sensible</td>
+            <td>Urgencia, enlaces sospechosos, errores ortográficos</td>
+        </tr>
+        <tr>
+            <td><strong>Suplantación</strong></td>
+            <td>Hacerse pasar por empresas legítimas para robar datos</td>
+            <td>Números no oficiales, solicitar info sensible</td>
+        </tr>
+        <tr>
+            <td><strong>Catfishing</strong></td>
+            <td>Identidad falsa en línea para obtener dinero o información</td>
+            <td>Relación rápida, solicitudes de dinero</td>
+        </tr>
+        <tr>
+            <td><strong>Esquemas Ponzi</strong></td>
+            <td>Inversiones fraudulentas que pagan con fondos de nuevos inversores</td>
+            <td>"Rendimientos garantizados", demasiado bueno</td>
+        </tr>
+        <tr>
+            <td><strong>Estafas de Crédito</strong></td>
+            <td>Promesas de arreglar crédito por tarifa sin entregar resultados</td>
+            <td>Promesas garantizadas, pago por adelantado</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Escenarios</div>
+        <div class="activity-instructions">Para cada escenario, identifique el tipo de fraude, las señales de advertencia y qué debería hacer la persona.</div>
+
+        <div class="warning-box">
+            <div class="scenario-title" style="color: #991b1b;">Escenario 1: Phishing por Correo</div>
+            <div class="scenario-content" style="color: #7f1d1d;">
+                Alex recibió correo de "su banco" sobre "actividad sospechosa". El correo urge a "hacer clic aquí inmediatamente". La dirección es: BankofAmerica1@secure-verify.net
+            </div>
+        </div>
+        <div class="write-label">Tipo de Fraude:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Señales de Advertencia (enumere 3+):</div>
+        <div class="write-box"></div>
+        <div class="write-label">¿Qué Debería Hacer Alex?</div>
+        <div class="write-box"></div>
+
+        <div class="warning-box">
+            <div class="scenario-title" style="color: #991b1b;">Escenario 2: Suplantación por Mensaje</div>
+            <div class="scenario-content" style="color: #7f1d1d;">
+                Jessica recibió mensaje de texto "del IRS" indicando que es elegible para reembolso. El enlace solicita su número de Seguro Social e información bancaria para "reclamar su reembolso".
+            </div>
+        </div>
+        <div class="write-label">Tipo de Fraude:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Señales de Advertencia:</div>
+        <div class="write-box"></div>
+        <div class="write-label">¿Qué Debería Hacer Jessica?</div>
+        <div class="write-box"></div>
+
+        <div class="warning-box">
+            <div class="scenario-title" style="color: #991b1b;">Escenario 3: Catfishing/Inversión</div>
+            <div class="scenario-content" style="color: #7f1d1d;">
+                Miguel se conectó en redes sociales con un "asesor financiero". Después de semanas generando confianza, le convenció de invertir en una "oportunidad de rendimiento garantizado" enviando dinero por transferencia bancaria.
+            </div>
+        </div>
+        <div class="write-label">Tipos de Fraude (pueden ser múltiples):</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Señales de Advertencia:</div>
+        <div class="write-box"></div>
+        <div class="write-label">¿Qué Debería Hacer Miguel Ahora?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Estrategias de Prevención</div>
+        <div class="activity-instructions">Complete la lista de estrategias de protección personal.</div>
+
+        <div class="write-label">1. Para proteger mi información, yo voy a:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">2. Para verificar fuentes antes de compartir datos, yo voy a:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">3. Si sospecho fraude, los pasos que tomaré son:</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Educar a Otros</div>
+        <div class="activity-instructions">Escriba cómo explicaría las estafas de phishing a un familiar mayor sin hacerlo sentir avergonzado.</div>
+
+        <div class="write-label">Mi estrategia para educar a un familiar sobre estafas en línea:</div>
+        <div class="write-box" style="min-height: 100px;"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuáles son las tres señales principales de un correo de phishing?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué el IRS nunca le enviaría un mensaje de texto solicitando su información personal?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Recibe un correo de "Netflix" diciendo que su pago falló y debe actualizar su información. ¿Qué debe hacer?</div>
+        <div class="question-hint">Pista: No haga clic en enlaces del correo.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Por qué las transferencias bancarias son el método preferido de los estafadores?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 6.3: Protección contra Fraude al Consumidor</span>
+    </div>
+
+</body>
+</html>

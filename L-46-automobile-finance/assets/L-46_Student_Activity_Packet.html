@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-46 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .state-data-box { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 2px solid var(--primary); border-radius: 8px; padding: 14px 18px; margin-bottom: 18px; }
+        .state-data-box h4 { font-size: 11pt; font-weight: 700; color: var(--primary); margin-bottom: 10px; text-align: center; }
+        .data-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #c7d2fe; }
+        .data-row:last-child { border-bottom: none; }
+        .data-label { font-weight: 600; color: var(--text-dark); }
+        .data-value { font-weight: 700; color: var(--primary); }
+        .national-comparison { background: #fef3c7; border-left: 3px solid var(--accent); padding: 8px 12px; margin-top: 12px; font-size: 9pt; color: #92400e; border-radius: 0 4px 4px 0; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>L-46: Financiamiento de Automóviles — Comprar vs. Arrendar</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante<br>
+            <strong>Edición de {{STATE_NAME}}</strong>
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>El auto nuevo promedio cuesta más de $48,000, y el método de financiamiento que elijas puede resultar en miles de dólares de diferencia. Mia compró un sedán usado certificado por $18,000 y después de 4 años lo poseía completamente. Durante 7 años, su costo neto fue $12,416 mientras que James, quien arrendó camionetas nuevas durante el mismo período, gastó $42,864 sin tener ningún activo al final.</p>
+        <p class="framing-question">¿Cómo puede la decisión de comprar versus arrendar afectar tu capacidad de lograr otras metas financieras?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar las diferencias financieras entre comprar y arrendar un vehículo.</li>
+            <li>Calcular el costo total de propiedad para diferentes escenarios de financiamiento.</li>
+            <li>Evaluar cómo las decisiones de financiamiento impactan la salud financiera general.</li>
+            <li>Tomar decisiones informadas alineadas con metas financieras personales.</li>
+        </ul>
+    </div>
+
+    <!-- DATOS DEL ESTADO -->
+    <div class="state-data-box">
+        <h4>Datos Automotrices de Tu Estado: {{STATE_NAME}} ({{STATE_CODE}})</h4>
+        <div class="data-row"><span class="data-label">Impuesto sobre Ventas:</span><span class="data-value">{{STATE_SALES_TAX}}%</span></div>
+        <div class="data-row"><span class="data-label">Registro Inicial:</span><span class="data-value">${{STATE_REGISTRATION_INITIAL}}</span></div>
+        <div class="data-row"><span class="data-label">Registro Anual:</span><span class="data-value">${{STATE_REGISTRATION_ANNUAL}}</span></div>
+        <div class="data-row"><span class="data-label">Tasa de Préstamo Auto Nuevo:</span><span class="data-value">{{STATE_AVG_AUTO_LOAN_RATE_NEW}}%</span></div>
+        <div class="data-row"><span class="data-label">Tasa de Préstamo Auto Usado:</span><span class="data-value">{{STATE_AVG_AUTO_LOAN_RATE_USED}}%</span></div>
+        <div class="data-row"><span class="data-label">Seguro para Adolescentes (mensual):</span><span class="data-value">${{STATE_INSURANCE_AVG_TEEN}}</span></div>
+        <div class="data-row"><span class="data-label">Seguro para Adultos (mensual):</span><span class="data-value">${{STATE_INSURANCE_AVG_ADULT}}</span></div>
+        <div class="data-row"><span class="data-label">Precio Actual de Gasolina:</span><span class="data-value">${{STATE_GAS_PRICE_CURRENT}}/galón</span></div>
+        <div class="data-row"><span class="data-label">Costo de Inspección:</span><span class="data-value">${{STATE_INSPECTION_COST}}</span></div>
+        <div class="data-row"><span class="data-label">Tarifa de Adquisición de Arrendamiento:</span><span class="data-value">${{STATE_LEASE_ACQUISITION_FEE}}</span></div>
+        <div class="national-comparison">
+            <strong>Promedios Nacionales:</strong> Préstamo auto nuevo: 6.5% | Préstamo auto usado: 7.5% | Seguro adolescentes: $250/mes | Gasolina: $3.00/galón
+        </div>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Préstamo de Auto</td>
+            <td>Préstamo garantizado donde el vehículo sirve como colateral, con pagos mensuales durante 36-72 meses.</td>
+        </tr>
+        <tr>
+            <td>Arrendamiento</td>
+            <td>Contrato para usar un vehículo por un período específico (24-36 meses), después del cual lo devuelves.</td>
+        </tr>
+        <tr>
+            <td>Depreciación</td>
+            <td>Disminución en el valor del vehículo con el tiempo; los autos nuevos pierden 20-30% en el primer año.</td>
+        </tr>
+        <tr>
+            <td>Costo Total de Propiedad</td>
+            <td>Costo financiero completo incluyendo precio, financiamiento, seguro, combustible, mantenimiento y depreciación.</td>
+        </tr>
+        <tr>
+            <td>Valor Residual</td>
+            <td>Valor estimado del vehículo al final del plazo de arrendamiento, que afecta los pagos mensuales.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Los autos nuevos pierden aproximadamente 60% de su valor para el quinto año. Sin embargo, una vez que posees el vehículo completamente, puedes conducirlo sin pagos mensuales por muchos años—haciendo la compra financieramente ventajosa a largo plazo. Los arrendamientos ofrecen pagos mensuales más bajos pero resultan en un ciclo de pago perpetuo sin acumulación de capital.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Comparación de Escenarios</div>
+    <p class="mb-md">Compare estos tres escenarios para el mismo vehículo de $35,000 durante 6 años.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Comprar Nuevo</div>
+        <div class="scenario-description">Préstamo de 60 meses al {{STATE_AVG_AUTO_LOAN_RATE_NEW}}% (tasa de {{STATE_NAME}}), pago inicial 20%</div>
+        <div class="response-line">
+            <span class="response-label">Pago mensual:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Total pagado en 5 años:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Valor del vehículo en año 6:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Costo neto (total - valor):</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Comprar Usado (3 años)</div>
+        <div class="scenario-description">Precio $22,000, préstamo de 48 meses al {{STATE_AVG_AUTO_LOAN_RATE_USED}}% (tasa de {{STATE_NAME}}), pago inicial 15%</div>
+        <div class="response-line">
+            <span class="response-label">Pago mensual:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Total pagado en 4 años:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Valor del vehículo en año 6:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Costo neto (total - valor):</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Arrendar (dos arrendamientos de 3 años)</div>
+        <div class="scenario-description">$400/mes con $2,000 inicial por arrendamiento</div>
+        <div class="response-line">
+            <span class="response-label">Total en pagos de arrendamiento:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Total en pagos iniciales:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Valor del vehículo al final:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Costo neto total:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Los años de conducción sin pagos después del pago del préstamo es donde ocurren los ahorros reales en la compra vs. arrendamiento.
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Análisis del Impacto del Plazo del Préstamo</div>
+    <p class="mb-md">Compare préstamos de $26,000 con diferentes plazos.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Comparación de Plazos de Préstamo</div>
+        <div class="response-line">
+            <span class="response-label">36 meses @ 5.5%: Pago mensual:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">36 meses: Interés total:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">72 meses @ 7.5%: Pago mensual:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">72 meses: Interés total:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuánto más paga en interés total con el préstamo de 72 meses vs. 36 meses?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál describe mejor la "depreciación" de un vehículo?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. El costo del mantenimiento anual</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. La disminución del valor del vehículo con el tiempo</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. El interés pagado en un préstamo de auto</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. El costo del seguro del vehículo</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Cuál es la principal ventaja financiera de comprar vs. arrendar a largo plazo?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Por qué los plazos de préstamo más largos pueden ser problemáticos aunque ofrezcan pagos mensuales más bajos?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Qué factores del "costo total de propiedad" a menudo se pasan por alto al considerar solo el pago mensual?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Considera tus necesidades de vehículo durante los próximos 5-10 años. ¿Qué enfoque de financiamiento (comprar nuevo, comprar usado, arrendar) se alinea mejor con tus metas? ¿Cómo afectaría tu decisión otras prioridades financieras?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-46: Financiamiento de Automóviles | Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

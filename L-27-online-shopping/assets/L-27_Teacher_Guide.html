@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-27 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 6.2 — Compras en Línea</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades</td><td>Tarjetas de Crédito (L-26)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Mike (estafa de consola de juegos).</li>
+                    <li>Pregunte: "¿Qué señales de advertencia debió notar Mike?"</li>
+                    <li>Discuta: ¿Cuántos han visto ofertas sospechosas en línea?</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente la tabla de beneficios vs. riesgos de compras en línea.</li>
+                    <li>Explique HTTPS, candado, y encriptación con ejemplos visuales.</li>
+                    <li>Distinga phishing de sitios legítimos.</li>
+                    <li>Enfatice: tarjeta de crédito > débito para compras en línea.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis de experiencias de Jenna, Mike y Thomas.</li>
+                    <li><strong>Parte B (8 min):</strong> Lista de verificación de seguridad.</li>
+                    <li><strong>Parte C (7 min):</strong> Comparación en línea vs. en tienda.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise P1 (HTTPS y candado como señales de seguridad).</li>
+                    <li>Discuta P3 sobre ofertas demasiado buenas.</li>
+                    <li>Comparta estrategias personales de los estudiantes.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Muestre capturas de pantalla de sitios seguros vs. sospechosos.</li>
+                <li>Proporcione lista simplificada de 5 reglas de seguridad.</li>
+                <li>Use el ejemplo de Jenna como modelo paso a paso.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue casos reales de fraude en línea.</li>
+                <li>Compare políticas de protección de diferentes billeteras digitales.</li>
+                <li>Analice cómo identificar reseñas falsas en línea.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Experiencias</div>
+            <div class="answer-item"><strong>Jenna (acciones correctas):</strong> (1) Investigó diferentes modelos, (2) Leyó reseñas de clientes, (3) Comparó precios con tienda local, (4) Verificó que el sitio usara HTTPS, (5) Guardó correo de confirmación.</div>
+            <div class="answer-item"><strong>Mike (señales ignoradas):</strong> (1) Sitio web desconocido, (2) Precio 40% más bajo (demasiado bueno), (3) No investigó la empresa, (4) No verificó seguridad del sitio, (5) No leyó reseñas de la empresa.</div>
+            <div class="answer-item"><strong>Thomas (estrategias recomendables):</strong> Correo separado para compras, tarjeta de crédito con protección, verificar HTTPS/candado, guardar registros, revisar política de devolución antes de comprar.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: En Línea vs. En Tienda (Computadora Portátil)</div>
+            <div class="answer-item"><strong>Precio:</strong> En línea generalmente más bajo; en tienda puede tener promociones</div>
+            <div class="answer-item"><strong>Conveniencia:</strong> En línea desde casa; en tienda requiere viaje</div>
+            <div class="answer-item"><strong>Selección:</strong> En línea mayor variedad; en tienda limitada al inventario</div>
+            <div class="answer-item"><strong>Inspección:</strong> En línea imposible; en tienda puede probar</div>
+            <div class="answer-item"><strong>Servicio:</strong> En línea chat/email; en tienda inmediato y personal</div>
+            <div class="answer-item"><strong>Disponibilidad:</strong> En línea espera envío; en tienda inmediata</div>
+            <div class="answer-note">Para una computadora, muchos prefieren tienda para probar teclado/pantalla, pero en línea para mejor precio si saben exactamente qué modelo quieren.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> HTTPS en la barra de direcciones y el ícono del candado. Esto indica que la conexión está encriptada y la información está protegida.</div>
+            <div class="answer-item"><strong>2.</strong> Las tarjetas de crédito ofrecen mejor protección contra fraude: límite de responsabilidad (generalmente $50 máx.), proceso de disputa más fácil, y el dinero no sale directamente de su cuenta mientras se investiga. Con débito, el dinero se retira inmediatamente.</div>
+            <div class="answer-item"><strong>3.</strong> Un iPhone a $200 (normal $999) es una señal de estafa clara. Debería: investigar el sitio en línea, buscar reseñas, verificar si tiene dirección física, NO comprar, y posiblemente reportar el sitio.</div>
+            <div class="answer-item"><strong>4.</strong> Phishing es un intento fraudulento de obtener información (contraseñas, números de tarjeta) haciéndose pasar por entidad confiable (banco, tienda). Protección: no hacer clic en enlaces de correos sospechosos, verificar remitente, ir directamente al sitio oficial, nunca dar contraseñas por correo.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Si el sitio se ve profesional, es seguro."</td><td>Los estafadores crean sitios de aspecto muy profesional. Siempre verifique HTTPS, busque reseñas de la empresa, y confirme información de contacto real.</td></tr>
+            <tr><td>"Las ofertas increíbles son solo buena suerte."</td><td>Si un precio es demasiado bueno para ser verdad, probablemente es una estafa. Los productos legítimos no se venden al 40-80% del precio normal.</td></tr>
+            <tr><td>"Mi tarjeta de débito es igual de segura."</td><td>Las tarjetas de crédito tienen protecciones legales más fuertes y el dinero no se retira de su cuenta durante disputas. Siempre prefiera crédito para compras en línea.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 6.2</span>
+    </div>
+
+</body>
+</html>

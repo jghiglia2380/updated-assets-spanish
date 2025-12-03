@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-17 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.4 — El Tiempo es Dinero</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulos 5.1-5.3 (Ahorro, Inversión, Estrategias)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente Alex (3 años/auto) vs. Taylor (40 años/jubilación).</li>
+                    <li>Discusión: "¿Pueden usar la misma estrategia? ¿Por qué?"</li>
+                    <li>Establezca la importancia del horizonte temporal.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente la tabla de estrategias por horizonte temporal.</li>
+                    <li>Explique el impacto de la inflación con ejemplos numéricos.</li>
+                    <li>Conecte tolerancia al riesgo con horizonte temporal.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Diseño de estrategia para Alex. Enfatice conservadurismo.</li>
+                    <li><strong>Parte B (8 min):</strong> Diseño para Taylor. Permita más riesgo.</li>
+                    <li><strong>Parte C (7 min):</strong> Análisis de impacto de inflación.</li>
+                    <li><strong>Parte D (7 min):</strong> Evolución de estrategia con el tiempo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (superar inflación) y P4 (aplicación personal).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione asignaciones de portafolio pre-diseñadas para elegir.</li>
+                <li>Use analogías: corto plazo = alcancía, largo plazo = semilla de árbol.</li>
+                <li>Simplifique a solo 2 horizontes temporales (corto y largo).</li>
+                <li>Calcule el impacto de inflación juntos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcular el valor exacto de inversiones ajustado por inflación.</li>
+                <li>Crear un plan de transición de 20 años de agresivo a conservador.</li>
+                <li>Investigar la inflación histórica real vs. rendimientos de acciones.</li>
+                <li>Diseñar estrategia para múltiples objetivos simultáneos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Diferencias Alex vs. Taylor</div>
+            <div class="answer-item">Diferencias fundamentales: (1) Horizonte temporal: 3 años vs. 40 años; (2) Necesidad de liquidez: Alex necesita cantidad específica en fecha fija; (3) Capacidad de recuperación: Taylor puede superar múltiples ciclos de mercado; (4) Impacto de inflación: irrelevante para Alex, crítico para Taylor; (5) Tolerancia al riesgo apropiada: conservadora vs. agresiva.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Estrategia de Alex</div>
+            <div class="calc-display">Distribución Recomendada para Alex:
+Ahorros alto rendimiento: 60% ($6,000)
+CDs a 1-2 años: 40% ($4,000)
+Acciones: 0%</div>
+            <div class="answer-item"><strong>2. Por qué no acciones:</strong> Con solo 3 años, no hay tiempo para recuperarse de una caída del mercado. Si las acciones bajaran 30% justo antes de necesitar el dinero, Alex no tendría suficiente para el auto. Necesita certeza sobre la cantidad disponible en la fecha específica.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Estrategia de Taylor</div>
+            <div class="calc-display">Distribución Recomendada para Taylor:
+Acciones nacionales: 45-50%
+Acciones internacionales: 20-25%
+Bonos: 20-25%
+Efectivo: 5-10%</div>
+            <div class="answer-item"><strong>4. Por qué más riesgo:</strong> (1) 40 años permiten superar múltiples ciclos de caída/recuperación; (2) Necesita crecimiento para superar inflación; (3) No necesita el dinero pronto, así que la volatilidad a corto plazo es irrelevante; (4) Históricamente, las acciones superan a los bonos durante períodos largos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Impacto de la Inflación</div>
+            <div class="answer-item"><strong>5.</strong> Si Taylor mantuviera $10,000 en ahorros al 1% por 40 años: Nominalmente tendría ~$14,900. Pero con inflación del 3%, los precios se multiplicarían ~3.3 veces. Sus $14,900 tendrían el poder adquisitivo de solo ~$4,500 de hoy. <strong>Perdería más de la mitad del valor real.</strong></div>
+            <div class="answer-item"><strong>6.</strong> Importancia para jubilación: (1) La jubilación puede durar 20-30 años más, con inflación continua; (2) Los gastos de salud típicamente aumentan más que la inflación; (3) No habrá ingresos laborales para compensar pérdida de poder adquisitivo; (4) Lo que cuesta $50,000/año hoy podría costar $120,000/año en 30 años.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>7.</strong> Cuando falten 10 años: Taylor debería reducir acciones a 50-60% y aumentar bonos a 30-40%. Cuando falten 5 años: 40% acciones, 50% bonos, 10% efectivo. El objetivo es proteger lo ganado sin eliminar todo crecimiento.</div>
+            <div class="answer-item"><strong>8.</strong> Por qué volverse conservador: (1) Menos tiempo para recuperarse de caídas; (2) El objetivo ya no es maximizar crecimiento sino proteger patrimonio; (3) Necesitará liquidez pronto; (4) Una caída grande cerca de jubilación podría ser devastadora.</div>
+            <div class="answer-item"><strong>1.</strong> B (Hay más tiempo para recuperarse de caídas del mercado)</div>
+            <div class="answer-item"><strong>2.</strong> Superar la inflación significa que el rendimiento es mayor que la tasa de inflación. Si la inflación es 3% y su inversión rinde 7%, su rendimiento "real" (ajustado por inflación) es ~4%. El dinero crece en poder adquisitivo, no solo en valor nominal.</div>
+            <div class="answer-item"><strong>3.</strong> Diversificación a largo plazo: (1) Reduce volatilidad sin sacrificar rendimiento esperado; (2) Ningún sector o región domina para siempre; (3) Protege contra colapso de industrias específicas; (4) Permite capturar crecimiento de diferentes fuentes.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"La inflación es solo 3%—no importa mucho."</td>
+                <td>El efecto compuesto es devastador: 3% anual durante 30 años más que duplica los precios. Un jubilado que no planificó para inflación puede quedarse sin dinero.</td>
+            </tr>
+            <tr>
+                <td>"Soy joven, puedo arriesgar TODO en acciones."</td>
+                <td>Incluso con horizonte largo, la diversificación es importante. Los bonos reducen volatilidad y aún pueden necesitar algo líquido para emergencias.</td>
+            </tr>
+            <tr>
+                <td>"Cuando me jubile, moveré todo a efectivo."</td>
+                <td>Incluso en jubilación necesita algo de crecimiento—puede vivir 25-30 años más. Un portafolio 100% conservador puede no sobrevivir la inflación.</td>
+            </tr>
+            <tr>
+                <td>"Mi estrategia nunca debería cambiar."</td>
+                <td>Las estrategias deben evolucionar con el horizonte temporal. Lo apropiado a los 25 no es apropiado a los 55. Revisión periódica es esencial.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.4</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-15 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: center; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); text-align: center; }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .formula-box { background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px; padding: 14px; margin: 14px 0; text-align: center; }
+        .formula-title { font-weight: 700; color: #166534; font-size: 10pt; margin-bottom: 8px; }
+        .formula { font-size: 14pt; font-weight: 700; color: #166534; margin: 8px 0; }
+        .formula-note { font-size: 9pt; color: var(--text-medium); }
+
+        .example-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .example-title { font-weight: 700; color: #92400e; font-size: 9pt; margin-bottom: 6px; }
+
+        .calc-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9pt; }
+        .calc-table th { background: var(--primary-dark); color: white; padding: 8px; text-align: center; }
+        .calc-table td { padding: 10px 8px; border: 1px solid var(--border); text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 5.2: El Poder del Interés Compuesto y la Regla del 72</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre interés simple e interés compuesto</li>
+            <li>Aplicar la Regla del 72 para estimar el tiempo de duplicación de una inversión</li>
+            <li>Calcular el crecimiento de inversiones usando principios de interés compuesto</li>
+            <li>Explicar cómo comenzar temprano impacta la construcción de riqueza a largo plazo</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Capital Principal</div>
+            <div class="vocab-def">La cantidad inicial de dinero depositada o invertida</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Interés Simple</div>
+            <div class="vocab-def">Interés ganado solo sobre el capital principal</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Interés Compuesto</div>
+            <div class="vocab-def">Interés ganado sobre el capital Y sobre los intereses previos</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Regla del 72</div>
+            <div class="vocab-def">Fórmula para estimar años para duplicar una inversión</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Frecuencia de Capitalización</div>
+            <div class="vocab-def">Qué tan seguido se calcula y añade el interés</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Costo de Oportunidad</div>
+            <div class="vocab-def">Lo que sacrifica al elegir una opción sobre otra</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">📈 La Octava Maravilla del Mundo</div>
+        <div class="scenario-content">
+            Einstein supuestamente llamó al interés compuesto "la octava maravilla del mundo". Si invierte $1,000 hoy al 8% anual, ¿cuánto tendrá en 36 años? Primero, use la Regla del 72 para estimar cuántas veces se duplicará su dinero.
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Cuántas duplicaciones y cuál será el valor aproximado?</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Interés Simple vs. Interés Compuesto</h3>
+    <table class="comparison-table">
+        <tr>
+            <th>Tipo</th>
+            <th>Fórmula</th>
+            <th>$1,000 al 5% por 30 años</th>
+        </tr>
+        <tr>
+            <td><strong>Interés Simple</strong></td>
+            <td>I = P × r × t</td>
+            <td>$2,500</td>
+        </tr>
+        <tr>
+            <td><strong>Interés Compuesto</strong></td>
+            <td>A = P(1 + r)^t</td>
+            <td>$4,322</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Diferencia</strong></td>
+            <td><strong>+$1,822</strong></td>
+        </tr>
+    </table>
+
+    <div class="formula-box">
+        <div class="formula-title">La Regla del 72</div>
+        <div class="formula">72 ÷ Tasa de Interés = Años para Duplicar</div>
+        <div class="formula-note">Ejemplo: 72 ÷ 6% = 12 años para duplicar su dinero</div>
+    </div>
+
+    <div class="example-box">
+        <div class="example-title">Ejemplos de la Regla del 72</div>
+        <ul style="font-size: 9pt; margin: 4px 0 0 16px; color: var(--text-medium);">
+            <li>Al 3%: 72 ÷ 3 = <strong>24 años</strong> para duplicar</li>
+            <li>Al 6%: 72 ÷ 6 = <strong>12 años</strong> para duplicar</li>
+            <li>Al 9%: 72 ÷ 9 = <strong>8 años</strong> para duplicar</li>
+            <li>Al 12%: 72 ÷ 12 = <strong>6 años</strong> para duplicar</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Tabla de la Regla del 72</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Complete la tabla calculando los años para duplicar a cada tasa de interés:</p>
+
+        <table class="calc-table">
+            <tr>
+                <th>Tasa de Interés</th>
+                <th>Cálculo (72 ÷ tasa)</th>
+                <th>Años para Duplicar</th>
+            </tr>
+            <tr>
+                <td>2%</td>
+                <td>72 ÷ 2 =</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4%</td>
+                <td>72 ÷ 4 =</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6%</td>
+                <td>72 ÷ 6 =</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8%</td>
+                <td>72 ÷ 8 =</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10%</td>
+                <td>72 ÷ 10 =</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12%</td>
+                <td>72 ÷ 12 =</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: El Poder de Comenzar Temprano</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Tres inversionistas invierten $3,000/año con 8% de rendimiento anual. Analice los resultados:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Inversionista</th>
+                <th>Años Invirtiendo</th>
+                <th>Total Invertido</th>
+                <th>Valor a los 65</th>
+            </tr>
+            <tr>
+                <td><strong>Temprano</strong> (25-35 años, luego para)</td>
+                <td>10 años</td>
+                <td>$30,000</td>
+                <td>$642,000</td>
+            </tr>
+            <tr>
+                <td><strong>Intermedio</strong> (35-65 años)</td>
+                <td>30 años</td>
+                <td>$90,000</td>
+                <td>$367,000</td>
+            </tr>
+            <tr>
+                <td><strong>Tardío</strong> (45-65 años)</td>
+                <td>20 años</td>
+                <td>$60,000</td>
+                <td>$137,000</td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">1. ¿Por qué el Inversionista Temprano termina con más dinero a pesar de invertir la menor cantidad?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. ¿Cuánto más tendría que invertir el Inversionista Tardío para igualar al Temprano?</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Cálculo de Crecimiento</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Use la Regla del 72 para calcular el valor futuro de $5,000 al 8% anual:</p>
+
+        <table class="calc-table">
+            <tr>
+                <th>Años</th>
+                <th># de Duplicaciones</th>
+                <th>Cálculo</th>
+                <th>Valor Aproximado</th>
+            </tr>
+            <tr>
+                <td>9 años</td>
+                <td>1</td>
+                <td>$5,000 × 2</td>
+                <td>$10,000</td>
+            </tr>
+            <tr>
+                <td>18 años</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>27 años</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>36 años</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>45 años</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">3. Si comienza a los 20 años, ¿cuánto valdrán $5,000 cuando tenga 65 años?</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte D: Costo de Oportunidad</div>
+        <div class="scenario-content" style="margin-bottom: 12px;">
+            Carlos gasta $100 al mes en café de cafetería ($1,200/año). Si en cambio invirtiera ese dinero al 7% anual durante 40 años, ¿cuánto tendría?
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">4. Use la Regla del 72: ¿Cada cuántos años se duplica el dinero al 7%?</div>
+            <div class="answer-lines"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. ¿Cuál es el verdadero "costo" de esos cafés considerando el crecimiento perdido?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál es la diferencia principal entre interés simple y compuesto?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) El interés simple tiene tasas más altas</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) El interés compuesto gana interés sobre los intereses previos</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) El interés simple es mejor a largo plazo</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) No hay diferencia significativa</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Si una inversión ofrece 9% anual, ¿aproximadamente cuántos años tardará en duplicarse?</div>
+        <div class="answer-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Por qué los expertos financieros recomiendan comenzar a invertir temprano?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Piense en una meta financiera personal. ¿Cómo podría usar el interés compuesto para alcanzarla más rápido?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 5.2</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-47 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: L-47 — Introducción a los Tipos de Inversión</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Analizador de Tipos de Inversión</td>
+            <td>Conceptos básicos de ahorro e interés compuesto</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea el contraste entre Priya (fondos indexados) y Marcus (acciones individuales).</li>
+                    <li>Discusión: "¿Por qué creen que Priya tuvo mejores resultados con menos esfuerzo?"</li>
+                    <li>Comparta dato clave: la mayoría de inversionistas profesionales no logran superar índices.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos. Dibuje pirámide: efectivo (base, seguro) → bonos → acciones (cima, riesgoso).</li>
+                    <li>Explique diversificación con analogía: "no pongas todos los huevos en la misma canasta".</li>
+                    <li>Verificación: "Si las acciones pierden 20% este año, ¿significa que la inversión fue mala decisión?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Características de inversión. Discuta por qué las calificaciones varían.</li>
+                    <li><strong>Parte B (10 min):</strong> Impacto de comisiones. Use calculadora para demostrar impacto dramático.</li>
+                    <li><strong>Parte C (12 min):</strong> Asignación de cartera. Enfatice horizonte temporal como factor clave.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P4 (importancia de comenzar temprano) y P5 (reflexión personal).</li>
+                    <li>Anticipe el Día 2: Construcción de carteras y simulaciones de rendimiento.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione tabla pre-llenada de características de inversión.</li>
+                <li>Use analogías simples: acciones = ser dueño de parte de una tienda.</li>
+                <li>Proporcione calculadoras con fórmulas pre-configuradas.</li>
+                <li>Trabaje ejemplos numéricos paso a paso en la pizarra.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue rendimientos históricos de índices específicos (S&P 500, bonos del Tesoro).</li>
+                <li>Compare ETFs reales por ratio de gastos y rendimiento.</li>
+                <li>Analice la "regla de los 100" para asignación de activos por edad.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Comparación de Características de Inversión</div>
+            <div class="answer-item"><strong>Acciones:</strong> Retorno potencial: 5, Nivel de riesgo: 5</div>
+            <div class="answer-item"><strong>Bonos:</strong> Retorno potencial: 2-3, Nivel de riesgo: 2</div>
+            <div class="answer-item"><strong>ETF indexado:</strong> Retorno potencial: 4, Nivel de riesgo: 4 (menor que acciones individuales por diversificación)</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Impacto de Comisiones</div>
+            <div class="answer-item"><strong>ETF bajo costo (0.05%):</strong> ~$733,904</div>
+            <div class="answer-item"><strong>Fondo promedio (0.75%):</strong> ~$680,000</div>
+            <div class="answer-item"><strong>Fondo alto costo (1.25%):</strong> ~$654,165</div>
+            <div class="answer-item"><strong>Diferencia bajo vs alto:</strong> ~$79,739—casi 22 años de contribuciones mensuales de $300.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Asignación de Cartera</div>
+            <div class="answer-item"><strong>Graduado 24 años, jubilación 41 años:</strong> 80-90% acciones, 10-20% bonos. Justificación: horizonte largo permite absorber volatilidad para maximizar crecimiento.</div>
+            <div class="answer-item"><strong>Profesional 28 años, casa 5 años:</strong> 30-50% acciones, 40-50% bonos, 10-20% efectivo. Justificación: horizonte corto requiere proteger capital; no puede permitirse pérdida significativa cerca de la meta.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Los ETFs se negocian durante todo el día como acciones)</div>
+            <div class="answer-item"><strong>2.</strong> Las acciones ofrecen mayor potencial de crecimiento (~10% promedio histórico). Con 20+ años, hay tiempo para superar las caídas del mercado y capturar la tendencia alcista a largo plazo. La volatilidad a corto plazo se suaviza durante horizontes largos.</div>
+            <div class="answer-item"><strong>3.</strong> Diversificación es distribuir inversiones entre diferentes activos para reducir riesgo. Es importante porque si un tipo de inversión pierde valor, otros pueden mantenerse estables o subir, protegiendo la cartera general.</div>
+            <div class="answer-item"><strong>4.</strong> El interés compuesto hace que el tiempo sea el factor más poderoso. Un inversionista de 25 años que invierte $300/mes hasta los 65 acumula ~$1,038,911, mientras que uno que empieza a los 35 acumula solo ~$468,097 con las mismas contribuciones—menos de la mitad.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: consideración del horizonte temporal (10 años = mediano plazo), tolerancia al riesgo personal, objetivo específico, y comprensión de que más acciones = más crecimiento potencial pero más volatilidad.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Necesito ser experto para invertir."</td>
+                <td>Los fondos indexados de bajo costo proporcionan diversificación instantánea sin necesidad de elegir acciones individuales. Comenzar con un fondo total del mercado es simple y efectivo para la mayoría de inversionistas.</td>
+            </tr>
+            <tr>
+                <td>"Invertir es solo para personas ricas."</td>
+                <td>Muchas plataformas permiten comenzar con $50-100/mes o incluso menos. El poder del interés compuesto significa que contribuciones pequeñas y consistentes pueden crecer significativamente con el tiempo.</td>
+            </tr>
+            <tr>
+                <td>"Si el mercado baja, perdí mi dinero."</td>
+                <td>Las pérdidas solo se "realizan" cuando vendes. Las caídas del mercado son normales y temporales. Históricamente, el mercado siempre se ha recuperado. Mantener inversiones durante caídas es crucial para el éxito a largo plazo.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: L-47</span>
+    </div>
+
+</body>
+</html>

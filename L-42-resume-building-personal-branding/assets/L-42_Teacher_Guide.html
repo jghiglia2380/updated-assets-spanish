@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-42 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 15.2 — Construcción del Currículum y Marca Personal</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Resume Builder</td>
+            <td>L-41: Exploración de Carreras</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Carlos en voz alta—enfatice el contraste antes/después.</li>
+                    <li>Discusión: "¿Qué cambios específicos hicieron la diferencia en los resultados de Carlos?"</li>
+                    <li>Anticipe cómo un currículum estratégico comunica valor.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos clave. Enfatice la diferencia entre "responsabilidades" y "logros".</li>
+                    <li>Muestre ejemplos de verbos de acción fuertes: Desarrolló, Gestionó, Aumentó, Redujo.</li>
+                    <li>Verificación rápida: "¿Cuál suena más impresionante: 'Trabajé en ventas' o 'Aumenté las ventas en un 25%'?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Componentes del currículum. Los estudiantes deben identificar qué incluye cada sección.</li>
+                    <li><strong>Parte B (12 min):</strong> Transformación con verbos de acción. Trabaje el primer ejemplo juntos, luego los estudiantes completan individualmente.</li>
+                    <li><strong>Parte C (10 min):</strong> Marca personal. Circule para ayudar con identificación de fortalezas y redacción de declaración.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P3 (resumen profesional) y P5 (reflexión personal).</li>
+                    <li>Anticipe el Día 2: Revisión entre pares y presencia digital.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una lista de verbos de acción por categoría (liderazgo, comunicación, análisis).</li>
+                <li>Ofrezca plantillas de frases: "[Verbo] + [qué] + [resultado cuantificable]".</li>
+                <li>Trabaje en parejas para las transformaciones.</li>
+                <li>Proporcione ejemplos de declaraciones de marca personal.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Cree múltiples versiones del currículum adaptadas a diferentes industrias.</li>
+                <li>Desarrolle una estrategia completa de presencia digital.</li>
+                <li>Investigue y analice currículums de profesionales exitosos en su campo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Componentes del Currículum</div>
+            <div class="answer-item"><strong>Información de Contacto:</strong> Nombre completo, teléfono, correo profesional, ciudad/estado, LinkedIn opcional.</div>
+            <div class="answer-item"><strong>Resumen Profesional:</strong> 2-4 oraciones destacando cualificaciones clave, adaptado al puesto.</div>
+            <div class="answer-item"><strong>Educación:</strong> Institución, título, fecha de graduación, promedio (si >3.0), honores.</div>
+            <div class="answer-item"><strong>Experiencia Laboral:</strong> Empresa, puesto, fechas, 3-5 puntos con verbos de acción y logros cuantificables.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Transformación con Verbos de Acción</div>
+            <div class="answer-item"><strong>Transformación 1:</strong> "Atendí a un promedio de 50+ clientes diariamente, logrando una calificación de satisfacción del 95% y siendo reconocido como Empleado del Mes dos veces."</div>
+            <div class="answer-item"><strong>Transformación 2:</strong> "Coordiné 5 eventos escolares con asistencia promedio de 200 estudiantes, gestionando equipos de 8-12 voluntarios y manteniéndose dentro del presupuesto asignado."</div>
+            <div class="answer-item"><strong>Transformación 3:</strong> "Gestioné las cuentas de Instagram y Twitter del club, aumentando los seguidores en un 40% y el engagement en un 60% durante un semestre a través de contenido estratégico."</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Marca Personal</div>
+            <div class="answer-note">Las respuestas variarán. Busque: fortalezas específicas (no genéricas), diferenciación clara basada en experiencias únicas, y una declaración de marca que capture identidad + valor + audiencia objetivo.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Historial salarial de trabajos anteriores—esto no se incluye en currículums)</div>
+            <div class="answer-item"><strong>2.</strong> Cuantificar logros hace que sus contribuciones sean concretas y creíbles. Los números proporcionan evidencia específica de su impacto y permiten a los empleadores entender la escala de sus responsabilidades y resultados.</div>
+            <div class="answer-item"><strong>3.</strong> Ejemplo: "Diseñadora gráfica apasionada por la sostenibilidad ambiental con experiencia en diseño de empaques eco-friendly. Combino estética minimalista con narrativa visual para transformar información compleja en diseños claros e impactantes. Busco contribuir mis habilidades creativas a organizaciones comprometidas con la responsabilidad ambiental."</div>
+            <div class="answer-item"><strong>4.</strong> Adaptar el currículum demuestra que usted ha investigado la empresa y comprende el puesto específico. Permite destacar las experiencias más relevantes, reflejar palabras clave de la descripción del trabajo (importante para sistemas ATS), y mostrar cómo puede agregar valor en ese rol particular.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de un logro específico (no una responsabilidad), uso de verbo de acción al inicio, e inclusión de al menos un elemento cuantificable (número, porcentaje, escala).</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Debo incluir toda mi experiencia en el currículum."</td>
+                <td>Calidad sobre cantidad. Incluya solo experiencias relevantes para el puesto. Un currículum enfocado y adaptado es más efectivo que uno que lista todo sin estrategia.</td>
+            </tr>
+            <tr>
+                <td>"Solo la experiencia laboral formal cuenta."</td>
+                <td>Trabajo voluntario, proyectos académicos, liderazgo en clubes, y pasatiempos relevantes también demuestran habilidades valiosas. Lo importante es cómo comunica el impacto de estas experiencias.</td>
+            </tr>
+            <tr>
+                <td>"Un buen currículum garantiza una entrevista."</td>
+                <td>El currículum es solo una parte del proceso. El networking, la marca personal en línea, las cartas de presentación, y el momento de aplicación también influyen significativamente en los resultados.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 15.2</span>
+    </div>
+
+</body>
+</html>

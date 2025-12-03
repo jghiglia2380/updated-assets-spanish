@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-08 Guia del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guia del Maestro: Capitulo 2.3 — Entendiendo los Requisitos para la Declaracion de Impuestos</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Ejemplos de Formularios</td><td>L-07 Tramos Impositivos</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Leccion</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">INTRODUCCION</div>
+                <ul>
+                    <li>Preguntar cuantos han declarado impuestos o ayudado a sus padres.</li>
+                    <li>Enfatizar que esta es una habilidad esencial para toda la vida adulta.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">QUIEN NECESITA DECLARAR</div>
+                <ul>
+                    <li>Presentar umbrales de declaracion por estado civil y edad.</li>
+                    <li>Enfatizar: dependientes con ingresos >$12,950 deben declarar.</li>
+                    <li>Trabajo independiente >$400 requiere declaracion.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">FORMULARIOS FISCALES</div>
+                <ul>
+                    <li>Mostrar ejemplos de W-2, 1099-NEC y Formulario 1040.</li>
+                    <li>Destacar campos clave en cada formulario.</li>
+                    <li>Explicar donde encontrar informacion importante.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ESTADOS CIVILES</div>
+                <ul>
+                    <li>Trabajo en parejas para explorar los 5 estados civiles.</li>
+                    <li>Cubrir: Soltero, Casado Conjunto, Casado Separado, Cabeza de Familia, Viudo(a).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLICALO</div>
+                <ul>
+                    <li><strong>Parte A:</strong> Determinar quien debe declarar usando los umbrales.</li>
+                    <li><strong>Parte B:</strong> Identificar formularios para diferentes escenarios.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CIERRE</div>
+                <ul>
+                    <li>Importancia de mantener documentacion organizada.</li>
+                    <li>Adelantar el Laboratorio de Aprendizaje del Dia 2.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciacion</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcionar ejemplos impresos con secciones resaltadas.</li>
+                <li>Crear tabla simplificada de requisitos de declaracion.</li>
+                <li>Ofrecer busqueda del tesoro modificada con mas orientacion.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extension</div>
+            <ul>
+                <li>Investigar Anexo C (ingresos comerciales) y Anexo E (alquiler).</li>
+                <li>Explorar requisitos de declaracion de impuestos estatales.</li>
+                <li>Identificar creditos que benefician a adultos jovenes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Umbrales de Declaracion</div>
+            <div class="calc-display">1. Carlos ($15,000, soltero, 22 anos):
+SI debe declarar. $15,000 > $13,850 (umbral para soltero menor de 65).
+
+2. Ana ($3,000 con retencion):
+DEBERIA declarar aunque no esta obligada. Puede recuperar los impuestos retenidos mediante un reembolso.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Identificacion de Formularios</div>
+            <div class="calc-display">Escenario 1 (Jamie - restaurante):
+W-2 del empleador + Formulario 1040
+
+Escenario 2 (Alex - tutoria como contratista):
+1099-NEC (si >$600) + Formulario 1040 + Anexo C
+
+Escenario 3 (Taylor - empleo + artesanias):
+W-2 del empleo + 1099-NEC (si >$600) + Formulario 1040 + Anexo C</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprension</div>
+            <div class="answer-item"><strong>1.</strong> B (15 de abril)</div>
+            <div class="answer-item"><strong>2.</strong> Multa por no presentar: 5% de impuestos no pagados por mes (hasta 25%). Multa por no pagar: 0.5% por mes. Ademas, se acumulan intereses sobre impuestos no pagados.</div>
+            <div class="answer-item"><strong>3.</strong> Para obtener reembolso de impuestos retenidos, reclamar creditos reembolsables (como EITC), prevenir robo de identidad (alguien mas declarando con tu numero), o iniciar el estatuto de limitaciones.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varian. Busque pasos concretos como: obtener Seguro Social, aprender a organizar documentos, investigar opciones gratuitas de declaracion.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erroneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erroneo</th><th>Clarificacion</th></tr>
+            <tr><td>"No necesito declarar porque no gano mucho."</td><td>Podrias beneficiarte de creditos reembolsables o recuperar impuestos retenidos.</td></tr>
+            <tr><td>"Mis padres me reclaman como dependiente, asi que no necesito declarar."</td><td>Los dependientes aun pueden necesitar declarar segun sus propios ingresos.</td></tr>
+            <tr><td>"Si no puedo pagar lo que debo, no deberia presentar."</td><td>La multa por NO presentar es mucho mayor que por no pagar. Siempre presenta.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guia del Maestro: Capitulo 2.3</span>
+    </div>
+</body>
+</html>

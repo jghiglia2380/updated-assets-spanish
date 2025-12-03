@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-56 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 1px solid #f59e0b; border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .challenge-box .challenge-title { font-weight: 700; color: #92400e; font-size: 10pt; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+        .challenge-box .challenge-title::before { content: "📊"; }
+        .challenge-box p { font-size: 9pt; color: #78350f; margin-bottom: 5px; }
+
+        .objectives-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .objectives-box .obj-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 18px; font-size: 9pt; color: #0c4a6e; }
+        .objectives-box li { margin-bottom: 2px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 14px; }
+        .terms-table th { background: var(--primary); color: white; padding: 6px 10px; text-align: left; font-weight: 600; }
+        .terms-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card .scenario-title { font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 5px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); padding: 6px 8px; text-align: center; font-weight: 600; border: 1px solid var(--border); }
+        .data-table td { padding: 6px 8px; border: 1px solid var(--border); text-align: center; }
+
+        .response-area { border: 1px solid var(--border); border-radius: 4px; padding: 10px; margin: 8px 0; min-height: 60px; background: white; }
+        .response-area.large { min-height: 80px; }
+        .response-label { font-size: 8pt; color: var(--text-light); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; }
+
+        .mc-options { margin: 8px 0; }
+        .mc-options label { display: block; padding: 6px 10px; margin: 3px 0; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; font-size: 9pt; cursor: pointer; }
+        .mc-options label:hover { background: var(--primary-light); }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 8px 10px; font-size: 9pt; color: #166534; margin: 8px 0; }
+        .hint-box strong { color: #15803d; }
+
+        .formula-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 4px; padding: 10px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 9pt; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .column-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px; }
+        .column-box h4 { font-size: 9pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+
+        .checkbook-register { width: 100%; border-collapse: collapse; font-size: 8pt; margin: 10px 0; }
+        .checkbook-register th { background: #1e293b; color: white; padding: 5px 6px; text-align: center; font-weight: 600; }
+        .checkbook-register td { padding: 5px 6px; border: 1px solid var(--border); }
+        .checkbook-register td:nth-child(4), .checkbook-register td:nth-child(5), .checkbook-register td:nth-child(6) { text-align: right; }
+
+        .checklist { margin: 8px 0; }
+        .checklist label { display: flex; align-items: flex-start; gap: 6px; padding: 4px 0; font-size: 9pt; }
+        .checklist input[type="checkbox"] { margin-top: 2px; }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 56: Mantenimiento de Registros Financieros y Reconciliación</h2>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <p><strong>El caso de Marcus:</strong> Su aplicación bancaria mostraba $650 de saldo. Compró comestibles ($87), gasolina ($45), y salió con amigos ($62). El lunes despertó con -$142 y $210 en cargos por sobregiro.</p>
+        <p><strong>¿Qué pasó?</strong> Su cheque de renta ($1,100) y pago de seguro ($180) aún no se habían compensado. Su saldo REAL era solo $150.</p>
+        <p><strong>Pregunta:</strong> ¿Cómo puedes saber tu saldo REAL, no solo lo que dice la app del banco?</p>
+    </div>
+
+    <!-- OBJETIVOS -->
+    <div class="objectives-box">
+        <div class="obj-title">Objetivos de Aprendizaje</div>
+        <ul>
+            <li>Demostrar la capacidad de balancear una chequera y reconciliar estados de cuenta</li>
+            <li>Evaluar diferentes métodos de seguimiento financiero por su efectividad</li>
+            <li>Identificar y resolver discrepancias comunes en registros financieros</li>
+            <li>Crear un sistema integral de mantenimiento de registros personales</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th style="width: 28%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Registro de Chequera</strong></td>
+            <td>Registro personal donde rastreas todos los depósitos, retiros, cheques y compras con tarjeta de débito.</td>
+        </tr>
+        <tr>
+            <td><strong>Reconciliación</strong></td>
+            <td>Proceso de comparar tus registros personales con el estado de cuenta bancario para identificar discrepancias.</td>
+        </tr>
+        <tr>
+            <td><strong>Transacciones Pendientes</strong></td>
+            <td>Cheques, depósitos o pagos que has registrado pero aún no se han publicado en tu cuenta bancaria.</td>
+        </tr>
+        <tr>
+            <td><strong>Saldo Compensado</strong></td>
+            <td>El monto en tu estado de cuenta - refleja solo transacciones ya procesadas por el banco.</td>
+        </tr>
+        <tr>
+            <td><strong>Saldo Disponible</strong></td>
+            <td>La cantidad real a la que puedes acceder, contabilizando pendientes y retenciones.</td>
+        </tr>
+        <tr>
+            <td><strong>NSF (Fondos Insuficientes)</strong></td>
+            <td>Cuando una transacción no puede completarse porque no hay suficiente dinero. Resulta en cargos.</td>
+        </tr>
+    </table>
+
+    <!-- APLÍCALO PARTE A -->
+    <div class="section-header">Aplícalo - Parte A: Registro de Chequera</div>
+
+    <p style="font-size: 9pt; margin-bottom: 8px;">Completa el registro con las siguientes transacciones. <strong>Saldo inicial:</strong> $1,250.00</p>
+
+    <table class="checkbook-register">
+        <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            <th>Débito (-)</th>
+            <th>Crédito (+)</th>
+            <th>Saldo</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Saldo Inicial</td>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>$1,250.00</td>
+        </tr>
+        <tr>
+            <td>10/1</td>
+            <td>Cheque #101 - Renta</td>
+            <td>Vivienda</td>
+            <td>$850.00</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/3</td>
+            <td>Depósito Directo - Salario</td>
+            <td>Ingreso</td>
+            <td></td>
+            <td>$1,540.00</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/5</td>
+            <td>Tarjeta Débito - Supermercado</td>
+            <td>Comida</td>
+            <td>$127.43</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/7</td>
+            <td>Pago Automático - Seguro Auto</td>
+            <td>Transporte</td>
+            <td>$145.00</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/10</td>
+            <td>Tarjeta Débito - Gasolinera</td>
+            <td>Transporte</td>
+            <td>$48.50</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/12</td>
+            <td>Cheque #102 - Electricidad</td>
+            <td>Servicios</td>
+            <td>$95.00</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10/15</td>
+            <td>Tarjeta Débito - Netflix</td>
+            <td>Entretenimiento</td>
+            <td>$15.49</td>
+            <td></td>
+            <td>$_______</td>
+        </tr>
+    </table>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Saldo Nuevo = Saldo Anterior - Débitos + Créditos. Cada transacción actualiza el saldo corriente.
+    </div>
+
+    <!-- APLÍCALO PARTE B -->
+    <div class="section-header">Aplícalo - Parte B: Reconciliación de Estado de Cuenta</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Estado de Cuenta Bancario (al 15 de octubre)</div>
+        <p><strong>Saldo Final del Estado:</strong> $1,558.07</p>
+        <p><strong>Transacciones Compensadas:</strong> Renta ($850), Salario ($1,540), Supermercado ($127.43), Seguro ($145), Gasolinera ($48.50)</p>
+        <p><strong>NO aparecen en el estado:</strong> Cheque #102 - Electricidad ($95) y Netflix ($15.49)</p>
+    </div>
+
+    <div class="formula-box">
+        <strong>Proceso de Reconciliación:</strong><br>
+        Saldo del Estado de Cuenta: $_______<br>
+        - Cheques Pendientes: $_______<br>
+        - Otros Pagos Pendientes: $_______<br>
+        = <strong>Saldo Reconciliado: $_______</strong><br><br>
+        ¿Coincide con tu registro de chequera? ☐ Sí ☐ No
+    </div>
+
+    <!-- APLÍCALO PARTE C -->
+    <div class="section-header">Aplícalo - Parte C: Detección de Errores</div>
+
+    <p style="font-size: 9pt; margin-bottom: 8px;">Identifica el tipo de error en cada escenario:</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario A</div>
+        <p>Registro muestra: $427.85 | Estado bancario: $392.85 | Todas las transacciones están compensadas.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="err1"> Error matemático en cálculo de saldo</label>
+            <label><input type="radio" name="err1"> Transacción faltante</label>
+            <label><input type="radio" name="err1"> Entrada duplicada</label>
+            <label><input type="radio" name="err1"> Problema de tiempo (pendiente)</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario B</div>
+        <p>Registro muestra: $856.30 | Estado bancario: $821.30 | Hay una tarifa bancaria de $35 en el estado que no está en el registro.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="err2"> Error matemático</label>
+            <label><input type="radio" name="err2"> Transacción faltante</label>
+            <label><input type="radio" name="err2"> Entrada duplicada</label>
+            <label><input type="radio" name="err2"> Problema de tiempo</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario C</div>
+        <p>Registro muestra: $234.50 | Estado bancario: $289.50 | Una compra de $55 fue registrada dos veces.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="err3"> Error matemático</label>
+            <label><input type="radio" name="err3"> Transacción faltante</label>
+            <label><input type="radio" name="err3"> Entrada duplicada</label>
+            <label><input type="radio" name="err3"> Problema de tiempo</label>
+        </div>
+    </div>
+
+    <!-- DETECCIÓN DE FRAUDE -->
+    <div class="section-header">Aplícalo - Parte D: Detección de Fraude</div>
+
+    <p style="font-size: 9pt; margin-bottom: 8px;">Revisa estas transacciones e identifica las sospechosas:</p>
+
+    <table class="data-table">
+        <tr>
+            <th>Comerciante</th>
+            <th>Monto</th>
+            <th>¿Reconoces?</th>
+        </tr>
+        <tr>
+            <td>Starbucks</td>
+            <td>$6.47</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+        <tr>
+            <td>Amazon.com</td>
+            <td>$34.99</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+        <tr>
+            <td>"Premium Services LLC"</td>
+            <td>$2.99</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+        <tr>
+            <td>Supermercado Local</td>
+            <td>$67.23</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+        <tr>
+            <td>"Digital Subscriptions Inc."</td>
+            <td>$4.95</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+        <tr>
+            <td>"Tech Solutions Pro"</td>
+            <td>$9.99</td>
+            <td>☐ Sí ☐ No</td>
+        </tr>
+    </table>
+
+    <div class="hint-box">
+        <strong>Señales de Alerta:</strong> Los defraudadores a menudo hacen pequeños "cargos de prueba" ($2-10) antes de cargos grandes. Nombres genéricos como "Premium Services LLC" son sospechosos.
+    </div>
+
+    <div class="response-area">
+        <div class="response-label">¿Qué pasos tomarías si identificas fraude?</div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 1</div>
+        <p>¿Por qué el "saldo disponible" de tu app bancaria puede no ser tu saldo real?</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc1"> A. Las apps siempre muestran información incorrecta</label>
+            <label><input type="radio" name="mc1"> B. No incluye transacciones pendientes (cheques sin compensar, pagos programados)</label>
+            <label><input type="radio" name="mc1"> C. Los bancos no actualizan la información</label>
+            <label><input type="radio" name="mc1"> D. Solo los estados de cuenta en papel son precisos</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 2</div>
+        <p>¿Cuánto cuesta típicamente un cargo por sobregiro?</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc2"> A. $5-10</label>
+            <label><input type="radio" name="mc2"> B. $15-20</label>
+            <label><input type="radio" name="mc2"> C. $30-35</label>
+            <label><input type="radio" name="mc2"> D. $50-60</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 3</div>
+        <p>¿Cuál es el beneficio principal de reconciliar tu cuenta semanalmente?</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc3"> A. Ganar interés más rápido</label>
+            <label><input type="radio" name="mc3"> B. Detectar errores y fraude rápidamente antes de que se agraven</label>
+            <label><input type="radio" name="mc3"> C. El banco te da recompensas</label>
+            <label><input type="radio" name="mc3"> D. Es requerido por ley</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 4: Cálculo</div>
+        <p>Tu saldo es $450. Tienes un cheque pendiente de $200 y un pago automático de $75 que se procesará mañana. ¿Cuánto puedes gastar HOY sin sobregirarte?</p>
+        <div class="formula-box">
+            Saldo actual: $450<br>
+            - Cheque pendiente: $______<br>
+            - Pago automático: $______<br>
+            = <strong>Disponible real: $______</strong>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 5: Reflexión</div>
+        <p>¿Qué sistema de seguimiento financiero implementarás y por qué? (Registro de chequera, hoja de cálculo, o app)</p>
+        <div class="response-area large"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 56: Mantenimiento de Registros Financieros</span>
+    </div>
+
+</body>
+</html>

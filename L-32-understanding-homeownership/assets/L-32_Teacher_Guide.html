@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-32 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 11.2 — Entendiendo la Compra de Vivienda</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>L-31 Costos de Alquiler</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea el escenario de María. Discuta la decisión de alquilar vs. comprar.</li>
+                    <li>Pregunte: "¿Qué factores determinarían si María está lista para comprar?"</li>
+                    <li>Haga una lluvia de ideas sobre requisitos financieros para la compra de vivienda.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Explique los cuatro tipos principales de hipoteca: Convencional, FHA, VA, USDA.</li>
+                    <li>Defina PITI: Principal, Interés, Impuestos, Seguro.</li>
+                    <li>Discuta la diferencia entre tasa fija y tasa ajustable.</li>
+                    <li>Verificación rápida: Pida a los estudiantes que expliquen qué es el PMI.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Comparación de hipotecas. Discuta pros y contras de cada opción.</li>
+                    <li><strong>Parte B (10 min):</strong> Cálculo de costos. Trabaje el ejemplo paso a paso.</li>
+                    <li><strong>Parte C (7 min):</strong> Evaluación de preparación. Revise cada criterio.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise el cálculo P3—incluya pago inicial Y costos de cierre.</li>
+                    <li>La reflexión P5 debe ser específica y realista para cada estudiante.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una tabla comparativa visual de tipos de hipoteca.</li>
+                <li>Use calculadoras de hipoteca en línea para verificar cálculos.</li>
+                <li>Cree un glosario de términos con ejemplos.</li>
+                <li>Trabaje con un solo escenario antes de comparar múltiples opciones.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue tasas de interés actuales y compare prestamistas.</li>
+                <li>Calcule el costo total de un préstamo a 15 años vs. 30 años.</li>
+                <li>Analice el impacto del pago inicial en el patrimonio acumulado.</li>
+                <li>Cree un plan de 5 años para prepararse para comprar una vivienda.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Comparación de Hipotecas</div>
+            <div class="calc-display">P1 Recomendación para María:
+El préstamo FHA es probablemente la mejor opción porque:
+- Su puntaje de 680 califica cómodamente (mínimo 580)
+- Requiere solo 3.5% de entrada ($6,300)
+- Tiene la tasa más baja (4.25%)
+- Sus $8,000 cubren el pago inicial
+
+El préstamo convencional también es viable (3% de entrada = $5,400)
+pero tiene tasa más alta y requisitos de crédito más estrictos.
+
+La ARM no se recomienda porque:
+- Requiere más pago inicial ($9,000 > sus ahorros)
+- Riesgo de aumento de pagos después de 5 años</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Cálculo de Costos</div>
+            <div class="calc-display">P2 Cálculos:
+
+Costo Mensual Total:
+- Pago P+I: $1,277
+- Impuestos: $280
+- Seguro: $100
+- PMI: $105
+- HOA: $250
+- Servicios: $350
+Total Mensual: $2,362
+
+Costos Iniciales:
+- Pago inicial: $28,000
+- Costos de cierre: $8,400
+Total Inicial: $36,400
+
+P3: Diferencia vs. alquiler = $2,362 - $1,800 = $562/mes más caro
+Otros factores: construcción de patrimonio, estabilidad, deducciones fiscales,
+responsabilidad de mantenimiento, menos flexibilidad para mudarse.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>P4:</strong> Puntaje ✓ | DTI = deuda mensual/ingreso mensual (necesita calcular) | Ahorros insuficientes para 10% de entrada | Fondo de emergencia ? | Empleo ✓</div>
+            <div class="answer-item"><strong>CTU 1:</strong> B (Principal, Interés, Impuestos, Seguro)</div>
+            <div class="answer-item"><strong>CTU 2:</strong> B (Cuando el patrimonio alcanza el 20%)</div>
+            <div class="answer-item"><strong>CTU 3:</strong> Pago inicial: $300,000 × 10% = $30,000. Cierre: $300,000 × 4% = $12,000. <strong>Total: $42,000</strong></div>
+            <div class="answer-item"><strong>CTU 4:</strong> Beneficios: construcción de patrimonio, estabilidad, posibles beneficios fiscales, libertad de personalizar. Desafíos: responsabilidad de mantenimiento, menos flexibilidad, riesgo de mercado, costos inesperados.</div>
+            <div class="answer-note">CTU 5: Acepte respuestas realistas que incluyan: cronograma específico, pasos de ahorro, mejora crediticia, reducción de deuda, y consideración de estabilidad laboral/geográfica.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr>
+                <td>"Comprar siempre es mejor que alquilar a largo plazo."</td>
+                <td>Depende de muchos factores: tiempo de permanencia, mercado local, costos de mantenimiento, y oportunidades de inversión alternativas. A veces alquilar e invertir la diferencia es más rentable.</td>
+            </tr>
+            <tr>
+                <td>"El pago de la hipoteca es todo lo que pagaré cada mes."</td>
+                <td>El pago PITI es solo parte del costo. También hay mantenimiento (1% del valor anualmente), HOA, servicios públicos más altos, y reparaciones inesperadas.</td>
+            </tr>
+            <tr>
+                <td>"Necesito 20% de pago inicial para comprar una casa."</td>
+                <td>Muchos préstamos aceptan menos: FHA 3.5%, convencional 3-5%, VA y USDA 0%. Sin embargo, menos del 20% generalmente significa pagar PMI.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 11.2</span>
+    </div>
+
+</body>
+</html>

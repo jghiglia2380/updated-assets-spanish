@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-41 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 15.1: Exploración de Carreras y Establecimiento de Objetivos</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Sarah comenzó trabajando como recepcionista en una clínica médica local después de la preparatoria. Inicialmente, lo veía solo como un trabajo para pagar sus cuentas. Sin embargo, después de observar a enfermeras y asistentes médicos, se interesó en la atención médica como carrera. Creó un plan de desarrollo profesional con objetivos a corto, mediano y largo plazo que transformó su trabajo inicial en una trayectoria profesional significativa.</p>
+        <p class="framing-question">¿Cómo puede la planificación profesional estratégica transformar un trabajo simple en una carrera satisfactoria y bien remunerada?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender la diferencia entre un trabajo y una carrera profesional.</li>
+            <li>Identificar intereses personales, habilidades y valores para la exploración de carreras.</li>
+            <li>Desarrollar objetivos profesionales SMART a corto y largo plazo.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Carrera</td>
+            <td>Una trayectoria profesional a largo plazo que abarca múltiples trabajos, involucrando crecimiento y avance.</td>
+        </tr>
+        <tr>
+            <td>Trabajo</td>
+            <td>Una posición o rol específico con responsabilidades definidas, típicamente realizado a cambio de remuneración.</td>
+        </tr>
+        <tr>
+            <td>Objetivos SMART</td>
+            <td>Objetivos que son Específicos, Medibles, Alcanzables, Relevantes y con Tiempo definido.</td>
+        </tr>
+        <tr>
+            <td>Autoevaluación</td>
+            <td>El proceso de evaluar sus propios intereses, habilidades, valores y rasgos de personalidad.</td>
+        </tr>
+        <tr>
+            <td>Plan de Desarrollo Profesional</td>
+            <td>Un mapa estratégico que describe los pasos para alcanzar sus objetivos profesionales.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Mientras que los trabajos proporcionan ingresos inmediatos, las carreras ofrecen crecimiento y satisfacción a largo plazo alineados con sus intereses y valores personales. La exploración profesional efectiva comienza con la autoevaluación—identificando sus intereses, habilidades técnicas y blandas, y valores laborales. Al establecer objetivos SMART y crear un plan de desarrollo profesional con hitos claros, puede tomar decisiones informadas sobre su educación y experiencias que lo llevarán hacia una carrera satisfactoria.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Autoevaluación Profesional</div>
+    <p class="mb-md">Complete la siguiente autoevaluación para identificar sus fortalezas e intereses profesionales.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Inventario de Habilidades</div>
+        <div class="scenario-description">Enumere tres de sus habilidades técnicas más fuertes (capacidades específicas y enseñables):</div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+        <div class="scenario-description" style="margin-top: 12px;">Enumere tres de sus habilidades blandas más fuertes (atributos personales):</div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Clarificación de Valores Laborales</div>
+        <div class="scenario-description">Clasifique sus tres valores laborales principales en orden de importancia (1 = más importante):</div>
+        <div class="response-line">
+            <span class="response-label">1.</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(balance vida-trabajo / seguridad financiera / creatividad / liderazgo / impacto social)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">2.</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">3.</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Piense en actividades donde pierde la noción del tiempo. ¿Qué habilidades utiliza? ¿Qué aspectos disfruta más?
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Trabajo vs. Carrera</div>
+    <p class="mb-md">Analice los siguientes escenarios e identifique si representan un enfoque de "trabajo" o "carrera".</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Marco</div>
+        <div class="scenario-description">Marco trabaja como cajero en un supermercado. No tiene planes de avanzar en la empresa y ve su trabajo principalmente como una forma de ganar dinero mientras estudia programación en línea.</div>
+        <div class="response-line">
+            <span class="response-label">Esto representa un:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(trabajo / carrera)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Porque:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Elena</div>
+        <div class="scenario-description">Elena comenzó como asistente administrativa hace tres años. Ha tomado cursos de certificación en gestión de proyectos, busca mentores en su empresa, y tiene un plan de cinco años para convertirse en gerente de operaciones.</div>
+        <div class="response-line">
+            <span class="response-label">Esto representa un:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(trabajo / carrera)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Porque:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Creación de Objetivos SMART</div>
+    <p class="mb-md">Desarrolle un objetivo profesional SMART basado en un campo que le interese.</p>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Campo profesional de interés:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Escriba un objetivo SMART para los próximos 1-2 años:</p>
+        <div class="response-line">
+            <span class="response-label">Específico (¿Qué exactamente?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Medible (¿Cómo sabrá que lo logró?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Alcanzable (¿Es realista?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Relevante (¿Por qué importa?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Temporal (¿Para cuándo?):</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es la diferencia principal entre un trabajo y una carrera?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Los trabajos pagan más que las carreras</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Las carreras involucran crecimiento a largo plazo mientras los trabajos son posiciones específicas</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Los trabajos requieren más educación que las carreras</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Las carreras no proporcionan ingresos inmediatos</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explique por qué la autoevaluación es un primer paso importante en la exploración de carreras.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Miguel quiere "conseguir un buen trabajo después de graduarse." Reescriba este objetivo para hacerlo SMART.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Por qué es importante tener tanto objetivos a corto plazo como a largo plazo en un plan de desarrollo profesional?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Considerando sus intereses, habilidades y valores, ¿qué campo profesional le atrae más? ¿Qué primer paso podría dar esta semana para explorar esta carrera?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 15.1: Exploración de Carreras</span>
+    </div>
+
+</body>
+</html>

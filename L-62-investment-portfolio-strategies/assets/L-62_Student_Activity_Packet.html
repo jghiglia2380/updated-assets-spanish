@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-62 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 62: Estrategias de Portafolio de Inversión</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Emma, de 32 años, estableció un portafolio de 85% acciones / 15% bonos ($45,000 en total). Después de tres años, su asignación se había desviado a 91% acciones / 9% bonos debido a que las acciones superaron sustancialmente a los bonos. Rebalanceó vendiendo $4,000 en acciones y comprando bonos. Seis meses después, el mercado experimentó una corrección del 20%. El portafolio rebalanceado de Emma cayó 16.5%, mientras que sin rebalanceo habría caído 18%—una diferencia de $1,000. Durante su vida de inversión, esta disciplina de rebalanceo agregó un estimado de $180,000 adicionales en riqueza de jubilación.</p>
+        <p class="framing-question">¿Cómo pueden la asignación de activos, la diversificación y el rebalanceo sistemático ayudarte a construir riqueza de manera más efectiva mientras gestionas el riesgo apropiadamente para tu horizonte temporal?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diseñar asignaciones de activos apropiadas basadas en edad, metas y tolerancia al riesgo.</li>
+            <li>Implementar estrategias de diversificación efectivas a través de y dentro de las clases de activos.</li>
+            <li>Aplicar técnicas de rebalanceo para mantener asignaciones objetivo y gestionar el riesgo.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Asignación de Activos</td><td>División del portafolio entre diferentes clases de activos (acciones, bonos, efectivo) basada en metas, horizonte temporal y tolerancia al riesgo.</td></tr>
+        <tr><td>Diversificación</td><td>Distribuir inversiones a través de múltiples valores, sectores y clases de activos para reducir el impacto del mal desempeño de cualquier inversión individual.</td></tr>
+        <tr><td>Rebalanceo</td><td>Comprar y vender activos periódicamente para devolver el portafolio a la asignación objetivo, típicamente anualmente o cuando las asignaciones se desvían significativamente.</td></tr>
+        <tr><td>Fondo de Fecha Objetivo</td><td>Fondo que ajusta automáticamente la asignación para volverse más conservador a medida que se acerca la fecha de jubilación.</td></tr>
+        <tr><td>Correlación</td><td>Medida de cómo dos inversiones se mueven en relación entre sí; baja correlación proporciona beneficios de diversificación.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> La investigación muestra que la asignación de activos explica más del <strong>90% de la variación</strong> en el rendimiento del portafolio a largo plazo. La selección individual de valores y el timing del mercado contribuyen relativamente poco. Una persona de 25 años invirtiendo para jubilación en 40 años necesita una asignación fundamentalmente diferente a la de una persona de 60 años que planea jubilarse en cinco años, incluso usando los mismos fondos.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Asignación de Activos por Etapa de Vida</div>
+
+    <table class="data-table">
+        <tr><th>Etapa de Vida</th><th>Asignación Típica</th><th>Rendimiento Esperado</th><th>Riesgo de Caída</th></tr>
+        <tr><td style="text-align: left;">Joven (20-35)</td><td>90% acciones / 10% bonos</td><td>9-11%</td><td>35-40%</td></tr>
+        <tr><td style="text-align: left;">Crecimiento (35-50)</td><td>75% acciones / 25% bonos</td><td>8-10%</td><td>28-32%</td></tr>
+        <tr><td style="text-align: left;">Moderado (50-60)</td><td>60% acciones / 40% bonos</td><td>7-9%</td><td>20-25%</td></tr>
+        <tr><td style="text-align: left;">Conservador (60+)</td><td>40% acciones / 60% bonos</td><td>5-7%</td><td>12-18%</td></tr>
+    </table>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Perfil del Inversor: Alejandro (Edad 28)</div>
+        <div class="scenario-description">Primer trabajo profesional, ingreso estable, 37 años hasta jubilación, alta tolerancia al riesgo, $15,000 para invertir.</div>
+        <div class="response-line"><span class="response-label">Asignación recomendada:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">Justificación:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Perfil del Inversor: Carmen (Edad 58)</div>
+        <div class="scenario-description">Planea jubilarse a los 65, $420,000 acumulados, necesita preservar capital pero mantener algo de crecimiento.</div>
+        <div class="response-line"><span class="response-label">Asignación recomendada:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">Justificación:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="part-header">Parte B: Escenario de Rebalanceo</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Tu portafolio objetivo es 70/30 acciones/bonos. Comenzaste con $70,000 en acciones y $30,000 en bonos. Después de un año: acciones crecieron 20% ($84,000) y bonos crecieron 3% ($30,900). Calcula tu nueva asignación y las acciones de rebalanceo:</p>
+        <div class="calc-box"><div class="calc-label">Total del portafolio: $______ | % Acciones: ______% | % Bonos: ______%</div></div>
+        <div class="response-line"><span class="response-label">Acción de rebalanceo:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Para rebalancear, calcula el valor objetivo de cada clase de activo (total × % objetivo), luego compara con valores actuales para determinar cuánto vender/comprar.
+    </div>
+
+    <div class="part-header">Parte C: Diversificación Efectiva</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Cuál de estos portafolios está MEJOR diversificado? Explica por qué.</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;"><strong>Portafolio A:</strong> 5 acciones tecnológicas diferentes (Apple, Microsoft, Google, Amazon, Meta)</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;"><strong>Portafolio B:</strong> 1 fondo índice S&P 500, 1 fondo de bonos, 1 fondo internacional</p>
+        <div class="response-line"><span class="response-label">Mejor diversificado:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">Porque:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> La regla "120 menos tu edad" sugiere que una persona de 30 años debería tener qué porcentaje en acciones:</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. 30%</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. 70%</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. 90%</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. 120%</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explica por qué el rebalanceo te obliga mecánicamente a "comprar bajo, vender alto" sin necesitar predecir el mercado.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> <strong>Cálculo:</strong> Si $500/mes invertidos durante 30 años rinden 8% (portafolio diversificado) vs. 5% (inversor que vende en pánico durante caídas), ¿cuál es la diferencia en riqueza final?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Diferencia: $__________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Por qué un fondo de fecha objetivo podría ser apropiado para un inversor principiante que no quiere gestionar activamente su asignación?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Basándote en tu edad, horizonte temporal y tolerancia al riesgo, ¿qué asignación de activos sería apropiada para ti? ¿Cómo cambiaría en 20 años? ¿Qué estrategia de rebalanceo usarías?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 62: Estrategias de Portafolio de Inversión</span>
+    </div>
+
+</body>
+</html>

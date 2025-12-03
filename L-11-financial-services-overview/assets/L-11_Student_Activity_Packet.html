@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-11 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+            margin: 20px 0 12px;
+        }
+
+        .challenge-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box {
+            background: var(--primary-light);
+            border: 1px solid #c7d2fe;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+        }
+
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 14px;
+            font-size: 10pt;
+        }
+
+        .terms-table th {
+            background: var(--bg-light);
+            text-align: left;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .terms-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .terms-table td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+            width: 28%;
+        }
+
+        .background-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+            color: var(--text-medium);
+        }
+
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .because-lines { margin-top: 6px; }
+        .because-lines .response-line { margin-bottom: 4px; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 10pt;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 8px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 9pt;
+        }
+
+        .data-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .hint-box {
+            background: #f0fdf4;
+            border-left: 3px solid var(--success);
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-size: 9pt;
+            font-style: italic;
+            color: #166534;
+        }
+
+        .hint-box strong { font-style: normal; }
+
+        .part-header {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin: 16px 0 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 4.1: Proveedores de Servicios Financieros</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>María se graduó recientemente de la universidad y comenzó su primer trabajo. Necesita una cuenta corriente sin comisiones mensuales y sin requisitos de saldo mínimo. También quiere una buena tasa de interés en ahorros y un servicio al cliente más personalizado. Está debatiendo entre un banco nacional grande y una cooperativa de crédito local.</p>
+        <p class="framing-question">¿Qué tipo de institución financiera debería elegir María y por qué? ¿Cómo influyen sus necesidades específicas en esta decisión?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar diferentes tipos de proveedores de servicios financieros y sus funciones principales.</li>
+            <li>Comparar y contrastar bancos versus cooperativas de crédito.</li>
+            <li>Evaluar qué proveedores de servicios financieros se adaptan mejor a diferentes necesidades.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Banco</td>
+            <td>Institución financiera con fines de lucro que acepta depósitos, ofrece cuentas y proporciona préstamos.</td>
+        </tr>
+        <tr>
+            <td>Cooperativa de Crédito</td>
+            <td>Institución financiera cooperativa sin fines de lucro propiedad de sus miembros.</td>
+        </tr>
+        <tr>
+            <td>Compañía de Seguros</td>
+            <td>Empresa que proporciona pólizas para proteger contra pérdidas financieras por eventos imprevistos.</td>
+        </tr>
+        <tr>
+            <td>Firma de Inversión</td>
+            <td>Empresa que administra portafolios de inversión para ayudar a los clientes a aumentar su patrimonio.</td>
+        </tr>
+        <tr>
+            <td>Casa de Bolsa</td>
+            <td>Empresa que facilita la compra y venta de acciones y otros valores.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Los proveedores de servicios financieros son instituciones que ofrecen diferentes formas de administrar, ahorrar y hacer crecer su dinero. Entender el papel de cada proveedor le ayuda a tomar decisiones informadas sobre dónde mantener su dinero, cómo proteger sus activos y cómo planificar sus objetivos financieros futuros. La elección correcta depende de sus necesidades específicas, ya sea banca básica, inversiones a largo plazo o protección mediante seguros.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Comparación Banco vs. Cooperativa de Crédito</div>
+    <p style="margin-bottom: 12px; color: var(--text-medium);">Compare las características de ambos tipos de instituciones y determine cuál es mejor para cada situación.</p>
+
+    <table class="data-table">
+        <tr>
+            <th>Característica</th>
+            <th>Bancos</th>
+            <th>Cooperativas de Crédito</th>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Estructura</td>
+            <td>Con fines de lucro</td>
+            <td>Sin fines de lucro</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Comisiones</td>
+            <td>Frecuentemente más altas</td>
+            <td>Típicamente más bajas</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Tasas en Préstamos</td>
+            <td>Frecuentemente más altas</td>
+            <td>Típicamente más bajas</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Tasas en Ahorros</td>
+            <td>Frecuentemente más bajas</td>
+            <td>Típicamente más altas</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Elegibilidad</td>
+            <td>Abierto a cualquier persona</td>
+            <td>Basado en membresía</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-weight: 600;">Seguro de Depósitos</td>
+            <td>FDIC hasta $250,000</td>
+            <td>NCUA hasta $250,000</td>
+        </tr>
+    </table>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Estudiante Universitario</div>
+        <div class="scenario-description">Jamal necesita una cuenta corriente sin comisiones mensuales mientras estudia en la universidad. Su presupuesto es muy limitado y no puede mantener un saldo mínimo alto.</div>
+        <div class="response-line">
+            <span class="response-label">Mejor opción:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(banco / cooperativa de crédito)</span>
+        </div>
+        <div class="because-lines">
+            <div class="response-line">
+                <span class="response-label">Porque:</span>
+                <span class="response-blank"></span>
+            </div>
+            <div class="response-line">
+                <span class="response-blank" style="margin-left: 60px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Dueño de Pequeño Negocio</div>
+        <div class="scenario-description">James comenzó un pequeño negocio y necesita servicios bancarios integrales: cuenta corriente comercial, procesamiento de tarjetas de crédito y acceso a préstamos comerciales.</div>
+        <div class="response-line">
+            <span class="response-label">Mejor opción:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(banco / cooperativa de crédito)</span>
+        </div>
+        <div class="because-lines">
+            <div class="response-line">
+                <span class="response-label">Porque:</span>
+                <span class="response-blank"></span>
+            </div>
+            <div class="response-line">
+                <span class="response-blank" style="margin-left: 60px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Considere qué prioriza cada persona: ¿comisiones bajas y servicio personalizado, o servicios especializados y conveniencia de red amplia?
+    </div>
+
+    <div class="part-header">Parte B: Emparejamiento de Servicios Financieros</div>
+    <p style="margin-bottom: 12px; color: var(--text-medium);">Para cada necesidad financiera, identifique el proveedor de servicios más apropiado.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Compra de Primera Casa</div>
+        <div class="scenario-description">Sarah quiere comprar su primera casa y necesita un préstamo con la mejor tasa de interés posible.</div>
+        <div class="response-line">
+            <span class="response-label">Proveedor recomendado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Razón:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 4: Ahorro para Jubilación</div>
+        <div class="scenario-description">Michael quiere comenzar a ahorrar para su jubilación y espera invertir en el mercado de acciones.</div>
+        <div class="response-line">
+            <span class="response-label">Proveedor recomendado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Razón:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 5: Protección del Hogar</div>
+        <div class="scenario-description">La familia García quiere proteger su casa y pertenencias de posibles daños.</div>
+        <div class="response-line">
+            <span class="response-label">Proveedor recomendado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Razón:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="part-header">Parte C: Aplicación Personal</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">6.</span> Piense en sus propias necesidades financieras actuales. ¿Qué tipo de cuenta bancaria necesitaría primero y por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">7.</span> ¿Qué factores serían más importantes para usted al elegir entre un banco y una cooperativa de crédito?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es la principal diferencia entre un banco y una cooperativa de crédito?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Los bancos ofrecen más servicios</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Los bancos son con fines de lucro; las cooperativas son sin fines de lucro</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Solo los bancos están asegurados federalmente</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Las cooperativas no ofrecen préstamos</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explique por qué una persona que busca las tasas de interés más bajas en un préstamo de auto podría preferir una cooperativa de crédito.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Si una persona quiere invertir $5,000 en el mercado de acciones, ¿qué tipo de proveedor de servicios financieros debería consultar? ¿Por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Lena eligió una firma de inversión especializada en fondos indexados de bajo costo. ¿Qué ventajas ofrece esta estrategia para la jubilación?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> ¿Cómo podrían cambiar sus necesidades de proveedores de servicios financieros a medida que atraviesa diferentes etapas de la vida (estudiante, primer empleo, familia, jubilación)?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 4.1: Proveedores de Servicios Financieros</span>
+    </div>
+
+</body>
+</html>

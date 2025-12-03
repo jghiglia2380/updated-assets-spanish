@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-58 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 18px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: var(--warning-light); border-left: 4px solid var(--warning); padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 16px; }
+        .challenge-box h3 { color: #92400e; font-size: 10pt; font-weight: 700; margin-bottom: 6px; }
+        .challenge-box p { color: #78350f; font-size: 9pt; margin: 0; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; font-size: 9pt; color: var(--text-medium); }
+        .objectives-box li { margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table tr:nth-child(even) { background: var(--bg-light); }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; font-weight: 700; margin-bottom: 8px; border-bottom: 2px solid var(--primary-light); padding-bottom: 4px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 8px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); padding: 6px 8px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .data-table td { padding: 6px 8px; border: 1px solid var(--border); }
+
+        .mc-options { margin: 10px 0; }
+        .mc-options label { display: block; padding: 8px 12px; margin: 4px 0; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; font-size: 9pt; cursor: pointer; }
+        .mc-options input[type="radio"] { margin-right: 8px; }
+
+        .writing-lines { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; padding: 8px; margin: 8px 0; background: white; }
+
+        .hint-box { background: #f0f9ff; border-left: 3px solid #0ea5e9; padding: 8px 12px; margin: 10px 0; font-size: 8.5pt; color: #0c4a6e; }
+
+        .market-structure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+        .market-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px; text-align: center; }
+        .market-box h5 { color: var(--primary); font-size: 9pt; font-weight: 700; margin-bottom: 6px; }
+        .market-box p { font-size: 8pt; color: var(--text-medium); margin: 0; }
+
+        .graph-area { border: 2px dashed var(--border); border-radius: 4px; min-height: 120px; padding: 10px; margin: 8px 0; background: white; position: relative; }
+        .graph-label { font-size: 8pt; color: var(--text-light); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 58: Oferta, Demanda y Estructuras de Mercado</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Paquete de Actividades del Estudiante<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <!-- STATE DATA BOX -->
+    <div class="state-data-box" style="background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt;">
+        <h4 style="color: #0369a1; font-weight: 700; margin-bottom: 8px;">Datos de Mercado: {{STATE_NAME}} ({{STATE_CODE}})</h4>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Precio Mediano de Vivienda:</span><span style="font-weight: 600; color: #1e293b;">${{STATE_MEDIAN_HOME_PRICE}}</span></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Alquiler Mediano Mensual:</span><span style="font-weight: 600; color: #1e293b;">${{STATE_MEDIAN_RENT}}/mes</span></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: #475569;">Promedio Nacional (Vivienda):</span><span style="font-weight: 600; color: #1e293b;">$350,000</span></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: #475569;">Promedio Nacional (Alquiler):</span><span style="font-weight: 600; color: #1e293b;">$1,400/mes</span></div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="challenge-box">
+        <h3>🎯 EL DESAFÍO</h3>
+        <p>En {{STATE_NAME}}, donde el alquiler mediano es ${{STATE_MEDIAN_RENT}}/mes, Alicia necesitaba un apartamento en una ciudad universitaria. Planeaba mudarse en agosto—justo cuando miles de estudiantes también buscaban. El mismo apartamento costaba significativamente más en agosto que en octubre, después de que la demanda estudiantil disminuyó. Al negociar una fecha de inicio de septiembre y buscar en temporada baja, Alicia ahorró cientos de dólares al mes. ¿Cuánto dinero estás dejando sobre la mesa al no entender la oferta y la demanda en el mercado de {{STATE_NAME}}?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar cómo la oferta y la demanda interactúan para determinar precios de equilibrio</li>
+            <li>Evaluar cómo diferentes estructuras de mercado afectan las opciones del consumidor y los precios</li>
+            <li>Calcular el excedente del consumidor y del productor en varios escenarios</li>
+            <li>Aplicar los principios de oferta y demanda para tomar decisiones financieras informadas</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Demanda</td>
+            <td>Cantidad de un bien que los consumidores están dispuestos y son capaces de comprar a varios precios; generalmente aumenta cuando los precios bajan</td>
+        </tr>
+        <tr>
+            <td>Oferta</td>
+            <td>Cantidad de un bien que los productores están dispuestos a ofrecer a varios precios; generalmente aumenta cuando los precios suben</td>
+        </tr>
+        <tr>
+            <td>Precio de Equilibrio</td>
+            <td>El precio donde la cantidad demandada iguala la cantidad ofrecida; el mercado "se limpia" sin excedentes ni escasez</td>
+        </tr>
+        <tr>
+            <td>Excedente del Consumidor</td>
+            <td>La diferencia entre lo que los consumidores están dispuestos a pagar y lo que realmente pagan; representa el beneficio del consumidor</td>
+        </tr>
+        <tr>
+            <td>Excedente del Productor</td>
+            <td>La diferencia entre lo que los productores reciben y el precio mínimo que aceptarían; representa la ganancia del productor</td>
+        </tr>
+        <tr>
+            <td>Elasticidad</td>
+            <td>La capacidad de respuesta de la cantidad demandada a cambios en el precio; afecta la volatilidad de precios</td>
+        </tr>
+    </table>
+
+    <!-- ESTRUCTURAS DE MERCADO -->
+    <div class="section-header">Estructuras de Mercado</div>
+    <div class="market-structure-grid">
+        <div class="market-box">
+            <h5>COMPETENCIA PERFECTA</h5>
+            <p>Muchos vendedores, productos idénticos, precios bajos</p>
+            <p><em>Ej: Productos agrícolas</em></p>
+        </div>
+        <div class="market-box">
+            <h5>OLIGOPOLIO</h5>
+            <p>Pocas empresas dominantes, competencia limitada</p>
+            <p><em>Ej: Aerolíneas, telefonía</em></p>
+        </div>
+        <div class="market-box">
+            <h5>MONOPOLIO</h5>
+            <p>Un solo vendedor, sin competencia, precios altos</p>
+            <p><em>Ej: Servicios públicos locales</em></p>
+        </div>
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="scenario-card">
+        <h4>Parte A: Análisis de Desplazamientos de Oferta y Demanda</h4>
+        <p>Para cada escenario, indica si la oferta o demanda se desplaza, en qué dirección, y el efecto en el precio de equilibrio:</p>
+        <table class="data-table">
+            <tr>
+                <th style="width: 40%;">Escenario</th>
+                <th>¿Qué se desplaza?</th>
+                <th>Dirección</th>
+                <th>Efecto en Precio</th>
+            </tr>
+            <tr>
+                <td>1. Un crítico de tecnología da excelente calificación a un nuevo smartphone</td>
+                <td>□ Oferta □ Demanda</td>
+                <td>□ Izquierda □ Derecha</td>
+                <td>□ Sube □ Baja</td>
+            </tr>
+            <tr>
+                <td>2. Un incendio en una fábrica de procesadores reduce la producción</td>
+                <td>□ Oferta □ Demanda</td>
+                <td>□ Izquierda □ Derecha</td>
+                <td>□ Sube □ Baja</td>
+            </tr>
+            <tr>
+                <td>3. Una recesión reduce los ingresos de los consumidores</td>
+                <td>□ Oferta □ Demanda</td>
+                <td>□ Izquierda □ Derecha</td>
+                <td>□ Sube □ Baja</td>
+            </tr>
+            <tr>
+                <td>4. Nueva tecnología reduce los costos de manufactura a la mitad</td>
+                <td>□ Oferta □ Demanda</td>
+                <td>□ Izquierda □ Derecha</td>
+                <td>□ Sube □ Baja</td>
+            </tr>
+        </table>
+        <div class="hint-box">
+            <strong>Recuerda:</strong> Demanda ↑ = precio ↑ | Demanda ↓ = precio ↓ | Oferta ↑ = precio ↓ | Oferta ↓ = precio ↑
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte B: Comparación de Estructuras de Mercado</h4>
+        <p>Un servicio básico de internet de 100 Mbps cuesta $20/mes producir. Compara los resultados bajo diferentes estructuras:</p>
+        <table class="data-table">
+            <tr>
+                <th>Estructura</th>
+                <th>Precio Probable</th>
+                <th>Excedente del Consumidor</th>
+                <th>Poder del Comprador</th>
+            </tr>
+            <tr>
+                <td>Competencia Perfecta (15 proveedores)</td>
+                <td>$_______/mes</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+            </tr>
+            <tr>
+                <td>Oligopolio (3 proveedores)</td>
+                <td>$_______/mes</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+            </tr>
+            <tr>
+                <td>Monopolio (1 proveedor)</td>
+                <td>$_______/mes</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+                <td>□ Alto □ Medio □ Bajo</td>
+            </tr>
+        </table>
+        <p><strong>Si eres un hogar típico, ¿cuánto más pagarías al año en un monopolio vs. competencia perfecta?</strong></p>
+        <div class="writing-lines" style="min-height: 40px;"></div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte C: Análisis de Elasticidad y Planificación Presupuestaria</h4>
+        <p><strong>Producto A - Gasolina (Demanda Inelástica):</strong></p>
+        <ul style="font-size: 9pt; margin: 8px 0 8px 20px;">
+            <li>Precio actual: $3.50/galón</li>
+            <li>Tu consumo mensual: 40 galones → Costo mensual: $140</li>
+            <li>Si la oferta disminuye 10%, el precio sube ~25% (demanda inelástica)</li>
+        </ul>
+        <p>Nuevo precio: $_______ | Nuevo costo mensual: $_______ | Impacto: +$_______</p>
+
+        <p><strong>Producto B - Comidas en Restaurantes (Demanda Elástica):</strong></p>
+        <ul style="font-size: 9pt; margin: 8px 0 8px 20px;">
+            <li>Precio actual: $15/comida</li>
+            <li>Tu consumo mensual: 8 comidas → Costo mensual: $120</li>
+            <li>Si la oferta disminuye 10%, el precio sube ~10% (demanda elástica)</li>
+        </ul>
+        <p>Nuevo precio: $_______ | ¿Reducirías tu consumo? □ Sí □ No | Nuevo consumo: _____ comidas</p>
+        <div class="hint-box">
+            <strong>Conclusión:</strong> Los productos con demanda inelástica (gasolina, alquiler) requieren mayores colchones presupuestarios porque experimentan oscilaciones de precio más grandes.
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="scenario-card">
+        <p><strong>1. ¿Qué ocurre cuando el precio de mercado está POR ENCIMA del equilibrio?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q1"> A. Escasez - los compradores compiten y el precio sube más</label>
+            <label><input type="radio" name="q1"> B. Excedente - los vendedores reducen precios para eliminar inventario</label>
+            <label><input type="radio" name="q1"> C. El mercado permanece estable sin cambios</label>
+            <label><input type="radio" name="q1"> D. La demanda aumenta automáticamente</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>2. ¿En qué estructura de mercado los consumidores tienen el MAYOR excedente?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q2"> A. Monopolio</label>
+            <label><input type="radio" name="q2"> B. Oligopolio</label>
+            <label><input type="radio" name="q2"> C. Competencia perfecta</label>
+            <label><input type="radio" name="q2"> D. Todas son iguales</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>3. ¿Por qué los precios de la gasolina fluctúan más dramáticamente que los precios de comidas en restaurantes?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q3"> A. Hay menos gasolineras que restaurantes</label>
+            <label><input type="radio" name="q3"> B. La demanda de gasolina es más inelástica - la gente debe comprarla independientemente del precio</label>
+            <label><input type="radio" name="q3"> C. Los restaurantes tienen mejores estrategias de marketing</label>
+            <label><input type="radio" name="q3"> D. El gobierno controla los precios de los restaurantes</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>4. Aplicación:</strong> El precio de televisores típicamente baja después del Super Bowl. Explica este patrón usando los conceptos de oferta y demanda:</p>
+        <div class="writing-lines"></div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>5. Reflexión:</strong> Piensa en una compra importante que planeas hacer en los próximos 6 meses. ¿Cómo usarías el análisis de oferta, demanda y estructura de mercado para obtener el mejor precio?</p>
+        <div class="writing-lines" style="min-height: 80px;"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 58: Oferta, Demanda y Estructuras de Mercado — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

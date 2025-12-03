@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-03 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .variable-note { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af; }
+        .variable-note strong { color: #1e3a8a; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 1.3 — Ingresos e Impuestos</h2>
+        </div>
+        <div class="header-right">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <div class="variable-note">
+        <strong>Nota:</strong> Los cálculos en este documento utilizan las tasas de impuestos de {{STATE_NAME}} ({{STATE_INCOME_TAX_RATE}}% impuesto estatal). Las respuestas variarán según el estado. Promedio nacional: 4.6%.
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Calculadora, Ejemplo W-4</td><td>L-01, L-02 Conceptos Básicos</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Encuesta rápida: "¿Quién ha recibido un cheque de pago? ¿Les sorprendió el monto?"</li>
+                    <li>Presentar el enfoque: ingreso bruto vs. neto y deducciones en {{STATE_NAME}}.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Definir: ingreso bruto, neto, deducciones obligatorias/voluntarias, FICA, W-4.</li>
+                    <li>Usar ejemplos visuales del desglose del cheque con tasas de {{STATE_NAME}}.</li>
+                    <li>Explicar el propósito de los impuestos FICA (Seguro Social + Medicare).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (15 min):</strong> Análisis del cheque de María usando {{STATE_INCOME_TAX_RATE}}%.</li>
+                    <li><strong>Parte B (15 min):</strong> Simulación W-4 de Jordan. Guiar el proceso paso a paso.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Completar en clase o asignar como tarea.</li>
+                    <li>Enfatizar la importancia del presupuesto basado en ingreso neto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcionar hoja de trabajo con fórmulas pre-llenadas.</li>
+                <li>Usar diagramas de flujo mostrando bruto a neto.</li>
+                <li>Emparejar estudiantes para los cálculos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Comparar tasas de {{STATE_NAME}} con otros estados.</li>
+                <li>Investigar diferencia entre deducción y crédito fiscal.</li>
+                <li>Crear su propio escenario de cheque de pago.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-note"><strong>Nota:</strong> Las respuestas siguientes usan {{STATE_INCOME_TAX_RATE}}% como tasa de impuesto estatal de {{STATE_NAME}}. Ajuste según su estado.</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis del Cheque de María en {{STATE_NAME}}</div>
+            <div class="calc-display">Impuesto Estatal: $3,500 × {{STATE_INCOME_TAX_RATE}}% = $______
+
+Pregunta 1: Porcentaje de deducciones totales
+Total deducciones / $3,500.00 = ____%
+(Variará según tasa estatal de {{STATE_NAME}})
+
+Pregunta 2: Nuevo ingreso neto con 10% al 401(k)
+Nueva contribución 401(k): $3,500 × 10% = $350
+Diferencia: $350 - $175 = $175 adicionales
+Nuevo ingreso neto: (Ingreso neto actual) - $175</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Simulación W-4 de Jordan</div>
+            <div class="calc-display">Pregunta 3: Ingreso bruto mensual de Jordan
+15 horas/semana × $15/hora = $225/semana
+$225 × 4 semanas = $900/mes
+
+Pregunta 4: Estado civil para W-4
+Jordan debe seleccionar "Soltero" porque no está casado
+y no tiene dependientes. Como es su único trabajo,
+la retención estándar debería ser apropiada.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (El ingreso bruto es antes de deducciones; el neto es después)</div>
+            <div class="answer-item"><strong>2.</strong> El presupuesto debe basarse en el ingreso neto porque es la cantidad real que recibes. Planificar con el ingreso bruto resultaría en gastar más de lo disponible.</div>
+            <div class="answer-item"><strong>3.</strong> Ventajas del 401(k) desde joven: (1) Interés compuesto durante más años, (2) Posible contribución del empleador (dinero gratis), (3) Reduce ingreso gravable actual, (4) Desarrolla hábito de ahorro temprano.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varían según la tasa de {{STATE_NAME}}. Busque comprensión de que el presupuesto debe basarse en el neto.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Clarificación</th></tr>
+            <tr><td>"Mi salario es lo que recibiré en mi cheque."</td><td>El salario acordado es el ingreso bruto. El cheque será menor después de deducciones obligatorias (impuestos, FICA) y voluntarias. En {{STATE_NAME}}, la tasa estatal es {{STATE_INCOME_TAX_RATE}}%.</td></tr>
+            <tr><td>"Los impuestos son dinero perdido."</td><td>Los impuestos FICA financian beneficios futuros: Seguro Social para jubilación y Medicare para atención médica. Es una inversión a largo plazo.</td></tr>
+            <tr><td>"No vale la pena contribuir al 401(k) ahora."</td><td>Comenzar joven tiene enormes beneficios por el interés compuesto. Alguien que empieza a los 22 tendrá casi el doble que quien empieza a los 30.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 1.3 — Edición de {{STATE_NAME}}</span>
+    </div>
+</body>
+</html>

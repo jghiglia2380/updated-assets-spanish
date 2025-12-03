@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-06 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .variable-note { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af; }
+        .variable-note strong { color: #1e3a8a; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 2.1 — Entendiendo los Impuestos Federales y Estatales</h2>
+        </div>
+        <div class="header-right">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <div class="variable-note">
+        <strong>Nota:</strong> Los cálculos utilizan las tasas de {{STATE_NAME}}: {{STATE_INCOME_TAX_RATE}}% impuesto sobre la renta, {{STATE_SALES_TAX}}% impuesto sobre ventas, {{STATE_PROPERTY_TAX_AVG}}% impuesto sobre la propiedad. Las respuestas variarán según el estado. Promedio nacional: 4.6% impuesto sobre la renta.
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Calculadora, Tabla de Tramos</td><td>L-03 Ingresos e Impuestos</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Preguntar: "¿Qué servicios gubernamentales han usado hoy?"</li>
+                    <li>Presentar comparación de {{STATE_NAME}} vs. promedio nacional.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">IMPUESTO FEDERAL PROGRESIVO</div>
+                <ul>
+                    <li>Explicar tramos impositivos y tasa marginal vs. efectiva.</li>
+                    <li>Calcular 2-3 ejemplos con números simples.</li>
+                    <li>Aclarar malentendido común sobre "pasar a tramo más alto".</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Clasificación de tipos de impuestos.</li>
+                    <li><strong>Parte B (15 min):</strong> Comparación {{STATE_NAME}} vs. promedio nacional usando {{STATE_INCOME_TAX_RATE}}%.</li>
+                    <li><strong>Parte C (5 min):</strong> Aplicación personal.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Enfatizar que no hay sistema "mejor" - depende de circunstancias.</li>
+                    <li>Conectar con decisiones futuras de carrera y ubicación.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Tabla simplificada de tramos con menos categorías.</li>
+                <li>Hoja de trabajo paso a paso con cálculos guiados.</li>
+                <li>Usar números redondos para los ejemplos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Comparar {{STATE_NAME}} con estados vecinos.</li>
+                <li>Investigar cuentas con ventajas fiscales (401k, HSA).</li>
+                <li>Analizar escenarios con múltiples fuentes de ingreso.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-note"><strong>Nota:</strong> Las respuestas usan las tasas de {{STATE_NAME}}. Ajuste según su estado.</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Clasificación de Tipos de Impuestos</div>
+            <div class="answer-item"><strong>Impuesto Federal sobre la Renta:</strong> PROGRESIVO - las tasas aumentan con el ingreso.</div>
+            <div class="answer-item"><strong>Impuesto sobre Ventas ({{STATE_SALES_TAX}}%):</strong> REGRESIVO - todos pagan la misma tasa, pero representa un mayor porcentaje del ingreso para quienes ganan menos.</div>
+            <div class="answer-item"><strong>Seguro Social (6.2%):</strong> REGRESIVO - tasa fija hasta cierto límite, luego los de altos ingresos pagan menos porcentaje.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: {{STATE_NAME}} vs. Promedio Nacional ($60,000)</div>
+            <div class="calc-display">{{STATE_NAME}}:
+Impuesto Federal: $6,000
+Impuesto Estatal: $60,000 × {{STATE_INCOME_TAX_RATE}}% = $______
+FICA: $4,590
+Total Impuestos: $______
+Ingreso Neto: $60,000 - Total = $______
+
+Promedio Nacional:
+Impuesto Federal: $6,000
+Impuesto Estatal: $60,000 × 4.6% = $2,760
+FICA: $4,590
+Total Impuestos: $13,350
+Ingreso Neto: $46,650</div>
+            <div class="answer-note">La diferencia dependerá de si la tasa de {{STATE_NAME}} ({{STATE_INCOME_TAX_RATE}}%) es mayor o menor que el promedio nacional (4.6%).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Seguro Social y Medicare)</div>
+            <div class="answer-item"><strong>2.</strong> El impuesto sobre ventas es regresivo porque las personas de bajos ingresos gastan una mayor proporción de su ingreso en bienes sujetos a impuestos. Una persona que gana $30,000 podría gastar el 80% en necesidades gravables, mientras alguien que gana $200,000 podría gastar solo el 30%.</div>
+            <div class="answer-item"><strong>3.</strong> Alguien podría preferir mayor impuesto sobre la renta con menor impuesto sobre la propiedad si: (1) planea comprar una casa costosa, (2) vive de un ingreso fijo/jubilación, (3) los precios de vivienda son altos en esa área.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varían. Busque consideración de: tipo de trabajo, si planean comprar casa, costo de vida general, servicios públicos disponibles, circunstancias familiares.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Clarificación</th></tr>
+            <tr><td>"Si gano más y paso a un tramo más alto, me llevaré menos dinero."</td><td>FALSO. Solo el ingreso adicional se grava a la tasa más alta. Siempre te llevas más dinero neto cuando ganas más.</td></tr>
+            <tr><td>"Los estados sin impuesto sobre la renta siempre son más baratos."</td><td>No necesariamente. Estos estados compensan con otros impuestos (propiedad, ventas). En {{STATE_NAME}}, el impuesto sobre la propiedad es {{STATE_PROPERTY_TAX_AVG}}%.</td></tr>
+            <tr><td>"Los impuestos del Seguro Social van a una cuenta personal para mi jubilación."</td><td>No. FICA financia beneficios ACTUALES para jubilados de hoy. Es un sistema de transferencia entre generaciones.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 2.1 — Edición de {{STATE_NAME}}</span>
+    </div>
+</body>
+</html>

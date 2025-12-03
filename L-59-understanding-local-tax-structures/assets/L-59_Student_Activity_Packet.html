@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-59 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 18px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: var(--warning-light); border-left: 4px solid var(--warning); padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 16px; }
+        .challenge-box h3 { color: #92400e; font-size: 10pt; font-weight: 700; margin-bottom: 6px; }
+        .challenge-box p { color: #78350f; font-size: 9pt; margin: 0; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; font-size: 9pt; color: var(--text-medium); }
+        .objectives-box li { margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table tr:nth-child(even) { background: var(--bg-light); }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; font-weight: 700; margin-bottom: 8px; border-bottom: 2px solid var(--primary-light); padding-bottom: 4px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 8px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); padding: 6px 8px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .data-table td { padding: 6px 8px; border: 1px solid var(--border); }
+
+        .mc-options { margin: 10px 0; }
+        .mc-options label { display: block; padding: 8px 12px; margin: 4px 0; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; font-size: 9pt; cursor: pointer; }
+        .mc-options input[type="radio"] { margin-right: 8px; }
+
+        .writing-lines { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; padding: 8px; margin: 8px 0; background: white; }
+
+        .hint-box { background: #f0f9ff; border-left: 3px solid #0ea5e9; padding: 8px 12px; margin: 10px 0; font-size: 8.5pt; color: #0c4a6e; }
+
+        .calc-box { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 10px; border-radius: 4px; margin: 10px 0; font-size: 9pt; line-height: 1.6; }
+
+        .tax-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+        .tax-item { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px; text-align: center; }
+        .tax-item h5 { color: var(--primary); font-size: 9pt; font-weight: 700; margin-bottom: 4px; }
+        .tax-item p { font-size: 8pt; color: var(--text-medium); margin: 0; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 59: Comprendiendo las Estructuras Tributarias Locales</h2>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="challenge-box">
+        <h3>🎯 EL DESAFÍO</h3>
+        <p>La familia Rodríguez comparaba dos casas con precios similares: Casa A costaba $280,000 con impuesto anual sobre la propiedad de $8,400 ($700/mes), mientras que Casa B costaba $265,000 con impuesto de $5,300 ($442/mes). ¡La diferencia de $258/mes en impuestos equivale a $93,000 durante 30 años de hipoteca! Los impuestos locales pueden convertir una casa "asequible" en una carga financiera—o revelar el verdadero valor de una comunidad.</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar diferentes tipos de impuestos locales y sus propósitos en la financiación de servicios comunitarios</li>
+            <li>Calcular obligaciones de impuestos sobre la propiedad utilizando valores de tasación y tasas de millaje</li>
+            <li>Comparar tasas de impuestos y servicios entre diferentes jurisdicciones</li>
+            <li>Interpretar facturas de impuestos sobre la propiedad y comprender el proceso de apelación</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Impuesto sobre la Propiedad</td>
+            <td>Impuesto gravado sobre bienes inmuebles por gobiernos locales, basado en el valor tasado de la propiedad. Fuente principal de ingresos locales.</td>
+        </tr>
+        <tr>
+            <td>Valor Tasado</td>
+            <td>Valor en dólares asignado a una propiedad por un tasador del gobierno para calcular impuestos. Puede ser menor que el valor de mercado.</td>
+        </tr>
+        <tr>
+            <td>Tasa de Millaje (Mill)</td>
+            <td>La cantidad de impuesto por cada $1,000 de valor tasado. Un mill = $1 de impuesto por cada $1,000 de valor tasado.</td>
+        </tr>
+        <tr>
+            <td>Exención de Vivienda Principal</td>
+            <td>Reducción en el valor tasado de una residencia principal, diseñada para reducir la carga tributaria de los propietarios.</td>
+        </tr>
+        <tr>
+            <td>Impuesto Local sobre Ventas</td>
+            <td>Impuesto adicional impuesto por ciudades o condados además del impuesto estatal sobre las ventas.</td>
+        </tr>
+        <tr>
+            <td>Tasación Especial</td>
+            <td>Cargo impuesto sobre propiedades en un área específica para pagar mejoras locales (aceras, alcantarillado, etc.).</td>
+        </tr>
+    </table>
+
+    <!-- A DÓNDE VAN TUS IMPUESTOS -->
+    <div class="section-header">¿A Dónde Van Tus Impuestos sobre la Propiedad?</div>
+    <div class="tax-breakdown">
+        <div class="tax-item">
+            <h5>ESCUELAS</h5>
+            <p>50-60% del total</p>
+        </div>
+        <div class="tax-item">
+            <h5>SEGURIDAD PÚBLICA</h5>
+            <p>Policía y bomberos</p>
+        </div>
+        <div class="tax-item">
+            <h5>INFRAESTRUCTURA</h5>
+            <p>Carreteras, calles</p>
+        </div>
+        <div class="tax-item">
+            <h5>SERVICIOS</h5>
+            <p>Parques, bibliotecas</p>
+        </div>
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="scenario-card">
+        <h4>Parte A: Cálculo de Impuesto sobre la Propiedad</h4>
+        <p><strong>Datos de la Propiedad de María:</strong></p>
+        <ul style="font-size: 9pt; margin: 8px 0 8px 20px;">
+            <li>Valor de mercado de la casa: $250,000</li>
+            <li>Porcentaje de tasación del estado: {{STATE_ASSESSMENT_PERCENTAGE}}% del valor de mercado</li>
+            <li>Exención de vivienda principal: ${{STATE_HOMESTEAD_EXEMPTION}}</li>
+            <li>Tasa de millaje total: {{STATE_TOTAL_MILLAGE_EXAMPLE}} mills</li>
+        </ul>
+        <p><strong>Calcula el impuesto anual sobre la propiedad de María:</strong></p>
+        <div class="calc-box">
+Paso 1: Valor de mercado: $250,000
+Paso 2: Valor tasado ({{STATE_ASSESSMENT_PERCENTAGE}}%): $250,000 × ({{STATE_ASSESSMENT_PERCENTAGE}}/100) = $_________
+Paso 3: Menos exención de vivienda: $_______ - ${{STATE_HOMESTEAD_EXEMPTION}} = $_________
+Paso 4: Valor tasado imponible: $_________
+Paso 5: Impuesto anual = $_______ × ({{STATE_TOTAL_MILLAGE_EXAMPLE}} ÷ 1000) = $_________
+Paso 6: Impuesto mensual = $_______ ÷ 12 = $_________
+        </div>
+        <div class="hint-box">
+            <strong>Recuerda:</strong> 1 mill = $1 por cada $1,000 de valor tasado. Convierte la tasa de millaje a decimal dividiendo por 1000.
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte B: Comparación de Ubicaciones</h4>
+        <p>Roberto gana $52,000/año y considera tres ubicaciones para alquilar en {{STATE_NAME}}. Compara los costos totales:</p>
+        <table class="data-table">
+            <tr>
+                <th>Factor</th>
+                <th>{{STATE_HIGH_TAX_CITY}}</th>
+                <th>{{STATE_MEDIUM_TAX_CITY}}</th>
+                <th>{{STATE_LOW_TAX_CITY}}</th>
+            </tr>
+            <tr>
+                <td>Alquiler mensual</td>
+                <td>$1,100</td>
+                <td>$950</td>
+                <td>$800</td>
+            </tr>
+            <tr>
+                <td>Impuesto local sobre ventas</td>
+                <td>{{STATE_HIGH_LOCAL_SALES_TAX}}%</td>
+                <td>{{STATE_MEDIUM_LOCAL_SALES_TAX}}%</td>
+                <td>{{STATE_LOW_LOCAL_SALES_TAX}}%</td>
+            </tr>
+            <tr>
+                <td>Compras mensuales gravables</td>
+                <td>$1,200</td>
+                <td>$1,200</td>
+                <td>$1,200</td>
+            </tr>
+            <tr>
+                <td>Impuesto sobre ventas mensual</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+            <tr>
+                <td><strong>Costo mensual total</strong></td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+        </table>
+        <p><strong>¿Cuál ubicación ofrece el mejor valor considerando servicios disponibles?</strong></p>
+        <div class="writing-lines" style="min-height: 50px;"></div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte C: ¿Deberías Apelar Tu Tasación?</h4>
+        <p><strong>Escenario:</strong> Compraste tu casa hace 2 años por $245,000 en {{STATE_NAME}}. Recibiste notificación de que tu nueva tasación es $285,000—un aumento de $40,000 (16.3%). Tu tasa de millaje es {{STATE_MEDIUM_TAX_MILLAGE}} mills.</p>
+        <p><strong>Ventas comparables recientes en tu vecindario:</strong></p>
+        <ul style="font-size: 9pt; margin: 8px 0 8px 20px;">
+            <li>Casa similar A: Vendida por $255,000</li>
+            <li>Casa similar B: Vendida por $262,000</li>
+            <li>Casa similar C: Vendida por $268,000</li>
+        </ul>
+        <p><strong>Promedio de ventas comparables:</strong> $________</p>
+        <p><strong>Calcula el impacto:</strong></p>
+        <p>Impuesto actual (basado en $245,000): $245,000 × ({{STATE_MEDIUM_TAX_MILLAGE}} ÷ 1000) = $________/año</p>
+        <p>Impuesto nuevo (basado en $285,000): $285,000 × ({{STATE_MEDIUM_TAX_MILLAGE}} ÷ 1000) = $________/año</p>
+        <p>Aumento anual: $________</p>
+        <p><strong>¿Tienes fundamentos para apelar?</strong> □ Sí □ No</p>
+        <p><strong>Justificación:</strong></p>
+        <div class="writing-lines" style="min-height: 50px;"></div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="scenario-card">
+        <p><strong>1. ¿Qué significa una tasa de millaje de 30 mills?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q1"> A. Pagas $30 de impuesto por cada $100 de valor</label>
+            <label><input type="radio" name="q1"> B. Pagas $30 de impuesto por cada $1,000 de valor tasado</label>
+            <label><input type="radio" name="q1"> C. Pagas $30 de impuesto total al año</label>
+            <label><input type="radio" name="q1"> D. Pagas 30% del valor de tu propiedad</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>2. ¿Por qué los impuestos sobre la propiedad más altos NO siempre son malos?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q2"> A. Porque el gobierno necesita más dinero</label>
+            <label><input type="radio" name="q2"> B. Porque frecuentemente financian mejores escuelas, seguridad e infraestructura</label>
+            <label><input type="radio" name="q2"> C. Porque reducen el valor de las casas</label>
+            <label><input type="radio" name="q2"> D. Porque son deducibles de impuestos federales</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>3. ¿Cuándo tiene sentido apelar una tasación de propiedad?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q3"> A. Siempre, para reducir impuestos automáticamente</label>
+            <label><input type="radio" name="q3"> B. Cuando el valor tasado excede significativamente las ventas comparables recientes</label>
+            <label><input type="radio" name="q3"> C. Solo cuando los impuestos suben más del 50%</label>
+            <label><input type="radio" name="q3"> D. Nunca, las tasaciones siempre son correctas</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>4. Cálculo:</strong> Una casa tiene valor de mercado de $300,000. El estado tasa al 85% del valor de mercado. La exención de vivienda principal es $30,000. La tasa de millaje total es 40 mills. ¿Cuál es el impuesto anual?</p>
+        <div class="writing-lines"></div>
+        <p><strong>Muestra tu trabajo:</strong></p>
+        <div class="writing-lines"></div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>5. Reflexión:</strong> Piensa en dónde quieres vivir en los próximos 5-10 años. ¿Qué servicios locales son más importantes para ti? ¿Cuánto estarías dispuesto a pagar en impuestos más altos por servicios de alta calidad?</p>
+        <div class="writing-lines" style="min-height: 80px;"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 59: Estructuras Tributarias Locales</span>
+    </div>
+
+</body>
+</html>

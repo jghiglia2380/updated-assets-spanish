@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-67 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --success: #059669;
+            --success-light: #ecfdf5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 13pt; font-weight: 700; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin-top: 3px; opacity: 0.9; }
+        .header-right { text-align: right; font-size: 9pt; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border: 1px solid #fcd34d; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .challenge-box p { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .challenge-box strong { color: #b45309; }
+
+        .objectives-box { background: var(--success-light); border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; margin-bottom: 16px; }
+        .objectives-box h3 { color: var(--success); font-size: 10pt; margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { font-size: 9pt; color: var(--text-medium); margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--bg-light); padding: 8px 10px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; margin-bottom: 6px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 6px; }
+
+        .activity-section { margin-bottom: 16px; }
+        .activity-section h4 { color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .write-line { border-bottom: 1px solid var(--border); min-height: 20px; margin: 6px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; margin: 8px 0; padding: 6px; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
+        .check-item { display: flex; align-items: center; gap: 6px; font-size: 9pt; }
+        .check-box { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: center; }
+        .comparison-table th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+
+        .question-block { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .question-block h4 { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .question-number { display: inline-block; background: var(--primary); color: white; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9pt; margin-right: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .data-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 10px; margin: 8px 0; font-size: 9pt; }
+        .data-box strong { color: #0369a1; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 67: Tecnología de Inversión e Inversión Conductual</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades<br>del Estudiante
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p><strong>Escenario:</strong> Marcus, de 28 años, tenía un portafolio de $18,000 cuando COVID-19 causó una caída del 34% en marzo 2020. Su portafolio cayó a $11,880. Las noticias gritaban "la peor crisis desde la Gran Depresión." Sus amigos vendían todo. Su mano se cernía sobre el botón "Vender Todo." Pero recordó una regla que había escrito: "Nunca vender basándose en movimientos a corto plazo." Continuó invirtiendo durante la caída. Para agosto 2020, su portafolio valía $24,000. Amigos que vendieron perdieron la recuperación.</p>
+        <p><strong>Reflexión:</strong> ¿Qué sesgos conductuales estaban presionando a Marcus a vender? ¿Cómo lo salvó su regla preestablecida?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Evaluar diferentes plataformas de tecnología de inversión: robo-advisors, corredores y aplicaciones</li>
+            <li>Analizar cómo los sesgos conductuales afectan las decisiones de inversión</li>
+            <li>Comparar costos, beneficios y casos de uso apropiados para cada tipo de plataforma</li>
+            <li>Aplicar principios de economía conductual para crear sistemas de inversión basados en reglas</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <td>Robo-Advisor</td>
+            <td>Servicio automatizado que usa algoritmos para construir y gestionar portafolios basado en tus metas y tolerancia al riesgo. Ejemplos: Betterment, Wealthfront. Tarifa típica: 0.25%.</td>
+        </tr>
+        <tr>
+            <td>Aversión a la Pérdida</td>
+            <td>Sesgo donde las pérdidas duelen ~2x más de lo que las ganancias se sienten bien. Causa mantener perdedores demasiado tiempo y vender ganadores demasiado rápido.</td>
+        </tr>
+        <tr>
+            <td>Sesgo de Recencia</td>
+            <td>Tendencia a sobreponderar eventos recientes y asumir que las tendencias continuarán. Causa comprar alto (después de subidas) y vender bajo (después de caídas).</td>
+        </tr>
+        <tr>
+            <td>Sesgo de Confirmación</td>
+            <td>Tendencia a buscar información que confirma creencias existentes mientras ignoras evidencia contradictoria.</td>
+        </tr>
+        <tr>
+            <td>Mentalidad de Rebaño</td>
+            <td>Sesgo de seguir lo que todos hacen, incluso cuando contradice el análisis racional. Causa burbujas y ventas de pánico.</td>
+        </tr>
+        <tr>
+            <td>Ratio de Gastos</td>
+            <td>Tarifa anual de fondos/ETFs como % de inversión. 0.10% = $10/año por cada $10,000. Menor es mejor.</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <h4>Parte A: Comparación de Plataformas</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Tienes $5,000 para invertir y puedes agregar $200/mes. Compara opciones:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Característica</th>
+                <th>Robo-Advisor</th>
+                <th>Corredor DIY</th>
+                <th>Aplicación</th>
+            </tr>
+            <tr>
+                <td>Tarifa anual típica</td>
+                <td>0.25%</td>
+                <td>0.03-0.10%</td>
+                <td>$0-36/año</td>
+            </tr>
+            <tr>
+                <td>Rebalanceo</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Control de inversiones</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mejor para</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>¿Qué plataforma elegirías para TI y por qué?</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte B: Identificación de Sesgos Conductuales</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Identifica el sesgo en cada escenario:</p>
+
+        <div class="scenario-card">
+            <h4>Escenario 1</h4>
+            <p>El mercado ha subido 25% este año. Decides invertir todo tu dinero ahora porque "el mercado sigue subiendo."</p>
+            <p><strong>Sesgo:</strong> _________________ | <strong>Riesgo:</strong> _________________</p>
+        </div>
+
+        <div class="scenario-card">
+            <h4>Escenario 2</h4>
+            <p>Compraste una acción a $100. Ahora vale $70. Te niegas a vender porque "si vendo, hago la pérdida real."</p>
+            <p><strong>Sesgo:</strong> _________________ | <strong>Riesgo:</strong> _________________</p>
+        </div>
+
+        <div class="scenario-card">
+            <h4>Escenario 3</h4>
+            <p>Tu amigo ganó 300% en una criptomoneda. Todos en redes sociales la están comprando. Decides invertir la mitad de tus ahorros.</p>
+            <p><strong>Sesgo:</strong> _________________ | <strong>Riesgo:</strong> _________________</p>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte C: Crea Tus Reglas Contra-Sesgos</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Completa estas reglas personales para protegerte:</p>
+
+        <p style="font-size: 9pt;"><strong>Regla de Compra:</strong> "Invertiré $_____ mensualmente independientemente de las condiciones del mercado."</p>
+        <p style="font-size: 9pt;"><strong>Regla de Venta:</strong> "Nunca venderé debido a una caída menor de ____%."</p>
+        <p style="font-size: 9pt;"><strong>Regla de Espera:</strong> "Esperaré ___ horas antes de actuar en cualquier impulso de compra/venta emocional."</p>
+        <p style="font-size: 9pt;"><strong>Regla de Frecuencia:</strong> "Solo revisaré mi portafolio una vez por _______."</p>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <h4><span class="question-number">1</span>¿Por qué los inversores típicamente tienen peor rendimiento que el mercado (7% vs. 10.7% históricamente)?</h4>
+        <div class="check-grid">
+            <div class="check-item"><div class="check-box"></div> A. Eligen malas inversiones</div>
+            <div class="check-item"><div class="check-box"></div> B. Pagan demasiado en tarifas</div>
+            <div class="check-item"><div class="check-box"></div> C. Compran alto y venden bajo por sesgos</div>
+            <div class="check-item"><div class="check-box"></div> D. No tienen acceso a buenas plataformas</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">2</span>Explica por qué la aversión a la pérdida causa que los inversores mantengan perdedores demasiado tiempo y vendan ganadores demasiado rápido.</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">3</span>Si pagas 0.50% vs. 0.10% en tarifas anuales, ¿cuánto pierdes en 40 años invirtiendo $500/mes al 7%?</h4>
+        <div class="data-box">
+            <strong>Dato:</strong> A 0.50%, valor final ≈ $1,142,000 | A 0.10%, valor final ≈ $1,293,000
+        </div>
+        <p style="font-size: 9pt;"><strong>Diferencia:</strong> $_______ perdidos por tarifas más altas</p>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">4</span>¿Por qué un robo-advisor puede valer su tarifa de 0.25% aunque sea más caro que DIY con fondos indexados?</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">5</span>Evalúa TU susceptibilidad a sesgos conductuales. ¿A cuál eres más vulnerable? ¿Qué regla específica te protegería?</h4>
+        <p style="font-size: 9pt; margin-top: 6px;"><strong>Mi sesgo más peligroso:</strong> _______________________</p>
+        <p style="font-size: 9pt;"><strong>Mi regla de protección #1:</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 67: Tecnología de Inversión e Inversión Conductual</span>
+    </div>
+
+</body>
+</html>

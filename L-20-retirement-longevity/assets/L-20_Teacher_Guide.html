@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-20 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 6.2 — Longevidad y Planificación de la Jubilación</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulos 5.1-6.1 (Ahorro, Inversión, Jubilación)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el cambio histórico: jubilación de 10-15 años → 20-30+ años.</li>
+                    <li>Discusión: "¿Es vivir más una bendición o un desafío financiero?"</li>
+                    <li>Establezca urgencia: sin planificación, riesgo de quedarse sin dinero.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente el escenario Morgan vs. Jordan—el "momento aha" de la lección.</li>
+                    <li>Explique el impacto acumulativo de la inflación durante 30-40 años.</li>
+                    <li>Defina el riesgo de longevidad y por qué es un desafío moderno.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Análisis de Morgan vs. Jordan.</li>
+                    <li><strong>Parte B (6 min):</strong> Factores de esperanza de vida.</li>
+                    <li><strong>Parte C (8 min):</strong> Estrategias para evitar déficits.</li>
+                    <li><strong>Parte D (8 min):</strong> Caso de estudio de la bisabuela de Keisha.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (inflación a largo plazo) y P4 (plan personal).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadoras de interés compuesto online.</li>
+                <li>Use gráficos visuales del crecimiento de Morgan vs. Jordan.</li>
+                <li>Simplifique a conceptos: "tiempo > cantidad".</li>
+                <li>Proporcione lista de factores de esperanza de vida para elegir.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcular valor exacto usando la fórmula A = P(1+r)^t.</li>
+                <li>Investigar esperanza de vida por país y factores.</li>
+                <li>Crear un plan de jubilación de 50 años con ajustes.</li>
+                <li>Analizar el impacto de diferentes tasas de inflación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Longevidad como Oportunidad y Desafío</div>
+            <div class="answer-item"><strong>Oportunidad:</strong> Más años para disfrutar la vida, ver crecer a nietos, viajar, desarrollar pasatiempos, contribuir a la comunidad. <strong>Desafío:</strong> Los ahorros necesitan durar mucho más tiempo; mayores costos de atención médica; la inflación tiene más tiempo para erosionar poder adquisitivo; el Seguro Social no fue diseñado para jubilaciones tan largas.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis Morgan vs. Jordan</div>
+            <div class="calc-display">1. Diferencia de inversión:
+Jordan: $70,000
+Morgan: $18,000
+Diferencia: $70,000 - $18,000 = $52,000 más</div>
+            <div class="answer-item"><strong>2. Por qué la diferencia es pequeña:</strong> Las inversiones de Morgan tuvieron 35+ años adicionales para generar interés compuesto. Los primeros $2,000 de Morgan (a los 22) crecieron durante 43 años, mientras que los primeros $2,000 de Jordan (a los 31) solo crecieron 34 años. El interés compuesto funciona exponencialmente—el tiempo es más poderoso que la cantidad.</div>
+            <div class="answer-item"><strong>3. Si Morgan continuara:</strong> Sí, tendría SIGNIFICATIVAMENTE más. $2,000/año por 43 años al 7% ≈ $580,000. Más del doble que Jordan. Este es el poder de combinar inicio temprano CON contribuciones consistentes.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Factores de Esperanza de Vida</div>
+            <div class="answer-item"><strong>4. Factores:</strong> (1) Hábitos de salud: dieta, ejercicio, tabaquismo, alcohol; (2) Historia médica familiar: longevidad de padres/abuelos, predisposiciones genéticas; (3) Factores socioeconómicos: acceso a atención médica, nivel de educación, ingresos; (4) Ubicación geográfica: calidad del aire, infraestructura de salud.</div>
+            <div class="answer-item"><strong>5. Por qué considerar historia familiar:</strong> La longevidad tiene un componente genético significativo. Si sus abuelos vivieron hasta los 90, es probable que usted también viva mucho tiempo. Esto significa que necesita planificar para una jubilación más larga. También le ayuda a anticipar posibles condiciones médicas heredadas y sus costos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Estrategias para Déficits</div>
+            <div class="answer-item"><strong>6a. Retrasar jubilación:</strong> Más años de ahorro, menos años para financiar, mayores beneficios del Seguro Social, cobertura de salud extendida.</div>
+            <div class="answer-item"><strong>6b. Aumentar tasa de ahorro:</strong> Más capital inicial significa más crecimiento compuesto; pequeños aumentos ahora = grandes diferencias después.</div>
+            <div class="answer-item"><strong>6c. Inversiones de crecimiento en jubilación:</strong> Necesita superar la inflación durante 20-30 años; el crecimiento continúa generando rendimientos; los bonos solos no bastan para jubilaciones largas.</div>
+            <div class="answer-item"><strong>7. Por qué NO mover todo a "seguro":</strong> Con jubilación de 25+ años, necesita crecimiento para superar inflación. A 3% inflación, sus necesidades se duplican cada 24 años. Si todo está en bonos/efectivo al 2-3%, está perdiendo poder adquisitivo cada año. Mantener 30-40% en acciones ayuda a que el portafolio "se reponga" mientras retira.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>8. Lecciones del caso de Keisha:</strong> (1) Comenzar temprano, incluso si es poco común para su generación; (2) Invertir consistentemente, incluso durante crisis; (3) Diversificar entre diferentes tipos de activos; (4) Ajustar estilo de vida según realidad financiera; (5) Crear múltiples fuentes de ingresos.</div>
+            <div class="answer-item"><strong>1.</strong> B (Ahorros que duren 20-30+ años en lugar de 10-15)</div>
+            <div class="answer-item"><strong>2.</strong> La inflación es especialmente peligrosa para jubilaciones largas porque: el efecto compuesto de la inflación es devastador—al 3% anual, lo que cuesta $100 hoy costará $243 en 30 años. Para mantener el mismo estilo de vida, su ingreso necesitaría más que duplicarse durante la jubilación, pero los ingresos fijos (bonos, pensiones) no se ajustan así.</div>
+            <div class="answer-item"><strong>3.</strong> Riesgo de longevidad = el riesgo de vivir más de lo esperado y quedarse sin dinero. Mitigación: (1) Planificar para vivir hasta los 90-95, no solo hasta la esperanza de vida promedio; (2) Mantener inversiones de crecimiento incluso en jubilación; (3) Tener un plan B (trabajo parcial, reducir gastos, venta de casa); (4) Considerar anualidades para ingresos garantizados de por vida.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Si vivo hasta los 80, solo necesito planificar para 15 años de jubilación."</td>
+                <td>La esperanza de vida es un PROMEDIO—la mitad de las personas vive más. Además, si ya tiene 65 años y buena salud, su esperanza de vida es mayor que el promedio general. Planifique para vivir hasta los 90-95.</td>
+            </tr>
+            <tr>
+                <td>"A los 65 debo mover todo a inversiones seguras."</td>
+                <td>Con 25+ años de jubilación potencial, necesita que parte de su dinero siga creciendo para superar inflación. Un portafolio 100% conservador puede no sobrevivir una jubilación larga.</td>
+            </tr>
+            <tr>
+                <td>"La cantidad que invierto importa más que cuándo empiezo."</td>
+                <td>El ejemplo de Morgan vs. Jordan demuestra lo contrario. $18,000 invertidos temprano casi igualan $70,000 invertidos más tarde. El tiempo es el factor más poderoso en el interés compuesto.</td>
+            </tr>
+            <tr>
+                <td>"La inflación de 3% es insignificante."</td>
+                <td>Durante 30 años de jubilación, 3% anual más que triplica los precios. Lo que cuesta $50,000/año al jubilarse costará $121,000/año 30 años después. Planifique para que sus ingresos crezcan.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 6.2</span>
+    </div>
+
+</body>
+</html>

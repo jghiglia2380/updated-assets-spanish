@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-30 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 10.1 — Alquilar vs. Comprar: Decisiones de Vivienda</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <div class="variable-note" style="background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af;">
+        <strong style="color: #1e3a8a;">Nota:</strong> Los cálculos en este documento utilizan datos de vivienda de {{STATE_NAME}}: precio mediano de vivienda ${{STATE_MEDIAN_HOME_PRICE}}, alquiler mediano ${{STATE_MEDIAN_RENT}}/mes, impuesto sobre la propiedad {{STATE_PROPERTY_TAX_AVG}}%. Las respuestas variarán según el estado. Promedios nacionales: vivienda $350,000, alquiler $1,400/mes, impuesto sobre la propiedad 1.1%.
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>Robo de Identidad (L-29)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente los casos de Amy (alquila) vs. John y María (compran).</li>
+                    <li>Pregunte: "¿Quién tomó la mejor decisión?"</li>
+                    <li>Guíe la discusión hacia: depende de las circunstancias.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente la tabla de comparación alquilar vs. comprar con datos de {{STATE_NAME}}.</li>
+                    <li>Defina términos clave: capital, enganche, hipoteca, HOA, costos de cierre.</li>
+                    <li>Use datos locales: vivienda mediana ${{STATE_MEDIAN_HOME_PRICE}}, alquiler ${{STATE_MEDIAN_RENT}}/mes.</li>
+                    <li>Enfatice que no hay opción "mejor"—depende de la situación individual y del mercado de {{STATE_NAME}}.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis de casos de Amy y John/María.</li>
+                    <li><strong>Parte B (8 min):</strong> Cálculos de costos totales de vivienda.</li>
+                    <li><strong>Parte C (7 min):</strong> Identificar prioridades personales.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise P1 sobre el concepto de capital.</li>
+                    <li>Discuta P2 sobre el horizonte de tiempo en la decisión.</li>
+                    <li>Comparta reflexiones de los estudiantes sobre sus prioridades.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadora con fórmulas pre-configuradas.</li>
+                <li>Use analogía: alquilar es como "suscripción", comprar es como "inversión".</li>
+                <li>Simplifique a 3 factores clave: costo, flexibilidad, capital.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcule punto de equilibrio con datos de {{STATE_NAME}}.</li>
+                <li>Compare precios de {{STATE_NAME}} (${{STATE_MEDIAN_HOME_PRICE}}) vs. promedio nacional ($350,000).</li>
+                <li>Investigue precios de vivienda en áreas específicas de {{STATE_NAME}}.</li>
+                <li>Explore el concepto de "house hacking" (alquilar parte de la casa).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-note"><strong>Nota:</strong> Las respuestas usan datos de vivienda de {{STATE_NAME}}. Ajuste según su estado.</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Casos en {{STATE_NAME}}</div>
+            <div class="answer-item"><strong>Por qué alquilar tiene sentido para Amy:</strong> (1) Carrera recién comenzada—puede necesitar mudarse por oportunidades, (2) No tiene ahorros grandes para enganche, (3) No quiere responsabilidad de mantenimiento, (4) Puede invertir lo que ahorraría del enganche en jubilación/fondos de emergencia, (5) Acceso a amenidades que no podría pagar en casa propia.</div>
+            <div class="answer-item"><strong>Por qué comprar tiene sentido para John y María:</strong> (1) Carreras estables—planean quedarse a largo plazo, (2) Tienen ahorros para enganche y emergencias, (3) Construyen capital cada mes en lugar de "tirar" dinero en alquiler, (4) Quieren libertad para renovar/personalizar, (5) Hipoteca de tasa fija da estabilidad vs. aumentos de alquiler.</div>
+            <div class="answer-item"><strong>Cambios que harían a Amy considerar comprar:</strong> Aumento salarial significativo, decisión de quedarse en una ciudad largo plazo, matrimonio/familia, acumulación de ahorros suficientes para enganche y fondo de emergencia.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Costos Totales en {{STATE_NAME}}</div>
+            <div class="calc-display">ALQUILAR en {{STATE_NAME}}:
+Alquiler mediano: ${{STATE_MEDIAN_RENT}}/mes
+Seguro inquilino: ~$15/mes
+Servicios: ~$150/mes
+Total mensual: ${{STATE_MEDIAN_RENT}} + $165
+Costo anual: (Total mensual × 12)
+
+COMPRAR en {{STATE_NAME}} (casa ${{STATE_MEDIAN_HOME_PRICE}}):
+Hipoteca: Calcular basado en precio y enganche
+Impuestos ({{STATE_PROPERTY_TAX_AVG}}%): ${{STATE_MEDIAN_HOME_PRICE}} × {{STATE_PROPERTY_TAX_AVG}}% ÷ 12
+Seguro: ~$100/mes
+HOA: Variable
+Mantenimiento (~1%): ${{STATE_MEDIAN_HOME_PRICE}} × 1% ÷ 12
+
+Compare totales y calcule diferencia mensual</div>
+            <div class="answer-note">A largo plazo, el capital acumulado y la apreciación de la casa pueden superar el costo adicional mensual. La "regla del 5 años" sugiere que comprar generalmente es mejor si planea quedarse más de 5 años. Compare siempre con datos locales de {{STATE_NAME}}.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> Capital (equity) es la diferencia entre el valor de mercado de la propiedad y lo que aún se debe en la hipoteca. Ejemplo: casa vale $250,000, debe $200,000 en hipoteca = $50,000 de capital. Crece con cada pago de hipoteca y cuando la casa aumenta de valor.</div>
+            <div class="answer-item"><strong>2.</strong> Debería ALQUILAR porque: (1) Vender una casa en 2 años probablemente resulta en pérdida por costos de cierre (2-5% al comprar Y al vender), (2) No hay tiempo suficiente para construir capital significativo, (3) Mercado inmobiliario puede bajar en ese período, (4) Alquilar permite mudarse fácilmente al terminar contrato.</div>
+            <div class="answer-item"><strong>3.</strong> Aunque los costos mensuales son más altos al comprar: (1) Parte del pago va a capital (ahorro forzado), (2) La casa puede apreciar en valor (ganancia de inversión), (3) La hipoteca de tasa fija no sube, mientras el alquiler típicamente aumenta 3-5% anual, (4) Posibles beneficios fiscales por intereses hipotecarios, (5) Al final tienes un activo, mientras alquilar no deja nada.</div>
+            <div class="answer-item"><strong>4.</strong> Factores financieros antes de comprar: (1) Ingreso estable para cubrir pagos, (2) Ahorros para enganche (3-20%), (3) Ahorros para costos de cierre (2-5%), (4) Fondo de emergencia para reparaciones (3-6 meses de gastos), (5) Buen puntaje crediticio (640+), (6) Ratio deuda-ingreso bajo 43%, (7) Plan de quedarse al menos 5 años.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Alquilar es tirar el dinero."</td><td>Alquilar proporciona valor: techo, flexibilidad, y evita costos ocultos de propiedad. El dinero "ahorrado" al no comprar puede invertirse. Alquilar puede ser financieramente óptimo dependiendo de circunstancias.</td></tr>
+            <tr><td>"Comprar siempre es mejor inversión."</td><td>Depende del mercado, tiempo de permanencia, y costos. Después de costos de cierre, impuestos, mantenimiento, y seguro, comprar solo es mejor si planea quedarse 5+ años. El mercado inmobiliario también puede bajar.</td></tr>
+            <tr><td>"Solo necesito el enganche para comprar."</td><td>Además del enganche, necesita: costos de cierre (2-5%), fondo para reparaciones inesperadas, presupuesto para mantenimiento continuo (~1% del valor anualmente), y reservas para impuestos/seguro que pueden aumentar.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 10.1 — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

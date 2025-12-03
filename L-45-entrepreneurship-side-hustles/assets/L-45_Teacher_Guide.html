@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-45 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: L-45 — Emprendimiento y Trabajos Secundarios | {{STATE_NAME}}</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Constructor de Plan de Negocios</td>
+            <td>L-44: Habilidades para Entrevistas</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Jordan—enfatice cómo identificó una oportunidad a partir de un problema observado.</li>
+                    <li>Discusión: "¿Qué hizo Jordan para minimizar el riesgo mientras probaba su idea?"</li>
+                    <li>Comparta estadísticas: trabajos secundarios permiten probar ideas con menor riesgo financiero.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos clave. Escriba MVP en la pizarra y explique su importancia.</li>
+                    <li>Discuta las características emprendedoras: reconocimiento de oportunidades, resiliencia, adaptabilidad.</li>
+                    <li>Verificación rápida: "¿Cuál es la diferencia entre un trabajo secundario y un pasatiempo?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Autoevaluación emprendedora. Circule para ayudar a identificar fortalezas.</li>
+                    <li><strong>Parte B (10 min):</strong> Lluvia de ideas de negocios. Anime a pensar en problemas reales que enfrentan.</li>
+                    <li><strong>Parte C (12 min):</strong> Evaluación de oportunidades. Guíe el uso del marco de evaluación.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P2 (importancia del MVP) y P5 (reflexión personal).</li>
+                    <li>Anticipe el Día 2: Desarrollo de plan de negocios completo y práctica de pitch.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione ejemplos de trabajos secundarios por categoría (servicios, productos, digital).</li>
+                <li>Use plantillas con preguntas guía para la lluvia de ideas.</li>
+                <li>Trabaje en parejas para la evaluación de oportunidades.</li>
+                <li>Proporcione lista de problemas comunes como punto de partida.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue emprendedores exitosos que comenzaron con trabajos secundarios.</li>
+                <li>Desarrolle proyecciones financieras básicas para su mejor idea.</li>
+                <li>Cree un cronograma de implementación con hitos específicos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Autoevaluación Emprendedora</div>
+            <div class="answer-note">Las respuestas variarán. Busque autoevaluaciones honestas con ejemplos concretos que demuestren cada característica. Ejemplo de respuesta fuerte: "Reconocimiento de oportunidades (4): Noté que mis compañeros tenían dificultades encontrando almuerzos saludables cerca del campus y diseñé un servicio de entrega de comida preparada."</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Identificación de Oportunidades</div>
+            <div class="answer-note">Evalúe que las ideas tengan: 1) Un problema claramente definido, 2) Un cliente objetivo específico, 3) Conexión con habilidades o intereses del estudiante.</div>
+            <div class="answer-item"><strong>Buenos ejemplos:</strong> Servicio de tutoría en materias donde destaca, diseño de logos para pequeños negocios, reparación de dispositivos electrónicos, fotografía de eventos, creación de contenido para redes sociales.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Evaluación de Oportunidades</div>
+            <div class="answer-item"><strong>MVP efectivo:</strong> Debe ser la versión más simple que entregue valor. Ejemplo: Para tutoría—ofrecer 3 sesiones gratuitas a cambio de testimonios antes de cobrar.</div>
+            <div class="answer-item"><strong>Criterios de evaluación:</strong> Puntuaciones altas en pasión e interés son críticas; puntuaciones bajas en viabilidad pueden superarse con creatividad; el tamaño del mercado importa menos para trabajos secundarios iniciales.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Un proyecto o negocio adicional para generar ingresos extra)</div>
+            <div class="answer-item"><strong>2.</strong> Un MVP permite probar suposiciones sobre el negocio con clientes reales antes de invertir tiempo y dinero significativo. Ayuda a validar que existe demanda real, recopilar retroalimentación para mejorar la oferta, y reducir el riesgo de fracaso.</div>
+            <div class="answer-item"><strong>3.</strong> Tres componentes esenciales: Propuesta de valor (qué valor único ofrece), Mercado objetivo (quiénes son sus clientes), Modelo de ingresos (cómo ganará dinero). Otros válidos: estrategia de marketing, proyecciones financieras, plan de operaciones.</div>
+            <div class="answer-item"><strong>4.</strong> Estrategias de equilibrio: bloques de tiempo dedicados (programar horarios específicos), rutinas matutinas/vespertinas, agrupación de tareas similares, establecer límites claros, usar herramientas de automatización, comunicar expectativas con familia.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de un problema específico, solución que aproveche habilidades personales, y pasos concretos de validación (investigación de mercado, MVP, retroalimentación de clientes potenciales).</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Necesito una idea completamente nueva para ser emprendedor."</td>
+                <td>La mayoría de negocios exitosos mejoran soluciones existentes en lugar de inventar algo completamente nuevo. La ejecución, servicio al cliente y nichos específicos pueden diferenciar su oferta sin innovación radical.</td>
+            </tr>
+            <tr>
+                <td>"Necesito mucho capital para iniciar un negocio."</td>
+                <td>Los trabajos secundarios pueden iniciarse con inversión mínima. El bootstrapping (usar finanzas personales y reinvertir ganancias) es una estrategia válida. Muchos negocios de servicios requieren solo tiempo y habilidades.</td>
+            </tr>
+            <tr>
+                <td>"Si mi producto es bueno, los clientes vendrán automáticamente."</td>
+                <td>Incluso los mejores productos requieren marketing y esfuerzo de ventas. El descubrimiento de clientes y la construcción de relaciones son fundamentales. Muchos negocios fallan no por mal producto sino por falta de clientes.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-header">Contexto Empresarial de {{STATE_NAME}} para Educadores</div>
+    <div class="background-box">
+        <p><strong>Costos de Iniciar Negocios:</strong> {{#if STATE_LLC_FILING_FEE}}En {{STATE_NAME}}, formar una LLC cuesta ${{STATE_LLC_FILING_FEE}}.{{/if}} {{#if STATE_SALES_TAX}}Los estudiantes deben entender que necesitarán cobrar {{STATE_SALES_TAX}}% de impuesto sobre las ventas.{{else}}{{STATE_NAME}} no tiene impuesto estatal sobre las ventas, lo cual simplifica la fijación de precios para los estudiantes emprendedores.{{/if}}</p>
+        <p><strong>Recursos Locales:</strong> Conecte a los estudiantes con recursos locales como la Cámara de Comercio, SCORE, o centros de desarrollo de pequeñas empresas en {{STATE_NAME}} para mentoría práctica y orientación.</p>
+        {{#if STATE_DMV_URL}}<p><strong>Oportunidades Basadas en Vehículos:</strong> Para estudiantes interesados en trabajos secundarios que requieren conducir (entrega, rideshare), asegúrese de discutir los requisitos de seguro y licencia específicos de {{STATE_NAME}}. Visite {{STATE_DMV_URL}} para información actualizada.</p>{{/if}}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: L-45</span>
+    </div>
+
+</body>
+</html>

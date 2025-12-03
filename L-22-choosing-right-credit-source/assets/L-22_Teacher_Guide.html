@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-22 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.2 — Eligiendo la Fuente Correcta de Crédito</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>Entendiendo el Costo de los Préstamos (L-21)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea el escenario de Marcus en voz alta.</li>
+                    <li>Pregunte: "¿Qué harían si necesitaran dinero urgentemente?"</li>
+                    <li>Discuta por qué la decisión correcta puede ahorrar cientos de dólares.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente la tabla de comparación de fuentes de crédito.</li>
+                    <li>Enfatice la diferencia dramática en TAE: cooperativas (4-12%) vs. día de pago (300-500%).</li>
+                    <li>Explique por qué las cooperativas ofrecen mejores tasas (sin fines de lucro, propiedad de miembros).</li>
+                    <li>Discuta los factores clave: TAE, términos, comisiones, requisitos de garantía.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Análisis de escenarios. Guíe la evaluación de Ana, Carlos y Roberto.</li>
+                    <li><strong>Parte B (8 min):</strong> Calculadora de costos. Trabaje el ejemplo de $3,000 juntos.</li>
+                    <li><strong>Parte C (10 min):</strong> Plan personal de decisión de crédito y reflexión.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">8 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise P3 (cálculos de interés: $80 vs. $3,000).</li>
+                    <li>Discuta P4—por qué existen los préstamos de día de pago y alternativas.</li>
+                    <li>Comparta reflexiones sobre preparación para obtener mejores tasas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una tabla visual simplificada de solo 3 fuentes de crédito.</li>
+                <li>Use calculadora en línea para demostrar los cálculos de interés.</li>
+                <li>Trabaje el primer escenario como ejemplo guiado.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue tasas actuales de cooperativas locales vs. bancos.</li>
+                <li>Calcule el impacto de diferentes plazos en el costo total.</li>
+                <li>Analice regulaciones estatales sobre préstamos de día de pago.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Escenarios de Crédito</div>
+            <div class="answer-item"><strong>Escenario 1 (Ana): COOPERATIVA DE CRÉDITO.</strong> Con un puntaje de 680 y membresía existente, probablemente obtenga una TAE de 8-12% vs. 19% de la tarjeta de crédito. Ahorro potencial de $100-200 en un préstamo de $2,000.</div>
+            <div class="answer-item"><strong>Escenario 2 (Carlos): PRÉSTAMO BANCARIO.</strong> La TAE del 4.5% es la más baja. Cálculo: $12,000 al 4.5% por 48 meses = ~$1,100 en intereses. El concesionario al 6.9% por 60 meses = ~$2,200 en intereses. El banco ahorra ~$1,100.</div>
+            <div class="answer-item"><strong>Escenario 3 (Roberto): EVITAR DÍA DE PAGO.</strong> Alternativas: Negociar con el propietario, buscar asistencia de emergencia comunitaria, pedir prestado a familia/amigos, vender artículos, buscar servicios de asesoría crediticia sin fines de lucro.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Calculadora de Costo de Crédito</div>
+            <div class="calc-display">Préstamo de $3,000 comparación:
+
+COOPERATIVA (8% TAE, 12 meses):
+Pago mensual: ~$261
+Interés total: ~$132
+Costo total: $3,132
+Tiempo: 12 meses
+
+TARJETA DE CRÉDITO (18% TAE, pago mínimo):
+Pago mensual: ~$60-90 (mínimo)
+Interés total: ~$800-1,200
+Costo total: $3,800-4,200
+Tiempo: 4-5+ años
+
+PRÉSTAMO DE DÍA DE PAGO (400% TAE equiv.):
+Costo por 2 semanas: ~$450-600 en comisiones
+Si renueva 6 veces: $2,700-3,600 en comisiones
+Costo total: $5,700-6,600+</div>
+            <div class="answer-item"><strong>Diferencia:</strong> El préstamo de día de pago puede costar $2,500-3,500+ MÁS que la cooperativa de crédito para el mismo préstamo de $3,000.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> Las cooperativas de crédito son organizaciones sin fines de lucro propiedad de sus miembros. No tienen accionistas que demanden ganancias, por lo que pueden devolver las ganancias a los miembros en forma de tasas más bajas y menos comisiones.</div>
+            <div class="answer-item"><strong>2.</strong> Un puntaje de 600 está por debajo del umbral típico de los bancos (generalmente 650-700+). Alternativas: cooperativas de crédito (criterios más flexibles), prestamistas en línea para crédito justo, préstamos garantizados con colateral, o tarjetas de crédito aseguradas para construir crédito.</div>
+            <div class="answer-item"><strong>3.</strong> $1,000 × 8% × 1 año = <strong>$80</strong> de interés. $1,000 × 300% × 1 año = <strong>$3,000</strong> de interés. El préstamo de día de pago cuesta 37.5 veces más.</div>
+            <div class="answer-item"><strong>4.</strong> Siguen siendo legales porque: sirven a personas sin otras opciones, lobby de la industria, algunos argumentan que el mercado debería decidir. Alternativas: programas de asistencia comunitaria, adelantos de empleadores, negociación de pagos, préstamos de familiares, cooperativas de crédito comunitarias, tarjetas de crédito aseguradas.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Busque respuestas que demuestren: identificación de fuente de crédito apropiada, estrategias para mejorar puntaje crediticio antes de pedir prestado, comparación de múltiples opciones, comprensión del impacto de las decisiones de crédito a largo plazo.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Todos los bancos ofrecen las mismas tasas."</td><td>Las tasas varían significativamente entre instituciones. Las cooperativas de crédito generalmente ofrecen 2-4 puntos porcentuales menos que los bancos comerciales. Siempre compare múltiples opciones.</td></tr>
+            <tr><td>"Los préstamos de día de pago son solo para emergencias rápidas."</td><td>El costo extremo (300-500% TAE) hace que incluso las emergencias sean mucho más caras. Un préstamo de 2 semanas puede convertirse en meses de deuda con comisiones que superan el principal.</td></tr>
+            <tr><td>"No califico para ningún préstamo con mal crédito."</td><td>Las cooperativas de crédito y prestamistas en línea a menudo tienen criterios más flexibles. Los préstamos garantizados y las tarjetas aseguradas están disponibles para reconstruir crédito.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.2</span>
+    </div>
+
+</body>
+</html>

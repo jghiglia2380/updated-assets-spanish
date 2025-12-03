@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-16 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.3 — Evaluación de Estrategias de Ahorro e Inversión</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulos 5.1-5.2 (Ahorro, Inversión, Interés Compuesto)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el escenario Ana vs. Bruno: $10,000 por 30 años.</li>
+                    <li>Discusión: "¿Cuál creen que tendrá más al final?"</li>
+                    <li>Use la Regla del 72 para calcular las diferencias.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente el espectro riesgo-rendimiento visualmente.</li>
+                    <li>Revise las 5 opciones principales y sus características.</li>
+                    <li>Conecte estrategias con horizontes temporales apropiados.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Selección por objetivo. Discuta las razones.</li>
+                    <li><strong>Parte B (8 min):</strong> Análisis de casos Liam y Julia.</li>
+                    <li><strong>Parte C (6 min):</strong> Evaluación de tolerancia al riesgo.</li>
+                    <li><strong>Parte D (8 min):</strong> Diseño de portafolio diversificado.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (ahorro vs. jubilación) y P4 (aplicación personal).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una tabla de referencia simplificada de opciones.</li>
+                <li>Use analogías: ahorro = alcancía, inversión = plantar semillas.</li>
+                <li>Limite las opciones de inversión a 3 categorías básicas.</li>
+                <li>Trabaje los cálculos de la Regla del 72 juntos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigar rendimientos históricos reales de diferentes activos.</li>
+                <li>Analizar el impacto de comisiones en rendimientos a largo plazo.</li>
+                <li>Crear un plan financiero de múltiples objetivos con diferentes estrategias.</li>
+                <li>Calcular el impacto de la inflación en diferentes opciones.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Ana vs. Bruno</div>
+            <div class="calc-display">Ana (1% - cuenta de ahorros):
+72 ÷ 1 = 72 años para duplicar
+En 30 años: No llega a duplicar
+$10,000 → ~$13,500 (aproximado)
+
+Bruno (7% - fondo mutuo):
+72 ÷ 7 = ~10 años para duplicar
+En 30 años: 3 duplicaciones
+$10,000 → $20,000 → $40,000 → $80,000
+
+Diferencia: Bruno tiene ~6 veces más que Ana</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Selección por Objetivo</div>
+            <div class="answer-item"><strong>Fondo de emergencia:</strong> Cuenta de ahorros. Necesita acceso inmediato y protección total del capital.</div>
+            <div class="answer-item"><strong>Computadora (1 año):</strong> CD a corto plazo o cuenta de ahorros. Plazo muy corto para riesgo de mercado.</div>
+            <div class="answer-item"><strong>Pago inicial casa (5 años):</strong> CD a largo plazo o fondo balanceado conservador. Plazo intermedio permite algo de crecimiento con riesgo limitado.</div>
+            <div class="answer-item"><strong>Universidad (8 años):</strong> Fondo balanceado o bonos. Tiempo suficiente para crecimiento moderado, transición a más seguro cerca de la fecha.</div>
+            <div class="answer-item"><strong>Jubilación (40 años):</strong> Fondos mutuos de acciones diversificados. Plazo largo permite maximizar crecimiento y superar volatilidad.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Análisis de Casos</div>
+            <div class="answer-item"><strong>1. Por qué Liam eligió CD:</strong> Su horizonte de 18 meses es muy corto para inversiones volátiles. Si el mercado cayera 20% justo antes de necesitar el dinero, no tendría tiempo para recuperarse. El CD garantiza que su capital estará disponible. Además, necesita una cantidad específica ($8,000) para una compra definida—no puede arriesgarse a tener menos.</div>
+            <div class="answer-item"><strong>2. Por qué Julia puede aceptar más riesgo:</strong> (1) Tiene 40 años para que su inversión se recupere de cualquier caída—múltiples ciclos de mercado; (2) No necesita el dinero hasta la jubilación, así que la volatilidad a corto plazo es irrelevante; (3) Puede aprovechar el interés compuesto durante décadas; (4) Puede ajustar su estrategia gradualmente a medida que se acerca la jubilación.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Tolerancia al Riesgo</div>
+            <div class="answer-note">Las respuestas revelan tolerancia al riesgo: A = muy baja (vende en pánico), B = baja (nervioso), C = moderada (mantiene estrategia), D = alta (ve oportunidad). No hay respuesta "correcta"—es autoconocimiento.</div>
+            <div class="answer-item"><strong>4.</strong> La tolerancia al riesgo debe influir en la selección de inversiones: baja tolerancia = más bonos/ahorro; alta tolerancia = más acciones. Pero el horizonte temporal también importa—alta tolerancia con plazo corto aún requiere opciones conservadoras.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D: Diversificación y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>5.</strong> La diversificación reduce riesgo porque diferentes inversiones responden diferentemente a eventos económicos. Si una acción baja, otras pueden subir. Si todo está en una sola inversión y esa falla, se pierde todo.</div>
+            <div class="answer-item"><strong>6.</strong> Portafolio para 25 años (jubilación): Ejemplo: 80% acciones/fondos de acciones, 15% bonos, 5% efectivo. Justificación: plazo largo (40 años) permite volatilidad alta, acciones maximizan crecimiento, pequeño porcentaje en bonos/efectivo proporciona estabilidad.</div>
+            <div class="answer-item"><strong>1.</strong> B (Mayor rendimiento potencial generalmente requiere aceptar más riesgo)</div>
+            <div class="answer-item"><strong>2.</strong> Cuentas de ahorro: alta liquidez para emergencias pero rendimiento bajo (1%) que no supera inflación a largo plazo. Para jubilación de 40 años, perderías poder adquisitivo; necesitas crecimiento que solo las inversiones pueden ofrecer.</div>
+            <div class="answer-item"><strong>3.</strong> Horizonte temporal = cuánto tiempo hasta necesitar el dinero. Es crucial porque determina cuánto riesgo puede aceptar: plazos largos permiten volatilidad y recuperación; plazos cortos requieren seguridad.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Las inversiones son como apostar—puedo perder todo."</td>
+                <td>Inversiones diversificadas a largo plazo son muy diferentes del juego. Históricamente, el mercado de valores ha crecido durante períodos largos a pesar de caídas temporales. La clave es diversificación y paciencia.</td>
+            </tr>
+            <tr>
+                <td>"Las cuentas de ahorro son seguras, así que son la mejor opción."</td>
+                <td>Seguras para el capital, pero el riesgo de inflación erosiona el poder adquisitivo. A 3% de inflación y 1% de interés, está perdiendo 2% de valor real anualmente.</td>
+            </tr>
+            <tr>
+                <td>"Soy joven, puedo arriesgar todo—ya recuperaré si pierdo."</td>
+                <td>Ser joven permite MÁS riesgo, no riesgo ILIMITADO. Aún necesita diversificación y un fondo de emergencia en efectivo antes de invertir agresivamente.</td>
+            </tr>
+            <tr>
+                <td>"Los CDs son aburridos—mejor buscar rendimientos altos."</td>
+                <td>Cada herramienta tiene su propósito. Para metas a corto plazo con fecha específica (auto, vacaciones), los CDs proporcionan certeza que las inversiones no pueden garantizar.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.3</span>
+    </div>
+
+</body>
+</html>

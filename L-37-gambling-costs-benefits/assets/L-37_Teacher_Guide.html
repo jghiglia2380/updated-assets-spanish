@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-37 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 12.2 — Los Costos y Beneficios del Juego</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>L-36 Comprendiendo los Riesgos del Juego</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el juego como forma de entretenimiento con costos.</li>
+                    <li>Compare con ir al cine: paga por la experiencia, no espera retorno.</li>
+                    <li>Pregunte: "¿Cuánto está dispuesto a gastar en entretenimiento mensualmente?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Explique la progresión: recreativo → en riesgo → problemático → patológico.</li>
+                    <li>Presente los beneficios económicos comunitarios (empleos, impuestos, turismo).</li>
+                    <li>Discuta los costos sociales (servicios sociales, justicia criminal, familias).</li>
+                    <li>Enfatice el concepto de "impuesto regresivo" con datos de lotería.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">22 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Comparación de valor de entretenimiento. Discuta respuestas en grupos.</li>
+                    <li><strong>Parte B (10 min):</strong> Impacto comunitario. Analice casos reales si es posible.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Discuta la reflexión P5 sobre responsabilidad compartida.</li>
+                    <li>Comparta recursos de ayuda: Línea Nacional 1-800-522-4700.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione ejemplos concretos de presupuestos de entretenimiento.</li>
+                <li>Use escenarios simplificados para el análisis costo-beneficio.</li>
+                <li>Cree una lista de verificación de señales de advertencia.</li>
+                <li>Ofrezca un organizador gráfico para comparar recreativo vs. problemático.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue el impacto económico de casinos en comunidades específicas.</li>
+                <li>Analice políticas de juego responsable de diferentes países.</li>
+                <li>Diseñe una campaña de concientización sobre juego responsable.</li>
+                <li>Debata: ¿Debería el gobierno limitar o expandir el juego?</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Comparación del Valor de Entretenimiento</div>
+            <div class="calc-display">P1 Porcentaje responsable para juego:
+Respuesta sugerida: 5-15% del presupuesto de entretenimiento como máximo.
+Con $100/mes = $5-15 máximo para juego.
+
+Justificación: Porque el juego tiene potencial de pérdidas inesperadas
+y riesgo de comportamiento problemático. Mantener bajo porcentaje
+protege el presupuesto general de entretenimiento.
+
+P2 Juego Recreativo vs. Problemático:
+
+RECREATIVO:
+- Una de muchas actividades de ocio
+- Presupuesto y límites establecidos y respetados
+- Pérdidas vistas como costo de entretenimiento
+
+PROBLEMÁTICO:
+- Se convierte en actividad principal
+- Persigue pérdidas para "recuperar" dinero
+- Miente sobre tiempo/dinero gastado</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>P3:</strong> Beneficios: (1) Ingresos fiscales para servicios públicos (2) Creación de empleos. Costos: (1) Aumento de servicios de tratamiento de ludopatía (2) Posible aumento de bancarrotas y problemas familiares.</div>
+            <div class="answer-item"><strong>P4:</strong> Impuesto regresivo porque los hogares de bajos ingresos gastan proporcionalmente más en lotería (ej: $950/año vs. $250/año para altos ingresos). Los pobres contribuyen más a estos ingresos fiscales en relación a sus recursos.</div>
+            <div class="answer-item"><strong>CTU 1:</strong> B (Intentar "recuperar" el dinero perdido)</div>
+            <div class="answer-item"><strong>CTU 2:</strong> B (Como entretenimiento con un costo asociado)</div>
+            <div class="answer-item"><strong>CTU 3:</strong> Análisis de costo-beneficio que cuantifique beneficios económicos (empleos, impuestos) contra costos sociales (tratamiento, servicios sociales, impacto en familias).</div>
+            <div class="answer-item"><strong>CTU 4:</strong> (1) Establecer presupuesto antes de jugar (2) Nunca perseguir pérdidas (3) Usar solo dinero discrecional (4) Establecer límite de tiempo (5) No jugar cuando esté estresado/alterado.</div>
+            <div class="answer-note">CTU 5: Acepte respuestas equilibradas que reconozcan: individuos deben establecer límites y reconocer señales; operadores deben proveer herramientas de autoexclusión y límites; gobiernos deben regular y financiar tratamiento. El equilibrio entre libertad y protección varía según valores individuales.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr>
+                <td>"El juego es una buena forma de mejorar mi situación financiera."</td>
+                <td>La matemática del juego garantiza pérdidas a largo plazo para el jugador. Debe verse estrictamente como entretenimiento con un costo, nunca como estrategia financiera.</td>
+            </tr>
+            <tr>
+                <td>"Los casinos solo benefician a las comunidades económicamente."</td>
+                <td>El impacto es mixto. Beneficios (empleos, impuestos) deben pesarse contra costos sociales (aumento de ludopatía, bancarrotas, demanda de servicios sociales). Algunas comunidades experimentan más costos que beneficios.</td>
+            </tr>
+            <tr>
+                <td>"La lotería es una forma justa de financiar la educación."</td>
+                <td>Los ingresos de lotería provienen desproporcionadamente de hogares de bajos ingresos, funcionando como impuesto regresivo. Además, a menudo reemplaza en lugar de suplementar el financiamiento educativo regular.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 12.2</span>
+    </div>
+
+</body>
+</html>

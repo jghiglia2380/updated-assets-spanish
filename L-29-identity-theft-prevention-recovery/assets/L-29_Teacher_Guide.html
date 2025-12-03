@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-29 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 9.2 — Prevención y Recuperación del Robo de Identidad</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades</td><td>Fraude al Consumidor (L-28)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente los casos de María (fraude con tarjeta) y David (robo fiscal).</li>
+                    <li>Pregunte: "¿Cómo pudieron los ladrones obtener esta información?"</li>
+                    <li>Haga lluvia de ideas sobre posibles métodos de robo.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente los cinco métodos principales de robo de identidad.</li>
+                    <li>Distinga entre métodos digitales (phishing, violaciones) y físicos (skimming, basura).</li>
+                    <li>Enfatice el impacto: financiero, tiempo (200+ horas), emocional, legal.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis de casos de María y David.</li>
+                    <li><strong>Parte B (8 min):</strong> Lista de verificación de protección personal.</li>
+                    <li><strong>Parte C (7 min):</strong> Desarrollo de plan de respuesta.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise P1 sobre señales de advertencia.</li>
+                    <li>Discuta P2 sobre alerta de fraude vs. congelamiento.</li>
+                    <li>Comparta planes de respuesta de los estudiantes.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione lista simplificada de "3 pasos si le roban la identidad".</li>
+                <li>Use ejemplos visuales de correos de phishing vs. legítimos.</li>
+                <li>Trabaje el caso de María como ejemplo guiado antes de David.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue estadísticas actuales de robo de identidad de la FTC.</li>
+                <li>Explore cómo funciona el congelamiento de crédito en detalle.</li>
+                <li>Analice casos de robo de identidad sintética (combinación de datos).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Casos</div>
+            <div class="answer-item"><strong>Caso María - Cómo obtuvieron su información:</strong> Probablemente violación de datos de un comercio en línea, phishing, o skimming. El hecho de que enviaron a otra dirección sugiere que tenían acceso completo a la cuenta o crearon cuentas nuevas.</div>
+            <div class="answer-item"><strong>Acciones correctas de María:</strong> (1) Llamó inmediatamente a la compañía de tarjeta, (2) Revisó otras cuentas por actividad sospechosa, (3) Cambió contraseñas de cuentas financieras, (4) Colocó alerta de fraude, (5) Reportó a la FTC, (6) Implementó medidas adicionales después (tarjeta dedicada para compras en línea, alertas de transacciones).</div>
+            <div class="answer-item"><strong>Caso David - Por qué es particularmente dañino:</strong> (1) Afecta reembolso de impuestos, (2) Toma mucho tiempo resolver (8 meses en su caso), (3) Requiere formularios especiales del IRS, (4) El ladrón tiene su SSN, lo que permite más fraude, (5) Puede afectar beneficios gubernamentales.</div>
+            <div class="answer-item"><strong>Medidas preventivas para David:</strong> (1) Presentar declaración temprano antes que los ladrones, (2) Proteger mejor su SSN, (3) Triturar documentos fiscales, (4) Usar PIN de Protección de Identidad del IRS, (5) Monitorear informe de crédito regularmente.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Plan de Respuesta</div>
+            <div class="answer-item"><strong>Paso 1 (24 horas):</strong> Llamar a instituciones afectadas para congelar/cerrar cuentas, cambiar contraseñas, documentar todo.</div>
+            <div class="answer-item"><strong>Paso 2 (Reportar):</strong> FTC en IdentityTheft.gov, policía local si conoce al ladrón o hay uso criminal, agencias de crédito para alerta/congelamiento.</div>
+            <div class="answer-item"><strong>Paso 3 (Proteger):</strong> Cambiar contraseñas de todas las cuentas, activar autenticación de dos factores, configurar alertas de transacciones, continuar monitoreando.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> Tres señales de advertencia: (1) Rechazos inesperados de solicitudes de crédito, (2) Facturas o correo faltante, (3) Cuentas o cargos desconocidos en informe de crédito, (4) Llamadas de cobranza por deudas desconocidas, (5) Notificaciones del IRS sobre declaraciones duplicadas, (6) Facturas médicas por servicios no recibidos.</div>
+            <div class="answer-item"><strong>2.</strong> Alerta de fraude: Aviso en su informe que alerta a acreedores de posible fraude (deben verificar identidad antes de aprobar crédito). Congelamiento de crédito: Bloquea completamente el acceso a su informe (nadie puede abrir cuentas, incluido usted sin descongelar). Use alerta si sospecha riesgo; use congelamiento para máxima protección o si ya fue víctima.</div>
+            <div class="answer-item"><strong>3.</strong> NO hacer clic en el enlace. Ir directamente al sitio oficial del banco escribiendo la dirección en el navegador o llamar al número en la tarjeta. Los bancos legítimos NUNCA piden verificar información por correo electrónico.</div>
+            <div class="answer-item"><strong>4.</strong> Toma meses/años porque: (1) Múltiples instituciones afectadas requieren contacto individual, (2) Investigaciones toman tiempo, (3) Disputar cargos/cuentas fraudulentas es proceso largo, (4) Restaurar puntaje crediticio es gradual, (5) El ladrón puede usar la información repetidamente.</div>
+            <div class="answer-note">La FTC estima un promedio de 200 horas durante 6 meses para resolver casos de robo de identidad.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Solo las personas mayores son víctimas de robo de identidad."</td><td>Los jóvenes son frecuentemente víctimas—especialmente robo de identidad sintética (usar SSN de menores) y estafas en redes sociales. Los estudiantes universitarios son blancos populares.</td></tr>
+            <tr><td>"Si mi banco detecta fraude, estoy completamente protegido."</td><td>Los bancos protegen contra cargos fraudulentos, pero el ladrón puede usar su información para abrir NUEVAS cuentas en otros lugares. Necesita monitorear todo su crédito, no solo cuentas existentes.</td></tr>
+            <tr><td>"Un congelamiento de crédito arruinará mi puntaje crediticio."</td><td>Un congelamiento NO afecta su puntaje crediticio. Solo evita que otros accedan a su informe. Puede descongelarlo temporalmente cuando necesite solicitar crédito.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 9.2</span>
+    </div>
+
+</body>
+</html>

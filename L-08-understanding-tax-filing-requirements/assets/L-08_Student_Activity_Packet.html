@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-08 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .scenario-card { background: #fafafa; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .scenario-card h4 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capitulo 2.3: Entendiendo los Requisitos para la Declaracion de Impuestos</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafio</div>
+    <div class="challenge-box">
+        <p>Ava trabaja medio tiempo ganando $4,500 al ano. Aunque esta por debajo del umbral de declaracion, su empleador ha retenido impuestos de cada cheque. Si no declara, pierde su reembolso. Ben tiene dos fuentes de ingreso: trabajo de tiempo completo ($32,000) y freelance ($5,000). Debe declarar y tambien pagar impuesto de trabajo independiente por sus ingresos freelance.</p>
+        <p class="framing-question">Cuando necesitas declarar impuestos, que formularios debes conocer, y como puede el estado civil afectar tus obligaciones fiscales?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Determinar quien necesita presentar una declaracion de impuestos.</li>
+            <li>Identificar formularios fiscales comunes: W-2, 1099 y Formulario 1040.</li>
+            <li>Comprender como los estados civiles afectan las obligaciones tributarias.</li>
+            <li>Reconocer fechas limite importantes y consecuencias de no cumplirlas.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Termino</th><th>Definicion</th></tr>
+        <tr><td>Formulario W-2</td><td>Documento del empleador que reporta salarios anuales e impuestos retenidos.</td></tr>
+        <tr><td>Formulario 1099</td><td>Reporta ingresos de fuentes distintas al empleo (freelance, inversiones, etc.).</td></tr>
+        <tr><td>Formulario 1040</td><td>El formulario principal para presentar la declaracion de impuestos federal.</td></tr>
+        <tr><td>Estado Civil</td><td>Clasificacion fiscal que determina tasas y deducciones (Soltero, Casado, etc.).</td></tr>
+        <tr><td>Umbral de Declaracion</td><td>Nivel minimo de ingresos que requiere presentar declaracion.</td></tr>
+        <tr><td>Retencion</td><td>Impuestos deducidos del cheque antes de recibirlo.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> La fecha limite estandar para declarar impuestos es el 15 de abril. Puede solicitar una extension hasta el 15 de octubre para PRESENTAR, pero no para PAGAR—los impuestos adeudados deben pagarse antes de abril para evitar multas.
+    </div>
+
+    <div class="section-header">Aplicalo</div>
+    <div class="part-header">Parte A: Umbrales de Declaracion 2023</div>
+    <p style="margin-bottom: 14px;">Revisa los umbrales y determina quien debe declarar.</p>
+
+    <table class="data-table">
+        <tr><th>Estado Civil</th><th>Edad</th><th>Umbral de Ingresos</th></tr>
+        <tr><td>Soltero</td><td>Menor de 65</td><td>$13,850</td></tr>
+        <tr><td>Soltero</td><td>65 o mayor</td><td>$15,700</td></tr>
+        <tr><td>Cabeza de Familia</td><td>Menor de 65</td><td>$20,800</td></tr>
+        <tr><td>Casado Declarando Conjuntamente</td><td>Ambos menores de 65</td><td>$27,700</td></tr>
+        <tr><td>Casado Declarando por Separado</td><td>Cualquier edad</td><td>$5</td></tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Carlos tiene 22 anos, es soltero, y gano $15,000. Debe declarar? Por que?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Ana gano solo $3,000 trabajando medio tiempo, pero su empleador retuvo impuestos. Deberia declarar? Explica.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="part-header">Parte B: Identificacion de Formularios</div>
+    <p style="margin-bottom: 14px;">Para cada escenario, identifica que formulario(s) estarian involucrados.</p>
+
+    <div class="scenario-card">
+        <h4>Escenario 1: Jamie</h4>
+        <p>Jamie trabaja medio tiempo en un restaurante ganando $12,000 al ano.</p>
+        <p><strong>Formulario(s) necesario(s):</strong> ____________________</p>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Escenario 2: Alex</h4>
+        <p>Alex da tutorias a estudiantes despues de la escuela, ganando $2,500 el ano pasado como contratista independiente.</p>
+        <p><strong>Formulario(s) necesario(s):</strong> ____________________</p>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Escenario 3: Taylor</h4>
+        <p>Taylor tiene un trabajo de tiempo completo y tambien gana dinero vendiendo artesanias en linea como pasatiempo.</p>
+        <p><strong>Formulario(s) necesario(s):</strong> ____________________</p>
+    </div>
+
+    <div class="hint-box"><strong>Pista:</strong> W-2 = empleo tradicional. 1099-NEC = trabajo freelance/contratista ($600+). Formulario 1040 = declaracion principal de impuestos.</div>
+
+    <div class="section-header">Comprueba Tu Comprension</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cual es la fecha limite estandar para presentar la declaracion de impuestos federal?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. 1 de enero</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. 15 de abril</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. 1 de julio</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. 31 de diciembre</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Que sucede si no presentas tu declaracion a tiempo cuando debes impuestos?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Por que podria alguien declarar impuestos INCLUSO si sus ingresos estan por debajo del umbral requerido?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexion:</strong> Has declarado impuestos antes o ayudado a tus padres? Que pasos puedes tomar ahora para prepararte para tu primera declaracion independiente?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capitulo 2.3: Entendiendo los Requisitos para la Declaracion de Impuestos</span>
+    </div>
+</body>
+</html>

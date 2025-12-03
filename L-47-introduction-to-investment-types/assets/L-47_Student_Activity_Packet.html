@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-47 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>L-47: Introducción a los Tipos de Inversión</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Priya, de 24 años, se sintió abrumada por las opciones de inversión. Decidió invertir $563/mes divididos entre un ETF de acciones (80%) y un ETF de bonos (20%), ambos con ratios de gastos menores a 0.05%. A los 30 años, había construido una cartera superior a $52,000 a pesar de la volatilidad del mercado. Mientras tanto, Marcus eligió acciones individuales y después de 2 años su cartera tuvo un rendimiento inferior al índice S&P 500 por 8 puntos porcentuales.</p>
+        <p class="framing-question">¿Cómo afecta la elección entre fondos indexados de bajo costo y acciones individuales a tu construcción de riqueza a largo plazo?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar las características de acciones, bonos, fondos mutuos y ETFs.</li>
+            <li>Comparar los perfiles de riesgo-rendimiento de diferentes vehículos de inversión.</li>
+            <li>Evaluar cómo diferentes inversiones se alinean con diversos objetivos financieros.</li>
+            <li>Tomar decisiones de inversión informadas basadas en situación personal y objetivos.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Acción (Capital)</td>
+            <td>Participación de propiedad en una empresa con derecho a ganancias; puede aumentar de valor y pagar dividendos.</td>
+        </tr>
+        <tr>
+            <td>Bono (Renta Fija)</td>
+            <td>Préstamo a gobierno o corporación que paga intereses regulares y devuelve capital al vencimiento.</td>
+        </tr>
+        <tr>
+            <td>Fondo Mutuo</td>
+            <td>Vehículo que agrupa dinero de inversionistas para comprar una cartera diversificada administrada profesionalmente.</td>
+        </tr>
+        <tr>
+            <td>ETF</td>
+            <td>Similar a fondo mutuo pero se negocia como acción; típicamente tiene comisiones más bajas y rastrea un índice.</td>
+        </tr>
+        <tr>
+            <td>Diversificación</td>
+            <td>Distribuir inversiones entre diferentes tipos de activos para reducir el riesgo general.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Históricamente, las acciones han promediado ~10% de rendimiento anual, pero con volatilidad significativa. Los bonos ofrecen menor riesgo pero rendimientos más modestos. La mezcla correcta depende de tus objetivos, horizonte temporal y tolerancia al riesgo. Los fondos indexados de bajo costo y ETFs ofrecen formas simples y efectivas de construir carteras diversificadas—pequeñas diferencias en comisiones (1% vs 0.05%) pueden costar decenas de miles de dólares durante décadas.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Comparación de Características de Inversión</div>
+    <p class="mb-md">Para cada tipo de inversión, califique de 1 (bajo) a 5 (alto).</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Matriz de Características</div>
+        <div class="response-line">
+            <span class="response-label">Acciones - Retorno potencial:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Acciones - Nivel de riesgo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Bonos - Retorno potencial:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Bonos - Nivel de riesgo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">ETF indexado - Retorno potencial:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">ETF indexado - Nivel de riesgo:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Impacto de Comisiones</div>
+    <p class="mb-md">Calcule el impacto de las comisiones durante 30 años con $10,000 inicial + $300/mes al 8%.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Comparación de Ratios de Gastos</div>
+        <div class="response-line">
+            <span class="response-label">ETF bajo costo (0.05%):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Fondo promedio (0.75%):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Fondo alto costo (1.25%):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Diferencia (bajo vs alto costo):</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Una diferencia del 1% en comisiones puede costar más de $80,000 durante 30 años de inversión con contribuciones constantes.
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Asignación de Cartera</div>
+    <p class="mb-md">Para cada escenario, recomiende una asignación de cartera.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Graduado de 24 años, jubilación en 41 años</div>
+        <div class="response-line">
+            <span class="response-label">% en acciones:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">% en bonos:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Justificación:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Profesional de 28 años, casa en 5 años</div>
+        <div class="response-line">
+            <span class="response-label">% en acciones:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">% en bonos:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Justificación:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es la principal diferencia entre un fondo mutuo y un ETF?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Los fondos mutuos solo invierten en bonos</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Los ETFs se negocian durante todo el día como acciones</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Los fondos mutuos no tienen comisiones</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Los ETFs solo invierten en una empresa</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué las acciones se recomiendan generalmente para objetivos a largo plazo (20+ años)?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Qué es la "diversificación" y por qué es importante?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Por qué comenzar a invertir temprano es tan importante para la construcción de riqueza?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Si tienes $200/mes para invertir durante 10 años, ¿cómo los asignarías entre acciones, bonos y efectivo? ¿Qué factores influyen en tu decisión?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-47: Introducción a los Tipos de Inversión</span>
+    </div>
+
+</body>
+</html>

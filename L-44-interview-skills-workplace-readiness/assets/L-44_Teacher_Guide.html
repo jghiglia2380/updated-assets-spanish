@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-44 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 15.4 — Habilidades para Entrevistas y Preparación Laboral</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Simulador de Entrevistas</td>
+            <td>L-43: Proceso de Solicitud</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Jamie—contraste la respuesta vaga vs. la respuesta STAR.</li>
+                    <li>Discusión: "¿Por qué creen que la segunda respuesta fue más efectiva?"</li>
+                    <li>Enfatice que las respuestas estructuradas demuestran pensamiento claro y experiencia real.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos. Escriba STAR en la pizarra y explique cada componente.</li>
+                    <li>Dé un ejemplo completo del método STAR usando una situación escolar.</li>
+                    <li>Verificación rápida: "¿Cuál es la diferencia entre Situación y Tarea?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Práctica STAR. Circule para asegurar que las respuestas sean específicas y tengan resultados cuantificables.</li>
+                    <li><strong>Parte B (10 min):</strong> Preparación para entrevista. Los estudiantes investigan una empresa real.</li>
+                    <li><strong>Parte C (8 min):</strong> Profesionalismo. Discuta escenarios de lugar de trabajo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P3 (seguimiento post-entrevista) y P5 (reflexión personal).</li>
+                    <li>Anticipe el Día 2: Práctica de entrevistas simuladas y escenarios laborales.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una plantilla STAR con frases de inicio para cada componente.</li>
+                <li>Permita que los estudiantes usen experiencias escolares o voluntariado.</li>
+                <li>Trabaje en parejas para la práctica STAR inicial.</li>
+                <li>Proporcione lista de preguntas comunes de entrevista con notas.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Practique respuestas para preguntas de entrevista técnica o de caso.</li>
+                <li>Investigue la cultura de una empresa específica y prepare preguntas personalizadas.</li>
+                <li>Realice entrevistas simuladas grabadas para autoevaluación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Práctica del Método STAR</div>
+            <div class="answer-note">Las respuestas variarán. Ejemplo de respuesta fuerte: <strong>Situación:</strong> "En mi trabajo de medio tiempo, el sistema de inventario falló la semana antes del inventario anual." <strong>Tarea:</strong> "Como encargado de turno, necesitaba encontrar una solución para contar 500+ productos antes del viernes." <strong>Acción:</strong> "Creé hojas de cálculo manuales, dividí el trabajo en secciones, y organicé turnos de conteo con el equipo." <strong>Resultado:</strong> "Completamos el inventario con 99% de precisión, un día antes del plazo, y el gerente implementó mi sistema como respaldo permanente."</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Preparación para la Entrevista</div>
+            <div class="answer-note">Evalúe que la investigación sea específica (no genérica) y que las preguntas al entrevistador demuestren interés genuino en el rol y la empresa—no preguntas cuya respuesta está en el sitio web.</div>
+            <div class="answer-item"><strong>Buenas preguntas al entrevistador:</strong> "¿Cómo mediría el éxito en este rol después del primer año?" "¿Cuáles son los mayores desafíos que enfrenta el equipo actualmente?" "¿Cómo describiría el estilo de gestión de mi supervisor directo?"</div>
+            <div class="answer-item"><strong>Preguntas a evitar:</strong> "¿Cuánto paga?" (esperar a que el empleador plantee el tema), "¿Qué hace la empresa?" (debe investigarse antes).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Profesionalismo en el Lugar de Trabajo</div>
+            <div class="answer-item"><strong>Respuesta profesional a crítica:</strong> Escuchar calmadamente, agradecer el comentario, solicitar una conversación privada para discutir detalles, pedir ejemplos específicos para mejorar, y enfocarse en soluciones en lugar de defensas.</div>
+            <div class="answer-item"><strong>Expectativas primeros 90 días:</strong> Escuchar y observar antes de sugerir cambios, clarificar expectativas con el supervisor, construir relaciones con colegas, demostrar confiabilidad cumpliendo todos los plazos, buscar retroalimentación regularmente.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Acción)</div>
+            <div class="answer-item"><strong>2.</strong> Investigar la empresa le permite: personalizar sus respuestas para mostrar alineación con la cultura, hacer preguntas informadas que demuestren interés genuino, identificar cómo sus habilidades se conectan con las necesidades específicas de la empresa, y evaluar si es el lugar adecuado para usted.</div>
+            <div class="answer-item"><strong>3.</strong> Elena debe enviar un correo de agradecimiento dentro de 24 horas. Debe: expresar agradecimiento por la oportunidad, reiterar su interés en el puesto, mencionar un punto específico de la conversación, y mantener un tono conciso y profesional.</div>
+            <div class="answer-item"><strong>4.</strong> Técnicas para manejar ansiedad: respiración profunda, visualización positiva, llegar temprano para familiarizarse con el entorno, practicar respuestas con anticipación, recordar que el nerviosismo es normal y demuestra que le importa.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de un desafío específico (ansiedad, falta de experiencia, preguntas técnicas) y conexión con estrategias concretas de la lección.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Debo tener la respuesta perfecta para cada pregunta."</td>
+                <td>Es aceptable tomarse un momento para pensar. Una pausa breve seguida de una respuesta estructurada es mejor que una respuesta precipitada. También puede pedir aclaraciones si no entiende una pregunta.</td>
+            </tr>
+            <tr>
+                <td>"El nerviosismo me hace parecer poco profesional."</td>
+                <td>El nerviosismo moderado es normal y los entrevistadores lo esperan. Demuestra que le importa la oportunidad. Lo importante es manejarlo, no eliminarlo—las técnicas de respiración y preparación ayudan.</td>
+            </tr>
+            <tr>
+                <td>"Solo importan mis respuestas verbales."</td>
+                <td>El lenguaje corporal, contacto visual, apariencia profesional, puntualidad, y seguimiento post-entrevista también influyen significativamente en la impresión que causa.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 15.4</span>
+    </div>
+
+</body>
+</html>

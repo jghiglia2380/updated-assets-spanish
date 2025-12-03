@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-41 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 15.1 — Exploración de Carreras y Establecimiento de Objetivos</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Planificador de Trayectoria Profesional</td>
+            <td>Ninguno</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Sarah en voz alta o permita lectura silenciosa.</li>
+                    <li>Discusión: "¿Cuál es la diferencia entre ver algo como un trabajo versus una carrera?"</li>
+                    <li>Anticipe cómo la planificación estratégica transforma oportunidades.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos clave. Enfatice que "trabajo" es posición específica, "carrera" es trayectoria.</li>
+                    <li>Lea el párrafo de Contexto juntos.</li>
+                    <li>Verificación rápida: Pida ejemplos de habilidades técnicas vs. habilidades blandas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Autoevaluación. Circule para ayudar con identificación de habilidades. Los estudiantes a menudo subestiman sus habilidades blandas.</li>
+                    <li><strong>Parte B (8 min):</strong> Trabajo vs. Carrera. Trabaje los escenarios en parejas, luego discuta como clase.</li>
+                    <li><strong>Parte C (10 min):</strong> Objetivos SMART. Guíe a los estudiantes paso a paso. El error más común es objetivos vagos o sin tiempo definido.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P3 (objetivo SMART) y P5 (reflexión personal) para evaluar comprensión.</li>
+                    <li>Anticipe el Día 2: Desarrollo del cronograma profesional y sistema de rendición de cuentas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una lista de ejemplos de habilidades técnicas y blandas.</li>
+                <li>Ofrezca una plantilla de objetivo SMART parcialmente completada.</li>
+                <li>Trabaje en parejas para la autoevaluación.</li>
+                <li>Use ejemplos concretos de trabajos locales conocidos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue salarios y perspectivas laborales para carreras de interés usando O*NET.</li>
+                <li>Desarrolle un plan completo de 5 años con hitos específicos.</li>
+                <li>Conduzca una entrevista informativa con un profesional del campo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Autoevaluación Profesional</div>
+            <div class="answer-note">Las respuestas variarán. Busque: habilidades técnicas específicas (programación, análisis de datos, idiomas) vs. habilidades blandas apropiadas (comunicación, liderazgo, trabajo en equipo). Los valores deben reflejar reflexión genuina.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Trabajo vs. Carrera</div>
+            <div class="answer-item"><strong>Escenario 1:</strong> TRABAJO. Marco ve su posición como temporal y enfocada en ingresos inmediatos. Su verdadero desarrollo profesional está en programación, no en el supermercado.</div>
+            <div class="answer-item"><strong>Escenario 2:</strong> CARRERA. Elena muestra planificación a largo plazo, desarrollo continuo de habilidades, búsqueda de mentores, y objetivos de avance claros dentro de su campo.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Creación de Objetivos SMART</div>
+            <div class="answer-note">Evalúe que cada componente SMART esté presente y sea apropiado. Ejemplo de objetivo bien escrito: "Completaré un curso de certificación en marketing digital de Google en los próximos 6 meses, estudiando 5 horas por semana, para prepararme para una pasantía de marketing el próximo verano."</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Las carreras involucran crecimiento a largo plazo mientras los trabajos son posiciones específicas)</div>
+            <div class="answer-item"><strong>2.</strong> La autoevaluación es crucial porque le ayuda a identificar sus intereses, habilidades y valores antes de elegir una trayectoria. Sin conocerse a sí mismo, puede elegir carreras que no se alinean con sus fortalezas o que no le proporcionarán satisfacción a largo plazo.</div>
+            <div class="answer-item"><strong>3.</strong> Ejemplo SMART: "Asegurar una posición de nivel inicial como analista de datos con un salario mínimo de $45,000 dentro de los 6 meses posteriores a mi graduación en mayo, completando al menos 3 cursos de certificación en análisis de datos y aplicando a un mínimo de 10 posiciones por semana."</div>
+            <div class="answer-item"><strong>4.</strong> Los objetivos a corto plazo proporcionan dirección y motivación inmediata, creando momentum. Los objetivos a largo plazo aseguran que las acciones a corto plazo se alineen con aspiraciones mayores. Juntos crean una trayectoria coherente donde cada paso construye hacia el destino deseado.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: conexión clara entre intereses/habilidades personales y el campo elegido, y un primer paso específico y realizable esta semana (no "investigar" en general, sino una acción concreta).</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Necesito saber exactamente qué carrera quiero ahora."</td>
+                <td>La exploración de carreras es un proceso continuo. Es normal que los intereses evolucionen con experiencia y exposición a diferentes campos. El objetivo es desarrollar habilidades transferibles mientras explora opciones.</td>
+            </tr>
+            <tr>
+                <td>"Los trabajos de nivel inicial no son importantes para mi carrera."</td>
+                <td>Los trabajos de nivel inicial proporcionan habilidades transferibles, networking, y comprensión del mundo laboral. Muchas carreras exitosas comenzaron con trabajos aparentemente no relacionados que proporcionaron habilidades valiosas.</td>
+            </tr>
+            <tr>
+                <td>"Solo las habilidades técnicas importan para conseguir empleo."</td>
+                <td>Los empleadores consistentemente califican las habilidades blandas (comunicación, trabajo en equipo, resolución de problemas) como igualmente o más importantes que las habilidades técnicas, especialmente para el avance profesional.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 15.1</span>
+    </div>
+
+</body>
+</html>

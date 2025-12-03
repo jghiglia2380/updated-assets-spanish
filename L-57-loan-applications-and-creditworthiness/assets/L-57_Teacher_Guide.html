@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-57 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 57 — Proceso de Solicitud de Préstamos y Solvencia Crediticia</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <!-- VARIABLE NOTE -->
+    <div class="variable-note" style="background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af;">
+        <strong style="color: #1e3a8a;">Nota:</strong> Los ejemplos utilizan tasas de préstamos de {{STATE_NAME}}: hipoteca {{STATE_AVG_MORTGAGE_RATE}}%, auto nuevo {{STATE_AVG_AUTO_LOAN_RATE_NEW}}%, auto usado {{STATE_AVG_AUTO_LOAN_RATE_USED}}%. Las tasas varían según el estado y el perfil crediticio. Promedio nacional hipoteca: 7.0%.
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora, Perfiles de Muestra</td>
+            <td>Conceptos de crédito, L-8 Construcción de Crédito</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente la historia de Marcus: rechazado por 2 prestamistas, aceptado al 22% de interés.</li>
+                    <li>Pregunte: "¿Cuánto dinero perdió Marcus por no prepararse?" ($6,000-9,000 en intereses)</li>
+                    <li>Enfatice: La diferencia entre éxito y fracaso está en la PREPARACIÓN, no en la suerte.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">LAS CINCO C DEL CRÉDITO</div>
+                <ul>
+                    <li><strong>Carácter (3 min):</strong> Historial crediticio, puntaje, pagos. ¿Has demostrado responsabilidad?</li>
+                    <li><strong>Capacidad (3 min):</strong> DTI, ingresos, estabilidad laboral. ¿PUEDES pagar?</li>
+                    <li><strong>Capital (2 min):</strong> Ahorros, enganche, reservas. ¿Tienes colchón financiero?</li>
+                    <li><strong>Colateral (2 min):</strong> Activos que respaldan el préstamo. LTV más bajo = menos riesgo.</li>
+                    <li><strong>Condiciones (2 min):</strong> Propósito del préstamo, economía, circunstancias especiales.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">18-20 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (6 min):</strong> Cálculo de DTI. Trabaje el primer ejemplo juntos.</li>
+                    <li><strong>Parte B (5 min):</strong> Lista de documentación para hipoteca. Discuta por qué cada documento.</li>
+                    <li><strong>Parte C (7 min):</strong> Evaluación de las Cinco C para Jamal. Estudiantes actúan como oficiales de préstamos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P1-P3 verifican comprensión conceptual de las Cinco C y pre-aprobación.</li>
+                    <li>P4 requiere cálculo práctico de DTI.</li>
+                    <li>P5 (reflexión) conecta con planificación personal del estudiante.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadoras y trabaje el primer cálculo de DTI paso a paso.</li>
+                <li>Use tarjetas de memoria para las Cinco C con ejemplos concretos.</li>
+                <li>Simplifique la lista de documentación con categorías claras (identificación, ingresos, activos).</li>
+                <li>Cree hoja de referencia: "DTI = Total deudas ÷ Ingreso bruto × 100"</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Compare tasas de {{STATE_NAME}} (hipoteca {{STATE_AVG_MORTGAGE_RATE}}%) con otros estados.</li>
+                <li>Calcule costo total de hipoteca al {{STATE_AVG_MORTGAGE_RATE}}% vs. 2% más alto durante 30 años.</li>
+                <li>Investigue prestamistas locales en {{STATE_NAME}} (bancos, cooperativas de crédito).</li>
+                <li>Cree un plan de mejora de 12 meses para un perfil de prestatario débil.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Cálculo de DTI de Elena</div>
+            <div class="calc-display">Ingreso bruto mensual: $4,200 + $600 = $4,800
+
+Total de pagos de deuda:
+  Préstamo estudiantil: $280
+  Préstamo de auto: $350
+  Tarjeta de crédito: $85
+  Nuevo préstamo: $420
+  TOTAL: $1,135
+
+DTI = $1,135 ÷ $4,800 × 100 = 23.6%
+
+¿Califica con límite del 43%? SÍ (23.6% < 43%)</div>
+            <div class="answer-note">NOTA: Un DTI del 23.6% es muy saludable. La mayoría de los prestamistas consideran esto una fortaleza significativa en la solicitud.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Documentación para Hipoteca</div>
+            <div class="answer-item"><strong>TODOS deben estar seleccionados:</strong></div>
+            <div class="answer-item">✓ Licencia de conducir o pasaporte (identificación)</div>
+            <div class="answer-item">✓ Últimos 2-3 recibos de nómina</div>
+            <div class="answer-item">✓ Formularios W-2 (últimos 2 años)</div>
+            <div class="answer-item">✓ Declaraciones de impuestos (últimos 2 años)</div>
+            <div class="answer-item">✓ Estados de cuenta bancarios (2-3 meses)</div>
+            <div class="answer-item">✓ Estados de cuenta de todas las deudas</div>
+            <div class="answer-item">✓ Contrato de compra de la propiedad</div>
+            <div class="answer-item">✓ Verificación de empleo</div>
+            <div class="answer-item">✓ Comprobante de residencia actual</div>
+            <div class="answer-item">✓ Número de Seguro Social</div>
+            <div class="answer-item"><strong>Condicionales:</strong></div>
+            <div class="answer-item">○ Carta de explicación - solo si hay brechas de empleo</div>
+            <div class="answer-item">○ Carta de regalo - solo si el enganche incluye fondos de regalo</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Evaluación de Jamal</div>
+            <div class="answer-item"><strong>Carácter (6-7/10):</strong> Puntaje 680 es "justo" - no excelente pero no malo. Sin información sobre pagos atrasados.</div>
+            <div class="answer-item"><strong>Capacidad (7-8/10):</strong> Ingreso $65K = ~$5,417/mes. Deudas actuales ~$600/mes. Nuevo pago auto ~$450. DTI ≈ 19% - muy saludable.</div>
+            <div class="answer-item"><strong>Capital (6/10):</strong> $8,500 en ahorros, $3,000 para enganche. Quedan $5,500 en reservas - aproximadamente 2 meses de gastos.</div>
+            <div class="answer-item"><strong>Colateral (7/10):</strong> Préstamo $22K para auto con valor probable $25K+. LTV ~88% es aceptable para préstamos de auto.</div>
+            <div class="answer-item"><strong>Condiciones (7/10):</strong> Propósito claro (transporte para trabajo), empleo estable (14 meses), campo profesional sólido.</div>
+            <div class="answer-item"><strong>Recomendación:</strong> APROBAR CON CONDICIONES ESTÁNDAR. Perfil sólido con algunas áreas de mejora (puntaje crediticio, reservas).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B. Porque indica que el prestatario tiene más capacidad para pagos adicionales. Un DTI bajo significa que una porción menor del ingreso ya está comprometida.</div>
+            <div class="answer-item"><strong>2.</strong> C. Conveniencia. Las Cinco C son: Carácter, Capacidad, Capital, Colateral y Condiciones.</div>
+            <div class="answer-item"><strong>3.</strong> B. Da poder de negociación y clarifica el presupuesto. La pre-aprobación muestra a los vendedores que eres un comprador serio.</div>
+            <div class="calc-display">Cálculo P4 (Ana):
+Total deudas: $1,200 + $400 + $150 = $1,750
+DTI = $1,750 ÷ $5,000 × 100 = 35%
+
+Este DTI está dentro del límite aceptable (< 36-43%).</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque acciones específicas y realistas como: mejorar puntaje crediticio (pagar tarjetas por debajo del 30%), reducir deudas existentes, ahorrar para enganche, mantener estabilidad laboral, organizar documentación.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Solo necesito buen puntaje crediticio para ser aprobado."</td>
+                <td>El puntaje es UNA de las Cinco C. Puedes tener puntaje excelente pero ser rechazado por DTI alto, ingresos insuficientes o falta de capital. Los prestamistas evalúan el perfil COMPLETO.</td>
+            </tr>
+            <tr>
+                <td>"El banco me dirá qué documentos necesito después de solicitar."</td>
+                <td>Solicitar sin documentación lista causa retrasos y puede resultar en rechazos. Reunir documentos ANTES de solicitar demuestra seriedad y acelera el proceso.</td>
+            </tr>
+            <tr>
+                <td>"Aplicar a muchos prestamistas daña mi crédito significativamente."</td>
+                <td>Múltiples consultas para el MISMO tipo de préstamo dentro de 14-45 días cuentan como UNA consulta. Puedes comparar tasas sin daño significativo al puntaje.</td>
+            </tr>
+            <tr>
+                <td>"Si me rechazan una vez, no vale la pena intentar de nuevo."</td>
+                <td>Los rechazos a menudo son específicos del momento y pueden superarse. Mejora las áreas débiles identificadas, espera unos meses, y vuelve a solicitar con un perfil más fuerte.</td>
+            </tr>
+            <tr>
+                <td>"Los préstamos personales son más fáciles de obtener que los préstamos de auto."</td>
+                <td>Al contrario: los préstamos de auto tienen COLATERAL (el vehículo) que reduce el riesgo del prestamista. Los préstamos personales sin garantía requieren puntajes crediticios más altos y tienen tasas más altas.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 57 — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

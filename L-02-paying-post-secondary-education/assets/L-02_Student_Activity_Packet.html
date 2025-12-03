@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-02 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capitulo 1.2: Financiamiento de la Educacion Post-Secundaria</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafio</div>
+    <div class="challenge-box">
+        <p>La deuda estudiantil en Estados Unidos ha superado los $1.75 billones, afectando a mas de 43 millones de personas. Jordan, un estudiante de ultimo ano con buen rendimiento academico, dedico 5 horas semanales a solicitar becas y aseguro $22,000 en financiamiento sin deuda. Mientras tanto, Casey comenzo en un colegio comunitario para reducir costos y se graduo con solo $16,500 en prestamos, muy por debajo del promedio nacional.</p>
+        <p class="framing-question">Como puedes financiar tu educacion post-secundaria minimizando la deuda mientras maximizas las oportunidades educativas?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre becas, subvenciones, prestamos y programas de trabajo-estudio.</li>
+            <li>Explicar el proposito y proceso de completar la FAFSA.</li>
+            <li>Comparar prestamos estudiantiles federales y privados.</li>
+            <li>Crear un plan financiero equilibrado para la educacion.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Termino</th><th>Definicion</th></tr>
+        <tr><td>Becas</td><td>Ayuda financiera basada en meritos que NO necesita ser reembolsada.</td></tr>
+        <tr><td>Subvenciones</td><td>Ayuda financiera basada en necesidades que NO requiere reembolso.</td></tr>
+        <tr><td>FAFSA</td><td>Solicitud Gratuita de Ayuda Federal para Estudiantes - determina elegibilidad para ayuda federal.</td></tr>
+        <tr><td>Prestamos Federales</td><td>Prestamos respaldados por el gobierno con tasas de interes mas bajas y opciones flexibles.</td></tr>
+        <tr><td>Prestamos Privados</td><td>Prestamos de prestamistas privados, generalmente con terminos menos favorables.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El orden de prioridad para financiar tu educacion debe ser: (1) Becas y subvenciones ("dinero gratis"), (2) Trabajo-estudio y empleo, (3) Prestamos federales, (4) Prestamos privados como ultimo recurso.
+    </div>
+
+    <div class="section-header">Aplicalo</div>
+    <div class="part-header">Parte A: Clasificacion de Fuentes de Financiamiento</div>
+    <p style="margin-bottom: 14px;">Clasifica cada fuente e indica si requiere reembolso.</p>
+
+    <table class="data-table">
+        <tr><th>Fuente de Financiamiento</th><th>Tipo (Beca/Subvencion/Prestamo/Trabajo)</th><th>Requiere Reembolso?</th></tr>
+        <tr><td>Beca Pell Federal</td><td></td><td></td></tr>
+        <tr><td>Prestamo Subsidiado Directo</td><td></td><td></td></tr>
+        <tr><td>Beca por merito academico</td><td></td><td></td></tr>
+        <tr><td>Programa Federal Trabajo-Estudio</td><td></td><td></td></tr>
+        <tr><td>Prestamo privado de un banco</td><td></td><td></td></tr>
+    </table>
+
+    <div class="part-header">Parte B: Comparacion de Prestamos</div>
+    <p style="margin-bottom: 14px;">Compara las caracteristicas de prestamos federales vs. privados.</p>
+
+    <table class="data-table">
+        <tr><th>Caracteristica</th><th>Prestamos Federales</th><th>Prestamos Privados</th></tr>
+        <tr><td>Tasas de interes</td><td></td><td></td></tr>
+        <tr><td>Opciones de pago</td><td></td><td></td></tr>
+        <tr><td>Requisitos de credito</td><td></td><td></td></tr>
+        <tr><td>Posibilidad de condonacion</td><td></td><td></td></tr>
+    </table>
+
+    <div class="hint-box"><strong>Pista:</strong> Los prestamos subsidiados son mejores porque el gobierno paga los intereses mientras estas en la escuela.</div>
+
+    <div class="part-header">Parte C: Plan de Financiamiento Personal</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Estima el costo anual de una institucion que te interesa: (En {{STATE_NAME}}: ~${{STATE_TUITION_COMMUNITY}} para colegio comunitario, ~${{STATE_TUITION_PUBLIC}} para universidad estatal, $50,000+ para universidad privada)</p>
+        <div class="response-line"><span class="response-label">Institucion:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">Costo anual estimado:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Crea tu plan de financiamiento:</p>
+        <table class="data-table">
+            <tr><th>Fuente</th><th>Monto Estimado</th><th>Acciones Necesarias</th></tr>
+            <tr><td>Becas</td><td>$</td><td></td></tr>
+            <tr><td>Subvenciones</td><td>$</td><td></td></tr>
+            <tr><td>Trabajo/Ahorros</td><td>$</td><td></td></tr>
+            <tr><td>Prestamos federales</td><td>$</td><td></td></tr>
+            <tr><td><strong>TOTAL</strong></td><td>$</td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprension</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cual opcion de financiamiento deberia ser tu PRIMERA prioridad?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Prestamos privados</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Becas y subvenciones</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Prestamos federales</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Tarjetas de credito</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Por que es importante completar la FAFSA temprano?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Cual es la diferencia principal entre un prestamo subsidiado y uno no subsidiado?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexion:</strong> Basandote en tu situacion, que combinacion de fuentes de financiamiento parece mas apropiada para ti? Que pasos puedes tomar ahora para maximizar las oportunidades de "dinero gratis"?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capitulo 1.2: Financiamiento de la Educacion Post-Secundaria</span>
+    </div>
+</body>
+</html>

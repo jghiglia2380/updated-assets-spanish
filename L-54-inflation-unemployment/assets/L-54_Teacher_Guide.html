@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-54 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 54 — Inflación, Desempleo y Finanzas Personales</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>L-50 Oferta/Demanda, L-53 Política Fiscal/Monetaria</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente la comparación de precios 1970 vs. 2024 (vivienda, educación, gasolina).</li>
+                    <li>Destaque que los salarios no han mantenido el ritmo en algunas áreas.</li>
+                    <li>Pregunte: "¿Cómo pueden proteger su poder adquisitivo?" para generar interés.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE: INFLACIÓN</div>
+                <ul>
+                    <li>Defina inflación como aumento SOSTENIDO en el nivel GENERAL de precios.</li>
+                    <li>Explique el IPC: canasta de bienes, cómo se mide, meta del 2% de la Fed.</li>
+                    <li>Tres causas: por demanda (demasiado gasto), por costos (precios de insumos suben), monetaria (demasiado dinero).</li>
+                    <li>Use ejemplo 2021-2022: estímulo COVID + cadena de suministro + Fed tasas bajas = 8.5% inflación.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE: DESEMPLEO</div>
+                <ul>
+                    <li>Tres tipos: friccional (entre trabajos, normal), estructural (habilidades obsoletas), cíclico (recesión).</li>
+                    <li>Tasa natural (~4-5%): pleno empleo incluye algo friccional y estructural.</li>
+                    <li>Curva de Phillips: intercambio inflación-desempleo (no puedes tener ambos bajos).</li>
+                    <li>Estanflación: cuando el intercambio falla (años 70s - alta inflación + alto desempleo).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">18-20 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (6 min):</strong> Cálculos del dólar que se encoge. Muestre la erosión real del poder adquisitivo.</li>
+                    <li><strong>Parte B (5 min):</strong> Comparación de ofertas salariales. Enfatice salario REAL vs. nominal.</li>
+                    <li><strong>Parte C (4 min):</strong> Identificación de tipos de desempleo en escenarios.</li>
+                    <li><strong>Parte D (5 min):</strong> Asignación de inversión. Discuta diversificación y riesgo-retorno.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">8 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P1-P3 verifican comprensión conceptual de inflación y desempleo.</li>
+                    <li>P4 requiere cálculo - asegúrese que entiendan (1.03)^30.</li>
+                    <li>P5 (reflexión) conecta con acciones personales del estudiante.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadoras y muestre el proceso paso a paso.</li>
+                <li>Use diagrama visual del ciclo: Demanda↑ → Precios↑ → Inflación.</li>
+                <li>Simplifique Parte D: solo dos opciones (acciones vs. ahorros).</li>
+                <li>Cree tarjetas con características de cada tipo de desempleo.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue la inflación actual y compárela con la meta de la Fed.</li>
+                <li>Calcule cuánto necesitarán para jubilarse ajustando por inflación.</li>
+                <li>Analice cómo la IA está causando desempleo estructural en su campo de interés.</li>
+                <li>Compare la estanflación de los 70s con condiciones actuales.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: El Dólar que se Encoge</div>
+            <div class="calc-display">Inflación 2%:
+5 años: $10,000 ÷ 1.104 = $9,058
+10 años: $10,000 ÷ 1.219 = $8,203
+30 años: $10,000 ÷ 1.811 = $5,521
+
+Inflación 5%:
+5 años: $10,000 ÷ 1.276 = $7,835
+10 años: $10,000 ÷ 1.629 = $6,139
+30 años: $10,000 ÷ 4.322 = $2,314
+
+Inflación 8%:
+5 años: $10,000 ÷ 1.469 = $6,806
+10 años: $10,000 ÷ 2.159 = $4,632
+30 años: $10,000 ÷ 10.063 = $994</div>
+            <div class="answer-item"><strong>Costo de oportunidad:</strong> El efectivo pierde valor - con 2% de inflación pierdes 45% del poder adquisitivo en 30 años. DEBES invertir para superar la inflación.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Comparación Salarial</div>
+            <div class="answer-item"><strong>Oferta 1:</strong> $73,140 ÷ 1.344 = $54,420 salario real año 10</div>
+            <div class="answer-item"><strong>Oferta 2:</strong> $81,400 ÷ 1.344 = $60,565 salario real año 10</div>
+            <div class="answer-item"><strong>Mejor:</strong> Oferta 2 - a pesar del salario inicial más bajo, el aumento del 4% supera la inflación del 3%, proporcionando $6,145 MÁS en poder adquisitivo real después de 10 años.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Tipos de Desempleo</div>
+            <div class="answer-item"><strong>Escenario 1 (María graduada):</strong> FRICCIONAL - búsqueda normal de primer empleo, tiene habilidades demandadas, temporal.</div>
+            <div class="answer-item"><strong>Escenario 2 (Jorge minero):</strong> ESTRUCTURAL - sus habilidades ya no coinciden con trabajos disponibles, necesita recapacitarse.</div>
+            <div class="answer-item"><strong>Escenario 3 (COVID):</strong> CÍCLICO - causado por recesión económica, afectó toda la economía.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D: Asignación de Inversión</div>
+            <div class="answer-note">Las respuestas variarán. Una asignación razonable para alguien joven: 50-60% acciones (mayor crecimiento), 20% bonos (estabilidad), 10-20% ahorros alto rendimiento (emergencias), 10% TIPS (protección garantizada contra inflación). Puntos clave: diversificación, balance riesgo-retorno, más joven = más riesgo aceptable.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> C. Disminuye 2%. Si la inflación (4%) supera tu aumento (2%), tu salario real CAE aunque el número nominal suba.</div>
+            <div class="answer-item"><strong>2.</strong> B. 2%. La Fed apunta a 2% de inflación como nivel estable y predecible.</div>
+            <div class="answer-item"><strong>3.</strong> C. Alta inflación con alto desempleo. La estanflación es el peor escenario - herramientas de política no funcionan bien.</div>
+            <div class="calc-display">Cálculo P4:
+$25,000 × (1.03)^30 = $25,000 × 2.427 = $60,675
+Los $25,000 de 1994 equivalen a $60,675 hoy en poder adquisitivo.</div>
+            <div class="answer-item"><strong>5.</strong> <em>La reflexión debe incluir una acción específica: abrir cuenta de inversión, negociar aumento, construir fondo de emergencia, desarrollar habilidades en demanda, etc.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Cualquier aumento de precio es inflación."</td>
+                <td>La inflación es un aumento SOSTENIDO en el nivel GENERAL de precios. El precio de la gasolina subiendo por un huracán no es inflación - es un cambio temporal en un bien específico.</td>
+            </tr>
+            <tr>
+                <td>"Un aumento salarial siempre significa más dinero."</td>
+                <td>Solo si el aumento supera la inflación. Un aumento del 3% con inflación del 5% es en realidad un RECORTE salarial del 2% en poder adquisitivo real.</td>
+            </tr>
+            <tr>
+                <td>"El desempleo cero es la meta ideal."</td>
+                <td>Imposible e indeseable. Siempre habrá algo friccional (gente cambiando de trabajo) y estructural. La tasa natural es 4-5%. Por debajo causa presión inflacionaria.</td>
+            </tr>
+            <tr>
+                <td>"La inflación siempre es mala."</td>
+                <td>Inflación moderada (2%) es señal de economía saludable. La deflación (precios cayendo) puede ser peor - indica recesión y hace que la gente retrase compras esperando precios más bajos.</td>
+            </tr>
+            <tr>
+                <td>"El efectivo es seguro."</td>
+                <td>El efectivo PIERDE valor cada año por la inflación. Con 3% de inflación, el efectivo pierde la mitad de su valor en 24 años. Debes invertir para mantener el poder adquisitivo.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 54</span>
+    </div>
+
+</body>
+</html>

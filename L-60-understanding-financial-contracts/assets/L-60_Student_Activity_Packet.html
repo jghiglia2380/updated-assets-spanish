@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-60 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 18px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: var(--warning-light); border-left: 4px solid var(--warning); padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 16px; }
+        .challenge-box h3 { color: #92400e; font-size: 10pt; font-weight: 700; margin-bottom: 6px; }
+        .challenge-box p { color: #78350f; font-size: 9pt; margin: 0; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; font-size: 9pt; color: var(--text-medium); }
+        .objectives-box li { margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table tr:nth-child(even) { background: var(--bg-light); }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; font-weight: 700; margin-bottom: 8px; border-bottom: 2px solid var(--primary-light); padding-bottom: 4px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 8px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); padding: 6px 8px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .data-table td { padding: 6px 8px; border: 1px solid var(--border); }
+
+        .mc-options { margin: 10px 0; }
+        .mc-options label { display: block; padding: 8px 12px; margin: 4px 0; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; font-size: 9pt; cursor: pointer; }
+        .mc-options input[type="radio"] { margin-right: 8px; }
+
+        .writing-lines { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; padding: 8px; margin: 8px 0; background: white; }
+
+        .hint-box { background: #f0f9ff; border-left: 3px solid #0ea5e9; padding: 8px 12px; margin: 10px 0; font-size: 8.5pt; color: #0c4a6e; }
+
+        .red-flag-box { background: var(--error-light); border-left: 3px solid var(--error); padding: 8px 12px; margin: 10px 0; font-size: 8.5pt; color: #991b1b; }
+
+        .elements-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0; }
+        .element-item { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 8px; text-align: center; }
+        .element-item h5 { color: var(--primary); font-size: 9pt; font-weight: 700; margin-bottom: 4px; }
+        .element-item p { font-size: 8pt; color: var(--text-medium); margin: 0; }
+
+        .checklist { margin: 10px 0; }
+        .checklist label { display: block; padding: 4px 0; font-size: 9pt; }
+        .checklist input[type="checkbox"] { margin-right: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 60: Comprensión de Contratos Financieros</h2>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="challenge-box">
+        <h3>🎯 EL DESAFÍO</h3>
+        <p>Aaliyah firmó un contrato de arrendamiento de 12 meses sin leerlo cuidadosamente. Tres meses después, recibió una oferta de trabajo en otra ciudad. Al intentar romper su arrendamiento, descubrió: 60 días de aviso requerido, prohibición de subarrendar, y penalidad de 2 meses de renta más pérdida del depósito. Total: $3,800 en penalidades. Si hubiera leído el contrato, podría haber negociado mejores términos o elegido un arrendamiento mes a mes. Un estudio encontró que solo el 7% de las personas leen los contratos antes de firmar.</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar los cinco elementos esenciales que hacen que un contrato sea legalmente vinculante</li>
+            <li>Interpretar terminología legal común y cláusulas contractuales</li>
+            <li>Analizar términos contractuales para comprender derechos, obligaciones y riesgos</li>
+            <li>Aplicar habilidades de alfabetización contractual para proteger intereses personales</li>
+        </ul>
+    </div>
+
+    <!-- LOS 5 ELEMENTOS DE UN CONTRATO VÁLIDO -->
+    <div class="section-header">Los 5 Elementos de un Contrato Válido</div>
+    <div class="elements-grid">
+        <div class="element-item">
+            <h5>OFERTA</h5>
+            <p>Propuesta clara de hacer algo específico</p>
+        </div>
+        <div class="element-item">
+            <h5>ACEPTACIÓN</h5>
+            <p>Acuerdo incondicional con los términos</p>
+        </div>
+        <div class="element-item">
+            <h5>CONTRAPRESTACIÓN</h5>
+            <p>Intercambio de algo de valor</p>
+        </div>
+        <div class="element-item">
+            <h5>CAPACIDAD</h5>
+            <p>Competencia legal (edad, mentalidad)</p>
+        </div>
+        <div class="element-item">
+            <h5>LEGALIDAD</h5>
+            <p>Propósito legal del contrato</p>
+        </div>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Incumplimiento</td>
+            <td>Falta de cumplimiento de las obligaciones del contrato; puede resultar en remedios legales</td>
+        </tr>
+        <tr>
+            <td>Letra Pequeña</td>
+            <td>Cláusulas en texto pequeño que contienen limitaciones importantes, tarifas o condiciones</td>
+        </tr>
+        <tr>
+            <td>Cláusula de Arbitraje</td>
+            <td>Disposición que requiere resolver disputas a través de arbitraje privado en lugar de tribunales</td>
+        </tr>
+        <tr>
+            <td>Renovación Automática</td>
+            <td>El contrato continúa automáticamente a menos que canceles con aviso anticipado</td>
+        </tr>
+        <tr>
+            <td>Terminación Anticipada</td>
+            <td>Salir del contrato antes de la fecha de fin; típicamente incluye penalidades</td>
+        </tr>
+    </table>
+
+    <!-- SEÑALES DE ALERTA -->
+    <div class="section-header">Señales de Alerta en Contratos</div>
+    <div class="red-flag-box">
+        <strong>⚠️ Busca estas señales de alerta antes de firmar:</strong>
+        <ul style="margin: 8px 0 0 20px; font-size: 8.5pt;">
+            <li>Renovación automática sin aviso claro</li>
+            <li>La empresa puede cambiar términos unilateralmente (tú no)</li>
+            <li>Requisitos de arbitraje obligatorio (no puedes demandar)</li>
+            <li>Penalidades excesivas por terminación anticipada</li>
+            <li>Limitaciones de responsabilidad a favor de la empresa</li>
+            <li>Tarifas ocultas o condicionales</li>
+        </ul>
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="scenario-card">
+        <h4>Parte A: Identificación de Elementos Contractuales</h4>
+        <p><strong>Extracto de Contrato de Membresía de Gimnasio:</strong></p>
+        <div style="background: var(--bg-light); padding: 10px; border-radius: 4px; font-size: 9pt; font-style: italic; margin: 8px 0;">
+            "FitLife Gym ofrece al miembro acceso a las instalaciones por $45/mes durante un período de 12 meses. El miembro acepta pagar el primer y último mes al momento de la inscripción. La membresía se renueva automáticamente a menos que el miembro proporcione aviso por escrito con 30 días de anticipación. La terminación anticipada requiere el pago del 50% de los meses restantes."
+        </div>
+        <p><strong>Identifica cada elemento:</strong></p>
+        <table class="data-table">
+            <tr>
+                <th style="width: 25%;">Elemento</th>
+                <th>¿Dónde aparece en el contrato?</th>
+            </tr>
+            <tr>
+                <td>Oferta</td>
+                <td><div class="writing-lines" style="min-height: 30px;"></div></td>
+            </tr>
+            <tr>
+                <td>Aceptación</td>
+                <td><div class="writing-lines" style="min-height: 30px;"></div></td>
+            </tr>
+            <tr>
+                <td>Contraprestación</td>
+                <td><div class="writing-lines" style="min-height: 30px;"></div></td>
+            </tr>
+        </table>
+        <p><strong>Señales de alerta identificadas:</strong></p>
+        <div class="checklist">
+            <label><input type="checkbox"> Renovación automática</label>
+            <label><input type="checkbox"> Penalidad por terminación anticipada</label>
+            <label><input type="checkbox"> Pago adelantado requerido</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte B: Comparación de Contratos de Arrendamiento</h4>
+        <p>Compara dos opciones de arrendamiento para el mismo apartamento:</p>
+        <table class="data-table">
+            <tr>
+                <th>Factor</th>
+                <th>Arrendamiento A (12 meses)</th>
+                <th>Arrendamiento B (Mes a mes)</th>
+            </tr>
+            <tr>
+                <td>Renta mensual</td>
+                <td>$1,050</td>
+                <td>$1,150</td>
+            </tr>
+            <tr>
+                <td>Depósito de seguridad</td>
+                <td>$1,050</td>
+                <td>$500</td>
+            </tr>
+            <tr>
+                <td>Terminación anticipada</td>
+                <td>2 meses de renta</td>
+                <td>30 días de aviso</td>
+            </tr>
+            <tr>
+                <td>Mascotas</td>
+                <td>No permitidas</td>
+                <td>Permitidas (+$50/mes)</td>
+            </tr>
+        </table>
+        <p><strong>Cálculos:</strong></p>
+        <p>Costo total por 12 meses (Arrendamiento A): $_________</p>
+        <p>Costo total por 12 meses (Arrendamiento B): $_________</p>
+        <p>Si necesitas irte después de 8 meses:</p>
+        <p>Costo con Arrendamiento A (incluyendo penalidad): $_________</p>
+        <p>Costo con Arrendamiento B: $_________</p>
+        <p><strong>¿Cuál es mejor para alguien con trabajo incierto?</strong></p>
+        <div class="writing-lines" style="min-height: 40px;"></div>
+    </div>
+
+    <div class="scenario-card">
+        <h4>Parte C: Lista de Verificación de Seguridad Contractual</h4>
+        <p><strong>Antes de firmar CUALQUIER contrato, siempre pregúntate:</strong></p>
+        <div class="checklist">
+            <label><input type="checkbox"> ¿He leído el contrato COMPLETO, incluyendo la letra pequeña?</label>
+            <label><input type="checkbox"> ¿Entiendo TODOS los términos y cláusulas?</label>
+            <label><input type="checkbox"> ¿He identificado TODAS las tarifas, cargos y penalidades?</label>
+            <label><input type="checkbox"> ¿Cuál es el costo TOTAL durante todo el plazo del contrato?</label>
+            <label><input type="checkbox"> ¿Cómo y cuándo puedo TERMINAR este contrato?</label>
+            <label><input type="checkbox"> ¿Estoy renunciando a derechos importantes (como demandar)?</label>
+            <label><input type="checkbox"> ¿Puede la otra parte cambiar los términos sin mi aprobación?</label>
+            <label><input type="checkbox"> ¿He consultado con alguien de confianza sobre este contrato?</label>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="scenario-card">
+        <p><strong>1. ¿Cuál de los siguientes NO es un elemento esencial de un contrato válido?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q1"> A. Oferta</label>
+            <label><input type="radio" name="q1"> B. Aceptación</label>
+            <label><input type="radio" name="q1"> C. Notarización</label>
+            <label><input type="radio" name="q1"> D. Contraprestación</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>2. ¿Qué significa una "cláusula de arbitraje" en un contrato?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q2"> A. Puedes cancelar el contrato en cualquier momento sin penalidad</label>
+            <label><input type="radio" name="q2"> B. Debes resolver disputas a través de arbitraje privado, no tribunales</label>
+            <label><input type="radio" name="q2"> C. El contrato se renueva automáticamente cada año</label>
+            <label><input type="radio" name="q2"> D. La empresa puede cambiar los términos sin aviso</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>3. ¿Por qué firmar un contrato sin leerlo es financieramente peligroso?</strong></p>
+        <div class="mc-options">
+            <label><input type="radio" name="q3"> A. Los tribunales no hacen cumplir contratos no leídos</label>
+            <label><input type="radio" name="q3"> B. Puedes quedar obligado a términos costosos que no conocías</label>
+            <label><input type="radio" name="q3"> C. Los contratos no leídos son automáticamente inválidos</label>
+            <label><input type="radio" name="q3"> D. La otra parte debe explicarte todo el contrato</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>4. Escenario:</strong> Sofía recibió una oferta de empleo con una cláusula de no competencia de 2 años que le impediría trabajar para competidores en un radio de 50 millas. ¿Qué debería hacer?</p>
+        <div class="writing-lines"></div>
+    </div>
+
+    <div class="scenario-card">
+        <p><strong>5. Reflexión:</strong> Piensa en un contrato que hayas firmado recientemente (plan telefónico, suscripción, membresía). ¿Lo leíste completamente? ¿Qué términos podrías haber pasado por alto? ¿Qué harás diferente la próxima vez?</p>
+        <div class="writing-lines" style="min-height: 80px;"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 60: Contratos Financieros</span>
+    </div>
+
+</body>
+</html>

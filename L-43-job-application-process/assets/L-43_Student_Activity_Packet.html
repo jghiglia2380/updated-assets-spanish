@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-43 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 15.3: Proceso de Solicitud de Empleo</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Alex, un recién graduado en ciencias de la computación, estaba aplicando a puestos de desarrollador junior pero no recibía respuestas. Después de implementar un enfoque estratégico—creando alertas de empleo específicas, personalizando su currículum con palabras clave de cada descripción, y haciendo networking en grupos locales de tecnología—recibió una invitación a entrevista de TechStart Inc. Su solicitud personalizada y conexión personal lo ayudaron a destacar entre más de 200 solicitantes.</p>
+        <p class="framing-question">¿Cómo puede un enfoque estratégico para las solicitudes de empleo aumentar significativamente sus posibilidades de éxito?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar estrategias efectivas para encontrar oportunidades laborales.</li>
+            <li>Comprender cómo leer e interpretar descripciones y requisitos de trabajo.</li>
+            <li>Desarrollar técnicas para personalizar materiales de solicitud para puestos específicos.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Sistema ATS</td>
+            <td>Software utilizado por empleadores para recolectar, clasificar y filtrar solicitudes de empleo automáticamente.</td>
+        </tr>
+        <tr>
+            <td>Palabras Clave</td>
+            <td>Términos específicos en descripciones de trabajo que resaltan habilidades y calificaciones requeridas.</td>
+        </tr>
+        <tr>
+            <td>Carta de Presentación</td>
+            <td>Documento que introduce al candidato y destaca calificaciones relevantes para el puesto.</td>
+        </tr>
+        <tr>
+            <td>Networking</td>
+            <td>Construcción de relaciones profesionales para intercambiar información, consejos y oportunidades.</td>
+        </tr>
+        <tr>
+            <td>Cualificaciones Preferidas</td>
+            <td>Atributos deseables pero no obligatorios que dan ventaja competitiva al candidato.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El proceso de solicitud de empleo es más que solo enviar currículums—requiere investigación, preparación y atención al detalle. Aproximadamente el 70-80% de los empleos nunca se anuncian públicamente, y cerca del 70% de las personas consiguen trabajo a través del networking. Comprender cómo navegar los sistemas ATS, personalizar materiales y hacer seguimiento profesional puede aumentar significativamente sus posibilidades de conseguir entrevistas.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Análisis de Descripción de Trabajo</div>
+    <p class="mb-md">Analice la siguiente descripción de trabajo e identifique los elementos clave.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Puesto: Asistente de Marketing Digital</div>
+        <div class="scenario-description">Empresa innovadora busca Asistente de Marketing Digital. <strong>Requisitos:</strong> Título en marketing o campo relacionado, conocimiento de redes sociales, habilidades de comunicación escrita. <strong>Preferido:</strong> Experiencia con Google Analytics, certificación en marketing digital, bilingüe español-inglés. <strong>Responsabilidades:</strong> Gestionar contenido de redes sociales, analizar métricas de campañas, colaborar con equipo creativo.</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Enumere las cualificaciones REQUERIDAS:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Enumere las cualificaciones PREFERIDAS:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Identifique 5 palabras clave importantes para incluir en su solicitud:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Optimización para ATS</div>
+    <p class="mb-md">Evalúe estos elementos de currículum para compatibilidad con sistemas ATS.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Evaluación de Formato</div>
+        <div class="scenario-description">Indique si cada elemento es RECOMENDADO o NO RECOMENDADO para sistemas ATS:</div>
+        <div class="response-line">
+            <span class="response-label">Usar tablas para organizar información:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(recomendado / no recomendado)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Encabezados estándar como "Experiencia":</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(recomendado / no recomendado)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Incluir siglas Y términos completos:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(recomendado / no recomendado)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Gráficos creativos para destacar:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(recomendado / no recomendado)</span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Los sistemas ATS escanean texto simple. Evite elementos que puedan confundir al software: tablas, gráficos, encabezados/pies de página, y formatos complejos.
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Estructura de Carta de Presentación</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Para el puesto de Asistente de Marketing Digital, redacte un párrafo de apertura efectivo:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> Mencione dos cualificaciones clave que destacaría en el cuerpo de la carta y por qué:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es el propósito principal de un Sistema de Seguimiento de Candidatos (ATS)?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Enviar ofertas de trabajo automáticamente</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Filtrar y clasificar solicitudes antes de revisión humana</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Programar entrevistas con candidatos</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Verificar referencias de los solicitantes</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué es importante personalizar su currículum para cada solicitud?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Maya aplicó a un puesto de marketing y quiere hacer seguimiento. ¿Cuánto tiempo debe esperar y qué debe incluir en su mensaje?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Explique la diferencia entre cualificaciones requeridas y preferidas, y cómo afecta su decisión de aplicar.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Piense en un puesto que le interese. ¿Qué obstáculos específicos podría enfrentar en el proceso de solicitud y cómo los abordaría usando las estrategias de esta lección?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 15.3: Proceso de Solicitud de Empleo</span>
+    </div>
+
+</body>
+</html>

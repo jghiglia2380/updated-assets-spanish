@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-61 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 68: Evaluación de Contratos y Protección al Consumidor</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Taylor, de 24 años, encontró un apartamento asequible cerca de su trabajo. El propietario la presionó: "Otras tres personas quieren esta unidad—firma hoy o se va." Taylor se llevó el contrato a casa y descubrió: renovación automática con 90 días de aviso escrito (no email), derechos de entrada del propietario "en cualquier momento", inquilino responsable de TODAS las reparaciones, y cláusula que la obliga a pagar honorarios de abogado del propietario en cualquier disputa. Al negociar, obtuvo mejores términos y se protegió de miles en cargos injustos.</p>
+        <p class="framing-question">¿Cómo puede la evaluación sistemática de contratos protegerte de términos injustos, costos ocultos y pérdida de derechos legales?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar contratos críticamente para identificar términos favorables y desfavorables.</li>
+            <li>Evaluar los derechos del consumidor y las protecciones legales en situaciones contractuales.</li>
+            <li>Aplicar estrategias de evaluación de contratos a acuerdos financieros del mundo real.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Términos Contractuales Injustos</td><td>Cláusulas que crean desequilibrio significativo entre derechos y obligaciones, favoreciendo a la empresa sobre el consumidor.</td></tr>
+        <tr><td>Arbitraje Obligatorio</td><td>Disposición que requiere resolver disputas mediante arbitraje privado en lugar de tribunales, limitando tu capacidad de demandar.</td></tr>
+        <tr><td>Renovación Automática</td><td>Términos que causan que suscripciones se renueven automáticamente a menos que canceles activamente, a veces con procedimientos difíciles.</td></tr>
+        <tr><td>Renuncia de Garantía</td><td>Lenguaje que limita o elimina responsabilidad del vendedor por defectos ("tal como está", "sin garantía").</td></tr>
+        <tr><td>Período de Reflexión</td><td>Marco de tiempo legalmente establecido durante el cual puedes cancelar ciertos contratos sin penalidad.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Los contratos rigen casi todas las transacciones financieras significativas. Sin embargo, la mayoría de las personas firman sin comprender completamente los términos. Las <strong>leyes de protección al consumidor</strong> proporcionan ciertos derechos que no pueden ser cedidos, pero no te protegen de contratos que firmas voluntariamente. La evaluación sistemática de contratos—identificando señales de alerta, reconociendo términos injustos, y sabiendo cuándo negociar—es alfabetización financiera esencial.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Identificación de Señales de Alerta</div>
+
+    <table class="data-table">
+        <tr><th>Señal de Alerta</th><th>Significado</th><th>Nivel de Preocupación</th></tr>
+        <tr><td style="text-align: left;">"Tal como está"</td><td>Sin garantías, aceptas todos los defectos</td><td>Alto ⚠️</td></tr>
+        <tr><td style="text-align: left;">"No reembolsable"</td><td>Pierdes dinero si cancelas por cualquier razón</td><td>Medio-Alto</td></tr>
+        <tr><td style="text-align: left;">"Arbitraje vinculante"</td><td>No puedes demandar en tribunales</td><td>Alto ⚠️</td></tr>
+        <tr><td style="text-align: left;">"Renovación automática"</td><td>Continúa sin tu acción</td><td>Medio</td></tr>
+    </table>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Membresía de Gimnasio</div>
+        <div class="scenario-description">Anunciado: "¡$20/mes, cancela cuando quieras!" Contrato real: compromiso de 1 año, $200 tarifa de terminación anticipada, renovación automática anual, 45 días de aviso escrito para cancelar.</div>
+        <div class="response-line"><span class="response-label">Señales de alerta identificadas:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">Costo real si cancelas al mes 6:</span><span class="response-blank"></span></div>
+        <div class="response-line"><span class="response-label">¿Firmarías? ¿Por qué?:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="part-header">Parte B: Análisis de Cláusulas Contractuales</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Clasifica cada cláusula como Aceptable, Preocupante o Inaceptable:</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;">_____ "El cliente renuncia a todos los reclamos contra la Empresa por cualquier razón"</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;">_____ "Garantía limitada cubre defectos por 90 días; excluye daños consecuentes"</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;">_____ "Cualquier parte puede terminar con 30 días de aviso"</p>
+        <p style="font-size: 9.5pt; margin: 4px 0;">_____ "La Empresa puede cambiar cualquier término publicando aviso en su sitio web"</p>
+    </div>
+
+    <div class="part-header">Parte C: Estrategia de Negociación</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Escribe un guión de negociación fuerte para esta cláusula problemática:</p>
+        <p style="font-size: 9.5pt; margin-bottom: 8px;"><strong>Cláusula:</strong> "Tarifa de terminación anticipada: $500" (en membresía de gimnasio de $40/mes)</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Un guión fuerte: (1) Expresa interés en el servicio, (2) Identifica específicamente el problema, (3) Propone una alternativa razonable, (4) Indica disposición a firmar si se resuelve.
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Una cláusula de "arbitraje obligatorio con renuncia a demanda colectiva" significa que:</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Las disputas se resuelven más rápido y barato</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. No puedes demandar en tribunales ni unirte con otros consumidores perjudicados</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. La empresa debe pagarte si te perjudica</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Tienes más protecciones legales</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explica por qué las tácticas de presión ("firma hoy o pierdes la oferta") son una señal de alerta y cómo deberías responder.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> <strong>Cálculo:</strong> Una membresía "anunciada como $9.99/mes" tiene: $2.99 tarifa de procesamiento + $4.99 tarifa de conveniencia + impuestos. ¿Cuál es el costo mensual real? ¿Anual?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Costo mensual real: $__________ | Costo anual: $__________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Qué protección legal existe si un vendedor de puerta en puerta te presiona a firmar un contrato costoso y te arrepientes al día siguiente?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Piensa en un contrato que hayas firmado o firmarás pronto. ¿Qué términos específicos examinarías más cuidadosamente? ¿Qué preguntas harías antes de firmar? ¿Qué términos intentarías negociar?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 61: Evaluación de Contratos y Protección al Consumidor</span>
+    </div>
+
+</body>
+</html>

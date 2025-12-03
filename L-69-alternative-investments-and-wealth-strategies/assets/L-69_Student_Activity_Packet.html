@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-69 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --success: #059669;
+            --success-light: #ecfdf5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 13pt; font-weight: 700; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin-top: 3px; opacity: 0.9; }
+        .header-right { text-align: right; font-size: 9pt; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border: 1px solid #fcd34d; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .challenge-box p { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .challenge-box strong { color: #b45309; }
+
+        .objectives-box { background: var(--success-light); border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; margin-bottom: 16px; }
+        .objectives-box h3 { color: var(--success); font-size: 10pt; margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { font-size: 9pt; color: var(--text-medium); margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--bg-light); padding: 8px 10px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; margin-bottom: 6px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 6px; }
+
+        .activity-section { margin-bottom: 16px; }
+        .activity-section h4 { color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .write-line { border-bottom: 1px solid var(--border); min-height: 20px; margin: 6px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; margin: 8px 0; padding: 6px; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
+        .check-item { display: flex; align-items: center; gap: 6px; font-size: 9pt; }
+        .check-box { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: center; }
+        .comparison-table th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+
+        .question-block { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .question-block h4 { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .question-number { display: inline-block; background: var(--primary); color: white; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9pt; margin-right: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .data-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 10px; margin: 8px 0; font-size: 9pt; }
+        .data-box strong { color: #0369a1; }
+
+        .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 10px; margin: 8px 0; font-size: 9pt; }
+        .warning-box strong { color: #dc2626; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 69: Inversiones Alternativas y Estrategias de Riqueza</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades<br>del Estudiante
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p><strong>Escenario:</strong> Alex, de 22 años, escuchó de amigos e influencers sobre ganancias "garantizadas" en criptomonedas. Sin entender los riesgos, invirtió sus $8,000 de ahorros—todo su fondo de emergencia—en varias criptomonedas durante un pico del mercado. En 3 meses, el mercado cayó 70% y Alex vendió en pánico con una pérdida de $5,600. Mientras tanto, su amigo Jordan invirtió $300 (2% de su portafolio) en cripto como posición especulativa, manteniendo el 98% en fondos índice. Jordan durmió tranquilo durante la volatilidad.</p>
+        <p><strong>Reflexión:</strong> ¿Qué errores cometió Alex? ¿Cómo protegió a Jordan su enfoque estructurado?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar las características de clases de activos alternativos: bienes raíces, materias primas, criptomonedas</li>
+            <li>Evaluar el papel de la correlación y diversificación en la construcción de portafolios</li>
+            <li>Comparar los perfiles de liquidez, riesgo y rendimiento de diferentes alternativas</li>
+            <li>Tomar decisiones informadas sobre incorporar alternativas en planes financieros personales</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <td>Inversiones Alternativas</td>
+            <td>Activos más allá de acciones y bonos: bienes raíces, materias primas, metales preciosos, criptomonedas, capital privado.</td>
+        </tr>
+        <tr>
+            <td>Correlación</td>
+            <td>Grado en que dos inversiones se mueven juntas. Baja correlación = beneficios de diversificación.</td>
+        </tr>
+        <tr>
+            <td>REIT</td>
+            <td>Fideicomiso de Inversión en Bienes Raíces. Permite invertir en inmuebles sin comprar propiedad física. Distribuye 90%+ de ingresos como dividendos.</td>
+        </tr>
+        <tr>
+            <td>Cobertura contra Inflación</td>
+            <td>Inversión que mantiene o aumenta su valor cuando los precios suben. Oro y bienes raíces son ejemplos clásicos.</td>
+        </tr>
+        <tr>
+            <td>Liquidez</td>
+            <td>Facilidad para convertir un activo en efectivo. Acciones = alta liquidez. Propiedad física = baja liquidez.</td>
+        </tr>
+        <tr>
+            <td>Criptomoneda</td>
+            <td>Moneda digital descentralizada (Bitcoin, Ethereum). Altamente volátil y especulativa. Sin respaldo gubernamental.</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <h4>Parte A: Análisis de Correlación</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Evalúa cómo diferentes activos se mueven respecto al S&P 500 (acciones):</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Activo</th>
+                <th>Correlación con Acciones</th>
+                <th>Beneficio de Diversificación</th>
+            </tr>
+            <tr>
+                <td>Bonos</td>
+                <td>Baja/Negativa (-0.1 a 0.3)</td>
+                <td>Alto</td>
+            </tr>
+            <tr>
+                <td>Oro</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>REITs</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Bitcoin</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>¿Qué alternativa proporciona MEJOR diversificación de acciones?</strong></p>
+        <div class="write-line"></div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte B: Comparación Bienes Raíces vs. REITs</h4>
+        <div class="data-box">
+            <strong>Escenario:</strong> Tienes $50,000 para invertir en bienes raíces.<br>
+            • <strong>Opción A:</strong> Pago inicial para propiedad de alquiler de $250,000<br>
+            • <strong>Opción B:</strong> Invertir $50,000 en un fondo índice de REIT
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Factor</th>
+                <th>Propiedad Directa</th>
+                <th>REIT</th>
+            </tr>
+            <tr>
+                <td>Capital requerido</td>
+                <td>$50,000 + costos</td>
+                <td>$50,000</td>
+            </tr>
+            <tr>
+                <td>Esfuerzo de gestión</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Liquidez</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Diversificación</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>¿Cuál elegirías TÚ y por qué?</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte C: Simulación de Volatilidad Cripto</h4>
+        <div class="warning-box">
+            <strong>Datos históricos de Bitcoin:</strong><br>
+            • 2017: +1,318% | 2018: -73% | 2020-2021: +1,100% | 2022: -76%
+        </div>
+
+        <p style="font-size: 9pt; margin-bottom: 10px;">Tienes $5,000. Calcula el valor final después de cada período:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Asignación</th>
+                <th>Después de 2017 (+1,318%)</th>
+                <th>Después de 2018 (-73%)</th>
+            </tr>
+            <tr>
+                <td>5% cripto ($250)</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+            <tr>
+                <td>50% cripto ($2,500)</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>¿Podrías manejar emocionalmente una pérdida del 73%? ¿Qué asignación te permite dormir tranquilo?</strong></p>
+        <div class="write-line"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <h4><span class="question-number">1</span>El beneficio PRINCIPAL de las inversiones alternativas en un portafolio es:</h4>
+        <div class="check-grid">
+            <div class="check-item"><div class="check-box"></div> A. Rendimientos garantizados más altos</div>
+            <div class="check-item"><div class="check-box"></div> B. Diversificación por baja correlación</div>
+            <div class="check-item"><div class="check-box"></div> C. Menor riesgo que las acciones</div>
+            <div class="check-item"><div class="check-box"></div> D. Mayor liquidez</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">2</span>¿Por qué un asesor financiero recomendaría limitar las criptomonedas al 1-5% del portafolio?</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">3</span>Ordena estos activos de MÁS líquido a MENOS líquido:</h4>
+        <p style="font-size: 9pt;">Acciones | Propiedad de alquiler | REITs | Bitcoin | Oro físico</p>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">4</span>Antes de invertir en alternativas, ¿qué base financiera deberías tener establecida?</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">5</span>Diseña TU estrategia de inversiones alternativas. ¿Qué porcentaje asignarías a cada categoría?</h4>
+        <table class="comparison-table" style="margin-top: 10px;">
+            <tr>
+                <th>Categoría</th>
+                <th>Tu Asignación</th>
+                <th>Razonamiento</th>
+            </tr>
+            <tr>
+                <td>Fondos índice tradicionales</td>
+                <td>_____%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>REITs/Bienes raíces</td>
+                <td>_____%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Oro/Materias primas</td>
+                <td>_____%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Criptomonedas</td>
+                <td>_____%</td>
+                <td></td>
+            </tr>
+        </table>
+        <p style="font-size: 9pt; margin-top: 8px;"><strong>Mi regla personal:</strong> "Solo invertiré en alternativas después de _______________"</p>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 69: Inversiones Alternativas y Estrategias de Riqueza</span>
+    </div>
+
+</body>
+</html>

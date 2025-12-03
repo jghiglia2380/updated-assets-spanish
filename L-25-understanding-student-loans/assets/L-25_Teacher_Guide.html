@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-25 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: L-25 — Entendiendo los Préstamos Estudiantiles | {{STATE_NAME}}</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>Legislación de Crédito al Consumidor (L-24)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea el escenario de Alex y Jordan en voz alta.</li>
+                    <li>Encuesta rápida: "¿Quién creen que pagará más a largo plazo?"</li>
+                    <li>Discuta por qué el tipo de préstamo importa tanto como la cantidad.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Compare préstamos federales vs. privados usando la tabla de comparación.</li>
+                    <li>Enfatice: "Federal primero, privado como último recurso."</li>
+                    <li>Explique planes de pago basados en ingresos y condonación.</li>
+                    <li>Discuta las consecuencias graves del incumplimiento.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis profundo del caso Alex vs. Jordan.</li>
+                    <li><strong>Parte B (8 min):</strong> Presupuesto universitario y cálculos.</li>
+                    <li><strong>Parte C (3 min):</strong> Revisión de consecuencias del incumplimiento.</li>
+                    <li><strong>Parte D (4 min):</strong> Plan personal de financiamiento.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">8 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise las ventajas de préstamos federales.</li>
+                    <li>Discuta planes personales de los estudiantes.</li>
+                    <li>Enfatice la importancia de planificar ANTES de necesitar préstamos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Simplifique la comparación a las 3 diferencias más importantes.</li>
+                <li>Proporcione calculadora de préstamos pre-configurada.</li>
+                <li>Use analogías: "Federal es como pedir a tus padres, privado es como pedir al banco."</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue salarios promedio de carreras de interés.</li>
+                <li>Calcule el ratio deuda-ingreso recomendado para préstamos estudiantiles.</li>
+                <li>Explore programas de condonación de préstamos por servicio público.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis del Caso Alex vs. Jordan</div>
+            <div class="answer-item"><strong>1.</strong> Jordan pidió más ($25,000 vs. $20,000). Jordan pagará significativamente más interés porque $10,000 están al 10% variable vs. el 5% fijo de Alex. Además, las tasas variables de Jordan pueden subir.</div>
+            <div class="answer-item"><strong>2.</strong> Si Alex pierde su trabajo: puede cambiar a pago basado en ingresos (posiblemente $0/mes), aplazamiento o indulgencia. Si Jordan pierde su trabajo: los préstamos privados tienen opciones muy limitadas, podría enfrentar incumplimiento incluso sin ingresos.</div>
+            <div class="answer-item"><strong>3.</strong> Solo Alex podría beneficiarse de la Condonación de Préstamos por Servicio Público (PSLF), ya que este programa solo aplica a préstamos federales. Jordan no podría condonar los $10,000 privados.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Presupuesto Universitario</div>
+            <div class="calc-display">Cálculos de Costos Anuales:
+Matrícula: $1,200 × 12 = $14,400
+Alojamiento: $800 × 12 = $9,600
+Comida: $400 × 12 = $4,800
+Libros: $100 × 12 = $1,200
+Transporte: $150 × 12 = $1,800
+Personal: $200 × 12 = $2,400
+
+TOTAL ANUAL: $34,200
+
+Si trabaja y gana $800/mes × 12 = $9,600
+Necesidad de préstamos: $34,200 - $9,600 = $24,600/año</div>
+            <div class="answer-note">Discuta cómo cada estrategia de ahorro podría reducir la necesidad de préstamos. Por ejemplo: vivir con familia = -$9,600, lo que reduciría préstamos a $15,000/año.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Consecuencias del Incumplimiento</div>
+            <div class="answer-item">Es especialmente importante evitar el incumplimiento en préstamos estudiantiles porque: (1) A diferencia de otras deudas, generalmente NO se pueden eliminar en bancarrota, (2) El gobierno tiene herramientas poderosas de cobro como embargo de salario y retención de reembolsos de impuestos, (3) El daño crediticio afecta vivienda, empleo y futuros préstamos por años.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> Dos ventajas de préstamos federales: (1) Planes de pago basados en ingresos que ajustan pagos según la capacidad, (2) Oportunidades de condonación de préstamos, (3) Tasas de interés fijas establecidas por ley, (4) No requieren verificación de crédito ni aval.</div>
+            <div class="answer-item"><strong>2.</strong> El pago basado en ingresos ajusta los pagos mensuales según el ingreso y tamaño familiar del prestatario. Es importante porque protege a los prestatarios de pagos inasequibles, especialmente en los primeros años de carrera o durante dificultades económicas.</div>
+            <div class="answer-item"><strong>3.</strong> Es importante agotar préstamos federales primero porque ofrecen: (1) Tasas de interés más bajas y fijas, (2) Protecciones durante dificultades financieras, (3) Opciones de condonación, (4) No necesitan aval ni verificación de crédito. Los préstamos privados carecen de estas protecciones.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Busque respuestas que incluyan: becas/subvenciones primero, préstamos federales antes de privados, trabajo de medio tiempo, considerar community college, investigar salarios de la carrera elegida, crear presupuesto realista.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Todos los préstamos estudiantiles son iguales."</td><td>Los préstamos federales y privados tienen diferencias cruciales en tasas, flexibilidad y protecciones. La elección del tipo de préstamo puede significar miles de dólares de diferencia.</td></tr>
+            <tr><td>"Puedo declarar bancarrota para eliminar préstamos estudiantiles."</td><td>Los préstamos estudiantiles generalmente NO se eliminan en bancarrota. Requieren demostrar "dificultad excesiva", un estándar muy difícil de cumplir.</td></tr>
+            <tr><td>"Debo pedir prestado el máximo permitido."</td><td>Solo debe pedir lo que realmente necesita. El dinero extra que pida hoy costará significativamente más con intereses durante 10-20 años de pagos.</td></tr>
+        </table>
+    </div>
+
+    <div class="section-header">Contexto Educativo de {{STATE_NAME}} para Educadores</div>
+    <div class="background-box">
+        <p><strong>Costos Universitarios Locales:</strong> {{#if STATE_TUITION_PUBLIC}}La universidad pública en {{STATE_NAME}} cuesta aproximadamente ${{STATE_TUITION_PUBLIC}} anualmente.{{/if}} {{#if STATE_TUITION_PRIVATE}}Las instituciones privadas promedian ${{STATE_TUITION_PRIVATE}} por año.{{/if}} Use estos números en ejemplos para hacer los cálculos más relevantes para sus estudiantes.</p>
+        <p><strong>Recursos para el Aula:</strong> {{#if STATE_FINANCIAL_AID_PROGRAM}}{{STATE_NAME}} ofrece {{STATE_FINANCIAL_AID_PROGRAM}} para residentes. Considere incorporar información sobre estos programas en las discusiones.{{/if}} Para obtener recursos adicionales sobre ayuda financiera estatal, visite: {{STATE_EDUCATION_DEPT_URL}}</p>
+        <p><strong>Conexiones Locales:</strong> Considere invitar a un consejero de ayuda financiera de una universidad local para hablar con los estudiantes sobre el proceso de solicitud específico de {{STATE_NAME}}.</p>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: L-25</span>
+    </div>
+
+</body>
+</html>

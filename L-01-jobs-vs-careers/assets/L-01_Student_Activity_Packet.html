@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-01 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capitulo 1.1: Empleos vs. Carreras Profesionales</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafio</div>
+    <div class="challenge-box">
+        <p>Maya trabajaba en un restaurante de comida rapida durante la secundaria, ganando el salario minimo con horarios irregulares. Despues de graduarse, se inscribio en un programa de enfermeria. En cinco anos, se convirtio en enfermera registrada ganando mas del triple de su salario anterior, con excelentes beneficios y claras oportunidades de avance. Al invertir en una trayectoria profesional en lugar de continuar en una serie de empleos, Maya mejoro significativamente su perspectiva financiera a largo plazo.</p>
+        <p class="framing-question">Cual es la diferencia entre un empleo y una carrera profesional, y como afecta cada uno tu futuro financiero?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre un empleo y una carrera profesional.</li>
+            <li>Identificar como las trayectorias profesionales afectan los resultados financieros a largo plazo.</li>
+            <li>Evaluar intereses y habilidades personales en relacion con posibles carreras.</li>
+            <li>Desarrollar estrategias preliminares de trayectoria profesional.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Termino</th><th>Definicion</th></tr>
+        <tr><td>Empleo</td><td>Una posicion laboral que proporciona ingresos inmediatos pero puede tener potencial de crecimiento limitado.</td></tr>
+        <tr><td>Carrera Profesional</td><td>Una secuencia de empleos relacionados que proporciona crecimiento, avance y compensacion creciente con el tiempo.</td></tr>
+        <tr><td>Trayectoria Profesional</td><td>Una progresion estrategica de empleos, educacion y adquisicion de habilidades hacia objetivos profesionales.</td></tr>
+        <tr><td>Capital Profesional</td><td>Las habilidades, experiencias, conocimientos y conexiones que aumentan tu valor en el lugar de trabajo.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Segun datos de la Oficina de Estadisticas Laborales, los trabajadores con educacion y capacitacion enfocada en carreras profesionales ganan sustancialmente mas durante su vida que aquellos que se mueven entre empleos no relacionados. Ademas, las carreras profesionales frecuentemente proporcionan mejores beneficios, incluyendo planes de jubilacion y seguro medico.
+    </div>
+
+    <div class="section-header">Aplicalo</div>
+    <div class="part-header">Parte A: Empleo vs. Carrera - Clasificacion</div>
+    <p style="margin-bottom: 14px;">Clasifica cada escenario como EMPLEO o CARRERA PROFESIONAL.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Trabajo de Verano</div>
+        <div class="scenario-description">Juan trabaja como salvavidas durante el verano para ganar dinero extra antes de la universidad.</div>
+        <div class="response-line"><span class="response-label">Clasificacion:</span><span class="response-blank"></span><span style="color: var(--text-light); font-size: 9pt; margin-left: 8px;">(Empleo / Carrera)</span></div>
+        <div class="response-line"><span class="response-label">Razon:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Desarrollo Profesional</div>
+        <div class="scenario-description">Maria comenzo como asistente administrativa y despues de 3 anos de capacitacion y certificaciones, ahora es gerente de recursos humanos.</div>
+        <div class="response-line"><span class="response-label">Clasificacion:</span><span class="response-blank"></span><span style="color: var(--text-light); font-size: 9pt; margin-left: 8px;">(Empleo / Carrera)</span></div>
+        <div class="response-line"><span class="response-label">Razon:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Oficios Especializados</div>
+        <div class="scenario-description">Roberto completo un programa de aprendizaje de electricista y ahora trabaja como maestro electricista con su propia empresa.</div>
+        <div class="response-line"><span class="response-label">Clasificacion:</span><span class="response-blank"></span><span style="color: var(--text-light); font-size: 9pt; margin-left: 8px;">(Empleo / Carrera)</span></div>
+        <div class="response-line"><span class="response-label">Razon:</span><span class="response-blank"></span></div>
+    </div>
+
+    <div class="part-header">Parte B: Analisis de Capital Profesional</div>
+    <p style="margin-bottom: 14px;">Completa la tabla identificando tipos de capital profesional.</p>
+
+    <table class="data-table">
+        <tr><th>Tipo de Capital</th><th>Tu Ejemplo Personal</th><th>Como Desarrollarlo</th></tr>
+        <tr><td style="text-align: left;">Habilidades Tecnicas</td><td></td><td></td></tr>
+        <tr><td style="text-align: left;">Habilidades Blandas</td><td></td><td></td></tr>
+        <tr><td style="text-align: left;">Educacion/Certificaciones</td><td></td><td></td></tr>
+        <tr><td style="text-align: left;">Red Profesional</td><td></td><td></td></tr>
+    </table>
+
+    <div class="part-header">Parte C: Plan de Trayectoria Profesional</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Identifica un campo profesional que te interese:</p>
+        <div class="answer-lines"><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Completa el cronograma de objetivos:</p>
+        <table class="data-table">
+            <tr><th>Plazo</th><th>Objetivo</th><th>Pasos Necesarios</th></tr>
+            <tr><td>Corto plazo (1-2 anos)</td><td></td><td></td></tr>
+            <tr><td>Mediano plazo (3-5 anos)</td><td></td><td></td></tr>
+            <tr><td>Largo plazo (10+ anos)</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="hint-box"><strong>Pista:</strong> Investiga rangos salariales realistas y requisitos educativos para tu campo de interes usando recursos como O*NET o el Manual de Perspectivas Ocupacionales.</div>
+
+    <div class="section-header">Comprueba Tu Comprension</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cual de las siguientes describe MEJOR la diferencia entre un empleo y una carrera?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Los empleos pagan mas que las carreras</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Las carreras ofrecen crecimiento y avance a largo plazo</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Los empleos requieren mas educacion que las carreras</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Las carreras no proporcionan beneficios</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explica como el capital profesional puede impactar tus ingresos a largo plazo.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Por que es importante considerar la trayectoria profesional ademas del salario inicial al elegir una carrera?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexion:</strong> Basandote en tus intereses y habilidades, que tipo de capital profesional crees que deberias desarrollar primero? Por que?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capitulo 1.1: Empleos vs. Carreras Profesionales</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-31 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 11.1: Entendiendo los Costos y Responsabilidades del Alquiler</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Emma recientemente se graduó de la universidad y se mudó a una nueva ciudad por su primer trabajo. Encontró un apartamento de una habitación por $1,200 al mes. Después de calcular todos los costos iniciales ($4,300) y mensuales ($1,405), se da cuenta de que alquilar es más costoso de lo que esperaba. ¿Cómo puede Emma prepararse financieramente y tomar decisiones informadas sobre su primera experiencia de alquiler?</p>
+        <p class="framing-question">¿Cuáles son los costos reales del alquiler y cómo puede prepararse para ser un inquilino exitoso?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar y explicar los componentes clave de un contrato de arrendamiento.</li>
+            <li>Calcular los costos reales asociados con el alquiler, incluyendo renta, depósitos de seguridad, servicios públicos y otras tarifas.</li>
+            <li>Evaluar las ventajas y desventajas del alquiler en comparación con otras opciones de vivienda.</li>
+            <li>Comprender sus derechos y responsabilidades como inquilino.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Contrato de Arrendamiento</td><td>Un contrato legal entre un propietario y un inquilino que describe los términos del acuerdo de alquiler.</td></tr>
+        <tr><td>Depósito de Seguridad</td><td>Dinero pagado por adelantado para cubrir posibles daños más allá del desgaste normal.</td></tr>
+        <tr><td>Servicios Públicos</td><td>Servicios como electricidad, agua, gas, internet y recolección de basura que pueden o no estar incluidos en la renta.</td></tr>
+        <tr><td>Seguro de Inquilino</td><td>Póliza de seguro que protege los bienes personales del inquilino y proporciona cobertura de responsabilidad civil.</td></tr>
+        <tr><td>Plazo del Contrato</td><td>La duración del acuerdo de alquiler, típicamente 6 o 12 meses.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El alquiler es frecuentemente el primer paso hacia una vida independiente. Comprender todos los costos involucrados—incluyendo tarifas de solicitud, depósitos, primer y último mes de renta, servicios públicos y tarifas ocultas—le ayudará a presupuestar con precisión. También es importante conocer sus derechos como inquilino (vivienda habitable, privacidad, protección del depósito) y sus responsabilidades (pagar a tiempo, mantener la propiedad, reportar problemas).
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Desglose de Costos del Alquiler</div>
+    <p style="margin-bottom: 14px;">Analice el escenario de Emma y calcule los costos del alquiler.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Datos del Apartamento de Emma</div>
+        <table class="data-table" style="margin-top: 10px;">
+            <tr><th>Costo</th><th>Monto</th></tr>
+            <tr><td style="text-align: left;">Renta mensual</td><td>$1,200</td></tr>
+            <tr><td style="text-align: left;">Depósito de seguridad</td><td>$1,200</td></tr>
+            <tr><td style="text-align: left;">Primer mes de renta</td><td>$1,200</td></tr>
+            <tr><td style="text-align: left;">Último mes de renta</td><td>$1,200</td></tr>
+            <tr><td style="text-align: left;">Tarifa de solicitud</td><td>$50</td></tr>
+            <tr><td style="text-align: left;">Activación de servicios</td><td>$150</td></tr>
+            <tr><td style="text-align: left;">Gastos de mudanza</td><td>$500</td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Calcule los costos iniciales totales de Emma y sus gastos mensuales recurrentes.</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="response-line">
+            <span class="response-label">Costos iniciales totales:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Gastos mensuales totales:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="part-header">Parte B: Comparación de Opciones de Alquiler</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Tres Escenarios de Alquiler</div>
+        <table class="data-table" style="margin-top: 10px;">
+            <tr><th>Factor</th><th>Estudio Centro</th><th>Casa 2 Hab. (compartida)</th><th>Depto 3 Hab. Campus</th></tr>
+            <tr><td style="text-align: left;">Renta mensual</td><td>$950</td><td>$700/persona</td><td>$700/persona</td></tr>
+            <tr><td style="text-align: left;">Depósito</td><td>$950</td><td>$1,400 total</td><td>$700/persona</td></tr>
+            <tr><td style="text-align: left;">Servicios incluidos</td><td>Agua, basura</td><td>Ninguno</td><td>Internet, basura</td></tr>
+            <tr><td style="text-align: left;">Servicios adicionales</td><td>$145/mes</td><td>$240/mes total</td><td>$180/mes total</td></tr>
+            <tr><td style="text-align: left;">Plazo del contrato</td><td>12 meses</td><td>12 meses</td><td>9 meses</td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Qué escenario tiene los costos iniciales más altos? ¿Cuál tiene los costos mensuales más bajos por persona?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Cuáles son DOS ventajas y DOS desventajas de tener compañeros de cuarto?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Considere tanto los aspectos financieros (división de costos) como los no financieros (responsabilidad compartida, privacidad, compatibilidad).
+    </div>
+
+    <div class="part-header">Parte C: Derechos y Responsabilidades</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Empareje cada situación con el derecho o responsabilidad del inquilino que aplica.</p>
+        <table class="data-table">
+            <tr><th>Situación</th><th>Derecho/Responsabilidad</th></tr>
+            <tr><td style="text-align: left;">El propietario entra sin aviso previo</td><td></td></tr>
+            <tr><td style="text-align: left;">La calefacción no funciona en invierno</td><td></td></tr>
+            <tr><td style="text-align: left;">Hay una fuga de agua en el baño</td><td></td></tr>
+            <tr><td style="text-align: left;">El vecino hace ruido excesivo</td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Qué costos típicamente se requieren ANTES de mudarse a un apartamento?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Solo el primer mes de renta</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Depósito de seguridad, primer y último mes de renta</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Solo el depósito de seguridad</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Seis meses de renta por adelantado</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Cuál de las siguientes es una responsabilidad del INQUILINO?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Reparar el sistema de calefacción roto</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Reportar problemas de mantenimiento prontamente</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Pagar los impuestos a la propiedad</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Reemplazar electrodomésticos antiguos</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> <strong>Cálculo:</strong> Si su ingreso mensual es $3,500 y los expertos recomiendan gastar máximo 30% en vivienda, ¿cuál es el máximo que debería pagar de renta mensual?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Renta máxima: $_____________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Mencione TRES señales de alerta en un contrato de arrendamiento que deberían preocuparle.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Basándose en su situación actual o futura esperada, ¿cuáles serían sus tres principales prioridades al buscar un lugar para alquilar? Explique por qué cada una es importante para usted.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 11.1: Costos y Responsabilidades del Alquiler</span>
+    </div>
+
+</body>
+</html>

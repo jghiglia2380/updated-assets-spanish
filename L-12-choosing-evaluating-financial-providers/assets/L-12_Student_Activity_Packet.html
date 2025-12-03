@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-12 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .provider-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+        .provider-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+
+        .calculation-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .calculation-title { font-weight: 700; color: #166534; font-size: 9pt; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 4.2: Selección y Evaluación de Proveedores de Servicios Financieros</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender los factores clave que distinguen a diferentes proveedores de servicios financieros</li>
+            <li>Evaluar costos y beneficios de diferentes tipos de instituciones financieras</li>
+            <li>Tomar decisiones informadas que se alineen con sus objetivos financieros</li>
+            <li>Comparar tarifas, tasas de interés y servicios entre proveedores</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Cargos por Mantenimiento</div>
+            <div class="vocab-def">Cobros regulares por mantener una cuenta bancaria activa</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">APY (Rendimiento Porcentual Anual)</div>
+            <div class="vocab-def">La tasa efectiva anual de rendimiento en cuentas de ahorro</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Seguro FDIC/NCUA</div>
+            <div class="vocab-def">Protección gubernamental de depósitos hasta $250,000</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Cargos por Sobregiro</div>
+            <div class="vocab-def">Cobros por gastar más dinero del disponible en cuenta</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Asesor Robótico</div>
+            <div class="vocab-def">Plataforma digital que automatiza la gestión de inversiones</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Casa de Bolsa</div>
+            <div class="vocab-def">Empresa que facilita la compra y venta de inversiones</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">🏦 Decisión de Sophia</div>
+        <div class="scenario-content">
+            Sophia está comenzando la universidad y necesita su primera cuenta bancaria. Está comparando:
+            <ul style="margin: 8px 0 0 20px; font-size: 9pt;">
+                <li><strong>Banco en Línea:</strong> Sin tarifas de mantenimiento, 1.5% APY en ahorros</li>
+                <li><strong>Cooperativa de Crédito Local:</strong> Servicio personalizado, 0.8% APY, sucursal cerca del campus</li>
+            </ul>
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Qué proveedor recomendarías para Sophia y por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Tipos de Proveedores Financieros</h3>
+    <table class="comparison-table">
+        <tr>
+            <th>Tipo de Proveedor</th>
+            <th>Características</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+        </tr>
+        <tr>
+            <td><strong>Bancos Tradicionales</strong></td>
+            <td>Con fines de lucro, amplia red de sucursales</td>
+            <td>Conveniencia, muchos servicios</td>
+            <td>Tarifas más altas, tasas más bajas</td>
+        </tr>
+        <tr>
+            <td><strong>Cooperativas de Crédito</strong></td>
+            <td>Sin fines de lucro, propiedad de miembros</td>
+            <td>Mejores tasas, menos tarifas</td>
+            <td>Membresía restringida, menos sucursales</td>
+        </tr>
+        <tr>
+            <td><strong>Bancos en Línea</strong></td>
+            <td>Solo digitales, sin sucursales físicas</td>
+            <td>Tasas altas, sin tarifas</td>
+            <td>Sin servicio presencial</td>
+        </tr>
+        <tr>
+            <td><strong>Casas de Bolsa</strong></td>
+            <td>Especializadas en inversiones</td>
+            <td>Acceso a mercados, asesoría</td>
+            <td>Comisiones de inversión</td>
+        </tr>
+    </table>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 16px 0 8px;">Factores de Evaluación</h3>
+    <div class="vocab-grid">
+        <div class="provider-card">
+            <div class="provider-header">💰 Tarifas y Costos</div>
+            <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+                <li>Cargos por mantenimiento mensual</li>
+                <li>Tarifas de sobregiro</li>
+                <li>Cargos por uso de cajeros automáticos</li>
+                <li>Requisitos de saldo mínimo</li>
+            </ul>
+        </div>
+        <div class="provider-card">
+            <div class="provider-header">📈 Tasas de Interés</div>
+            <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+                <li>APY en cuentas de ahorro</li>
+                <li>Tasas de préstamos personales</li>
+                <li>Tasas de tarjetas de crédito</li>
+                <li>Comparación con promedios nacionales</li>
+            </ul>
+        </div>
+        <div class="provider-card">
+            <div class="provider-header">🏪 Accesibilidad</div>
+            <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+                <li>Ubicaciones de sucursales</li>
+                <li>Red de cajeros automáticos</li>
+                <li>Banca móvil y en línea</li>
+                <li>Horario de servicio al cliente</li>
+            </ul>
+        </div>
+        <div class="provider-card">
+            <div class="provider-header">🛡️ Seguridad</div>
+            <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+                <li>Seguro FDIC (bancos)</li>
+                <li>Seguro NCUA (cooperativas)</li>
+                <li>Protección contra fraude</li>
+                <li>Seguridad digital</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Análisis del Préstamo de Ethan</div>
+        <div class="scenario-content" style="margin-bottom: 12px;">
+            Ethan necesita un préstamo de $15,000 para comprar un auto. Está comparando opciones:
+        </div>
+        <table class="comparison-table">
+            <tr>
+                <th>Prestamista</th>
+                <th>Tasa de Interés</th>
+                <th>Plazo</th>
+            </tr>
+            <tr>
+                <td>Su banco actual</td>
+                <td>4.5%</td>
+                <td>5 años</td>
+            </tr>
+            <tr>
+                <td>Cooperativa de crédito</td>
+                <td>3.2%</td>
+                <td>5 años</td>
+            </tr>
+            <tr>
+                <td>Prestamista en línea</td>
+                <td>3.9%</td>
+                <td>5 años</td>
+            </tr>
+        </table>
+
+        <div class="calculation-box">
+            <div class="calculation-title">Cálculo de Interés Total (Interés Simple para Estimación)</div>
+            <p style="font-size: 9pt; margin-bottom: 8px;">Fórmula: Interés = Principal × Tasa × Tiempo</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">1. Calcula el interés total aproximado para cada opción:</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Banco (4.5%): $15,000 × 0.045 × 5 = $_______</p>
+            <p style="font-size: 9pt; margin: 4px 0;">Cooperativa (3.2%): $15,000 × 0.032 × 5 = $_______</p>
+            <p style="font-size: 9pt; margin: 4px 0;">En línea (3.9%): $15,000 × 0.039 × 5 = $_______</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. ¿Cuánto ahorraría Ethan eligiendo la cooperativa en lugar del banco?</div>
+            <div class="answer-lines"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">3. ¿Qué otros factores (además de la tasa) debería considerar Ethan?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: El Viaje de Inversión de Mia</div>
+        <div class="scenario-content" style="margin-bottom: 12px;">
+            Mia tiene $1,000 para comenzar a invertir. Está decidiendo entre dos opciones:
+        </div>
+        <table class="comparison-table">
+            <tr>
+                <th>Opción</th>
+                <th>Tarifa Anual</th>
+                <th>Servicios</th>
+            </tr>
+            <tr>
+                <td>Casa de bolsa tradicional con asesor</td>
+                <td>1.2% del saldo</td>
+                <td>Asesoría personalizada</td>
+            </tr>
+            <tr>
+                <td>Asesor robótico</td>
+                <td>0.25% del saldo</td>
+                <td>Gestión automatizada</td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">4. Si Mia invierte $1,000 y gana 7% al año, calcula cuánto pagaría en tarifas el primer año:</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Casa de bolsa: $1,000 × 0.012 = $_______</p>
+            <p style="font-size: 9pt; margin: 4px 0;">Asesor robótico: $1,000 × 0.0025 = $_______</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. ¿En qué situaciones valdría la pena pagar la tarifa más alta del asesor tradicional?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Comparación de Proveedores</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Complete esta tabla comparando tres tipos de proveedores para diferentes necesidades:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Necesidad Financiera</th>
+                <th>Mejor Proveedor</th>
+                <th>Razón</th>
+            </tr>
+            <tr>
+                <td>Cuenta corriente para gastos diarios</td>
+                <td style="height: 40px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Ahorrar para emergencias (3-6 meses)</td>
+                <td style="height: 40px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Préstamo para auto</td>
+                <td style="height: 40px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Inversiones para jubilación</td>
+                <td style="height: 40px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Primera tarjeta de crédito</td>
+                <td style="height: 40px;"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál es la principal diferencia entre un banco tradicional y una cooperativa de crédito?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Los bancos tienen mejores tasas de interés</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Las cooperativas son sin fines de lucro y propiedad de sus miembros</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) Los bancos no cobran tarifas</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) Las cooperativas no ofrecen seguro de depósitos</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué los bancos en línea generalmente ofrecen tasas de ahorro más altas?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Un asesor robótico cobra 0.25% anual y un asesor tradicional cobra 1.0%. Si tienes $10,000 invertidos, ¿cuánto más pagarías al año con el asesor tradicional?</div>
+        <div class="answer-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Menciona tres factores que deberías considerar al elegir tu primera cuenta bancaria:</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">5. Basándote en tu situación actual, ¿qué tipo de proveedor financiero sería mejor para ti y por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 4.2</span>
+    </div>
+
+</body>
+</html>

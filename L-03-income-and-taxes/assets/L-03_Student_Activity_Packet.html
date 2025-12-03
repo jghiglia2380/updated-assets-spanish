@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-03 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .state-data-box { background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; }
+        .state-data-box h4 { color: #0369a1; font-weight: 700; margin-bottom: 8px; }
+        .state-data-box .data-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .state-data-box .data-label { color: var(--text-medium); }
+        .state-data-box .data-value { font-weight: 600; color: var(--text-dark); }
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 1.3: Ingresos e Impuestos</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>María gana $3,500 mensuales en ingreso bruto, pero después de todas las deducciones, su cheque de pago es de solo $2,212.25 en {{STATE_NAME}}. La diferencia entre lo que gana y lo que recibe puede ser del 20-30% o más dependiendo del estado. Entender estas deducciones es esencial para crear un presupuesto realista.</p>
+        <p class="framing-question">¿Cuál es la diferencia entre tu ingreso bruto y tu ingreso neto, y cómo afectan las deducciones de {{STATE_NAME}} tu planificación financiera?</p>
+    </div>
+
+    <div class="state-data-box">
+        <h4>Datos de Tu Estado: {{STATE_NAME}} ({{STATE_CODE}})</h4>
+        <div class="data-row"><span class="data-label">Tasa de Impuesto Estatal sobre la Renta:</span><span class="data-value">{{STATE_INCOME_TAX_RATE}}%</span></div>
+        <div class="data-row"><span class="data-label">Seguro por Incapacidad Estatal (SDI):</span><span class="data-value">{{STATE_SDI_RATE}}%</span></div>
+        <div class="data-row"><span class="data-label">Impuesto Local sobre la Renta:</span><span class="data-value">{{STATE_LOCAL_INCOME_TAX}}%</span></div>
+        <div class="data-row"><span class="data-label">Promedio Nacional de Impuesto Estatal:</span><span class="data-value">4.6%</span></div>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre ingreso bruto e ingreso neto.</li>
+            <li>Identificar deducciones obligatorias y voluntarias de un cheque de pago.</li>
+            <li>Explicar el propósito e importancia del formulario W-4.</li>
+            <li>Calcular el pago neto después de varias deducciones usando las tasas de {{STATE_NAME}}.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Ingreso Bruto</td><td>La cantidad total de dinero ganada ANTES de cualquier deducción.</td></tr>
+        <tr><td>Ingreso Neto</td><td>La cantidad que realmente recibes DESPUÉS de todas las deducciones.</td></tr>
+        <tr><td>Deducciones Obligatorias</td><td>Impuestos requeridos por ley: federal, estatal ({{STATE_INCOME_TAX_RATE}}% en {{STATE_NAME}}), Seguro Social, Medicare.</td></tr>
+        <tr><td>Deducciones Voluntarias</td><td>Opcionales: contribuciones jubilación, seguro médico, otros beneficios.</td></tr>
+        <tr><td>FICA</td><td>Impuesto que financia Seguro Social (6.2%) y Medicare (1.45%).</td></tr>
+        <tr><td>Formulario W-4</td><td>Formulario que determina cuánto impuesto se retiene de tu cheque.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Las deducciones de FICA (7.65% total) financian programas de los que te beneficiarás en el futuro: Seguro Social para la jubilación y Medicare para atención médica. En {{STATE_NAME}}, la tasa de impuesto estatal es {{STATE_INCOME_TAX_RATE}}%. Las deducciones voluntarias como el 401(k) pueden incluir contribuciones del empleador - esencialmente dinero gratis. Para más información sobre impuestos en {{STATE_NAME}}, visita: {{STATE_REVENUE_DEPT_URL}}
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+    <div class="part-header">Parte A: Análisis del Cheque de Pago de María en {{STATE_NAME}}</div>
+    <p style="margin-bottom: 14px;">Analiza las deducciones del cheque de María usando las tasas de {{STATE_NAME}}.</p>
+
+    <table class="data-table">
+        <tr><th>Concepto</th><th>Monto</th><th>Porcentaje</th></tr>
+        <tr><td>Ingreso Bruto Mensual</td><td>$3,500.00</td><td>100%</td></tr>
+        <tr><td>Impuesto Federal (15%)</td><td>$525.00</td><td></td></tr>
+        <tr><td>Impuesto Estatal ({{STATE_INCOME_TAX_RATE}}%)</td><td>$3,500 × {{STATE_INCOME_TAX_RATE}}% = $_____</td><td></td></tr>
+        <tr><td>Seguro Social (6.2%)</td><td>$217.00</td><td></td></tr>
+        <tr><td>Medicare (1.45%)</td><td>$50.75</td><td></td></tr>
+        <tr><td>Seguro Médico</td><td>$180.00</td><td></td></tr>
+        <tr><td>401(k) (5%)</td><td>$175.00</td><td></td></tr>
+        <tr><td style="font-weight: 700;">Total Deducciones</td><td style="font-weight: 700;">$_______</td><td></td></tr>
+        <tr><td style="font-weight: 700;">Ingreso Neto</td><td style="font-weight: 700;">$_______</td><td></td></tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Qué porcentaje del ingreso bruto de María va a deducciones totales en {{STATE_NAME}}?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Si María aumentara su contribución al 401(k) al 10%, ¿cuál sería su nuevo ingreso neto?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+    </div>
+
+    <div class="part-header">Parte B: Simulación del W-4</div>
+    <p style="margin-bottom: 14px;">Jordan Rivers es un estudiante de secundaria en {{STATE_NAME}} contratado para un trabajo de medio tiempo: 15 horas/semana a $15/hora. Es soltero, sin dependientes, y este es su único trabajo.</p>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Calcula el ingreso bruto mensual de Jordan (asumiendo 4 semanas):</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Para el W-4 de Jordan, ¿qué estado civil debe seleccionar y por qué?</p>
+        <div class="answer-lines"><div class="answer-line"></div></div>
+    </div>
+
+    <div class="hint-box"><strong>Pista:</strong> Muy poca retención = debes impuestos después. Demasiada retención = cheques más pequeños durante el año pero reembolso mayor. Para más información sobre W-4, visita: {{STATE_TAX_FILING_PORTAL_URL}}</div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es la diferencia principal entre ingreso bruto e ingreso neto?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. El ingreso bruto incluye bonos; el neto no</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. El ingreso bruto es antes de deducciones; el neto es después</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. El ingreso neto es siempre mayor que el bruto</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. No hay diferencia significativa</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué es importante entender tu ingreso neto para crear un presupuesto?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Explica una ventaja de contribuir a un plan de jubilación 401(k) desde joven.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexión:</strong> Basándote en lo aprendido sobre las tasas de {{STATE_NAME}}, ¿cómo te ayudará entender tu ingreso neto a planificar tus gastos y metas de ahorro?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 1.3: Ingresos e Impuestos — Edición de {{STATE_NAME}}</span>
+    </div>
+</body>
+</html>

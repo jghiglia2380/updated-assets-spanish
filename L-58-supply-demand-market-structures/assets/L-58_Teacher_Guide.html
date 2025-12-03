@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-58 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 58 — Oferta, Demanda y Estructuras de Mercado</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <!-- VARIABLE NOTE -->
+    <div class="variable-note" style="background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af;">
+        <strong style="color: #1e3a8a;">Nota:</strong> Los ejemplos de mercado de vivienda utilizan datos de {{STATE_NAME}}: precio mediano de vivienda ${{STATE_MEDIAN_HOME_PRICE}}, alquiler mediano ${{STATE_MEDIAN_RENT}}/mes. Estos datos ilustran la oferta y demanda local. Promedios nacionales: vivienda $350,000, alquiler $1,400/mes.
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Gráficas de Oferta/Demanda, Calculadora</td>
+            <td>L-50 Oferta y Demanda básica</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente la historia de Alicia: ahorró $2,400/año al entender patrones de demanda estacional.</li>
+                    <li>Pregunte: "¿Alguna vez notaste que el mismo producto cuesta diferente en diferentes épocas del año?"</li>
+                    <li>Genere ejemplos: pasajes de avión en vacaciones, ropa de temporada, apartamentos cerca de universidades.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">OFERTA, DEMANDA Y EQUILIBRIO</div>
+                <ul>
+                    <li><strong>Ley de la Demanda (3 min):</strong> Precio ↑ = Cantidad demandada ↓. Efecto sustitución + efecto ingreso.</li>
+                    <li><strong>Ley de la Oferta (3 min):</strong> Precio ↑ = Cantidad ofrecida ↑. Más rentable producir.</li>
+                    <li><strong>Equilibrio (4 min):</strong> Donde las curvas se cruzan. Si precio > equilibrio → excedente → precio baja.</li>
+                    <li>Dibuje gráfica simple en el pizarrón mostrando cómo el mercado se autocorrige.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ESTRUCTURAS DE MERCADO</div>
+                <ul>
+                    <li><strong>Competencia perfecta (3 min):</strong> Muchos vendedores, productos idénticos, nadie controla precio. Ej: maíz, trigo.</li>
+                    <li><strong>Oligopolio (3 min):</strong> Pocas empresas grandes dominan. Aerolíneas, telefonía, autos. Precios similares.</li>
+                    <li><strong>Monopolio (3 min):</strong> Un solo vendedor, sin competencia. Servicios públicos locales. Precios altos.</li>
+                    <li>Enfatice: La estructura determina tu poder como consumidor.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">15-18 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (6 min):</strong> Desplazamientos de oferta y demanda. Trabaje el primer ejemplo juntos.</li>
+                    <li><strong>Parte B (6 min):</strong> Comparación de estructuras de mercado. Discuta por qué el monopolio cobra más.</li>
+                    <li><strong>Parte C (6 min):</strong> Elasticidad y presupuesto. Conecte con planificación financiera real.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P1-P3 verifican comprensión de equilibrio, estructuras de mercado y elasticidad.</li>
+                    <li>P4 requiere aplicación del análisis a un patrón real (precios de TVs).</li>
+                    <li>P5 (reflexión) conecta con decisiones de compra personales del estudiante.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione tarjetas de referencia: "Demanda ↑ = Precio ↑" con flechas visuales.</li>
+                <li>Use analogía del subibaja: cuando un lado sube, el otro baja (oferta/demanda).</li>
+                <li>Simplifique estructuras de mercado con ejemplos muy concretos de su comunidad.</li>
+                <li>Trabaje todos los cálculos de elasticidad paso a paso en el pizarrón.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue precios de vivienda en {{STATE_NAME}} durante 12 meses (mediano ${{STATE_MEDIAN_HOME_PRICE}}).</li>
+                <li>Analice patrones de alquiler estacional en {{STATE_NAME}} (${{STATE_MEDIAN_RENT}}/mes promedio).</li>
+                <li>Calcule el excedente del consumidor para una compra real que hicieron.</li>
+                <li>Compare mercado de vivienda de {{STATE_NAME}} vs. promedio nacional ($350,000).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Desplazamientos de Oferta y Demanda</div>
+            <div class="answer-item"><strong>1. Excelente calificación de smartphone:</strong> DEMANDA se desplaza a la DERECHA → Precio SUBE</div>
+            <div class="answer-item"><strong>2. Incendio en fábrica:</strong> OFERTA se desplaza a la IZQUIERDA → Precio SUBE</div>
+            <div class="answer-item"><strong>3. Recesión económica:</strong> DEMANDA se desplaza a la IZQUIERDA → Precio BAJA</div>
+            <div class="answer-item"><strong>4. Nueva tecnología reduce costos:</strong> OFERTA se desplaza a la DERECHA → Precio BAJA</div>
+            <div class="answer-note">NOTA: Enfatice que los escenarios 3 y 4 son buenos momentos para comprar (precios bajos), mientras que 1 y 2 son momentos para esperar si es posible.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Comparación de Estructuras de Mercado</div>
+            <div class="calc-display">Costo de producción: $20/mes
+
+Competencia Perfecta (15 proveedores):
+  Precio: ~$22-25/mes (cerca del costo)
+  Excedente del Consumidor: ALTO
+  Poder del Comprador: ALTO
+
+Oligopolio (3 proveedores):
+  Precio: ~$45-55/mes
+  Excedente del Consumidor: MEDIO
+  Poder del Comprador: MEDIO
+
+Monopolio (1 proveedor):
+  Precio: ~$70-90/mes
+  Excedente del Consumidor: BAJO
+  Poder del Comprador: BAJO
+
+Diferencia anual monopolio vs. competencia:
+($80 - $23) × 12 meses = $684/año más en monopolio</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Elasticidad</div>
+            <div class="calc-display">Gasolina (Inelástica):
+  Precio original: $3.50/galón
+  Aumento del 25%: $3.50 × 1.25 = $4.38/galón
+  Nuevo costo mensual: 40 gal × $4.38 = $175
+  Impacto: +$35/mes (+25%)
+
+Comidas en Restaurantes (Elástica):
+  Precio original: $15/comida
+  Aumento del 10%: $15 × 1.10 = $16.50/comida
+  Consumo reducido: Probablemente 6-7 comidas (los consumidores reducen porque tienen opciones)
+  Nuevo costo mensual: 6 × $16.50 = $99
+  Impacto: Menor que gasolina a pesar de mismo shock de oferta</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B. Excedente - los vendedores reducen precios para eliminar inventario. Cuando el precio está por encima del equilibrio, hay más oferta que demanda.</div>
+            <div class="answer-item"><strong>2.</strong> C. Competencia perfecta. La competencia intensa entre muchos vendedores mantiene los precios bajos, maximizando el beneficio para los consumidores.</div>
+            <div class="answer-item"><strong>3.</strong> B. La demanda de gasolina es más inelástica. La gente DEBE comprar gasolina para ir al trabajo independientemente del precio, pero puede fácilmente comer menos en restaurantes.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Buenas respuestas incluirán: Antes del Super Bowl, la demanda es muy alta (gente quiere TV nueva para ver el juego). Después del Super Bowl, la demanda cae dramáticamente. Los vendedores bajan precios para eliminar inventario. La oferta permanece alta pero la demanda cayó → precio de equilibrio baja.</em></div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de la estructura de mercado, análisis de patrones estacionales de demanda, consideración de cuándo la oferta es alta, y estrategia específica de programación para maximizar el excedente del consumidor.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Los precios altos siempre significan que las empresas son codiciosas."</td>
+                <td>Los precios reflejan la interacción de oferta y demanda. Precios altos pueden indicar demanda alta, oferta baja, o ambos—no necesariamente codicia. Las escasez reales aumentan precios legítimamente.</td>
+            </tr>
+            <tr>
+                <td>"En un oligopolio, las empresas no compiten porque son pocas."</td>
+                <td>Los oligopolios SÍ compiten, pero a menudo en dimensiones no relacionadas con el precio (calidad, servicio, publicidad) para evitar guerras de precios que perjudicarían a todos. La competencia de precios todavía existe pero es más cautelosa.</td>
+            </tr>
+            <tr>
+                <td>"Comparar precios siempre vale la pena, sin importar el mercado."</td>
+                <td>En monopolios, hay un solo vendedor—comparar precios es imposible. En oligopolios con precios muy similares, el tiempo invertido comparando puede no valer los pequeños ahorros. Enfoca tus esfuerzos en mercados competitivos.</td>
+            </tr>
+            <tr>
+                <td>"Si la oferta aumenta, los precios siempre bajan."</td>
+                <td>Los precios bajan SI la demanda permanece igual. Si la oferta Y la demanda aumentan simultáneamente, el efecto neto en el precio depende de cuál aumentó más. Considera AMBAS curvas.</td>
+            </tr>
+            <tr>
+                <td>"El equilibrio de mercado es un precio 'justo'."</td>
+                <td>El equilibrio es simplemente donde oferta = demanda; no implica justicia moral. Un monopolio también tiene un "equilibrio" pero los consumidores pagan más. La estructura del mercado determina si el equilibrio beneficia a los consumidores.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 58 — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

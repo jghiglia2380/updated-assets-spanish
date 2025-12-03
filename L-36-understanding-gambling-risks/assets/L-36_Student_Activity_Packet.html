@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-36 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 12.1: Comprendiendo los Riesgos del Juego</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>El juego es una actividad recreativa común que implica arriesgar dinero en un resultado incierto. Si bien puede ser entretenido, el juego también implica riesgos financieros significativos. Comprender las matemáticas detrás del juego—probabilidad, ventaja de la casa y valor esperado—le ayudará a tomar decisiones más informadas.</p>
+        <p class="framing-question">¿Por qué comprender la probabilidad y el valor esperado es esencial para evaluar los verdaderos costos del juego?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender y calcular probabilidades en varios escenarios de juego.</li>
+            <li>Distinguir entre eventos independientes y dependientes en actividades de juego.</li>
+            <li>Explicar el concepto de ventaja de la casa y cómo asegura ganancias para los organizadores.</li>
+            <li>Calcular el valor esperado para determinar posibles resultados financieros.</li>
+            <li>Reconocer la falacia del jugador y otras ideas erróneas comunes.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Probabilidad</td><td>La posibilidad de que ocurra un evento específico, expresada como un número entre 0 y 1.</td></tr>
+        <tr><td>Eventos Independientes</td><td>Eventos donde el resultado de uno no influye en el resultado de otro.</td></tr>
+        <tr><td>Eventos Dependientes</td><td>Eventos donde el resultado de uno afecta la probabilidad del siguiente.</td></tr>
+        <tr><td>Ventaja de la Casa</td><td>La ventaja matemática que un juego tiene sobre los jugadores, asegurando ganancias para el organizador.</td></tr>
+        <tr><td>Valor Esperado</td><td>La cantidad promedio que un jugador puede esperar ganar o perder con el tiempo.</td></tr>
+        <tr><td>Falacia del Jugador</td><td>La creencia errónea de que eventos pasados influyen en resultados futuros en eventos independientes.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> La probabilidad es el fundamento del juego. Se expresa como un número entre 0 (imposible) y 1 (seguro). La fórmula básica es: <strong>Probabilidad = Resultados favorables ÷ Resultados totales posibles</strong>. Por ejemplo, obtener un 6 en un dado tiene probabilidad de 1/6 ≈ 16.7%.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Cálculos de Probabilidad</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Ventaja de la Casa por Tipo de Juego</div>
+        <table class="data-table" style="margin-top: 10px;">
+            <tr><th>Juego</th><th>Ventaja Típica de la Casa</th></tr>
+            <tr><td style="text-align: left;">Blackjack</td><td>0.5% - 2%</td></tr>
+            <tr><td style="text-align: left;">Ruleta Americana</td><td>5.26%</td></tr>
+            <tr><td style="text-align: left;">Ruleta Europea</td><td>2.7%</td></tr>
+            <tr><td style="text-align: left;">Máquinas Tragamonedas</td><td>2% - 15%</td></tr>
+            <tr><td style="text-align: left;">Lotería</td><td>40% - 50%</td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Si apuesta $10 al rojo en una ruleta americana (18 espacios rojos de 38), calcule la probabilidad de ganar y el valor esperado.</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Probabilidad: _____________ | Valor Esperado: $_____________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Calcule la probabilidad de obtener dos ases seguidos de un mazo de cartas (sin reemplazo).</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Probabilidad: _____________</div>
+    </div>
+
+    <div class="part-header">Parte B: Valor Esperado y Falacias</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Un billete de lotería cuesta $2. Las probabilidades de ganar el premio de $100 millones son 1 en 300 millones. Calcule el valor esperado.</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Valor Esperado: $_____________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Si el rojo ha salido 10 veces seguidas en una ruleta, ¿cuál es la probabilidad de que salga negro en el siguiente giro? Explique por qué.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Recuerde que en eventos independientes (como giros de ruleta), cada evento tiene la misma probabilidad sin importar los resultados anteriores.
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Qué significa un valor esperado negativo en el juego?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Ganará dinero a largo plazo</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Perderá dinero a largo plazo</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Tendrá resultados impredecibles</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. El juego es justo</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Qué es la falacia del jugador?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Creer que puede ganarle al casino con estrategia</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Creer que eventos pasados afectan resultados futuros independientes</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. No entender las reglas del juego</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Apostar más de lo que puede perder</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> <strong>Cálculo:</strong> Si juega 100 rondas apostando $5 cada vez en un juego con 5% de ventaja de la casa, ¿cuánto esperaría perder?</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+        <div class="calc-answer">Pérdida esperada: $_____________</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Qué juego tiene la menor ventaja de la casa y por qué importa esto para el jugador?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> ¿Por qué es importante ver el juego como entretenimiento en lugar de una forma de ganar dinero? ¿Qué prácticas de juego responsable adoptaría?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 12.1: Comprendiendo los Riesgos del Juego</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-13 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .check-register { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 8pt; }
+        .check-register th { background: var(--primary-dark); color: white; padding: 6px 4px; text-align: center; font-weight: 600; }
+        .check-register td { padding: 8px 4px; border: 1px solid var(--border); text-align: center; height: 28px; }
+        .check-register .date-col { width: 12%; }
+        .check-register .desc-col { width: 30%; text-align: left; padding-left: 8px; }
+        .check-register .amount-col { width: 15%; }
+        .check-register .balance-col { width: 18%; }
+
+        .tool-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; background: var(--bg-light); }
+        .tool-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; }
+
+        .warning-box { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .warning-title { font-weight: 700; color: #92400e; font-size: 9pt; margin-bottom: 4px; }
+        .warning-content { font-size: 9pt; color: #78350f; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 4.3: Comprendiendo y Utilizando las Herramientas Bancarias</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Utilizar varias herramientas bancarias: cajeros automáticos, tarjetas de débito, cheques y banca en línea</li>
+            <li>Rastrear y administrar transacciones financieras efectivamente</li>
+            <li>Conciliar registros personales con estados de cuenta bancarios</li>
+            <li>Identificar y evitar comisiones bancarias comunes</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Cheque</div>
+            <div class="vocab-def">Orden escrita que instruye al banco pagar una cantidad específica</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Tarjeta de Débito</div>
+            <div class="vocab-def">Tarjeta vinculada a su cuenta para compras y retiros</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Sobregiro</div>
+            <div class="vocab-def">Cuando una transacción excede el saldo disponible</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Conciliación</div>
+            <div class="vocab-def">Comparar registros personales con el estado de cuenta</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Cajero Automático (ATM)</div>
+            <div class="vocab-def">Máquina para retiros, depósitos y consultas de saldo</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Transferencia Electrónica (TEF)</div>
+            <div class="vocab-def">Movimiento digital de dinero entre cuentas</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">💳 El Sistema Financiero de María</div>
+        <div class="scenario-content">
+            María es estudiante universitaria con trabajo de medio tiempo. Quiere organizar sus finanzas usando diferentes herramientas bancarias. ¿Cómo puede usar cada herramienta de manera efectiva para administrar su dinero y evitar comisiones?
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Qué combinación de herramientas bancarias recomendarías para María y por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Herramientas Bancarias y Sus Usos</h3>
+
+    <div class="tool-card">
+        <div class="tool-header">📝 Cheques</div>
+        <p style="font-size: 9pt; color: var(--text-medium); margin-bottom: 8px;">Útiles para pagos grandes como alquiler. Componentes clave:</p>
+        <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+            <li>Fecha, nombre del beneficiario, cantidad en números y letras</li>
+            <li>Firma y línea de memo (opcional)</li>
+            <li>Siempre use tinta y mantenga registros</li>
+        </ul>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-header">💳 Tarjetas de Débito</div>
+        <p style="font-size: 9pt; color: var(--text-medium); margin-bottom: 8px;">Acceso inmediato a fondos en su cuenta corriente:</p>
+        <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+            <li>Compras en tiendas y en línea</li>
+            <li>Retiros en cajeros automáticos</li>
+            <li>Requiere PIN o firma para autorización</li>
+        </ul>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-header">🏧 Cajeros Automáticos</div>
+        <p style="font-size: 9pt; color: var(--text-medium); margin-bottom: 8px;">Acceso 24/7 a servicios bancarios básicos:</p>
+        <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+            <li>Retiros de efectivo y consultas de saldo</li>
+            <li>Depósitos (algunos cajeros)</li>
+            <li>⚠️ Tarifas de $2-5 en cajeros fuera de red</li>
+        </ul>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-header">📱 Banca en Línea y Móvil</div>
+        <p style="font-size: 9pt; color: var(--text-medium); margin-bottom: 8px;">Gestión completa desde cualquier lugar:</p>
+        <ul style="font-size: 9pt; margin: 0; padding-left: 16px; color: var(--text-medium);">
+            <li>Monitoreo de cuentas y transferencias</li>
+            <li>Pago de facturas y depósito de cheques</li>
+            <li>Alertas de cuenta y herramientas de presupuesto</li>
+        </ul>
+    </div>
+
+    <div class="warning-box">
+        <div class="warning-title">⚠️ Comisiones Bancarias Comunes</div>
+        <div class="warning-content">
+            <ul style="margin: 4px 0 0 16px; padding: 0;">
+                <li>Sobregiro: {{STATE_AVG_OVERDRAFT_FEE}} por transacción en {{STATE_NAME}}</li>
+                <li>Cajeros fuera de red: $2-5 por transacción</li>
+                <li>Mantenimiento mensual: {{STATE_AVG_MONTHLY_FEE}} promedio en {{STATE_NAME}} si no cumple requisitos</li>
+                <li>Saldo mínimo: Variables según el banco</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Registro de Cheques</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Practique registrando transacciones. Saldo inicial: $850.00</p>
+
+        <table class="check-register">
+            <tr>
+                <th class="date-col">Fecha</th>
+                <th class="desc-col">Descripción</th>
+                <th class="amount-col">Retiro (−)</th>
+                <th class="amount-col">Depósito (+)</th>
+                <th class="balance-col">Saldo</th>
+            </tr>
+            <tr>
+                <td>15/Mar</td>
+                <td class="desc-col">Saldo inicial</td>
+                <td></td>
+                <td></td>
+                <td>$850.00</td>
+            </tr>
+            <tr>
+                <td>16/Mar</td>
+                <td class="desc-col">Cheque #101 - Alquiler</td>
+                <td>$400.00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>17/Mar</td>
+                <td class="desc-col">Depósito directo - Trabajo</td>
+                <td></td>
+                <td>$325.00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>18/Mar</td>
+                <td class="desc-col">Débito - Supermercado</td>
+                <td>$67.50</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>19/Mar</td>
+                <td class="desc-col">ATM - Retiro efectivo</td>
+                <td>$60.00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>20/Mar</td>
+                <td class="desc-col">Débito - Gasolina</td>
+                <td>$45.00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>21/Mar</td>
+                <td class="desc-col">Transferencia de ahorros</td>
+                <td></td>
+                <td>$100.00</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">1. ¿Cuál es el saldo final después de todas las transacciones?</div>
+            <div class="answer-lines"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. Si María hubiera hecho una compra de $75 el día 20/Mar, ¿habría sobregiro? Explique.</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: Selección de Herramientas Bancarias</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Para cada situación, seleccione la mejor herramienta bancaria y explique por qué:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Situación</th>
+                <th>Mejor Herramienta</th>
+                <th>Razón</th>
+            </tr>
+            <tr>
+                <td>Pagar alquiler mensual de $600</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Comprar café de $4.50</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Transferir dinero a un amigo</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Necesitar $40 en efectivo urgente</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Verificar saldo antes de compra grande</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Detective de Comisiones</div>
+        <div class="scenario-content" style="margin-bottom: 12px;">
+            James pagó $156 en comisiones bancarias el año pasado. Analice su situación:
+        </div>
+        <ul style="font-size: 9pt; margin: 0 0 12px 16px; color: var(--text-medium);">
+            <li>12 retiros en cajeros fuera de red × $3.50 = $42</li>
+            <li>4 cargos por sobregiro × $28 = $112</li>
+            <li>Cargos de mantenimiento evitados: $0 (mantiene saldo mínimo)</li>
+        </ul>
+
+        <div class="question-block">
+            <div class="question-text">3. ¿Qué estrategias podría usar James para reducir las comisiones de cajeros automáticos?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">4. ¿Cómo podría James evitar los cargos por sobregiro?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. Si James implementara todas estas estrategias, ¿cuánto podría ahorrar al año?</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál es el propósito principal de la conciliación bancaria?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Ganar más interés en su cuenta</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Comparar sus registros con el estado de cuenta para detectar errores</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) Solicitar un préstamo del banco</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) Cambiar su PIN de la tarjeta de débito</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Cuál es la diferencia principal entre una tarjeta de débito y una tarjeta de crédito?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Mencione dos formas de evitar comisiones por uso de cajeros automáticos:</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Describe qué herramientas bancarias usarías en tu vida diaria y cómo las organizarías para evitar comisiones:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 4.3</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-23 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.3 — Entendiendo el Puntaje Crediticio</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>Eligiendo la Fuente de Crédito (L-22)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Jason en voz alta.</li>
+                    <li>Pregunte: "¿Cuántos sabían que solicitar tarjetas afecta el puntaje?"</li>
+                    <li>Discuta cómo decisiones "pequeñas" pueden tener consecuencias grandes.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente los cinco factores FICO con sus porcentajes.</li>
+                    <li>Enfatice: Historial de pagos (35%) + Utilización (30%) = 65% del puntaje.</li>
+                    <li>Explique los rangos de puntaje: Excelente (750+), Bueno (700-749), Regular (650-699), Malo (menos de 650).</li>
+                    <li>Discuta consultas duras vs. suaves con ejemplos concretos.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Análisis de casos de Jason y Sophia.</li>
+                    <li><strong>Parte B (7 min):</strong> Clasificación de comportamientos y sus impactos.</li>
+                    <li><strong>Parte C (5 min):</strong> Cálculos de impacto financiero.</li>
+                    <li><strong>Parte D (5 min):</strong> Desarrollo de estrategia personal.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">8 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Revise P1 (Historial de pagos = 35%).</li>
+                    <li>Discuta P2—por qué cerrar tarjetas antiguas es contraproducente.</li>
+                    <li>Comparta reflexiones sobre cambios de comportamiento.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una infografía visual del desglose FICO.</li>
+                <li>Use analogías: "El puntaje es como su calificación escolar financiera".</li>
+                <li>Simplifique a los dos factores principales (pagos + utilización = 65%).</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue diferencias entre modelos FICO y VantageScore.</li>
+                <li>Calcule el ahorro a largo plazo de mejorar el puntaje en 100 puntos.</li>
+                <li>Explore cómo obtener informes gratuitos de annualcreditreport.com.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Casos</div>
+            <div class="answer-item"><strong>Jason:</strong> Factor afectado: Crédito Nuevo (10%). Solución: Investigar tasas en línea primero sin aplicar, usar herramientas de pre-calificación que hacen consultas suaves, espaciar solicitudes por varios meses.</div>
+            <div class="answer-item"><strong>Sophia:</strong> Factores afectados: (1) Antigüedad del Historial (15%) - perdió la cuenta más antigua. (2) Utilización del Crédito (30%) - menos crédito disponible = mayor porcentaje usado. Solución: Mantener la tarjeta abierta pero guardarla sin usar, o usarla para una compra pequeña mensual.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Impacto de Comportamientos</div>
+            <div class="answer-item"><strong>Pagar saldo completo:</strong> POSITIVO - Historial de Pagos y Utilización</div>
+            <div class="answer-item"><strong>Usar 80% del límite:</strong> NEGATIVO - Utilización (recomendado &lt;30%)</div>
+            <div class="answer-item"><strong>Mantener tarjeta antigua abierta:</strong> POSITIVO - Antigüedad del Historial</div>
+            <div class="answer-item"><strong>Pago 30 días tarde:</strong> NEGATIVO - Historial de Pagos (muy dañino)</div>
+            <div class="answer-item"><strong>Solo tarjetas, ningún préstamo:</strong> LIGERAMENTE NEGATIVO - Mezcla de Crédito</div>
+            <div class="answer-item"><strong>5 solicitudes en una semana:</strong> NEGATIVO - Crédito Nuevo</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Calculadora de Impacto Financiero</div>
+            <div class="calc-display">PRÉSTAMO AUTO ($25,000, 5 años):
+Puntaje 750: $466/mes
+Puntaje 650: $524/mes
+Diferencia mensual: $58
+
+Total 60 meses:
+Puntaje 750: $27,960
+Puntaje 650: $31,440
+Diferencia total: $3,480 más pagado
+
+HIPOTECA ($250,000, 30 años):
+Puntaje 750: $1,499/mes × 360 = $539,640
+Puntaje 650: $1,748/mes × 360 = $629,280
+Diferencia total: $89,640 más pagado</div>
+            <div class="answer-note">Punto clave: Un puntaje 100 puntos más bajo puede costar casi $90,000 adicionales solo en una hipoteca. Esto demuestra el valor real de mantener buen crédito.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> Historial de Pagos con 35%. Incluye pagos puntuales, pagos atrasados, cuentas en cobranza y bancarrotas.</div>
+            <div class="answer-item"><strong>2.</strong> Cerrar una tarjeta antigua perjudica dos factores: (1) reduce la antigüedad promedio del historial crediticio, y (2) aumenta el ratio de utilización porque hay menos crédito total disponible.</div>
+            <div class="answer-item"><strong>3.</strong> Consulta dura: ocurre cuando solicita crédito (tarjeta, préstamo, hipoteca) - afecta el puntaje. Consulta suave: revisar su propio puntaje, pre-calificaciones, verificaciones de empleadores - no afecta el puntaje.</div>
+            <div class="answer-item"><strong>4.</strong> Vivienda (arrendadores verifican crédito), Empleo (verificación de antecedentes), Seguro (primas pueden ser más altas con mal crédito), Servicios públicos (depósitos requeridos).</div>
+            <div class="answer-item"><strong>5.</strong> <em>Busque respuestas que identifiquen comportamientos específicos y conecten con factores FICO. Ejemplos: pagar a tiempo siempre, mantener utilización bajo 30%, no cerrar tarjetas antiguas, espaciar solicitudes de crédito.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Revisar mi propio crédito baja mi puntaje."</td><td>Revisar su propio crédito es una consulta suave y NO afecta su puntaje. Puede y debe revisar su crédito regularmente.</td></tr>
+            <tr><td>"Cerrar tarjetas no usadas mejora mi puntaje."</td><td>Cerrar tarjetas puede BAJAR el puntaje al reducir la antigüedad del historial y aumentar la utilización. Es mejor mantenerlas abiertas.</td></tr>
+            <tr><td>"Solo necesito buen crédito para préstamos."</td><td>El puntaje crediticio afecta alquileres, empleo, seguros, y servicios públicos—no solo préstamos.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.3</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluador de Fuentes de Credito - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .instructions {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .instructions h3 {
+            font-size: 16px;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .instructions p {
+            font-size: 14px;
+            color: #1e3a8a;
+        }
+
+        .scenario-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .scenario-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 12px;
+        }
+
+        .scenario-selector {
+            margin-bottom: 16px;
+        }
+
+        .scenario-selector label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .scenario-selector select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .scenario-details {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .scenario-details.active {
+            display: block;
+        }
+
+        .scenario-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .lender-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .lender-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .lender-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .lender-card.selected {
+            border-color: #6366f1;
+        }
+
+        .lender-card.best-choice {
+            border-color: #10b981;
+        }
+
+        .lender-card.poor-choice {
+            border-color: #ef4444;
+        }
+
+        .lender-card h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lender-card.bank h4 { color: #3b82f6; }
+        .lender-card.credit-union h4 { color: #10b981; }
+        .lender-card.online h4 { color: #8b5cf6; }
+        .lender-card.payday h4 { color: #ef4444; }
+
+        .lender-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .bank .lender-icon { background: #dbeafe; }
+        .credit-union .lender-icon { background: #d1fae5; }
+        .online .lender-icon { background: #ede9fe; }
+        .payday .lender-icon { background: #fee2e2; }
+
+        .lender-details {
+            font-size: 13px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #6b7280;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .apr-low { color: #10b981; }
+        .apr-medium { color: #f59e0b; }
+        .apr-high { color: #ef4444; }
+
+        .comparison-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .comparison-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .rating-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .rating-excellent { background: #10b981; }
+        .rating-good { background: #3b82f6; }
+        .rating-fair { background: #f59e0b; }
+        .rating-poor { background: #ef4444; }
+
+        .evaluation-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .evaluation-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .eval-question {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .eval-question:last-child {
+            margin-bottom: 0;
+        }
+
+        .eval-question label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .eval-question select,
+        .eval-question textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .eval-question textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .result-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .result-section.active {
+            display: block;
+        }
+
+        .result-section h3 {
+            font-size: 16px;
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        .result-content {
+            font-size: 14px;
+        }
+
+        .cost-breakdown {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .cost-row:last-child {
+            border-bottom: none;
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .warning-box h4 {
+            color: #dc2626;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .warning-box p {
+            font-size: 13px;
+            color: #7f1d1d;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .btn-container {
+                display: none;
+            }
+
+            .lender-card,
+            .evaluation-section,
+            .comparison-section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lender-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Evaluador de Fuentes de Credito</h1>
+            <p>Compare y evalue diferentes fuentes de credito para sus necesidades de prestamo</p>
+        </div>
+
+        <div class="instructions">
+            <h3>Como Usar Esta Herramienta</h3>
+            <p>1. Seleccione un escenario de prestamo del menu desplegable. 2. Revise las opciones de prestamistas disponibles y sus terminos. 3. Haga clic en una tarjeta de prestamista para seleccionarla para comparacion. 4. Complete las preguntas de evaluacion para analizar su eleccion. 5. Haga clic en "Calcular Resultados" para ver la comparacion del costo total.</p>
+        </div>
+
+        <div class="scenario-section">
+            <h3>Paso 1: Seleccione Su Escenario de Prestamo</h3>
+            <div class="scenario-selector">
+                <label for="scenarioSelect">Para que necesita pedir prestado?</label>
+                <select id="scenarioSelect" onchange="updateScenario()">
+                    <option value="">Elija un escenario...</option>
+                    <option value="emergency">Reparacion de Auto de Emergencia - $1,500</option>
+                    <option value="auto">Compra de Auto Usado - $12,000</option>
+                    <option value="education">Gastos de Educacion - $5,000</option>
+                    <option value="consolidation">Consolidacion de Deudas - $8,000</option>
+                </select>
+            </div>
+
+            <div id="scenarioDetails" class="scenario-details">
+                <div class="scenario-info">
+                    <div class="info-item">
+                        <div class="info-label">Monto Necesario</div>
+                        <div class="info-value" id="amountNeeded">$0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Puntaje de Credito</div>
+                        <div class="info-value" id="creditScore">--</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Plazo</div>
+                        <div class="info-value" id="timeframe">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-size: 18px; color: #6366f1; margin-bottom: 16px;">Paso 2: Compare Fuentes de Credito</h3>
+
+        <div class="lender-cards">
+            <div class="lender-card bank" onclick="selectLender('bank')">
+                <h4><span class="lender-icon">B</span> Banco Comercial</h4>
+                <div class="lender-details">
+                    <div class="detail-row">
+                        <span class="detail-label">APR Tipica</span>
+                        <span class="detail-value apr-low" id="bank-apr">6-12%</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Puntaje Minimo</span>
+                        <span class="detail-value">670+</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tiempo de Aprobacion</span>
+                        <span class="detail-value">3-7 dias</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tarifas</span>
+                        <span class="detail-value">0-5% de originacion</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mejor Para</span>
+                        <span class="detail-value">Buen credito, prestamos grandes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lender-card credit-union" onclick="selectLender('credit-union')">
+                <h4><span class="lender-icon">CU</span> Cooperativa de Credito</h4>
+                <div class="lender-details">
+                    <div class="detail-row">
+                        <span class="detail-label">APR Tipica</span>
+                        <span class="detail-value apr-low" id="cu-apr">5-10%</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Puntaje Minimo</span>
+                        <span class="detail-value">600+</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tiempo de Aprobacion</span>
+                        <span class="detail-value">1-5 dias</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tarifas</span>
+                        <span class="detail-value">Bajas o ninguna</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mejor Para</span>
+                        <span class="detail-value">Miembros, credito regular</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lender-card online" onclick="selectLender('online')">
+                <h4><span class="lender-icon">OL</span> Prestamista en Linea</h4>
+                <div class="lender-details">
+                    <div class="detail-row">
+                        <span class="detail-label">APR Tipica</span>
+                        <span class="detail-value apr-medium" id="online-apr">8-25%</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Puntaje Minimo</span>
+                        <span class="detail-value">580+</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tiempo de Aprobacion</span>
+                        <span class="detail-value">Mismo dia - 3 dias</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tarifas</span>
+                        <span class="detail-value">1-8% de originacion</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mejor Para</span>
+                        <span class="detail-value">Fondos rapidos, conveniencia</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lender-card payday" onclick="selectLender('payday')">
+                <h4><span class="lender-icon">PD</span> Prestamista de Dia de Pago</h4>
+                <div class="lender-details">
+                    <div class="detail-row">
+                        <span class="detail-label">APR Tipica</span>
+                        <span class="detail-value apr-high" id="payday-apr">300-400%</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Puntaje Minimo</span>
+                        <span class="detail-value">No se requiere</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tiempo de Aprobacion</span>
+                        <span class="detail-value">Mismo dia</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tarifas</span>
+                        <span class="detail-value">$15-30 por cada $100</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mejor Para</span>
+                        <span class="detail-value">Solo como ultimo recurso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h4>Advertencia: Prestamos Predatorios</h4>
+            <p>Los prestamos de dia de pago y algunos prestamistas de alto interes pueden atrapar a los prestatarios en ciclos de deuda. Un prestamo de dia de pago de $500 puede costar mas de $1,500 si se renueva multiples veces. Siempre explore alternativas como prestamos de emergencia de cooperativas de credito, planes de pago con acreedores o programas de asistencia comunitaria primero.</p>
+        </div>
+
+        <div class="comparison-section">
+            <h3>Tabla de Comparacion de Fuentes de Credito</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Caracteristica</th>
+                        <th>Banco</th>
+                        <th>Cooperativa de Credito</th>
+                        <th>Prestamista en Linea</th>
+                        <th>Prestamista de Dia de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tasas de Interes</td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Buenas</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelentes</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-fair"></span> Regulares</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-poor"></span> Malas</span></td>
+                    </tr>
+                    <tr>
+                        <td>Flexibilidad de Aprobacion</td>
+                        <td><span class="rating"><span class="rating-dot rating-fair"></span> Regular</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Buena</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Buena</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelente</span></td>
+                    </tr>
+                    <tr>
+                        <td>Velocidad de Fondos</td>
+                        <td><span class="rating"><span class="rating-dot rating-fair"></span> Regular</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Buena</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelente</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelente</span></td>
+                    </tr>
+                    <tr>
+                        <td>Transparencia de Tarifas</td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Buena</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelente</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-fair"></span> Regular</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-poor"></span> Mala</span></td>
+                    </tr>
+                    <tr>
+                        <td>Servicio al Cliente</td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Bueno</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Excelente</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-fair"></span> Regular</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-poor"></span> Malo</span></td>
+                    </tr>
+                    <tr>
+                        <td>Montos de Prestamo</td>
+                        <td><span class="rating"><span class="rating-dot rating-excellent"></span> Grandes</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Medianos</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-good"></span> Medianos</span></td>
+                        <td><span class="rating"><span class="rating-dot rating-poor"></span> Pequenos</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="evaluation-section">
+            <h3>Paso 3: Evalue Su Eleccion</h3>
+
+            <div class="eval-question">
+                <label>1. Que fuente de credito elegiria para su escenario?</label>
+                <select id="chosenLender">
+                    <option value="">Seleccione su eleccion...</option>
+                    <option value="bank">Banco Comercial</option>
+                    <option value="credit-union">Cooperativa de Credito</option>
+                    <option value="online">Prestamista en Linea</option>
+                    <option value="payday">Prestamista de Dia de Pago</option>
+                </select>
+            </div>
+
+            <div class="eval-question">
+                <label>2. Por que eligio esta fuente de credito? Considere APR, tarifas, requisitos de aprobacion y su puntaje de credito.</label>
+                <textarea id="choiceReason" placeholder="Explique su razonamiento..."></textarea>
+            </div>
+
+            <div class="eval-question">
+                <label>3. Cuales son los riesgos potenciales o desventajas de su eleccion?</label>
+                <textarea id="choiceRisks" placeholder="Considere las desventajas..."></textarea>
+            </div>
+
+            <div class="eval-question">
+                <label>4. Que alternativas consideraria si su primera opcion no estuviera disponible?</label>
+                <textarea id="alternatives" placeholder="Liste sus opciones de respaldo..."></textarea>
+            </div>
+        </div>
+
+        <div id="resultSection" class="result-section">
+            <h3>Resultados de Comparacion de Costos</h3>
+            <div class="result-content">
+                <p id="resultSummary">Basado en sus selecciones, aqui hay una comparacion de costos para su escenario:</p>
+                <div class="cost-breakdown">
+                    <div class="cost-row">
+                        <span>Monto Principal</span>
+                        <span id="resultPrincipal">$0</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Interes Estimado (12 meses)</span>
+                        <span id="resultInterest">$0</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Tarifas Estimadas</span>
+                        <span id="resultFees">$0</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Costo Total</span>
+                        <span id="resultTotal">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="calculateResults()">Calcular Resultados</button>
+            <button class="btn btn-secondary" onclick="window.print()">Imprimir Evaluacion</button>
+            <button class="btn btn-secondary" onclick="resetForm()">Reiniciar</button>
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy - Capitulo 22: Eligiendo la Fuente de Credito Correcta</p>
+        </div>
+    </div>
+
+    <script>
+        let selectedLender = null;
+        let currentScenario = null;
+
+        const scenarios = {
+            emergency: {
+                amount: 1500,
+                creditScore: 'Regular (650)',
+                timeframe: 'Urgente (1-2 dias)',
+                description: 'Reparacion de auto de emergencia necesaria inmediatamente'
+            },
+            auto: {
+                amount: 12000,
+                creditScore: 'Bueno (720)',
+                timeframe: 'Estandar (1-2 semanas)',
+                description: 'Compra de un vehiculo usado'
+            },
+            education: {
+                amount: 5000,
+                creditScore: 'Regular (660)',
+                timeframe: 'Flexible (2-4 semanas)',
+                description: 'Cubriendo gastos relacionados con la educacion'
+            },
+            consolidation: {
+                amount: 8000,
+                creditScore: 'Regular (640)',
+                timeframe: 'Estandar (1 semana)',
+                description: 'Consolidando multiples deudas en un solo pago'
+            }
+        };
+
+        const lenderRates = {
+            bank: { aprMin: 6, aprMax: 12, feePercent: 2 },
+            'credit-union': { aprMin: 5, aprMax: 10, feePercent: 0 },
+            online: { aprMin: 8, aprMax: 25, feePercent: 4 },
+            payday: { aprMin: 300, aprMax: 400, feePercent: 15 }
+        };
+
+        function updateScenario() {
+            const select = document.getElementById('scenarioSelect');
+            const details = document.getElementById('scenarioDetails');
+            const scenario = scenarios[select.value];
+
+            if (scenario) {
+                currentScenario = select.value;
+                document.getElementById('amountNeeded').textContent = '$' + scenario.amount.toLocaleString();
+                document.getElementById('creditScore').textContent = scenario.creditScore;
+                document.getElementById('timeframe').textContent = scenario.timeframe;
+                details.classList.add('active');
+            } else {
+                currentScenario = null;
+                details.classList.remove('active');
+            }
+        }
+
+        function selectLender(lenderType) {
+            document.querySelectorAll('.lender-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            const selectedCard = document.querySelector('.lender-card.' + lenderType.replace('-', '-'));
+            if (selectedCard) {
+                selectedCard.classList.add('selected');
+            }
+
+            selectedLender = lenderType;
+
+            const selectElement = document.getElementById('chosenLender');
+            selectElement.value = lenderType;
+        }
+
+        function calculateResults() {
+            const chosenLender = document.getElementById('chosenLender').value;
+            const reason = document.getElementById('choiceReason').value;
+
+            if (!currentScenario) {
+                alert('Por favor seleccione un escenario de prestamo primero.');
+                return;
+            }
+
+            if (!chosenLender) {
+                alert('Por favor seleccione una fuente de credito para evaluar.');
+                return;
+            }
+
+            if (!reason.trim()) {
+                alert('Por favor explique su razonamiento para elegir esta fuente de credito.');
+                return;
+            }
+
+            const scenario = scenarios[currentScenario];
+            const rates = lenderRates[chosenLender];
+            const avgApr = (rates.aprMin + rates.aprMax) / 2;
+            const interest = (scenario.amount * avgApr / 100);
+            const fees = scenario.amount * (rates.feePercent / 100);
+            const total = scenario.amount + interest + fees;
+
+            document.getElementById('resultPrincipal').textContent = '$' + scenario.amount.toLocaleString();
+            document.getElementById('resultInterest').textContent = '$' + interest.toFixed(2);
+            document.getElementById('resultFees').textContent = '$' + fees.toFixed(2);
+            document.getElementById('resultTotal').textContent = '$' + total.toFixed(2);
+
+            let summary = '';
+            if (chosenLender === 'payday') {
+                summary = 'Advertencia: Los prestamos de dia de pago tienen costos extremadamente altos. Para un prestamo de $' + scenario.amount + ', usted pagaria aproximadamente $' + total.toFixed(2) + ' en un ano. Considere alternativas como prestamos de emergencia de cooperativas de credito o planes de pago con acreedores.';
+            } else if (chosenLender === 'credit-union') {
+                summary = 'Buena eleccion! Las cooperativas de credito tipicamente ofrecen las tasas y tarifas mas bajas. Su costo total estimado es $' + total.toFixed(2) + ' para un prestamo de $' + scenario.amount + '.';
+            } else {
+                summary = 'Su costo total estimado para pedir prestado $' + scenario.amount + ' de un ' + (chosenLender === 'bank' ? 'banco comercial' : 'prestamista en linea') + ' es $' + total.toFixed(2) + '.';
+            }
+
+            document.getElementById('resultSummary').textContent = summary;
+            document.getElementById('resultSection').classList.add('active');
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.getElementById('scenarioSelect').value = '';
+            document.getElementById('scenarioDetails').classList.remove('active');
+            document.getElementById('chosenLender').value = '';
+            document.getElementById('choiceReason').value = '';
+            document.getElementById('choiceRisks').value = '';
+            document.getElementById('alternatives').value = '';
+            document.getElementById('resultSection').classList.remove('active');
+
+            document.querySelectorAll('.lender-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            currentScenario = null;
+            selectedLender = null;
+        }
+    </script>
+</body>
+</html>

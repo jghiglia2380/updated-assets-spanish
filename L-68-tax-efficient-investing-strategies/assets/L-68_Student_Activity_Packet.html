@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-68 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --success: #059669;
+            --success-light: #ecfdf5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 13pt; font-weight: 700; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin-top: 3px; opacity: 0.9; }
+        .header-right { text-align: right; font-size: 9pt; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border: 1px solid #fcd34d; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .challenge-box p { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .challenge-box strong { color: #b45309; }
+
+        .objectives-box { background: var(--success-light); border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; margin-bottom: 16px; }
+        .objectives-box h3 { color: var(--success); font-size: 10pt; margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { font-size: 9pt; color: var(--text-medium); margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--bg-light); padding: 8px 10px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; margin-bottom: 6px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 6px; }
+
+        .activity-section { margin-bottom: 16px; }
+        .activity-section h4 { color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .write-line { border-bottom: 1px solid var(--border); min-height: 20px; margin: 6px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; margin: 8px 0; padding: 6px; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
+        .check-item { display: flex; align-items: center; gap: 6px; font-size: 9pt; }
+        .check-box { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: center; }
+        .comparison-table th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+
+        .question-block { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .question-block h4 { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .question-number { display: inline-block; background: var(--primary); color: white; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9pt; margin-right: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .data-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 10px; margin: 8px 0; font-size: 9pt; }
+        .data-box strong { color: #0369a1; }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 68: Estrategias de Inversión con Eficiencia Fiscal</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante<br>Edición de {{STATE_NAME}}
+        </div>
+    </div>
+
+    <!-- STATE DATA BOX -->
+    <div class="state-data-box" style="background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt;">
+        <h4 style="color: #0369a1; font-weight: 700; margin-bottom: 8px;">Datos Fiscales: {{STATE_NAME}} ({{STATE_CODE}})</h4>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Tasa de Impuesto Estatal sobre la Renta:</span><span style="font-weight: 600; color: #1e293b;">{{STATE_INCOME_TAX_RATE}}%</span></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Tasa de Impuesto sobre Ganancias de Capital Estatal:</span><span style="font-weight: 600; color: #1e293b;">{{STATE_CAPITAL_GAINS_TAX}}%</span></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: #475569;">Promedio Nacional Impuesto Estatal:</span><span style="font-weight: 600; color: #1e293b;">4.6%</span></div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p><strong>Escenario:</strong> En {{STATE_NAME}}, donde el impuesto estatal sobre la renta es {{STATE_INCOME_TAX_RATE}}% y el impuesto sobre ganancias de capital es {{STATE_CAPITAL_GAINS_TAX}}%, Tomás y María comenzaron a invertir $6,000 anuales a los 25 años con rendimientos idénticos del 7%. Tomás puso todo en una cuenta de corretaje gravable sin estrategia fiscal. María usó un Roth IRA y practicó ubicación de activos eficiente fiscalmente. A los 65, Tomás tenía $750,000 después de impuestos. María tenía $1,200,000—completamente libres de impuestos. La diferencia de $450,000 no vino de mejores inversiones, sino de <strong>eficiencia fiscal</strong>.</p>
+        <p><strong>Reflexión:</strong> En {{STATE_NAME}}, ¿qué estrategias específicas permitieron a María acumular $450,000 más con las mismas contribuciones e inversiones?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar las diferencias entre cuentas con impuestos diferidos, libres de impuestos y gravables</li>
+            <li>Calcular las implicaciones fiscales de ganancias de capital, dividendos e intereses</li>
+            <li>Evaluar estrategias como cosecha de pérdidas fiscales, ubicación de activos y optimización de tenencia</li>
+            <li>Comparar estrategias Roth versus tradicionales para diferentes niveles de ingresos</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <td>Cuenta con Impuestos Diferidos</td>
+            <td>401(k) tradicional o IRA tradicional donde las contribuciones pueden ser deducibles ahora y el crecimiento no se grava hasta el retiro.</td>
+        </tr>
+        <tr>
+            <td>Cuenta Roth (Libre de Impuestos)</td>
+            <td>Roth 401(k) o Roth IRA donde contribuyes con dólares después de impuestos pero todo el crecimiento y retiros calificados son libres de impuestos para siempre.</td>
+        </tr>
+        <tr>
+            <td>Ganancias de Capital</td>
+            <td>Corto plazo (&lt;1 año): gravadas como ingreso ordinario. Largo plazo (≥1 año): tasas preferenciales del 0%, 15% o 20%.</td>
+        </tr>
+        <tr>
+            <td>Cosecha de Pérdidas Fiscales</td>
+            <td>Vender inversiones con pérdida para compensar ganancias y reducir impuestos, luego reinvertir en activos similares.</td>
+        </tr>
+        <tr>
+            <td>Ubicación de Activos</td>
+            <td>Estrategia de colocar inversiones ineficientes fiscalmente (bonos, REITs) en cuentas con ventajas fiscales y eficientes (fondos índice) en gravables.</td>
+        </tr>
+        <tr>
+            <td>Regla de Venta Ficticia</td>
+            <td>No puedes reclamar una pérdida fiscal si compras un valor "sustancialmente idéntico" dentro de 30 días antes o después de la venta.</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <h4>Parte A: Comparación de Tipos de Cuentas</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">$6,000/año × 40 años al 7%. Tramo actual: 12%. Tramo jubilación esperado: 22%.</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Tipo de Cuenta</th>
+                <th>IRA Tradicional</th>
+                <th>Roth IRA</th>
+                <th>Cuenta Gravable</th>
+            </tr>
+            <tr>
+                <td>Deducción ahora</td>
+                <td>Sí ($720/año)</td>
+                <td>No</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Valor a los 65</td>
+                <td>$1,197,000</td>
+                <td>$1,197,000</td>
+                <td>~$1,050,000</td>
+            </tr>
+            <tr>
+                <td>Impuestos al retiro</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Riqueza después de impuestos</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>¿Cuál cuenta gana en este escenario y por qué?</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte B: Cosecha de Pérdidas Fiscales</h4>
+        <div class="data-box">
+            <strong>Tu portafolio gravable en diciembre:</strong><br>
+            • Acción Tech: Compra $8,000 → Actual $11,000 (+$3,000, 14 meses)<br>
+            • Fondo Bonos: Compra $10,000 → Actual $9,200 (-$800, 8 meses)<br>
+            • Fondo Internacional: Compra $7,000 → Actual $5,500 (-$1,500, 18 meses)<br>
+            • Ya realizaste ganancias de $5,000 este año. Tu tramo: 24%.
+        </div>
+
+        <p style="font-size: 9pt;"><strong>1. ¿Qué posiciones cosecharias para reducir impuestos?</strong></p>
+        <div class="write-line"></div>
+
+        <p style="font-size: 9pt;"><strong>2. Calcula el ahorro fiscal si cosechas el Fondo Internacional:</strong></p>
+        <div class="calc-display">
+            Pérdida a largo plazo: $_______ × tasa 15% = $_______ ahorrados
+        </div>
+
+        <p style="font-size: 9pt;"><strong>3. ¿Puedes comprar el mismo fondo inmediatamente? ¿Por qué?</strong></p>
+        <div class="write-line"></div>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte C: Ubicación de Activos</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Tienes $30,000 en Roth IRA, $30,000 en IRA tradicional, $30,000 en cuenta gravable. Quieres invertir en: Fondos índice (eficiente), Bonos (4% interés, ineficiente), REITs (6% dividendo, ineficiente).</p>
+
+        <p style="font-size: 9pt;"><strong>Asigna cada $30,000 de forma óptima:</strong></p>
+        <p style="font-size: 9pt;">• Roth IRA: _______________ (¿Por qué?: _______________)</p>
+        <p style="font-size: 9pt;">• IRA Tradicional: _______________ (¿Por qué?: _______________)</p>
+        <p style="font-size: 9pt;">• Cuenta Gravable: _______________ (¿Por qué?: _______________)</p>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <h4><span class="question-number">1</span>Un joven de 25 años en el tramo del 12% que espera estar en el tramo del 24% en la jubilación debería priorizar:</h4>
+        <div class="check-grid">
+            <div class="check-item"><div class="check-box"></div> A. 401(k) Tradicional</div>
+            <div class="check-item"><div class="check-box"></div> B. Roth IRA</div>
+            <div class="check-item"><div class="check-box"></div> C. Cuenta gravable</div>
+            <div class="check-item"><div class="check-box"></div> D. No importa</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">2</span>Compraste acciones por $10,000 hace 11 meses. Ahora valen $15,000. ¿Cuánto ahorras esperando un mes más para vender?</h4>
+        <div class="calc-display">
+            Ganancia: $5,000
+            Venta ahora (corto plazo, 24%): $5,000 × 24% = $_______
+            Venta en 1 mes (largo plazo, 15%): $5,000 × 15% = $_______
+            Ahorro por esperar: $_______
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">3</span>Explica por qué mantener bonos en una cuenta gravable es ineficiente fiscalmente.</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">4</span>Eres estudiante con $20,000 de ingreso y tienes $30,000 en ganancias no realizadas. ¿Qué estrategia usarías y por qué?</h4>
+        <div class="data-box">
+            <strong>Dato:</strong> El tramo de ganancias de capital del 0% aplica cuando el ingreso gravable está por debajo de ~$44,600.
+        </div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">5</span>Diseña TU estrategia de eficiencia fiscal. ¿Qué tipo de cuenta priorizarás? ¿Cómo ubicarás tus activos?</h4>
+        <p style="font-size: 9pt; margin-top: 6px;"><strong>Mi tramo impositivo actual/esperado:</strong> _____%</p>
+        <p style="font-size: 9pt;"><strong>Tipo de cuenta prioritario:</strong> Roth / Tradicional / Ambos</p>
+        <p style="font-size: 9pt;"><strong>Mi compromiso de eficiencia fiscal:</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 68: Estrategias de Inversión con Eficiencia Fiscal — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

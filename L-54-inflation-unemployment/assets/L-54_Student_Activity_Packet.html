@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-54 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 1px solid #f59e0b; border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .challenge-box .challenge-title { font-weight: 700; color: #92400e; font-size: 10pt; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+        .challenge-box .challenge-title::before { content: "🎯"; }
+        .challenge-box p { font-size: 9pt; color: #78350f; margin-bottom: 5px; }
+
+        .objectives-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .objectives-box .obj-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 18px; font-size: 9pt; color: #0c4a6e; }
+        .objectives-box li { margin-bottom: 2px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 14px; }
+        .terms-table th { background: var(--primary); color: white; padding: 6px 10px; text-align: left; font-weight: 600; }
+        .terms-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card .scenario-title { font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 5px; }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .data-table th { background: var(--primary-light); color: var(--primary-dark); padding: 6px 8px; text-align: center; font-weight: 600; border: 1px solid var(--border); }
+        .data-table td { padding: 6px 8px; border: 1px solid var(--border); text-align: center; }
+
+        .response-area { border: 1px solid var(--border); border-radius: 4px; padding: 10px; margin: 8px 0; min-height: 60px; background: white; }
+        .response-area.large { min-height: 80px; }
+        .response-label { font-size: 8pt; color: var(--text-light); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; }
+
+        .mc-options { margin: 8px 0; }
+        .mc-options label { display: block; padding: 6px 10px; margin: 3px 0; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; font-size: 9pt; cursor: pointer; }
+        .mc-options label:hover { background: var(--primary-light); }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 8px 10px; font-size: 9pt; color: #166534; margin: 8px 0; }
+        .hint-box strong { color: #15803d; }
+
+        .formula-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 4px; padding: 10px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 9pt; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .column-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px; }
+        .column-box h4 { font-size: 9pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+
+        .calculation-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0; }
+        .calc-cell { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 8px; text-align: center; }
+        .calc-cell label { font-size: 8pt; color: var(--text-light); display: block; margin-bottom: 3px; }
+        .calc-cell input { width: 100%; padding: 4px; border: 1px solid var(--border); border-radius: 3px; text-align: center; }
+
+        .checklist { margin: 8px 0; }
+        .checklist label { display: flex; align-items: flex-start; gap: 6px; padding: 4px 0; font-size: 9pt; }
+        .checklist input[type="checkbox"] { margin-top: 2px; }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 54: Inflación, Desempleo y Finanzas Personales</h2>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <p><strong>El Dólar de Tus Padres vs. Tu Dólar:</strong></p>
+        <p>En 1970, el precio medio de una vivienda era $23,000 y la matrícula universitaria costaba $400/año. Hoy cuestan $420,000 y $10,000 respectivamente - ¡aumentos de 18x y 25x! Pero el salario mínimo en {{STATE_NAME}} solo subió a {{STATE_MIN_WAGE}}/hora.</p>
+        <p><strong>Pregunta:</strong> Si los precios suben más rápido que los salarios, ¿cómo puedes proteger tu poder adquisitivo y navegar el mercado laboral?</p>
+    </div>
+
+    <!-- OBJETIVOS -->
+    <div class="objectives-box">
+        <div class="obj-title">Objetivos de Aprendizaje</div>
+        <ul>
+            <li>Explicar qué es la inflación y cómo se mide usando el IPC</li>
+            <li>Analizar las causas de la inflación: por demanda, por costos y monetaria</li>
+            <li>Identificar tipos de desempleo: friccional, estructural y cíclico</li>
+            <li>Desarrollar estrategias para protegerte contra la inflación y el desempleo</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th style="width: 25%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Inflación</strong></td>
+            <td>Aumento sostenido en el nivel general de precios con el tiempo. El poder adquisitivo del dinero disminuye.</td>
+        </tr>
+        <tr>
+            <td><strong>IPC</strong></td>
+            <td>Índice de Precios al Consumidor - mide el precio promedio de una "canasta" de bienes y servicios típicos.</td>
+        </tr>
+        <tr>
+            <td><strong>Valor Nominal vs. Real</strong></td>
+            <td>Nominal = cantidad en dólares sin ajustar. Real = ajustado por inflación, muestra el verdadero poder adquisitivo.</td>
+        </tr>
+        <tr>
+            <td><strong>Desempleo Friccional</strong></td>
+            <td>Desempleo temporal durante transición entre empleos. Normal y saludable (1-3 meses típicamente).</td>
+        </tr>
+        <tr>
+            <td><strong>Desempleo Estructural</strong></td>
+            <td>Las habilidades no coinciden con los trabajos disponibles. Requiere recapacitación o reubicación.</td>
+        </tr>
+        <tr>
+            <td><strong>Desempleo Cíclico</strong></td>
+            <td>Desempleo debido a recesión/caída económica. Afecta toda la economía.</td>
+        </tr>
+        <tr>
+            <td><strong>Curva de Phillips</strong></td>
+            <td>Relación inversa: bajo desempleo ↔ alta inflación; alto desempleo ↔ baja inflación.</td>
+        </tr>
+        <tr>
+            <td><strong>Estanflación</strong></td>
+            <td>Alta inflación Y alto desempleo simultáneamente - el peor escenario económico.</td>
+        </tr>
+    </table>
+
+    <!-- CAUSAS DE INFLACIÓN -->
+    <div class="section-header">Tres Causas de la Inflación</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">1. Inflación por Demanda ("Demasiado dinero persiguiendo muy pocos bienes")</div>
+        <p><strong>Causa:</strong> La demanda agregada aumenta más rápido que la oferta.</p>
+        <p><strong>Ejemplo 2021-2022:</strong> Estímulo COVID de $5 billones → consumidores con dinero extra → gastaron en bienes → oferta no podía mantener el ritmo → 8.5% inflación.</p>
+        <p><strong>Respuesta:</strong> La Fed sube tasas de interés para reducir demanda.</p>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">2. Inflación por Costos ("Costos de producción suben")</div>
+        <p><strong>Causa:</strong> Aumentan los costos de producción (energía, salarios, materiales).</p>
+        <p><strong>Ejemplo:</strong> Guerra Rusia-Ucrania 2022 → precios del petróleo se disparan → gasolina a $5/galón → todo más caro.</p>
+        <p><strong>Desafío:</strong> Difícil de combatir - subir tasas no arregla problemas de oferta.</p>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">3. Inflación Monetaria ("Demasiado dinero en la economía")</div>
+        <p><strong>Causa:</strong> La oferta monetaria crece más rápido que la producción económica.</p>
+        <p><strong>Ejemplos extremos:</strong> Zimbabue (2008): 79.6 mil millones % mensual. Venezuela (2018): 1,000,000% anual.</p>
+        <p><strong>EE.UU.:</strong> La Fed independiente previene esto con meta de 2% de inflación.</p>
+    </div>
+
+    <!-- APLÍCALO PARTE A -->
+    <div class="section-header">Aplícalo - Parte A: El Dólar que se Encoge</div>
+
+    <p style="font-size: 9pt; margin-bottom: 10px;"><strong>Escenario:</strong> Tienes $10,000 guardados debajo del colchón (0% interés). Calcula el poder adquisitivo futuro:</p>
+
+    <div class="formula-box">
+        <strong>Fórmula:</strong> Valor Real = Valor Nominal ÷ (1 + Tasa de Inflación)^Años<br>
+        <strong>Ejemplo:</strong> $10,000 ÷ (1.02)^10 = $10,000 ÷ 1.219 = $8,203
+    </div>
+
+    <table class="data-table">
+        <tr>
+            <th>Años</th>
+            <th>Inflación 2%</th>
+            <th>Inflación 5%</th>
+            <th>Inflación 8%</th>
+        </tr>
+        <tr>
+            <td>0 (hoy)</td>
+            <td>$10,000</td>
+            <td>$10,000</td>
+            <td>$10,000</td>
+        </tr>
+        <tr>
+            <td>5 años</td>
+            <td>$_______</td>
+            <td>$_______</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>10 años</td>
+            <td>$8,203</td>
+            <td>$_______</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td>30 años</td>
+            <td>$_______</td>
+            <td>$_______</td>
+            <td>$_______</td>
+        </tr>
+    </table>
+
+    <div class="response-area">
+        <div class="response-label">¿Cuál es el costo de oportunidad de mantener efectivo?</div>
+    </div>
+
+    <!-- APLÍCALO PARTE B -->
+    <div class="section-header">Aplícalo - Parte B: Comparación de Ofertas Salariales</div>
+
+    <div class="two-column">
+        <div class="column-box">
+            <h4>Oferta 1</h4>
+            <p style="font-size: 9pt;">Salario inicial: $60,000<br>Aumento anual: 2%</p>
+            <p style="font-size: 8pt; color: var(--text-light);">Año 10: $60,000 × 1.219 = $73,140 nominal</p>
+        </div>
+        <div class="column-box">
+            <h4>Oferta 2</h4>
+            <p style="font-size: 9pt;">Salario inicial: $55,000<br>Aumento anual: 4%</p>
+            <p style="font-size: 8pt; color: var(--text-light);">Año 10: $55,000 × 1.480 = $81,400 nominal</p>
+        </div>
+    </div>
+
+    <p style="font-size: 9pt; margin: 8px 0;"><strong>Si la inflación es 3%/año,</strong> ¿cuál oferta es mejor después de 10 años?</p>
+
+    <div class="calculation-grid">
+        <div class="calc-cell">
+            <label>Oferta 1 - Salario Real Año 10</label>
+            <input type="text" placeholder="$73,140 ÷ 1.344 = ?">
+        </div>
+        <div class="calc-cell">
+            <label>Oferta 2 - Salario Real Año 10</label>
+            <input type="text" placeholder="$81,400 ÷ 1.344 = ?">
+        </div>
+        <div class="calc-cell">
+            <label>Mejor Oferta</label>
+            <input type="text" placeholder="1 o 2">
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Enfócate en el crecimiento REAL del salario. Si el aumento% < inflación%, estás perdiendo poder adquisitivo aunque el número sea mayor.
+    </div>
+
+    <!-- TIPOS DE DESEMPLEO -->
+    <div class="section-header">Aplícalo - Parte C: Análisis de Tipos de Desempleo</div>
+
+    <p style="font-size: 9pt; margin-bottom: 10px;">Identifica el tipo de desempleo en cada escenario:</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Recién Graduado</div>
+        <p>María se graduó de la universidad hace 2 meses y está buscando su primer trabajo profesional. Tiene las habilidades que el mercado necesita.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="q1"> Friccional</label>
+            <label><input type="radio" name="q1"> Estructural</label>
+            <label><input type="radio" name="q1"> Cíclico</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Minero de Carbón</div>
+        <p>Jorge trabajó 20 años en minería de carbón. La industria está en declive por energías renovables. En {{STATE_NAME}}, donde {{STATE_MAJOR_INDUSTRIES}} son importantes, trabajadores enfrentan desafíos similares. No hay vacantes mineras, pero hay empleos en energía solar.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="q2"> Friccional</label>
+            <label><input type="radio" name="q2"> Estructural</label>
+            <label><input type="radio" name="q2"> Cíclico</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Recesión COVID</div>
+        <p>En abril 2020, 22 millones de personas perdieron su trabajo cuando las empresas cerraron. La tasa de desempleo subió al 14.7%.</p>
+        <div class="mc-options">
+            <label><input type="radio" name="q3"> Friccional</label>
+            <label><input type="radio" name="q3"> Estructural</label>
+            <label><input type="radio" name="q3"> Cíclico</label>
+        </div>
+    </div>
+
+    <!-- ESTRATEGIAS DE PROTECCIÓN -->
+    <div class="section-header">Aplícalo - Parte D: Tu Plan de Protección</div>
+
+    <p style="font-size: 9pt; margin-bottom: 10px;"><strong>Tienes $10,000 para invertir.</strong> La inflación es 3%/año. ¿Cómo lo asignas?</p>
+
+    <table class="data-table">
+        <tr>
+            <th>Inversión</th>
+            <th>Retorno Esperado</th>
+            <th>Tu Monto</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ahorros alto rendimiento (4.5%)</td>
+            <td>+16% real en 10 años</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Acciones (10% histórico)</td>
+            <td>+93% real en 10 años</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Bonos (5%)</td>
+            <td>+21% real en 10 años</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">TIPS (inflación + 0.5%)</td>
+            <td>+5% real garantizado</td>
+            <td>$_______</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>TOTAL</strong></td>
+            <td></td>
+            <td><strong>$10,000</strong></td>
+        </tr>
+    </table>
+
+    <div class="response-area">
+        <div class="response-label">Explica tu estrategia de asignación:</div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 1</div>
+        <p>Si la inflación es 4% y tu aumento salarial es 2%, ¿qué pasa con tu poder adquisitivo real?</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc1"> A. Aumenta 2%</label>
+            <label><input type="radio" name="mc1"> B. Se mantiene igual</label>
+            <label><input type="radio" name="mc1"> C. Disminuye 2%</label>
+            <label><input type="radio" name="mc1"> D. Disminuye 4%</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 2</div>
+        <p>¿Cuál es la meta de inflación de la Reserva Federal?</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc2"> A. 0%</label>
+            <label><input type="radio" name="mc2"> B. 2%</label>
+            <label><input type="radio" name="mc2"> C. 5%</label>
+            <label><input type="radio" name="mc2"> D. 10%</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 3</div>
+        <p>La "estanflación" se refiere a:</p>
+        <div class="mc-options">
+            <label><input type="radio" name="mc3"> A. Alta inflación con bajo desempleo</label>
+            <label><input type="radio" name="mc3"> B. Baja inflación con alto desempleo</label>
+            <label><input type="radio" name="mc3"> C. Alta inflación con alto desempleo</label>
+            <label><input type="radio" name="mc3"> D. Baja inflación con bajo desempleo</label>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 4: Cálculo</div>
+        <p>Tus padres ganaban $25,000 en 1994 (hace 30 años). Con inflación promedio de 3%/año, ¿cuál es el valor equivalente hoy?</p>
+        <div class="formula-box">
+            Valor hoy = $25,000 × (1.03)^30 = $25,000 × _______ = $_______
+        </div>
+        <div class="hint-box">
+            <strong>Pista:</strong> (1.03)^30 ≈ 2.427
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta 5: Reflexión</div>
+        <p>¿Cuál es tu acción #1 para protegerte contra la inflación en los próximos 12 meses?</p>
+        <div class="response-area large"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 54: Inflación, Desempleo y Finanzas Personales</span>
+    </div>
+
+</body>
+</html>

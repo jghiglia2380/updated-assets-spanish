@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-27 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .warning-box { background: #fee2e2; border-left: 4px solid #dc2626; padding: 12px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .warning-title { font-weight: 700; color: #991b1b; font-size: 9pt; margin-bottom: 4px; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .checklist { list-style: none; padding: 0; }
+        .checklist li { padding: 6px 0 6px 28px; position: relative; border-bottom: 1px solid var(--border); }
+        .checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 14pt; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 6.2 — Compras en Línea</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>Mike</strong> encontró una consola de juegos popular en un sitio web desconocido por 40% menos del precio minorista. Emocionado por la oferta, realizó la compra sin investigar el sitio. La consola nunca llegó, el sitio web desapareció, y Mike tuvo que disputar el cargo con su compañía de tarjeta de crédito. ¿Qué señales de advertencia debió haber notado?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Identificar los beneficios y riesgos de las compras en línea</li>
+        <li>Evaluar la seguridad de vendedores en línea y métodos de pago</li>
+        <li>Aplicar estrategias para proteger información personal y financiera</li>
+        <li>Comparar opciones de compra en línea vs. en tienda</li>
+    </ul>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 28%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Comercio Electrónico</strong></td>
+            <td>Compra y venta de bienes y servicios a través de internet</td>
+        </tr>
+        <tr>
+            <td><strong>Billetera Digital</strong></td>
+            <td>Servicio que permite realizar transacciones electrónicas de forma segura (PayPal, Apple Pay)</td>
+        </tr>
+        <tr>
+            <td><strong>Encriptación</strong></td>
+            <td>Proceso de convertir información en código para prevenir acceso no autorizado</td>
+        </tr>
+        <tr>
+            <td><strong>Phishing</strong></td>
+            <td>Intento fraudulento de obtener información haciéndose pasar por entidad confiable</td>
+        </tr>
+        <tr>
+            <td><strong>HTTPS</strong></td>
+            <td>Protocolo seguro de transferencia—busque el candado en la barra de direcciones</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Beneficios vs. Riesgos</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 50%;">✓ Beneficios</th>
+            <th>⚠ Riesgos</th>
+        </tr>
+        <tr>
+            <td>Compre cualquier hora, cualquier lugar</td>
+            <td>Robo de identidad y fraude</td>
+        </tr>
+        <tr>
+            <td>Compare precios fácilmente</td>
+            <td>Sitios web falsos (estafas)</td>
+        </tr>
+        <tr>
+            <td>Acceso a mayor selección</td>
+            <td>No puede inspeccionar productos</td>
+        </tr>
+        <tr>
+            <td>Lea reseñas de otros compradores</td>
+            <td>Problemas de envío/devolución</td>
+        </tr>
+        <tr>
+            <td>Ofertas exclusivas en línea</td>
+            <td>Privacidad de datos comprometida</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Experiencias</div>
+        <div class="activity-instructions">Analice cada historia e identifique las decisiones correctas o incorrectas.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Jenna: Compra Exitosa</div>
+            <div class="scenario-content">
+                Jenna necesitaba auriculares. Investigó diferentes modelos, leyó reseñas, encontró el modelo 15% más barato que en tienda local. Verificó que el sitio usara "https", guardó el correo de confirmación, y recibió sus auriculares en tres días.
+            </div>
+        </div>
+        <div class="write-label">¿Qué hizo bien Jenna? (enumere 4 acciones)</div>
+        <div class="write-box"></div>
+
+        <div class="warning-box">
+            <div class="scenario-title" style="color: #991b1b;">Mike: Estafa</div>
+            <div class="scenario-content" style="color: #7f1d1d;">
+                Mike encontró una consola 40% más barata en sitio desconocido. Compró sin investigar. El producto nunca llegó, el sitio desapareció. Tuvo que disputar con la tarjeta de crédito.
+            </div>
+        </div>
+        <div class="write-label">¿Qué señales de advertencia ignoró Mike?</div>
+        <div class="write-box"></div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Thomas: Precauciones</div>
+            <div class="scenario-content">
+                Thomas creó un correo separado para compras, usó tarjeta de crédito con protección contra fraude, verificó "https" y candado, guardó registros de compras, y revisó la política de devolución antes de comprar.
+            </div>
+        </div>
+        <div class="write-label">¿Qué estrategias de Thomas adoptaría usted?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Lista de Verificación de Seguridad</div>
+        <div class="activity-instructions">Marque las precauciones que tomará antes, durante y después de comprar en línea.</div>
+
+        <div class="write-label">ANTES de Comprar:</div>
+        <ul class="checklist">
+            <li>Investigar reseñas de la empresa (no solo del producto)</li>
+            <li>Verificar que el sitio tenga "https" y candado</li>
+            <li>Confirmar que la empresa tenga dirección física</li>
+            <li>Desconfiar de ofertas demasiado buenas</li>
+        </ul>
+
+        <div class="write-label">DURANTE la Compra:</div>
+        <ul class="checklist">
+            <li>Usar tarjeta de crédito (mejor protección que débito)</li>
+            <li>Proporcionar solo información necesaria</li>
+            <li>Guardar confirmación del pedido</li>
+            <li>Evitar Wi-Fi público para compras</li>
+        </ul>
+
+        <div class="write-label">DESPUÉS de Comprar:</div>
+        <ul class="checklist">
+            <li>Rastrear el paquete</li>
+            <li>Revisar estados de cuenta por cargos no autorizados</li>
+            <li>Conocer la política de devolución</li>
+            <li>Reportar problemas inmediatamente</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Análisis En Línea vs. En Tienda</div>
+        <div class="activity-instructions">Compare las opciones para comprar una computadora portátil.</div>
+
+        <table class="concept-table">
+            <tr>
+                <th>Factor</th>
+                <th>En Línea</th>
+                <th>En Tienda</th>
+            </tr>
+            <tr>
+                <td><strong>Precio</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Conveniencia</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Selección</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Inspección del producto</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Servicio al cliente</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Disponibilidad</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="write-label">Para una computadora portátil, ¿qué opción elegiría y por qué?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál es la señal más importante de que un sitio web es seguro para comprar?</div>
+        <div class="question-hint">Pista: Busque en la barra de direcciones.</div>
+        <div class="write-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué es mejor usar tarjeta de crédito que tarjeta de débito para compras en línea?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Un sitio ofrece un iPhone nuevo por $200 (precio normal $999). ¿Qué debería hacer antes de comprar?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Qué es el phishing y cómo puede protegerse contra él?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 6.2: Compras en Línea</span>
+    </div>
+
+</body>
+</html>

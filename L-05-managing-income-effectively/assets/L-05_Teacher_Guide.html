@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-05 Guia del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guia del Maestro: Capitulo 1.5 — Administrando Tu Ingreso Efectivamente</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Plantilla de Presupuesto</td><td>L-01 a L-04 Conceptos Basicos</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Leccion</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFIO</div>
+                <ul>
+                    <li>Preguntar: "Cuantos rastrean hacia donde va su dinero cada mes?"</li>
+                    <li>Presentar comparacion Casey vs. Taylor.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Definir presupuesto, regla 50/30/20, necesidades vs. deseos.</li>
+                    <li>Explicar fondo de emergencia y su proposito.</li>
+                    <li>Introducir interes compuesto con ejemplos simples.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLICALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Crear presupuesto 50/30/20 con $2,000.</li>
+                    <li><strong>Parte B (10 min):</strong> Clasificar necesidades vs. deseos. Discutir areas grises.</li>
+                    <li><strong>Parte C (10 min):</strong> Calcular meta de fondo de emergencia.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSION</div>
+                <ul>
+                    <li>Completar en clase. Enfatizar cambios practicos implementables.</li>
+                    <li>Invitar estudiantes a compartir un cambio que haran.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciacion</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcionar plantillas de presupuesto paso a paso.</li>
+                <li>Usar cantidades simples y redondas.</li>
+                <li>Dar ejemplos pre-calculados de necesidades vs. deseos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extension</div>
+            <ul>
+                <li>Introducir ingresos variables y gastos inesperados.</li>
+                <li>Calcular crecimiento del interes compuesto a 10, 20, 30 anos.</li>
+                <li>Investigar apps de presupuesto y comparar funciones.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Necesidades vs. Deseos</div>
+            <div class="calc-display">Renta del apartamento: NECESIDAD - vivienda basica es esencial
+Servicio de streaming: DESEO - entretenimiento no esencial
+Comestibles basicos: NECESIDAD - alimentacion es esencial
+Cafe diario: DESEO - conveniente pero no necesario
+Telefono celular basico: NECESIDAD - comunicacion esencial hoy
+Ultimo modelo de telefono: DESEO - funciones premium no esenciales</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Plan de Fondo de Emergencia</div>
+            <div class="calc-display">Pregunta 2: Fondo de emergencia de 3 meses
+$1,500 x 3 meses = $4,500
+
+Pregunta 3: Tiempo para alcanzar la meta
+$4,500 / $200 por mes = 22.5 meses
+Aproximadamente 23 meses (casi 2 anos)</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprension</div>
+            <div class="answer-item"><strong>1.</strong> C (20%)</div>
+            <div class="answer-item"><strong>2.</strong> El fondo de emergencia protege contra imprevistos sin tener que vender inversiones (posiblemente con perdida) o endeudarse. Es la base de la seguridad financiera.</div>
+            <div class="answer-item"><strong>3.</strong> Casey: (1) Sigue presupuesto estructurado, (2) Automatiza ahorros, (3) Rastrea gastos semanalmente, (4) Aprovecha contribucion del empleador. Taylor: Sin sistema, gasta sin plan, usa credito para cubrir deficit.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varian. Busque cambios especificos y alcanzables como "configurar transferencia automatica de $50/mes" o "rastrear gastos por una semana".</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erroneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erroneo</th><th>Clarificacion</th></tr>
+            <tr><td>"Hacer presupuesto significa no poder disfrutar la vida."</td><td>El presupuesto no restringe - da libertad al asegurar que el dinero vaya donde quieres. El 30% para deseos permite disfrutar mientras se mantiene responsabilidad.</td></tr>
+            <tr><td>"No gano suficiente para hacer presupuesto."</td><td>El presupuesto es MAS importante con ingresos limitados. Ayuda a maximizar cada dolar y evitar deudas innecesarias.</td></tr>
+            <tr><td>"Ahorrar puede esperar hasta que tenga un trabajo real."</td><td>Comenzar el habito de ahorro ahora - incluso con cantidades pequenas - establece patrones que duraran toda la vida. El tiempo es tu mejor aliado por el interes compuesto.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guia del Maestro: Capitulo 1.5</span>
+    </div>
+</body>
+</html>

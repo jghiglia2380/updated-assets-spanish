@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-12 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 4.2 — Selección y Evaluación de Proveedores Financieros</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulo 4.1 (Proveedores de Servicios)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el escenario de Sophia: banco en línea vs. cooperativa de crédito.</li>
+                    <li>Discusión: "¿Qué factores serían más importantes para ustedes al elegir su primera cuenta?"</li>
+                    <li>Permita que los estudiantes compartan experiencias con diferentes instituciones.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 4 tipos de proveedores: bancos tradicionales, cooperativas, bancos en línea, casas de bolsa.</li>
+                    <li>Enfatice la diferencia entre "con fines de lucro" y "sin fines de lucro".</li>
+                    <li>Discuta los 4 factores de evaluación: tarifas, tasas, accesibilidad, seguridad.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Cálculo del préstamo de Ethan. Guíe los cálculos de interés paso a paso.</li>
+                    <li><strong>Parte B (8 min):</strong> Comparación de inversión de Mia. Discuta cuándo vale la pena pagar más.</li>
+                    <li><strong>Parte C (5-10 min):</strong> Tabla comparativa. Fomente pensamiento crítico sobre necesidades específicas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P3 (cálculo de tarifas) y P5 (reflexión personal) para evaluar comprensión.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadoras y haga los cálculos paso a paso en el pizarrón.</li>
+                <li>Simplifique las comparaciones a solo 2 opciones (banco vs. cooperativa).</li>
+                <li>Proporcione una lista de verificación de factores a considerar.</li>
+                <li>Empareje estudiantes para las actividades de cálculo.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigar instituciones financieras reales en su comunidad.</li>
+                <li>Calcular el impacto de tarifas durante 10, 20 y 30 años.</li>
+                <li>Crear una presentación comparando 5 proveedores diferentes.</li>
+                <li>Analizar cómo las necesidades financieras cambian en diferentes etapas de vida.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Decisión de Sophia</div>
+            <div class="answer-note">Las respuestas variarán. Busque: consideración del estilo de vida universitario (necesita efectivo cerca del campus vs. maneja todo digitalmente), importancia del servicio personalizado vs. mejores tasas, y cómo sus necesidades específicas influyen en la decisión.</div>
+            <div class="answer-item">Puntos válidos para banco en línea: Sin tarifas = ahorro inmediato; 1.5% APY es casi el doble del 0.8%; bueno si se siente cómoda con tecnología.</div>
+            <div class="answer-item">Puntos válidos para cooperativa: Sucursal cercana para problemas urgentes; servicio personalizado para primera cuenta; puede ayudar a construir relación para futuros préstamos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Préstamo de Ethan</div>
+            <div class="calc-display">Cálculos de Interés Simple (estimación):
+Banco (4.5%): $15,000 × 0.045 × 5 = $3,375
+Cooperativa (3.2%): $15,000 × 0.032 × 5 = $2,400
+En línea (3.9%): $15,000 × 0.039 × 5 = $2,925</div>
+            <div class="answer-item"><strong>1.</strong> Ver cálculos arriba.</div>
+            <div class="answer-item"><strong>2.</strong> Ahorro eligiendo cooperativa vs. banco: $3,375 - $2,400 = <strong>$975</strong></div>
+            <div class="answer-item"><strong>3.</strong> Otros factores a considerar: tiempo de aprobación del préstamo, requisitos de ingreso o historial crediticio, flexibilidad en pagos, penalidades por pago anticipado, si necesita relación existente con la institución, servicio al cliente durante la vida del préstamo.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Inversión de Mia</div>
+            <div class="calc-display">Cálculos de Tarifas (Año 1):
+Casa de bolsa: $1,000 × 0.012 = $12/año
+Asesor robótico: $1,000 × 0.0025 = $2.50/año
+Diferencia: $9.50/año</div>
+            <div class="answer-item"><strong>4.</strong> Casa de bolsa: $12; Asesor robótico: $2.50</div>
+            <div class="answer-item"><strong>5.</strong> Situaciones donde vale la pena el asesor tradicional: situaciones financieras complejas (herencias, negocios); necesidad de planificación fiscal integrada; preferencia por relación personal y confianza; grandes sumas de dinero donde el consejo personalizado puede agregar valor; cuando se necesita disciplina externa para mantener el plan.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Comparación de Proveedores</div>
+            <div class="answer-item"><strong>Cuenta corriente:</strong> Banco tradicional o cooperativa (accesibilidad, red de cajeros) o banco en línea (sin tarifas).</div>
+            <div class="answer-item"><strong>Fondo de emergencia:</strong> Banco en línea (APY más alto) o cuenta de ahorros de alta rentabilidad.</div>
+            <div class="answer-item"><strong>Préstamo para auto:</strong> Cooperativa de crédito (típicamente mejores tasas para préstamos).</div>
+            <div class="answer-item"><strong>Inversiones para jubilación:</strong> Asesor robótico o casa de bolsa (acceso a cuentas de retiro, opciones de inversión diversificadas).</div>
+            <div class="answer-item"><strong>Primera tarjeta de crédito:</strong> Cooperativa de crédito o banco donde tiene cuenta (más fácil aprobación, pueden ofrecer tarjetas aseguradas).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Las cooperativas son sin fines de lucro y propiedad de sus miembros)</div>
+            <div class="answer-item"><strong>2.</strong> Los bancos en línea tienen menores costos operativos (sin sucursales físicas, menos empleados) y pueden transferir esos ahorros a los clientes en forma de tasas más altas y menos tarifas.</div>
+            <div class="answer-item"><strong>3.</strong> Asesor tradicional: $10,000 × 0.01 = $100; Asesor robótico: $10,000 × 0.0025 = $25; Diferencia = <strong>$75 más al año</strong> con el tradicional.</div>
+            <div class="answer-item"><strong>4.</strong> Tres factores: (1) Tarifas - buscar cuenta sin cargo mensual o con requisitos alcanzables; (2) Accesibilidad - red de cajeros, banca móvil; (3) Requisitos de saldo mínimo - realistas para su situación.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Respuestas variarán. Busque conexión entre necesidades personales actuales (estudiante, primer empleo, etc.) y características del proveedor elegido.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Todos los bancos cobran las mismas tarifas."</td>
+                <td>Las tarifas varían significativamente. Los bancos en línea frecuentemente no cobran tarifas mensuales, mientras que los bancos tradicionales pueden cobrar $10-15/mes sin saldo mínimo.</td>
+            </tr>
+            <tr>
+                <td>"La diferencia en tasas de interés no importa mucho."</td>
+                <td>En préstamos grandes y a largo plazo, pequeñas diferencias se acumulan. 1% de diferencia en un préstamo de $15,000 a 5 años = casi $1,000.</td>
+            </tr>
+            <tr>
+                <td>"Los bancos en línea no son seguros."</td>
+                <td>Los bancos en línea legítimos tienen el mismo seguro FDIC que los bancos tradicionales, protegiendo depósitos hasta $250,000.</td>
+            </tr>
+            <tr>
+                <td>"Necesito usar solo un proveedor para todo."</td>
+                <td>Muchas personas usan múltiples proveedores: un banco para gastos diarios, un banco en línea para ahorros de alto rendimiento, y una casa de bolsa para inversiones.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 4.2</span>
+    </div>
+
+</body>
+</html>

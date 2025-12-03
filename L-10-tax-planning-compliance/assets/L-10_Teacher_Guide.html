@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-10 Guia del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guia del Maestro: Capitulo 2.5 — Planificacion y Cumplimiento Fiscal</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Casos de Estudio</td><td>L-09 Deducciones y Creditos</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Leccion</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">INTRODUCCION Y DISCUSION</div>
+                <ul>
+                    <li>Preguntar: "Por que creen que la planificacion fiscal es importante para la estabilidad financiera?"</li>
+                    <li>Explicar que planificacion fiscal es actividad de todo el ano, no solo al declarar.</li>
+                    <li>Conectar con bienestar financiero general.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">FUNDAMENTOS DE PLANIFICACION FISCAL</div>
+                <ul>
+                    <li>Diferencia entre planificacion fiscal (legal) y evasion fiscal (ilegal).</li>
+                    <li>Cuatro estrategias fundamentales: cronologia de ingresos/gastos, cuentas con ventajas fiscales, deducciones/creditos, mantenimiento de registros.</li>
+                    <li>Ejemplos concretos de cada estrategia.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ESTUDIO DE CASO: KATE VS. DAVE</div>
+                <ul>
+                    <li>Presentar enfoques contrastantes hacia la planificacion fiscal.</li>
+                    <li>Identificar habitos especificos que marcan la diferencia.</li>
+                    <li>Discutir impacto acumulativo a largo plazo.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">PLANIFICACION POR ETAPA DE VIDA</div>
+                <ul>
+                    <li>Estudiantes (18-24): Creditos educativos, establecer habitos.</li>
+                    <li>Adultos jovenes (25-35): Optimizar jubilacion, planificar compra de vivienda.</li>
+                    <li>Asignar a grupos diferentes etapas para identificar estrategias.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLICALO: LISTA DE VERIFICACION</div>
+                <ul>
+                    <li>Completar lista de verificacion personalizada.</li>
+                    <li>Escenario de Decision Rapida Fiscal.</li>
+                    <li>Circular para ayudar y verificar comprension.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciacion</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Enfocarse en la etapa de vida mas relevante.</li>
+                <li>Proporcionar version simplificada de lista de verificacion.</li>
+                <li>Ofrecer ayudas visuales para diferencia planificacion vs. evasion.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extension</div>
+            <ul>
+                <li>Escenarios complejos con multiples estrategias.</li>
+                <li>Investigar impacto financiero a largo plazo.</li>
+                <li>Crear cronograma detallado de planificacion fiscal anual.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Planificacion vs. Evasion</div>
+            <div class="calc-display">1. Contribuir a 401(k): LEGAL - Usa ley fiscal legitimamente
+2. No reportar ingresos en efectivo: ILEGAL - Oculta ingresos
+3. Donar a caridad: LEGAL - Deduccion legitima
+4. Reclamar dependientes ficticios: ILEGAL - Fraude
+5. Programar ingresos: LEGAL - Estrategia permitida
+6. Exagerar gastos de negocio: ILEGAL - Falsificacion</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Kate vs. Dave</div>
+            <div class="calc-display">Habitos de Kate que la benefician:
+1. Contribuye a cuentas de jubilacion - reduce ingreso gravable + ahorra para futuro
+2. Mantiene registros organizados - puede reclamar todas las deducciones legitimas
+3. Declara temprano - recibe reembolso rapido, evita estres y multas
+4. Considera implicaciones fiscales en decisiones - optimiza cada decision financiera
+5. Planifica con anticipacion - puede agrupar deducciones, programar ingresos</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprension</div>
+            <div class="answer-item"><strong>1.</strong> B (Falso - La planificacion fiscal es actividad de todo el ano)</div>
+            <div class="answer-item"><strong>2.</strong> D (Todas las anteriores)</div>
+            <div class="answer-item"><strong>3.</strong> Estrategias para estudiantes: maximizar creditos educativos (American Opportunity hasta $2,500), deduccion de intereses de prestamos estudiantiles, comenzar habito de contribuir a Roth IRA, mantener registros organizados, declarar incluso con ingresos bajos para obtener reembolso.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varian. Busque autoevaluacion honesta y al menos un cambio especifico y alcanzable como: "Empezare a usar una app para rastrear gastos" o "Configurare contribucion automatica a Roth IRA".</em></div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Escenario de Decision Rapida</div>
+            <div class="answer-note">Sam puede reclamar el Credito American Opportunity ($2,000) o la Deduccion de Intereses de Prestamos Estudiantiles ($500 en tramo 12%). El credito reduce impuestos directamente en $2,000. La deduccion ahorra solo $500 x 12% = $60. RESPUESTA: El credito es mucho mejor ($2,000 vs. $60).</div>
+        </div>
+
+        <div class="section-header">Conceptos Erroneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erroneo</th><th>Clarificacion</th></tr>
+            <tr><td>"La planificacion fiscal es solo para personas adineradas."</td><td>Todos pueden beneficiarse de la planificacion fiscal basica. Incluso pequenos ahorros se acumulan significativamente a lo largo del tiempo.</td></tr>
+            <tr><td>"La planificacion fiscal es lo mismo que la evasion fiscal."</td><td>La planificacion fiscal es LEGAL (usar las leyes a tu favor). La evasion fiscal es ILEGAL (ocultar ingresos, mentir).</td></tr>
+            <tr><td>"Solo hay que pensar en impuestos al momento de declarar."</td><td>La planificacion efectiva ocurre durante todo el ano. Las decisiones de diciembre pueden ser demasiado tarde.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guia del Maestro: Capitulo 2.5</span>
+    </div>
+</body>
+</html>

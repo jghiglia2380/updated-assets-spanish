@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-13 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 4.3 — Comprendiendo y Utilizando las Herramientas Bancarias</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulo 4.1-4.2 (Servicios Financieros)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el escenario de María: estudiante universitaria organizando sus finanzas.</li>
+                    <li>Discusión: "¿Qué herramientas bancarias usan ustedes o sus familias?"</li>
+                    <li>Conecte con experiencias reales de los estudiantes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise las 4 herramientas principales: cheques, tarjetas de débito, cajeros automáticos, banca móvil.</li>
+                    <li>Enfatice las comisiones comunes y cómo evitarlas.</li>
+                    <li>Explique el concepto de conciliación y su importancia.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Registro de cheques. Guíe los cálculos paso a paso.</li>
+                    <li><strong>Parte B (8 min):</strong> Selección de herramientas. Discuta las razones de cada elección.</li>
+                    <li><strong>Parte C (5-10 min):</strong> Detective de comisiones. Analice estrategias de ahorro.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (débito vs. crédito) y P4 (reflexión personal).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione calculadoras y haga los cálculos en el pizarrón.</li>
+                <li>Pre-complete algunas filas del registro de cheques como ejemplo.</li>
+                <li>Simplifique las opciones de herramientas a solo 2-3.</li>
+                <li>Empareje estudiantes para las actividades de cálculo.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigar las comisiones reales de bancos locales.</li>
+                <li>Crear un presupuesto mensual completo con todas las herramientas.</li>
+                <li>Calcular el costo anual de diferentes hábitos bancarios.</li>
+                <li>Diseñar un sistema de seguimiento personal.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Sistema de María</div>
+            <div class="answer-note">Las respuestas variarán. Busque: combinación lógica de herramientas (depósito directo + banca móvil + tarjeta de débito), estrategias para evitar comisiones, y organización para seguimiento de gastos.</div>
+            <div class="answer-item">Ejemplo de respuesta: Depósito directo del trabajo, transferencia automática del 15% a ahorros, tarjeta de débito para compras diarias, banca móvil para monitoreo y pagos de facturas, y conciliación semanal.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Registro de Cheques</div>
+            <div class="calc-display">Cálculos del Registro:
+Saldo inicial:                    $850.00
+16/Mar: −$400.00 (alquiler)    = $450.00
+17/Mar: +$325.00 (trabajo)     = $775.00
+18/Mar: −$67.50 (supermercado) = $707.50
+19/Mar: −$60.00 (ATM)          = $647.50
+20/Mar: −$45.00 (gasolina)     = $602.50
+21/Mar: +$100.00 (transfer)    = $702.50</div>
+            <div class="answer-item"><strong>1.</strong> Saldo final: <strong>$702.50</strong></div>
+            <div class="answer-item"><strong>2.</strong> Análisis de sobregiro: Después del retiro de ATM ($647.50), si María hubiera gastado $75 en gasolina en lugar de $45, su saldo sería $647.50 − $75 = $572.50. Luego con la transferencia: $572.50 + $100 = $672.50. <strong>No habría sobregiro</strong>, pero tendría $30 menos que con la compra de $45.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Selección de Herramientas</div>
+            <div class="answer-item"><strong>Alquiler de $600:</strong> Cheque o transferencia electrónica. El cheque proporciona documentación; la transferencia es más segura y rastreable.</div>
+            <div class="answer-item"><strong>Café de $4.50:</strong> Tarjeta de débito o efectivo. Débito es conveniente para compras pequeñas; efectivo ayuda a controlar gastos.</div>
+            <div class="answer-item"><strong>Transferir a amigo:</strong> Banca móvil/aplicación de pago (Zelle, Venmo). Rápido, seguro, sin necesidad de efectivo.</div>
+            <div class="answer-item"><strong>$40 urgente:</strong> Cajero automático (preferiblemente de su red). Proporciona efectivo inmediato.</div>
+            <div class="answer-item"><strong>Verificar saldo:</strong> Banca móvil. Acceso instantáneo sin costo desde cualquier lugar.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Detective de Comisiones</div>
+            <div class="answer-item"><strong>3.</strong> Estrategias para cajeros: (1) Usar solo cajeros de su red; (2) Planificar retiros—sacar más dinero menos frecuentemente; (3) Obtener efectivo en compras con tarjeta de débito en supermercados; (4) Usar aplicaciones para localizar cajeros de su red.</div>
+            <div class="answer-item"><strong>4.</strong> Evitar sobregiros: (1) Configurar alertas de saldo bajo; (2) Mantener un "colchón" de $50-100 en la cuenta; (3) Conciliar la cuenta regularmente; (4) Vincular cuenta de ahorros para protección de sobregiro; (5) Desactivar transacciones que excedan el saldo.</div>
+            <div class="answer-item"><strong>5.</strong> Ahorro potencial: Si elimina todos los cargos: $42 (cajeros) + $112 (sobregiros) = <strong>$154 al año</strong>.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Comparar sus registros con el estado de cuenta para detectar errores)</div>
+            <div class="answer-item"><strong>2.</strong> Diferencia débito vs. crédito: La tarjeta de débito usa dinero que YA TIENE en su cuenta corriente—el dinero sale inmediatamente. La tarjeta de crédito es un PRÉSTAMO del banco que debe pagar después, usualmente con interés si no paga el total mensualmente.</div>
+            <div class="answer-item"><strong>3.</strong> Dos formas de evitar comisiones de ATM: (1) Usar solo cajeros dentro de la red de su banco; (2) Obtener efectivo al hacer compras en tiendas que ofrecen "cashback".</div>
+            <div class="answer-item"><strong>4.</strong> <em>Respuestas variarán. Busque: combinación práctica de herramientas, estrategias específicas para evitar comisiones, y plan de seguimiento/conciliación.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Mi saldo en el ATM siempre está actualizado."</td>
+                <td>El saldo puede no incluir cheques pendientes, transacciones de débito en proceso, o cargos automáticos próximos. Siempre mantenga sus propios registros.</td>
+            </tr>
+            <tr>
+                <td>"Las tarjetas de débito me protegen igual que las de crédito."</td>
+                <td>Las tarjetas de crédito generalmente ofrecen mejor protección contra fraude. Con débito, el dinero sale directamente de su cuenta mientras se investiga.</td>
+            </tr>
+            <tr>
+                <td>"Los sobregiros no son tan costosos."</td>
+                <td>A $28-35 por transacción, múltiples sobregiros pueden costar cientos de dólares. Algunas personas pagan más de $500/año en estas comisiones.</td>
+            </tr>
+            <tr>
+                <td>"No necesito conciliar si uso banca en línea."</td>
+                <td>Aunque la banca en línea facilita el seguimiento, aún pueden ocurrir errores bancarios, fraudes o transacciones duplicadas que solo detectará al comparar sus registros.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 4.3</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-19 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.6 — Planificación para la Jubilación</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulos 5.1-5.5 (Ahorro, Inversión, Riesgo)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Pida a estudiantes que visualicen su vida a los 65 años.</li>
+                    <li>Discusión: "¿Cuánto dinero necesitarán para ese estilo de vida?"</li>
+                    <li>Establezca urgencia: la jubilación puede durar 20-30 años.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente la diferencia entre ahorro e inversión.</li>
+                    <li>Revise las 4 cuentas de jubilación principales.</li>
+                    <li>Enfatice el poder de la aportación del empleador (¡dinero gratis!).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (6 min):</strong> Análisis de productos financieros.</li>
+                    <li><strong>Parte B (8 min):</strong> Comparación de cuentas de jubilación.</li>
+                    <li><strong>Parte C (8 min):</strong> Cálculo con regla 50/30/20.</li>
+                    <li><strong>Parte D (8 min):</strong> Construcción de estrategia personal.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (poder del interés compuesto) y P4 (pasos concretos).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione tabla de resumen de cuentas de jubilación.</li>
+                <li>Use analogías: 401(k) match = cupones de 50-100% de descuento.</li>
+                <li>Simplifique el cálculo de la Parte C con guía paso a paso.</li>
+                <li>Enfoque en solo 2 tipos de cuentas (401k y Roth IRA).</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcular cuánto tendrían a los 65 con diferentes tasas de ahorro.</li>
+                <li>Investigar opciones específicas de empleadores locales.</li>
+                <li>Analizar el impacto de la inflación en los ahorros de jubilación.</li>
+                <li>Crear un plan de jubilación detallado de múltiples décadas.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Por Qué Comenzar Ahora</div>
+            <div class="answer-item">Es importante comenzar ahora porque: (1) El interés compuesto necesita tiempo para maximizar su efecto—empezar a los 25 vs. 35 puede significar el doble de dinero a los 65; (2) Pequeñas cantidades ahora crecen más que grandes cantidades después; (3) Crear hábitos de ahorro es más fácil cuando eres joven; (4) No se puede recuperar el tiempo perdido—cada año de retraso requiere contribuciones significativamente mayores.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Productos</div>
+            <div class="calc-display">Cuenta ahorro alto rendimiento: Bajo riesgo | Alta liquidez | Fondo de emergencia
+CD: Bajo riesgo | Baja liquidez | Objetivos a corto plazo fijos
+Bono corporativo: Moderado riesgo | Moderada liquidez | Ingresos estables
+Fondo indexado S&P 500: Moderado-Alto riesgo | Alta liquidez | Crecimiento largo plazo
+Acción individual: Alto riesgo | Alta liquidez | Inversores experimentados</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Comparación de Cuentas</div>
+            <div class="answer-item"><strong>1. Diferencia IRA Tradicional vs. Roth:</strong> Tradicional: contribuciones deducibles de impuestos AHORA, pero paga impuestos al retirar en jubilación. Roth: paga impuestos AHORA sobre contribuciones, pero retiros en jubilación son libres de impuestos. La diferencia clave es CUÁNDO paga impuestos.</div>
+            <div class="answer-item"><strong>2. Por qué 401(k) con match es prioridad:</strong> La aportación del empleador es rendimiento GARANTIZADO e INMEDIATO. Si el empleador iguala 50%, eso es un retorno del 50% antes de que el mercado haga nada. Ninguna otra inversión ofrece rendimientos garantizados así.</div>
+            <div class="answer-item"><strong>3. Persona 25 años con ingresos crecientes:</strong> Roth IRA sería mejor porque: (1) Paga impuestos ahora con tasa más baja; (2) Los retiros serán libres de impuestos cuando esté en una categoría fiscal más alta; (3) El crecimiento durante 40 años será libre de impuestos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Cálculo 50/30/20</div>
+            <div class="calc-display">Total contribuciones máximas:
+401(k): $23,000
+IRA Tradicional: $7,000
+Roth IRA: $7,000
+TOTAL: $37,000
+
+Si $37,000 = 20% del ingreso:
+$37,000 ÷ 0.20 = $185,000 ingreso anual necesario</div>
+            <div class="answer-item"><strong>5. ¿Es realista?</strong> No es realista para alguien iniciando su carrera. Alternativas: (1) Priorizar 401(k) hasta el match del empleador primero; (2) Luego contribuir a UN tipo de IRA; (3) Si sobra, aumentar 401(k); (4) Aumentar contribuciones gradualmente con aumentos de salario.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>6. Orden de prioridad típico:</strong> 1º 401(k) hasta el match (rendimiento garantizado), 2º Roth IRA si espera mayores ingresos futuros / IRA Tradicional si necesita deducción ahora, 3º 401(k) adicional hasta el máximo.</div>
+            <div class="answer-item"><strong>7. Cálculo match:</strong> Salario $50,000 × 3% = $1,500 contribución. Empleador iguala 100% = $1,500 adicionales. Total "dinero gratis" = <strong>$1,500</strong></div>
+            <div class="answer-item"><strong>8. Cambio de estrategia con edad:</strong> Joven: más agresivo (más acciones) porque tiene tiempo para recuperarse de caídas. A medida que se acerca la jubilación: más conservador (más bonos, menos acciones) para proteger lo acumulado.</div>
+            <div class="answer-item"><strong>1.</strong> C (Retiros libres de impuestos en cualquier momento—hay penalidades por retiro temprano)</div>
+            <div class="answer-item"><strong>2.</strong> Comenzar a los 25 vs. 35 resulta en más dinero por el interés compuesto. Ejemplo: $200/mes al 7% desde los 25 = ~$525,000 a los 65. Desde los 35 = ~$245,000. ¡Menos de la mitad a pesar de solo 10 años de diferencia!</div>
+            <div class="answer-item"><strong>3.</strong> No depender solo del Seguro Social porque: (1) Beneficios promedio son ~$1,800/mes, insuficiente para mantener estilo de vida; (2) El sistema enfrenta desafíos de financiamiento a largo plazo; (3) Fue diseñado como COMPLEMENTO, no como única fuente de ingresos.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Soy muy joven para pensar en jubilación."</td>
+                <td>Al contrario, ser joven es su MAYOR ventaja. Cada año de retraso cuesta decenas de miles de dólares en crecimiento compuesto perdido. Pequeñas cantidades ahora superan grandes cantidades después.</td>
+            </tr>
+            <tr>
+                <td>"El Seguro Social será suficiente."</td>
+                <td>El beneficio promedio es ~$1,800/mes. Intente vivir 20-30 años con solo eso. El Seguro Social fue diseñado como SUPLEMENTO, no como única fuente de ingresos.</td>
+            </tr>
+            <tr>
+                <td>"Contribuir al 401(k) reduce mucho mi cheque."</td>
+                <td>Las contribuciones son PRE-impuestos. $100 al 401(k) no reduce su cheque en $100—probablemente solo $70-80 después de ahorros fiscales. Y si hay match, es aún mejor.</td>
+            </tr>
+            <tr>
+                <td>"No gano suficiente para ahorrar para jubilación."</td>
+                <td>Incluso $25-50/mes hace diferencia a largo plazo. Y si hay match del empleador, está literalmente rechazando dinero gratis al no participar.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.6</span>
+    </div>
+
+</body>
+</html>

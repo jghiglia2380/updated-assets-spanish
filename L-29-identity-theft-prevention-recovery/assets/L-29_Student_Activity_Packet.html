@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-29 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .warning-box { background: #fee2e2; border-left: 4px solid #dc2626; padding: 12px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .checklist { list-style: none; padding: 0; }
+        .checklist li { padding: 6px 0 6px 28px; position: relative; border-bottom: 1px solid var(--border); }
+        .checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 14pt; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 9.2 — Prevención y Recuperación del Robo de Identidad</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>María</strong> revisó su estado de cuenta de tarjeta de crédito y encontró casi $3,000 en compras de electrónicos que ella no realizó—enviados a una dirección desconocida en otro estado. Mientras tanto, <strong>David</strong> presentó su declaración de impuestos solo para recibir un aviso del IRS indicando que ya se había presentado una declaración usando su número de Seguro Social. ¿Cómo pudieron estos ladrones obtener su información y qué pasos deberían tomar para recuperarse?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Identificar diferentes tácticas utilizadas por los ladrones de identidad</li>
+        <li>Evaluar estrategias para proteger información personal del robo</li>
+        <li>Explicar el proceso paso a paso para responder al robo de identidad</li>
+        <li>Reconocer señales de advertencia de identidad comprometida</li>
+        <li>Analizar escenarios reales para identificar señales de alerta</li>
+    </ul>
+
+    <div class="section-header">Tácticas de Robo de Identidad</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 25%;">Método</th>
+            <th>Descripción</th>
+            <th style="width: 28%;">Cómo Protegerse</th>
+        </tr>
+        <tr>
+            <td><strong>Phishing</strong></td>
+            <td>Correos/mensajes que parecen legítimos para robar información</td>
+            <td>No hacer clic en enlaces; verificar remitente</td>
+        </tr>
+        <tr>
+            <td><strong>Violación de Datos</strong></td>
+            <td>Hackers obtienen acceso a bases de datos de empresas</td>
+            <td>Monitorear cuentas; usar contraseñas únicas</td>
+        </tr>
+        <tr>
+            <td><strong>Skimming</strong></td>
+            <td>Dispositivos en cajeros/bombas que copian tarjetas</td>
+            <td>Inspeccionar antes de usar; cubrir PIN</td>
+        </tr>
+        <tr>
+            <td><strong>Robo de Correo</strong></td>
+            <td>Robar estados de cuenta y tarjetas del buzón</td>
+            <td>Usar buzón cerrado; recibir estados electrónicos</td>
+        </tr>
+        <tr>
+            <td><strong>Búsqueda en Basura</strong></td>
+            <td>Buscar documentos personales en la basura</td>
+            <td>Triturar todos los documentos sensibles</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Casos Reales</div>
+        <div class="activity-instructions">Analice cada caso e identifique el tipo de robo, las señales de advertencia y los pasos correctos tomados.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Caso 1: María - Fraude con Tarjeta de Crédito</div>
+            <div class="scenario-content">
+                María encontró $3,000 en compras fraudulentas en su estado de cuenta—electrónicos enviados a otra dirección. Llamó a su compañía de tarjeta, cambió contraseñas, colocó alerta de fraude y reportó a la FTC. La compañía eliminó los cargos y le dio nueva tarjeta.
+            </div>
+        </div>
+        <div class="write-label">¿Cómo probablemente obtuvieron su información?</div>
+        <div class="write-lines"></div>
+        <div class="write-label">¿Qué acciones correctas tomó María? (enumere 4)</div>
+        <div class="write-box"></div>
+
+        <div class="warning-box">
+            <div class="scenario-title" style="color: #991b1b;">Caso 2: David - Robo de Identidad Fiscal</div>
+            <div class="scenario-content" style="color: #7f1d1d;">
+                David presentó su declaración de impuestos y recibió aviso del IRS de que ya se había presentado una usando su número de Seguro Social. Tuvo que completar formularios especiales, establecer congelamiento de crédito y esperar 8 meses para resolver.
+            </div>
+        </div>
+        <div class="write-label">¿Por qué el robo de identidad fiscal es particularmente dañino?</div>
+        <div class="write-box"></div>
+        <div class="write-label">¿Qué medidas preventivas debería haber tomado David?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Lista de Verificación de Protección Personal</div>
+        <div class="activity-instructions">Marque las medidas que actualmente practica y las que implementará.</div>
+
+        <div class="write-label">Protección Digital:</div>
+        <ul class="checklist">
+            <li>Uso contraseñas fuertes y únicas para cada cuenta</li>
+            <li>Tengo autenticación de dos factores activada</li>
+            <li>No comparto información personal en redes sociales</li>
+            <li>Evito usar Wi-Fi público para transacciones financieras</li>
+        </ul>
+
+        <div class="write-label">Protección Física:</div>
+        <ul class="checklist">
+            <li>Trituro documentos con información personal</li>
+            <li>Tengo buzón cerrado o uso apartado postal</li>
+            <li>Inspecciono cajeros automáticos antes de usar</li>
+            <li>Guardo documentos importantes en lugar seguro</li>
+        </ul>
+
+        <div class="write-label">Monitoreo:</div>
+        <ul class="checklist">
+            <li>Reviso estados de cuenta regularmente</li>
+            <li>Verifico mis informes de crédito anualmente</li>
+            <li>Tengo alertas de transacciones configuradas</li>
+            <li>Considero congelamiento de crédito</li>
+        </ul>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Plan de Respuesta Personal</div>
+        <div class="activity-instructions">Complete los pasos que tomaría si descubre que su identidad fue robada.</div>
+
+        <div class="write-label">Paso 1: Acciones Inmediatas (primeras 24 horas)</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">Paso 2: Reportar a las Autoridades</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">Paso 3: Proteger Cuentas Restantes</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">Números de contacto importantes que debo guardar:</div>
+        <table class="concept-table" style="font-size: 9pt;">
+            <tr><td style="width: 50%;"><strong>Mi banco:</strong></td><td></td></tr>
+            <tr><td><strong>Mi tarjeta de crédito:</strong></td><td></td></tr>
+            <tr><td><strong>FTC (IdentityTheft.gov):</strong></td><td>1-877-438-4338</td></tr>
+        </table>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuáles son las tres señales de advertencia principales de que su identidad puede haber sido comprometida?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Cuál es la diferencia entre una alerta de fraude y un congelamiento de crédito? ¿Cuándo usaría cada uno?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Recibe un correo electrónico de su "banco" pidiendo que verifique su cuenta haciendo clic en un enlace. ¿Qué debe hacer?</div>
+        <div class="question-hint">Pista: Nunca confíe en enlaces de correos electrónicos para transacciones bancarias.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Por qué el robo de identidad puede tomar meses o años en resolverse completamente?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 9.2: Prevención y Recuperación del Robo de Identidad</span>
+    </div>
+
+</body>
+</html>

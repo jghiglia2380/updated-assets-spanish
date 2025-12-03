@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-68 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Guía del Maestro: Capítulo 68 — Estrategias de Inversión con Eficiencia Fiscal</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Guía del Maestro<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <!-- VARIABLE NOTE -->
+    <div class="variable-note" style="background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 9pt; color: #1e40af;">
+        <strong style="color: #1e3a8a;">Nota:</strong> Los ejemplos utilizan tasas fiscales de {{STATE_NAME}}: impuesto estatal sobre la renta {{STATE_INCOME_TAX_RATE}}%, impuesto estatal sobre ganancias de capital {{STATE_CAPITAL_GAINS_TAX}}%. La eficiencia fiscal es especialmente importante en {{STATE_NAME}} debido a estas tasas. Las tasas federales de ganancias de capital (0%, 15%, 20%) son adicionales.
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión, L-64: Riesgo y Rendimiento</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Tomás vs. María—mismas inversiones, $450,000 de diferencia.</li>
+                    <li>Discusión: "¿Cómo puede la eficiencia fiscal crear una diferencia TAN grande?"</li>
+                    <li>Punto clave: Los impuestos pueden erosionar 20-50% de rendimientos si no hay estrategia.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja diagrama de tres tipos de cuentas: Tradicional → Roth → Gravable.</li>
+                    <li>Explica tasas de ganancias de capital corto vs. largo plazo con ejemplos.</li>
+                    <li>Verificación rápida: "¿Por qué los bonos son ineficientes fiscalmente?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Comparación de cuentas—los números son reveladores.</li>
+                    <li><strong>Parte B (10 min):</strong> Cosecha de pérdidas fiscales—este es el concepto más nuevo.</li>
+                    <li><strong>Parte C (5 min):</strong> Ubicación de activos—simple pero poderoso.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P2 sobre período de tenencia muestra ahorro concreto de $450.</li>
+                    <li>P4 sobre estrategia de año de bajos ingresos es avanzada pero valiosa.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Simplifica a: "Roth = pago ahora, libre después. Tradicional = libre ahora, pago después."</li>
+                <li>Enfócate solo en la decisión Roth vs. Tradicional, omite cosecha de pérdidas.</li>
+                <li>Usa regla simple: "Si ganas poco ahora, Roth. Si ganas mucho, Tradicional."</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcula el impacto de las tasas de {{STATE_NAME}} ({{STATE_INCOME_TAX_RATE}}% renta, {{STATE_CAPITAL_GAINS_TAX}}% ganancias) en inversiones.</li>
+                <li>Compara eficiencia fiscal en {{STATE_NAME}} vs. estados sin impuesto sobre la renta.</li>
+                <li>Investiga la "mega backdoor Roth" y conversiones escalonadas.</li>
+                <li>Diseña un plan de diversificación fiscal completo considerando impuestos de {{STATE_NAME}}.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Comparación de Tipos de Cuentas</div>
+            <div class="calc-display"><strong>IRA Tradicional:</strong>
+Valor a los 65: $1,197,000
+Impuestos al 22%: $263,340
+Riqueza después de impuestos: $933,660
+
+<strong>Roth IRA:</strong>
+Valor a los 65: $1,197,000
+Impuestos al retiro: $0
+Riqueza después de impuestos: $1,197,000
+
+<strong>Cuenta Gravable:</strong>
+Valor ~$1,050,000 (después de impuestos anuales sobre dividendos)
+Impuesto sobre ganancias al 15%: ~$122,000
+Riqueza después de impuestos: ~$928,000</div>
+            <div class="answer-item"><strong>Ganador:</strong> Roth IRA por $263,340 sobre tradicional. La razón: pagó 12% de impuesto ahora sobre contribuciones, evitó 22% sobre $1.2M después.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Cosecha de Pérdidas Fiscales</div>
+            <div class="answer-item"><strong>Posiciones a cosechar:</strong> Fondo Internacional (-$1,500 a largo plazo) y opcionalmente Fondo Bonos (-$800 a corto plazo).</div>
+            <div class="answer-item"><strong>Cálculo:</strong> Pérdida $1,500 × 15% = $225 ahorrados. Si también cosecha Fondo Bonos: $800 × 24% = $192 adicionales.</div>
+            <div class="answer-item"><strong>¿Comprar el mismo fondo?:</strong> NO—viola la regla de venta ficticia. Debe esperar 30 días O comprar un fondo similar pero NO idéntico (diferente proveedor o índice ligeramente diferente).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Ubicación Óptima</div>
+            <div class="answer-item"><strong>Roth IRA:</strong> REITs—activo más ineficiente fiscalmente (6% dividendo como ingreso ordinario) obtiene crecimiento libre de impuestos para siempre.</div>
+            <div class="answer-item"><strong>IRA Tradicional:</strong> Bonos—interés gravado como ingreso ordinario se protege de tributación anual.</div>
+            <div class="answer-item"><strong>Cuenta Gravable:</strong> Fondos índice—baja rotación, dividendos calificados, control sobre cuándo realizar ganancias, ajuste de base al fallecer.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Roth IRA): Pagar 12% ahora es mejor que pagar 22% después sobre $1.2M. El Roth gana cuando el tramo futuro es mayor que el actual.</div>
+            <div class="calc-display"><strong>2.</strong> Venta ahora: $5,000 × 24% = $1,200
+Venta en 1 mes: $5,000 × 15% = $750
+Ahorro por esperar: $450</div>
+            <div class="answer-item"><strong>3.</strong> Los bonos son ineficientes porque el interés se grava como ingreso ordinario (hasta 37%) cada año, sin tasas preferenciales. Un bono del 4% en el tramo del 24% rinde solo 3.04% después de impuestos. En una cuenta con impuestos diferidos, rinde el 4% completo hasta el retiro.</div>
+            <div class="answer-item"><strong>4.</strong> Realizar las ganancias estratégicamente. Con $20,000 de ingreso menos $13,850 de deducción estándar = $6,150 gravable. Espacio hasta umbral del 0%: ~$38,450. Puede vender acciones con hasta $30,000 de ganancias y pagar $0 en impuestos sobre ganancias de capital. Luego comprar inmediatamente para "reajustar" la base más alta.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Siempre debería maximizar el 401(k) tradicional por la deducción."</td><td>Depende del tramo actual vs. futuro. Un joven en el tramo del 12% probablemente estará en uno más alto después—el Roth es mejor. La deducción ahora no siempre supera el crecimiento libre de impuestos.</td></tr>
+            <tr><td>"La cosecha de pérdidas fiscales es complicada y solo para ricos."</td><td>Es simple: vende perdedores para compensar ganancias, compra algo similar. Cualquiera con cuenta gravable puede hacerlo. Incluso $200-$500 de ahorro anual se capitaliza significativamente durante décadas.</td></tr>
+            <tr><td>"No importa dónde mantengo mis inversiones."</td><td>La ubicación de activos puede agregar $50,000-$150,000 a la riqueza durante toda la vida. Mantener bonos en gravable versus en IRA puede costar 0.5-1% anualmente—se capitaliza masivamente durante 40 años.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 68 — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

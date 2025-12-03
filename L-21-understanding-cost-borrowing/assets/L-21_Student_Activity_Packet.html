@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-21 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .because-lines { margin-top: 6px; }
+        .because-lines .response-line { margin-bottom: 4px; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .data-table .calc-row td { background: #fef9c3; height: 28px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 5.1: Entendiendo el Costo de los Préstamos</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Julia está considerando solicitar un préstamo estudiantil para la universidad. Le han ofrecido un préstamo federal al 4.5% de interés con pagos diferidos hasta después de la graduación, y un préstamo privado al 6.8% de interés requiriendo pagos parciales inmediatos. La diferencia entre estas opciones podría significar miles de dólares durante la vida del préstamo.</p>
+        <p class="framing-question">¿Qué préstamo debería elegir Julia y por qué los términos del préstamo importan tanto?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender cuándo tiene sentido pedir dinero prestado y cuándo evitarlo.</li>
+            <li>Calcular el costo total de un préstamo incluyendo intereses y comisiones.</li>
+            <li>Comparar diferentes tipos de crédito y sus implicaciones financieras.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Capital Principal</td><td>La cantidad original de dinero prestado, sin incluir intereses ni comisiones.</td></tr>
+        <tr><td>TAE</td><td>Tasa Anual Efectiva: el costo anual del préstamo, incluyendo intereses y comisiones.</td></tr>
+        <tr><td>Crédito Garantizado</td><td>Crédito respaldado por una garantía que el prestamista puede tomar si no paga.</td></tr>
+        <tr><td>Crédito No Garantizado</td><td>Crédito sin garantía, como las tarjetas de crédito, usualmente con tasas más altas.</td></tr>
+        <tr><td>Ratio Deuda-Ingreso</td><td>La proporción de pagos mensuales de deuda respecto al ingreso bruto mensual.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Pedir dinero prestado puede ser una herramienta poderosa para alcanzar metas importantes como educación, vivienda o transporte confiable. Sin embargo, el costo real del crédito va mucho más allá del precio de etiqueta. Los intereses pueden duplicar el costo de una compra, y elegir la fuente equivocada de crédito puede crear años de dificultades financieras. Comprender la diferencia entre <strong>crédito garantizado y no garantizado</strong>, cómo funciona la TAE, y el impacto de los pagos mínimos es esencial para tomar decisiones informadas.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Análisis de Escenarios de Préstamos</div>
+    <p style="margin-bottom: 14px;">Para cada escenario, determine si pedir prestado es una buena decisión y explique su razonamiento.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Préstamo para Educación</div>
+        <div class="scenario-description">Carlos quiere obtener un título que aumentará su salario en $15,000 anuales. Necesita pedir prestado $40,000 a una tasa del 5% por 10 años.</div>
+        <div class="response-line">
+            <span class="response-label">¿Buena decisión?</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(sí / no / depende)</span>
+        </div>
+        <div class="because-lines">
+            <div class="response-line">
+                <span class="response-label">Porque:</span>
+                <span class="response-blank"></span>
+            </div>
+            <div class="response-line">
+                <span class="response-blank" style="margin-left: 60px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Compra de Auto</div>
+        <div class="scenario-description">Ravi puede pagar $15,000 en efectivo por un auto usado o financiar un auto nuevo de $25,000 al 5.9% por 5 años con pagos de $483/mes.</div>
+        <div class="response-line">
+            <span class="response-label">Mejor opción:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(efectivo / financiar)</span>
+        </div>
+        <div class="because-lines">
+            <div class="response-line">
+                <span class="response-label">Porque:</span>
+                <span class="response-blank"></span>
+            </div>
+            <div class="response-line">
+                <span class="response-blank" style="margin-left: 60px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Emergencia Médica</div>
+        <div class="scenario-description">María enfrenta una factura médica de $3,000. Puede usar su tarjeta de crédito al 18% TAE o un préstamo personal de su cooperativa de crédito al 8%.</div>
+        <div class="response-line">
+            <span class="response-label">Mejor opción:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(tarjeta de crédito / préstamo personal)</span>
+        </div>
+        <div class="because-lines">
+            <div class="response-line">
+                <span class="response-label">Porque:</span>
+                <span class="response-blank"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Pregúntese: ¿Este préstamo me ayudará a ganar más dinero o adquirir algo esencial? ¿Cuánto pagaré en total incluyendo intereses?
+    </div>
+
+    <div class="part-header">Parte B: Comparación de Costos de Préstamos</div>
+
+    <table class="data-table">
+        <tr>
+            <th>Tipo de Préstamo</th>
+            <th>Capital</th>
+            <th>Tasa de Interés</th>
+            <th>Plazo</th>
+            <th>Pago Mensual</th>
+            <th>Interés Total</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Préstamo Estudiantil</td>
+            <td>$10,000</td>
+            <td>4.5%</td>
+            <td>10 años</td>
+            <td>$103.64</td>
+            <td>$2,437</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Tarjeta de Crédito (pago mínimo)</td>
+            <td>$10,000</td>
+            <td>18%</td>
+            <td>28 años</td>
+            <td>~$180</td>
+            <td>$15,432</td>
+        </tr>
+        <tr class="calc-row">
+            <td style="text-align: left;">Diferencia en interés total</td>
+            <td colspan="5"></td>
+        </tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Calcule la diferencia total en intereses entre ambas opciones. ¿Cuántos años más tarda pagar la tarjeta de crédito?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="part-header">Parte C: Aplicación Personal</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> Piense en una compra importante que podría necesitar en los próximos 5 años. ¿Pagaría en efectivo o pediría prestado? ¿Qué tipo de crédito usaría y por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál de los siguientes préstamos típicamente tiene la tasa de interés más BAJA?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Tarjeta de crédito</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Préstamo de día de pago</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Hipoteca (préstamo para vivienda)</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Préstamo personal no garantizado</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explique la diferencia entre crédito garantizado y no garantizado. Dé un ejemplo de cada uno.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> <strong>Cálculo:</strong> Si pide prestado $5,000 al 6% de interés por 3 años, ¿cuánto pagará en intereses? (Use: Interés = Capital × Tasa × Tiempo)</p>
+        <div class="calc-box">
+            <div class="calc-label">Muestra tu trabajo:</div>
+        </div>
+        <div class="calc-answer">Respuesta: $_____________ en intereses</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Por qué Julia (del desafío) debería elegir el préstamo federal al 4.5% en lugar del préstamo privado al 6.8%? Mencione DOS razones.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Describa una situación donde pedir dinero prestado sería una buena decisión financiera y otra donde sería una mala decisión. Explique su razonamiento para cada una.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 5.1: Entendiendo el Costo de los Préstamos</span>
+    </div>
+
+</body>
+</html>

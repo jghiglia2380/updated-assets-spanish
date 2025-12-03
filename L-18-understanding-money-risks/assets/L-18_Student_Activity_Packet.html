@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-18 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .risk-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .risk-title { font-weight: 700; color: #991b1b; font-size: 9pt; margin-bottom: 6px; }
+
+        .strategy-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+        .strategy-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+
+        .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+        .profile-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 10px; text-align: center; }
+        .profile-name { font-weight: 700; color: var(--primary-dark); font-size: 9pt; margin-bottom: 4px; }
+        .profile-desc { font-size: 8pt; color: var(--text-medium); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 5.5: Comprendiendo los Riesgos Monetarios en el Ahorro y la Inversión</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Definir diferentes tipos de riesgos financieros: mercado, financiero, inflación y fraude</li>
+            <li>Analizar cómo estos riesgos pueden afectar sus ahorros e inversiones</li>
+            <li>Explicar el concepto de tolerancia al riesgo y cómo varía entre individuos</li>
+            <li>Describir cómo la diversificación y la asignación de activos pueden gestionar los riesgos</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Tolerancia al Riesgo</div>
+            <div class="vocab-def">Capacidad y disposición para soportar fluctuaciones en sus inversiones</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Riesgo de Mercado</div>
+            <div class="vocab-def">Pérdidas debido a factores que afectan los mercados financieros en general</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Riesgo de Inflación</div>
+            <div class="vocab-def">El valor del dinero disminuye a medida que aumentan los precios</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Riesgo de Fraude</div>
+            <div class="vocab-def">Perder dinero debido a estafas o esquemas fraudulentos</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Diversificación</div>
+            <div class="vocab-def">Distribuir inversiones entre varios activos para reducir riesgo</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Asignación de Activos</div>
+            <div class="vocab-def">Dividir inversiones entre categorías según objetivos y tolerancia</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">⚠️ Los Cuatro Riesgos Financieros</div>
+        <div class="scenario-content">
+            Carlos tiene $20,000 para invertir. Ha escuchado que "mayor riesgo = mayor rendimiento" pero no sabe exactamente qué tipos de riesgo existen. Antes de invertir, necesita entender los diferentes peligros que pueden afectar su dinero.
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Por qué es importante distinguir entre diferentes tipos de riesgo en lugar de pensar en "riesgo" como un solo concepto?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Los Cuatro Tipos de Riesgo Financiero</h3>
+    <table class="comparison-table">
+        <tr>
+            <th>Tipo de Riesgo</th>
+            <th>Descripción</th>
+            <th>Ejemplo</th>
+        </tr>
+        <tr>
+            <td><strong>Riesgo de Mercado</strong></td>
+            <td>Pérdidas por factores económicos generales</td>
+            <td>Recesión económica reduce valor de acciones</td>
+        </tr>
+        <tr>
+            <td><strong>Riesgo Financiero</strong></td>
+            <td>Empresa no puede pagar sus obligaciones</td>
+            <td>Startup quiebra y los bonos pierden valor</td>
+        </tr>
+        <tr>
+            <td><strong>Riesgo de Inflación</strong></td>
+            <td>El dinero pierde poder adquisitivo</td>
+            <td>Ahorro al 1% cuando inflación es 3%</td>
+        </tr>
+        <tr>
+            <td><strong>Riesgo de Fraude</strong></td>
+            <td>Estafas o esquemas engañosos</td>
+            <td>Inversión "garantizada" que resulta falsa</td>
+        </tr>
+    </table>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Perfiles de Tolerancia al Riesgo</h3>
+    <div class="profile-grid">
+        <div class="profile-card">
+            <div class="profile-name">Conservador</div>
+            <div class="profile-desc">Prefiere estabilidad. Incómodo con fluctuaciones. Prioriza preservación del capital.</div>
+        </div>
+        <div class="profile-card">
+            <div class="profile-name">Moderado</div>
+            <div class="profile-desc">Tolera algunos altibajos. Busca balance entre crecimiento y seguridad.</div>
+        </div>
+        <div class="profile-card">
+            <div class="profile-name">Agresivo</div>
+            <div class="profile-desc">Cómodo con volatilidad. Busca máximo crecimiento a largo plazo.</div>
+        </div>
+    </div>
+
+    <div class="risk-box">
+        <div class="risk-title">📉 Impacto de la Inflación en el Poder Adquisitivo (3% anual)</div>
+        <ul style="font-size: 9pt; margin: 4px 0 0 16px; color: #7f1d1d;">
+            <li>10 años: Pierde ~26% de poder adquisitivo</li>
+            <li>20 años: Pierde ~45% de poder adquisitivo</li>
+            <li>30 años: Pierde ~60% de poder adquisitivo</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Identificación de Riesgos</div>
+        <div class="scenario-content">
+            Para cada escenario, identifique el tipo principal de riesgo involucrado.
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">1. Ana invirtió en acciones tecnológicas que bajaron 25% durante una recesión económica global.</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Tipo de riesgo: _______________ Justificación: _______________</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. Miguel mantuvo $50,000 en una cuenta de ahorros al 0.5% durante 10 años mientras la inflación promediaba 3%.</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Tipo de riesgo: _______________ Justificación: _______________</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">3. Laura invirtió en bonos de una empresa que después se declaró en bancarrota.</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Tipo de riesgo: _______________ Justificación: _______________</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">4. Roberto recibió una oferta de inversión "sin riesgo" con rendimientos garantizados del 25% anual.</div>
+            <p style="font-size: 9pt; margin: 4px 0;">Tipo de riesgo: _______________ Justificación: _______________</p>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: Cuestionario de Tolerancia al Riesgo</div>
+        <div class="scenario-content">
+            Responda honestamente para determinar su perfil de riesgo.
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. Si su inversión de $10,000 bajara a $7,000 en un mes, usted:</div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>A) Vendería todo inmediatamente para evitar más pérdidas</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>B) Se sentiría incómodo pero esperaría</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>C) Mantendría la calma y seguiría su estrategia</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>D) Vería una oportunidad para comprar más a precio bajo</span></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">6. ¿Cuántos años tiene hasta su objetivo financiero más importante?</div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>A) Menos de 3 años</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>B) 3-10 años</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>C) 10-20 años</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>D) Más de 20 años</span></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">7. Basándose en sus respuestas, ¿cuál es su perfil de tolerancia al riesgo y por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Estrategias de Diversificación</div>
+        <div class="strategy-card">
+            <div class="strategy-header">Caso: Portafolio de Elena</div>
+            <p style="font-size: 9pt; margin-bottom: 8px;">Elena (30 años) tiene $25,000 y 35 años hasta jubilarse. Actualmente tiene el 100% en acciones de una sola empresa tecnológica.</p>
+            <div class="question-block">
+                <div class="question-text">8. ¿Qué riesgos tiene el portafolio actual de Elena?</div>
+                <div class="answer-lines tall"></div>
+            </div>
+            <div class="question-block">
+                <div class="question-text">9. Diseñe un portafolio diversificado para Elena:</div>
+                <p style="font-size: 9pt; margin: 4px 0;">Acciones nacionales diversificadas: _____%</p>
+                <p style="font-size: 9pt; margin: 4px 0;">Acciones internacionales: _____%</p>
+                <p style="font-size: 9pt; margin: 4px 0;">Bonos: _____%</p>
+                <p style="font-size: 9pt; margin: 4px 0;">Efectivo/Equivalentes: _____%</p>
+            </div>
+            <div class="question-block">
+                <div class="question-text">10. Explique cómo su propuesta reduce cada tipo de riesgo:</div>
+                <div class="answer-lines tall"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte D: Señales de Alerta de Fraude</div>
+        <div class="question-block">
+            <div class="question-text">11. Liste 4 señales de advertencia que indican posible fraude de inversión:</div>
+            <p style="font-size: 9pt; margin: 4px 0;">1. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">2. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">3. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">4. _______________________________________________</p>
+        </div>
+        <div class="question-block">
+            <div class="question-text">12. ¿Qué pasos debe tomar antes de invertir en cualquier oportunidad?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál afirmación sobre riesgo e inversión es CORRECTA?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Eliminar todo el riesgo es posible con la estrategia correcta</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Mayor rendimiento potencial generalmente requiere aceptar más riesgo</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) Las cuentas de ahorro no tienen ningún tipo de riesgo</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) La diversificación garantiza que nunca perderá dinero</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué el riesgo de inflación es especialmente peligroso para ahorradores conservadores a largo plazo?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Explique la relación entre horizonte temporal y tolerancia al riesgo apropiada:</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Considerando su situación actual, ¿qué tipo de riesgo le preocupa más y qué estrategia usaría para gestionarlo?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 5.5</span>
+    </div>
+
+</body>
+</html>

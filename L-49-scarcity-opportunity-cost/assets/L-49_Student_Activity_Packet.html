@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-49 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .calc-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        .calc-table th, .calc-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+        .calc-table th { background: var(--bg-light); font-weight: 600; color: var(--text-medium); }
+        .calc-table td:last-child { text-align: right; }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>L-49: Escasez, Costo de Oportunidad e Incentivos</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Sarah, de 18 años, recibió admisión a la Universidad Estatal ($15,000 de matrícula anual) y la Universidad Privada Elite ($55,000 de matrícula anual). La comparación simple sugiere que Elite cuesta $40,000 más anualmente. Pero después de calcular el costo de oportunidad total—incluyendo salarios renunciados por trabajar en lugar de estudiar ($152,000 en cuatro años)—Sarah descubrió que el verdadero costo de cada opción era muy diferente al precio de etiqueta.</p>
+        <p class="framing-question">¿Cómo te ayuda calcular el costo de oportunidad completo—tanto costos explícitos como implícitos—a tomar mejores decisiones financieras?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Definir la escasez y explicar por qué es el problema económico fundamental.</li>
+            <li>Calcular costos de oportunidad para decisiones de finanzas personales.</li>
+            <li>Identificar costos explícitos e implícitos en elecciones financieras.</li>
+            <li>Analizar cómo los incentivos moldean el comportamiento económico.</li>
+            <li>Aplicar el análisis de costo de oportunidad a decisiones importantes de vida.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Escasez</td>
+            <td>El problema económico fundamental de que los deseos humanos ilimitados exceden los recursos limitados disponibles para satisfacerlos.</td>
+        </tr>
+        <tr>
+            <td>Costo de Oportunidad</td>
+            <td>El valor de la siguiente mejor alternativa a la que renuncias al hacer una elección; el verdadero costo de cualquier decisión.</td>
+        </tr>
+        <tr>
+            <td>Costos Explícitos</td>
+            <td>Pagos monetarios directos requeridos para una elección; cantidades en dólares fácilmente medibles como matrícula o pagos de auto.</td>
+        </tr>
+        <tr>
+            <td>Costos Implícitos</td>
+            <td>Costos indirectos incluyendo tiempo, oportunidades renunciadas y sacrificios no monetarios; más difíciles de medir pero a menudo más significativos.</td>
+        </tr>
+        <tr>
+            <td>Incentivo</td>
+            <td>Recompensa o penalización que motiva el comportamiento; incentivos positivos fomentan acciones, negativos las desalientan.</td>
+        </tr>
+        <tr>
+            <td>Análisis Marginal</td>
+            <td>Comparar beneficios adicionales de una elección con costos adicionales para encontrar cantidades óptimas.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Los deseos humanos son ilimitados—siempre deseamos más bienes, servicios y seguridad de los disponibles. Los recursos para satisfacer esos deseos son limitados—solo hay tanto tiempo, dinero y capital. Esta brecha crea escasez, forzando elecciones. Cada elección tiene un costo de oportunidad. Comprender esto transforma cómo tomas decisiones financieras, revelando el verdadero costo de cada elección.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Cálculo de Costo de Oportunidad Universitario</div>
+    <p class="mb-md">Calcula el costo de oportunidad completo de diferentes caminos después de la escuela secundaria.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Comparación de Caminos Post-Secundarios</div>
+        <div class="scenario-description">Analiza tres opciones: Universidad de 4 años, Escuela Técnica, o Trabajo Inmediato.</div>
+
+        <table class="calc-table">
+            <tr>
+                <th>Camino A: Universidad 4 Años</th>
+                <th>Cálculo</th>
+            </tr>
+            <tr>
+                <td>Matrícula (4 años × $15,000)</td>
+                <td>$_____________</td>
+            </tr>
+            <tr>
+                <td>Gastos de vida (4 años × $12,000)</td>
+                <td>$_____________</td>
+            </tr>
+            <tr>
+                <td>Libros y materiales (4 años × $1,200)</td>
+                <td>$_____________</td>
+            </tr>
+            <tr>
+                <td><strong>Total Costos Explícitos</strong></td>
+                <td><strong>$_____________</strong></td>
+            </tr>
+            <tr>
+                <td>Salarios renunciados (4 años × $30,000)</td>
+                <td>$120,000</td>
+            </tr>
+            <tr>
+                <td>Menos: Ganancias tiempo parcial (4 × $12,000)</td>
+                <td>-$48,000</td>
+            </tr>
+            <tr>
+                <td><strong>Costo de Oportunidad Neto</strong></td>
+                <td><strong>$72,000</strong></td>
+            </tr>
+            <tr>
+                <td><strong>COSTO ECONÓMICO TOTAL</strong></td>
+                <td><strong>$_____________</strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="response-line">
+        <span class="response-label">Salario esperado con título ($55,000/año):</span>
+        <span class="response-blank"></span>
+    </div>
+    <div class="response-line">
+        <span class="response-label">Años para "recuperar" la inversión:</span>
+        <span class="response-blank"></span>
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Análisis de Costo de Oportunidad del Tiempo</div>
+    <p class="mb-md">El tiempo es el recurso más escaso. Analiza cómo usas tu tiempo y su costo de oportunidad.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Marcus gana $36/hora como desarrollador</div>
+        <div class="scenario-description">Pasa 6 horas semanales en tareas del hogar que podría subcontratar por $70/semana.</div>
+        <div class="response-line">
+            <span class="response-label">Costo de oportunidad de su tiempo (6 hrs × $36):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Costo de subcontratar servicios:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Pérdida neta semanal por hacerlo él mismo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Decisión óptima y justificación:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Las personas exitosas a menudo contratan servicios para tareas de bajo valor porque el costo de oportunidad de su tiempo excede el precio del servicio.
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Identificación de Estructuras de Incentivos</div>
+    <p class="mb-md">Identifica los incentivos y predice respuestas conductuales.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario A: Contribución Igualada del Empleador al 401(k)</div>
+        <div class="scenario-description">La empresa iguala 100% hasta 6% del salario.</div>
+        <div class="response-line">
+            <span class="response-label">Tipo de incentivo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Respuesta conductual predicha:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Costo de oportunidad de no participar:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario B: Tarjeta de Crédito con 2% Cash Back</div>
+        <div class="scenario-description">Ofrece 2% de reembolso pero cobra 20% de interés en saldos.</div>
+        <div class="response-line">
+            <span class="response-label">Incentivo intencionado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Consecuencia no deseada potencial:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Uso óptimo de este incentivo:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Qué describe mejor el "costo de oportunidad"?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. El precio monetario de un bien o servicio</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. El valor de la siguiente mejor alternativa renunciada</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Los impuestos pagados en una compra</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. El costo total de producir un bien</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué la escasez es el problema económico fundamental?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Tienes $10,000. ¿Cuál es el costo de oportunidad de mantenerlos en una cuenta corriente (0.1% interés) versus una cuenta de ahorros de alto rendimiento (4% interés) durante un año?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Explica la diferencia entre costos explícitos y costos implícitos. Proporciona un ejemplo de cada uno para la decisión de asistir a la universidad.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Considera una decisión financiera importante que enfrentas (universidad, auto, carrera, vivienda). ¿Cuál es el costo de oportunidad completo? ¿Cambiaría tu decisión después de calcular los costos implícitos además de los explícitos?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-49: Escasez, Costo de Oportunidad e Incentivos</span>
+    </div>
+
+</body>
+</html>

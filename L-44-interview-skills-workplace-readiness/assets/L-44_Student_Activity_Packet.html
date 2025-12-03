@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-44 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 25%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 15.4: Habilidades para Entrevistas y Preparación Laboral</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Jamie estaba en una entrevista para asistente de marketing y le preguntaron sobre cómo manejó un plazo ajustado. Su respuesta inicial fue vaga: "Trabajo bien bajo presión." Después de aprender el método STAR, Jamie estructuró una respuesta detallada describiendo la situación específica, su tarea, las acciones que tomó y el resultado exitoso. El entrevistador quedó impresionado con la claridad y profundidad de su respuesta.</p>
+        <p class="framing-question">¿Cómo puede una respuesta estructurada y específica demostrar mejor sus habilidades que una declaración general?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Desarrollar estrategias efectivas para prepararse para entrevistas de trabajo.</li>
+            <li>Practicar respuestas a preguntas comunes usando el método STAR.</li>
+            <li>Comprender las expectativas y etiqueta profesional en el lugar de trabajo.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Método STAR</td>
+            <td>Técnica estructurada para responder preguntas conductuales: Situación, Tarea, Acción, Resultado.</td>
+        </tr>
+        <tr>
+            <td>Entrevista Conductual</td>
+            <td>Enfoque que evalúa cómo manejó situaciones pasadas para predecir desempeño futuro.</td>
+        </tr>
+        <tr>
+            <td>Entrevista Panel</td>
+            <td>Entrevista realizada por múltiples entrevistadores simultáneamente.</td>
+        </tr>
+        <tr>
+            <td>Etiqueta Profesional</td>
+            <td>Comportamientos esperados en entornos laborales que demuestran respeto y profesionalismo.</td>
+        </tr>
+        <tr>
+            <td>Seguimiento Post-Entrevista</td>
+            <td>Comunicación profesional enviada dentro de 24 horas para agradecer y reiterar interés.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Las entrevistas de trabajo le permiten demostrar sus cualificaciones mientras usted evalúa si el puesto se alinea con sus objetivos profesionales. La preparación efectiva incluye investigar la empresa, practicar respuestas usando el método STAR, planificar su apariencia profesional y preparar preguntas reflexivas. Recuerde que el nerviosismo es normal—demuestra que le importa—y puede manejarse con técnicas de respiración y visualización positiva.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Práctica del Método STAR</div>
+    <p class="mb-md">Desarrolle una respuesta STAR completa para la siguiente pregunta de entrevista.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Pregunta: "Cuénteme sobre una ocasión en que tuvo que resolver un problema difícil."</div>
+        <div class="response-line">
+            <span class="response-label">Situación:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Tarea:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Acción:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Resultado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> El resultado debe ser específico y cuantificable cuando sea posible. En lugar de "el proyecto fue exitoso", diga "completamos el proyecto 2 días antes del plazo y recibimos retroalimentación positiva del cliente."
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Preparación para la Entrevista</div>
+    <p class="mb-md">Complete la lista de verificación de preparación para entrevistas.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Investigación de la Empresa</div>
+        <div class="scenario-description">Piense en una empresa donde le gustaría trabajar y responda:</div>
+        <div class="response-line">
+            <span class="response-label">Nombre de la empresa:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Misión o valores:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Producto/servicio principal:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">¿Por qué quiere trabajar allí?</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Escriba dos preguntas reflexivas que haría al entrevistador:</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Profesionalismo en el Lugar de Trabajo</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Un colega critica su trabajo frente a otros. ¿Cuál sería una respuesta profesional?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Cuáles son tres expectativas profesionales importantes para los primeros 90 días en un nuevo trabajo?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Qué significa la "A" en el método STAR?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Análisis</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Acción</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Actitud</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Adaptación</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué es importante investigar la empresa antes de una entrevista?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Elena completó una entrevista esta mañana. ¿Qué debe hacer dentro de las próximas 24 horas y qué debe incluir?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Mencione dos técnicas para manejar la ansiedad antes de una entrevista.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Piense en una entrevista próxima o hipotética. ¿Cuál sería su mayor desafío y qué estrategias de esta lección usaría para abordarlo?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 15.4: Habilidades para Entrevistas</span>
+    </div>
+
+</body>
+</html>

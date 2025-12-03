@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-45 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>L-45: Emprendimiento y Trabajos Secundarios</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante | {{STATE_NAME}}
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Jordan, un estudiante universitario de Ciencias de la Computación, notó que muchos compañeros tenían dificultades con conceptos de programación. En lugar de ayudar solo informalmente, Jordan vio una oportunidad: lanzó un servicio de tutoría con sesiones a $25/hora—significativamente menos que tutores profesionales. En tres meses, tenía 8 clientes regulares, una lista de espera, y ganaba $800-1,000 mensuales mientras mantenía sus estudios.</p>
+        <p class="framing-question">¿Cómo puede identificar oportunidades empresariales que se alineen con sus habilidades e intereses mientras minimiza el riesgo?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar oportunidades empresariales alineadas con habilidades e intereses personales.</li>
+            <li>Comprender los componentes esenciales de un plan de negocios.</li>
+            <li>Desarrollar estrategias para equilibrar trabajos secundarios con otras responsabilidades.</li>
+            <li>Explorar el descubrimiento de clientes y el desarrollo de productos mínimos viables.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Emprendimiento</td>
+            <td>Actividad de establecer y administrar un negocio, asumiendo riesgos financieros con la esperanza de obtener ganancias.</td>
+        </tr>
+        <tr>
+            <td>Trabajo Secundario</td>
+            <td>Proyecto o negocio que persigue fuera de su trabajo principal para generar ingresos adicionales.</td>
+        </tr>
+        <tr>
+            <td>Plan de Negocios</td>
+            <td>Documento que describe los objetivos de un negocio y las estrategias para alcanzarlos.</td>
+        </tr>
+        <tr>
+            <td>MVP</td>
+            <td>Producto Mínimo Viable—versión de un producto con las características justas para ser utilizado por los primeros clientes.</td>
+        </tr>
+        <tr>
+            <td>Propuesta de Valor</td>
+            <td>El valor único que su producto o servicio ofrece a los clientes en comparación con las alternativas.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El emprendimiento ofrece una alternativa o complemento al empleo tradicional. Los trabajos secundarios permiten explorar el emprendimiento con menor riesgo, desarrollar nuevas habilidades, generar ingresos suplementarios y probar ideas de negocio antes de comprometerse a tiempo completo. Las características emprendedoras clave incluyen: reconocimiento de oportunidades, toma de riesgos calculados, resiliencia, adaptabilidad, ingenio y orientación a la acción.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Autoevaluación Emprendedora</div>
+    <p class="mb-md">Califíquese del 1 (bajo) al 5 (alto) en cada característica emprendedora.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Características Empresariales</div>
+        <div class="response-line">
+            <span class="response-label">Reconocimiento de oportunidades:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Toma de riesgos calculados:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Resiliencia y persistencia:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Adaptabilidad:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Ingenio:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Orientación a la acción:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuáles son sus dos características más fuertes y cómo las ha demostrado?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- PARTE B -->
+    <div class="part-header">Parte B: Identificación de Oportunidades</div>
+    <p class="mb-md">Haga una lluvia de ideas de tres posibles negocios basados en sus habilidades, intereses o problemas observados.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Idea de Negocio #1</div>
+        <div class="response-line">
+            <span class="response-label">Descripción:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Problema que resuelve:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Cliente objetivo:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Idea de Negocio #2</div>
+        <div class="response-line">
+            <span class="response-label">Descripción:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Problema que resuelve:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Cliente objetivo:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Las fuentes de ideas incluyen: experiencia personal, habilidades y experiencia, pasatiempos e intereses, tendencias del mercado, ineficiencias de la industria y mercados desatendidos.
+    </div>
+
+    <!-- PARTE C -->
+    <div class="part-header">Parte C: Evaluación de Oportunidades</div>
+    <p class="mb-md">Seleccione su mejor idea y evalúela usando estos criterios (califique del 1 al 5).</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Marco de Evaluación</div>
+        <div class="response-line">
+            <span class="response-label">Validación del problema (¿es real?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Tamaño del mercado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Viabilidad (¿tiene los recursos?):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Potencial de rentabilidad:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Pasión e interés personal:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Cuál sería su Producto Mínimo Viable (MVP) para probar esta idea con clientes reales?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál de los siguientes describe mejor un "trabajo secundario"?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Un empleo de tiempo completo con horas extras</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Un proyecto o negocio adicional para generar ingresos extra</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Un pasatiempo que no genera dinero</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Un segundo empleo de tiempo completo</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Por qué es importante desarrollar un MVP antes de invertir recursos significativos?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Mencione tres componentes esenciales de un plan de negocios básico.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Cuáles son dos estrategias para equilibrar un trabajo secundario con otras responsabilidades?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Piense en sus propias habilidades e intereses. ¿Qué oportunidad empresarial potencial puede identificar? Describa el problema, su posible solución y tres pasos específicos que tomaría para probar esta idea.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Emprendimiento en {{STATE_NAME}}</div>
+    <div class="background-box">
+        <p><strong>Costos de Iniciar un Negocio:</strong> {{#if STATE_LLC_FILING_FEE}}En {{STATE_NAME}}, formar una LLC cuesta ${{STATE_LLC_FILING_FEE}}.{{/if}} {{#if STATE_SALES_TAX}}El impuesto sobre las ventas es del {{STATE_SALES_TAX}}%, que debe considerar al fijar precios.{{else}}{{STATE_NAME}} no tiene impuesto sobre las ventas estatal, lo que puede ser una ventaja para los negocios.{{/if}}</p>
+        <p><strong>Recursos para Emprendedores:</strong> Para obtener información sobre licencias comerciales, requisitos de registro y recursos para pequeñas empresas en {{STATE_NAME}}, consulte con el departamento de desarrollo económico de su estado.</p>
+        {{#if STATE_DMV_URL}}<p><strong>Negocios Basados en Vehículos:</strong> Si está considerando un trabajo secundario que implica conducir (como entrega de alimentos), visite {{STATE_DMV_URL}} para obtener información sobre requisitos de licencia y seguro.</p>{{/if}}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-45: Emprendimiento y Trabajos Secundarios</span>
+    </div>
+
+</body>
+</html>

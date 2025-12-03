@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-62 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 62 — Estrategias de Portafolio de Inversión</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Emma—enfatiza que el rebalanceo la salvó durante la caída.</li>
+                    <li>Discusión: "¿Por qué se sentía incorrecto vender acciones ganadoras para comprar bonos?"</li>
+                    <li>Punto clave: La disciplina supera las emociones en la inversión a largo plazo.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja diagrama circular de asignación de activos en el pizarrón.</li>
+                    <li>Explica la regla "120 menos tu edad" con ejemplos específicos.</li>
+                    <li>Verificación rápida: "¿Qué asignación tendría alguien de 25 años?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Perfiles de inversores—discute por qué la edad afecta la asignación.</li>
+                    <li><strong>Parte B (10 min):</strong> Cálculo de rebalanceo paso a paso—este es el momento clave.</li>
+                    <li><strong>Parte C (5 min):</strong> Comparación de diversificación—asegura comprensión de correlación.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P3 muestra el impacto real del pánico—$350,000 de diferencia.</li>
+                    <li>P5 reflexión personal debe producir planes específicos y realistas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporciona tabla de asignación por edad simplificada.</li>
+                <li>Usa analogía de "cocina"—diferentes ingredientes para diferentes comidas.</li>
+                <li>Guía el cálculo de rebalanceo paso a paso.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investiga rendimientos históricos de diferentes asignaciones (70/30 vs. 60/40).</li>
+                <li>Compara fondos de fecha objetivo de diferentes proveedores.</li>
+                <li>Diseña estrategia de rebalanceo con umbrales específicos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Asignación por Etapa de Vida</div>
+            <div class="answer-item"><strong>Alejandro (28):</strong> 90% acciones / 10% bonos. Horizonte de 37 años permite alta volatilidad. Tiempo para recuperarse de caídas. Maximiza crecimiento a largo plazo.</div>
+            <div class="answer-item"><strong>Carmen (58):</strong> 55-60% acciones / 40-45% bonos. 7 años hasta jubilación requiere preservación. Aún necesita algo de crecimiento para 20+ años de jubilación.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Escenario de Rebalanceo</div>
+            <div class="calc-display"><strong>1.</strong> Total: $84,000 + $30,900 = $114,900
+Acciones: $84,000 / $114,900 = 73%
+Bonos: $30,900 / $114,900 = 27%
+Desviación de 70/30 a 73/27
+
+Para rebalancear a 70/30:
+Objetivo acciones: $114,900 × 70% = $80,430
+Objetivo bonos: $114,900 × 30% = $34,470
+Acción: Vender $3,570 acciones, comprar $3,570 bonos</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>2.</strong> Portafolio B está mejor diversificado. Tiene exposición a diferentes clases de activos (acciones, bonos, internacional) que no se mueven juntos. Portafolio A tiene 5 acciones del mismo sector—si tecnología cae, todas caen juntas.</div>
+            <div class="answer-item"><strong>1.</strong> C (90%): 120 - 30 = 90% en acciones.</div>
+            <div class="answer-item"><strong>2.</strong> El rebalanceo vende activos que han subido (precios altos) y compra activos que han bajado (precios bajos). No requiere predicción—es mecánico basado en desviación de asignación objetivo.</div>
+            <div class="calc-display"><strong>3.</strong> $500/mes durante 30 años:
+Al 8%: ≈ $680,000
+Al 5%: ≈ $418,000
+Diferencia: $262,000 (¡más de un cuarto de millón!)</div>
+            <div class="answer-item"><strong>4.</strong> Fondos de fecha objetivo automatizan asignación, diversificación y rebalanceo. Ideales para inversores que prefieren simplicidad y no quieren gestionar activamente. Ajustan automáticamente volviéndose más conservadores con el tiempo.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Diversificación significa tener muchas acciones diferentes."</td><td>La verdadera diversificación requiere DIFERENTES clases de activos con baja correlación. 50 acciones tecnológicas siguen cayendo juntas. Necesitas acciones + bonos + internacional para protección real.</td></tr>
+            <tr><td>"Debo dejar correr a los ganadores—nunca vender acciones que suben."</td><td>Dejar que los ganadores corran sin rebalancear aumenta tu riesgo más allá de lo planeado. El rebalanceo asegura ganancias y mantiene tu nivel de riesgo apropiado.</td></tr>
+            <tr><td>"Soy joven, puedo tener 100% en acciones."</td><td>Incluso los jóvenes se benefician de 5-10% en bonos como "polvo seco" para rebalancear durante caídas. Comprar acciones baratas durante crisis puede mejorar rendimientos a largo plazo.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 62</span>
+    </div>
+
+</body>
+</html>

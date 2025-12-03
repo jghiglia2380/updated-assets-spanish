@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-01 Guia del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #059669; --primary-light: #ecfdf5; --primary-dark: #065f46; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; --warning: #f59e0b; --warning-light: #fef3c7; --error-light: #fee2e2; --success-light: #dcfce7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guia del Maestro: Capitulo 1.1 — Empleos vs. Carreras Profesionales</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>55 Minutos</td><td>Paquete de Actividades, Acceso a Internet</td><td>Ninguno</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Leccion</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFIO</div>
+                <ul>
+                    <li>Leer el escenario de Maya sobre empleos vs. carreras.</li>
+                    <li>Discusion: "Cual es la diferencia entre tener un trabajo y construir una carrera?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presentar definiciones: empleo, carrera, trayectoria profesional, capital profesional.</li>
+                    <li>Usar ejemplos visuales de progresion salarial a lo largo del tiempo.</li>
+                    <li>Enfatizar que el capital profesional es una inversion con rendimientos.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLICALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Clasificacion empleo vs. carrera. Discutir razones.</li>
+                    <li><strong>Parte B (10 min):</strong> Analisis de capital profesional. Ayudar a identificar ejemplos personales.</li>
+                    <li><strong>Parte C (10 min):</strong> Plan de trayectoria profesional. Guiar investigacion de carreras.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSION</div>
+                <ul>
+                    <li>Completar en clase o asignar como tarea.</li>
+                    <li>Discutir la pregunta de reflexion para fomentar la autoevaluacion.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciacion</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcionar plantillas simplificadas de trayectorias profesionales.</li>
+                <li>Ofrecer ejemplos concretos en lugar de conceptos abstractos.</li>
+                <li>Usar mas elementos visuales para ilustrar progresion profesional.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extension</div>
+            <ul>
+                <li>Calcular el ROI de diferentes opciones educativas.</li>
+                <li>Investigar como las tendencias economicas impactan campos profesionales.</li>
+                <li>Entrevistar a profesionales en su campo de interes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Clasificacion Empleo vs. Carrera</div>
+            <div class="answer-item"><strong>Escenario 1:</strong> EMPLEO. Trabajo temporal de verano sin progresion a largo plazo ni desarrollo de habilidades especializadas.</div>
+            <div class="answer-item"><strong>Escenario 2:</strong> CARRERA. Progresion clara con capacitacion, certificaciones y avance a posiciones de mayor responsabilidad.</div>
+            <div class="answer-item"><strong>Escenario 3:</strong> CARRERA. Programa de aprendizaje estructurado, certificacion profesional y crecimiento hacia propiedad de negocio.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Analisis de Capital Profesional</div>
+            <div class="answer-note">Las respuestas variaran. Busque ejemplos realistas y planes de desarrollo especificos. Ejemplos comunes incluyen: habilidades de computacion (tecnicas), comunicacion (blandas), diploma de preparatoria (educacion), contactos de maestros/empleadores (red).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Plan de Trayectoria Profesional</div>
+            <div class="answer-note">Evaluar si los objetivos son realistas y si los pasos estan alineados con los objetivos. Los estudiantes deben mostrar comprension de los requisitos educativos y desarrollo de habilidades necesarios para su campo elegido.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprension</div>
+            <div class="answer-item"><strong>1.</strong> B (Las carreras ofrecen crecimiento y avance a largo plazo)</div>
+            <div class="answer-item"><strong>2.</strong> El capital profesional (habilidades, experiencia, red de contactos) aumenta tu valor en el mercado laboral, permitiendote negociar mejores salarios, acceder a mejores oportunidades y tener mayor seguridad laboral.</div>
+            <div class="answer-item"><strong>3.</strong> Un salario inicial bajo puede llevar a ingresos mucho mayores con el tiempo si la carrera tiene buena trayectoria de crecimiento, mientras que un salario inicial alto sin progresion puede estancarse.</div>
+            <div class="answer-item"><strong>4.</strong> <em>Las respuestas varian. Busque reflexion genuina sobre intereses, habilidades y un plan logico para desarrollar capital profesional relevante.</em></div>
+        </div>
+
+        <div class="section-header">Conceptos Erroneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erroneo</th><th>Clarificacion</th></tr>
+            <tr><td>"Todas las carreras requieren un titulo universitario de 4 anos."</td><td>Muchas carreras exitosas se construyen a traves de oficios especializados, certificaciones tecnicas o programas de 2 anos. Electricistas, tecnicos de salud y programadores pueden tener excelentes carreras sin titulo de 4 anos.</td></tr>
+            <tr><td>"Seguir tu pasion siempre lleva al exito financiero."</td><td>La pasion debe equilibrarse con realidades del mercado laboral. Es importante investigar la demanda, salarios y oportunidades en campos de interes.</td></tr>
+            <tr><td>"La planificacion profesional puede esperar hasta despues de la preparatoria."</td><td>Las decisiones tempranas sobre cursos, actividades y experiencias impactan las opciones futuras. Comenzar a planificar ahora abre mas puertas.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guia del Maestro: Capitulo 1.1</span>
+    </div>
+</body>
+</html>

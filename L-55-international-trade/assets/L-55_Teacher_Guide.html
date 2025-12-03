@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-55 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 55 — Comercio Internacional y Desarrollo Económico</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora, Etiquetas de Ropa</td>
+            <td>L-50 Oferta/Demanda, L-54 Inflación/Desempleo</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Pida a estudiantes que revisen las etiquetas de su ropa - China, Vietnam, Bangladesh, México.</li>
+                    <li>Mencione el iPhone: 43 países contribuyen partes. Esto es globalización.</li>
+                    <li>Pregunte: "¿Por qué no fabricamos todo aquí?" para generar curiosidad.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE: VENTAJA COMPARATIVA</div>
+                <ul>
+                    <li>Use ejemplo del compañero de cuarto: aunque eres mejor en TODO, la especialización beneficia a AMBOS.</li>
+                    <li>Explique costo de oportunidad: producir X significa renunciar a Y.</li>
+                    <li>Aplique a países: EE.UU. produce tecnología, China produce ropa, AMBOS ganan.</li>
+                    <li>Enfatice: El comercio NO es suma cero - ambos lados se benefician.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">BENEFICIOS Y COSTOS</div>
+                <ul>
+                    <li>Beneficios: Precios más bajos ($10,000-15,000/año por hogar), más variedad, calidad.</li>
+                    <li>Costos: Empleos perdidos (5 millones manufactureros), comunidades afectadas, desigualdad.</li>
+                    <li>Conecte con L-54: Desempleo estructural cuando industrias se mudan al extranjero.</li>
+                    <li>Enfatice: El comercio crea GANADORES y PERDEDORES - las políticas deben ayudar a los perdedores.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">12 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ARANCELES Y TIPOS DE CAMBIO</div>
+                <ul>
+                    <li><strong>Aranceles (5 min):</strong> Impuesto que aumenta precio, protege empleos pero perjudica consumidores.</li>
+                    <li>Ejemplo: 25% arancel convierte auto de $30K en $37.5K.</li>
+                    <li><strong>Tipos de cambio (7 min):</strong> Precio de una moneda en otra.</li>
+                    <li>Dólar fuerte = importaciones baratas, viajes baratos, pero exportaciones caras.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">8 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P1-P3 verifican conceptos de ventaja comparativa, aranceles, tipos de cambio.</li>
+                    <li>P4 requiere cálculo de tipo de cambio.</li>
+                    <li>P5 (reflexión) conecta globalización con su futuro laboral personal.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Use diagrama visual: País A produce X, País B produce Y, intercambian → ambos ganan.</li>
+                <li>Simplifique cálculos de tipo de cambio con ejemplos más sencillos.</li>
+                <li>Proporcione tabla resumen: Dólar fuerte = [efectos], Dólar débil = [efectos].</li>
+                <li>Use productos tangibles (ropa, teléfonos) como ejemplos concretos.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue la cadena de suministro del iPhone - 43 países involucrados.</li>
+                <li>Analice los aranceles recientes de EE.UU.-China y sus efectos.</li>
+                <li>Calcule el impacto de aranceles en el presupuesto familiar anual.</li>
+                <li>Compare políticas comerciales de EE.UU., UE y China.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Beneficios y Costos</div>
+            <div class="answer-note">Las respuestas variarán. Puntos clave a buscar: reconocimiento de que el comercio beneficia a consumidores (precios bajos) pero puede perjudicar a algunos trabajadores (empleos perdidos). Buenas respuestas mencionarán políticas de compensación (recapacitación, asistencia).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Aranceles</div>
+            <div class="answer-note">Las opiniones variarán, pero deben reconocer la compensación: aranceles protegen empleos específicos pero aumentan costos para TODOS los consumidores. Un arancel del 25% = precios 25% más altos en esos productos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Cálculo del Auto Japonés</div>
+            <div class="calc-display">Si el dólar se debilita a $1 = ¥120:
+¥3,000,000 ÷ 120 = $25,000
+
+El auto ahora cuesta $5,000 MÁS porque el dólar compra menos yenes.
+Dólar débil = importaciones más caras.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B. Especializarse en lo que hacen a menor costo de oportunidad. Esta es la definición de ventaja comparativa.</div>
+            <div class="answer-item"><strong>2.</strong> B. Protege a productores nacionales pero aumenta precios al consumidor. Los aranceles son un impuesto que se pasa a los consumidores.</div>
+            <div class="answer-item"><strong>3.</strong> B. Las importaciones de Europa se vuelven más baratas. Dólar fuerte = puede comprar más euros = bienes europeos más baratos.</div>
+            <div class="calc-display">Cálculo P4:
+€25,000 ÷ 0.80 = $31,250
+
+El auto europeo cuesta $31,250 en dólares.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Buenas respuestas incluirán: Amenaza - outsourcing, competencia global, automatización. Oportunidad - acceso a mercados globales, empresas multinacionales, habilidades especializadas con demanda mundial.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"El comercio es suma cero - si uno gana, otro pierde."</td>
+                <td>El comercio es WIN-WIN gracias a la ventaja comparativa. Cuando ambos países se especializan, la producción TOTAL aumenta. Ambos obtienen más bienes.</td>
+            </tr>
+            <tr>
+                <td>"Los aranceles protegen empleos sin costo."</td>
+                <td>Los aranceles SIEMPRE aumentan precios para consumidores. Protegen algunos empleos pero a costo de TODOS los consumidores. También invitan represalias que perjudican a exportadores.</td>
+            </tr>
+            <tr>
+                <td>"Un dólar fuerte es siempre bueno."</td>
+                <td>Depende de tu perspectiva. Dólar fuerte ayuda a consumidores e importadores, pero perjudica a exportadores y trabajadores en sectores de exportación.</td>
+            </tr>
+            <tr>
+                <td>"EE.UU. puede producir todo internamente."</td>
+                <td>Podría, pero a costo MUCHO más alto. El iPhone costaría $2,000+ si se hiciera completamente en EE.UU. La ventaja comparativa hace que el comercio beneficie a todos.</td>
+            </tr>
+            <tr>
+                <td>"El comercio solo beneficia a las grandes empresas."</td>
+                <td>Los mayores beneficiarios son los consumidores comunes - precios más bajos en casi todo lo que compran. Se estima en $10,000-15,000/año por hogar en ahorros.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 55</span>
+    </div>
+
+</body>
+</html>

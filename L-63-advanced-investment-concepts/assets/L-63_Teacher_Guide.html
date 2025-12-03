@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-63 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 63 — Conceptos Avanzados de Inversión</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión, L-62: Estrategias de Portafolio</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Kenji—enfatiza tanto la pérdida directa como el costo emocional.</li>
+                    <li>Discusión: "¿Qué errores cometió? ¿Cómo pudo haber abordado cripto diferente?"</li>
+                    <li>Punto clave: FOMO y asignación excesiva destruyen riqueza; las alternativas requieren disciplina.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Explica cada tipo de inversión alternativa con ejemplos específicos y riesgos.</li>
+                    <li>Enfatiza: "La complejidad NO equivale a sofisticación"—Buffett recomienda S&P 500.</li>
+                    <li>Verificación rápida: "¿Por qué los REITs deben distribuir 90% de ingresos?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Comparación bienes raíces vs. REITs—discute trade-offs de cada opción.</li>
+                    <li><strong>Parte B (10 min):</strong> Análisis de cripto—modela escenarios para hacer tangible el riesgo.</li>
+                    <li><strong>Parte C (5 min):</strong> Marco de decisión con ETF apalancado—enseña evaluación sistemática.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P3 cálculo de costo de oportunidad es revelador—$5,000 → ~$50,000 perdido potencialmente.</li>
+                    <li>P5 estrategia personal debe reflejar evaluación realista de fundamento y tolerancia.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Enfócate en REITs como la alternativa más simple—"como acciones pero para bienes raíces."</li>
+                <li>Usa analogía de "diferentes ingredientes en una comida" para diversificación.</li>
+                <li>Proporciona cálculos de escenarios cripto pre-completados para interpretar.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investiga rendimientos históricos de diferentes asignaciones alternativas durante crisis.</li>
+                <li>Analiza correlaciones reales entre clases de activos durante 2008 y 2020.</li>
+                <li>Diseña portafolio completo con alternativas específicas y razonamiento detallado.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Bienes Raíces vs. REITs</div>
+            <div class="answer-item"><strong>Propiedad directa:</strong> Retorno cash-on-cash ~4.8% ($2,400/$50,000), requiere 5-15 hrs/mes de gestión, baja liquidez (3-6 meses para vender), concentración en una propiedad/ubicación.</div>
+            <div class="answer-item"><strong>Fondo REIT:</strong> Retorno total esperado 8-10%, 0 horas requeridas, liquidez inmediata (vender cualquier día), diversificación entre 100+ propiedades.</div>
+            <div class="answer-item"><strong>Mejor elección para mayoría:</strong> REITs—a menos que el estudiante quiera un negocio activo de bienes raíces y tenga capital/tiempo significativo.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Análisis de Criptomonedas</div>
+            <div class="calc-display"><strong>Si cripto +200%:</strong>
+0% cripto: ~$108,000 (asume 8% en acciones/bonos)
+2% cripto: $108,000 + $4,000 = $112,000
+10% cripto: $108,000 + $20,000 = $128,000
+
+<strong>Si cripto -80%:</strong>
+0% cripto: ~$108,000
+2% cripto: $108,000 - $1,600 = $106,400
+10% cripto: $108,000 - $8,000 = $100,000
+
+<strong>Si cripto → $0:</strong>
+0% cripto: ~$108,000
+2% cripto: $108,000 - $2,000 = $106,000
+10% cripto: $108,000 - $10,000 = $98,000</div>
+            <div class="answer-item"><strong>Recomendación:</strong> 0-2% máximo—cantidad que puedes perder completamente sin afectar objetivos financieros. 10% es demasiado para la mayoría.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: ETF Apalancado</div>
+            <div class="answer-item"><strong>Decisión correcta: PASAR.</strong> ETFs apalancados 3x están diseñados para day trading, no inversión a largo plazo. El "decaimiento por volatilidad" erosiona valor con el tiempo. Si Nasdaq cae 33%, TQQQ se aproxima a $0. Inapropiado para 99% de inversores.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Fondo indexado de REIT): Proporciona ingresos pasivos de dividendos + exposición diversificada a bienes raíces sin gestión activa.</div>
+            <div class="answer-item"><strong>2.</strong> Volatilidad extrema (caídas del 70-80%), sin valor intrínseco (no produce flujos de efectivo), incertidumbre regulatoria, riesgo de pérdida total. Asignación pequeña limita el daño si falla mientras permite beneficio si crece.</div>
+            <div class="calc-display"><strong>3.</strong> Después de caída del 75%: $5,000 × 0.25 = $1,250
+En fondo indexado al 8% por 30 años:
+$5,000 × (1.08)^30 = $5,000 × 10.06 = $50,313
+Costo de oportunidad: ~$49,000 perdidos</div>
+            <div class="answer-item"><strong>4.</strong> Portafolios simples frecuentemente superan a los complejos porque la complejidad crea oportunidades para comisiones, errores y malas decisiones. Buffett sugirió que la mayoría de las personas inviertan en un fondo indexado del S&P 500—no porque las alternativas no existan, sino porque la simplicidad funciona.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Las criptomonedas son el futuro, así que son inversión segura."</td><td>El potencial tecnológico no equivale a seguridad de inversión. Cripto ha caído 70%+ múltiples veces. Incluso si blockchain tiene éxito, criptomonedas específicas podrían no sobrevivir. Tesis de inversión y especulación son cosas diferentes.</td></tr>
+            <tr><td>"No puedo invertir en bienes raíces sin comprar una propiedad."</td><td>Los REITs permiten inversión en bienes raíces desde $100-500 a través de cuentas de corretaje regulares. No necesitas comprar propiedad directamente para tener exposición a bienes raíces en tu portafolio.</td></tr>
+            <tr><td>"Las inversiones alternativas siempre mejoran los retornos."</td><td>Las alternativas pueden agregar diversificación pero frecuentemente no mejoran retornos después de comisiones y complejidad. Portafolios simples de acciones/bonos funcionan excelentemente para la mayoría. La complejidad añadida raramente se justifica.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 63</span>
+    </div>
+
+</body>
+</html>

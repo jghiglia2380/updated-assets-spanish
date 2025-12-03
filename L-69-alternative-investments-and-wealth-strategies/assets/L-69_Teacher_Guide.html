@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-69 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 69 — Inversiones Alternativas y Estrategias de Riqueza</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión, L-65: Diversificación</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Alex vs. Jordan—misma exposición a cripto, resultados muy diferentes.</li>
+                    <li>Discusión: "¿Qué hizo Alex mal? ¿Por qué el enfoque de Jordan funcionó?"</li>
+                    <li>Punto clave: Las alternativas son complementos, no sustitutos. La base importa.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja espectro de alternativas: Bienes raíces → Oro → REITs → Cripto (riesgo creciente).</li>
+                    <li>Explica correlación con analogía: "Si acciones son paraguas, ¿quieres otro paraguas o gafas de sol?"</li>
+                    <li>Verificación rápida: "¿Por qué el oro se llama 'refugio seguro'?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (7 min):</strong> Análisis de correlación—esencial para entender diversificación real.</li>
+                    <li><strong>Parte B (10 min):</strong> Bienes raíces vs. REITs—muchos estudiantes asumen que necesitan propiedad física.</li>
+                    <li><strong>Parte C (8 min):</strong> Simulación cripto—los números de volatilidad son reveladores.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P4 sobre base financiera es crítica—alternativas DESPUÉS de emergencia y jubilación.</li>
+                    <li>P5 estrategia personal debe reflejar comprensión de riesgo y secuenciación.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Simplifica a: "Fondos índice primero, alternativas después (si acaso)."</li>
+                <li>Enfócate solo en REITs como alternativa accesible y comprensible.</li>
+                <li>Proporciona regla simple: "Nunca más del 10% en alternativas totales."</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investiga la estrategia de "house-hacking" para entrar a bienes raíces.</li>
+                <li>Analiza correlaciones durante diferentes ciclos económicos (2008, 2020, 2022).</li>
+                <li>Diseña un portafolio con 5+ clases de activos y justificación de correlación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Correlación</div>
+            <div class="answer-item"><strong>Oro:</strong> Correlación baja/negativa (0 a 0.2). Beneficio de diversificación: ALTO. Se mueve independientemente y a veces opuesto a acciones.</div>
+            <div class="answer-item"><strong>REITs:</strong> Correlación moderada (0.5 a 0.7). Beneficio: MODERADO. Relacionados con acciones pero no perfectamente correlacionados.</div>
+            <div class="answer-item"><strong>Bitcoin:</strong> Correlación variable (0.3 a 0.6 recientemente). Beneficio: VARIABLE. Históricamente baja correlación, pero ha aumentado en años recientes.</div>
+            <div class="answer-item"><strong>Mejor diversificación:</strong> Oro (correlación más baja y estable con acciones durante décadas).</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Bienes Raíces vs. REITs</div>
+            <div class="answer-item"><strong>Esfuerzo de gestión:</strong> Propiedad = Alto (inquilinos, mantenimiento, vacantes). REIT = Ninguno (gestión profesional).</div>
+            <div class="answer-item"><strong>Liquidez:</strong> Propiedad = Muy baja (meses para vender). REIT = Alta (vende acciones instantáneamente).</div>
+            <div class="answer-item"><strong>Diversificación:</strong> Propiedad = Una propiedad, un mercado. REIT = Cientos de propiedades, múltiples mercados.</div>
+            <div class="answer-item"><strong>Conclusión:</strong> REITs son más apropiados para la mayoría de inversores jóvenes por liquidez, diversificación y simplicidad. Propiedad directa requiere más capital, tiempo y tolerancia para gestión activa.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Simulación Cripto</div>
+            <div class="calc-display"><strong>5% cripto ($250):</strong>
+Después de 2017 (+1,318%): $250 × 14.18 = $3,545 → Total: $8,295
+Después de 2018 (-73%): $3,545 × 0.27 = $957 → Total: $5,707
+Pérdida máxima en cripto: $2,588 (del pico)
+Pérdida total del portafolio: ~-14%
+
+<strong>50% cripto ($2,500):</strong>
+Después de 2017: $2,500 × 14.18 = $35,450 → Total: $38,200
+Después de 2018: $35,450 × 0.27 = $9,572 → Total: $12,072
+Pérdida máxima en cripto: $25,878 (del pico)
+Pérdida total del portafolio: ~-68%</div>
+            <div class="answer-item"><strong>Lección:</strong> Una asignación del 5% permitió participar en las ganancias (+$3,300) mientras limitaba pérdidas a niveles manejables. 50% convirtió el portafolio en una montaña rusa emocional imposible de mantener.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Diversificación por baja correlación): Las alternativas NO garantizan mayores rendimientos ni menor riesgo. Su valor es moverse diferente a las acciones.</div>
+            <div class="answer-item"><strong>2.</strong> La volatilidad extrema (caídas del 70%+), incertidumbre regulatoria, riesgo de hackeos/fraude, y naturaleza especulativa hacen que posiciones grandes sean inapropiadas. Solo dinero que puedes perder completamente.</div>
+            <div class="answer-item"><strong>3.</strong> De más a menos líquido: Acciones → REITs → Bitcoin → Oro físico → Propiedad de alquiler. (Bitcoin es más líquido que oro físico pero menos que acciones cotizadas.)</div>
+            <div class="answer-item"><strong>4.</strong> Base requerida antes de alternativas: (1) Fondo de emergencia de 3-6 meses, (2) Contribuciones consistentes del 15%+ a jubilación en fondos índice, (3) Comprensión de principios básicos de inversión. Las alternativas son un "nivel 3"—no para principiantes.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Las criptomonedas son el futuro y no puedo perdérmelo."</td><td>La tecnología puede tener futuro; eso no significa que los precios actuales sean correctos ni que sea apropiado para construcción de riqueza. El FOMO ha destruido más riqueza que creado. Mantén posiciones especulativas pequeñas.</td></tr>
+            <tr><td>"Necesito comprar propiedad física para invertir en bienes raíces."</td><td>Los REITs proporcionan exposición a bienes raíces con liquidez, diversificación y cero gestión. Para la mayoría de inversores jóvenes sin capital significativo ni deseo de ser propietarios, los REITs son superiores.</td></tr>
+            <tr><td>"Más diversificación siempre es mejor—debería tener de todo."</td><td>La complejidad tiene costos: más decisiones, más errores potenciales, más tiempo de monitoreo. Los portafolios simples (3-4 fondos índice) frecuentemente superan a los sobre-diversificados. Alternativas deben servir un propósito específico.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 69</span>
+    </div>
+
+</body>
+</html>

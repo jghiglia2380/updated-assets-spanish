@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-07 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .scenario-card { background: #fafafa; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+        .scenario-card h4 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>L-07: Entendiendo los Tramos Impositivos y las Tasas de Impuestos</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante | {{STATE_NAME}}</div>
+    </div>
+
+    <div class="section-header">El Desafio</div>
+    <div class="challenge-box">
+        <p>Muchas personas creen erroneamente que ganar mas dinero podria resultar en un menor salario neto si "pasan a un tramo impositivo mas alto". En realidad, solo los ingresos que caen dentro de un tramo particular son gravados a la tasa de ese tramo. Entender esta distincion es crucial para tomar decisiones financieras y profesionales informadas.</p>
+        <p class="framing-question">Como funcionan realmente los tramos impositivos y que significa esto para tus decisiones sobre ingresos y carrera?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre tasas impositivas marginales y efectivas.</li>
+            <li>Calcular impuestos adeudados usando tramos impositivos progresivos.</li>
+            <li>Explicar como el estado civil afecta los calculos de impuestos.</li>
+            <li>Distinguir entre la elusion legal y la evasion ilegal de impuestos.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Termino</th><th>Definicion</th></tr>
+        <tr><td>Tramo Impositivo</td><td>Rangos de ingresos que son gravados a diferentes tasas.</td></tr>
+        <tr><td>Tasa Marginal</td><td>La tasa a la que se grava su ultimo dolar de ingreso.</td></tr>
+        <tr><td>Tasa Efectiva</td><td>La tasa promedio a la que se grava todo su ingreso (impuesto total / ingreso total).</td></tr>
+        <tr><td>Sistema Progresivo</td><td>Un sistema donde las tasas impositivas aumentan a medida que aumentan los ingresos.</td></tr>
+        <tr><td>Elusion Fiscal</td><td>Metodos legales para reducir la responsabilidad fiscal.</td></tr>
+        <tr><td>Evasion Fiscal</td><td>Acciones ilegales para evitar pagar impuestos.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El sistema federal de impuestos sobre la renta de EE.UU. utiliza una estructura progresiva con 7 tramos impositivos. Solo la porcion de sus ingresos que cae dentro de un tramo particular es gravada a la tasa de ese tramo—no la totalidad de sus ingresos.
+    </div>
+
+    <div class="section-header">Aplicalo</div>
+    <div class="part-header">Parte A: Calculo de Impuesto Federal</div>
+    <p style="margin-bottom: 14px;">Calcula el impuesto federal para un declarante soltero que gana $50,000 usando los tramos de 2023.</p>
+
+    <table class="data-table">
+        <tr><th>Tramo</th><th>Tasa</th><th>Ingreso en este Tramo</th><th>Impuesto</th></tr>
+        <tr><td>$0 - $11,000</td><td>10%</td><td>$11,000</td><td>$1,100</td></tr>
+        <tr><td>$11,001 - $44,725</td><td>12%</td><td>$33,725</td><td></td></tr>
+        <tr><td>$44,726 - $50,000</td><td>22%</td><td>$5,275</td><td></td></tr>
+        <tr><td colspan="3" style="text-align: right; font-weight: 700;">TOTAL:</td><td></td></tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cual es la tasa impositiva MARGINAL de esta persona?</p>
+        <div class="answer-lines"><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Calcula la tasa impositiva EFECTIVA. (Impuesto total / Ingreso total x 100)</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+    </div>
+
+    <div class="hint-box"><strong>Pista:</strong> La tasa efectiva siempre es menor que la tasa marginal porque solo parte del ingreso se grava a la tasa mas alta.</div>
+
+    <div class="part-header">Parte B: Comparacion de Estados Civiles</div>
+    <p style="margin-bottom: 14px;">Compara como el estado civil afecta los impuestos para $110,000 de ingresos.</p>
+
+    <div class="scenario-card">
+        <h4>Escenario: Sara y su Conyuge - Declaracion Conjunta</h4>
+        <table class="data-table">
+            <tr><th>Tramo (Conjunto)</th><th>Tasa</th><th>Ingreso</th><th>Impuesto</th></tr>
+            <tr><td>$0 - $22,000</td><td>10%</td><td>$22,000</td><td>$2,200</td></tr>
+            <tr><td>$22,001 - $89,450</td><td>12%</td><td>$67,450</td><td>$8,094</td></tr>
+            <tr><td>$89,451 - $110,000</td><td>22%</td><td>$20,550</td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Calcula el impuesto total y la tasa efectiva para Sara declarando conjuntamente.</p>
+        <div class="calc-box"><div class="calc-label">Muestra tu trabajo:</div></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprension</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> En un sistema tributario progresivo, que sucede cuando tus ingresos pasan a un tramo mas alto?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. TODO tu ingreso se grava a la tasa mas alta</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Solo el ingreso DENTRO de ese tramo se grava a la tasa mas alta</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Recibes menos dinero que antes del aumento</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Tu tasa efectiva iguala tu tasa marginal</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Explica la diferencia entre la elusion fiscal y la evasion fiscal. Da un ejemplo de cada una.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Si te ofrecen un aumento que te moveria al tramo del 22%, deberia preocuparte ganar menos dinero neto? Explica tu razonamiento.</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexion:</strong> Como cambia tu perspectiva sobre ganar ingresos adicionales ahora que entiendes la diferencia entre tasas marginales y efectivas?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="section-header">Su Contexto Fiscal de {{STATE_NAME}}</div>
+    <div class="background-box">
+        <p><strong>Impuestos Federales + Estatales:</strong> Los tramos anteriores muestran solo el impuesto federal. {{#if STATE_INCOME_TAX_RATE}}En {{STATE_NAME}}, también paga {{STATE_INCOME_TAX_RATE}}% de impuesto estatal sobre sus ingresos.{{else}}Vivir en {{STATE_NAME}} significa que no paga impuestos estatales, ¡solo se aplican los impuestos federales a sus ingresos!{{/if}}</p>
+        <p><strong>Recursos Fiscales de {{STATE_NAME}}:</strong> Para información fiscal estatal y formularios, visite: <strong>{{STATE_TAX_AUTHORITY_URL}}</strong></p>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-07: Entendiendo los Tramos Impositivos y las Tasas de Impuestos</span>
+    </div>
+</body>
+</html>

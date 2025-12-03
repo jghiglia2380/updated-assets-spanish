@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Plan de Crédito Personal</title>
+    <style>
+        /* Estilos para impresión */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid #6366f1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+
+        .response-area {
+            min-height: 60px;
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+
+        .pyramid {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .pyramid-level {
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        .level-1 {
+            background-color: #4f46e5;
+            width: 90%;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .level-2 {
+            background-color: #6366f1;
+            width: 75%;
+        }
+
+        .level-3 {
+            background-color: #818cf8;
+            width: 60%;
+        }
+
+        .level-4 {
+            background-color: #a5b4fc;
+            width: 45%;
+        }
+
+        .level-5 {
+            background-color: #c7d2fe;
+            width: 30%;
+            border-radius: 0 0 5px 5px;
+            color: #4338ca;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plan de Crédito Personal</h1>
+        <p>Capítulo 7.2: Elegir la Fuente Correcta de Crédito</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta plantilla le ayudará a desarrollar un plan personalizado para usar el crédito de manera responsable. Complete cada sección de manera reflexiva, considerando su situación financiera actual y metas futuras.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haga clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="section">
+        <h2>1. Su Jerarquía de Fuentes de Crédito</h2>
+        <p>Clasifique las fuentes de crédito de más preferida (1) a menos preferida (7) para su situación personal. Considere factores como disponibilidad, costo, conveniencia y su solvencia crediticia.</p>
+
+        <div class="pyramid">
+            <div class="pyramid-level level-1">1. _______________________________</div>
+            <div class="pyramid-level level-2">2. _______________________________</div>
+            <div class="pyramid-level level-3">3. _______________________________</div>
+            <div class="pyramid-level level-4">4. _______________________________</div>
+            <div class="pyramid-level level-5">5. _______________________________</div>
+        </div>
+
+        <h3>Explique su clasificación:</h3>
+        <div class="response-area"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. Criterios de Decisión de Préstamos</h2>
+        <p>Liste los factores que considerará al evaluar opciones de crédito, y explique por qué cada uno es importante para usted.</p>
+
+        <table>
+            <tr>
+                <th>Factor de Decisión</th>
+                <th>Por Qué es Importante</th>
+                <th>Peso (1-10)</th>
+            </tr>
+            <tr>
+                <td>Ejemplo: Tasa de Interés</td>
+                <td>Afecta directamente el costo total y los pagos mensuales</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section">
+        <h2>3. Plan de Mejora de Solvencia Crediticia</h2>
+        <p>Describa pasos específicos que puede tomar para construir o mantener un buen crédito, lo que le dará acceso a mejores opciones de préstamos.</p>
+
+        <h3>Estado Actual del Crédito:</h3>
+        <div class="response-area"></div>
+
+        <h3>Acciones a Corto Plazo (próximos 6-12 meses):</h3>
+        <div class="response-area"></div>
+
+        <h3>Estrategias a Largo Plazo (1-5 años):</h3>
+        <div class="response-area"></div>
+    </div>
+
+    <div class="section">
+        <h2>4. Alternativas a Préstamos de Emergencia</h2>
+        <p>Identifique alternativas a préstamos de emergencia de alto costo que podría usar en una crisis financiera.</p>
+
+        <h3>Estrategia de Fondo de Emergencia:</h3>
+        <div class="response-area"></div>
+
+        <h3>Recursos Comunitarios Disponibles:</h3>
+        <div class="response-area"></div>
+
+        <h3>Opciones de Red de Apoyo Personal:</h3>
+        <div class="response-area"></div>
+
+        <h3>Opciones de Crédito de Bajo Costo para Emergencias:</h3>
+        <div class="response-area"></div>
+    </div>
+
+    <div class="section">
+        <h2>5. Análisis de Situaciones de Crédito</h2>
+        <p>Para cada situación potencial de préstamo, identifique qué fuente de crédito usaría y por qué.</p>
+
+        <table>
+            <tr>
+                <th>Situación de Préstamo</th>
+                <th>Fuente de Crédito Preferida</th>
+                <th>Razonamiento</th>
+            </tr>
+            <tr>
+                <td>Reparación de auto de emergencia ($800)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Educación universitaria/vocacional</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Muebles para primer apartamento</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Compra de auto usado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Gasto médico inesperado</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>6. Conciencia sobre Préstamos Predatorios</h2>
+        <p>Liste señales de advertencia de préstamos predatorios que debe observar al considerar opciones de préstamos.</p>
+
+        <h3>Señales de Alerta a Observar:</h3>
+        <div class="response-area"></div>
+
+        <h3>Cómo Verificar la Legitimidad del Prestamista:</h3>
+        <div class="response-area"></div>
+    </div>
+
+    <div class="section">
+        <h2>7. Metas de Gestión de Crédito a Largo Plazo</h2>
+        <p>Describa su enfoque a largo plazo para usar el crédito como herramienta financiera.</p>
+
+        <h3>Metas Financieras Relacionadas con el Crédito:</h3>
+        <div class="response-area"></div>
+
+        <h3>Filosofía de Uso Responsable del Crédito:</h3>
+        <div class="response-area"></div>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 7.2: Elegir la Fuente Correcta de Crédito</p>
+    </footer>
+</body>
+</html>

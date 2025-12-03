@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-66 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 66 — Entendiendo los Mercados Financieros</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Marcus—enfatiza que perdió $325 por no entender horarios y tipos de órdenes.</li>
+                    <li>Discusión: "¿Qué debió hacer diferente? ¿Cómo lo habría protegido una orden limitada?"</li>
+                    <li>Punto clave: Los mercados tienen horarios específicos; las órdenes fuera de horario se ejecutan al abrir.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja diagrama bid/ask en el pizarrón—muestra que compras al ask, vendes al bid.</li>
+                    <li>Explica orden de mercado vs. limitada con ejemplos concretos.</li>
+                    <li>Verificación rápida: "¿Por qué el diferencial es un costo oculto?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Análisis de cotización—haz los cálculos paso a paso en el pizarrón primero.</li>
+                    <li><strong>Parte B (10 min):</strong> Comparación de tipos de órdenes—este es el momento clave para entender trade-offs.</li>
+                    <li><strong>Parte C (7 min):</strong> Impacto de costos a largo plazo—los números son reveladores.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P3 cálculo de costos anuales muestra el impacto real del trading frecuente.</li>
+                    <li>P5 estrategia personal debe reflejar comprensión de costos y tipos de órdenes.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Usa analogía de "subasta"—bid es lo que compradores ofrecen, ask es lo que vendedores piden.</li>
+                <li>Proporciona fórmulas de cálculo pre-escritas para diferenciales.</li>
+                <li>Simplifica a: "Orden de mercado = ahora. Orden limitada = cuando llegue a mi precio."</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investiga diferenciales reales de diferentes acciones (Apple vs. una acción pequeña).</li>
+                <li>Calcula impacto de diferentes frecuencias de trading sobre 40 años.</li>
+                <li>Diseña reglas completas de trading incluyendo stop-loss y take-profit.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Cotización</div>
+            <div class="calc-display"><strong>Cotización XYZ:</strong> Bid $49.95, Ask $50.05
+1. Diferencial: $50.05 - $49.95 = $0.10
+2. Diferencial %: ($0.10 ÷ $50.05) × 100 = 0.20%
+3. Comprar 100 con orden mercado: 100 × $50.05 = $5,005
+4. Vender inmediatamente: 100 × $49.95 = $4,995
+5. Pérdida instantánea: $5,005 - $4,995 = $10</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Comparación de Órdenes</div>
+            <div class="answer-item"><strong>Orden de mercado:</strong> 50 × $50.05 = $2,502.50 (garantizada)</div>
+            <div class="answer-item"><strong>Orden limitada @ $50.00:</strong> 50 × $50.00 = $2,500.00 (si se ejecuta)</div>
+            <div class="answer-item"><strong>Orden limitada @ $49.90:</strong> 50 × $49.90 = $2,495.00 (si se ejecuta)</div>
+            <div class="answer-item"><strong>Ahorro potencial:</strong> $2,502.50 - $2,500.00 = $2.50 (usando limitada @ $50.00)</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Impacto de Costos</div>
+            <div class="calc-display"><strong>Costo de oportunidad a 30 años:</strong>
+Trader activo: $800 × 94.46 = $75,568 perdidos
+Inversionista moderado: $3 × 94.46 = $283 perdidos
+Comprar y mantener: $0.80 × 94.46 = $76 perdidos
+
+¡Diferencia entre trader activo y comprar y mantener: $75,492!</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Valores altamente líquidos con diferenciales estrechos): Las órdenes de mercado son apropiadas cuando el diferencial es mínimo y necesitas ejecución garantizada.</div>
+            <div class="answer-item"><strong>2.</strong> Las órdenes colocadas fuera de horario se ejecutan cuando el mercado abre. Durante la noche pueden ocurrir noticias que cambien drásticamente el precio. Una orden de mercado se ejecutará al precio de apertura, que puede ser muy diferente del cierre anterior.</div>
+            <div class="calc-display"><strong>3.</strong> Diferencial: $30.10 - $29.90 = $0.20
+Diferencial %: ($0.20 ÷ $30.10) × 100 = 0.66%
+Costo anual: 50 transacciones × 100 acciones × $0.20 = $1,000/año</div>
+            <div class="answer-item"><strong>4.</strong> El trading activo incurre en costos de diferencial cada transacción, impuestos sobre ganancias a corto plazo, y riesgo de errores emocionales. Comprar y mantener fondos indexados minimiza todos estos costos, y los estudios muestran que la mayoría de traders activos no superan al mercado después de costos.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"El trading sin comisiones es gratis."</td><td>El diferencial bid-ask sigue siendo un costo real. Además, los corredores "gratuitos" ganan dinero vendiendo tu flujo de órdenes, lo que puede resultar en ejecución ligeramente peor. Gratis no significa sin costos.</td></tr>
+            <tr><td>"Las órdenes de mercado siempre son mejores porque garantizan ejecución."</td><td>Para valores ilíquidos o mercados volátiles, las órdenes de mercado pueden ejecutarse a precios muy diferentes de lo esperado. Las órdenes limitadas protegen tu precio aunque no garanticen ejecución.</td></tr>
+            <tr><td>"El trading frecuente me ayuda a maximizar ganancias."</td><td>Los costos de diferencial, impuestos y errores emocionales erosionan rendimientos. Estudios muestran que la mayoría de traders activos pierden dinero comparado con simplemente mantener fondos indexados.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 66</span>
+    </div>
+
+</body>
+</html>

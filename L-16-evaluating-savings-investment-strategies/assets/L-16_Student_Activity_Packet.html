@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-16 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .risk-spectrum { background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #ef4444 100%); height: 24px; border-radius: 4px; margin: 12px 0; position: relative; }
+        .risk-label { font-size: 8pt; text-align: center; margin-top: 4px; }
+
+        .option-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+        .option-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; }
+        .option-details { font-size: 9pt; color: var(--text-medium); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 5.3: Evaluación de Estrategias de Ahorro e Inversión</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comparar los riesgos y rendimientos de varias opciones de ahorro e inversión</li>
+            <li>Evaluar qué estrategias se alinean con diferentes horizontes temporales</li>
+            <li>Aplicar criterios de decisión para seleccionar vehículos financieros apropiados</li>
+            <li>Comprender la relación entre riesgo y rendimiento potencial</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Certificado de Depósito (CD)</div>
+            <div class="vocab-def">Depósito a plazo con tasa fija por período específico</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Fondo Mutuo</div>
+            <div class="vocab-def">Inversión diversificada administrada profesionalmente</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Tolerancia al Riesgo</div>
+            <div class="vocab-def">Capacidad de soportar pérdidas potenciales en inversiones</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Tasa de Rendimiento</div>
+            <div class="vocab-def">Ganancia o pérdida expresada como porcentaje</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Bono Corporativo</div>
+            <div class="vocab-def">Préstamo a empresa con pagos de interés fijos</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Diversificación</div>
+            <div class="vocab-def">Distribuir inversiones para reducir riesgo</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">⚖️ Equilibrando Riesgo y Rendimiento</div>
+        <div class="scenario-content">
+            Dos personas tienen $10,000 para invertir. Ana lo pone en una cuenta de ahorros al 1% por 30 años. Bruno lo invierte en un fondo mutuo diversificado con rendimiento histórico del 7%. ¿Cuánto tendrá cada uno al final?
+        </div>
+        <div class="question-block">
+            <div class="question-text">Use la Regla del 72 para estimar los valores finales:</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">El Espectro Riesgo-Rendimiento</h3>
+    <div class="risk-spectrum"></div>
+    <div style="display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-medium);">
+        <span>Bajo Riesgo / Bajo Rendimiento</span>
+        <span>Riesgo Moderado</span>
+        <span>Alto Riesgo / Alto Rendimiento</span>
+    </div>
+
+    <table class="comparison-table" style="margin-top: 16px;">
+        <tr>
+            <th>Opción</th>
+            <th>Riesgo</th>
+            <th>Rendimiento Típico</th>
+            <th>Mejor Para</th>
+        </tr>
+        <tr>
+            <td><strong>Cuenta de Ahorros</strong></td>
+            <td>Muy bajo</td>
+            <td>0.5%-2%</td>
+            <td>Emergencias, corto plazo</td>
+        </tr>
+        <tr>
+            <td><strong>Certificados de Depósito</strong></td>
+            <td>Muy bajo</td>
+            <td>1%-3%</td>
+            <td>Objetivos con fecha fija</td>
+        </tr>
+        <tr>
+            <td><strong>Bonos Corporativos</strong></td>
+            <td>Bajo-Moderado</td>
+            <td>3%-6%</td>
+            <td>Ingresos estables</td>
+        </tr>
+        <tr>
+            <td><strong>Fondos Mutuos</strong></td>
+            <td>Moderado</td>
+            <td>5%-10%</td>
+            <td>Objetivos a largo plazo</td>
+        </tr>
+        <tr>
+            <td><strong>Acciones Individuales</strong></td>
+            <td>Alto</td>
+            <td>Variable (-50% a +100%)</td>
+            <td>Crecimiento agresivo</td>
+        </tr>
+    </table>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 16px 0 8px;">Estrategias por Horizonte Temporal</h3>
+    <div class="vocab-grid">
+        <div class="option-card">
+            <div class="option-header">📅 Corto Plazo (0-3 años)</div>
+            <div class="option-details">
+                <strong>Opciones:</strong> Cuentas de ahorro, CDs, Mercado monetario<br>
+                <strong>Prioridad:</strong> Seguridad y liquidez<br>
+                <strong>Ejemplos:</strong> Fondo de emergencia, vacaciones, compras grandes
+            </div>
+        </div>
+        <div class="option-card">
+            <div class="option-header">📆 Mediano Plazo (3-10 años)</div>
+            <div class="option-details">
+                <strong>Opciones:</strong> Bonos, fondos balanceados, CDs largos<br>
+                <strong>Prioridad:</strong> Crecimiento moderado<br>
+                <strong>Ejemplos:</strong> Pago inicial casa, universidad
+            </div>
+        </div>
+        <div class="option-card">
+            <div class="option-header">🗓️ Largo Plazo (10+ años)</div>
+            <div class="option-details">
+                <strong>Opciones:</strong> Fondos mutuos de acciones, ETFs, acciones<br>
+                <strong>Prioridad:</strong> Crecimiento máximo<br>
+                <strong>Ejemplos:</strong> Jubilación, patrimonio
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Selección de Estrategia por Objetivo</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Para cada objetivo, seleccione la opción más apropiada y explique su razonamiento:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Objetivo Financiero</th>
+                <th>Horizonte</th>
+                <th>Mejor Opción</th>
+                <th>Razón</th>
+            </tr>
+            <tr>
+                <td>Fondo de emergencia (3-6 meses gastos)</td>
+                <td>Inmediato</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Computadora nueva</td>
+                <td>1 año</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pago inicial de casa</td>
+                <td>5 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Educación universitaria</td>
+                <td>8 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jubilación</td>
+                <td>40 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: Análisis de Casos</div>
+
+        <div class="scenario-box" style="margin-bottom: 12px;">
+            <div class="scenario-title">Caso 1: Liam</div>
+            <div class="scenario-content">
+                Liam necesita $8,000 para un auto en 18 meses. Tiene $5,000 ahora. Pone $4,000 en un CD al 2.5% y $1,000 en cuenta de ahorros. Planea agregar $150/mes.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">1. ¿Por qué Liam eligió un CD en lugar de invertir en acciones?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="scenario-box" style="margin-bottom: 12px;">
+            <div class="scenario-title">Caso 2: Julia</div>
+            <div class="scenario-content">
+                Julia tiene 17 años e invierte $1,000 en un fondo mutuo (7% histórico), agregando $50/mes por 40 años. Proyección: más de $140,000 con solo $25,000 contribuidos.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. ¿Por qué Julia puede aceptar más riesgo que Liam? (Mencione 2 razones)</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Evaluación de Tolerancia al Riesgo</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Para cada escenario, indique cómo reaccionaría:</p>
+
+        <div class="question-block">
+            <div class="question-text">3. Si su inversión de $10,000 bajara a $8,000 en un mes, ¿qué haría?</div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>A) Vender todo inmediatamente para evitar más pérdidas</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>B) Esperar nerviosamente a que se recupere</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>C) Mantener el rumbo—es normal a corto plazo</span></div>
+            <div class="checkbox-item"><div class="checkbox"></div><span>D) Invertir más para aprovechar los precios bajos</span></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">4. Basándose en su respuesta, ¿cuál es su nivel aproximado de tolerancia al riesgo?</div>
+            <div class="answer-lines"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte D: Diversificación</div>
+        <div class="question-block">
+            <div class="question-text">5. ¿Por qué es importante no "poner todos los huevos en una canasta"?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">6. Diseñe un portafolio diversificado para alguien de 25 años ahorrando para jubilación:</div>
+            <p style="font-size: 9pt; margin: 4px 0;">% en Acciones/Fondos de Acciones: _____%</p>
+            <p style="font-size: 9pt; margin: 4px 0;">% en Bonos: _____%</p>
+            <p style="font-size: 9pt; margin: 4px 0;">% en Efectivo/Ahorros: _____%</p>
+            <p style="font-size: 9pt; margin: 8px 0;"><strong>Explique su distribución:</strong></p>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál es la relación entre riesgo y rendimiento potencial?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Mayor riesgo siempre significa pérdidas</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Mayor rendimiento potencial generalmente requiere aceptar más riesgo</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) No hay relación entre riesgo y rendimiento</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) Bajo riesgo ofrece los mejores rendimientos</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué las cuentas de ahorro son apropiadas para fondos de emergencia pero no para jubilación?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Qué significa "horizonte temporal" y por qué es importante?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Describa una meta financiera personal y qué estrategia de ahorro/inversión usaría para lograrla:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 5.3</span>
+    </div>
+
+</body>
+</html>

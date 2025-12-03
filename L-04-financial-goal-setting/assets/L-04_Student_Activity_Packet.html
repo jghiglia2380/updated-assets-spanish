@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-04 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        :root { --primary: #6366f1; --primary-light: #eef2ff; --accent: #f59e0b; --accent-light: #fef3c7; --success: #059669; --text-dark: #1e293b; --text-medium: #475569; --text-light: #64748b; --border: #e2e8f0; --bg-light: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capitulo 1.4: Establecimiento de Objetivos Financieros</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafio</div>
+    <div class="challenge-box">
+        <p>Riley quiere comprar una laptop de $800 para la universidad. Usando el marco SMART, crea un plan especifico: ahorrar $100 cada mes mediante transferencias automaticas. Despues de 8 meses, Riley alcanza exitosamente su meta. Mientras tanto, Morgan quiere "ahorrar algo de dinero" sin un plan concreto. Despues de un ano, Morgan ha ahorrado solo $275 esporadicamente.</p>
+        <p class="framing-question">Como puede el marco SMART transformar tus aspiraciones financieras en metas alcanzables?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender la importancia de establecer objetivos financieros claros.</li>
+            <li>Aplicar los criterios SMART para crear objetivos efectivos.</li>
+            <li>Diferenciar entre objetivos a corto y largo plazo.</li>
+            <li>Identificar metodos para priorizar objetivos financieros.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr><th>Termino</th><th>Definicion</th></tr>
+        <tr><td>Objetivo Financiero</td><td>Una meta financiera especifica que aspiras alcanzar dentro de un plazo establecido.</td></tr>
+        <tr><td>Criterios SMART</td><td>Especifico, Medible, Alcanzable, Relevante, Temporal.</td></tr>
+        <tr><td>Objetivo a Corto Plazo</td><td>Meta a lograr dentro de un ano.</td></tr>
+        <tr><td>Objetivo a Largo Plazo</td><td>Meta que toma mas de un ano en alcanzar.</td></tr>
+        <tr><td>Priorizacion</td><td>Clasificar objetivos segun urgencia, importancia y viabilidad.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> Los objetivos bien definidos hacen que el proceso sea manejable y aumentan la probabilidad de exito. Sin objetivos claros, es facil gastar impulsivamente sin alcanzar lo que realmente importa.
+    </div>
+
+    <div class="section-header">Aplicalo</div>
+    <div class="part-header">Parte A: Convertir Metas Vagas en Metas SMART</div>
+    <p style="margin-bottom: 14px;">Transforma cada meta vaga usando los criterios SMART.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Meta Vaga: "Quiero ahorrar dinero"</div>
+        <table class="data-table">
+            <tr><th>Criterio SMART</th><th>Tu Version Mejorada</th></tr>
+            <tr><td>Especifico (Que exactamente?)</td><td></td></tr>
+            <tr><td>Medible (Como lo mediras?)</td><td></td></tr>
+            <tr><td>Alcanzable (Es realista?)</td><td></td></tr>
+            <tr><td>Relevante (Por que importa?)</td><td></td></tr>
+            <tr><td>Temporal (Cuando?)</td><td></td></tr>
+        </table>
+        <div class="question">
+            <p class="question-text">Meta SMART completa:</p>
+            <div class="answer-lines"><div class="answer-line"></div></div>
+        </div>
+    </div>
+
+    <div class="part-header">Parte B: Tus Metas Financieras Personales</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Escribe UNA meta financiera a CORTO plazo (menos de 1 ano):</p>
+        <div class="answer-lines"><div class="answer-line"></div></div>
+        <p class="question-text" style="margin-top: 8px;">Ahorro mensual necesario: $_________ durante ______ meses</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Escribe UNA meta financiera a LARGO plazo (mas de 1 ano):</p>
+        <div class="answer-lines"><div class="answer-line"></div></div>
+        <p class="question-text" style="margin-top: 8px;">Pasos necesarios para alcanzarla:</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="part-header">Parte C: Priorizacion de Metas</div>
+    <p style="margin-bottom: 14px;">Si tuvieras estas tres metas, como las priorizarias? (1 = primera prioridad)</p>
+
+    <table class="data-table">
+        <tr><th>Meta</th><th>Prioridad (1-3)</th><th>Razon</th></tr>
+        <tr><td>Fondo de emergencia de $500</td><td></td><td></td></tr>
+        <tr><td>Telefono nuevo de $400</td><td></td><td></td></tr>
+        <tr><td>Ahorro para viaje de $1,200</td><td></td><td></td></tr>
+    </table>
+
+    <div class="hint-box"><strong>Pista:</strong> Considera: urgencia (plazos), importancia (impacto en tu vida), y viabilidad (puedes lograrlo con tus recursos actuales?).</div>
+
+    <div class="section-header">Comprueba Tu Comprension</div>
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cual de los siguientes es un ejemplo de meta SMART?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. "Quiero ser rico algun dia"</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. "Ahorrare $50 al mes durante 6 meses para un fondo de emergencia de $300"</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. "Voy a ahorrar mas dinero este ano"</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. "Me gustaria comprar un carro eventualmente"</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Por que es importante que una meta sea "Medible"?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Compara los enfoques de Riley y Morgan. Que hizo diferente Riley que llevo al exito?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Reflexion:</strong> Como podria la aplicacion del marco SMART a tu situacion financiera actual ayudarte a lograr tus metas? Que meta especifica tendria el mayor impacto positivo en tu vida ahora?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capitulo 1.4: Establecimiento de Objetivos Financieros</span>
+    </div>
+</body>
+</html>

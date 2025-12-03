@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-14 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .concept-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; background: var(--bg-light); }
+        .concept-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; }
+
+        .calculation-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .calculation-title { font-weight: 700; color: #166534; font-size: 9pt; margin-bottom: 8px; }
+
+        .smart-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9pt; }
+        .smart-table th { background: var(--primary-dark); color: white; padding: 8px; text-align: left; }
+        .smart-table td { padding: 10px 8px; border: 1px solid var(--border); vertical-align: top; }
+        .smart-table td:first-child { width: 25%; font-weight: 600; background: var(--bg-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 5.1: Ahorros e Inversión</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Diferenciar entre ahorros e inversión</li>
+            <li>Aplicar el marco SMART para establecer metas financieras efectivas</li>
+            <li>Comprender cómo funciona el interés compuesto para hacer crecer su dinero</li>
+            <li>Evaluar el riesgo y la recompensa en decisiones financieras</li>
+            <li>Analizar los costos de oportunidad al tomar decisiones financieras</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Ahorros</div>
+            <div class="vocab-def">Reservar dinero en cuentas seguras para metas a corto plazo</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Inversión</div>
+            <div class="vocab-def">Colocar dinero en activos que se espera aumenten de valor</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Interés Compuesto</div>
+            <div class="vocab-def">Ganar rendimientos sobre la inversión inicial y sobre los rendimientos previos</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Liquidez</div>
+            <div class="vocab-def">Qué tan rápido un activo puede convertirse en efectivo</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Tolerancia al Riesgo</div>
+            <div class="vocab-def">Su nivel de comodidad con la posibilidad de perder dinero</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Diversificación</div>
+            <div class="vocab-def">Distribuir inversiones entre diferentes activos para reducir riesgo</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">💰 Decisión de Sarah vs. Miguel</div>
+        <div class="scenario-content">
+            Sarah tiene $5,000 y necesita comprar un auto en 18 meses. Miguel tiene $5,000 y quiere usarlos para su jubilación en 40 años. ¿Deberían ambos usar la misma estrategia financiera? ¿Por qué sí o por qué no?
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Qué estrategia recomendarías para cada persona y por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <h3 style="font-size: 10pt; color: var(--primary-dark); margin: 12px 0 8px;">Ahorro vs. Inversión: Comparación</h3>
+    <table class="comparison-table">
+        <tr>
+            <th>Característica</th>
+            <th>Ahorro</th>
+            <th>Inversión</th>
+        </tr>
+        <tr>
+            <td><strong>Plazo Típico</strong></td>
+            <td>Corto plazo (0-3 años)</td>
+            <td>Largo plazo (5+ años)</td>
+        </tr>
+        <tr>
+            <td><strong>Rendimiento Potencial</strong></td>
+            <td>Bajo (0.5%-2% anual)</td>
+            <td>Alto (7%-10% promedio histórico)</td>
+        </tr>
+        <tr>
+            <td><strong>Nivel de Riesgo</strong></td>
+            <td>Muy bajo (FDIC asegurado)</td>
+            <td>Variable (puede perder capital)</td>
+        </tr>
+        <tr>
+            <td><strong>Liquidez</strong></td>
+            <td>Alta (acceso inmediato)</td>
+            <td>Variable (puede tomar días/semanas)</td>
+        </tr>
+        <tr>
+            <td><strong>Mejor Para</strong></td>
+            <td>Emergencias, metas cercanas</td>
+            <td>Jubilación, educación, patrimonio</td>
+        </tr>
+    </table>
+
+    <div class="calculation-box">
+        <div class="calculation-title">📊 La Regla del 72</div>
+        <p style="font-size: 9pt; margin-bottom: 8px;">Para estimar cuántos años tarda su dinero en duplicarse:</p>
+        <p style="font-size: 10pt; font-weight: 700; text-align: center; margin: 8px 0;">72 ÷ Tasa de Rendimiento = Años para Duplicar</p>
+        <ul style="font-size: 9pt; margin: 8px 0 0 16px; color: var(--text-medium);">
+            <li>Cuenta de ahorros al 2%: 72 ÷ 2 = <strong>36 años</strong></li>
+            <li>Inversión al 8%: 72 ÷ 8 = <strong>9 años</strong></li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Metas SMART</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">El marco SMART ayuda a crear metas financieras efectivas. Complete la tabla para cada meta:</p>
+
+        <table class="smart-table">
+            <tr>
+                <th>Elemento SMART</th>
+                <th>Su Meta Financiera Personal</th>
+            </tr>
+            <tr>
+                <td><strong>S</strong>pecífica<br><span style="font-weight: normal; font-size: 8pt;">¿Qué exactamente?</span></td>
+                <td style="height: 40px;"></td>
+            </tr>
+            <tr>
+                <td><strong>M</strong>edible<br><span style="font-weight: normal; font-size: 8pt;">¿Cuánto dinero?</span></td>
+                <td style="height: 40px;"></td>
+            </tr>
+            <tr>
+                <td><strong>A</strong>lcanzable<br><span style="font-weight: normal; font-size: 8pt;">¿Es realista?</span></td>
+                <td style="height: 40px;"></td>
+            </tr>
+            <tr>
+                <td><strong>R</strong>elevante<br><span style="font-weight: normal; font-size: 8pt;">¿Por qué importa?</span></td>
+                <td style="height: 40px;"></td>
+            </tr>
+            <tr>
+                <td><strong>T</strong>emporal<br><span style="font-weight: normal; font-size: 8pt;">¿Para cuándo?</span></td>
+                <td style="height: 40px;"></td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">1. ¿Esta meta requiere ahorro o inversión? Explique su razonamiento:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: Cálculo de Interés Compuesto</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Dos personas invierten $1,000. Use la Regla del 72 para comparar:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Escenario</th>
+                <th>Ana: Cuenta de Ahorros (2%)</th>
+                <th>Carlos: Inversión (8%)</th>
+            </tr>
+            <tr>
+                <td>Inversión inicial</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+            </tr>
+            <tr>
+                <td>Años para duplicar (72 ÷ tasa)</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Valor después de 36 años</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="question-block">
+            <div class="question-text">2. ¿Cuántas veces se duplicará el dinero de Carlos en 36 años? ¿Cuál será su valor aproximado?</div>
+            <div class="answer-lines"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">3. ¿Por qué Carlos podría aceptar más riesgo que Ana para lograr estos rendimientos?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Ahorro vs. Inversión - Decisiones</div>
+        <p style="font-size: 9pt; margin-bottom: 12px; color: var(--text-medium);">Para cada situación, decida si es mejor AHORRAR o INVERTIR y explique por qué:</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Situación</th>
+                <th>¿Ahorrar o Invertir?</th>
+                <th>Razón Principal</th>
+            </tr>
+            <tr>
+                <td>Fondo de emergencia (3-6 meses de gastos)</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jubilación en 35 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Vacaciones en 8 meses</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Universidad de su hijo en 15 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pago inicial de casa en 2 años</td>
+                <td style="height: 35px;"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte D: Análisis de Riesgo</div>
+        <div class="question-block">
+            <div class="question-text">4. Explique cómo la diversificación ayuda a reducir el riesgo de inversión:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. ¿Por qué alguien de 25 años puede tolerar más riesgo que alguien de 60 años?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Cuál de las siguientes NO es una característica del ahorro?</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Alta liquidez</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Bajo riesgo</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) Altos rendimientos potenciales</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) Protección FDIC</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Si invierte $5,000 a una tasa del 6% anual, ¿en cuántos años se duplicará aproximadamente?</div>
+        <div class="answer-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Mencione dos tipos de riesgo que enfrentan los inversores:</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Describa una meta financiera personal y explique si usaría ahorro, inversión o ambos para lograrla:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 5.1</span>
+    </div>
+
+</body>
+</html>

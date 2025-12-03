@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-30 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .comparison-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    </style>
+</head>
+<body>
+
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 10.1: Alquilar vs. Comprar: Decisiones de Vivienda</h2>
+        </div>
+        <div class="header-right" style="font-size: 9pt; text-align: right; opacity: 0.9;">Paquete de Actividades del Estudiante<br>Edición de {{STATE_NAME}}</div>
+    </div>
+
+    <div class="state-data-box" style="background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt;">
+        <h4 style="color: #0369a1; font-weight: 700; margin-bottom: 8px;">Datos de Vivienda: {{STATE_NAME}} ({{STATE_CODE}})</h4>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Precio Mediano de Vivienda:</span><span style="font-weight: 600; color: #1e293b;">${{STATE_MEDIAN_HOME_PRICE}}</span></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Alquiler Mediano Mensual:</span><span style="font-weight: 600; color: #1e293b;">${{STATE_MEDIAN_RENT}}</span></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="color: #475569;">Tasa de Impuesto sobre la Propiedad:</span><span style="font-weight: 600; color: #1e293b;">{{STATE_PROPERTY_TAX_AVG}}%</span></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: #475569;">Promedio Nacional (Vivienda):</span><span style="font-weight: 600; color: #1e293b;">$350,000</span></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: #475569;">Promedio Nacional (Alquiler):</span><span style="font-weight: 600; color: #1e293b;">$1,400/mes</span></div>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            En {{STATE_NAME}}, donde el precio mediano de vivienda es ${{STATE_MEDIAN_HOME_PRICE}} y el alquiler mediano es ${{STATE_MEDIAN_RENT}}/mes, <strong>Amy</strong> (25 años, desarrolladora de software) alquila un apartamento cerca de su trabajo. <strong>John y María</strong> (30s, casados, carreras estables) compraron una casa con 10% de enganche. Amy paga menos mensualmente pero no construye capital. John y María pagan más—pero acumulan capital. ¿Quién tomó la mejor decisión? La respuesta depende de sus circunstancias personales y del mercado de {{STATE_NAME}}.
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Comparar las implicaciones financieras de alquilar versus comprar</li>
+        <li>Identificar factores clave que influyen en decisiones de vivienda</li>
+        <li>Evaluar cómo las circunstancias personales afectan las elecciones</li>
+        <li>Analizar el impacto financiero a largo plazo de diferentes opciones</li>
+    </ul>
+
+    <div class="section-header">Comparación: Alquilar vs. Comprar</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 20%;">Factor</th>
+            <th style="width: 40%;">Alquilar</th>
+            <th style="width: 40%;">Comprar</th>
+        </tr>
+        <tr>
+            <td><strong>Costos Iniciales</strong></td>
+            <td>Depósito de seguridad (1-2 meses)</td>
+            <td>Enganche (3-20%) + Costos de cierre (2-5%)</td>
+        </tr>
+        <tr>
+            <td><strong>Costos Mensuales</strong></td>
+            <td>Alquiler + servicios + seguro de inquilino</td>
+            <td>Hipoteca + impuestos + seguro + HOA + mantenimiento</td>
+        </tr>
+        <tr>
+            <td><strong>Capital</strong></td>
+            <td>No se acumula capital</td>
+            <td>Se construye capital con cada pago</td>
+        </tr>
+        <tr>
+            <td><strong>Flexibilidad</strong></td>
+            <td>Alta: puede mudarse al terminar contrato</td>
+            <td>Baja: vender toma tiempo y tiene costos</td>
+        </tr>
+        <tr>
+            <td><strong>Personalización</strong></td>
+            <td>Limitada por el propietario</td>
+            <td>Total libertad para renovar</td>
+        </tr>
+        <tr>
+            <td><strong>Mantenimiento</strong></td>
+            <td>Responsabilidad del propietario</td>
+            <td>Responsabilidad total del dueño</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Casos</div>
+        <div class="activity-instructions">Analice cada situación y determine si alquilar o comprar es más apropiado.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Caso 1: Amy - Desarrolladora de Software (25 años) en {{STATE_NAME}}</div>
+            <div class="scenario-content">
+                Acaba de comenzar su carrera. Alquila por ${{STATE_MEDIAN_RENT}}/mes + $15 seguro + $150 servicios. Tiene flexibilidad para aceptar oportunidades laborales, acceso a amenidades, y no necesita fondo de emergencia para reparaciones. No acumula capital.
+            </div>
+        </div>
+        <div class="write-label">¿Por qué tiene sentido alquilar para Amy en este momento?</div>
+        <div class="write-box"></div>
+
+        <div class="comparison-box">
+            <div class="scenario-title" style="color: #166534;">Caso 2: John y María - Pareja Casada (30s) en {{STATE_NAME}}</div>
+            <div class="scenario-content" style="color: #14532d;">
+                Carreras estables, compraron casa al precio mediano de ${{STATE_MEDIAN_HOME_PRICE}}. Enganche 10% + costos de cierre ~3%. Pago mensual incluye: hipoteca + impuestos ({{STATE_PROPERTY_TAX_AVG}}% anual) + seguro + mantenimiento. Construyen capital, pueden renovar, tienen estabilidad.
+            </div>
+        </div>
+        <div class="write-label">¿Por qué tiene sentido comprar para John y María?</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">¿Qué cambios en la situación de Amy la harían considerar comprar?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Costos Totales de Vivienda en {{STATE_NAME}}</div>
+        <div class="activity-instructions">Complete los cálculos para comparar opciones de vivienda usando datos de {{STATE_NAME}}.</div>
+
+        <div class="two-column">
+            <div>
+                <div class="write-label">ALQUILAR (mediano de {{STATE_NAME}}: ${{STATE_MEDIAN_RENT}}/mes)</div>
+                <table class="concept-table" style="font-size: 9pt;">
+                    <tr><td>Alquiler mensual:</td><td>${{STATE_MEDIAN_RENT}}</td></tr>
+                    <tr><td>Seguro de inquilino:</td><td>$</td></tr>
+                    <tr><td>Servicios públicos:</td><td>$</td></tr>
+                    <tr><td><strong>Total Mensual:</strong></td><td><strong>$</strong></td></tr>
+                    <tr><td>Costo anual (×12):</td><td>$</td></tr>
+                </table>
+            </div>
+            <div>
+                <div class="write-label">COMPRAR (mediano de {{STATE_NAME}}: ${{STATE_MEDIAN_HOME_PRICE}})</div>
+                <table class="concept-table" style="font-size: 9pt;">
+                    <tr><td>Hipoteca mensual:</td><td>$</td></tr>
+                    <tr><td>Impuestos propiedad ({{STATE_PROPERTY_TAX_AVG}}%):</td><td>$</td></tr>
+                    <tr><td>Seguro de propietario:</td><td>$</td></tr>
+                    <tr><td>HOA (si aplica):</td><td>$</td></tr>
+                    <tr><td>Mantenimiento (~1%):</td><td>$</td></tr>
+                    <tr><td><strong>Total Mensual:</strong></td><td><strong>$</strong></td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="write-label">¿Cuánto más cuesta comprar mensualmente vs. alquilar en este ejemplo?</div>
+        <div class="write-lines"></div>
+        <div class="write-label">¿Qué beneficio compensa este costo adicional a largo plazo?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Mis Prioridades de Vivienda</div>
+        <div class="activity-instructions">Identifique sus tres principales prioridades y evalúe qué opción las satisface mejor.</div>
+
+        <div class="write-label">Mis 3 principales prioridades (ej: asequibilidad, ubicación, flexibilidad, espacio, etc.):</div>
+        <div class="write-box" style="min-height: 50px;"></div>
+
+        <table class="concept-table">
+            <tr>
+                <th>Opción</th>
+                <th>Ventaja para mis prioridades</th>
+                <th>Desventaja para mis prioridades</th>
+            </tr>
+            <tr>
+                <td><strong>Alquilar Apartamento</strong></td>
+                <td style="height: 50px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Alquilar Casa</strong></td>
+                <td style="height: 50px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Comprar Casa</strong></td>
+                <td style="height: 50px;"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="write-label">¿Qué opción se alinea mejor con mi situación actual y por qué?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Qué significa "capital" en el contexto de ser propietario de una casa?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Una persona planea mudarse en 2 años por oportunidades laborales. ¿Debería alquilar o comprar? Explique.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Por qué los costos mensuales de ser propietario suelen ser más altos que alquilar, pero aún así puede ser mejor opción financiera a largo plazo?</div>
+        <div class="question-hint">Pista: Piense en capital, apreciación y estabilidad de costos.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Qué factores financieros debe considerar alguien antes de decidir comprar una casa?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 10.1: Alquilar vs. Comprar — Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

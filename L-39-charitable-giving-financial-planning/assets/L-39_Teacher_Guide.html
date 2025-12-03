@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-39 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 14.1 — Donaciones Caritativas y Planificación Financiera</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades, Calculadora</td><td>Conceptos Básicos de Presupuesto</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Discuta por qué las personas donan: ayudar a otros, valores, legado, satisfacción.</li>
+                    <li>Pregunte: "¿Qué causas les importan más y por qué?"</li>
+                    <li>Enfatice que no se necesita dinero para hacer una diferencia.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente los cuatro tipos de donación: monetaria, en especie, voluntariado, planificada.</li>
+                    <li>Explique consideraciones fiscales: detallar vs. estándar, organizaciones calificadas.</li>
+                    <li>Discuta cómo equilibrar donaciones con otras prioridades financieras.</li>
+                    <li>Presente los beneficios personales: felicidad, empatía, conexiones comunitarias.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">22 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (12 min):</strong> Tipos de contribuciones. Calcule el valor del voluntariado.</li>
+                    <li><strong>Parte B (10 min):</strong> Presupuesto para donaciones. Analice el caso de Sarah.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Discuta la reflexión P5—conecte con valores personales de los estudiantes.</li>
+                    <li>Mencione sitios de evaluación: Charity Navigator, GuideStar, CharityWatch.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione ejemplos concretos de cada tipo de donación.</li>
+                <li>Cree una lista de organizaciones locales que aceptan voluntarios.</li>
+                <li>Simplifique el ejercicio de presupuesto con categorías más claras.</li>
+                <li>Use la "Matriz de Contribuciones" (tiempo/habilidad) como organizador.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue y compare organizaciones usando sitios de evaluación.</li>
+                <li>Calcule el impacto fiscal detallado de diferentes escenarios de donación.</li>
+                <li>Diseñe un proyecto de servicio comunitario con cronograma y métricas.</li>
+                <li>Cree un plan de donaciones a 5 años que evolucione con el ingreso.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Tipos de Contribuciones</div>
+            <div class="calc-display">P1 Ejemplos de respuestas:
+Monetaria: Donación mensual de $20 a organización ambiental
+En Especie: Donar ropa usada en buen estado a refugio
+Voluntariado: 4 horas/semana tutorando estudiantes en matemáticas
+Planificada: Designar 5% del patrimonio a universidad en testamento
+
+P2 Valor del voluntariado de María:
+5 horas/semana × 52 semanas = 260 horas anuales
+260 horas × $15/hora = $3,900 de valor anual
+
+Nota: Este cálculo ayuda a los estudiantes a ver que el tiempo
+tiene valor económico real, no solo las donaciones monetarias.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>P3:</strong> 2% de $3,500 = <strong>$70/mes</strong>. Podría reducir: Entretenimiento ($200→$150) y Misceláneos ($100→$80) = $70 disponibles para donaciones.</div>
+            <div class="answer-item"><strong>CTU 1:</strong> B (Detallar deducciones y donar a organizaciones calificadas)</div>
+            <div class="answer-item"><strong>CTU 2:</strong> C (Rendimientos financieros garantizados - las donaciones NO son inversiones)</div>
+            <div class="answer-item"><strong>CTU 3:</strong> James podría ofrecer sus habilidades de diseño web pro bono a organizaciones sin fines de lucro locales (ej: refugio de animales, banco de alimentos). El caso real mostró que su contribución de 40 horas ahorró $3,500 y aumentó adopciones 25%.</div>
+            <div class="answer-item"><strong>CTU 4:</strong> (1) Donar tiempo/voluntariado (2) Compartir habilidades profesionales pro bono (3) Donar artículos sin usar (ropa, libros) (4) Generar conciencia sobre causas en redes sociales (5) Organizar campañas de recolección en comunidad.</div>
+            <div class="answer-note">CTU 5: Acepte respuestas que identifiquen una causa específica, expliquen la conexión personal con esa causa, y propongan formas realistas de contribuir dado su situación actual y planes futuros. Anime a pensar en cómo la estrategia puede evolucionar con el tiempo.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr>
+                <td>"Solo las personas ricas pueden hacer donaciones significativas."</td>
+                <td>El voluntariado y las donaciones en especie tienen valor real. María, con 5 horas semanales de voluntariado, contribuye $3,900 anuales en valor. James, sin dinero, creó $3,500 en valor con diseño web. Pequeñas contribuciones consistentes suman con el tiempo.</td>
+            </tr>
+            <tr>
+                <td>"Todas las donaciones son deducibles de impuestos automáticamente."</td>
+                <td>Solo donaciones a organizaciones calificadas 501(c)(3) son deducibles. Debe detallar deducciones (no tomar la estándar) para reclamar. Necesita documentación. Hay límites basados en ingreso bruto ajustado.</td>
+            </tr>
+            <tr>
+                <td>"Debería dar todo lo que pueda, incluso si afecta mis finanzas básicas."</td>
+                <td>La donación responsable prioriza primero: necesidades básicas, ahorros de emergencia, pagos de deuda de alto interés. Las donaciones deben venir del presupuesto discrecional. Puede aumentar donaciones conforme mejore su situación financiera.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 14.1</span>
+    </div>
+
+</body>
+</html>

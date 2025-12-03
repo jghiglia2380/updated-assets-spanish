@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-66 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --success: #059669;
+            --success-light: #ecfdf5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 13pt; font-weight: 700; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin-top: 3px; opacity: 0.9; }
+        .header-right { text-align: right; font-size: 9pt; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 12px; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border: 1px solid #fcd34d; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .challenge-box p { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .challenge-box strong { color: #b45309; }
+
+        .objectives-box { background: var(--success-light); border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; margin-bottom: 16px; }
+        .objectives-box h3 { color: var(--success); font-size: 10pt; margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { font-size: 9pt; color: var(--text-medium); margin-bottom: 4px; }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 9pt; }
+        .terms-table th { background: var(--bg-light); padding: 8px 10px; text-align: left; font-weight: 600; border: 1px solid var(--border); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary-dark); width: 25%; }
+
+        .scenario-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .scenario-card h4 { color: var(--primary); font-size: 10pt; margin-bottom: 6px; }
+        .scenario-card p { font-size: 9pt; color: var(--text-medium); margin-bottom: 6px; }
+
+        .activity-section { margin-bottom: 16px; }
+        .activity-section h4 { color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .write-line { border-bottom: 1px solid var(--border); min-height: 20px; margin: 6px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 60px; margin: 8px 0; padding: 6px; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
+        .check-item { display: flex; align-items: center; gap: 6px; font-size: 9pt; }
+        .check-box { width: 14px; height: 14px; border: 1px solid var(--border); border-radius: 2px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: center; }
+        .comparison-table th { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+
+        .question-block { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; page-break-inside: avoid; }
+        .question-block h4 { font-size: 10pt; color: var(--text-dark); margin-bottom: 8px; }
+        .question-number { display: inline-block; background: var(--primary); color: white; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9pt; margin-right: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .data-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 10px; margin: 8px 0; font-size: 9pt; }
+        .data-box strong { color: #0369a1; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 66: Entendiendo los Mercados Financieros</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades<br>del Estudiante
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p><strong>Escenario:</strong> Marcus leyó noticias el domingo de que su acción favorita publicaba ganancias decepcionantes. En pánico, colocó una orden de mercado para vender sus 50 acciones a $85.00 (precio del viernes). Sin embargo, los mercados estaban cerrados. Su orden se ejecutó el lunes cuando el mercado abrió a $78.50—perdió $325 adicionales porque no entendía los horarios del mercado ni los tipos de órdenes.</p>
+        <p><strong>Reflexión:</strong> ¿Qué debió haber hecho Marcus diferente? ¿Cómo pudo haber protegido su precio usando una orden limitada?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Analizar cómo operan los diferentes mercados financieros y facilitan el comercio</li>
+            <li>Comparar diferentes tipos de órdenes y estrategias de negociación para inversionistas</li>
+            <li>Calcular los costos de transacción y entender cómo impactan los rendimientos</li>
+            <li>Ejecutar transacciones efectivamente usando plataformas modernas de corretaje</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="terms-table">
+        <tr>
+            <td>Precio Bid</td>
+            <td>El precio más alto que un comprador está dispuesto a pagar actualmente por un valor; el precio que recibirás al vender.</td>
+        </tr>
+        <tr>
+            <td>Precio Ask</td>
+            <td>El precio más bajo que un vendedor está dispuesto a aceptar; el precio que pagarás al comprar.</td>
+        </tr>
+        <tr>
+            <td>Diferencial (Spread)</td>
+            <td>La diferencia entre bid y ask. Representa un costo oculto de transacción. Diferenciales estrechos = mayor liquidez.</td>
+        </tr>
+        <tr>
+            <td>Orden de Mercado</td>
+            <td>Instrucción para comprar/vender inmediatamente al mejor precio disponible. Garantiza ejecución pero NO garantiza precio.</td>
+        </tr>
+        <tr>
+            <td>Orden Limitada</td>
+            <td>Instrucción para comprar/vender solo a un precio especificado o mejor. Garantiza precio pero NO garantiza ejecución.</td>
+        </tr>
+        <tr>
+            <td>Liquidez</td>
+            <td>Qué tan fácil es comprar/vender sin mover el precio. Alto volumen y diferenciales estrechos = alta liquidez.</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <h4>Parte A: Análisis de Cotización de Acciones</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Analiza esta cotización de acciones:</p>
+
+        <div class="data-box">
+            <strong>Acción XYZ:</strong> Último: $50.00 | Bid: $49.95 | Ask: $50.05 | Volumen: 2.5M
+        </div>
+
+        <p style="font-size: 9pt;"><strong>Cálculos:</strong></p>
+        <p style="font-size: 9pt;">1. Diferencial (Ask - Bid): $______</p>
+        <p style="font-size: 9pt;">2. Diferencial como % del precio: (Diferencial ÷ Ask) × 100 = ______%</p>
+        <p style="font-size: 9pt;">3. Si compras 100 acciones con orden de mercado, pagas: $_______</p>
+        <p style="font-size: 9pt;">4. Si vendes inmediatamente esas 100 acciones, recibes: $_______</p>
+        <p style="font-size: 9pt;">5. Pérdida instantánea por el diferencial: $_______</p>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte B: Comparación de Tipos de Órdenes</h4>
+        <p style="font-size: 9pt; margin-bottom: 10px;">Quieres comprar 50 acciones. Cotización actual: Bid $49.95, Ask $50.05</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Tipo de Orden</th>
+                <th>Precio de Ejecución</th>
+                <th>Costo Total</th>
+                <th>¿Garantizada?</th>
+            </tr>
+            <tr>
+                <td>Orden de Mercado</td>
+                <td>$50.05 (ask)</td>
+                <td>$_______</td>
+                <td>Sí</td>
+            </tr>
+            <tr>
+                <td>Orden Limitada @ $50.00</td>
+                <td>$50.00 (si se ejecuta)</td>
+                <td>$_______</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Orden Limitada @ $49.90</td>
+                <td>$49.90 (si se ejecuta)</td>
+                <td>$_______</td>
+                <td>No</td>
+            </tr>
+        </table>
+
+        <p style="font-size: 9pt;"><strong>Ahorro potencial usando orden limitada @ $50.00 vs. orden de mercado:</strong> $_______</p>
+    </div>
+
+    <div class="activity-section">
+        <h4>Parte C: Impacto de Costos a Largo Plazo</h4>
+        <div class="data-box">
+            <strong>Comparación de Perfiles de Inversionista:</strong><br>
+            • Trader activo: 100 transacciones/año, $0.20 diferencial promedio, 40 acciones/transacción → Costo anual: $800<br>
+            • Inversionista moderado: 12 transacciones/año, $0.05 diferencial, 5 acciones/transacción → Costo anual: $3<br>
+            • Comprar y mantener: 4 transacciones/año, $0.02 diferencial, 10 acciones/transacción → Costo anual: $0.80
+        </div>
+
+        <p style="font-size: 9pt;"><strong>Costo de oportunidad a 30 años (si se hubiera invertido al 7%):</strong></p>
+        <p style="font-size: 9pt;">Trader activo: $800 × 94.46 = $_______ perdidos</p>
+        <p style="font-size: 9pt;">Inversionista moderado: $3 × 94.46 = $_______ perdidos</p>
+        <p style="font-size: 9pt;">Comprar y mantener: $0.80 × 94.46 = $_______ perdidos</p>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <h4><span class="question-number">1</span>¿Cuándo es MÁS apropiado usar una orden de mercado?</h4>
+        <div class="check-grid">
+            <div class="check-item"><div class="check-box"></div> A. Siempre, porque garantiza ejecución</div>
+            <div class="check-item"><div class="check-box"></div> B. Valores altamente líquidos con diferenciales estrechos</div>
+            <div class="check-item"><div class="check-box"></div> C. Acciones pequeñas y poco negociadas</div>
+            <div class="check-item"><div class="check-box"></div> D. Cuando los mercados están cerrados</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">2</span>Explica por qué las órdenes de mercado colocadas fuera del horario de mercado pueden ser peligrosas.</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">3</span>Una acción tiene Bid $29.90 y Ask $30.10. ¿Cuál es el diferencial porcentual? Si haces 50 transacciones al año con este diferencial (100 acciones cada una), ¿cuánto pagas en costos de diferencial anualmente?</h4>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">4</span>¿Por qué una estrategia de "comprar y mantener" con fondos indexados supera típicamente al trading activo después de considerar costos?</h4>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <h4><span class="question-number">5</span>Diseña TU estrategia de negociación personal. ¿Qué tipo de órdenes usarás? ¿Con qué frecuencia negociarás? ¿Cómo minimizarás costos?</h4>
+        <p style="font-size: 9pt; margin-top: 6px;"><strong>Tipo de orden preferido:</strong> Mercado / Limitada / Depende del valor</p>
+        <p style="font-size: 9pt;"><strong>Frecuencia planeada:</strong> Mensual / Trimestral / Anual</p>
+        <p style="font-size: 9pt;"><strong>Mi regla de costo máximo de diferencial:</strong> No negociaré si el diferencial es mayor que ____%</p>
+        <p style="font-size: 9pt; margin-top: 6px;"><strong>Razonamiento:</strong></p>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 66: Entendiendo los Mercados Financieros</span>
+    </div>
+
+</body>
+</html>

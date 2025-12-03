@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-26 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .compare-item { border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+        .compare-success { background: #ecfdf5; border-color: #a7f3d0; }
+        .compare-warning { background: #fef3c7; border-color: #fcd34d; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .card-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 8.5pt; }
+        .card-table th { background: var(--primary); color: white; padding: 8px; text-align: left; }
+        .card-table td { padding: 8px; border: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 6.1 — Uso y Administración de Tarjetas de Crédito</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>John</strong> tiene un saldo de $2,000 en su tarjeta de crédito con una TAE del 18%. Solo realiza el pago mínimo de $40 cada mes. A este ritmo, le tomará más de 9 años pagar el saldo, y terminará pagando aproximadamente $2,200 solo en intereses—¡más que su saldo original! ¿Cómo puede evitar caer en esta trampa?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Comprender cómo funcionan las tarjetas de crédito y la terminología esencial</li>
+        <li>Calcular el costo real de mantener un saldo en la tarjeta de crédito</li>
+        <li>Desarrollar estrategias para el uso responsable de tarjetas de crédito</li>
+        <li>Comparar diferentes tarjetas de crédito según sus características</li>
+    </ul>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 30%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>TAE</strong></td>
+            <td>Tasa Anual Efectiva—el interés anual sobre saldos impagos</td>
+        </tr>
+        <tr>
+            <td><strong>Pago Mínimo</strong></td>
+            <td>La cantidad más pequeña que puede pagar para mantener la cuenta al día</td>
+        </tr>
+        <tr>
+            <td><strong>Límite de Crédito</strong></td>
+            <td>La cantidad máxima que puede pedir prestada en su tarjeta</td>
+        </tr>
+        <tr>
+            <td><strong>Período de Gracia</strong></td>
+            <td>Tiempo para pagar sin intereses si paga el saldo completo</td>
+        </tr>
+        <tr>
+            <td><strong>Utilización de Crédito</strong></td>
+            <td>Porcentaje del crédito disponible que está usando (mantener bajo 30%)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Comparación: Sarah vs. John</div>
+    <div class="comparison-box">
+        <div class="compare-item compare-success">
+            <div class="scenario-title" style="color: #059669;">✓ Sarah: Estrategia Inteligente</div>
+            <div class="scenario-content">
+                • Límite de crédito: $3,000<br>
+                • Gasta máximo $500/mes (17% utilización)<br>
+                • Paga saldo completo cada mes<br>
+                • $0 en intereses pagados<br>
+                • Construye excelente historial crediticio
+            </div>
+        </div>
+        <div class="compare-item compare-warning">
+            <div class="scenario-title" style="color: #92400e;">✗ John: La Trampa</div>
+            <div class="scenario-content">
+                • Saldo: $2,000 al 18% TAE<br>
+                • Solo paga el mínimo ($40/mes)<br>
+                • Tiempo para pagar: 9+ años<br>
+                • Interés total: ~$2,200<br>
+                • Paga más del doble del original
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Historias</div>
+        <div class="activity-instructions">Analice cada historia e identifique qué hicieron bien o mal.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Historia de Sophia (Éxito)</div>
+            <div class="scenario-content">
+                Sophia obtuvo su primera tarjeta a los 18 años. Configuró pagos automáticos del saldo completo y usó una app para rastrear gastos. Nunca cargó más de lo que podía pagar. Cinco años después, tiene excelente puntaje crediticio y obtuvo tasa baja en su préstamo de auto.
+            </div>
+        </div>
+        <div class="write-label">¿Qué estrategias usó Sophia? (enumere 3)</div>
+        <div class="write-box"></div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Historia de James (Desafío)</div>
+            <div class="scenario-content">
+                James recibió una tarjeta con límite de $5,000. Emocionado, compró electrónicos, ropa y llevó amigos a cenar. En tres meses alcanzó el límite. Dos años después, todavía debe $4,200 y ha pagado más de $1,500 en intereses.
+            </div>
+        </div>
+        <div class="write-label">¿Qué errores cometió James? (enumere 3)</div>
+        <div class="write-box"></div>
+        <div class="write-label">¿Qué debería hacer James ahora para recuperarse?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Calculadora de Interés</div>
+        <div class="activity-instructions">Calcule el costo de diferentes escenarios de pago.</div>
+
+        <table class="card-table">
+            <tr>
+                <th>Escenario</th>
+                <th>Saldo: $1,500 al 18% TAE</th>
+            </tr>
+            <tr>
+                <td><strong>Pago mínimo ($35/mes)</strong></td>
+                <td>Tiempo para pagar: _____ meses<br>Interés total pagado: $_____</td>
+            </tr>
+            <tr>
+                <td><strong>Pago de $100/mes</strong></td>
+                <td>Tiempo para pagar: _____ meses<br>Interés total pagado: $_____</td>
+            </tr>
+            <tr>
+                <td><strong>Pago de $200/mes</strong></td>
+                <td>Tiempo para pagar: _____ meses<br>Interés total pagado: $_____</td>
+            </tr>
+        </table>
+
+        <div class="write-label">¿Cuánto ahorra pagando $200/mes en lugar del mínimo?</div>
+        <div class="write-lines"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Comparación de Tarjetas de Crédito</div>
+        <div class="activity-instructions">Compare las tres tarjetas y determine cuál es mejor para cada tipo de persona.</div>
+
+        <table class="card-table">
+            <tr>
+                <th>Característica</th>
+                <th>Tarjeta A</th>
+                <th>Tarjeta B</th>
+                <th>Tarjeta C</th>
+            </tr>
+            <tr>
+                <td><strong>TAE</strong></td>
+                <td>12.99%</td>
+                <td>17.99%</td>
+                <td>22.99%</td>
+            </tr>
+            <tr>
+                <td><strong>Cuota Anual</strong></td>
+                <td>$95</td>
+                <td>$0</td>
+                <td>$0</td>
+            </tr>
+            <tr>
+                <td><strong>Recompensas</strong></td>
+                <td>3% comestibles, 1% todo</td>
+                <td>2× puntos viajes, 1× todo</td>
+                <td>4% gasolina, 1% todo</td>
+            </tr>
+            <tr>
+                <td><strong>Beneficios</strong></td>
+                <td>Garantía extendida</td>
+                <td>Seguro de viaje</td>
+                <td>Asistencia en carretera</td>
+            </tr>
+        </table>
+
+        <div class="write-label">Mejor tarjeta para una familia con $600/mes en comestibles:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Mejor tarjeta para alguien que viaja frecuentemente:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Mejor tarjeta para alguien que a veces mantiene saldo:</div>
+        <div class="write-lines"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte D: Mi Plan de Tarjeta de Crédito</div>
+        <div class="activity-instructions">Desarrolle su estrategia personal para usar tarjetas de crédito responsablemente.</div>
+
+        <div class="write-label">1. Reglas que seguiré (enumere al menos 3):</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">2. ¿Qué porcentaje de mi límite usaré como máximo?</div>
+        <div class="write-lines"></div>
+
+        <div class="write-label">3. ¿Cómo evitaré la trampa del pago mínimo?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Por qué es peligroso pagar solo el mínimo en una tarjeta de crédito?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Qué es el período de gracia y cómo puede aprovecharlo para evitar intereses?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Una tarjeta tiene TAE del 15% y cuota anual de $95. Otra tiene TAE del 20% sin cuota. ¿Cuál es mejor si planea mantener saldo? ¿Y si paga completo cada mes?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Por qué es importante mantener su utilización de crédito bajo el 30%?</div>
+        <div class="question-hint">Pista: Piense en su puntaje crediticio.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 6.1: Uso y Administración de Tarjetas de Crédito</span>
+    </div>
+
+</body>
+</html>

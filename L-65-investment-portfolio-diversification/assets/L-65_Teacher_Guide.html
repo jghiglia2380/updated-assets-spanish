@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-65 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 65 — Diversificación de Portafolios de Inversión</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión, L-64: Riesgo y Rendimiento</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Destiny vs. Jordan—enfatiza que ambos terminaron casi igual después de la caída.</li>
+                    <li>Discusión: "¿Por qué Jordan terminó con $34,000 más dos años después?"</li>
+                    <li>Punto clave: La diversificación permite permanecer invertido; la concentración causa ventas de pánico.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja matriz de correlación simple en el pizarrón para explicar visualmente.</li>
+                    <li>Explica regla "120 menos tu edad" con ejemplos concretos.</li>
+                    <li>Verificación rápida: "¿Por qué acciones EE.UU. y bonos tienen correlación negativa?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis de correlación—enseña a leer la matriz e identificar buenas combinaciones.</li>
+                    <li><strong>Parte B (10 min):</strong> Asignación por edad—este es el momento clave para entender por qué la edad importa.</li>
+                    <li><strong>Parte C (5 min):</strong> Cálculo de rebalanceo—hazlo paso a paso en el pizarrón primero.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P3 sobre comportamiento real de inversores es revelador—3-5% vs. 8% por pánico.</li>
+                    <li>P5 estrategia personal debe reflejar la edad y circunstancias reales del estudiante.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Usa analogía de "huevos en diferentes canastas" para explicar diversificación.</li>
+                <li>Proporciona asignaciones sugeridas en lugar de que construyan desde cero.</li>
+                <li>Simplifica correlación a: "¿Suben/bajan juntos o separados?"</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investiga correlaciones reales entre clases de activos durante 2008 y 2020.</li>
+                <li>Calcula cómo el rebalanceo durante crisis mejora rendimientos a largo plazo.</li>
+                <li>Diseña portafolio completo con 8+ clases de activos y justificación detallada.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Correlación</div>
+            <div class="answer-item"><strong>1. Mejor diversificación:</strong> Acciones EE.UU. y Bonos (-0.1 correlación). Se mueven casi independientemente—cuando uno cae, el otro no necesariamente cae.</div>
+            <div class="answer-item"><strong>2. Portafolio diversificado ejemplo:</strong> Acciones EE.UU. 50% | Bonos 30% | Internacional 15% | Oro 5% = 100%. Combina activos con diferentes correlaciones para suavizar la volatilidad.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Asignación por Edad</div>
+            <div class="answer-item"><strong>Maya (25):</strong> 120-25 = 95% acciones. Sugerido: 90% acciones (dividido entre EE.UU. y internacional), 10% bonos. Tiene 40 años para recuperarse de cualquier caída.</div>
+            <div class="answer-item"><strong>David (45):</strong> 120-45 = 75% acciones. Sugerido: 70% acciones, 25% bonos, 5% otros. Balance entre crecimiento y estabilidad.</div>
+            <div class="answer-item"><strong>Patricia (60):</strong> 120-60 = 60% acciones. Sugerido: 55% acciones, 35% bonos, 10% efectivo. Solo 7 años hasta jubilación—no puede permitirse pérdidas grandes justo antes.</div>
+            <div class="answer-item"><strong>¿Por qué Maya puede tolerar más riesgo?</strong> Con 40 años de horizonte, una caída del 40% es solo un bache temporal. Con 7 años, Patricia no tiene tiempo para recuperarse si el mercado cae justo antes de jubilarse.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Rebalanceo</div>
+            <div class="calc-display"><strong>Portafolio total:</strong> $114,900
+<strong>Objetivo acciones (70%):</strong> $114,900 × 0.70 = $80,430
+<strong>Objetivo bonos (30%):</strong> $114,900 × 0.30 = $34,470
+
+<strong>Actualmente:</strong> $84,000 acciones / $30,900 bonos
+<strong>Acción:</strong> Vender $3,570 en acciones
+         Comprar $3,570 en bonos</div>
+            <div class="answer-item"><strong>¿Por qué se siente "incorrecto"?</strong> Estás vendiendo lo que está ganando (acciones subieron 20%) para comprar lo que "perdió" (bonos solo subieron 3%). Emocionalmente quieres más de lo que gana. Pero esto es exactamente "comprar bajo, vender alto" mecánico—aseguras ganancias de acciones y compras bonos baratos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Activos con baja correlación no caen juntos): Cuando acciones caen, bonos frecuentemente suben—limitando la pérdida total del portafolio.</div>
+            <div class="answer-item"><strong>2.</strong> Sistemático = riesgo de mercado que afecta TODO (recesiones, inflación)—NO puede reducirse con diversificación. No sistemático = riesgo específico de empresa o sector—SÍ puede reducirse teniendo muchas inversiones diferentes.</div>
+            <div class="answer-item"><strong>3.</strong> La diversificación permite permanecer invertido durante caídas porque las pérdidas son manejables (20-25% vs. 40-50%). Los inversores concentrados entran en pánico y venden en el fondo, asegurando pérdidas y perdiendo la recuperación. El verdadero rendimiento es el que realmente logras, no el teórico.</div>
+            <div class="answer-item"><strong>4.</strong> Fondo de fecha objetivo automáticamente ajusta asignación (más conservador con el tiempo), rebalancea, y diversifica. Útil porque elimina la necesidad de decisiones activas y el riesgo de errores emocionales.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"La diversificación garantiza que nunca perderé dinero."</td><td>La diversificación reduce el riesgo pero NO lo elimina. Incluso portafolios perfectamente diversificados caen durante recesiones. Lo que hace es limitar las caídas (20% en vez de 50%) para que puedas permanecer invertido.</td></tr>
+            <tr><td>"Tener 20 acciones tecnológicas es diversificación."</td><td>Eso es concentración en UN sector. Si la tecnología colapsa, todas caen juntas. La verdadera diversificación requiere diferentes CLASES de activos (acciones, bonos, bienes raíces) y diferentes SECTORES.</td></tr>
+            <tr><td>"El rebalanceo reduce mis rendimientos porque vendo ganadores."</td><td>El rebalanceo disciplinado frecuentemente MEJORA rendimientos a largo plazo porque fuerza "comprar bajo, vender alto" mecánicamente. Además, mantiene tu nivel de riesgo apropiado para tu edad y objetivos.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 65</span>
+    </div>
+
+</body>
+</html>

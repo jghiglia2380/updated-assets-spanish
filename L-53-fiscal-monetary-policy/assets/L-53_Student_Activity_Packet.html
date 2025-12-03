@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-53 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+            margin: 20px 0 12px;
+        }
+
+        .challenge-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box {
+            background: var(--primary-light);
+            border: 1px solid #c7d2fe;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+        }
+
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 14px;
+            font-size: 10pt;
+        }
+
+        .terms-table th {
+            background: var(--bg-light);
+            text-align: left;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .terms-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+            color: var(--text-medium);
+        }
+
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+        .response-options { color: var(--text-light); font-size: 9pt; margin-left: 8px; white-space: nowrap; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 9pt;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 8px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 8pt;
+        }
+
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+        .data-table .calc-row td { background: #fef9c3; height: 28px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 12px;
+            margin: 8px 0;
+            min-height: 60px;
+            background: var(--bg-light);
+        }
+
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box {
+            background: #f0fdf4;
+            border-left: 3px solid var(--success);
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-size: 9pt;
+            font-style: italic;
+            color: #166534;
+        }
+
+        .hint-box strong { font-style: normal; }
+
+        .part-header {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin: 16px 0 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 53: Política Fiscal y Monetaria</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Durante la recesión de 2020, el gobierno aprobó $5 billones en estímulo mientras la Reserva Federal reducía las tasas de interés a 0%. El desempleo cayó del 14.7% al 3.5% en dos años, pero la inflación saltó al 8.5% - la más alta en 40 años. ¿Fue la respuesta correcta? ¿Cómo afectan estas decisiones tu capacidad de encontrar empleo, pedir préstamos y planificar tu futuro?</p>
+        <p class="framing-question">¿Cómo usa el gobierno la política fiscal y monetaria para estabilizar la economía, y cómo afectan estas políticas tus finanzas personales?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Explicar las herramientas de política fiscal: gasto gubernamental, impuestos y déficits/superávits.</li>
+            <li>Explicar las herramientas de política monetaria: Reserva Federal, tasas de interés y oferta monetaria.</li>
+            <li>Analizar cómo la política fiscal y monetaria afectan el empleo, la inflación y el crecimiento.</li>
+            <li>Evaluar las respuestas de política a recesiones e inflación.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Política Fiscal</td>
+            <td>Uso del gasto gubernamental e impuestos para influir en la economía. Expansiva en recesión, contractiva contra inflación.</td>
+        </tr>
+        <tr>
+            <td>Política Monetaria</td>
+            <td>Gestión de la Reserva Federal de tasas de interés y oferta monetaria. Principal herramienta: tasa de fondos federales.</td>
+        </tr>
+        <tr>
+            <td>Tasa de Fondos Federales</td>
+            <td>Tasa de interés que bancos se cobran entre sí. Influye en todas las demás tasas (hipotecas, autos, tarjetas).</td>
+        </tr>
+        <tr>
+            <td>Déficit Presupuestario</td>
+            <td>Cuando el gasto gubernamental excede los ingresos por impuestos. Se financia emitiendo deuda.</td>
+        </tr>
+        <tr>
+            <td>Ciclo Económico</td>
+            <td>Fluctuaciones naturales: expansión → pico → recesión → valle. La política intenta suavizar estos ciclos.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El gobierno usa DOS herramientas para estabilizar la economía. <strong>Política fiscal</strong> (Congreso/Presidente): gasto e impuestos. <strong>Política monetaria</strong> (Reserva Federal): tasas de interés. En recesión, ambas son expansivas (más gasto, menores tasas). En inflación, ambas son contractivas (menos gasto, mayores tasas). <strong>Estas políticas afectan directamente tus oportunidades de empleo, costos de préstamos y poder adquisitivo.</strong>
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Respuestas de Política a Condiciones Económicas</div>
+    <p style="margin-bottom: 14px;">Para cada escenario, identifica la respuesta de política apropiada.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Recesión Severa</div>
+        <div class="scenario-description">Desempleo: 10%, Inflación: 1%, PIB: -3%</div>
+        <div class="response-line">
+            <span class="response-label">Política fiscal:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(expansiva / contractiva)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Política monetaria:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(bajar tasas / subir tasas)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Objetivo principal:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Alta Inflación</div>
+        <div class="scenario-description">Desempleo: 3.5%, Inflación: 8%, PIB: +4%</div>
+        <div class="response-line">
+            <span class="response-label">Política fiscal:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(expansiva / contractiva)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Política monetaria:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(bajar tasas / subir tasas)</span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Objetivo principal:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Recesión = política expansiva (estimular). Inflación = política contractiva (enfriar). El objetivo de la Fed es bajo desempleo Y precios estables (~2% inflación).
+    </div>
+
+    <div class="part-header">Parte B: Impacto de Tasas de Interés en Finanzas Personales</div>
+
+    <table class="data-table">
+        <tr>
+            <th>Compra</th>
+            <th>Monto Prestado</th>
+            <th>Tasas Altas (7%)</th>
+            <th>Tasas Bajas (3%)</th>
+            <th>Diferencia</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Casa ($300,000, 30 años)</td>
+            <td>$270,000</td>
+            <td>$1,796/mes</td>
+            <td>$1,139/mes</td>
+            <td class="calc-row"></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Auto ($25,000, 5 años)</td>
+            <td>$25,000</td>
+            <td>$489/mes</td>
+            <td>$443/mes</td>
+            <td class="calc-row"></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ahorros ($10,000, 1 año)</td>
+            <td>N/A</td>
+            <td>$450 interés</td>
+            <td>$50 interés</td>
+            <td class="calc-row"></td>
+        </tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Si eres un prestatario (hipoteca, auto), ¿prefieres tasas altas o bajas? ¿Por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Si eres un ahorrador (jubilado con ahorros), ¿prefieres tasas altas o bajas? ¿Por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="part-header">Parte C: Análisis de Decisión de la Fed</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Datos Económicos Actuales</div>
+        <div class="scenario-description">Desempleo: 3.8% | Inflación: 3.2% | PIB: +2.5% | Tasa de Fondos Federales: 5.25%</div>
+        <div class="question">
+            <p class="question-text">¿Qué debería hacer la Fed con las tasas de interés?</p>
+            <div class="mc-options">
+                <div class="mc-option"><div class="mc-checkbox"></div> A. Subir tasas (enfriar más la economía)</div>
+                <div class="mc-option"><div class="mc-checkbox"></div> B. Mantener tasas sin cambios (observar más datos)</div>
+                <div class="mc-option"><div class="mc-checkbox"></div> C. Bajar tasas (estimular crecimiento)</div>
+            </div>
+        </div>
+        <div class="question">
+            <p class="question-text">Justifica tu decisión:</p>
+            <div class="answer-lines">
+                <div class="answer-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Cuando la Reserva Federal BAJA la tasa de fondos federales, ¿qué sucede típicamente?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Pedir prestado se vuelve más caro, la economía se desacelera</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Pedir prestado se vuelve más barato, la economía se acelera</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. El gasto gubernamental aumenta automáticamente</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. La inflación cae inmediatamente</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> La política fiscal EXPANSIVA incluye:</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Aumentar impuestos y reducir gasto</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Reducir impuestos y/o aumentar gasto</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Subir tasas de interés</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Vender bonos del Tesoro</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Por qué la Reserva Federal es independiente del Congreso y el Presidente?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Cálculo:</strong> Si la Fed sube tasas del 5% al 7%, y tienes un préstamo de auto de $20,000 a 5 años, ¿cuánto más pagarías en interés total? (Pago mensual a 5%: $377, a 7%: $396)</p>
+        <div class="calc-box">
+            <div class="calc-label">Muestra tu trabajo:</div>
+        </div>
+        <div class="calc-answer">Respuesta: $_____________ más en interés</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> ¿Cómo afecta el entorno actual de tasas de interés tus planes financieros futuros (comprar casa, auto, ahorrar)?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 53: Política Fiscal y Monetaria</span>
+    </div>
+
+</body>
+</html>

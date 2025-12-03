@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-18 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 5.5 — Comprendiendo los Riesgos Monetarios</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Calculadora</td>
+            <td>Capítulos 5.1-5.4 (Ahorro, Inversión, Estrategias)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente el caso de Carlos y sus $20,000.</li>
+                    <li>Discusión: "¿Por qué importa distinguir tipos de riesgo?"</li>
+                    <li>Establezca que diferentes riesgos requieren diferentes estrategias.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Presente los 4 tipos de riesgo con ejemplos concretos.</li>
+                    <li>Explique los 3 perfiles de tolerancia al riesgo.</li>
+                    <li>Muestre el impacto devastador de la inflación a largo plazo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (7 min):</strong> Identificación de riesgos en escenarios.</li>
+                    <li><strong>Parte B (8 min):</strong> Cuestionario de tolerancia al riesgo.</li>
+                    <li><strong>Parte C (10 min):</strong> Diseño de portafolio diversificado para Elena.</li>
+                    <li><strong>Parte D (5 min):</strong> Señales de alerta de fraude.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Enfoque en P2 (inflación) y P3 (horizonte temporal).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione tarjetas de referencia con los 4 tipos de riesgo.</li>
+                <li>Use analogías: riesgo de mercado = clima, inflación = erosión lenta.</li>
+                <li>Simplifique el cuestionario a menos preguntas.</li>
+                <li>Ofrezca portafolios modelo para modificar.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcular el impacto exacto de inflación usando fórmulas.</li>
+                <li>Investigar casos reales de fraude financiero (Madoff, etc.).</li>
+                <li>Crear un plan de gestión de riesgos para múltiples objetivos.</li>
+                <li>Analizar cómo la edad afecta la tolerancia al riesgo óptima.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">El Desafío: Por qué Distinguir Tipos de Riesgo</div>
+            <div class="answer-item">Distinguir tipos de riesgo es crucial porque: (1) Cada tipo requiere estrategias diferentes de mitigación; (2) Algunos riesgos se pueden eliminar casi por completo (fraude) mientras otros solo se pueden reducir (mercado); (3) Permite tomar decisiones informadas basadas en qué riesgos son aceptables para su situación; (4) Ayuda a entender que "seguridad" no es absoluta—incluso el efectivo tiene riesgo de inflación.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Identificación de Riesgos</div>
+            <div class="answer-item"><strong>1. Ana/acciones tecnológicas:</strong> Riesgo de mercado. Una recesión global afecta a todo el mercado, no solo a una empresa específica.</div>
+            <div class="answer-item"><strong>2. Miguel/cuenta de ahorros:</strong> Riesgo de inflación. Aunque su dinero estaba "seguro", perdió poder adquisitivo real (0.5% rendimiento vs. 3% inflación = -2.5% anual de pérdida real).</div>
+            <div class="answer-item"><strong>3. Laura/bonos de empresa:</strong> Riesgo financiero. La empresa específica no pudo cumplir sus obligaciones, independiente de las condiciones del mercado general.</div>
+            <div class="answer-item"><strong>4. Roberto/inversión "sin riesgo":</strong> Riesgo de fraude. Rendimientos del 25% "garantizados" sin riesgo es una señal clásica de estafa.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Cuestionario de Tolerancia al Riesgo</div>
+            <div class="answer-note">Las respuestas al cuestionario no tienen respuesta "correcta"—revelan el perfil del estudiante. A = muy conservador, B = conservador, C = moderado, D = agresivo.</div>
+            <div class="answer-item"><strong>5.</strong> Respuesta A indica pánico y baja tolerancia; D indica alta tolerancia y mentalidad de oportunidad.</div>
+            <div class="answer-item"><strong>6.</strong> Horizontes más largos (C, D) permiten mayor tolerancia al riesgo; horizontes cortos (A) requieren enfoque conservador.</div>
+            <div class="answer-item"><strong>7.</strong> Respuestas variarán. Busque: coherencia entre respuestas anteriores y el perfil declarado, comprensión de por qué su horizonte temporal influye en su tolerancia.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Estrategias de Diversificación</div>
+            <div class="answer-item"><strong>8. Riesgos del portafolio de Elena:</strong> (1) Riesgo de mercado concentrado—si el sector tecnológico cae, pierde todo; (2) Riesgo financiero extremo—si esa empresa quiebra, pierde el 100%; (3) Sin diversificación geográfica ni por sector; (4) Ninguna protección contra volatilidad a corto plazo.</div>
+            <div class="calc-display">Portafolio Diversificado Recomendado para Elena (30 años, 35 años hasta jubilación):
+Acciones nacionales diversificadas: 45-50%
+Acciones internacionales: 20-25%
+Bonos: 20-25%
+Efectivo/Equivalentes: 5-10%</div>
+            <div class="answer-item"><strong>10. Cómo reduce cada riesgo:</strong> Riesgo de mercado: distribución entre sectores reduce impacto de caída en uno. Riesgo financiero: muchas empresas en lugar de una. Riesgo de inflación: acciones históricamente superan inflación a largo plazo. El efectivo proporciona liquidez para emergencias.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>11. Señales de fraude:</strong> (1) Rendimientos garantizados "sin riesgo"; (2) Presión para invertir rápidamente; (3) Inversiones/vendedores no registrados; (4) Estrategias que no pueden explicarse claramente; (5) Documentación incompleta.</div>
+            <div class="answer-item"><strong>12. Pasos antes de invertir:</strong> Verificar registro con reguladores (SEC, FINRA); investigar la empresa y sus directivos; entender completamente la inversión; obtener documentación completa; consultar con profesional financiero independiente.</div>
+            <div class="answer-item"><strong>1.</strong> B (Mayor rendimiento potencial generalmente requiere aceptar más riesgo)</div>
+            <div class="answer-item"><strong>2.</strong> El riesgo de inflación es especialmente peligroso para ahorradores conservadores a largo plazo porque: (1) La erosión es gradual e "invisible"; (2) Aunque el número en la cuenta crece, el poder adquisitivo disminuye; (3) El efecto compuesto de la inflación es devastador—3% anual = 60% de pérdida en 30 años; (4) Crear sensación falsa de seguridad mientras se pierde riqueza real.</div>
+            <div class="answer-item"><strong>3.</strong> Relación horizonte-tolerancia: Horizontes largos permiten mayor riesgo porque: hay tiempo para recuperarse de caídas; la volatilidad a corto plazo se suaviza; se necesita crecimiento para superar inflación. Horizontes cortos requieren conservadurismo porque: no hay tiempo para recuperarse; se necesita certeza sobre cantidad disponible en fecha específica.</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Las cuentas de ahorro son 100% seguras."</td>
+                <td>Seguras contra pérdida del principal (con seguro FDIC), pero tienen riesgo de inflación significativo. A largo plazo, el poder adquisitivo disminuye si el rendimiento no supera la inflación.</td>
+            </tr>
+            <tr>
+                <td>"La diversificación elimina todo el riesgo."</td>
+                <td>La diversificación reduce el riesgo, no lo elimina. En caídas severas del mercado, muchos activos pueden bajar simultáneamente, aunque típicamente en diferentes grados.</td>
+            </tr>
+            <tr>
+                <td>"Soy joven, puedo aceptar cualquier nivel de riesgo."</td>
+                <td>Ser joven permite MÁS riesgo, no riesgo ILIMITADO. Aún necesita diversificación, fondo de emergencia, y considerar su comodidad emocional con la volatilidad.</td>
+            </tr>
+            <tr>
+                <td>"Si una inversión promete altos rendimientos, vale la pena el riesgo."</td>
+                <td>Rendimientos extraordinarios "garantizados" son señal de fraude. Rendimientos legítimos altos siempre vienen con riesgo proporcional—no existen atajos.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 5.5</span>
+    </div>
+
+</body>
+</html>

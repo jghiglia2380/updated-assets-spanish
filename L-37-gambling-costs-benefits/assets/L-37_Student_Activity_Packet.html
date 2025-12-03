@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-37 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 28%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+        .data-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; font-weight: 600; font-size: 9pt; }
+        .data-table td { padding: 8px 10px; border: 1px solid var(--border); text-align: center; }
+        .data-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .mc-options { margin-top: 6px; margin-left: 20px; }
+        .mc-option { display: flex; align-items: center; margin-bottom: 4px; }
+        .mc-checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 12.2: Los Costos y Beneficios del Juego</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades del Estudiante</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>El juego es una actividad recreativa común, pero conlleva tanto costos como beneficios para individuos y comunidades. Cuando se aborda de manera responsable, el juego debe verse como entretenimiento—con un costo esperado—en lugar de una forma de ganar dinero.</p>
+        <p class="framing-question">¿Cómo puede evaluar los verdaderos costos y beneficios del juego y desarrollar estrategias para mantenerlo como entretenimiento seguro?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender las implicaciones financieras y sociales del juego.</li>
+            <li>Reconocer el juego como entretenimiento en lugar de fuente de ganancia.</li>
+            <li>Identificar los conceptos de juego problemático y patológico.</li>
+            <li>Desarrollar estrategias para prácticas de juego responsable.</li>
+            <li>Evaluar el impacto económico del juego en las comunidades.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr><td>Juego como Entretenimiento</td><td>Ver el juego como actividad de ocio con costo, similar a ir al cine.</td></tr>
+        <tr><td>Juego Problemático</td><td>Comportamiento de juego que interrumpe actividades personales, familiares o profesionales.</td></tr>
+        <tr><td>Impuesto Regresivo</td><td>Impuesto que toma mayor porcentaje de personas de bajos ingresos que de altos ingresos.</td></tr>
+        <tr><td>Juego Responsable</td><td>Prácticas diseñadas para prevenir y reducir daños relacionados con el juego.</td></tr>
+        <tr><td>Costos Sociales</td><td>Consecuencias negativas que afectan a la sociedad: crimen, bancarrota, problemas familiares.</td></tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El dinero gastado en juegos debe provenir de su presupuesto de entretenimiento, no de fondos para necesidades básicas. La "pérdida esperada" es el costo del entretenimiento. Como el cine ($15 por 2 horas), el juego tiene un precio por el valor de entretenimiento que proporciona.
+    </div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Comparación del Valor de Entretenimiento</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Comparación de Actividades de Entretenimiento</div>
+        <table class="data-table" style="margin-top: 10px;">
+            <tr><th>Actividad</th><th>Costo Promedio</th><th>Expectativa Financiera</th></tr>
+            <tr><td style="text-align: left;">Cine</td><td>$12-15</td><td>100% pérdida</td></tr>
+            <tr><td style="text-align: left;">Concierto</td><td>$50-300</td><td>100% pérdida</td></tr>
+            <tr><td style="text-align: left;">Cena en restaurante</td><td>$25-50</td><td>100% pérdida</td></tr>
+            <tr><td style="text-align: left;">Juegos de azar</td><td>Variable</td><td>Pérdida esperada a largo plazo</td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> Si asigna $100 mensuales para entretenimiento, ¿qué porcentaje sería responsable destinar al juego como máximo? ¿Por qué?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Compare el juego recreativo vs. el juego problemático. Liste TRES características de cada uno.</p>
+        <div class="calc-box"><div class="calc-label">Juego Recreativo vs. Juego Problemático:</div></div>
+    </div>
+
+    <div class="part-header">Parte B: Impacto Comunitario</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Mencione DOS beneficios económicos y DOS costos sociales que el juego puede traer a una comunidad.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> ¿Por qué se considera que los ingresos de la lotería funcionan como un "impuesto regresivo"?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Considere quiénes tienden a gastar un mayor porcentaje de sus ingresos en la lotería y cómo esto afecta a diferentes grupos económicos.
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es una señal de advertencia de juego problemático?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Establecer un presupuesto antes de jugar</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Intentar "recuperar" el dinero perdido</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Ver las pérdidas como costo de entretenimiento</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Jugar solo con dinero discrecional</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> ¿Cuál es la mejor manera de ver el juego desde una perspectiva financiera?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Como una forma de aumentar sus ingresos</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Como entretenimiento con un costo asociado</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Como una inversión a largo plazo</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. Como una forma de recuperar pérdidas anteriores</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> Un casino crea 500 empleos pero las llamadas a servicios de ludopatía aumentan 40%. ¿Qué tipo de análisis necesita una comunidad para evaluar esto?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> Liste CUATRO estrategias de juego responsable que una persona debería adoptar.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> ¿Qué responsabilidad tienen los individuos, los operadores de juego y los gobiernos para garantizar que el juego sea seguro? ¿Cómo equilibrar la libertad personal con la protección contra daños?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo 12.2: Los Costos y Beneficios del Juego</span>
+    </div>
+
+</body>
+</html>

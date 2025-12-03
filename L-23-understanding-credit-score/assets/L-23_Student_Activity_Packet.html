@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-23 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .fico-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .fico-table th { background: var(--primary); color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .fico-table td { padding: 10px 12px; border: 1px solid var(--border); text-align: center; }
+        .fico-weight { font-weight: 700; color: var(--primary-dark); font-size: 12pt; }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .impact-box { border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+        .impact-title { font-weight: 700; font-size: 9pt; margin-bottom: 6px; }
+        .impact-positive { color: #059669; border-color: #a7f3d0; background: #ecfdf5; }
+        .impact-negative { color: #dc2626; border-color: #fca5a5; background: #fee2e2; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .score-ranges { display: flex; justify-content: space-between; margin-bottom: 16px; }
+        .score-range { text-align: center; padding: 8px 12px; border-radius: 6px; flex: 1; margin: 0 4px; }
+        .score-excellent { background: #dcfce7; color: #166534; }
+        .score-good { background: #dbeafe; color: #1e40af; }
+        .score-fair { background: #fef3c7; color: #92400e; }
+        .score-poor { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 5.3 — Entendiendo el Puntaje Crediticio</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>Jason</strong> solicitó tres tarjetas de crédito en un mes para "comparar ofertas". Cada solicitud creó una consulta dura en su informe de crédito, reduciendo su puntaje en 25 puntos. Ahora tiene problemas para que le aprueben un contrato de alquiler porque su puntaje cayó por debajo del requisito mínimo del arrendador. ¿Cómo podrían decisiones aparentemente pequeñas afectar oportunidades importantes en su vida?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Comprender qué es un puntaje crediticio y cómo se calcula usando el modelo FICO</li>
+        <li>Identificar los cinco factores que componen su puntaje crediticio y su peso relativo</li>
+        <li>Reconocer el impacto del puntaje crediticio en vivienda, empleo, seguros y tasas de interés</li>
+        <li>Analizar comportamientos que mejoran o perjudican el puntaje crediticio</li>
+    </ul>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 30%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Puntaje Crediticio</strong></td>
+            <td>Representación numérica de su solvencia crediticia, típicamente entre 300 y 850</td>
+        </tr>
+        <tr>
+            <td><strong>Puntaje FICO</strong></td>
+            <td>El modelo de puntaje crediticio más utilizado en los Estados Unidos</td>
+        </tr>
+        <tr>
+            <td><strong>Informe de Crédito</strong></td>
+            <td>Registro detallado de su historial crediticio, incluyendo hábitos de préstamo y pagos</td>
+        </tr>
+        <tr>
+            <td><strong>Utilización del Crédito</strong></td>
+            <td>Porcentaje del crédito disponible que está utilizando (recomendado: menos del 30%)</td>
+        </tr>
+        <tr>
+            <td><strong>Consulta Dura vs. Suave</strong></td>
+            <td>Dura: cuando solicita crédito (afecta puntaje). Suave: revisar su propio puntaje (no afecta)</td>
+        </tr>
+        <tr>
+            <td><strong>Burós de Crédito</strong></td>
+            <td>Equifax, Experian y TransUnion—compilan informes y proporcionan puntajes</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Rangos de Puntaje Crediticio</div>
+    <div class="score-ranges">
+        <div class="score-range score-excellent"><strong>Excelente</strong><br>750-850</div>
+        <div class="score-range score-good"><strong>Bueno</strong><br>700-749</div>
+        <div class="score-range score-fair"><strong>Regular</strong><br>650-699</div>
+        <div class="score-range score-poor"><strong>Malo</strong><br>300-649</div>
+    </div>
+
+    <div class="section-header">Los Cinco Factores del Puntaje FICO</div>
+    <table class="fico-table">
+        <tr>
+            <th>Factor</th>
+            <th>Peso</th>
+            <th>Qué Incluye</th>
+        </tr>
+        <tr>
+            <td><strong>Historial de Pagos</strong></td>
+            <td><span class="fico-weight">35%</span></td>
+            <td>Pagos puntuales o atrasados, cuentas en cobranza, bancarrotas</td>
+        </tr>
+        <tr>
+            <td><strong>Utilización del Crédito</strong></td>
+            <td><span class="fico-weight">30%</span></td>
+            <td>Porcentaje del límite de crédito que usa (mantener bajo 30%)</td>
+        </tr>
+        <tr>
+            <td><strong>Antigüedad del Historial</strong></td>
+            <td><span class="fico-weight">15%</span></td>
+            <td>Edad promedio de sus cuentas de crédito</td>
+        </tr>
+        <tr>
+            <td><strong>Mezcla de Crédito</strong></td>
+            <td><span class="fico-weight">10%</span></td>
+            <td>Variedad de tipos de crédito (tarjetas, préstamos, hipoteca)</td>
+        </tr>
+        <tr>
+            <td><strong>Crédito Nuevo</strong></td>
+            <td><span class="fico-weight">10%</span></td>
+            <td>Solicitudes recientes y cuentas nuevas abiertas</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Casos</div>
+        <div class="activity-instructions">Lea cada historia y analice qué factor FICO fue afectado y cómo se podría haber evitado el problema.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Historia de Jason</div>
+            <div class="scenario-content">
+                Jason solicitó tres tarjetas de crédito en un mes, pensando que podría comparar ofertas. Cada solicitud creó una consulta dura en su informe de crédito, reduciendo su puntaje en 25 puntos. Ahora tiene problemas para que le aprueben un contrato de alquiler porque su puntaje cayó por debajo del requisito mínimo del arrendador.
+            </div>
+        </div>
+        <div class="write-label">Factor FICO Afectado:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">¿Cómo podría haberlo evitado?</div>
+        <div class="write-box"></div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Historia de Sophia</div>
+            <div class="scenario-content">
+                Sophia cerró su cuenta de tarjeta de crédito más antigua para "simplificar sus finanzas". No se dio cuenta de que esto acortaría la antigüedad de su historial crediticio y aumentaría su ratio de utilización de crédito general. Su puntaje bajó 40 puntos, afectando su capacidad para calificar para un préstamo automotriz con bajo interés.
+            </div>
+        </div>
+        <div class="write-label">Factores FICO Afectados (enumere dos):</div>
+        <div class="write-lines"></div>
+        <div class="write-label">¿Qué debería haber hecho en lugar de cerrar la cuenta?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Impacto de Comportamientos en el Puntaje</div>
+        <div class="activity-instructions">Clasifique cada comportamiento como positivo o negativo para el puntaje crediticio y explique qué factor FICO afecta.</div>
+
+        <table class="concept-table">
+            <tr>
+                <th>Comportamiento</th>
+                <th>Impacto (+/-)</th>
+                <th>Factor FICO Afectado</th>
+            </tr>
+            <tr>
+                <td>Pagar el saldo completo de la tarjeta cada mes</td>
+                <td style="width: 80px; height: 30px;"></td>
+                <td style="width: 150px;"></td>
+            </tr>
+            <tr>
+                <td>Usar el 80% del límite de crédito disponible</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mantener una tarjeta de crédito antigua abierta sin usarla</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Hacer un pago con 30 días de retraso</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tener solo tarjetas de crédito, ningún otro tipo de préstamo</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Solicitar 5 tarjetas de crédito en una semana</td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Calculadora de Impacto Financiero</div>
+        <div class="activity-instructions">Use los datos de la tabla para calcular cuánto más pagaría alguien con un puntaje más bajo.</div>
+
+        <table class="concept-table">
+            <tr>
+                <th>Tipo de Préstamo</th>
+                <th>Puntaje 750+<br>(Excelente)</th>
+                <th>Puntaje 650<br>(Regular)</th>
+                <th>Puntaje 580<br>(Malo)</th>
+            </tr>
+            <tr>
+                <td><strong>Préstamo Auto ($25,000, 5 años)</strong></td>
+                <td>TAE 4.5%<br>Pago: $466/mes</td>
+                <td>TAE 9.5%<br>Pago: $524/mes</td>
+                <td>TAE 15%<br>Pago: $595/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Hipoteca ($250,000, 30 años)</strong></td>
+                <td>TAE 6.0%<br>Pago: $1,499/mes</td>
+                <td>TAE 7.5%<br>Pago: $1,748/mes</td>
+                <td>TAE 9.5%<br>Pago: $2,102/mes</td>
+            </tr>
+        </table>
+
+        <div class="write-label">Cálculo 1: ¿Cuánto más paga mensualmente alguien con puntaje 650 vs. 750 en un préstamo de auto?</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Cálculo 2: ¿Cuánto más paga EN TOTAL (60 meses) con puntaje 650 vs. 750?</div>
+        <div class="write-box"></div>
+        <div class="write-label">Cálculo 3: ¿Cuánto más paga EN TOTAL (30 años) en hipoteca con puntaje 650 vs. 750?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte D: Mi Estrategia de Puntaje Crediticio</div>
+        <div class="activity-instructions">Desarrolle un plan personal para construir y mantener un buen puntaje crediticio.</div>
+
+        <div class="write-label">1. Factor más fácil de controlar para mí y por qué:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">2. Factor más desafiante para mí y por qué:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">3. Tres acciones específicas que tomaré en los próximos 1-5 años:</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Qué factor tiene el mayor impacto en su puntaje FICO y qué porcentaje representa?</div>
+        <div class="write-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Por qué cerrar una tarjeta de crédito antigua puede perjudicar su puntaje, incluso si no la usa?</div>
+        <div class="question-hint">Pista: Considere dos factores FICO diferentes que se afectarían.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Cuál es la diferencia entre una consulta de crédito "dura" y una "suave"? Dé un ejemplo de cada una.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Además de préstamos, nombre tres áreas de la vida donde su puntaje crediticio puede tener impacto.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Reflexión: Basándose en lo que aprendió, ¿qué comportamiento cambiaría o adoptaría para proteger su futuro puntaje crediticio? Explique su razonamiento.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 5.3: Entendiendo el Puntaje Crediticio</span>
+    </div>
+
+</body>
+</html>

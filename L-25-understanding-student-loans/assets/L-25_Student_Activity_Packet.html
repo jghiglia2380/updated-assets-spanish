@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-25 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 8.5pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .warning-box { background: #fee2e2; border-left: 4px solid #dc2626; padding: 12px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .warning-title { font-weight: 700; color: #991b1b; font-size: 9pt; margin-bottom: 4px; }
+        .warning-content { font-size: 9pt; color: #7f1d1d; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: L-25 — Entendiendo los Préstamos Estudiantiles | {{STATE_NAME}}</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>Alex</strong> y <strong>Jordan</strong> son compañeros de clase que planean asistir a la misma universidad. Alex pidió $20,000 en préstamos federales al 5% de interés. Jordan pidió $15,000 federales más $10,000 en préstamos privados al 10%. Aunque Jordan pidió menos dinero federal, ¿quién terminará pagando más a largo plazo? ¿Por qué importa tanto el tipo de préstamo que elija?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Comprender las diferencias clave entre préstamos estudiantiles federales y privados</li>
+        <li>Analizar las implicaciones financieras a largo plazo de la deuda estudiantil</li>
+        <li>Aprender estrategias para manejar responsablemente la deuda estudiantil</li>
+        <li>Explorar las consecuencias del incumplimiento de préstamos</li>
+    </ul>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 30%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Préstamos Federales</strong></td>
+            <td>Préstamos emitidos por el Departamento de Educación de EE.UU. con tasas fijas y beneficios estandarizados</td>
+        </tr>
+        <tr>
+            <td><strong>Préstamos Privados</strong></td>
+            <td>Préstamos de bancos o cooperativas con términos variables basados en crédito</td>
+        </tr>
+        <tr>
+            <td><strong>Pago Basado en Ingresos</strong></td>
+            <td>Plan que ajusta pagos según su ingreso y tamaño familiar (solo préstamos federales)</td>
+        </tr>
+        <tr>
+            <td><strong>Condonación de Préstamos</strong></td>
+            <td>Cancelación del saldo restante después de cumplir criterios específicos</td>
+        </tr>
+        <tr>
+            <td><strong>Incumplimiento</strong></td>
+            <td>Falta de pago de un préstamo según los términos acordados (tiene consecuencias graves)</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Comparación: Préstamos Federales vs. Privados</div>
+    <table class="comparison-table">
+        <tr>
+            <th>Característica</th>
+            <th>Préstamos Federales</th>
+            <th>Préstamos Privados</th>
+        </tr>
+        <tr>
+            <td><strong>Tasa de Interés</strong></td>
+            <td>Fija, establecida por el Congreso</td>
+            <td>Variable o fija, basada en crédito</td>
+        </tr>
+        <tr>
+            <td><strong>Verificación de Crédito</strong></td>
+            <td>No requerida (excepto PLUS)</td>
+            <td>Requerida; puede necesitar aval</td>
+        </tr>
+        <tr>
+            <td><strong>Opciones de Pago</strong></td>
+            <td>Múltiples planes incluyendo basado en ingresos</td>
+            <td>Flexibilidad limitada</td>
+        </tr>
+        <tr>
+            <td><strong>Condonación</strong></td>
+            <td>Disponible en varios programas</td>
+            <td>Raramente disponible</td>
+        </tr>
+        <tr>
+            <td><strong>Aplazamiento</strong></td>
+            <td>Opciones de aplazamiento e indulgencia</td>
+            <td>Opciones muy limitadas</td>
+        </tr>
+        <tr>
+            <td><strong>Solicitud</strong></td>
+            <td>FAFSA (estandarizado)</td>
+            <td>Proceso separado por prestamista</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis del Caso de Alex y Jordan</div>
+        <div class="activity-instructions">Analice las decisiones de financiamiento de Alex y Jordan para entender el impacto a largo plazo.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Alex</div>
+            <div class="scenario-content">
+                • Pidió prestado $20,000 en préstamos federales<br>
+                • Tasa de interés fija del 5%<br>
+                • Califica para pago basado en ingresos<br>
+                • Trabaja 10 horas por semana durante estudios
+            </div>
+        </div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Jordan</div>
+            <div class="scenario-content">
+                • Pidió prestado $15,000 federales + $10,000 privados = $25,000 total<br>
+                • Préstamos privados al 10% de interés variable<br>
+                • Requirió a sus padres como avales<br>
+                • Pagos fijos independientes del ingreso
+            </div>
+        </div>
+
+        <div class="write-label">1. ¿Quién pidió más dinero en total? ¿Quién pagará más interés? Explique:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">2. Si Alex pierde su trabajo, ¿qué opciones tiene? ¿Y Jordan?</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">3. Si ambos trabajan en servicio público por 10 años, ¿quién podría beneficiarse de condonación?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Presupuesto Universitario</div>
+        <div class="activity-instructions">Complete la tabla de gastos universitarios y calcule el total anual.</div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Categoría de Gasto</th>
+                <th>Costo Mensual</th>
+                <th>Costo Anual (×12)</th>
+                <th>Estrategias de Ahorro</th>
+            </tr>
+            <tr>
+                <td>Matrícula y Cuotas</td>
+                <td>$1,200</td>
+                <td style="height: 30px;"></td>
+                <td>Becas, créditos AP, community college</td>
+            </tr>
+            <tr>
+                <td>Alojamiento</td>
+                <td>$800</td>
+                <td style="height: 30px;"></td>
+                <td>Vivir con familia, compañeros de cuarto</td>
+            </tr>
+            <tr>
+                <td>Comida</td>
+                <td>$400</td>
+                <td style="height: 30px;"></td>
+                <td>Cocinar en casa, plan de comidas económico</td>
+            </tr>
+            <tr>
+                <td>Libros y Materiales</td>
+                <td>$100</td>
+                <td style="height: 30px;"></td>
+                <td>Libros usados, biblioteca, rentals</td>
+            </tr>
+            <tr>
+                <td>Transporte</td>
+                <td>$150</td>
+                <td style="height: 30px;"></td>
+                <td>Transporte público, bicicleta</td>
+            </tr>
+            <tr>
+                <td>Gastos Personales</td>
+                <td>$200</td>
+                <td style="height: 30px;"></td>
+                <td>Presupuesto estricto, priorizar</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>$2,850</strong></td>
+                <td style="height: 30px;"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="write-label">Si trabajas medio tiempo ganando $800/mes, ¿cuánto necesitarías pedir prestado anualmente?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Consecuencias del Incumplimiento</div>
+
+        <div class="warning-box">
+            <div class="warning-title">⚠️ Consecuencias del Incumplimiento de Préstamos Estudiantiles</div>
+            <div class="warning-content">
+                • Daño al puntaje crediticio por hasta 7 años<br>
+                • Embargo de salario (hasta 15% del ingreso)<br>
+                • Retención de reembolsos de impuestos<br>
+                • Inelegibilidad para futura ayuda financiera<br>
+                • Posible acción legal y cargos de cobranza<br>
+                • Restricciones de licencias profesionales
+            </div>
+        </div>
+
+        <div class="write-label">¿Por qué es especialmente importante evitar el incumplimiento en préstamos estudiantiles?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte D: Mi Plan de Financiamiento Educativo</div>
+        <div class="activity-instructions">Desarrolle un plan preliminar para financiar su educación.</div>
+
+        <div class="write-label">1. Tipo de educación que planeo (universidad 4 años, community college, certificación, etc.):</div>
+        <div class="write-lines"></div>
+
+        <div class="write-label">2. Costo estimado total:</div>
+        <div class="write-lines"></div>
+
+        <div class="write-label">3. Fuentes de financiamiento que exploraré (enumere en orden de preferencia):</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">4. Estrategias para minimizar préstamos:</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. Nombre dos ventajas principales de los préstamos federales sobre los préstamos privados.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. ¿Qué es el pago basado en ingresos y por qué es importante para los prestatarios?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Por qué es importante agotar los préstamos federales antes de considerar préstamos privados?</div>
+        <div class="question-hint">Pista: Considere tasas de interés, flexibilidad y protecciones.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. Si planea asistir a la universidad, ¿cómo piensa financiar su educación? ¿Qué pasos puede tomar ahora para prepararse?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="section-header">Recursos Educativos de {{STATE_NAME}}</div>
+    <div class="background-box">
+        <p><strong>Costos Educativos en {{STATE_NAME}}:</strong> {{#if STATE_TUITION_PUBLIC}}La universidad pública en {{STATE_NAME}} cuesta aproximadamente ${{STATE_TUITION_PUBLIC}} por año académico.{{/if}} {{#if STATE_TUITION_PRIVATE}}Las universidades privadas promedian ${{STATE_TUITION_PRIVATE}} anualmente.{{/if}} Planificar con anticipación puede ayudarle a reducir significativamente la cantidad de préstamos necesarios.</p>
+        <p><strong>Recursos de {{STATE_NAME}}:</strong> Para obtener información sobre ayuda financiera estatal y programas de becas, visite: <strong>{{STATE_EDUCATION_DEPT_URL}}</strong></p>
+        {{#if STATE_FINANCIAL_AID_PROGRAM}}<p><strong>Programas Especiales:</strong> {{STATE_NAME}} ofrece {{STATE_FINANCIAL_AID_PROGRAM}} para residentes que califiquen.</p>{{/if}}
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>L-25: Entendiendo los Préstamos Estudiantiles</span>
+    </div>
+
+</body>
+</html>

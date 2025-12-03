@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-20 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #e0e7ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 12px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 4px; color: var(--text-medium); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .vocab-item { background: var(--bg-light); padding: 10px 12px; border-radius: 4px; border-left: 3px solid var(--primary); }
+        .vocab-term { font-weight: 700; color: var(--primary-dark); font-size: 9pt; }
+        .vocab-def { font-size: 9pt; color: var(--text-medium); margin-top: 2px; }
+
+        .scenario-box { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scenario-content { font-size: 10pt; color: var(--text-dark); margin-bottom: 12px; }
+
+        .question-block { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .answer-lines { border-bottom: 1px solid var(--border); height: 24px; margin-bottom: 6px; }
+        .answer-lines.tall { height: 60px; border: 1px solid var(--border); border-radius: 4px; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border: 1px solid var(--border); }
+        .comparison-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-box { background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .activity-title { font-weight: 700; color: var(--primary); font-size: 11pt; margin-bottom: 10px; }
+
+        .checkbox-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt; }
+        .checkbox { width: 14px; height: 14px; border: 2px solid var(--primary); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+        .reflection-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+        .reflection-title { font-weight: 700; color: #7c3aed; font-size: 10pt; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+
+        .longevity-box { background: #fef3c7; border: 1px solid #fcd34d; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .longevity-title { font-weight: 700; color: #92400e; font-size: 9pt; margin-bottom: 6px; }
+
+        .compound-box { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; margin: 12px 0; }
+        .compound-title { font-weight: 700; color: #065f46; font-size: 9pt; margin-bottom: 6px; }
+
+        .strategy-card { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+        .strategy-header { font-weight: 700; color: var(--primary-dark); font-size: 10pt; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Capítulo 6.2: Longevidad y Planificación de la Jubilación</h2>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Comprender la importancia de planificar la jubilación comenzando lo antes posible</li>
+            <li>Identificar factores clave: esperanza de vida, horizonte temporal, inflación y necesidades de ingresos</li>
+            <li>Explorar estrategias para abordar déficits de ingresos en la jubilación</li>
+            <li>Comprender el poder del interés compuesto y los beneficios de comenzar temprano</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Términos Clave</div>
+    <div class="vocab-grid">
+        <div class="vocab-item">
+            <div class="vocab-term">Esperanza de Vida</div>
+            <div class="vocab-def">Cuántos años se espera que viva una persona basado en estadísticas</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Riesgo de Longevidad</div>
+            <div class="vocab-def">El riesgo de vivir más de lo esperado y quedarse sin dinero</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Horizonte Temporal</div>
+            <div class="vocab-def">Número de años hasta que necesite los ahorros para la jubilación</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Déficit de Ingresos</div>
+            <div class="vocab-def">El riesgo de sobrevivir a sus ahorros durante la jubilación</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">Interés Compuesto</div>
+            <div class="vocab-def">Cuando los rendimientos generan sus propios rendimientos (efecto bola de nieve)</div>
+        </div>
+        <div class="vocab-item">
+            <div class="vocab-term">TIPS</div>
+            <div class="vocab-def">Bonos del Tesoro Protegidos contra la Inflación</div>
+        </div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="scenario-box">
+        <div class="scenario-title">⏳ La Nueva Realidad de la Jubilación</div>
+        <div class="scenario-content">
+            Hace 50 años, la jubilación promedio duraba 10-15 años. Hoy, una persona de 65 años puede esperar vivir hasta mediados de sus 80, y muchos llegan a los 90 o más. Esto significa que la jubilación puede durar 20, 30, o incluso 40 años. ¿Cómo cambia esto la planificación financiera?
+        </div>
+        <div class="question-block">
+            <div class="question-text">¿Por qué el aumento en la esperanza de vida presenta tanto una oportunidad como un desafío financiero?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Conceptos Clave</div>
+
+    <div class="compound-box">
+        <div class="compound-title">🎯 El Poder de Comenzar Temprano: Morgan vs. Jordan</div>
+        <table class="comparison-table" style="margin: 8px 0;">
+            <tr>
+                <th>Inversionista</th>
+                <th>Años de Inversión</th>
+                <th>Total Invertido</th>
+                <th>Valor a los 65 (al 7%)</th>
+            </tr>
+            <tr>
+                <td><strong>Morgan</strong> (comienza a los 22)</td>
+                <td>22-30 (9 años), luego para</td>
+                <td>$18,000</td>
+                <td>~$243,000</td>
+            </tr>
+            <tr>
+                <td><strong>Jordan</strong> (comienza a los 31)</td>
+                <td>31-65 (35 años)</td>
+                <td>$70,000</td>
+                <td>~$283,000</td>
+            </tr>
+        </table>
+        <p style="font-size: 8pt; color: #065f46; margin-top: 6px;"><strong>Lección:</strong> Jordan invirtió casi 4x más, pero solo tiene un poco más. ¡El tiempo supera a la cantidad!</p>
+    </div>
+
+    <div class="longevity-box">
+        <div class="longevity-title">📈 Impacto de la Inflación en Jubilación Extendida (3% anual)</div>
+        <ul style="font-size: 9pt; margin: 4px 0 0 16px; color: #78350f;">
+            <li>$100 hoy = $181 en 20 años</li>
+            <li>$100 hoy = $243 en 30 años</li>
+            <li>$100 hoy = $326 en 40 años</li>
+        </ul>
+        <p style="font-size: 8pt; margin-top: 6px; font-style: italic; color: #92400e;">Para mantener su estilo de vida, su ingreso necesita duplicarse cada ~24 años.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte A: Análisis de Escenarios de Inversión</div>
+        <div class="scenario-content">
+            Usando la información de Morgan y Jordan, responda las siguientes preguntas.
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">1. ¿Cuánto más invirtió Jordan que Morgan en términos de dólares?</div>
+            <div class="answer-lines"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">2. A pesar de invertir casi 4x más, Jordan solo tiene $40,000 más que Morgan. Explique por qué ocurre esto usando el concepto de interés compuesto:</div>
+            <div class="answer-lines tall"></div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">3. Si Morgan hubiera continuado invirtiendo $2,000/año hasta los 65 (en lugar de parar a los 30), ¿tendría significativamente más que Jordan? ¿Por qué?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte B: Factores que Afectan la Esperanza de Vida</div>
+        <div class="question-block">
+            <div class="question-text">4. Liste 4 factores que pueden influir en su esperanza de vida personal:</div>
+            <p style="font-size: 9pt; margin: 4px 0;">1. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">2. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">3. _______________________________________________</p>
+            <p style="font-size: 9pt; margin: 4px 0;">4. _______________________________________________</p>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">5. ¿Por qué es importante considerar la historia familiar al planificar para la jubilación?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte C: Estrategias para Evitar Déficits</div>
+        <div class="strategy-card">
+            <div class="strategy-header">Estrategias de Planificación</div>
+            <div class="question-block">
+                <div class="question-text">6. Para cada estrategia, explique cómo ayuda a evitar quedarse sin dinero:</div>
+                <p style="font-size: 9pt; margin: 6px 0;"><strong>Retrasar la jubilación algunos años:</strong></p>
+                <div class="answer-lines"></div>
+                <p style="font-size: 9pt; margin: 6px 0;"><strong>Aumentar la tasa de ahorro ahora:</strong></p>
+                <div class="answer-lines"></div>
+                <p style="font-size: 9pt; margin: 6px 0;"><strong>Mantener inversiones de crecimiento incluso en jubilación:</strong></p>
+                <div class="answer-lines"></div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">7. ¿Por qué los expertos recomiendan NO mover todo a inversiones "seguras" al jubilarse?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-box">
+        <div class="activity-title">Parte D: El Caso de la Abuela de Keisha</div>
+        <div class="scenario-content">
+            La bisabuela de Keisha vivió hasta los 90 años con seguridad financiera. Comenzó a ahorrar a principios de sus 30, invirtió constantemente incluso durante crisis económicas, diversificó entre acciones, bonos y bienes raíces, y ajustó su estilo de vida según su realidad financiera.
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">8. ¿Qué lecciones puede aplicar de la historia de la bisabuela de Keisha a su propia planificación?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. El aumento en la esperanza de vida significa que los jubilados necesitan:</div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>A) Menos ahorros porque el Seguro Social durará más</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>B) Ahorros que duren 20-30+ años en lugar de 10-15</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>C) Invertir solo en cuentas de ahorro seguras</span></div>
+        <div class="checkbox-item"><div class="checkbox"></div><span>D) Jubilarse más temprano para disfrutar más años</span></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Explique por qué la inflación es especialmente peligrosa para alguien con una jubilación de 30 años:</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. ¿Qué significa "riesgo de longevidad" y cómo puede mitigarlo?</div>
+        <div class="answer-lines tall"></div>
+    </div>
+
+    <div class="reflection-box">
+        <div class="reflection-title">Reflexión Personal</div>
+        <div class="question-block">
+            <div class="question-text">4. Considerando los factores de esperanza de vida (salud, historia familiar, estilo de vida), ¿cómo ajustaría su planificación financiera si espera vivir más que el promedio? ¿Qué pasos puede comenzar a tomar ahora?</div>
+            <div class="answer-lines tall"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Paquete de Actividades del Estudiante: Capítulo 6.2</span>
+    </div>
+
+</body>
+</html>

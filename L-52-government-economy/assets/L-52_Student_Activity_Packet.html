@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-52 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 13pt;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header-left h2 {
+            font-size: 10pt;
+            font-weight: 400;
+            margin: 2px 0 0;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            font-size: 9pt;
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .section-header {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+            margin: 20px 0 12px;
+        }
+
+        .challenge-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .challenge-box p {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .challenge-box .framing-question {
+            font-weight: 600;
+            font-style: normal;
+            color: #92400e;
+        }
+
+        .objectives-box {
+            background: var(--primary-light);
+            border: 1px solid #c7d2fe;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+        }
+
+        .objectives-box h3 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .objectives-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .objectives-box li {
+            margin-bottom: 3px;
+            color: var(--text-medium);
+        }
+
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 14px;
+            font-size: 10pt;
+        }
+
+        .terms-table th {
+            background: var(--bg-light);
+            text-align: left;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .terms-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .terms-table td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+            width: 28%;
+        }
+
+        .background-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+            color: var(--text-medium);
+        }
+
+        .background-box strong {
+            color: var(--text-dark);
+        }
+
+        .scenario-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+
+        .scenario-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        .scenario-description {
+            color: var(--text-medium);
+            margin-bottom: 10px;
+            font-size: 10pt;
+        }
+
+        .response-line {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .response-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+
+        .response-blank {
+            flex-grow: 1;
+            border-bottom: 1px solid var(--text-light);
+            min-height: 18px;
+        }
+
+        .response-options {
+            color: var(--text-light);
+            font-size: 9pt;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 9pt;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 8px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 8pt;
+        }
+
+        .data-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background: var(--bg-light);
+        }
+
+        .data-table .calc-row td {
+            background: #fef9c3;
+            height: 28px;
+        }
+
+        .question {
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .question-text {
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .answer-lines {
+            margin-top: 6px;
+        }
+
+        .answer-line {
+            border-bottom: 1px solid var(--text-light);
+            height: 22px;
+            margin-bottom: 4px;
+        }
+
+        .calc-box {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 12px;
+            margin: 8px 0;
+            min-height: 60px;
+            background: var(--bg-light);
+        }
+
+        .calc-label {
+            font-size: 9pt;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .calc-answer {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .mc-options {
+            margin-top: 6px;
+            margin-left: 20px;
+        }
+
+        .mc-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .mc-checkbox {
+            width: 14px;
+            height: 14px;
+            border: 1px solid var(--text-light);
+            border-radius: 2px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .hint-box {
+            background: #f0fdf4;
+            border-left: 3px solid var(--success);
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-size: 9pt;
+            font-style: italic;
+            color: #166534;
+        }
+
+        .hint-box strong {
+            font-style: normal;
+        }
+
+        .part-header {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin: 16px 0 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+
+        .mb-sm { margin-bottom: 8px; }
+        .mb-md { margin-bottom: 14px; }
+        .mb-lg { margin-bottom: 20px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo 52: El Gobierno y la Economía - Impacto Personal</h2>
+        </div>
+        <div class="header-right">
+            Paquete de Actividades del Estudiante
+        </div>
+    </div>
+
+    <!-- EL DESAFÍO -->
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Carlos paga $8,500 al año en impuestos federales, estatales y locales. Sin embargo, también usa carreteras públicas, asistió a escuelas públicas, depende de la protección policial, y su abuela recibe Seguro Social. ¿Está recibiendo buen valor por sus impuestos? ¿Cuándo tiene sentido que el gobierno intervenga en la economía y cuándo debería dejar que los mercados funcionen libremente?</p>
+        <p class="framing-question">¿Cómo decides si una política gubernamental te ayuda o te perjudica económicamente?</p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAJE -->
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Identificar fallas de mercado que justifican la intervención gubernamental.</li>
+            <li>Explicar los roles económicos del gobierno: derechos de propiedad, bienes públicos, regulación, redistribución.</li>
+            <li>Analizar cómo los impuestos, subsidios y regulaciones afectan los resultados del mercado.</li>
+            <li>Evaluar las compensaciones entre la intervención gubernamental y la libertad de mercado.</li>
+        </ul>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section-header">Conceptos Clave</div>
+
+    <table class="terms-table">
+        <tr>
+            <th>Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td>Falla de Mercado</td>
+            <td>Cuando los mercados libres no asignan recursos eficientemente (monopolio, externalidades, bienes públicos).</td>
+        </tr>
+        <tr>
+            <td>Externalidad</td>
+            <td>Costo o beneficio que afecta a terceros no involucrados en la transacción (ej: contaminación, vacunación).</td>
+        </tr>
+        <tr>
+            <td>Bien Público</td>
+            <td>Bien no excluible y no rival que el mercado no provee eficientemente (ej: defensa nacional, parques).</td>
+        </tr>
+        <tr>
+            <td>Subsidio</td>
+            <td>Pago del gobierno a productores para reducir costos y precios (desplaza oferta a la derecha).</td>
+        </tr>
+        <tr>
+            <td>Control de Precios</td>
+            <td>Límites gubernamentales a precios: máximos (causan escasez) y mínimos (causan excedentes).</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Contexto:</strong> El gobierno interviene en la economía de múltiples formas: haciendo cumplir derechos de propiedad, proveyendo bienes públicos, corrigiendo externalidades, regulando mercados, estabilizando la economía y redistribuyendo ingresos. <strong>Toda política tiene beneficios y costos.</strong> Una política inteligente reconoce las fallas de mercado y sopesa si la intervención mejora los resultados para la sociedad.
+    </div>
+
+    <!-- APLÍCALO -->
+    <div class="section-header">Aplícalo</div>
+
+    <div class="part-header">Parte A: Identificación de Fallas de Mercado</div>
+    <p class="mb-md">Para cada situación, identifica el tipo de falla de mercado y la posible solución gubernamental.</p>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 1: Contaminación de Fábrica</div>
+        <div class="scenario-description">Una fábrica contamina el río local, afectando a pescadores y residentes río abajo que no son parte de la transacción entre la fábrica y sus clientes.</div>
+        <div class="response-line">
+            <span class="response-label">Falla de mercado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Solución:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 2: Una Sola Compañía de Electricidad</div>
+        <div class="scenario-description">Solo existe un proveedor de electricidad en tu área. Construir líneas eléctricas duplicadas no tendría sentido económico.</div>
+        <div class="response-line">
+            <span class="response-label">Falla de mercado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Solución:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario 3: Defensa Nacional</div>
+        <div class="scenario-description">Los militares protegen a todos los ciudadanos, independientemente de si pagan o no. Nadie puede ser excluido de esta protección.</div>
+        <div class="response-line">
+            <span class="response-label">Falla de mercado:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Solución:</span>
+            <span class="response-blank"></span>
+        </div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Pista:</strong> Las fallas de mercado incluyen: Monopolio, Externalidad (negativa/positiva), Bien Público, Asimetría de Información.
+    </div>
+
+    <div class="part-header">Parte B: Impacto de Políticas en Mercados</div>
+    <p class="mb-md">Analiza cómo cada política gubernamental afecta el mercado.</p>
+
+    <table class="data-table">
+        <tr>
+            <th>Política</th>
+            <th>Efecto en Oferta/Demanda</th>
+            <th>Efecto en Precio</th>
+            <th>Efecto en Cantidad</th>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Impuesto a cigarrillos</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Subsidio a paneles solares</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Salario mínimo (piso de precio)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Control de alquileres (techo de precio)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Por qué un impuesto a los cigarrillos podría ser una buena política, aunque sube precios?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="part-header">Parte C: Análisis Costo-Beneficio</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Política Propuesta: Universidad Comunitaria Gratuita</div>
+        <div class="scenario-description">El estado propone hacer gratuita la universidad comunitaria para todos los residentes, financiada con un aumento del 0.5% en el impuesto a las ventas.</div>
+        <div class="question">
+            <p class="question-text"><strong>Beneficios:</strong> ¿Quién se beneficia y cómo?</p>
+            <div class="answer-lines">
+                <div class="answer-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+        <div class="question">
+            <p class="question-text"><strong>Costos:</strong> ¿Quién paga y cuánto?</p>
+            <div class="answer-lines">
+                <div class="answer-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Tu recomendación:</span>
+            <span class="response-blank"></span>
+            <span class="response-options">(Implementar / Modificar / Rechazar)</span>
+        </div>
+    </div>
+
+    <!-- COMPRUEBA TU COMPRENSIÓN -->
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">1.</span> ¿Cuál es un ejemplo de externalidad NEGATIVA?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. Un vecino pone flores que embellecen la calle</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. Una fábrica contamina el aire que respiran los residentes</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. Una persona se vacuna y reduce propagación de enfermedad</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. El gobierno construye un parque público</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">2.</span> Cuando el gobierno impone un impuesto a un producto, ¿qué sucede típicamente?</p>
+        <div class="mc-options">
+            <div class="mc-option"><div class="mc-checkbox"></div> A. La oferta se desplaza a la derecha, el precio baja</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> B. La oferta se desplaza a la izquierda, el precio sube</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> C. La demanda aumenta, el precio sube</div>
+            <div class="mc-option"><div class="mc-checkbox"></div> D. No hay efecto en el mercado</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">3.</span> ¿Por qué un control de alquileres (precio máximo) puede causar escasez de vivienda?</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">4.</span> <strong>Cálculo:</strong> Si el gobierno subsidia $2,000 por cada panel solar instalado y esto reduce el precio de $8,000 a $6,000, ¿cuánto ahorraría una familia que instala 10 paneles?</p>
+        <div class="calc-box">
+            <div class="calc-label">Muestra tu trabajo:</div>
+        </div>
+        <div class="calc-answer">Respuesta: $_____________ ahorrado</div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">5.</span> <strong>Reflexión:</strong> Piensa en una política gubernamental que te afecta personalmente (impuestos, regulaciones, servicios). ¿Los beneficios que recibes exceden los costos que pagas? Explica.</p>
+        <div class="answer-lines">
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+            <div class="answer-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 52: El Gobierno y la Economía</span>
+    </div>
+
+</body>
+</html>

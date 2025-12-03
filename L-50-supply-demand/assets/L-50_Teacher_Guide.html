@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-50 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .state-data-box { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid var(--primary); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; }
+        .state-data-box h4 { font-size: 10pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; text-align: center; }
+        .data-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed #a7f3d0; font-size: 9pt; }
+        .data-row:last-child { border-bottom: none; }
+        .data-label { font-weight: 600; color: var(--text-dark); }
+        .data-value { font-weight: 700; color: var(--primary); }
+        .national-comparison { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; margin-top: 10px; font-size: 8pt; color: #92400e; border-radius: 0 4px 4px 0; }
+        .state-calc-note { background: #f0fdf4; border: 1px solid #a7f3d0; padding: 8px 12px; margin: 10px 0; font-size: 9pt; color: #166534; border-radius: 4px; font-style: italic; }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy — Edición de {{STATE_NAME}}</h1>
+        <h2>Guía del Maestro: L-50 — Oferta y Demanda en Finanzas Personales</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Analizador de Mercado</td>
+            <td>L-48 Sistemas Económicos, L-49 Escasez</td>
+        </tr>
+    </table>
+
+    <!-- DATOS DEL ESTADO PARA MAESTROS -->
+    <div class="state-data-box">
+        <h4>Datos Económicos de {{STATE_NAME}} para Esta Lección</h4>
+        <div class="data-row"><span class="data-label">Precio Mediano Vivienda:</span><span class="data-value">${{STATE_MEDIAN_HOME_PRICE}}</span></div>
+        <div class="data-row"><span class="data-label">Alquiler Mediano:</span><span class="data-value">${{STATE_MEDIAN_RENT}}/mes</span></div>
+        <div class="data-row"><span class="data-label">Desempleo:</span><span class="data-value">{{STATE_UNEMPLOYMENT_RATE}}% (Nacional: {{US_UNEMPLOYMENT_RATE}}%)</span></div>
+        <div class="data-row"><span class="data-label">Ingreso Mediano:</span><span class="data-value">${{STATE_MEDIAN_INCOME}}</span></div>
+        <div class="data-row"><span class="data-label">Crecimiento de Empleo:</span><span class="data-value">{{STATE_JOB_GROWTH}}%</span></div>
+        <div class="data-row"><span class="data-label">Crecimiento de Población:</span><span class="data-value">{{STATE_POPULATION_GROWTH}}%</span></div>
+        <div class="data-row"><span class="data-label">Crecimiento del PIB:</span><span class="data-value">{{STATE_GDP_GROWTH}}%</span></div>
+        <div class="data-row"><span class="data-label">Días en el Mercado:</span><span class="data-value">{{STATE_DAYS_ON_MARKET}} días</span></div>
+        <div class="data-row"><span class="data-label">Inventario de Vivienda:</span><span class="data-value">{{STATE_HOUSING_INVENTORY}} meses</span></div>
+        <div class="data-row"><span class="data-label">Ranking Negocios:</span><span class="data-value">#{{STATE_BUSINESS_RANK}}</span></div>
+        <div class="national-comparison">
+            <strong>Promedios Nacionales:</strong> Vivienda: $350,000 | Alquiler: $1,400/mes | Desempleo: 4.0% | Ingreso: $75,000
+        </div>
+    </div>
+    <div class="state-calc-note">
+        <strong>Nota:</strong> Los cálculos utilizan las tasas de {{STATE_NAME}}. Para datos actualizados: <a href="{{STATE_LABOR_WEBSITE}}">Empleo</a> | <a href="{{STATE_REALTOR_WEBSITE}}">Vivienda</a> | <a href="{{STATE_ECON_DEV_WEBSITE}}">Desarrollo Económico</a>
+    </div>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presente las preguntas: "¿Por qué la gasolina cuesta más en verano? ¿Por qué las rosas triplican su precio el 14 de febrero?"</li>
+                    <li>Permita respuestas breves. Revele: "Todas se explican con oferta y demanda."</li>
+                    <li>Conecte con L-48 (mecanismo de precios) y L-49 (escasez como causa).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuje curvas de demanda (pendiente descendente) y oferta (pendiente ascendente).</li>
+                    <li>Muestre cómo se intersectan en el equilibrio. Pregunte: "¿Qué pasa si el precio está arriba/abajo?"</li>
+                    <li>Verificación: "¿Por qué la demanda baja cuando el precio sube?" (Efecto sustitución, efecto ingreso, utilidad marginal)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Tabla de mercado de autos. Identifique equilibrio, excedente, escasez.</li>
+                    <li><strong>Parte B (8 min):</strong> Desplazamientos de demanda. Use ejemplos reales y actuales.</li>
+                    <li><strong>Parte C (8 min):</strong> Desplazamientos de oferta. Conecte con noticias recientes.</li>
+                    <li><strong>Parte D (6 min):</strong> Aplicación práctica: programar compras estratégicamente.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P2 (gasolina en verano) y P4 (elección de carrera).</li>
+                    <li>Anticipe el Día 2: Análisis de mercados locales y elasticidad.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione gráficas de oferta/demanda pre-dibujadas para referencia.</li>
+                <li>Use analogías concretas: "Imagina una subasta de entradas para un concierto popular."</li>
+                <li>Trabaje la tabla de equilibrio como clase antes del trabajo individual.</li>
+                <li>Proporcione lista de desplazadores de oferta vs. demanda como referencia.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue precios actuales de vivienda local y analice los factores.</li>
+                <li>Calcule elasticidad precio de diferentes bienes usando datos reales.</li>
+                <li>Analice cómo la política monetaria (tasas de interés) afecta la demanda de vivienda.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Identificando el Equilibrio del Mercado</div>
+            <div class="answer-item"><strong>Precio de equilibrio:</strong> $20,000 (donde cantidad demandada = cantidad ofrecida = 300)</div>
+            <div class="answer-item"><strong>A $30,000:</strong> Excedente de 300 autos (oferta 400 > demanda 100). El precio bajará.</div>
+            <div class="answer-item"><strong>A $10,000:</strong> Escasez de 400 autos (demanda 500 > oferta 100). El precio subirá.</div>
+            <div class="answer-note">Punto clave: Los mercados tienden naturalmente hacia el equilibrio. Los precios suben para eliminar escasez y bajan para eliminar excedentes.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Factores que Desplazan la Demanda</div>
+            <div class="answer-item"><strong>Ingresos aumentan 10%:</strong> Demanda AUMENTA (→) - Mayor poder adquisitivo.</div>
+            <div class="answer-item"><strong>Precio de sustituto (pollo) sube:</strong> Demanda de carne AUMENTA (→) - Consumidores cambian al sustituto más barato.</div>
+            <div class="answer-item"><strong>Tendencia de TikTok:</strong> Demanda AUMENTA (→) - Cambio en gustos/preferencias.</div>
+            <div class="answer-item"><strong>Expectativa de recesión:</strong> Demanda DISMINUYE (←) - Consumidores retrasan compras.</div>
+            <div class="answer-item"><strong>Población crece 15%:</strong> Demanda AUMENTA (→) - Más compradores en el mercado.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Factores que Desplazan la Oferta</div>
+            <div class="answer-item"><strong>Costos de materiales bajan:</strong> Oferta AUMENTA (→) - Más rentable producir.</div>
+            <div class="answer-item"><strong>Nueva tecnología:</strong> Oferta AUMENTA (→) - Mayor eficiencia de producción.</div>
+            <div class="answer-item"><strong>Refinería cierra:</strong> Oferta DISMINUYE (←) - Menos capacidad de producción.</div>
+            <div class="answer-item"><strong>Impuestos a productores:</strong> Oferta DISMINUYE (←) - Mayores costos de producción.</div>
+            <div class="answer-item"><strong>10 empresas nuevas entran:</strong> Oferta AUMENTA (→) - Más vendedores en el mercado.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Hay excedente y el precio baja) - Cuando el precio está arriba del equilibrio, los vendedores no pueden vender todo su inventario, así que bajan precios.</div>
+            <div class="answer-item"><strong>2.</strong> La demanda de gasolina AUMENTA en verano porque más personas viajan y conducen (vacaciones, viajes por carretera). La oferta permanece relativamente constante. Mayor demanda con misma oferta = precios más altos. Es un desplazamiento de demanda a la derecha.</div>
+            <div class="answer-item"><strong>3.</strong> La demanda de café DISMINUIRÍA (desplazamiento a la izquierda) debido al cambio negativo en gustos/preferencias por salud. Resultado: precio del café BAJA, cantidad vendida DISMINUYE.</div>
+            <div class="answer-item"><strong>4.</strong> Elegir carreras donde la demanda de trabajadores está CRECIENDO (industrias en expansión) y la oferta es LIMITADA (habilidades especializadas, pocos graduados). Esta combinación = salarios más altos. Ejemplos: salud (envejecimiento poblacional), tecnología, oficios especializados donde los trabajadores se jubilan.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de la compra, análisis de factores de demanda (temporada, tendencias, población) y oferta (producción, inventarios, competidores), y conclusión lógica sobre el mejor momento para comprar.</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Los precios los fija el gobierno o las empresas arbitrariamente."</td>
+                <td>En economías de mercado, los precios emergen de la interacción entre compradores y vendedores. Las empresas que fijan precios muy altos pierden clientes ante competidores; las que fijan precios muy bajos no pueden sostener operaciones. El mercado determina el precio de equilibrio.</td>
+            </tr>
+            <tr>
+                <td>"Un cambio de precio causa un desplazamiento de la curva."</td>
+                <td>Un cambio de precio causa un MOVIMIENTO A LO LARGO de la curva, no un desplazamiento. Los desplazamientos son causados por factores DIFERENTES al precio del bien (ingreso, gustos, costos de producción, tecnología, etc.).</td>
+            </tr>
+            <tr>
+                <td>"Los precios altos siempre son malos para los consumidores."</td>
+                <td>Los precios altos señalan escasez e incentivan: 1) a consumidores a conservar recursos escasos, 2) a productores a aumentar oferta, 3) a innovadores a desarrollar alternativas. Sin señales de precios altos, la escasez sería peor (colas, racionamiento, mercado negro).</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: L-50 | Edición de {{STATE_NAME}}</span>
+    </div>
+
+</body>
+</html>

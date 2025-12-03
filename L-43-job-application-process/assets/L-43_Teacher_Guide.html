@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-43 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .answer-note { background: var(--warning-light); border-left: 3px solid var(--warning); padding: 6px 10px; font-size: 9pt; font-style: italic; color: #92400e; margin: 6px 0; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 15.3 — Proceso de Solicitud de Empleo</h2>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr>
+            <th>Tiempo</th>
+            <th>Materiales</th>
+            <th>Prerrequisitos</th>
+        </tr>
+        <tr>
+            <td>45-50 Minutos</td>
+            <td>Paquete de Actividades, Simulador de Solicitudes</td>
+            <td>L-42: Currículum y Marca Personal</td>
+        </tr>
+    </table>
+
+    <!-- FLUJO DE LA LECCIÓN -->
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Lea la historia de Alex en voz alta—enfatice el contraste entre aplicar aleatoriamente vs. estratégicamente.</li>
+                    <li>Discusión: "¿Por qué creen que la personalización y el networking marcaron la diferencia?"</li>
+                    <li>Comparta la estadística: 70-80% de empleos no se publican; 70% se consiguen por networking.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Revise los 5 términos clave. Explique cómo funciona el ATS con una analogía de filtro.</li>
+                    <li>Enfatice la diferencia entre cualificaciones requeridas (eliminatorias) vs. preferidas (ventaja competitiva).</li>
+                    <li>Verificación rápida: "Si cumplen el 70% de los requisitos, ¿deberían aplicar?" (Sí, especialmente si cumplen los esenciales).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (10 min):</strong> Análisis de descripción de trabajo. Trabaje el ejemplo juntos, identificando requeridos vs. preferidos.</li>
+                    <li><strong>Parte B (8 min):</strong> Optimización ATS. Discuta por qué cada elemento es recomendado o no.</li>
+                    <li><strong>Parte C (10 min):</strong> Estructura de carta. Los estudiantes redactan párrafo de apertura individualmente.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>Complete en clase o asigne como tarea.</li>
+                    <li>Revise P3 (seguimiento) y P5 (reflexión personal).</li>
+                    <li>Anticipe el Día 2: Práctica con simulador de solicitudes y revisión entre pares.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIACIÓN -->
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Proporcione una plantilla de carta de presentación con frases de inicio.</li>
+                <li>Use colores para codificar requisitos vs. preferencias en la descripción.</li>
+                <li>Trabaje en parejas para el análisis de descripción de trabajo.</li>
+                <li>Proporcione lista de palabras clave comunes por industria.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigue y analice descripciones de trabajo reales en su campo de interés.</li>
+                <li>Cree un sistema de seguimiento de solicitudes completo.</li>
+                <li>Practique networking haciendo una entrevista informativa simulada.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CLAVE DE RESPUESTAS (nueva página) -->
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Descripción de Trabajo</div>
+            <div class="answer-item"><strong>1. Cualificaciones REQUERIDAS:</strong> Título en marketing o campo relacionado, conocimiento de redes sociales, habilidades de comunicación escrita.</div>
+            <div class="answer-item"><strong>2. Cualificaciones PREFERIDAS:</strong> Experiencia con Google Analytics, certificación en marketing digital, bilingüe español-inglés.</div>
+            <div class="answer-item"><strong>3. Palabras clave:</strong> Marketing digital, redes sociales, contenido, métricas, campañas, comunicación, Google Analytics, equipo creativo.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Optimización para ATS</div>
+            <div class="answer-item"><strong>Usar tablas:</strong> NO RECOMENDADO — Las tablas pueden confundir al ATS y causar que la información se lea incorrectamente.</div>
+            <div class="answer-item"><strong>Encabezados estándar:</strong> RECOMENDADO — Los ATS están programados para reconocer términos como "Experiencia", "Educación", "Habilidades".</div>
+            <div class="answer-item"><strong>Siglas Y términos completos:</strong> RECOMENDADO — Ejemplo: "Maestría en Administración de Empresas (MBA)" asegura que el ATS reconozca ambas formas.</div>
+            <div class="answer-item"><strong>Gráficos creativos:</strong> NO RECOMENDADO — Los sistemas ATS no pueden leer imágenes ni elementos gráficos.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Estructura de Carta de Presentación</div>
+            <div class="answer-note">Ejemplo de párrafo de apertura efectivo: "Con un profundo interés en el marketing digital y experiencia práctica gestionando cuentas de redes sociales que generaron un incremento del 40% en engagement, me entusiasma la oportunidad de unirme a [Empresa] como Asistente de Marketing Digital. Mi combinación de formación académica en marketing y habilidades bilingües me posiciona para contribuir efectivamente a su equipo creativo."</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>1.</strong> B (Filtrar y clasificar solicitudes antes de revisión humana)</div>
+            <div class="answer-item"><strong>2.</strong> Personalizar el currículum aumenta las posibilidades de pasar el filtro ATS al incluir palabras clave específicas del puesto. También demuestra al empleador que usted ha investigado la posición y comprende los requisitos, en lugar de enviar una solicitud genérica.</div>
+            <div class="answer-item"><strong>3.</strong> Maya debe esperar 1-2 semanas después de la fecha límite. Su mensaje debe: mencionar el puesto específico, reafirmar su interés, destacar brevemente una cualificación relevante, y ofrecer proporcionar información adicional.</div>
+            <div class="answer-item"><strong>4.</strong> Las cualificaciones REQUERIDAS son esenciales—sin ellas, probablemente será descalificado. Las PREFERIDAS son deseables pero no eliminatorias. Considere aplicar si cumple ~70-80% de los requisitos, especialmente los esenciales. No deje que los preferidos lo desanimen.</div>
+            <div class="answer-item"><strong>5.</strong> <em>Las respuestas variarán. Busque: identificación de obstáculos específicos (falta de experiencia, industria competitiva, brechas en habilidades) y estrategias concretas de esta lección (networking, personalización, optimización ATS, seguimiento profesional).</em></div>
+        </div>
+
+        <!-- CONCEPTOS ERRÓNEOS COMUNES -->
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr>
+                <th>Concepto Erróneo</th>
+                <th>Aclaración</th>
+            </tr>
+            <tr>
+                <td>"Mientras más solicitudes envíe, mejor."</td>
+                <td>La calidad supera a la cantidad. 10 solicitudes personalizadas son más efectivas que 50 genéricas. Las solicitudes masivas no personalizadas rara vez pasan los filtros ATS o impresionan a los reclutadores.</td>
+            </tr>
+            <tr>
+                <td>"Si no cumplo todos los requisitos, no debo aplicar."</td>
+                <td>Las descripciones de trabajo a menudo describen al candidato "ideal". Si cumple 70-80% de los requisitos esenciales, vale la pena aplicar. Los empleadores frecuentemente contratan candidatos que no cumplen todos los preferidos.</td>
+            </tr>
+            <tr>
+                <td>"El networking solo sirve si ya conozco a alguien en la empresa."</td>
+                <td>El networking se puede construir activamente: entrevistas informativas, grupos profesionales, eventos de la industria, y LinkedIn. Las conexiones nuevas pueden ser tan valiosas como las existentes.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 15.3</span>
+    </div>
+
+</body>
+</html>

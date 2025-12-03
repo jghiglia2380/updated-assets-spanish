@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-64 Guía del Maestro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo 64 — Riesgo y Rendimiento en las Inversiones</h2>
+    </div>
+
+    <div class="section-header">Resumen</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerrequisitos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>L-47: Tipos de Inversión, L-62: Estrategias de Portafolio</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Presenta la historia de Ana—enfatiza que vendió en pánico y perdió la recuperación.</li>
+                    <li>Discusión: "¿Qué error cometió? ¿Cómo debería haber evaluado su tolerancia ANTES?"</li>
+                    <li>Punto clave: La tolerancia al riesgo real se revela durante las caídas, no durante las subidas.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Dibuja diagrama de compensación riesgo-rendimiento en el pizarrón.</li>
+                    <li>Explica riesgo sistemático vs. no sistemático con ejemplos concretos.</li>
+                    <li>Verificación rápida: "¿Por qué un fondo de 1000 acciones tiene menos riesgo que 1 acción?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Análisis de opciones—enfatiza que mayor rendimiento ≠ mejor inversión.</li>
+                    <li><strong>Parte B (12 min):</strong> Construcción de carteras—este es el momento clave para entender apropiado para la edad.</li>
+                    <li><strong>Parte C (5 min):</strong> Escenario de crisis 2008—conecta con decisiones emocionales reales.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">COMPRUEBA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P3 sobre interés compuesto es revelador—$1.2M de diferencia durante 40 años.</li>
+                    <li>P5 autoevaluación debe producir reflexión honesta sobre temperamento personal.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Usa analogía de "montaña rusa"—puedes elegir la intensidad del viaje.</li>
+                <li>Proporciona asignaciones de cartera sugeridas en lugar de construir desde cero.</li>
+                <li>Enfócate en el concepto general sin cálculos complejos de métricas.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Calcula desviación estándar y ratio de Sharpe manualmente para una inversión.</li>
+                <li>Investiga rendimientos históricos durante crisis específicas (2000, 2008, 2020).</li>
+                <li>Diseña cartera para un perfil de inversor complejo con múltiples restricciones.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Análisis de Opciones</div>
+            <div class="answer-item"><strong>1. Mejor rendimiento ajustado por riesgo:</strong> Fondo equilibrado (ratio Sharpe 0.45). Proporciona buen rendimiento (7%) con volatilidad moderada (10%). Mayor rendimiento bruto no significa mejor inversión.</div>
+            <div class="answer-item"><strong>2. Mercados emergentes vs. Fondo equilibrado:</strong> Mercados emergentes tiene volatilidad extrema (35% desv. est.) que no compensa adecuadamente el rendimiento adicional. Ratio Sharpe de 0.36 vs. 0.45 significa peor rendimiento por unidad de riesgo tomado.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Carteras por Perfil</div>
+            <div class="answer-item"><strong>María (25, agresivo):</strong> Sugerido: A:0% B:0% C:10% D:50% E:25% F:15% = 100%. Con 40 años de horizonte, puede tolerar alta volatilidad para máximo crecimiento.</div>
+            <div class="answer-item"><strong>David (45, moderado):</strong> Sugerido: A:5% B:20% C:20% D:40% E:10% F:5% = 100%. Balance entre crecimiento y protección con 20 años de horizonte.</div>
+            <div class="answer-item"><strong>Sharon (63, conservador):</strong> Sugerido: A:10% B:40% C:25% D:25% E:0% F:0% = 100%. Preservación del capital es prioridad con 2 años hasta jubilación.</div>
+            <div class="answer-item"><strong>¿Por qué cartera de María es inapropiada para Sharon?</strong> Una caída del 30-40% en 2 años destruiría los ahorros de jubilación de Sharon. No tiene tiempo para recuperarse. María tiene 40 años para recuperarse de cualquier caída.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C y Comprueba Tu Comprensión</div>
+            <div class="answer-item"><strong>Escenario 2008:</strong> La mejor decisión con horizonte de 5 años era Opción B (mantener). La historia muestra recuperación completa en 4 años con ganancia significativa en 5. Vender bloqueó pérdidas permanentemente.</div>
+            <div class="answer-item"><strong>1.</strong> C (80-90% acciones): Con 40 años de horizonte, puede y debe tomar riesgo para máximo crecimiento a largo plazo.</div>
+            <div class="answer-item"><strong>2.</strong> Sistemático afecta TODO el mercado (recesiones, inflación)—no se puede diversificar. No sistemático es específico de empresas—SÍ se puede reducir teniendo muchas inversiones diferentes.</div>
+            <div class="calc-display"><strong>3.</strong> Al 2%: $500 × 12 × 40 = $240,000 base
+Crecimiento compuesto → $366,000
+Al 8%: Crecimiento compuesto → $1,555,000
+Diferencia: $1,189,000
+
+El "precio" del rendimiento más alto es volatilidad—años con pérdidas del 20-30%—pero el tiempo suaviza esa volatilidad.</div>
+            <div class="answer-item"><strong>4.</strong> Porque el ratio de Sharpe mide rendimiento POR UNIDAD DE RIESGO. La inversión de 15% tiene volatilidad extrema (35%) que no justifica el rendimiento extra comparado con la de 7% (10% volatilidad).</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"El rendimiento más alto siempre es la mejor inversión."</td><td>El rendimiento AJUSTADO POR RIESGO (ratio de Sharpe) es la métrica correcta. Una inversión con 15% de rendimiento y 35% de volatilidad puede ser peor que una con 7% y 10% de volatilidad.</td></tr>
+            <tr><td>"Soy joven, puedo tomar cualquier riesgo."</td><td>La tolerancia al riesgo tiene tres componentes: horizonte temporal, situación financiera Y temperamento emocional. Si entras en pánico durante caídas, inversiones de alto riesgo te llevarán a vender en el peor momento.</td></tr>
+            <tr><td>"La diversificación elimina todo el riesgo."</td><td>La diversificación elimina riesgo NO sistemático (específico de empresas) pero NO puede eliminar riesgo sistemático (de mercado). Una cartera diversificada aún caerá durante recesiones.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo 64</span>
+    </div>
+
+</body>
+</html>

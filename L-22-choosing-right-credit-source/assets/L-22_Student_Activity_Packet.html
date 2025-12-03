@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-22 Paquete de Actividades del Estudiante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --primary-dark: #4338ca;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header h1 { font-size: 14pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 11pt; font-weight: 400; margin: 4px 0 0; opacity: 0.9; }
+
+        .challenge-box { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 5px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 20px; }
+        .challenge-title { font-size: 12pt; font-weight: 700; color: #92400e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .challenge-content { font-size: 10pt; color: #78350f; line-height: 1.6; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 8px 14px; font-size: 11pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 20px 0 12px; }
+
+        .objectives-list { background: var(--bg-light); border-radius: 6px; padding: 14px 18px; margin-bottom: 16px; }
+        .objectives-list li { margin-bottom: 6px; padding-left: 8px; font-size: 10pt; }
+
+        .concept-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 9pt; }
+        .concept-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+        .concept-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+        .concept-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .sources-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 8.5pt; }
+        .sources-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+        .sources-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .sources-table tr:nth-child(even) { background: var(--bg-light); }
+
+        .activity-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-inside: avoid; }
+        .activity-title { font-size: 11pt; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .activity-instructions { font-size: 9pt; color: var(--text-medium); margin-bottom: 12px; padding: 10px; background: var(--bg-light); border-radius: 4px; }
+
+        .scenario-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+        .scenario-title { font-weight: 700; color: #0369a1; font-size: 10pt; margin-bottom: 6px; }
+        .scenario-content { font-size: 9pt; color: #1e293b; }
+
+        .comparison-box { border: 2px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; }
+        .comparison-title { font-weight: 700; font-size: 9pt; color: var(--primary-dark); margin-bottom: 8px; }
+        .comparison-row { display: flex; gap: 12px; margin-bottom: 6px; }
+        .comparison-item { flex: 1; font-size: 8.5pt; }
+        .comparison-label { font-weight: 600; color: var(--text-medium); }
+
+        .write-lines { border-bottom: 1px solid var(--border); min-height: 24px; margin: 8px 0; }
+        .write-box { border: 1px solid var(--border); border-radius: 4px; min-height: 70px; padding: 10px; margin: 10px 0; background: white; }
+        .write-label { font-size: 8pt; font-weight: 600; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; }
+
+        .question-block { margin-bottom: 16px; padding: 14px; background: var(--bg-light); border-radius: 6px; page-break-inside: avoid; }
+        .question-text { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 10pt; }
+        .question-hint { font-size: 8pt; color: var(--text-light); font-style: italic; margin-bottom: 8px; }
+
+        .footer { margin-top: 24px; padding-top: 12px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Paquete de Actividades del Estudiante: Capítulo 5.2 — Eligiendo la Fuente Correcta de Crédito</h2>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">EL DESAFÍO</div>
+        <div class="challenge-content">
+            <strong>Marcus</strong> necesita $1,500 de emergencia para una reparación de auto y debe elegir entre diferentes fuentes de crédito. Su cooperativa de crédito ofrece una TAE del 8%, su tarjeta de crédito tiene una TAE del 18%, y una tienda de préstamos de día de pago cercana puede darle el dinero hoy pero con costos equivalentes a una TAE del 400%. ¿Qué opción le costará menos a largo plazo? ¿Cómo debería Marcus comparar estas opciones para tomar la mejor decisión?
+        </div>
+    </div>
+
+    <div class="section-header">Objetivos de Aprendizaje</div>
+    <ul class="objectives-list">
+        <li>Comprender las diferencias clave entre fuentes de crédito como bancos, cooperativas de crédito y prestamistas de día de pago</li>
+        <li>Comparar los términos, tasas de interés y comisiones asociadas con diferentes opciones de crédito</li>
+        <li>Evaluar su propia solvencia crediticia y determinar qué fuente de crédito es más adecuada</li>
+        <li>Analizar escenarios reales para evaluar cómo las decisiones de préstamo impactan la salud financiera a largo plazo</li>
+    </ul>
+
+    <div class="section-header">Conceptos Clave</div>
+    <table class="concept-table">
+        <tr>
+            <th style="width: 25%;">Término</th>
+            <th>Definición</th>
+        </tr>
+        <tr>
+            <td><strong>Tasa Anual Efectiva (TAE)</strong></td>
+            <td>El costo anual de pedir dinero prestado, expresado como porcentaje que incluye intereses y comisiones</td>
+        </tr>
+        <tr>
+            <td><strong>Garantía</strong></td>
+            <td>Un activo que un prestatario ofrece como seguridad para un préstamo (ejemplo: auto, casa)</td>
+        </tr>
+        <tr>
+            <td><strong>Crédito en Cuotas</strong></td>
+            <td>Un préstamo que se paga en cantidades mensuales fijas durante un período establecido</td>
+        </tr>
+        <tr>
+            <td><strong>Crédito sin Cuotas</strong></td>
+            <td>Crédito con montos de pago variables, como tarjetas de crédito con línea rotativa</td>
+        </tr>
+        <tr>
+            <td><strong>Solvencia Crediticia</strong></td>
+            <td>Una medida de la probabilidad de que un prestatario pague la deuda según su historial</td>
+        </tr>
+    </table>
+
+    <div class="section-header">Comparación de Fuentes de Crédito</div>
+    <table class="sources-table">
+        <tr>
+            <th>Fuente</th>
+            <th>Tasas Típicas</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+        </tr>
+        <tr>
+            <td><strong>Bancos Comerciales</strong></td>
+            <td>5-15% TAE</td>
+            <td>Amplia gama de productos; tasas competitivas</td>
+            <td>Requisitos estrictos; necesita buen crédito</td>
+        </tr>
+        <tr>
+            <td><strong>Cooperativas de Crédito</strong></td>
+            <td>4-12% TAE</td>
+            <td>Sin fines de lucro; tasas más bajas; servicio personalizado</td>
+            <td>Requiere membresía; menos ubicaciones</td>
+        </tr>
+        <tr>
+            <td><strong>Prestamistas en Línea</strong></td>
+            <td>6-36% TAE</td>
+            <td>Proceso rápido; criterios flexibles</td>
+            <td>Tasas pueden ser altas; menos regulación</td>
+        </tr>
+        <tr>
+            <td><strong>Compañías Financieras</strong></td>
+            <td>15-36% TAE</td>
+            <td>Acepta crédito imperfecto</td>
+            <td>Tasas más altas que bancos</td>
+        </tr>
+        <tr>
+            <td><strong>Crédito Minorista</strong></td>
+            <td>20-30% TAE</td>
+            <td>Promociones de 0% inicial</td>
+            <td>Tasas estándar muy altas; interés diferido</td>
+        </tr>
+        <tr>
+            <td><strong>Prestamistas de Día de Pago</strong></td>
+            <td>300-500% TAE</td>
+            <td>Acceso rápido; sin verificación de crédito</td>
+            <td>Costos extremos; ciclos de deuda</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Aplícalo</div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte A: Análisis de Escenarios de Crédito</div>
+        <div class="activity-instructions">Para cada escenario, identifique la mejor fuente de crédito y explique su razonamiento.</div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 1: Emergencia Médica</div>
+            <div class="scenario-content">
+                <strong>Ana</strong> necesita $2,000 para una factura médica inesperada. Tiene un puntaje crediticio de 680 y es miembro de una cooperativa de crédito. También tiene una tarjeta de crédito con $3,000 de límite disponible al 19% TAE.
+            </div>
+        </div>
+        <div class="write-label">Mejor Opción de Crédito:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Razonamiento (considere TAE, términos y costo total):</div>
+        <div class="write-box"></div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 2: Compra de Auto</div>
+            <div class="scenario-content">
+                <strong>Carlos</strong> quiere comprar un auto usado de $15,000. Tiene un puntaje de 740, $3,000 para enganche, y ha recibido ofertas de su banco (4.5% TAE, 48 meses), el concesionario (6.9% TAE, 60 meses), y un prestamista en línea (5.2% TAE, 48 meses).
+            </div>
+        </div>
+        <div class="write-label">Mejor Opción de Crédito:</div>
+        <div class="write-lines"></div>
+        <div class="write-label">Cálculo del Costo Total (muestra tu trabajo):</div>
+        <div class="write-box"></div>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 3: Emergencia Extrema</div>
+            <div class="scenario-content">
+                <strong>Roberto</strong> necesita $500 urgentemente para evitar un desalojo. Tiene mal crédito (520), no tiene tarjetas de crédito, y no califica para préstamos bancarios. Un prestamista de día de pago puede darle el dinero inmediatamente.
+            </div>
+        </div>
+        <div class="write-label">Análisis de la Situación:</div>
+        <div class="write-box"></div>
+        <div class="write-label">Alternativas Posibles (enumere al menos 3):</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte B: Calculadora de Costo de Crédito</div>
+        <div class="activity-instructions">Complete la tabla para comparar el costo real de diferentes opciones de crédito para un préstamo de $3,000.</div>
+
+        <table class="sources-table">
+            <tr>
+                <th>Factor</th>
+                <th>Cooperativa de Crédito<br>(8% TAE, 12 meses)</th>
+                <th>Tarjeta de Crédito<br>(18% TAE, pago mínimo)</th>
+                <th>Préstamo de Día de Pago<br>(400% TAE equiv.)</th>
+            </tr>
+            <tr>
+                <td><strong>Monto del Préstamo</strong></td>
+                <td>$3,000</td>
+                <td>$3,000</td>
+                <td>$3,000</td>
+            </tr>
+            <tr>
+                <td><strong>Pago Mensual Estimado</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Interés Total Pagado</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Costo Total del Préstamo</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Tiempo para Pagar</strong></td>
+                <td style="height: 35px;"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="write-label">Análisis: ¿Cuánto más costará el préstamo de día de pago comparado con la cooperativa de crédito?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="activity-section">
+        <div class="activity-title">Parte C: Plan Personal de Decisión de Crédito</div>
+        <div class="activity-instructions">Desarrolle su propio marco para tomar decisiones de crédito informadas.</div>
+
+        <div class="write-label">1. Mi Jerarquía de Fuentes de Crédito (enumere en orden de preferencia):</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">2. Factores que Consideraré Antes de Pedir Prestado:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">3. Señales de Advertencia de Préstamos Predatorios que Evitaré:</div>
+        <div class="write-box"></div>
+
+        <div class="write-label">4. Alternativas al Crédito para Emergencias:</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section-header">Comprueba Tu Comprensión</div>
+
+    <div class="question-block">
+        <div class="question-text">1. ¿Por qué las cooperativas de crédito generalmente ofrecen tasas más bajas que los bancos comerciales?</div>
+        <div class="question-hint">Pista: Considere la estructura organizacional y el propósito de cada tipo de institución.</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">2. Un prestatario con un puntaje crediticio de 600 necesita $5,000. ¿Por qué podría tener dificultades para obtener un préstamo de un banco comercial y qué alternativas tendría?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">3. Calcule: Si pide prestado $1,000 a una TAE del 8% por 1 año, ¿cuánto interés pagará? Si la TAE es del 300% (préstamo de día de pago), ¿cuánto sería el interés?</div>
+        <div class="question-hint">Pista: Interés Simple = Capital × Tasa × Tiempo</div>
+        <div class="write-label">Muestra tu trabajo:</div>
+        <div class="write-box"></div>
+        <div class="write-label">Respuesta:</div>
+        <div class="write-lines"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">4. ¿Por qué cree que los prestamistas de día de pago siguen siendo legales a pesar de sus altos costos? ¿Qué alternativas podría usar alguien en una emergencia financiera?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="question-block">
+        <div class="question-text">5. Reflexión: Piense en una situación futura donde podría necesitar pedir dinero prestado. ¿Qué tipo de crédito elegiría y por qué? ¿Cómo se prepararía para obtener las mejores tasas posibles?</div>
+        <div class="write-box"></div>
+    </div>
+
+    <div class="footer">
+        <span>© PFL Academy | pflacademy.co</span>
+        <span>Capítulo 5.2: Eligiendo la Fuente Correcta de Crédito</span>
+    </div>
+
+</body>
+</html>
