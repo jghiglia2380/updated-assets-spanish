@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+PFL Academy State-Agnostic Template
+L-Chapter: L-70
+Chapter Title: Factors of Production
+Oklahoma Reference: Chapter X.X
+
+Variables used in this template:
+- {{STATE_NAME}} - Full state name (e.g., Kentucky, Georgia)
+- {{CHAPTER_NUMBER}} - State-specific chapter number (e.g., 2.1, 1.4)
+- {{CHAPTER_ID}} - L-chapter identifier (e.g., L-70)
+- {{CHAPTER_TITLE}} - Always: Factores de Producción
+
+This template will be processed by generate_state_html.py to create
+state-specific versions with correct chapter numbering.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Maestro L-70</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .calc-display { font-family: 'Courier New', monospace; background: var(--bg-light); padding: 8px 10px; border-radius: 4px; margin: 6px 0; font-size: 8.5pt; line-height: 1.5; white-space: pre-line; }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo {{CHAPTER_NUMBER}} — {{CHAPTER_TITLE}}</h2>
+    </div>
+
+    <div class="section-header">Resumen General</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Requisitos Previos</th></tr>
+        <tr><td>45-50 Minutos</td><td>Paquete de Actividades del Estudiante</td><td>Ninguno (concepto económico fundamental)</td></tr>
+    </table>
+
+    <div class="section-header">Flujo de la Lección</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">EL DESAFÍO</div>
+                <ul>
+                    <li>Usar el ejemplo del teléfono inteligente—enfatizar la cadena de suministro global y la coordinación de factores.</li>
+                    <li>Discusión: "¿Qué recursos se usaron en tu teléfono? ¿Quién trabajó en él? ¿Qué herramientas se utilizaron?"</li>
+                    <li>Introducir: Estos insumos se llaman los cuatro factores de producción.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CENTRALES</div>
+                <ul>
+                    <li>Explicar cada factor sistemáticamente: Tierra (recursos naturales), Trabajo (esfuerzo humano), Capital (herramientas/equipo NO dinero), Espíritu Empresarial (riesgo/innovación).</li>
+                    <li>Enfatizar los pagos de factores: Renta, Salarios, Interés, Beneficio—cada dólar de ingreso proviene de uno de estos.</li>
+                    <li>Verificación rápida: "¿El dinero es un factor de producción?" (Respuesta: ¡No! Capital significa herramientas físicas, no efectivo.)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">25-30 min</div>
+            <div class="flow-content">
+                <div class="flow-title">APLÍCALO</div>
+                <ul>
+                    <li><strong>Parte A (8 min):</strong> Clasificación de factores—asegurarse de que los estudiantes entiendan que Tierra incluye recursos intangibles (derechos de pesca, luz solar), Espíritu Empresarial es riesgo/innovación no solo trabajo.</li>
+                    <li><strong>Parte B (10 min):</strong> Análisis de cafetería—los estudiantes calculan el beneficio como ingresos menos TODOS los costos de factores. Enfatizar que el beneficio es lo que QUEDA.</li>
+                    <li><strong>Parte C (8 min):</strong> Contribución personal—hacerlo real: "¡TÚ eres un factor! Tus salarios provienen de proporcionar trabajo. La educación aumenta el valor de tu trabajo."</li>
+                    <li><strong>Parte D (7 min):</strong> Diseño de negocio—los estudiantes deben especificar los cuatro factores. Verificar que entiendan que cada negocio necesita los cuatro.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">VERIFICA TU COMPRENSIÓN</div>
+                <ul>
+                    <li>P2 (capital humano/trabajo) y P3 (riesgo empresarial) son las preguntas conceptuales clave.</li>
+                    <li>La reflexión personal P4 debe producir acciones concretas (ej., "obtener una certificación," "tomar un curso de economía").</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Enfocarse en ejemplos concretos: Tierra = tierra/ubicación, Trabajo = trabajadores, Capital = máquinas, Espíritu Empresarial = dueño del negocio.</li>
+                <li>Usar cajas de factores codificadas por color para reforzar categorías visualmente.</li>
+                <li>Proporcionar orientación de cálculo: "Sumar renta + salarios + interés + otros. Luego restar de los ingresos."</li>
+                <li>Para Parte D, sugerir negocios simples: cuidado de césped, tutoría, cuidado de niños.</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigar productividad de factores: ¿Cuántos ingresos genera cada factor por dólar gastado?</li>
+                <li>Comparar industrias intensivas en factores: ¿Por qué la tecnología es intensiva en trabajo mientras que la agricultura es intensiva en tierra/capital?</li>
+                <li>Analizar la automatización: ¿Cómo cambia reemplazar trabajo con capital los pagos de factores?</li>
+                <li>Entrevistar a dueño de negocio local: Mapear su uso y costos reales de factores.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte A: Clasificación de Factores</div>
+            <div class="answer-item"><strong>1.</strong> Derechos de pesca oceánica = <strong>T</strong> (Tierra—recurso natural, aunque sea intangible)</div>
+            <div class="answer-item"><strong>2.</strong> Brazo robótico de fábrica = <strong>C</strong> (Capital—herramienta de producción hecha por humanos)</div>
+            <div class="answer-item"><strong>3.</strong> Desarrollador de software = <strong>TR</strong> (Trabajo—esfuerzo mental humano)</div>
+            <div class="answer-item"><strong>4.</strong> Visión del dueño del negocio = <strong>E</strong> (Espíritu Empresarial—innovación y pensamiento estratégico)</div>
+            <div class="answer-item"><strong>5.</strong> Depósito de petróleo crudo = <strong>T</strong> (Tierra—recurso natural)</div>
+            <div class="answer-item"><strong>6.</strong> Camión de reparto = <strong>C</strong> (Capital—equipo hecho por humanos para producción)</div>
+            <div class="answer-item"><strong>7.</strong> Enfermera registrada = <strong>TR</strong> (Trabajo—esfuerzo y habilidades humanas)</div>
+            <div class="answer-item"><strong>8.</strong> Iniciar un camión de comida = <strong>E</strong> (Espíritu Empresarial—tomar riesgo para iniciar negocio)</div>
+            <div class="answer-item"><strong>9.</strong> Luz solar para paneles solares = <strong>T</strong> (Tierra—recurso natural/fuente de energía)</div>
+            <div class="answer-item"><strong>10.</strong> Sistema de caja registradora = <strong>C</strong> (Capital—herramienta usada en producción/ventas)</div>
+            <div class="answer-item"><strong>11.</strong> Experiencia del gerente = <strong>TR</strong> (Trabajo—a menos que sea dueño del negocio, es su esfuerzo laboral)</div>
+            <div class="answer-item"><strong>12.</strong> Riesgo de fracaso empresarial = <strong>E</strong> (Espíritu Empresarial—soportar el riesgo es el papel definitorio del empresario)</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte B: Análisis de Factores del Negocio</div>
+            <div class="calc-display">Costos Totales = $3,000 + $12,000 + $400 + $8,000 = $23,400
+
+Beneficio del Empresario = $31,200 - $23,400 = $7,800/mes</div>
+            <div class="answer-item"><strong>¿Qué factor cuesta MÁS?</strong> Trabajo (Salarios a $12,000/mes—más del 50% de los costos). Esto es típico para negocios de servicios.</div>
+            <div class="answer-item"><strong>¿Cómo podría el dueño aumentar el beneficio?</strong> Posibles respuestas: Aumentar precios (si la demanda lo permite), atraer más clientes (aumentar volumen), reducir desperdicio/costos, mejorar productividad laboral, negociar renta más baja, optimizar la programación de empleados.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte C: Tu Contribución Personal de Factores</div>
+            <div class="answer-item"><strong>Cálculo de Ejemplo:</strong> Si el estudiante trabaja en comercio minorista a $15/hora por 20 horas/semana:</div>
+            <div class="calc-display">Ingreso Semanal = $15 × 20 = $300
+Ingreso Laboral Anual = $300 × 52 = $15,600</div>
+            <div class="answer-item"><strong>Capital Humano:</strong> Si el estudiante planea obtener un título universitario (aumento del +50%), ingreso anual proyectado = $15,600 × 1.50 = $23,400</div>
+            <div class="answer-item"><strong>Ingreso de Capital:</strong> Si el estudiante tiene $500 en ahorros al 4% APY: $500 × 0.04 = $20/año (ilustra por qué los jóvenes dependen principalmente del ingreso laboral—los ahorros pequeños generan un ingreso de capital mínimo inicialmente)</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Parte D: Diseña Tu Negocio</div>
+            <div class="answer-item"><strong>Criterios de Evaluación:</strong> El plan de negocio debe incluir LOS CUATRO factores con detalles específicos. Verificar que los estudiantes entiendan:</div>
+            <div class="answer-item">• <strong>Tierra:</strong> Tipo de ubicación específico y estimado de renta realista</div>
+            <div class="answer-item">• <strong>Trabajo:</strong> Número de empleados y nómina realista</div>
+            <div class="answer-item">• <strong>Capital:</strong> Equipo/herramientas específicas necesarias y monto de inversión</div>
+            <div class="answer-item">• <strong>Espíritu Empresarial:</strong> Propuesta clara de innovación/valor y reconocimiento del riesgo</div>
+            <div class="answer-item"><strong>Señales de Alerta:</strong> Falta algún factor, números no realistas ($100/mes de renta para espacio comercial), confundir dinero con capital</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Verifica Tu Comprensión</div>
+            <div class="answer-item"><strong>1. ¿Por qué capital ≠ dinero?</strong> Capital en economía significa <em>recursos productivos físicos</em> (máquinas, edificios, herramientas) que se usan para hacer otros bienes. El dinero se usa para COMPRAR capital, pero el dinero en sí no produce nada. Una fábrica (capital) produce bienes; el efectivo en una bóveda no.</div>
+            <div class="answer-item"><strong>2.</strong> B (capital humano; trabajo). La educación es una inversión en capital <strong>humano</strong>—las habilidades/conocimiento incorporados en las personas—que aumenta el valor y la productividad de tu <strong>trabajo</strong>.</div>
+            <div class="answer-item"><strong>3. Por qué el beneficio viene al final:</strong> Los empresarios deben pagar todos los demás factores (renta, salarios, interés) PRIMERO. El beneficio es lo que QUEDA después de que todos los demás reciban su pago. Esto significa que los empresarios soportan el riesgo—si los ingresos son demasiado bajos, puede que NO haya beneficio o incluso una pérdida. Este riesgo es por qué el beneficio es el pago del empresario por tomar riesgos.</div>
+            <div class="answer-item"><strong>4. Acción personal (ejemplos):</strong> "Inscribirse en cursos de doble inscripción para comenzar créditos universitarios," "Aprender una habilidad comercializable (programación, soldadura, certificación médica)," "Solicitar becas para costear la universidad," "Conseguir un trabajo de medio tiempo para ganar experiencia laboral," "Ahorrar el 10% de las ganancias para comenzar a construir capital."</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Aclaración</th></tr>
+            <tr><td>"Capital significa dinero o recursos financieros."</td><td>En economía, capital significa <strong>activos productivos físicos</strong> (máquinas, edificios, herramientas). El dinero se usa para comprar capital, pero el efectivo en sí no es un factor de producción. Cuando los economistas dicen "capital," se refieren a equipo, no a dólares.</td></tr>
+            <tr><td>"Tierra solo significa tierra o tierras de cultivo."</td><td>Tierra incluye TODOS los recursos naturales: espacio físico (ubicaciones de bienes raíces), recursos extraídos (petróleo, minerales, madera), agua, luz solar, viento, e incluso derechos intangibles (derechos de pesca, derechos minerales). Si existe en la naturaleza antes de que los humanos lo toquen, es tierra.</td></tr>
+            <tr><td>"Los empresarios siempre ganan beneficio."</td><td>NO—los empresarios ganan beneficio SOLO si los ingresos exceden todos los costos. Si los costos son más altos que los ingresos, el empresario sufre una <strong>pérdida</strong>. El beneficio es la recompensa por tomar riesgos exitosamente, pero las pérdidas son la consecuencia de empresas no exitosas. Aproximadamente el 20% de los negocios fracasan en el primer año.</td></tr>
+            <tr><td>"Trabajo solo significa trabajo físico."</td><td>Trabajo incluye TANTO esfuerzo físico como mental. La programación de un desarrollador de software, la planificación de lecciones de un maestro, el cuidado de pacientes de una enfermera, y el trabajo físico de un trabajador de construcción son TODOS trabajo. Es cualquier esfuerzo humano aplicado a la producción.</td></tr>
+            <tr><td>"Solo los dueños de negocios son empresarios."</td><td>Aunque los dueños de negocios son el ejemplo más claro, el espíritu empresarial también puede incluir <strong>intraemprendedores</strong> (empleados innovadores que toman riesgos dentro de las empresas) o cualquiera que combine recursos de nuevas maneras. Los elementos clave son <strong>innovación, toma de riesgos y organización de factores</strong>.</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo {{CHAPTER_NUMBER}}</span>
+    </div>
+
+</body>
+</html>
