@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+PFL Academy Plantilla Independiente del Estado
+L-Capítulo: L-71
+Título del Capítulo: Introducción a la Planificación Patrimonial
+Referencia de Oklahoma: Capítulo X.X
+
+Variables usadas en esta plantilla:
+- {{STATE_NAME}} - Nombre completo del estado (ej., Kentucky, Georgia)
+- {{CHAPTER_NUMBER}} - Número de capítulo específico del estado (ej., 2.1, 1.4)
+- {{CHAPTER_ID}} - Identificador L-capítulo (ej., L-71)
+- {{CHAPTER_TITLE}} - Siempre: Introducción a la Planificación Patrimonial
+- {{STATE_ESTATE_TAX}} - Información de impuestos sobre patrimonio/herencia específica del estado
+
+Esta plantilla será procesada por generate_state_html.py para crear
+versiones específicas del estado con numeración de capítulos correcta.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{STATE_NAME}} Capítulo {{CHAPTER_NUMBER}}: Introducción a la Planificación Patrimonial - Paquete de Actividades para Estudiantes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #10b981;
+            --primary-light: #ecfdf5;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --success: #059669;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10.5pt; line-height: 1.5; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .header-left h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header-left h2 { font-size: 10pt; font-weight: 400; margin: 2px 0 0; opacity: 0.9; }
+        .header-right { font-size: 9pt; text-align: right; opacity: 0.9; }
+
+        .section-header { font-size: 11pt; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin: 20px 0 12px; }
+
+        .challenge-box { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 14px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; }
+        .challenge-box p { font-style: italic; color: var(--text-dark); margin-bottom: 10px; }
+        .challenge-box .framing-question { font-weight: 600; font-style: normal; color: #92400e; }
+
+        .objectives-box { background: var(--primary-light); border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; }
+        .objectives-box h3 { font-size: 10pt; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+        .objectives-box ul { margin: 0; padding-left: 20px; }
+        .objectives-box li { margin-bottom: 3px; color: var(--text-medium); }
+
+        .terms-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 10pt; }
+        .terms-table th { background: var(--bg-light); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-medium); }
+        .terms-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+        .terms-table td:first-child { font-weight: 600; color: var(--primary); width: 22%; }
+
+        .background-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 10pt; color: var(--text-medium); }
+        .background-box strong { color: var(--text-dark); }
+
+        .scenario-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; page-break-inside: avoid; }
+        .scenario-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 10pt; }
+        .scenario-description { color: var(--text-medium); margin-bottom: 10px; font-size: 10pt; }
+
+        .response-line { display: flex; align-items: baseline; margin-bottom: 8px; }
+        .response-label { font-weight: 600; color: var(--text-dark); margin-right: 8px; white-space: nowrap; }
+        .response-blank { flex-grow: 1; border-bottom: 1px solid var(--text-light); min-height: 18px; }
+
+        .question { margin-bottom: 14px; page-break-inside: avoid; }
+        .question-number { font-weight: 700; color: var(--text-dark); }
+        .question-text { color: var(--text-dark); margin-bottom: 6px; }
+        .answer-lines { margin-top: 6px; }
+        .answer-line { border-bottom: 1px solid var(--text-light); height: 22px; margin-bottom: 4px; }
+
+        .calc-box { border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin: 8px 0; min-height: 60px; background: var(--bg-light); }
+        .calc-label { font-size: 9pt; color: var(--text-light); margin-bottom: 4px; }
+        .calc-answer { margin-top: 10px; font-weight: 600; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9pt; }
+        .comparison-table th { background: var(--primary); color: white; padding: 8px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 8px; border: 1px solid var(--border); vertical-align: top; }
+        .comparison-table tr:nth-child(even) td { background: var(--bg-light); }
+
+        .hint-box { background: #f0fdf4; border-left: 3px solid var(--success); padding: 8px 12px; margin: 10px 0; font-size: 9pt; font-style: italic; color: #166534; }
+        .hint-box strong { font-style: normal; }
+
+        .part-header { font-weight: 700; font-size: 10pt; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+
+        .footer { margin-top: 24px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9pt; color: var(--text-light); }
+
+        .checklist { margin: 10px 0; }
+        .checklist-item { display: flex; align-items: baseline; margin-bottom: 6px; }
+        .checkbox { width: 14px; height: 14px; border: 1px solid var(--text-light); border-radius: 2px; margin-right: 8px; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <h1>PFL Academy</h1>
+            <h2>Capítulo {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</h2>
+        </div>
+        <div class="header-right">Paquete de Actividades para Estudiantes</div>
+    </div>
+
+    <div class="section-header">El Desafío</div>
+    <div class="challenge-box">
+        <p>Maya, 27 años, resultó gravemente herida en un accidente. Su prometido Jordan conocía sus deseos, pero sin una directiva de atención médica, los padres distanciados de Maya tomaron todas las decisiones médicas—decisiones que contradecían lo que Maya habría querido. Mientras tanto, nadie podía acceder a las cuentas bancarias de Maya para pagar su alquiler porque no había designado un poder notarial financiero.</p>
+        <p class="framing-question">¿Cómo puede entender las herramientas de planificación patrimonial protegerte durante la incapacidad y asegurar que tus deseos sean honrados después de la muerte—incluso como adulto joven?</p>
+    </div>
+
+    <div class="objectives-box">
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Definir documentos esenciales de planificación patrimonial y sus propósitos</li>
+            <li>Explicar el proceso de sucesión testamentaria y costos de morir sin planificación adecuada</li>
+            <li>Entender cómo las designaciones de beneficiarios anulan testamentos</li>
+            <li>Reconocer cuándo los fideicomisos son necesarios versus cuándo testamentos simples son suficientes</li>
+            <li>Crear plan de acción personal para obtener documentos de protección por incapacidad</li>
+        </ul>
+    </div>
+
+    <div class="section-header">Conceptos Básicos</div>
+
+    <table class="terms-table">
+        <tr><th>Término</th><th>Definición</th></tr>
+        <tr>
+            <td>Testamento</td>
+            <td>Documento legal dirigiendo distribución de activos después de la muerte y nombrando tutores para hijos menores. Solo efectivo al morir.</td>
+        </tr>
+        <tr>
+            <td>Intestado</td>
+            <td>Morir sin testamento. La ley estatal determina quién hereda usando fórmulas rígidas que rara vez coinciden con preferencias personales.</td>
+        </tr>
+        <tr>
+            <td>Sucesión Testamentaria</td>
+            <td>Proceso supervisado por tribunal de validar testamento, pagar deudas, distribuir activos. Público, costoso (3-7% del patrimonio), largo (6-24 meses).</td>
+        </tr>
+        <tr>
+            <td>Fideicomiso</td>
+            <td>Arreglo legal donde fiduciario mantiene activos para beneficiarios. Evita sucesión testamentaria, controla momento de distribución, proporciona privacidad.</td>
+        </tr>
+        <tr>
+            <td>Designación de Beneficiario</td>
+            <td>Formulario nombrando quién recibe cuentas específicas directamente (jubilación, seguro de vida). ANULA testamentos—designaciones anulan cualquier disposición de testamento.</td>
+        </tr>
+        <tr>
+            <td>Poder Notarial</td>
+            <td>POA Financiero: autoriza a alguien a manejar dinero si incapacitado. POA de Atención Médica: autoriza decisiones médicas. Duradero = permanece efectivo durante incapacidad.</td>
+        </tr>
+        <tr>
+            <td>Directiva de Atención Médica</td>
+            <td>Documento especificando preferencias de tratamiento médico y nombrando proxy de atención médica. También llamado Testamento en Vida o Directiva Anticipada.</td>
+        </tr>
+        <tr>
+            <td>Tutor Legal</td>
+            <td>Persona designada en testamento para criar hijos menores si padres mueren o quedan incapacitados. Tribunal decide si no está designado.</td>
+        </tr>
+    </table>
+
+    <div class="background-box">
+        <strong>Antecedentes:</strong> La planificación patrimonial no es solo para ricos o ancianos—se trata de protección y control. Incapacidad por accidentes o enfermedad puede ocurrir a cualquier edad. Directivas de atención médica y poderes notariales te protegen mientras vives. Testamentos y fideicomisos protegen a tu familia después de la muerte. En {{STATE_NAME}}: {{STATE_ESTATE_TAX}}
+    </div>
+
+    <div class="section-header">Actividad 1: Comparación de Testamento vs. Sin Testamento</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Escenario: Marcus (29 Años) – Sin Testamento</div>
+        <div class="scenario-description">Marcus, ingeniero de software, salió con Emma durante 4 años y planeaba casarse. Tenía $180,000 en activos ($80K jubilación, $50K inversiones, $50K auto/posesiones). Murió repentinamente sin testamento.</div>
+
+        <table class="comparison-table">
+            <tr>
+                <th style="width: 20%;">Factor</th>
+                <th style="width: 40%;">Si Marcus Hubiera Tenido Testamento</th>
+                <th style="width: 40%;">Sin Testamento (Lo Que Sucedió)</th>
+            </tr>
+            <tr>
+                <td><strong>Distribución de Activos</strong></td>
+                <td>Emma recibe todos los activos como designado en testamento</td>
+                <td>Padres reciben todo según ley de intestado de {{STATE_NAME}}; Emma obtiene $0</td>
+            </tr>
+            <tr>
+                <td><strong>Albacea/Administrador</strong></td>
+                <td>Persona que Marcus eligió</td>
+                <td>Designado por tribunal (padre de Marcus)</td>
+            </tr>
+            <tr>
+                <td><strong>Cronología</strong></td>
+                <td>8 meses típico</td>
+                <td>12-18 meses</td>
+            </tr>
+            <tr>
+                <td><strong>Costos</strong></td>
+                <td>~$10,000</td>
+                <td>~$15,000</td>
+            </tr>
+            <tr>
+                <td><strong>Impacto Familiar</strong></td>
+                <td>Deseos honrados, conflicto mínimo</td>
+                <td>Emma desalojada de apartamento, pierde posesiones, anillo de compromiso reclamado por padres</td>
+            </tr>
+        </table>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">1.</span> ¿Por qué Emma no recibió nada a pesar de su relación de 4 años?</p>
+            <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">2.</span> ¿Qué habría costado un testamento simple versus el resultado?</p>
+            <div class="answer-lines"><div class="answer-line"></div></div>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">3.</span> ¿En qué etapa de vida un testamento se vuelve esencial?</p>
+            <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+        </div>
+    </div>
+
+    <div class="section-header">Actividad 2: Análisis de Fideicomiso</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Padres Jóvenes: Marcus y Sarah (29 y 30 Años)</div>
+        <div class="scenario-description">Dos hijos (2 y 4 años). Activos: seguro de vida de $300K (cada uno), jubilación de $40K, ahorros de $30K. Total: $370,000</div>
+
+        <div class="response-line">
+            <span class="response-label">Valor de evitar sucesión testamentaria:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="hint-box">
+            <strong>Pista:</strong> El seguro de vida evita sucesión testamentaria vía designación de beneficiario, ¿pero qué pasa con jubilación y ahorros?
+        </div>
+
+        <div class="response-line">
+            <span class="response-label">¿Por qué el control es CRÍTICO para esta familia?</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="hint-box">
+            <strong>Pregunta Clave:</strong> ¿Pueden nombrar hijos (2 y 4 años) directamente como beneficiarios de seguro de vida? ¿Qué sucede sin fideicomiso?
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">4.</span> ¿Qué opción de fideicomiso tiene sentido para esta familia y por qué?</p>
+            <div style="margin-left: 20px; font-size: 9pt; margin-bottom: 6px;">
+                <div>□ Fideicomiso Testamentario (en testamento) – Configuración: $800, mantiene ingresos de seguro para hijos</div>
+                <div>□ Fideicomiso en Vida Revocable – Configuración: $3,000, evita sucesión testamentaria en todos los activos</div>
+                <div>□ No se necesita fideicomiso – Testamento simple suficiente</div>
+            </div>
+            <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">5.</span> ¿Qué pasaría si hijos recibieran suma global de $300K a los 18 años sin fideicomiso?</p>
+            <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+        </div>
+    </div>
+
+    <div class="section-header">Actividad 3: Planificación de Poder Notarial y Directiva de Atención Médica</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Tu Plan Personal de Protección por Incapacidad</div>
+
+        <div class="part-header">Directiva de Atención Médica</div>
+        <div class="response-line">
+            <span class="response-label">Mi proxy de atención médica (persona para tomar decisiones médicas):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Proxy de atención médica de respaldo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Por qué elegí esta persona:</span>
+            <span class="response-blank"></span>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">6.</span> ¿Qué preferencias de tratamiento deberías discutir con tu proxy de atención médica?</p>
+            <div class="checklist">
+                <div class="checklist-item"><div class="checkbox"></div>Decisiones de soporte vital si estás permanentemente inconsciente</div>
+                <div class="checklist-item"><div class="checkbox"></div>Deseos de donación de órganos</div>
+                <div class="checklist-item"><div class="checkbox"></div>Prioridades de manejo del dolor</div>
+                <div class="checklist-item"><div class="checkbox"></div>Consideraciones de tratamiento religiosas/culturales</div>
+            </div>
+        </div>
+
+        <div class="part-header">Poder Notarial Financiero</div>
+        <div class="response-line">
+            <span class="response-label">Mi agente financiero (persona para manejar finanzas si estoy incapacitado):</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Agente financiero de respaldo:</span>
+            <span class="response-blank"></span>
+        </div>
+        <div class="response-line">
+            <span class="response-label">Por qué elegí esta persona:</span>
+            <span class="response-blank"></span>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">7.</span> Compara costos: Documentos ($200-400) vs. Tutela si no hay documentos ($5,000-8,000). ¿Cuál es el beneficio neto?</p>
+            <div class="calc-box">
+                <div class="calc-label">Cálculo:</div>
+                <div class="calc-answer">Ahorro Neto: $__________</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Actividad 4: Auditoría de Designación de Beneficiarios</div>
+
+    <div class="scenario-card">
+        <div class="scenario-title">Estudio de Caso: Brad (42 Años) – El Ex Cónyuge Olvidado</div>
+        <div class="scenario-description">Divorciado de Jennifer hace 8 años; casado nuevamente con Angela hace 5 años. Su seguro de vida de $400K y 401(k) de $180K aún listan a Jennifer como beneficiaria—nunca actualizado. Muere de ataque cardíaco.</div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">8.</span> ¿Quién recibe los $580,000 (seguro de vida + 401k)?</p>
+            <div class="answer-lines"><div class="answer-line"></div></div>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">9.</span> ¿Por qué el testamento (que deja todo a Angela) no controla el seguro de vida y el 401(k)?</p>
+            <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+        </div>
+
+        <div class="question">
+            <p class="question-text"><span class="question-number">10.</span> ¿Qué debería haber hecho Brad inmediatamente después del divorcio?</p>
+            <div class="answer-lines"><div class="answer-line"></div></div>
+        </div>
+    </div>
+
+    <div class="part-header">Tu Lista de Verificación de Revisión de Beneficiarios</div>
+    <div class="checklist">
+        <div class="checklist-item"><div class="checkbox"></div>Listar todas las cuentas con designaciones de beneficiarios (401k, IRA, seguro de vida, cuentas POD)</div>
+        <div class="checklist-item"><div class="checkbox"></div>Documentar beneficiarios primarios y contingentes actuales para cada una</div>
+        <div class="checklist-item"><div class="checkbox"></div>Verificar señales de alerta: ex cónyuge listado, hijos menores directos, "mi patrimonio", sin contingente</div>
+        <div class="checklist-item"><div class="checkbox"></div>Actualizar beneficiarios después de: matrimonio, divorcio, nacimientos, muertes</div>
+        <div class="checklist-item"><div class="checkbox"></div>Establecer recordatorio de revisión anual (sugerir 15 de enero cada año)</div>
+    </div>
+
+    <div class="section-header">Reflexión y Plan de Acción</div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">11.</span> ¿Qué documento de planificación patrimonial es más crítico para TU etapa de vida actual?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="question">
+        <p class="question-text"><span class="question-number">12.</span> ¿Qué acción específica tomarás dentro de 30 días para protegerte a ti o a tu familia?</p>
+        <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+    </div>
+
+    <div class="hint-box">
+        <strong>Perspectiva Clave:</strong> El costo de planificación patrimonial básica ($100-500) es trivial comparado con el costo de no planificar (3-7% del patrimonio en sucesión testamentaria, conflicto familiar, resultados no intencionados). Directivas de atención médica y POAs financieros te protegen mientras VIVES—más inmediatamente relevante que testamentos para adultos jóvenes.
+    </div>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Capítulo {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</span>
+    </div>
+
+</body>
+</html>

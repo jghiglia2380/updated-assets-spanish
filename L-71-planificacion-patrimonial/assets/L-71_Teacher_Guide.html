@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--
+PFL Academy Plantilla Independiente del Estado
+L-Capítulo: L-71
+Título del Capítulo: Introducción a la Planificación Patrimonial
+Referencia de Oklahoma: Capítulo X.X
+
+Variables usadas en esta plantilla:
+- {{STATE_NAME}} - Nombre completo del estado (ej., Kentucky, Georgia)
+- {{CHAPTER_NUMBER}} - Número de capítulo específico del estado (ej., 2.1, 1.4)
+- {{CHAPTER_ID}} - Identificador L-capítulo (ej., L-71)
+- {{CHAPTER_TITLE}} - Siempre: Introducción a la Planificación Patrimonial
+- {{STATE_ESTATE_TAX}} - Información de impuestos sobre patrimonio/herencia específica del estado
+
+Esta plantilla será procesada por generate_state_html.py para crear
+versiones específicas del estado con numeración de capítulos correcta.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Maestro L-71</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary: #059669;
+            --primary-light: #ecfdf5;
+            --primary-dark: #065f46;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --error: #dc2626;
+            --error-light: #fee2e2;
+            --success-light: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: letter; margin: 0.5in; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 10pt; line-height: 1.45; color: var(--text-dark); background: white; }
+
+        .header { background: var(--primary); color: white; padding: 14px 18px; border-radius: 6px; margin-bottom: 16px; }
+        .header h1 { font-size: 13pt; font-weight: 700; margin: 0; }
+        .header h2 { font-size: 10pt; font-weight: 400; margin: 3px 0 0; opacity: 0.9; }
+
+        .section-header { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 7px 12px; font-size: 10pt; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; }
+
+        .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .overview-table th { background: var(--bg-light); color: var(--text-light); font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 6px 10px; border: 1px solid var(--border); width: 33%; }
+        .overview-table td { text-align: center; padding: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--text-dark); font-size: 10pt; }
+
+        .flow-container { margin-bottom: 14px; }
+        .flow-item { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border); page-break-inside: avoid; }
+        .flow-item:last-child { border-bottom: none; }
+        .flow-time { width: 65px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-size: 10pt; }
+        .flow-content { flex: 1; }
+        .flow-title { font-weight: 700; color: var(--text-dark); margin-bottom: 3px; font-size: 10pt; }
+        .flow-content ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .flow-content li { margin-bottom: 2px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .diff-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+        .diff-title { font-weight: 700; color: var(--text-dark); margin-bottom: 6px; font-size: 9pt; }
+        .diff-box ul { margin: 0; padding-left: 16px; font-size: 9pt; color: var(--text-medium); }
+        .diff-box li { margin-bottom: 2px; }
+
+        .answer-key { page-break-before: always; }
+        .answer-block { margin-bottom: 12px; page-break-inside: avoid; }
+        .answer-title { font-weight: 700; color: var(--primary); font-size: 9pt; border-bottom: 1px solid #a7f3d0; padding-bottom: 3px; margin-bottom: 6px; }
+        .answer-item { margin-bottom: 5px; font-size: 9pt; color: var(--text-dark); }
+        .answer-item strong { color: var(--primary-dark); }
+
+        .misconception-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 10px; }
+        .misconception-table th { padding: 6px 10px; text-align: left; font-weight: 600; }
+        .misconception-table th:first-child { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; width: 40%; }
+        .misconception-table th:last-child { background: var(--success-light); color: #166534; border: 1px solid #86efac; }
+        .misconception-table td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text-medium); }
+
+        .footer { margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-light); }
+
+        .tip-box { background: #fef3c7; border-left: 3px solid var(--warning); padding: 8px 12px; margin: 10px 0; font-size: 9pt; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PFL Academy</h1>
+        <h2>Guía del Maestro: Capítulo {{CHAPTER_NUMBER}} — {{CHAPTER_TITLE}}</h2>
+    </div>
+
+    <div class="section-header">Descripción General</div>
+    <table class="overview-table">
+        <tr><th>Tiempo</th><th>Materiales</th><th>Prerequisitos</th></tr>
+        <tr><td>90-100 Minutos (2 días)</td><td>Paquete de Actividades para Estudiantes, Herramientas Digitales</td><td>Ninguno (planificación patrimonial fundamental)</td></tr>
+    </table>
+
+    <p style="margin: 10px 0; font-size: 9pt; color: var(--text-medium);">Esta lección introduce a los estudiantes a conceptos esenciales de planificación patrimonial, enfatizando que la planificación patrimonial no es solo para ricos o ancianos. Los estudiantes aprenden sobre testamentos, fideicomisos, designaciones de beneficiarios, poderes notariales, directivas de atención médica y tutela—entendiendo cómo estos protegen a individuos y familias durante incapacidad y después de la muerte.</p>
+
+    <div class="section-header">Día 1: Conceptos Básicos (45-50 minutos)</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">GANCHO: Crisis de Atención Médica de Maya</div>
+                <ul>
+                    <li>Presentar escenario: Maya (27) gravemente herida, prometido conocía deseos pero padres distanciados tomaron decisiones, nadie podía acceder a cuentas bancarias</li>
+                    <li>Preguntar: "¿Por qué sucedió esto? ¿Qué documento habría prevenido cada problema?"</li>
+                    <li>Revelar: Planificación patrimonial es sobre protección y control, no solo riqueza</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCEPTOS CLAVE</div>
+                <ul>
+                    <li>Definir: Testamento (dirige activos, nombra tutores), Intestado (estado decide), Sucesión Testamentaria (proceso judicial, 3-7% costo), Fideicomiso (evita sucesión), Beneficiario (anula testamento)</li>
+                    <li>Poder Notarial: Financiero (maneja dinero) y Atención Médica (decisiones médicas) protegen mientras VIVES</li>
+                    <li>Específico del estado: En {{STATE_NAME}}, {{STATE_ESTATE_TAX}}</li>
+                    <li>Verificación rápida: "Verdadero/Falso: Cónyuge obtiene todo si mueres sin testamento" (Falso—depende de ley estatal)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">TESTAMENTOS vs. INTESTADO</div>
+                <ul>
+                    <li>Presentar historia de Marcus (29 años, relación de 4 años con Emma, muere sin testamento, padres heredan todo, Emma obtiene $0)</li>
+                    <li>Crear tabla de comparación: Con Testamento vs. Sin Testamento (distribución de activos, albacea, cronología, costos, impacto familiar)</li>
+                    <li>Enfatizar designación de tutores para padres: "Sin designación, tribunales deciden quién cría a tus hijos"</li>
+                    <li>Discusión: "¿Qué te sorprendió? ¿Por qué parejas no casadas no heredan?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">FIDEICOMISOS Y BENEFICIARIOS</div>
+                <ul>
+                    <li>Fideicomisos: Evitan sucesión testamentaria (3-7% ahorro), controlan distribución, privacidad. Fideicomiso en vida revocable más común ($1,500-4,000 configuración)</li>
+                    <li>Cuándo necesario: Padres con hijos menores, patrimonios grandes, familias complejas, necesidades especiales</li>
+                    <li>Designaciones de beneficiarios: ANULAN testamentos. Error común: Testamento actualizado, beneficiarios olvidados</li>
+                    <li>Ejemplo: Testamento de John deja todo a esposa Sarah, pero 401(k) aún lista a ex esposa—ex obtiene $500K</li>
+                    <li>Mejores prácticas: Revisar anualmente, actualizar después de cambios de vida, nombrar contingentes, nunca "mi patrimonio"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">PODERES NOTARIALES</div>
+                <ul>
+                    <li>POA Financiero: Autoriza manejo de dinero si incapacitado. Sin él: tutela ($5,000+, toma meses)</li>
+                    <li>POA de Atención Médica: Autoriza decisiones médicas. Sin él: familia lucha, médicos no saben quién decide</li>
+                    <li>Escenario: Alex (24) accidente de motocicleta, inconsciente, pareja no tiene estatus legal, padre distanciado toma decisiones</li>
+                    <li>Crítico a los 18: Padres NO tienen autoridad automática para adultos</li>
+                    <li>Costo: $200-400 para documentos vs. $5,000-8,000 tutela</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">CONCLUSIÓN Y TAREA</div>
+                <ul>
+                    <li>Lanzar Lista de Verificación Inicial de Planificación Patrimonial (herramienta digital)</li>
+                    <li>Asignar: Completar evaluación de etapa de vida, identificar documentos prioritarios, crear plan de acción</li>
+                    <li>Vista previa Día 2: Escenarios prácticos aplicando conceptos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Día 2: Actividades de Aplicación (45-50 minutos)</div>
+    <div class="flow-container">
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">RECAPITULACIÓN E INTRO AL LAB</div>
+                <ul>
+                    <li>Revisión rápida: ¿Cuáles son los 4 documentos esenciales para adultos jóvenes?</li>
+                    <li>Vista previa de actividades: Simulador de testamento, análisis de fideicomiso, planificación de POA, auditoría de beneficiarios</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ACTIVIDAD 1: Simulación de Testamento vs. Sin Testamento</div>
+                <ul>
+                    <li>Estudiantes analizan 3 escenarios: (A) Soltero de 26 años con pareja, (B) Padres con hijos pequeños, (C) Padre divorciado con testamento desactualizado</li>
+                    <li>Para cada: Comparar con testamento vs. sin testamento resultados (distribución, costos, cronología, impacto familiar)</li>
+                    <li>Calcular diferencias de costo: Escenario B sin testamento = $48K vs. $18K con testamento (¡$30K de diferencia!)</li>
+                    <li>Reflexión: "¿Qué resultado te sorprendió más? ¿En qué etapa de vida testamento es no negociable?"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ACTIVIDAD 2: Herramienta de Comparación de Fideicomisos</div>
+                <ul>
+                    <li>Analizar 4 situaciones: (1) Padres jóvenes con seguro de vida, (2) Profesional soltero patrimonio $850K, (3) Familia combinada, (4) Graduado reciente $45K</li>
+                    <li>Evaluar: Costo de sucesión, necesidades de control, complejidad, costo-beneficio</li>
+                    <li>Perspectiva clave: Padres jóvenes necesitan fideicomisos MÁS que solteros ricos (protección hijos menores)</li>
+                    <li>Situación 3 (familia combinada): Fideicomiso QTIP ÚNICA forma de lograr ambos objetivos (apoyo cónyuge + hijos heredan)</li>
+                    <li>Situación 4 (graduado reciente): SIN fideicomiso necesario—testamento simple suficiente, directiva atención médica prioridad</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">10 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ACTIVIDAD 3: Constructor de POA y Directiva de Atención Médica</div>
+                <ul>
+                    <li>Estudiantes crean planes personales: Seleccionar proxy de atención médica y agente financiero</li>
+                    <li>Criterios: Atención Médica = confía en valores, emocionalmente fuerte; Financiero = responsable, financieramente astuto</li>
+                    <li>Comparar escenarios: Persona de 28 años en coma (con documentos: familia se enfoca en recuperación; sin: tutela de $5K, cuentas sin pagar)</li>
+                    <li>Plan de acción: Obtener formularios de {{STATE_NAME}}, completar, tener conversaciones, distribuir copias</li>
+                    <li>Enfatizar: Parejas no casadas (incluyendo mismo sexo) NO tienen estatus legal sin estos—CRÍTICO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">15 min</div>
+            <div class="flow-content">
+                <div class="flow-title">ACTIVIDAD 4: Auditoría de Designación de Beneficiarios</div>
+                <ul>
+                    <li>Estudios de caso: (1) Ex cónyuge olvidado obtiene $580K, (2) Hijos menores reciben suma global a 18 y desperdician, (3) "Mi patrimonio" fuerza sucesión, (4) Sin contingente = sucesión</li>
+                    <li>Calcular costos: Caso 1 = $580K a persona equivocada + $45K litigio; Caso 3 = $185,500 en sucesión/impuestos</li>
+                    <li>Práctica: Planificación adecuada de beneficiarios para diferentes etapas de vida</li>
+                    <li>Auditoría personal: Listar todas cuentas, documentar beneficiarios actuales, identificar señales de alerta, crear plan de actualización</li>
+                    <li>Establecer revisión anual: 15 de enero cada año + después de eventos de vida</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-time">5 min</div>
+            <div class="flow-content">
+                <div class="flow-title">REFLEXIÓN Y CIERRE</div>
+                <ul>
+                    <li>"¿Qué documento es más crítico para TU etapa de vida?"</li>
+                    <li>"¿Qué acción específica tomarás en próximos 30 días?"</li>
+                    <li>Mensaje final: "Planificación patrimonial no es sobre ser viejo o rico—es sobre ser responsable y cuidadoso. Comienza con directiva atención médica y POA este mes."</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">Diferenciación</div>
+    <div class="diff-grid">
+        <div class="diff-box">
+            <div class="diff-title">Apoyo</div>
+            <ul>
+                <li>Enfocarse en principio simple: Planificación = tu elección; Sin planificación = elección del estado</li>
+                <li>Proporcionar diagrama de flujo: Testamento → Albacea → Distribuir vs. Sin Testamento → Tribunal → Ley Estatal</li>
+                <li>Usar ejemplos amigables para familia en lugar de detalles técnicos</li>
+                <li>Para Actividad 2, proporcionar árbol de decisión para determinación de fideicomiso</li>
+            </ul>
+        </div>
+        <div class="diff-box">
+            <div class="diff-title">Extensión</div>
+            <ul>
+                <li>Investigar leyes específicas de intestado de {{STATE_NAME}} y crear diagrama de flujo de distribución</li>
+                <li>Investigar fideicomisos QTIP y fideicomisos para necesidades especiales en profundidad</li>
+                <li>Comparar procedimientos de sucesión testamentaria en {{STATE_NAME}} vs. estados vecinos</li>
+                <li>Calcular comparación de costos a 30 años (configuración/mantenimiento fideicomiso vs. sucesión para escenarios crecimiento patrimonio)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        <strong>Temas Sensibles:</strong> Esta lección aborda muerte, incapacidad y tragedia familiar. Algunos estudiantes pueden haber perdido miembros de familia. Ser sensible, enmarcar contenido alrededor de protección y cuidado (no miedo), ofrecer ejemplos alternativos si escenarios son desencadenantes, y asociarse con consejero escolar si estudiantes necesitan apoyo.
+    </div>
+
+    <div class="answer-key">
+        <div class="section-header">Clave de Respuestas</div>
+
+        <div class="answer-block">
+            <div class="answer-title">Actividad 1: Comparación de Testamento vs. Sin Testamento</div>
+            <div class="answer-item"><strong>1. ¿Por qué Emma no recibió nada?</strong> Parejas no casadas NO tienen derechos de herencia bajo leyes de intestado. Solo cónyuges legales, hijos, padres y otros parientes de sangre heredan. Un testamento simple nombrando a Emma le habría dado todo.</div>
+            <div class="answer-item"><strong>2. ¿Qué habría costado testamento vs. resultado?</strong> Testamento simple: $300-500. Emma perdió $180,000 + hogar compartido + posesiones. Costo de no planificar: inconmensurable.</div>
+            <div class="answer-item"><strong>3. ¿Cuándo es esencial testamento?</strong> Relación seria, activos significativos (>$25K), o hijos menores hacen testamentos esenciales. Para padres, designación de tutores es no negociable.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Actividad 2: Análisis de Fideicomiso</div>
+            <div class="answer-item"><strong>4. ¿Qué fideicomiso para padres jóvenes?</strong> Fideicomiso testamentario MÍNIMO (necesario para hijos—no pueden nombrar menores directamente como beneficiarios seguro). Fideicomiso en vida revocable si quieren evitar sucesión en todos activos. Sin fideicomiso, custodio judicial hasta 18, luego suma global a adolescente que probablemente desperdicia.</div>
+            <div class="answer-item"><strong>5. ¿Qué pasa si suma global a 18?</strong> Ver Estudio Caso 2 en Actividad 4: Joven de 18 recibió $325K, compró auto caro, prestó dinero a amigos, gastó $100K primer año, abandonó universidad, agotó herencia a 24. 18 años es muy joven para herencia grande sin supervisión.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Actividad 3: Planificación POA y Directiva Atención Médica</div>
+            <div class="answer-item"><strong>6. Preferencias tratamiento a discutir:</strong> Todas marcadas: Decisiones soporte vital, donación órganos, manejo dolor, consideraciones religiosas/culturales. Tener conversación detallada con proxy atención médica ANTES de crisis.</div>
+            <div class="answer-item"><strong>7. Comparación costos:</strong> Documentos: $200-400. Tutela: $5,000-8,000. Ahorro neto: $4,600-7,600 + armonía familiar inconmensurable y evitar desastre financiero durante incapacidad.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Actividad 4: Auditoría Designación Beneficiarios</div>
+            <div class="answer-item"><strong>8. ¿Quién recibe $580K?</strong> Ex esposa Jennifer recibe TODO ($400K seguro + $180K 401k) porque formularios beneficiarios aún la listan. Esposa actual Angela recibe $0 de estas cuentas a pesar de nuevo matrimonio.</div>
+            <div class="answer-item"><strong>9. ¿Por qué testamento no controla?</strong> Designaciones beneficiarios ANULAN testamentos—controlan distribución independientemente de lo que diga testamento. Para mayoría, activos más grandes (jubilación, seguro) pasan por designación beneficiario, no testamento. Testamento perfecto es inútil si beneficiarios están equivocados.</div>
+            <div class="answer-item"><strong>10. ¿Qué debería Brad haber hecho?</strong> Actualizar beneficiarios INMEDIATAMENTE después divorcio (dentro 30 días). Cambiar a: Primario = Angela (esposa actual); Contingente = Hijo o hermano. Toma 15 minutos solicitar y enviar formularios. Debería ser parte de lista verificación divorcio.</div>
+        </div>
+
+        <div class="answer-block">
+            <div class="answer-title">Preguntas Reflexión</div>
+            <div class="answer-item"><strong>11. Documento más crítico para tu etapa vida:</strong> Edad 18+: Directiva atención médica y POA financiero (protegen mientras VIVES). Relación seria/activos: Testamento básico. Padres: Testamento con designación tutores. Activos/complejidad significativos: Consideración fideicomiso.</div>
+            <div class="answer-item"><strong>12. Acción dentro 30 días (ejemplos):</strong> "Obtener formulario directiva atención médica {{STATE_NAME}} y completar," "Tener conversación con padres sobre su planificación patrimonial," "Revisar beneficiarios en mi 401(k)," "Crear testamento simple vía servicio en línea," "Programar consulta abogado para fideicomiso," "Establecer recordatorio revisión anual beneficiarios."</div>
+        </div>
+
+        <div class="section-header">Conceptos Erróneos Comunes</div>
+        <table class="misconception-table">
+            <tr><th>Concepto Erróneo</th><th>Clarificación</th></tr>
+            <tr><td>"Planificación patrimonial es solo para viejos."</td><td>Incapacidad por accidentes/enfermedad puede ocurrir a cualquier edad. Directivas atención médica y POAs protegen a personas de 25 tanto como de 75. Padres jóvenes necesitan designaciones tutela inmediatamente.</td></tr>
+            <tr><td>"Si no tengo mucho dinero, no necesito planificación patrimonial."</td><td>Planificación patrimonial es sobre control y protección, no riqueza. Patrimonio de $30,000 crea costos sucesión y conflicto familiar igual que patrimonio $3 millones. Padres con activos modestos aún necesitan designaciones tutela.</td></tr>
+            <tr><td>"Mi cónyuge/familia automáticamente obtendrá todo."</td><td>Leyes intestado tienen fórmulas que a menudo sorprenden. Cónyuges no siempre obtienen 100%. Parejas no casadas no obtienen nada. Hijos relaciones anteriores pueden obtener porciones. Valores predeterminados ley rara vez coinciden preferencias.</td></tr>
+            <tr><td>"Testamento evita sucesión testamentaria."</td><td>Testamentos pasan por sucesión—dirigen proceso pero no evitan. Solo designaciones beneficiarios, fideicomisos y propiedad conjunta evitan sucesión.</td></tr>
+            <tr><td>"Fideicomisos son solo para gente rica."</td><td>Padres jóvenes con seguro vida a menudo necesitan fideicomisos para proteger hijos menores de recibir sumas globales a 18. Fideicomisos controlan distribución, no solo evitan impuestos.</td></tr>
+            <tr><td>"Puedo solo decirle a mi familia mis deseos—no necesito documentos."</td><td>Sin documentos legales, hospitales y tribunales no honrarán declaraciones orales. Recuerdos miembros familia pueden diferir. Documentos legales proporcionan autoridad ejecutable.</td></tr>
+        </table>
+    </div>
+
+    <div class="section-header">Recursos Específicos del Estado para {{STATE_NAME}}</div>
+    <ul style="font-size: 9pt; margin: 10px 0; padding-left: 20px; color: var(--text-medium);">
+        <li>Resumen ley intestado {{STATE_NAME}}: [URL asociación abogados estado]</li>
+        <li>Formulario directiva atención médica {{STATE_NAME}}: [URL departamento salud estado]</li>
+        <li>Información impuestos patrimonio {{STATE_NAME}}: {{STATE_ESTATE_TAX}}</li>
+        <li>Ubicaciones y procedimientos tribunales sucesión {{STATE_NAME}}: [sitio web tribunales estado]</li>
+        <li>Clínicas legales gratuitas en {{STATE_NAME}}: [recursos específicos estado]</li>
+    </ul>
+
+    <div class="section-header">Notas Finales para Maestros</div>
+    <p style="font-size: 9pt; margin: 10px 0; color: var(--text-medium);"><strong>Sensibilidad Cultural:</strong> Prácticas planificación patrimonial y actitudes hacia muerte varían entre culturas. Algunas culturas tienen preferencias fuertes sobre tutores o distribución activos. Algunas religiones tienen requisitos específicos tratamiento final vida. Honrar estas perspectivas mientras se enseña marco legal.</p>
+    <p style="font-size: 9pt; margin: 10px 0; color: var(--text-medium);"><strong>Encuadre Apropiado Edad:</strong> Enmarcar contenido alrededor protección y cuidado en lugar morbosidad. Adultos jóvenes responden bien empoderamiento: "Estos documentos te dan CONTROL a TI en lugar dejarlo a tribunales y leyes estatales."</p>
+    <p style="font-size: 9pt; margin: 10px 0; color: var(--text-medium);"><strong>Accionabilidad:</strong> Enfatizar pasos accionables: A 18: Directiva atención médica y POA. Relación seria/activos: Testamento básico. Cuando llegan hijos: Actualizar testamento con tutores y considerar fideicomiso. Revisión anual: Actualizar beneficiarios.</p>
+
+    <div class="footer">
+        <span>&copy; PFL Academy | pflacademy.co</span>
+        <span>Guía del Maestro: Capítulo {{CHAPTER_NUMBER}}</span>
+    </div>
+
+</body>
+</html>
