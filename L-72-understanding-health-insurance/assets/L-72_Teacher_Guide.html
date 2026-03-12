@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L-72: Comprendiendo el Seguro de Salud - Guía para el Maestro</title>
+    <title>Capítulo {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}} - Guía para el Maestro</title>
     <style>
         @media print {
             @page {
@@ -132,7 +132,7 @@
 
     <!-- Title Page -->
     <div class="header-box">
-        <h1>L-72: Comprendiendo el Seguro de Salud</h1>
+        <h1>Capítulo {{CHAPTER_NUMBER}}: {{CHAPTER_TITLE}}</h1>
         <h2 style="text-align: center; border: none; margin-top: 10px;">Guía para el Maestro - Días 1 y 2</h2>
         <p style="text-align: center; font-size: 12pt; margin: 10px 0;">
             Guía integral de facilitación para fundamentos del seguro de salud y laboratorio de toma de decisiones
@@ -347,7 +347,7 @@
         <div class="info-box">
             <p><strong>Respuestas Esperadas:</strong></p>
             <ul>
-                <li><strong>Alex ($20,000):</strong> 133% FPL, califica para subsidios de mercado, califica para Medicaid en estados de expansión, nivel Plata recomendado</li>
+                <li><strong>Alex ($20,000):</strong> 133% FPL, califica para subsidios de mercado, califica para Medicaid en {{STATE_NAME}} si es un estado de expansión, nivel Plata recomendado</li>
                 <li><strong>Jordan ($35,000):</strong> 232% FPL, cobertura del empleador NO es asequible (14% > 9.5%), puede usar mercado, nivel Oro recomendado</li>
                 <li><strong>Taylor ($55,000 familia de 3):</strong> 178% FPL, califica para subsidios de mercado, hijo probablemente califica para CHIP, nivel Plata recomendado</li>
                 <li><strong>Casey ($65,000):</strong> 432% FPL, NO califica para subsidios de mercado, debería tomar cobertura del empleador, nivel Bronce o Plata recomendado</li>
@@ -410,7 +410,7 @@
             <td>
                 <ul>
                     <li>En Estación 1: Crear su propio cuarto escenario (condición crónica, visitas frecuentes a especialista)</li>
-                    <li>En Estación 2: Investigar el estado específico de expansión de Medicaid de su estado y umbrales de CHIP</li>
+                    <li>En Estación 2: Investigar el estado de expansión de Medicaid de {{STATE_NAME}} y umbrales de CHIP</li>
                     <li>En Estación 3: Calcular costos totales exactos para cada perfil bajo ambos planes</li>
                     <li>En Estación 4: Investigar reglas de continuación de COBRA y cuándo podría tener sentido a pesar del alto costo</li>
                 </ul>
@@ -449,7 +449,7 @@
 
     <div class="info-box">
         <p><strong>P: "¿Qué pasa si no puedo pagar ningún seguro de salud?"</strong></p>
-        <p>R: Verifica primero la elegibilidad de Medicaid (especialmente en estados de expansión). Si no calificas para Medicaid, verifica si calificas para subsidios de mercado. Los créditos fiscales de prima pueden reducir costos a $0-$150/mes para individuos de bajos ingresos.</p>
+        <p>R: Verifica primero la elegibilidad de Medicaid (especialmente en {{STATE_NAME}} y otros estados de expansión). Si no calificas para Medicaid, verifica si calificas para subsidios de mercado. Los créditos fiscales de prima pueden reducir costos a $0-$150/mes para individuos de bajos ingresos.</p>
 
         <p><strong>P: "¿Por qué el seguro de salud es tan caro en EE.UU.?"</strong></p>
         <p>R: Pregunta compleja con muchos factores: costos administrativos, precios altos de proveedores, medicamentos recetados costosos, márgenes de ganancia para aseguradoras privadas, falta de negociación de precios comparado con sistemas de pagador único.</p>
