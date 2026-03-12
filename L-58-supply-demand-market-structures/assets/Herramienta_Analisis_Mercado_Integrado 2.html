@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramienta de Análisis de Mercado Integrado | PFL Academy</title>
+<!--STATE VARIABLES: STATE_MEDIAN_RENT, STATE_MEDIAN_HOME_PRICE
+
+    PURPOSE: Apply supply, demand, and market structure concepts together
+    USE: Chapter interactive activity (15-20 minutes)
+    -->
+<style>:root{--primary:#6366f1;--secondary:#8b5cf6;--success:#10b981;--warning:#f59e0b}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:#1f2937;background:#f9fafb;padding:20px}.container{max-width:1100px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:30px;text-align:center}h1{font-size:2rem;margin-bottom:10px}.main-content{padding:30px}.section{margin-bottom:30px}.section-title{font-size:1.3rem;font-weight:600;color:var(--primary);margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid var(--primary)}.scenario-card{background:#f9fafb;border:2px solid #e5e7eb;border-radius:8px;padding:20px;margin:15px 0}.form-group{margin-bottom:15px}label{display:block;font-weight:600;margin-bottom:8px}input,select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:6px;font-size:1rem}.btn{padding:12px 24px;border-radius:6px;font-weight:600;border:none;background:var(--primary);color:#fff;cursor:pointer;width:100%;margin-top:15px}.btn:hover{background:#4f46e5}.results{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);padding:25px;border-radius:8px;margin-top:20px;display:none}.chart-container{background:#fff;padding:15px;border-radius:8px;margin:15px 0}.info-box{background:#fef3c7;border-left:4px solid var(--warning);padding:15px;border-radius:6px;margin:15px 0}@media print{body{background:#fff;padding:0}.container{box-shadow:none}.btn{display:none}}@media (max-width:768px){.main-content{padding:20px}}</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>📊 Herramienta de Análisis de Mercado Integrado</h1>
+<p>Aplica Conceptos de Oferta, Demanda y Estructura de Mercado</p>
+</header>
+<div class="main-content">
+<div class="section">
+<h2 class="section-title">Análisis de Escenario de Mercado</h2>
+<div class="scenario-card">
+<h3>Escenario: Mercado de Vivienda Local</h3>
+<p>Analiza el mercado de vivienda local usando principios de oferta y demanda.</p>
+<div class="form-group">
+<label>Precio Medio Actual de Vivienda en Tu Área</label>
+<input type="number" id="homePrice" placeholder="{{STATE_MEDIAN_HOME_PRICE}}">
+</div>
+<div class="form-group">
+<label>Alquiler Mensual Medio Actual</label>
+<input type="number" id="rent" placeholder="{{STATE_MEDIAN_RENT}}">
+</div>
+<div class="form-group">
+<label>Condición del Mercado</label>
+<select id="marketCondition">
+<option value="">Seleccionar...</option>
+<option value="shortage">Escasez de Vivienda (Alta Demanda, Baja Oferta)</option>
+<option value="balanced">Mercado Equilibrado</option>
+<option value="surplus">Excedente de Vivienda (Baja Demanda, Alta Oferta)</option>
+</select>
+</div>
+<div class="form-group">
+<label>Estructura de Mercado</label>
+<select id="marketStructure">
+<option value="">Seleccionar...</option>
+<option value="competitive">Competencia Perfecta (Muchos compradores/vendedores)</option>
+<option value="monopolistic">Competencia Monopolística (Alguna diferenciación)</option>
+<option value="oligopoly">Oligopolio (Pocos desarrolladores grandes)</option>
+<option value="monopoly">Monopolio (Un solo desarrollador controla el área)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="section">
+<h2 class="section-title">Análisis de Impacto</h2>
+<div class="form-group">
+<label>Cambio Económico Previsto</label>
+<select id="economicChange">
+<option value="">Seleccionar...</option>
+<option value="growth">Fuerte Crecimiento Económico (Más Empleos)</option>
+<option value="stable">Economía Estable</option>
+<option value="decline">Declive Económico (Pérdida de Empleos)</option>
+</select>
+</div>
+<div class="form-group">
+<label>Tendencia de Tasas de Interés</label>
+<select id="interestTrend">
+<option value="">Seleccionar...</option>
+<option value="decrease">Disminuyendo (Más Fácil Pedir Prestado)</option>
+<option value="stable">Estable</option>
+<option value="increase">Aumentando (Más Difícil Pedir Prestado)</option>
+</select>
+</div>
+</div>
+<button class="btn" onclick="analyze()">Analizar Dinámicas del Mercado</button>
+<div id="results" class="results">
+<h2 style="margin-bottom:15px">Resultados del Análisis</h2>
+<div class="chart-container">
+<h3>Predicción de Oferta y Demanda</h3>
+<p id="supplyDemand"></p>
+</div>
+<div class="chart-container">
+<h3>Pronóstico de Precios</h3>
+<p id="priceForecast"></p>
+</div>
+<div class="chart-container">
+<h3>Impacto de la Estructura de Mercado</h3>
+<p id="structureImpact"></p>
+</div>
+<div class="info-box">
+<strong>💡 Perspectivas Clave:</strong>
+<p id="insights"></p>
+</div>
+</div>
+</div>
+</div>
+<script>
+function analyze(){const condition=document.getElementById('marketCondition').value;const structure=document.getElementById('marketStructure').value;const economic=document.getElementById('economicChange').value;const interest=document.getElementById('interestTrend').value;if(!condition||!structure||!economic||!interest){alert('Por favor complete todos los campos');return}let supplyDemandText='';let priceText='';let structureText='';let insightsText='';if(condition==='shortage'){supplyDemandText='La escasez actual indica que la demanda excede la oferta. ';if(economic==='growth')supplyDemandText+='El crecimiento económico probablemente aumentará la demanda aún más, empeorando la escasez.';else if(economic==='decline')supplyDemandText+='El declive económico puede reducir la demanda, potencialmente equilibrando el mercado.';else supplyDemandText+='Una economía estable sugiere que la escasez persistirá.'}else if(condition==='balanced'){supplyDemandText='El mercado está actualmente equilibrado. ';if(economic==='growth')supplyDemandText+='El crecimiento económico puede crear escasez a medida que aumenta la demanda.';else if(economic==='decline')supplyDemandText+='El declive económico puede crear excedente a medida que disminuye la demanda.';else supplyDemandText+='Es probable que el equilibrio continúe con una economía estable.'}else{supplyDemandText='El excedente actual indica que la oferta excede la demanda. ';if(economic==='growth')supplyDemandText+='El crecimiento económico debería ayudar a absorber el exceso de oferta.';else if(economic==='decline')supplyDemandText+='El declive económico empeorará el excedente.';else supplyDemandText+='Es probable que el excedente persista con una economía estable.'}if(interest==='decrease'){priceText='Las tasas de interés decrecientes hacen que pedir prestado sea más barato, aumentando la demanda y probablemente elevando los precios. ';}else if(interest==='increase'){priceText='Las tasas de interés crecientes hacen que pedir prestado sea más caro, disminuyendo la demanda y probablemente bajando los precios. ';}else{priceText='Las tasas de interés estables sugieren que los precios seguirán las tendencias de oferta/demanda. '}if(condition==='shortage'&&interest==='decrease')priceText+='Espera aumentos significativos de precios.';else if(condition==='surplus'&&interest==='increase')priceText+='Espera disminuciones o estancamiento de precios.';else priceText+='Espera cambios moderados de precios.';if(structure==='competitive'){structureText='La competencia perfecta significa que los precios son determinados por las fuerzas del mercado. Los consumidores tienen muchas opciones y los vendedores deben competir en precio.';}else if(structure==='monopolistic'){structureText='La competencia monopolística permite cierto control de precios a través de la diferenciación. Espera precios variados según características y ubicación.';}else if(structure==='oligopoly'){structureText='La estructura de oligopolio significa que pocos grandes actores influyen en los precios. Menos competencia puede resultar en precios más altos y comportamiento coordinado.';}else{structureText='La estructura de monopolio da a un desarrollador un poder significativo de fijación de precios. Espera precios más altos y opciones limitadas para el consumidor.'}insightsText='Basado en tu análisis, ';if(condition==='shortage'&&economic==='growth'){insightsText+='espera una fuerte apreciación de precios. Considera comprar pronto si planeas hacerlo. ';}else if(condition==='surplus'&&economic==='decline'){insightsText+='espera que los precios caigan. Los compradores pueden querer esperar; los vendedores deben poner precios competitivos. ';}else{insightsText+='espera cambios graduales de precios. El momento del mercado es menos crítico. '}if(structure==='monopoly'||structure==='oligopoly'){insightsText+='La competencia limitada puede mantener los precios más altos que en mercados competitivos.'}document.getElementById('supplyDemand').textContent=supplyDemandText;document.getElementById('priceForecast').textContent=priceText;document.getElementById('structureImpact').textContent=structureText;document.getElementById('insights').textContent=insightsText;document.getElementById('results').style.display='block';document.getElementById('results').scrollIntoView({behavior:'smooth'})}
+</script>
+</body>
+</html>

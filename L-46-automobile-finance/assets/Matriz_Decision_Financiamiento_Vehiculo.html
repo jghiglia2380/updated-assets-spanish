@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Decisión de Financiamiento de Vehículo | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--surface);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .priority-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .priority-item {
+            display: grid;
+            grid-template-columns: 1fr 60px;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .priority-label {
+            padding: 10px 12px;
+            background: var(--surface);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .rank-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .rank-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+        }
+
+        .state-info-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 12px;
+        }
+
+        .state-info-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .state-data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .state-data-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 8px;
+            background: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .state-data-label {
+            color: var(--text-light);
+        }
+
+        .state-data-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .scenario-box {
+            padding: 12px;
+            background: var(--surface);
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .scenario-label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .scenario-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .decision-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .decision-title {
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .decision-options {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .decision-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .decision-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--success);
+        }
+
+        .decision-option label {
+            font-weight: 600;
+            color: #065f46;
+        }
+
+        .rules-section textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--text-light);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            background: var(--surface);
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .action-buttons {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .input-grid,
+            .state-data-grid,
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .decision-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Matriz de Decisión de Financiamiento de Vehículo</h1>
+            <p class="subtitle">Marco Personal para Tomar Decisiones de Financiamiento Informadas</p>
+        </header>
+
+        <div class="content">
+            <!-- Sección 1: Prioridades -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    Sus Prioridades (Clasifique 1-5)
+                </h2>
+                <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;">
+                    1 = Más Importante, 5 = Menos Importante
+                </p>
+
+                <div class="priority-grid">
+                    <div class="priority-item">
+                        <span class="priority-label">El pago mensual más bajo posible</span>
+                        <input type="number" class="rank-input" min="1" max="5" placeholder="1-5">
+                    </div>
+                    <div class="priority-item">
+                        <span class="priority-label">El costo total más bajo a lo largo del tiempo</span>
+                        <input type="number" class="rank-input" min="1" max="5" placeholder="1-5">
+                    </div>
+                    <div class="priority-item">
+                        <span class="priority-label">Siempre conducir un vehículo más nuevo</span>
+                        <input type="number" class="rank-input" min="1" max="5" placeholder="1-5">
+                    </div>
+                    <div class="priority-item">
+                        <span class="priority-label">Eventualmente no tener pagos de auto</span>
+                        <input type="number" class="rank-input" min="1" max="5" placeholder="1-5">
+                    </div>
+                    <div class="priority-item">
+                        <span class="priority-label">Flexibilidad para cambiar vehículos frecuentemente</span>
+                        <input type="number" class="rank-input" min="1" max="5" placeholder="1-5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2: Circunstancias Actuales -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Sus Circunstancias
+                </h2>
+
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label>Ingreso Anual</label>
+                        <input type="text" placeholder="$__________">
+                    </div>
+                    <div class="form-group">
+                        <label>Ahorros Actuales</label>
+                        <input type="text" placeholder="$__________">
+                    </div>
+                    <div class="form-group">
+                        <label>Millaje Anual Esperado</label>
+                        <input type="text" placeholder="__________ millas">
+                    </div>
+                    <div class="form-group">
+                        <label>Presupuesto Mensual para Vehículo</label>
+                        <input type="text" placeholder="$__________">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Estabilidad de Carrera/Ingresos</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="stability" id="stable">
+                            <label for="stable">Estable</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="stability" id="uncertain">
+                            <label for="uncertain">Incierto</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="stability" id="changing">
+                            <label for="changing">Cambiando Pronto</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Rango de Puntaje de Crédito</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="credit" id="excellent">
+                            <label for="excellent">Excelente (750+)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="credit" id="good">
+                            <label for="good">Bueno (700-749)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="credit" id="fair">
+                            <label for="fair">Regular (650-699)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="credit" id="building">
+                            <label for="building">Construyendo (<650)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 3: Factores Específicos del Estado -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    Factores de {{STATE_NAME}}
+                </h2>
+
+                <div class="state-info-box">
+                    <div class="state-info-title">Costos de Vehículo Específicos del Estado</div>
+                    <div class="state-data-grid">
+                        <div class="state-data-item">
+                            <span class="state-data-label">Impuesto sobre Ventas:</span>
+                            <span class="state-data-value">{{STATE_SALES_TAX}}%</span>
+                        </div>
+                        <div class="state-data-item">
+                            <span class="state-data-label">Registro Inicial:</span>
+                            <span class="state-data-value">${{STATE_REGISTRATION_INITIAL}}</span>
+                        </div>
+                        <div class="state-data-item">
+                            <span class="state-data-label">Registro Anual:</span>
+                            <span class="state-data-value">${{STATE_REGISTRATION_ANNUAL}}</span>
+                        </div>
+                        <div class="state-data-item">
+                            <span class="state-data-label">Seguro Prom. Adolescente:</span>
+                            <span class="state-data-value">${{STATE_INSURANCE_AVG_TEEN}}/mes</span>
+                        </div>
+                        <div class="state-data-item">
+                            <span class="state-data-label">Precio de Gasolina:</span>
+                            <span class="state-data-value">${{STATE_GAS_PRICE_CURRENT}}/gal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 4: Resultados del Escenario -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Resumen de Resultados del Análisis
+                </h2>
+                <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;">
+                    Ingrese los costos netos de sus actividades del Día 2:
+                </p>
+
+                <div class="scenario-grid">
+                    <div class="scenario-box">
+                        <div class="scenario-label">Comprar Nuevo</div>
+                        <input type="text" class="scenario-input" placeholder="$__________">
+                        <div style="font-size: 0.7rem; color: var(--text-light); margin-top: 4px;">Costo Neto a 6 Años</div>
+                    </div>
+                    <div class="scenario-box">
+                        <div class="scenario-label">Comprar Usado</div>
+                        <input type="text" class="scenario-input" placeholder="$__________">
+                        <div style="font-size: 0.7rem; color: var(--text-light); margin-top: 4px;">Costo Neto a 6 Años</div>
+                    </div>
+                    <div class="scenario-box">
+                        <div class="scenario-label">Arrendar</div>
+                        <input type="text" class="scenario-input" placeholder="$__________">
+                        <div style="font-size: 0.7rem; color: var(--text-light); margin-top: 4px;">Costo Neto a 6 Años</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 5: Mi Decisión -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    Mi Marco de Decisión
+                </h2>
+
+                <div class="decision-box">
+                    <div class="decision-title">Enfoque Recomendado</div>
+                    <div class="decision-options">
+                        <div class="decision-option">
+                            <input type="radio" name="decision" id="buyNew">
+                            <label for="buyNew">Comprar Nuevo</label>
+                        </div>
+                        <div class="decision-option">
+                            <input type="radio" name="decision" id="buyUsed">
+                            <label for="buyUsed">Comprar Usado</label>
+                        </div>
+                        <div class="decision-option">
+                            <input type="radio" name="decision" id="lease">
+                            <label for="lease">Arrendar</label>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label>Pago Mensual Máximo</label>
+                            <input type="text" placeholder="$__________">
+                        </div>
+                        <div class="form-group">
+                            <label>Plazo Máximo del Préstamo</label>
+                            <input type="text" placeholder="__________ meses">
+                        </div>
+                        <div class="form-group">
+                            <label>Precio Objetivo del Vehículo (Mín)</label>
+                            <input type="text" placeholder="$__________">
+                        </div>
+                        <div class="form-group">
+                            <label>Precio Objetivo del Vehículo (Máx)</label>
+                            <input type="text" placeholder="$__________">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Plan Después de Pagar el Préstamo</label>
+                        <textarea placeholder="ej., Conducir 5+ años más sin pagos, ahorrar el monto del pago para el próximo vehículo..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 6: Reglas Personales -->
+            <div class="section rules-section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Mis Reglas Personales
+                </h2>
+
+                <div class="form-group">
+                    <label>NO voy a:</label>
+                    <textarea placeholder="ej., Financiar por más de 60 meses, gastar más del 15% de ingresos en pagos de auto, comprar sin obtener pre-aprobación..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Voy a PRIORIZAR:</label>
+                    <textarea placeholder="ej., Confiabilidad sobre características, 20% de enganche, investigar antes de visitar concesionarios..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Mi Cronograma:</label>
+                    <textarea placeholder="ej., Ahorrar por 6 meses, comprar en primavera cuando hay mejores ofertas, obtener pre-aprobación antes de buscar..."></textarea>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="window.print()">Imprimir Matriz</button>
+                <button class="btn btn-secondary" onclick="clearForm()">Borrar Todo</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>PFL Academy | L-46: Financiamiento de Automóviles - Comprar vs. Arrendar</p>
+        </footer>
+    </div>
+
+    <script>
+        function clearForm() {
+            if (confirm('¿Borrar todos los campos?')) {
+                document.querySelectorAll('input:not([type="radio"]), textarea').forEach(el => {
+                    el.value = '';
+                });
+                document.querySelectorAll('input[type="radio"]').forEach(el => {
+                    el.checked = false;
+                });
+            }
+        }
+    </script>
+</body>
+</html>

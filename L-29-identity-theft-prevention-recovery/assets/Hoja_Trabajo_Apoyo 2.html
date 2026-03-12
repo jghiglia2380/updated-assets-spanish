@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Proteccion contra Robo de Identidad - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .scenario-box {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .scenario-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .scenario-box p {
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .question-group {
+            margin-bottom: 20px;
+        }
+
+        .question-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .question-group textarea,
+        .question-group input,
+        .question-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .question-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .risk-assessment {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .risk-assessment h3 {
+            font-size: 16px;
+            color: #dc2626;
+            margin-bottom: 16px;
+        }
+
+        .risk-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .risk-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .risk-item label {
+            font-size: 13px;
+            flex: 1;
+        }
+
+        .risk-item select {
+            width: 120px;
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .protection-plan {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .protection-plan h3 {
+            font-size: 16px;
+            color: #059669;
+            margin-bottom: 16px;
+        }
+
+        .plan-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .plan-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .reflection-section {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .reflection-section h3 {
+            font-size: 16px;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .matching-exercise {
+            margin-bottom: 20px;
+        }
+
+        .matching-exercise h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .matching-item {
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .matching-item.term {
+            font-weight: 600;
+        }
+
+        .matching-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .matching-input input {
+            width: 30px;
+            text-align: center;
+            padding: 4px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+
+        .print-section {
+            text-align: center;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section {
+                display: none;
+            }
+
+            .section,
+            .risk-assessment,
+            .protection-plan,
+            .reflection-section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column,
+            .matching-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Proteccion contra Robo de Identidad</h1>
+            <p>Practique la identificacion de riesgos y el desarrollo de estrategias de proteccion</p>
+        </div>
+
+        <div class="section">
+            <h3>Parte 1: Analisis de Escenarios</h3>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Lea cada escenario y responda las preguntas que siguen.</p>
+
+            <div class="scenario-box">
+                <h4>Escenario A: La Violacion de Datos</h4>
+                <p>Maria recibe un correo electronico de su tienda en linea favorita informandole que su base de datos fue violada. Los hackers pueden haber accedido a nombres de clientes, direcciones de correo electronico, contrasenas y numeros parciales de tarjetas de credito (ultimos 4 digitos). Maria ha comprado en esta tienda por 5 anos y usa la misma contrasena para multiples cuentas.</p>
+            </div>
+
+            <div class="question-group">
+                <label>1. Que acciones inmediatas deberia tomar Maria? (Enumere al menos 3)</label>
+                <textarea placeholder="1.
+2.
+3. "></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>2. Que habitos a largo plazo deberia cambiar Maria para prevenir problemas futuros?</label>
+                <textarea placeholder="Describa los cambios que Maria deberia hacer..."></textarea>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Escenario B: La Llamada Telefonica</h4>
+                <p>James recibe una llamada telefonica de alguien que dice ser del IRS. La persona dice que James debe impuestos atrasados y debe pagar inmediatamente usando tarjetas de regalo o enfrentara arresto. La persona sabe el nombre completo y la direccion de James.</p>
+            </div>
+
+            <div class="question-group">
+                <label>3. Que senales de alerta indican que esto es una estafa?</label>
+                <textarea placeholder="Identifique las senales de advertencia..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>4. Que deberia hacer James en esta situacion?</label>
+                <textarea placeholder="Describa la respuesta apropiada..."></textarea>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Escenario C: La Billetera Perdida</h4>
+                <p>La billetera de Taylor fue robada en un concierto. Contenia su licencia de conducir, tarjeta de debito, dos tarjetas de credito, tarjeta de seguro medico y tarjeta de Seguro Social.</p>
+            </div>
+
+            <div class="question-group">
+                <label>5. En que orden deberia Taylor abordar estas perdidas? Por que?</label>
+                <textarea placeholder="Priorice los elementos y explique su razonamiento..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>6. Que error cometio Taylor al llevar todos estos elementos?</label>
+                <textarea placeholder="Identifique el error y mejores practicas..."></textarea>
+            </div>
+        </div>
+
+        <div class="risk-assessment">
+            <h3>Parte 2: Evaluacion de Riesgo Personal</h3>
+            <p style="font-size: 14px; color: #92400e; margin-bottom: 16px;">Califique su nivel actual de proteccion en cada area.</p>
+
+            <div class="risk-item">
+                <label>Uso contrasenas unicas para cada cuenta importante</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Nunca</option>
+                    <option value="2">Rara vez</option>
+                    <option value="3">A veces</option>
+                    <option value="4">Usualmente</option>
+                    <option value="5">Siempre</option>
+                </select>
+            </div>
+
+            <div class="risk-item">
+                <label>Tengo autenticacion de dos factores habilitada en cuentas financieras</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Ninguna cuenta</option>
+                    <option value="3">Algunas cuentas</option>
+                    <option value="5">Todas las cuentas</option>
+                </select>
+            </div>
+
+            <div class="risk-item">
+                <label>Reviso mis estados bancarios/tarjetas de credito para cargos no autorizados</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Nunca</option>
+                    <option value="2">Anualmente</option>
+                    <option value="3">Trimestralmente</option>
+                    <option value="4">Mensualmente</option>
+                    <option value="5">Semanalmente</option>
+                </select>
+            </div>
+
+            <div class="risk-item">
+                <label>Reviso mis informes de credito regularmente</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Nunca</option>
+                    <option value="2">Solo cuando me niegan credito</option>
+                    <option value="3">Cada pocos anos</option>
+                    <option value="4">Anualmente</option>
+                    <option value="5">Varias veces al ano</option>
+                </select>
+            </div>
+
+            <div class="risk-item">
+                <label>Trituro documentos que contienen informacion personal</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Nunca</option>
+                    <option value="2">Rara vez</option>
+                    <option value="3">A veces</option>
+                    <option value="4">Usualmente</option>
+                    <option value="5">Siempre</option>
+                </select>
+            </div>
+
+            <div class="risk-item">
+                <label>Soy cauteloso con lo que comparto en redes sociales</label>
+                <select>
+                    <option value="">Seleccione...</option>
+                    <option value="1">Comparto todo</option>
+                    <option value="3">Algo selectivo</option>
+                    <option value="5">Muy privado</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Parte 3: Verificacion de Conocimientos - Ejercicio de Emparejamiento</h3>
+            <div class="matching-exercise">
+                <h4>Empareje cada termino (1-6) con su definicion correcta (A-F)</h4>
+                <div class="matching-grid">
+                    <div class="matching-item term">1. Phishing</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">A. Restriccion para abrir nuevas cuentas de credito</span>
+                    </div>
+
+                    <div class="matching-item term">2. Congelamiento de Credito</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">B. Intento fraudulento de obtener informacion sensible por correo</span>
+                    </div>
+
+                    <div class="matching-item term">3. Skimming</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">C. Alerta en archivo de credito advirtiendo de posible fraude</span>
+                    </div>
+
+                    <div class="matching-item term">4. Alerta de Fraude</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">D. Dispositivo que captura datos de tarjetas de cajeros o bombas de gasolina</span>
+                    </div>
+
+                    <div class="matching-item term">5. Ingenieria Social</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">E. Usar informacion personal para hacerse pasar por alguien</span>
+                    </div>
+
+                    <div class="matching-item term">6. Robo de Identidad</div>
+                    <div class="matching-input">
+                        <input type="text" maxlength="1" placeholder="?">
+                        <span class="matching-item">F. Manipular personas para revelar informacion confidencial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="protection-plan">
+            <h3>Parte 4: Desarrollo del Plan de Proteccion Personal</h3>
+            <p style="font-size: 14px; color: #065f46; margin-bottom: 16px;">Basandose en su evaluacion de riesgo, cree un plan para mejorar su proteccion de identidad.</p>
+
+            <div class="plan-item">
+                <h4>Accion Prioritaria 1 - Esta Semana</h4>
+                <div class="question-group">
+                    <label>Que hara?</label>
+                    <input type="text" placeholder="Accion especifica a tomar esta semana">
+                </div>
+            </div>
+
+            <div class="plan-item">
+                <h4>Accion Prioritaria 2 - Este Mes</h4>
+                <div class="question-group">
+                    <label>Que hara?</label>
+                    <input type="text" placeholder="Accion especifica a completar dentro de 30 dias">
+                </div>
+            </div>
+
+            <div class="plan-item">
+                <h4>Accion Prioritaria 3 - Habito Continuo</h4>
+                <div class="question-group">
+                    <label>Que habito establecera?</label>
+                    <input type="text" placeholder="Practica regular a mantener a largo plazo">
+                </div>
+            </div>
+
+            <div class="plan-item">
+                <h4>Recursos Necesarios</h4>
+                <div class="two-column">
+                    <div class="question-group">
+                        <label>Herramientas o servicios a obtener</label>
+                        <textarea placeholder="ej., Administrador de contrasenas, trituradora, monitoreo de credito..."></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label>Costo estimado</label>
+                        <input type="text" placeholder="ej., $0-50, opciones gratuitas disponibles">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reflection-section">
+            <h3>Parte 5: Preguntas de Reflexion</h3>
+
+            <div class="question-group">
+                <label>1. Por que cree que el robo de identidad continua aumentando a pesar de mayor concienciacion?</label>
+                <textarea placeholder="Considere cambios tecnologicos, comportamiento humano y sofisticacion criminal..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>2. Como podria su huella digital (redes sociales, compras en linea, etc.) hacerlo vulnerable al robo de identidad?</label>
+                <textarea placeholder="Piense en la informacion que comparte en linea..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>3. Cual es la diferencia entre un congelamiento de credito y una alerta de fraude? Cuando usaria cada uno?</label>
+                <textarea placeholder="Compare y contraste estas herramientas de proteccion..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>4. Si la identidad de un familiar fuera robada, que tres consejos le daria?</label>
+                <textarea placeholder="1.
+2.
+3. "></textarea>
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+    </div>
+</body>
+</html>

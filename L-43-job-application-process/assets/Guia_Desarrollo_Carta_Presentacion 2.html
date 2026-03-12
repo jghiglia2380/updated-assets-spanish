@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Desarrollo de Carta de Presentacion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a86e8;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c5aa0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h3 {
+            color: #2c5aa0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4a86e8;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f6fd;
+        }
+
+        .category {
+            width: 30%;
+            font-weight: bold;
+        }
+
+        .notes {
+            width: 70%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .example-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .example-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c5aa0;
+        }
+
+        .highlight-box {
+            background-color: #e8f0fe;
+            border: 1px solid #4a86e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tips {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .tips h3 {
+            margin-top: 0;
+            color: #2c5aa0;
+        }
+
+        .tips ul {
+            margin-bottom: 0;
+        }
+
+        .do-dont {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .do, .dont {
+            flex: 1;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .do {
+            background-color: #e8f5e9;
+            border: 1px solid #66bb6a;
+        }
+
+        .dont {
+            background-color: #ffebee;
+            border: 1px solid #ef5350;
+        }
+
+        .do h3, .dont h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .do h3 {
+            color: #2e7d32;
+        }
+
+        .dont h3 {
+            color: #c62828;
+        }
+
+        .template-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .print-button {
+            background-color: #4a86e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #3a76d8;
+        }
+
+        .color-key {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+
+        .color-box.header {
+            background-color: #e3f2fd;
+        }
+
+        .color-box.intro {
+            background-color: #e8f5e9;
+        }
+
+        .color-box.body1 {
+            background-color: #fff3e0;
+        }
+
+        .color-box.body2 {
+            background-color: #f3e5f5;
+        }
+
+        .color-box.closing {
+            background-color: #e1f5fe;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            textarea {
+                border: none;
+                height: auto;
+                min-height: 60px;
+            }
+
+            .instructions {
+                border-left: 2px solid #4a86e8;
+                padding: 10px;
+                background-color: white;
+            }
+
+            .example-box, .highlight-box, .tips, .do, .dont {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Guia de Desarrollo de Carta de Presentacion</h1>
+        <p>Una guia integral para crear cartas de presentacion efectivas y dirigidas para solicitudes de empleo</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Como Usar Esta Guia:</h3>
+        <ol>
+            <li>Lea la estructura y los componentes de la carta de presentacion</li>
+            <li>Revise los ejemplos para entender los enfoques efectivos</li>
+            <li>Complete la hoja de planificacion para su puesto especifico</li>
+            <li>Use la plantilla y la lista de verificacion para redactar su carta de presentacion</li>
+            <li>Revise contra los criterios de evaluacion antes de finalizar</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Proposito e Importancia de la Carta de Presentacion</h2>
+        <p>Una carta de presentacion sirve como su introduccion personal a los empleadores potenciales. A diferencia de un curriculum, que lista sus calificaciones, una carta de presentacion cuenta su historia profesional y explica:</p>
+        <ul>
+            <li>Por que esta interesado en el puesto y la empresa especificos</li>
+            <li>Como sus calificaciones se alinean con los requisitos del trabajo</li>
+            <li>Que valor unico puede aportar a la organizacion</li>
+            <li>Como sus experiencias demuestran las habilidades requeridas</li>
+            <li>Por que seria un buen ajuste cultural para la organizacion</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3>Beneficios Clave de una Carta de Presentacion Bien Elaborada:</h3>
+            <ul>
+                <li><strong>Demuestra esfuerzo e interes:</strong> Muestra que se ha tomado el tiempo de investigar el puesto y la empresa</li>
+                <li><strong>Destaca calificaciones relevantes:</strong> Dirige la atencion a sus experiencias mas aplicables</li>
+                <li><strong>Proporciona contexto:</strong> Explica brechas, transiciones o circunstancias unicas en su trayectoria</li>
+                <li><strong>Demuestra habilidades de comunicacion:</strong> Refleja sus habilidades de comunicacion escrita y atencion al detalle</li>
+                <li><strong>Personaliza su solicitud:</strong> Hace una conexion humana mas alla de los datos del curriculum</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Estructura y Componentes de la Carta de Presentacion</h2>
+
+        <div class="color-key">
+            <div class="color-item">
+                <div class="color-box header"></div>
+                <span>Encabezado/Info de Contacto</span>
+            </div>
+            <div class="color-item">
+                <div class="color-box intro"></div>
+                <span>Introduccion</span>
+            </div>
+            <div class="color-item">
+                <div class="color-box body1"></div>
+                <span>Parrafo del Cuerpo 1</span>
+            </div>
+            <div class="color-item">
+                <div class="color-box body2"></div>
+                <span>Parrafo del Cuerpo 2</span>
+            </div>
+            <div class="color-item">
+                <div class="color-box closing"></div>
+                <span>Cierre</span>
+            </div>
+        </div>
+
+        <h3 style="background-color: #e3f2fd; padding: 5px;">1. Encabezado e Informacion de Contacto</h3>
+        <ul>
+            <li>Su nombre completo, direccion, numero de telefono y correo electronico profesional</li>
+            <li>Fecha de redaccion</li>
+            <li>Nombre del destinatario, titulo, empresa y direccion (cuando esten disponibles)</li>
+        </ul>
+
+        <h3 style="background-color: #e8f5e9; padding: 5px;">2. Saludo e Introduccion</h3>
+        <ul>
+            <li>Saludo profesional dirigido a una persona especifica cuando sea posible</li>
+            <li>Parrafo de apertura que identifica el puesto al que esta aplicando</li>
+            <li>Declaracion breve de interes en el puesto y la empresa</li>
+            <li>Un gancho o razon convincente de por que es un candidato fuerte</li>
+        </ul>
+
+        <h3 style="background-color: #fff3e0; padding: 5px;">3. Parrafo del Cuerpo 1: Habilidades y Calificaciones Relevantes</h3>
+        <ul>
+            <li>Destaque 2-3 calificaciones clave que se alineen con los requisitos del trabajo</li>
+            <li>Proporcione ejemplos especificos que demuestren estas calificaciones</li>
+            <li>Conecte sus experiencias directamente con las necesidades del puesto</li>
+            <li>Use metricas y logros cuando sea posible</li>
+        </ul>
+
+        <h3 style="background-color: #f3e5f5; padding: 5px;">4. Parrafo del Cuerpo 2: Conexion con la Empresa y Valor</h3>
+        <ul>
+            <li>Demuestre conocimiento de los valores, mision o desarrollos recientes de la empresa</li>
+            <li>Explique por que esta interesado en esta organizacion especifica</li>
+            <li>Describa el valor unico que aportaria al equipo</li>
+            <li>Conecte su trayectoria o intereses con la cultura de la empresa</li>
+        </ul>
+
+        <h3 style="background-color: #e1f5fe; padding: 5px;">5. Parrafo de Cierre y Firma</h3>
+        <ul>
+            <li>Reitere su interes en el puesto</li>
+            <li>Exprese entusiasmo por la oportunidad de entrevistarse</li>
+            <li>Agradezca al lector por su consideracion</li>
+            <li>Despedida profesional con su nombre completo</li>
+            <li>Referencia al curriculum adjunto o materiales adicionales</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Ejemplos de Cartas de Presentacion</h2>
+
+        <div class="example-box">
+            <div class="example-header">Ejemplo 1: Puesto de Nivel de Entrada</div>
+            <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">
+<span style="background-color: #e3f2fd;">Maria Garcia
+Calle Profesional 123
+Ciudad, Estado CP
+Telefono: (555) 123-4567
+Correo: mgarcia@email.com
+
+30 de abril de 2025
+
+Sr. Roberto Martinez
+Gerente de Contratacion
+Corporacion XYZ
+Avenida Corporativa 456
+Ciudad, Estado CP</span>
+
+<span style="background-color: #e8f5e9;">Estimado Sr. Martinez,
+
+Le escribo para expresar mi interes en el puesto de Asistente de Marketing en Corporacion XYZ, segun lo anunciado en su sitio web. Como recien graduada con una Licenciatura en Marketing y experiencia en gestion de redes sociales a traves de practicas y proyectos academicos, estoy entusiasmada por la oportunidad de contribuir a las iniciativas de marketing innovadoras de XYZ.</span>
+
+<span style="background-color: #fff3e0;">Mi formacion academica y experiencias de practicas me han preparado bien para este puesto. Durante mi practica en Agencia ABC, asisti en el desarrollo de contenido para redes sociales que aumento el engagement en un 25% en tres meses. Adicionalmente, como lider de marketing del club de negocios de mi universidad, implemente una estrategia de marketing digital que incremento la asistencia a nuestros eventos en un 40%. Estas experiencias han perfeccionado mis habilidades en creacion de contenido, analitica y planificacion de campanas, todos requisitos clave mencionados en su descripcion del puesto.</span>
+
+<span style="background-color: #f3e5f5;">Me atrae particularmente Corporacion XYZ por su compromiso con estrategias de marketing basadas en datos y su reciente expansion hacia lineas de productos sostenibles. El enfasis de su empresa en la responsabilidad ambiental se alinea con mis valores personales, y estaria entusiasmada de contribuir a campanas que destaquen este importante aspecto de su negocio. Creo que mi enfoque creativo y mentalidad analitica aportarian una perspectiva valiosa a su equipo de marketing.</span>
+
+<span style="background-color: #e1f5fe;">Gracias por considerar mi solicitud. Estoy entusiasmada por la posibilidad de unirme a Corporacion XYZ y agradeceria la oportunidad de discutir como mis habilidades y entusiasmo beneficiarian a su equipo. He adjuntado mi curriculum para su revision y estoy disponible para una entrevista a su conveniencia.
+
+Atentamente,
+
+Maria Garcia
+
+Anexo: Curriculum</span>
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <div class="example-header">Ejemplo 2: Transicion de Carrera a Mitad de Trayectoria</div>
+            <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">
+<span style="background-color: #e3f2fd;">Carlos Rodriguez
+Avenida Profesional 789
+Ciudad, Estado CP
+Telefono: (555) 987-6543
+Correo: crodriguez@email.com
+
+30 de abril de 2025
+
+Sra. Ana Fernandez
+Directora de Recursos Humanos
+Soluciones Tech Innovadoras
+Parque Tecnologico 101
+Ciudad, Estado CP</span>
+
+<span style="background-color: #e8f5e9;">Estimada Sra. Fernandez,
+
+Me entusiasma postularme para el puesto de Gerente de Proyectos en Soluciones Tech Innovadoras, segun lo anunciado en LinkedIn. Con mas de seis anos de experiencia en liderazgo de servicio al cliente y una certificacion recien completada de Project Management Professional (PMP), estoy ansioso por aportar mis habilidades transferibles al sector tecnologico y contribuir a la reputacion de su empresa por entregar soluciones de alta calidad.</span>
+
+<span style="background-color: #fff3e0;">Aunque mi experiencia es en gestion de retail, he utilizado consistentemente metodologias de gestion de proyectos para impulsar resultados. Como Gerente de Departamento en Empresas Retail, lidere equipos multifuncionales para implementar un nuevo sistema de inventario que redujo los faltantes en un 30% y mejoro la eficiencia en un 25%. Este proyecto requirio planificacion cuidadosa, gestion de partes interesadas, asignacion de recursos y desarrollo de cronogramas, todas habilidades directamente transferibles al rol de gestion de proyectos tecnicos en su empresa. Adicionalmente, mi certificacion PMP me ha equipado con conocimiento formal de metodologias Agile y Scrum mencionadas en su descripcion del puesto.</span>
+
+<span style="background-color: #f3e5f5;">Estoy particularmente impresionado por el compromiso de Soluciones Tech Innovadoras con el desarrollo centrado en el cliente y el reconocimiento de su empresa como "Mejor Lugar para Trabajar" durante tres anos consecutivos. Su enfoque en la resolucion colaborativa de problemas y enfasis en el aprendizaje continuo se alinean perfectamente con mis valores profesionales. Habiendo investigado sus implementaciones recientes para clientes de salud, estoy entusiasmado por la posibilidad de contribuir a proyectos que tengan un impacto significativo en diversas industrias.</span>
+
+<span style="background-color: #e1f5fe;">Gracias por considerar mi solicitud. Agradezco la oportunidad de discutir como mi experiencia en gestion de proyectos, aunque de una industria diferente, proporciona una perspectiva unica que beneficiaria a su equipo. He adjuntado mi curriculum y portafolio de proyectos para su revision y estoy disponible para hablar a su conveniencia.
+
+Atentamente,
+
+Carlos Rodriguez
+
+Anexos: Curriculum, Portafolio de Proyectos</span>
+            </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Lo que Debe y No Debe Hacer</h2>
+
+        <div class="do-dont">
+            <div class="do">
+                <h3>HAGA</h3>
+                <ul>
+                    <li>Dirigirse a una persona especifica siempre que sea posible</li>
+                    <li>Personalizar cada carta para el trabajo y empresa especificos</li>
+                    <li>Destacar experiencias y logros relevantes</li>
+                    <li>Incluir ejemplos especificos con resultados medibles</li>
+                    <li>Demostrar conocimiento de la empresa</li>
+                    <li>Mantenerla concisa (3-4 parrafos, una pagina)</li>
+                    <li>Revisar cuidadosamente en busca de errores</li>
+                    <li>Usar lenguaje y tono profesional</li>
+                    <li>Incluir palabras clave de la descripcion del trabajo</li>
+                    <li>Terminar con un llamado a la accion claro</li>
+                </ul>
+            </div>
+
+            <div class="dont">
+                <h3>NO HAGA</h3>
+                <ul>
+                    <li>Usar plantillas genericas sin personalizacion</li>
+                    <li>Repetir todo su curriculum en forma de parrafo</li>
+                    <li>Incluir informacion personal irrelevante</li>
+                    <li>Usar lenguaje demasiado casual o jerga</li>
+                    <li>Hacer afirmaciones sin respaldo sin ejemplos</li>
+                    <li>Enfocarse unicamente en lo que usted quiere del trabajo</li>
+                    <li>Exceder una pagina de longitud</li>
+                    <li>Enviar sin revision exhaustiva</li>
+                    <li>Usar tacticas llamativas o formato inusual</li>
+                    <li>Explicar transiciones de carrera obvias o brechas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Hoja de Planificacion de Carta de Presentacion</h2>
+
+        <div class="section">
+            <h3>Analisis del Puesto</h3>
+            <table>
+                <tr>
+                    <td class="category">Titulo del Puesto:</td>
+                    <td class="notes"><textarea placeholder="Ingrese el titulo exacto del trabajo"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Empresa:</td>
+                    <td class="notes"><textarea placeholder="Nombre de la empresa"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Nombre y Titulo del Gerente de Contratacion:</td>
+                    <td class="notes"><textarea placeholder="Ingrese el nombre y titulo de la persona a quien dirigirse (si esta disponible)"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Las 3 Calificaciones Principales Requeridas:</td>
+                    <td class="notes"><textarea placeholder="Liste las 3 calificaciones mas importantes de la descripcion del trabajo"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Notas de Investigacion de la Empresa:</td>
+                    <td class="notes"><textarea placeholder="Anote informacion clave sobre la empresa (mision, valores, noticias recientes, productos/servicios)"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Mapeo de Sus Calificaciones</h3>
+            <table>
+                <tr>
+                    <th>Requisito Clave del Trabajo</th>
+                    <th>Su Experiencia/Habilidad Relevante</th>
+                    <th>Ejemplo Especifico con Resultados</th>
+                </tr>
+                <tr>
+                    <td><textarea placeholder="Requisito 1"></textarea></td>
+                    <td><textarea placeholder="Su calificacion correspondiente"></textarea></td>
+                    <td><textarea placeholder="Ejemplo especifico con resultados medibles si es posible"></textarea></td>
+                </tr>
+                <tr>
+                    <td><textarea placeholder="Requisito 2"></textarea></td>
+                    <td><textarea placeholder="Su calificacion correspondiente"></textarea></td>
+                    <td><textarea placeholder="Ejemplo especifico con resultados medibles si es posible"></textarea></td>
+                </tr>
+                <tr>
+                    <td><textarea placeholder="Requisito 3"></textarea></td>
+                    <td><textarea placeholder="Su calificacion correspondiente"></textarea></td>
+                    <td><textarea placeholder="Ejemplo especifico con resultados medibles si es posible"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Conexion con la Empresa</h3>
+            <table>
+                <tr>
+                    <td class="category">Por Que Esta Empresa:</td>
+                    <td class="notes"><textarea placeholder="Explique por que esta especificamente interesado en esta empresa (productos, cultura, mision, reputacion, etc.)"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Valor que Aporta:</td>
+                    <td class="notes"><textarea placeholder="Describa el valor unico o perspectiva que aportaria a la organizacion"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Ajuste Cultural:</td>
+                    <td class="notes"><textarea placeholder="Anote aspectos de su trayectoria o valores que se alinean con la cultura de la empresa"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Planificacion de Introduccion y Cierre</h3>
+            <table>
+                <tr>
+                    <td class="category">Gancho de Apertura:</td>
+                    <td class="notes"><textarea placeholder="Redacte una apertura atractiva que mencione el puesto y una calificacion clave"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="category">Declaracion de Cierre:</td>
+                    <td class="notes"><textarea placeholder="Redacte un cierre que reitere el interes e incluya un llamado a la accion"></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section template-section">
+        <h2>Plantilla de Carta de Presentacion</h2>
+        <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">
+[Su Nombre Completo]
+[Su Direccion]
+[Ciudad, Estado CP]
+[Su Numero de Telefono]
+[Su Correo Electronico Profesional]
+
+[Fecha]
+
+[Nombre del Destinatario]
+[Titulo del Destinatario]
+[Nombre de la Empresa]
+[Direccion de la Empresa]
+[Ciudad, Estado CP]
+
+Estimado/a [Sr./Sra./Dr. Apellido],
+
+Le escribo para expresar mi interes en el puesto de [Titulo del Puesto] en [Nombre de la Empresa], segun lo anunciado en [donde encontro la oferta de trabajo]. Con [breve resumen de su experiencia o calificaciones relevantes], estoy entusiasmado/a por la oportunidad de contribuir a [algo especifico sobre la empresa o departamento].
+
+[Parrafo del Cuerpo 1: Destaque sus calificaciones mas relevantes para este puesto especifico. Conecte sus experiencias directamente con los requisitos del trabajo. Proporcione ejemplos especificos con resultados medibles cuando sea posible.]
+
+[Parrafo del Cuerpo 2: Demuestre su conocimiento de la empresa y explique por que esta interesado en esta organizacion en particular. Discuta como sus valores se alinean con la mision o cultura de la empresa. Explique el valor unico que aportaria al equipo.]
+
+Gracias por considerar mi solicitud. Estoy entusiasmado/a por la posibilidad de unirme a [Nombre de la Empresa] y agradeceria la oportunidad de discutir como mi trayectoria y habilidades beneficiarian a su equipo. He adjuntado mi curriculum para su revision y estoy disponible para una entrevista a su conveniencia.
+
+Atentamente,
+
+[Su Nombre Completo]
+
+Anexo: Curriculum
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>Lista de Verificacion Final de Carta de Presentacion</h2>
+        <table>
+            <tr>
+                <th>Criterio</th>
+                <th>Verificar</th>
+            </tr>
+            <tr>
+                <td>Esta la carta dirigida a una persona especifica (cuando sea posible)?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>La apertura identifica claramente el puesto y la empresa?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Ha destacado habilidades relevantes que coinciden con los requisitos del trabajo?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Hay ejemplos especificos con resultados medibles?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>La carta demuestra conocimiento de la empresa?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Ha explicado por que esta interesado en esta empresa especifica?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Es la carta concisa (una pagina, 3-4 parrafos)?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Es el formato profesional y consistente?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Ha revisado errores de ortografia, gramatica y puntuacion?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>El cierre incluye un llamado a la accion y agradecimiento?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Ha incorporado palabras clave de la descripcion del trabajo?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Es el tono profesional y positivo en todo momento?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Ha guardado el archivo con un nombre profesional (ej., NombreApellido_CartaPresentacion.pdf)?</td>
+                <td style="text-align: center;"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tips">
+        <h3>Consejos Adicionales para Cartas de Presentacion:</h3>
+        <ul>
+            <li><strong>Investigue al destinatario:</strong> Intente encontrar el nombre del gerente de contratacion a traves del sitio web de la empresa, LinkedIn o llamando a la empresa.</li>
+            <li><strong>Muestre, no diga:</strong> En lugar de decir "soy un comunicador fuerte", proporcione un ejemplo que demuestre esta habilidad.</li>
+            <li><strong>Use lenguaje apropiado de la industria:</strong> Incorpore terminologia relevante y demuestre su familiaridad con el campo.</li>
+            <li><strong>Sea genuino:</strong> Exprese interes autentico en lugar de usar adulacion excesiva o entusiasmo generico.</li>
+            <li><strong>Obtenga retroalimentacion:</strong> Pida a alguien en su campo que revise su carta para contenido, tono y efectividad.</li>
+            <li><strong>Actualice para cada solicitud:</strong> Resista la tentacion de usar la misma carta para multiples solicitudes.</li>
+            <li><strong>Siga las instrucciones de envio:</strong> Preste atencion a los formatos de archivo solicitados y convenciones de nombres.</li>
+            <li><strong>Guarde como PDF:</strong> A menos que se especifique lo contrario, guarde su carta final como PDF para preservar el formato.</li>
+        </ul>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir/Guardar como PDF</button>
+</body>
+</html>

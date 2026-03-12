@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Referencia de Herramientas Bancarias</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            font-size: 22px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .tool-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .tool-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .tool-rating {
+            display: flex;
+            align-items: center;
+        }
+        .rating-label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .rating-stars {
+            color: #f39c12;
+            letter-spacing: 2px;
+        }
+        .feature-list {
+            margin-top: 15px;
+        }
+        .feature-list li {
+            margin-bottom: 8px;
+        }
+        .pros-cons {
+            display: flex;
+            margin-top: 20px;
+        }
+        .pros, .cons {
+            flex: 1;
+            padding: 15px;
+        }
+        .pros {
+            background-color: #e8f8f5;
+            border-radius: 5px 0 0 5px;
+        }
+        .cons {
+            background-color: #fef5e7;
+            border-radius: 0 5px 5px 0;
+        }
+        .pros h4, .cons h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .security-tips {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .fee-comparison th {
+            background-color: #e8f4f8;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 16pt;
+            }
+            h3 {
+                font-size: 14pt;
+            }
+            .tool-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresion:</strong>
+        <p>Para guardar este documento como PDF o imprimirlo:</p>
+        <ol>
+            <li>Presione Ctrl+P (Windows) o Cmd+P (Mac)</li>
+            <li>Seleccione "Guardar como PDF" o su impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir"</li>
+        </ol>
+    </div>
+
+    <h1>Guia de Referencia de Herramientas Bancarias</h1>
+
+    <p>Esta guia proporciona informacion detallada sobre varias herramientas bancarias, sus caracteristicas, ventajas, desventajas y consideraciones de seguridad. Utilice esta referencia para ayudarle a seleccionar las herramientas bancarias mas apropiadas para sus necesidades financieras especificas.</p>
+
+    <div class="tool-section">
+        <div class="tool-header">
+            <h2 class="tool-title">Cheques</h2>
+            <div class="tool-rating">
+                <span class="rating-label">Conveniencia:</span>
+                <span class="rating-stars">★★★☆☆</span>
+            </div>
+        </div>
+
+        <h3>Que Son</h3>
+        <p>Los cheques son ordenes escritas que instruyen a su banco a pagar una cantidad especifica de dinero a una persona u organizacion. Se giran contra fondos en su cuenta corriente.</p>
+
+        <h3>Caracteristicas Principales</h3>
+        <ul class="feature-list">
+            <li><strong>Documentacion fisica</strong> del pago</li>
+            <li><strong>No requiere dispositivo electronico</strong> para usar</li>
+            <li><strong>Facilmente rastreable</strong> a traves del numero de cheque y registro</li>
+            <li><strong>Valido por 6 meses</strong> (180 dias) despues de la fecha escrita</li>
+            <li><strong>Puede usarse</strong> para pagos por correo</li>
+            <li><strong>A menudo aceptado</strong> para renta, servicios publicos y otros pagos de facturas</li>
+        </ul>
+
+        <h3>Partes de un Cheque</h3>
+        <ol>
+            <li><strong>Su informacion</strong> (nombre y direccion, preimpreso)</li>
+            <li><strong>Linea de fecha</strong> - Cuando escribe el cheque</li>
+            <li><strong>Linea del beneficiario</strong> - A quien le paga ("Paguese a la orden de")</li>
+            <li><strong>Casilla de cantidad</strong> - Cantidad numerica ($XX.XX)</li>
+            <li><strong>Linea de cantidad</strong> - Cantidad escrita (Veinte dolares y 00/100)</li>
+            <li><strong>Linea de memo</strong> - Nota opcional sobre el proposito del pago</li>
+            <li><strong>Linea de firma</strong> - Su firma para autorizar el pago</li>
+            <li><strong>Informacion del banco</strong> (numero de ruta y numero de cuenta)</li>
+            <li><strong>Numero de cheque</strong> - Para propositos de rastreo</li>
+        </ol>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Proporciona registro en papel del pago</li>
+                    <li>No requiere tecnologia para usar</li>
+                    <li>Puede enviarse por correo</li>
+                    <li>Puede usarse cuando el comerciante no acepta tarjetas</li>
+                    <li>Mas facil de rastrear con numeros de cheque</li>
+                    <li>A menudo preferido para depositos de seguridad y renta</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Tiempo de procesamiento mas lento</li>
+                    <li>Puede perderse o ser robado</li>
+                    <li>Debe llevarse o pedirse</li>
+                    <li>Pueden aplicarse cargos por pedido de cheques</li>
+                    <li>No ampliamente aceptado en tiendas minoristas</li>
+                    <li>Puede rebotar si olvida registrar un pago</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-tips">
+            <h4>Consejos de Seguridad</h4>
+            <ul>
+                <li>Siempre use boligrafo (no lapiz) al escribir cheques</li>
+                <li>Dibuje una linea despues del nombre del beneficiario y la cantidad para prevenir alteraciones</li>
+                <li>Nunca firme cheques en blanco</li>
+                <li>Guarde las chequeras en un lugar seguro</li>
+                <li>Registre todos los cheques inmediatamente en su registro de cheques</li>
+                <li>Revise los estados de cuenta bancarios prontamente para verificar que todos los cheques se cobraron por la cantidad correcta</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tool-section">
+        <div class="tool-header">
+            <h2 class="tool-title">Tarjetas de Debito</h2>
+            <div class="tool-rating">
+                <span class="rating-label">Conveniencia:</span>
+                <span class="rating-stars">★★★★★</span>
+            </div>
+        </div>
+
+        <h3>Que Son</h3>
+        <p>Las tarjetas de debito son tarjetas de pago que deducen dinero directamente de su cuenta corriente al realizar compras o retirar efectivo. Tipicamente llevan un logo de Visa o Mastercard y pueden usarse en cualquier lugar donde se acepten estas tarjetas.</p>
+
+        <h3>Caracteristicas Principales</h3>
+        <ul class="feature-list">
+            <li><strong>Acceso inmediato</strong> a fondos de la cuenta corriente</li>
+            <li><strong>Puede usarse</strong> para compras en persona, en linea y por telefono</li>
+            <li><strong>Opciones de autorizacion</strong> por PIN o firma</li>
+            <li><strong>Limites diarios</strong> de gastos y retiros por seguridad</li>
+            <li><strong>Tecnologia de chip EMV</strong> para mayor seguridad</li>
+            <li><strong>Opciones de pago sin contacto</strong> en tarjetas mas nuevas</li>
+            <li><strong>Acceso a cajeros automaticos</strong> para retiros y depositos de efectivo</li>
+            <li><strong>Compatibilidad con billeteras digitales</strong> (Apple Pay, Google Pay, etc.)</li>
+        </ul>
+
+        <h3>Tipos de Transacciones</h3>
+        <ul>
+            <li><strong>Transacciones con PIN</strong> - Procesadas a traves de redes de debito, usualmente se liquidan inmediatamente</li>
+            <li><strong>Transacciones con firma</strong> - Procesadas a traves de redes de tarjetas de credito, pueden tomar 1-3 dias para liquidarse</li>
+            <li><strong>Transacciones en linea</strong> - Usualmente procesadas como transacciones de firma/credito</li>
+            <li><strong>Transacciones en cajeros automaticos</strong> - Usando PIN para retiros, depositos o consultas de saldo</li>
+        </ul>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Ampliamente aceptada en todo el mundo</li>
+                    <li>Transacciones convenientes y rapidas</li>
+                    <li>No necesita llevar efectivo</li>
+                    <li>Permite compras en linea</li>
+                    <li>Tipicamente sin cargos por compras</li>
+                    <li>Acceso a cajeros automaticos para retiros de efectivo</li>
+                    <li>Registros de transacciones digitales para facil seguimiento</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Proteccion limitada contra fraude comparada con tarjetas de credito</li>
+                    <li>Puede llevar a sobregiros si no se rastrea adecuadamente</li>
+                    <li>Algunas transacciones colocan retenciones en fondos</li>
+                    <li>Cargos por cajeros automaticos fuera de red</li>
+                    <li>Los limites de gastos diarios pueden restringir compras grandes</li>
+                    <li>No hay capacidad de construir historial crediticio</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-tips">
+            <h4>Consejos de Seguridad</h4>
+            <ul>
+                <li>Nunca comparta su PIN con nadie</li>
+                <li>Cubra el teclado al ingresar su PIN</li>
+                <li>Configure alertas de cuenta para transacciones grandes</li>
+                <li>Monitoree su cuenta regularmente para transacciones no autorizadas</li>
+                <li>Reporte tarjetas perdidas o robadas inmediatamente</li>
+                <li>Use sitios web seguros y confiables para compras en linea</li>
+                <li>Considere usar aplicaciones de pago movil para mayor seguridad</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tool-section">
+        <div class="tool-header">
+            <h2 class="tool-title">Cajeros Automaticos (ATM)</h2>
+            <div class="tool-rating">
+                <span class="rating-label">Conveniencia:</span>
+                <span class="rating-stars">★★★★☆</span>
+            </div>
+        </div>
+
+        <h3>Que Son</h3>
+        <p>Los cajeros automaticos son terminales bancarias de autoservicio que permiten a los clientes realizar transacciones financieras basicas sin necesidad de un cajero bancario o visita a la sucursal.</p>
+
+        <h3>Caracteristicas Principales</h3>
+        <ul class="feature-list">
+            <li><strong>Acceso 24/7</strong> a servicios bancarios</li>
+            <li><strong>Retiros de efectivo</strong> de cuentas corrientes o de ahorros</li>
+            <li><strong>Depositos</strong> (efectivo o cheques en muchos cajeros automaticos)</li>
+            <li><strong>Consultas de saldo</strong> e informacion de cuenta</li>
+            <li><strong>Transferencias de fondos</strong> entre cuentas vinculadas</li>
+            <li><strong>Pagos de facturas</strong> (en algunos cajeros automaticos avanzados)</li>
+            <li><strong>Seguridad basada en PIN</strong> para acceso a la cuenta</li>
+        </ul>
+
+        <h3>Redes de Cajeros Automaticos</h3>
+        <p>Los cajeros automaticos pertenecen a redes que determinan cargos y acceso:</p>
+        <ul>
+            <li><strong>Cajeros automaticos del banco</strong> - Tipicamente gratis para clientes de ese banco</li>
+            <li><strong>Cajeros automaticos de redes asociadas</strong> - Pueden ser gratis basado en acuerdos del banco</li>
+            <li><strong>Cajeros automaticos fuera de red</strong> - Usualmente cobran cargos tanto del dueno del cajero como de su banco</li>
+            <li><strong>Cajeros automaticos internacionales</strong> - Pueden aplicarse cargos adicionales y cargos de conversion de moneda</li>
+        </ul>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Acceso conveniente 24/7 a efectivo</li>
+                    <li>No necesita visitar una sucursal bancaria</li>
+                    <li>Acceso rapido a informacion de cuenta</li>
+                    <li>Capacidades de deposito en muchos cajeros automaticos</li>
+                    <li>Ampliamente disponibles en muchas ubicaciones</li>
+                    <li>Opciones de multiples idiomas</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Cargos por uso de cajeros automaticos fuera de red</li>
+                    <li>Limites diarios de retiro</li>
+                    <li>Riesgos potenciales de seguridad (clonacion, observacion)</li>
+                    <li>Servicios limitados comparados con sucursales bancarias</li>
+                    <li>Algunas ubicaciones pueden tener horarios reducidos</li>
+                    <li>Los depositos pueden no estar disponibles inmediatamente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-tips">
+            <h4>Consejos de Seguridad</h4>
+            <ul>
+                <li>Use cajeros automaticos en lugares bien iluminados y publicos</li>
+                <li>Cubra el teclado al ingresar su PIN</li>
+                <li>Verifique dispositivos sospechosos o accesorios en el cajero automatico</li>
+                <li>Este atento a sus alrededores y a cualquier persona parada muy cerca</li>
+                <li>Tome su recibo (o seleccione "sin recibo") para proteger su informacion</li>
+                <li>Cuente su dinero discretamente despues de retirar</li>
+                <li>Reporte cualquier problema inmediatamente a su banco</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tool-section">
+        <div class="tool-header">
+            <h2 class="tool-title">Banca en Linea y Movil</h2>
+            <div class="tool-rating">
+                <span class="rating-label">Conveniencia:</span>
+                <span class="rating-stars">★★★★★</span>
+            </div>
+        </div>
+
+        <h3>Que Es</h3>
+        <p>La banca en linea y movil permite a los clientes acceder a sus cuentas y realizar transacciones financieras a traves de un sitio web o aplicacion de telefono inteligente sin visitar una sucursal bancaria fisica.</p>
+
+        <h3>Caracteristicas Principales</h3>
+        <ul class="feature-list">
+            <li><strong>Acceso a cuenta 24/7</strong> desde cualquier lugar con conectividad a internet</li>
+            <li><strong>Monitoreo de cuenta</strong> con informacion de saldo y transacciones en tiempo real</li>
+            <li><strong>Transferencias de fondos</strong> entre cuentas y a otras personas</li>
+            <li><strong>Servicios de pago de facturas</strong> para pagos unicos o recurrentes</li>
+            <li><strong>Deposito movil de cheques</strong> usando la camara de su telefono inteligente</li>
+            <li><strong>Alertas de cuenta</strong> para saldos bajos, transacciones grandes, etc.</li>
+            <li><strong>Herramientas de presupuesto</strong> y categorizacion de gastos</li>
+            <li><strong>Descarga de estados de cuenta</strong> y acceso a historial de cuenta</li>
+            <li><strong>Servicio al cliente</strong> via mensajeria segura</li>
+            <li><strong>Autenticacion multifactor</strong> para mayor seguridad</li>
+        </ul>
+
+        <h3>Funciones Comunes</h3>
+        <ul>
+            <li><strong>Ver saldos y transacciones</strong> en todas las cuentas</li>
+            <li><strong>Transferir dinero</strong> entre sus cuentas</li>
+            <li><strong>Enviar dinero a otros</strong> usando Zelle, Venmo o servicios similares</li>
+            <li><strong>Pagar facturas</strong> a companias o individuos</li>
+            <li><strong>Depositar cheques</strong> tomando fotos con su telefono inteligente</li>
+            <li><strong>Configurar alertas</strong> para actividad de cuenta</li>
+            <li><strong>Descargar estados de cuenta</strong> y documentos fiscales</li>
+            <li><strong>Localizar cajeros automaticos</strong> y sucursales</li>
+            <li><strong>Administrar preferencias</strong> y configuraciones de cuenta</li>
+            <li><strong>Solicitar prestamos</strong> o nuevas cuentas</li>
+        </ul>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Conveniencia 24/7 desde cualquier lugar</li>
+                    <li>No necesita visitar sucursales fisicas</li>
+                    <li>Monitoreo de transacciones en tiempo real</li>
+                    <li>Transferencias de fondos rapidas y faciles</li>
+                    <li>Funciones que ahorran tiempo como deposito movil</li>
+                    <li>Opciones de estados de cuenta sin papel</li>
+                    <li>Mejor seguimiento de habitos de gasto</li>
+                    <li>Sin esperar en fila o por horarios de oficina</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Requiere conexion a internet</li>
+                    <li>Preocupaciones potenciales de seguridad</li>
+                    <li>Puede tener limites en cantidades de transacciones</li>
+                    <li>Sin relacion personal con banqueros</li>
+                    <li>No puede depositar efectivo a traves de banca movil</li>
+                    <li>Problemas tecnicos pueden interrumpir el acceso</li>
+                    <li>Menos adecuado para transacciones complejas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-tips">
+            <h4>Consejos de Seguridad</h4>
+            <ul>
+                <li>Use contrasenas fuertes y unicas para su inicio de sesion bancario</li>
+                <li>Habilite la autenticacion de dos factores cuando este disponible</li>
+                <li>Nunca acceda a la banca en Wi-Fi publico o no seguro</li>
+                <li>Mantenga actualizado el software de su dispositivo y aplicaciones bancarias</li>
+                <li>Cierre sesion completamente despues de cada sesion</li>
+                <li>Configure alertas de cuenta para actividad inusual</li>
+                <li>Nunca comparta credenciales de inicio de sesion o codigos de verificacion</li>
+                <li>Tenga cuidado con correos electronicos o mensajes de phishing que afirman ser de su banco</li>
+                <li>Use aplicaciones bancarias oficiales de tiendas de aplicaciones autorizadas</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Comparacion de Cargos Bancarios</h2>
+
+    <table class="fee-comparison">
+        <tr>
+            <th>Tipo de Cargo</th>
+            <th>Costo Tipico</th>
+            <th>Como Evitarlo</th>
+        </tr>
+        <tr>
+            <td>Cargo de Mantenimiento Mensual</td>
+            <td>$5-15 por mes</td>
+            <td>
+                <ul>
+                    <li>Mantener requisitos de saldo minimo</li>
+                    <li>Configurar deposito directo</li>
+                    <li>Elegir una cuenta corriente sin cargo</li>
+                    <li>Usar cuentas de estudiante o adulto mayor cuando sea elegible</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Sobregiro</td>
+            <td>$30-37 por ocurrencia</td>
+            <td>
+                <ul>
+                    <li>Rastrear su saldo cuidadosamente</li>
+                    <li>Configurar alertas de saldo bajo</li>
+                    <li>Vincular a una cuenta de ahorros para proteccion contra sobregiro</li>
+                    <li>Optar por no tener cobertura de sobregiro para transacciones con tarjeta de debito</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Cajero Automatico Fuera de Red</td>
+            <td>$2-3 (su banco) + $2-5 (dueno del cajero)</td>
+            <td>
+                <ul>
+                    <li>Usar solo los cajeros automaticos de su banco o redes asociadas</li>
+                    <li>Usar devolucion de efectivo en tiendas al hacer compras</li>
+                    <li>Elegir un banco que reembolse cargos de cajero automatico</li>
+                    <li>Planificar retiros de efectivo con anticipacion</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Estado de Cuenta en Papel</td>
+            <td>$1-5 por mes</td>
+            <td>
+                <ul>
+                    <li>Inscribirse en estados de cuenta sin papel</li>
+                    <li>Usar banca en linea para ver estados de cuenta</li>
+                    <li>Descargar y guardar estados de cuenta en PDF si necesita registros</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Cheque Devuelto</td>
+            <td>$25-35 por cheque</td>
+            <td>
+                <ul>
+                    <li>Asegurar fondos suficientes antes de escribir cheques</li>
+                    <li>Verificar que los depositos se hayan acreditado antes de escribir cheques contra ellos</li>
+                    <li>Usar pago de facturas en linea en lugar de cheques cuando sea posible</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Reemplazo de Tarjeta de Debito</td>
+            <td>$5-25 por tarjeta</td>
+            <td>
+                <ul>
+                    <li>Guardar su tarjeta de forma segura</li>
+                    <li>Algunos bancos eximen el primer reemplazo</li>
+                    <li>Elegir cuentas sin cargos de reemplazo</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cargo por Transferencia Bancaria</td>
+            <td>$15-30 domestica, $35-50 internacional</td>
+            <td>
+                <ul>
+                    <li>Usar alternativas de transferencia gratuitas (ACH, Zelle, etc.)</li>
+                    <li>Comparar cargos entre instituciones</li>
+                    <li>Agrupar con otros servicios para posibles descuentos</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Elegir la Herramienta Bancaria Correcta para Diferentes Situaciones</h2>
+
+    <table>
+        <tr>
+            <th>Situacion</th>
+            <th>Herramienta Recomendada</th>
+            <th>Por Que Es Mejor</th>
+        </tr>
+        <tr>
+            <td>Pagar renta</td>
+            <td>Cheque o pago de facturas en linea</td>
+            <td>Proporciona prueba de pago, ampliamente aceptado por arrendadores, y crea un rastro de papel</td>
+        </tr>
+        <tr>
+            <td>Compras cotidianas</td>
+            <td>Tarjeta de debito</td>
+            <td>Conveniente, ampliamente aceptada, registro inmediato de transacciones, sin necesidad de llevar efectivo</td>
+        </tr>
+        <tr>
+            <td>Dividir una cuenta de restaurante</td>
+            <td>Aplicaciones de pago movil (Venmo, Zelle)</td>
+            <td>Transferencias instantaneas, facil de calcular y dividir cantidades, sin cargos para transferencias basicas</td>
+        </tr>
+        <tr>
+            <td>Pagar servicios publicos</td>
+            <td>Pago de facturas en linea</td>
+            <td>Pagos recurrentes programados, registros digitales, a menudo sin cargo, ahorra tiempo y franqueo</td>
+        </tr>
+        <tr>
+            <td>Necesitar efectivo rapidamente</td>
+            <td>Cajero automatico</td>
+            <td>Acceso 24/7, ampliamente disponible, desembolso de efectivo inmediato</td>
+        </tr>
+        <tr>
+            <td>Enviar dinero a familia</td>
+            <td>Transferencia en linea o banca movil</td>
+            <td>Rapido, a menudo gratis entre cuentas del mismo banco, conveniente para ambas partes</td>
+        </tr>
+        <tr>
+            <td>Pagar compra en linea</td>
+            <td>Tarjeta de debito (o tarjeta de credito para mayor proteccion)</td>
+            <td>Ampliamente aceptada, conveniente, registro digital de la transaccion</td>
+        </tr>
+        <tr>
+            <td>Depositar un cheque</td>
+            <td>Deposito movil o cajero automatico</td>
+            <td>Conveniente, sin necesidad de visitar sucursal, a menudo disponible inmediatamente</td>
+        </tr>
+        <tr>
+            <td>Rastrear gastos</td>
+            <td>Banca en linea/movil con herramientas de presupuesto</td>
+            <td>Actualizaciones en tiempo real, funciones de categorizacion, perspectivas de gastos, capacidades de exportacion</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <h3>Consideraciones Finales</h3>
+        <p>Al seleccionar herramientas bancarias, considere:</p>
+        <ul>
+            <li><strong>Sus preferencias personales</strong> - Enfoques digitales o tradicionales</li>
+            <li><strong>Estructuras de cargos</strong> - Elija herramientas que minimicen costos innecesarios</li>
+            <li><strong>Necesidades de seguridad</strong> - Balance conveniencia con seguridad apropiada</li>
+            <li><strong>Habitos de transaccion</strong> - Frecuencia, tipo y cantidad de transacciones</li>
+            <li><strong>Requisitos de mantenimiento de registros</strong> - Que documentacion necesita</li>
+        </ul>
+        <p>El enfoque mas efectivo a menudo combina multiples herramientas bancarias usadas estrategicamente para diferentes propositos.</p>
+    </div>
+
+</body>
+</html>

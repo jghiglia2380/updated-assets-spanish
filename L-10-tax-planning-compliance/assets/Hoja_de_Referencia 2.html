@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Preparación Fiscal | PFL Academy</title>
+    <style>
+        :root { --primary: #6366f1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1f2937;
+            background: #fff;
+            padding: 20px;
+        }
+        .container { max-width: 850px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 5px; }
+        .subtitle { color: #6b7280; font-size: 0.9rem; }
+        .print-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .print-btn:hover { background: #4f46e5; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .section {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .section ul { list-style-position: inside; margin-left: 10px; }
+        .section li { margin-bottom: 6px; }
+        .full-width { grid-column: 1 / -1; }
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        .key-points {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .key-points h3 { color: var(--primary); margin-bottom: 10px; font-size: 1rem; }
+        .key-points ul { list-style-position: inside; }
+        .key-points li { margin-bottom: 6px; }
+        .term-list { margin-top: 10px; }
+        .term-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .term-item:last-child { border-bottom: none; }
+        .term-name { font-weight: 600; color: #374151; }
+        .term-def { font-size: 0.85rem; color: #6b7280; margin-top: 2px; }
+        .deadline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .deadline-table th, .deadline-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .deadline-table th {
+            background: #f3f4f6;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .deadline-table td { font-size: 0.85rem; }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .doc-item {
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .doc-item strong { color: #374151; }
+        .doc-item span { color: #6b7280; font-size: 0.75rem; }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+        @media print {
+            body { padding: 10px; }
+            .container { max-width: 100%; }
+            .grid { gap: 10px; }
+            .print-btn { display: none; }
+        }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .doc-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hoja de Referencia de Preparación Fiscal</h1>
+            <p class="subtitle">Guía Rápida de Planificación Fiscal y Cumplimiento</p>
+        </header>
+
+        <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+        <div class="key-points">
+            <h3>Conceptos Clave</h3>
+            <ul>
+                <li><strong>Planificación Fiscal:</strong> Estrategias legales para minimizar la obligación tributaria a través de decisiones informadas</li>
+                <li><strong>Cumplimiento Fiscal:</strong> Seguir correctamente las leyes fiscales y declarar a tiempo</li>
+                <li><strong>Evasión Fiscal:</strong> No pago ilegal mediante engaño (¡evítelo a toda costa!)</li>
+                <li><strong>Cuentas con Ventajas Fiscales:</strong> Cuentas especiales que brindan beneficios fiscales (IRA, 401k, HSA)</li>
+            </ul>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <div class="section-title">Términos Fiscales Clave</div>
+                <div class="term-list">
+                    <div class="term-item">
+                        <div class="term-name">Ingreso Bruto Ajustado (AGI)</div>
+                        <div class="term-def">Ingreso bruto menos deducciones por encima de la línea</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Deducción Estándar</div>
+                        <div class="term-def">Deducción fija basada en estado civil ($13,850 soltero, $27,700 MFJ)</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Ingreso Gravable</div>
+                        <div class="term-def">AGI menos deducciones; el monto realmente gravado</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Obligación Tributaria</div>
+                        <div class="term-def">Impuesto total adeudado antes de aplicar créditos</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Tramo Impositivo</div>
+                        <div class="term-def">Rango de ingresos sujeto a una tasa marginal específica</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Opciones de Estado Civil para Declaración</div>
+                <div class="term-list">
+                    <div class="term-item">
+                        <div class="term-name">Soltero</div>
+                        <div class="term-def">No casado o legalmente separado</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Casado Declarando Conjuntamente</div>
+                        <div class="term-def">Pareja casada presentando una declaración (generalmente mejor tasa)</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Casado Declarando por Separado</div>
+                        <div class="term-def">Pareja casada presentando dos declaraciones</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Jefe de Familia</div>
+                        <div class="term-def">No casado con dependiente calificado</div>
+                    </div>
+                    <div class="term-item">
+                        <div class="term-name">Viudo(a) Calificado(a)</div>
+                        <div class="term-def">Cónyuge sobreviviente con hijo dependiente</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section full-width">
+            <div class="section-title">Fechas Límite Fiscales Importantes</div>
+            <table class="deadline-table">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Fecha Límite</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>31 de enero</td>
+                    <td>W-2s y 1099s vencen</td>
+                    <td>Los empleadores deben enviarlos a empleados</td>
+                </tr>
+                <tr>
+                    <td>15 de abril</td>
+                    <td>Fecha límite de declaración de impuestos</td>
+                    <td>También fecha límite de contribución a IRA</td>
+                </tr>
+                <tr>
+                    <td>15 de abril</td>
+                    <td>Impuesto estimado Q1 vence</td>
+                    <td>Para personas con trabajo por cuenta propia</td>
+                </tr>
+                <tr>
+                    <td>15 de junio</td>
+                    <td>Impuesto estimado Q2 vence</td>
+                    <td>Para personas con trabajo por cuenta propia</td>
+                </tr>
+                <tr>
+                    <td>15 de septiembre</td>
+                    <td>Impuesto estimado Q3 vence</td>
+                    <td>Para personas con trabajo por cuenta propia</td>
+                </tr>
+                <tr>
+                    <td>15 de octubre</td>
+                    <td>Fecha límite de extensión</td>
+                    <td>Debe haber solicitado extensión antes del 15 de abril</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <div class="section-title">Documentos Esenciales</div>
+                <div class="doc-grid">
+                    <div class="doc-item">
+                        <strong>W-2</strong><br>
+                        <span>Salarios de empleadores</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1099-NEC</strong><br>
+                        <span>Ingresos de trabajo independiente</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1099-INT</strong><br>
+                        <span>Ingresos por intereses</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1099-DIV</strong><br>
+                        <span>Ingresos por dividendos</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1098</strong><br>
+                        <span>Intereses hipotecarios</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1098-E</strong><br>
+                        <span>Intereses de préstamos estudiantiles</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>1098-T</strong><br>
+                        <span>Matrícula pagada</span>
+                    </div>
+                    <div class="doc-item">
+                        <strong>5498</strong><br>
+                        <span>Contribuciones a IRA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Deducciones Comunes</div>
+                <ul>
+                    <li><strong>Intereses de préstamos estudiantiles</strong> - Hasta $2,500</li>
+                    <li><strong>IRA Tradicional</strong> - Hasta $6,500 ($7,500 si tiene 50+)</li>
+                    <li><strong>Contribuciones a HSA</strong> - Hasta $3,850 individual</li>
+                    <li><strong>Gastos de educador</strong> - Hasta $300</li>
+                    <li><strong>Intereses hipotecarios</strong> - En préstamos hasta $750,000</li>
+                    <li><strong>Impuestos estatales/locales</strong> - Hasta $10,000 (SALT)</li>
+                    <li><strong>Contribuciones caritativas</strong> - Hasta 60% del AGI</li>
+                    <li><strong>Gastos médicos</strong> - Excediendo 7.5% del AGI</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <div class="section-title">Créditos Fiscales Comunes</div>
+                <ul>
+                    <li><strong>Oportunidad Americana</strong> - Hasta $2,500 (educación)</li>
+                    <li><strong>Aprendizaje Permanente</strong> - Hasta $2,000 (educación)</li>
+                    <li><strong>Crédito Tributario por Hijos</strong> - Hasta $2,000/hijo</li>
+                    <li><strong>Crédito por Cuidado de Hijos</strong> - Hasta $3,000 (1 hijo)</li>
+                    <li><strong>Crédito del Ahorrador</strong> - Hasta $1,000 (jubilación)</li>
+                    <li><strong>Crédito por Ingreso del Trabajo</strong> - Hasta $7,430 (reembolsable)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Errores Comunes a Evitar</div>
+                <ul>
+                    <li><strong>Perder fechas límite</strong> - Declare a tiempo, incluso si no puede pagar</li>
+                    <li><strong>Errores matemáticos</strong> - Verifique todos los cálculos dos veces</li>
+                    <li><strong>Estado civil incorrecto</strong> - Elija el estado más beneficioso</li>
+                    <li><strong>Ingresos faltantes</strong> - Reporte TODAS las fuentes de ingresos</li>
+                    <li><strong>SSN incorrecto</strong> - Verifique todos los números de Seguro Social</li>
+                    <li><strong>Registros deficientes</strong> - Guarde documentos por más de 3 años</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Recuerde:</strong> La planificación fiscal es un proceso continuo, no solo una tarea anual. La planificación proactiva durante todo el año puede reducir significativamente su carga tributaria mientras asegura el cumplimiento total de las leyes fiscales. Cuando tenga dudas, consulte a un profesional de impuestos calificado.
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Capítulo 2.5: Planificación Fiscal y Cumplimiento</p>
+            <p style="margin-top: 5px;">Las leyes fiscales cambian frecuentemente. Verifique las tasas y límites actuales en IRS.gov</p>
+        </footer>
+    </div>
+</body>
+</html>

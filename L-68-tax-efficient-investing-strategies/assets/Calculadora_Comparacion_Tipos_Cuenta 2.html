@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Comparación de Tipos de Cuenta</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .inputs { background: #e0e7ff; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; box-sizing: border-box; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .account-card { background: #f9fafb; padding: 15px; border-radius: 5px; border: 2px solid #d1d5db; }
+        .account-card h3 { margin: 0 0 10px 0; color: var(--primary); font-size: 16px; }
+        .metric { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #e5e7eb; font-size: 12px; }
+        .metric-value { font-weight: bold; }
+        .final-value { text-align: center; padding: 15px; background: white; border-radius: 4px; margin-top: 10px; }
+        .final-value .value { font-size: 24px; font-weight: bold; color: var(--primary); }
+        .best { border-color: var(--success); }
+        .best .final-value { background: #d1fae5; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid #d1d5db; padding: 8px; text-align: center; font-size: 12px; }
+        .comparison-table th { background: var(--primary); color: white; }
+        .insight { background: #fef3c7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        @media print { body { font-size: 11pt; } button { display: none; } .results-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Comparación de Tipos de Cuenta</h1>
+    <p>Compare el patrimonio después de impuestos en diferentes tipos de cuenta durante 40 años</p>
+
+    <div class="inputs">
+        <h2 style="margin-top: 0;">Parámetros de Inversión</h2>
+        <div class="input-grid">
+            <div class="input-group">
+                <label>Contribución Anual ($)</label>
+                <input type="number" id="annual" value="6000" step="500">
+            </div>
+            <div class="input-group">
+                <label>Período de Inversión (Años)</label>
+                <input type="number" id="years" value="40" min="1" max="50">
+            </div>
+            <div class="input-group">
+                <label>Rendimiento Esperado (%)</label>
+                <input type="number" id="return" value="7" step="0.5">
+            </div>
+            <div class="input-group">
+                <label>Tramo Fiscal Actual (%)</label>
+                <input type="number" id="currentTax" value="22" step="1">
+            </div>
+            <div class="input-group">
+                <label>Tramo Fiscal en Jubilación (%)</label>
+                <input type="number" id="retireTax" value="15" step="1">
+            </div>
+            <div class="input-group">
+                <label>Tasa de Ganancias de Capital (%)</label>
+                <input type="number" id="capGains" value="15" step="1">
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+            <button onclick="calculate()">Calcular Comparación</button>
+        </div>
+    </div>
+
+    <div class="results-grid">
+        <div class="account-card" id="traditionalCard">
+            <h3>IRA/401(k) Tradicional</h3>
+            <div class="metric"><span>Beneficio Fiscal</span><span class="metric-value">Deducción Ahora</span></div>
+            <div class="metric"><span>Ahorro Fiscal Anual</span><span class="metric-value" id="tradSavings">$1,320</span></div>
+            <div class="metric"><span>Bruto en Jubilación</span><span class="metric-value" id="tradGross">$0</span></div>
+            <div class="metric"><span>Impuestos Adeudados</span><span class="metric-value" id="tradTaxes">$0</span></div>
+            <div class="final-value">
+                <div>Valor Después de Impuestos</div>
+                <div class="value" id="tradFinal">$0</div>
+            </div>
+        </div>
+
+        <div class="account-card" id="rothCard">
+            <h3>Roth IRA/401(k)</h3>
+            <div class="metric"><span>Beneficio Fiscal</span><span class="metric-value">Crecimiento Libre de Impuestos</span></div>
+            <div class="metric"><span>Contrib. Anual Real</span><span class="metric-value" id="rothContrib">$6,000</span></div>
+            <div class="metric"><span>Bruto en Jubilación</span><span class="metric-value" id="rothGross">$0</span></div>
+            <div class="metric"><span>Impuestos Adeudados</span><span class="metric-value">$0</span></div>
+            <div class="final-value">
+                <div>Valor Después de Impuestos</div>
+                <div class="value" id="rothFinal">$0</div>
+            </div>
+        </div>
+
+        <div class="account-card" id="taxableCard">
+            <h3>Cuenta de Corretaje Gravable</h3>
+            <div class="metric"><span>Beneficio Fiscal</span><span class="metric-value">Tasa de Ganancias de Capital</span></div>
+            <div class="metric"><span>Arrastre Fiscal Anual</span><span class="metric-value" id="taxDrag">$0</span></div>
+            <div class="metric"><span>Bruto en Jubilación</span><span class="metric-value" id="taxGross">$0</span></div>
+            <div class="metric"><span>Impuestos Adeudados</span><span class="metric-value" id="taxTaxes">$0</span></div>
+            <div class="final-value">
+                <div>Valor Después de Impuestos</div>
+                <div class="value" id="taxFinal">$0</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Resumen de Comparación a 40 Años</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Tipo de Cuenta</th>
+                <th>Total Contribuido</th>
+                <th>Valor Bruto</th>
+                <th>Valor Después de Impuestos</th>
+                <th>Tasa Efectiva de Impuestos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tradicional</td>
+                <td id="tradContribTable">$0</td>
+                <td id="tradGrossTable">$0</td>
+                <td id="tradFinalTable">$0</td>
+                <td id="tradEffective">0%</td>
+            </tr>
+            <tr>
+                <td>Roth</td>
+                <td id="rothContribTable">$0</td>
+                <td id="rothGrossTable">$0</td>
+                <td id="rothFinalTable">$0</td>
+                <td id="rothEffective">0%</td>
+            </tr>
+            <tr>
+                <td>Gravable</td>
+                <td id="taxContribTable">$0</td>
+                <td id="taxGrossTable">$0</td>
+                <td id="taxFinalTable">$0</td>
+                <td id="taxEffective">0%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="insight" id="insight">
+        <h2 style="margin-top: 0;">Información Clave</h2>
+        <p id="insightText"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            const annual = parseFloat(document.getElementById('annual').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 40;
+            const returnRate = parseFloat(document.getElementById('return').value) / 100 || 0.07;
+            const currentTax = parseFloat(document.getElementById('currentTax').value) / 100 || 0.22;
+            const retireTax = parseFloat(document.getElementById('retireTax').value) / 100 || 0.15;
+            const capGains = parseFloat(document.getElementById('capGains').value) / 100 || 0.15;
+
+            const totalContrib = annual * years;
+
+            let tradGross = 0;
+            for (let i = 0; i < years; i++) {
+                tradGross = (tradGross + annual) * (1 + returnRate);
+            }
+            const tradTaxes = tradGross * retireTax;
+            const tradFinal = tradGross - tradTaxes;
+            const tradSavings = annual * currentTax;
+
+            let rothGross = 0;
+            for (let i = 0; i < years; i++) {
+                rothGross = (rothGross + annual) * (1 + returnRate);
+            }
+            const rothFinal = rothGross;
+
+            let taxGross = 0;
+            const taxDragRate = returnRate * 0.15;
+            const afterTaxReturn = returnRate - taxDragRate;
+            for (let i = 0; i < years; i++) {
+                taxGross = (taxGross + annual) * (1 + afterTaxReturn);
+            }
+            const taxGain = taxGross - totalContrib;
+            const taxTaxes = taxGain * capGains;
+            const taxFinal = taxGross - taxTaxes;
+            const taxDrag = annual * taxDragRate;
+
+            document.getElementById('tradSavings').textContent = '$' + Math.round(tradSavings).toLocaleString();
+            document.getElementById('tradGross').textContent = '$' + Math.round(tradGross).toLocaleString();
+            document.getElementById('tradTaxes').textContent = '$' + Math.round(tradTaxes).toLocaleString();
+            document.getElementById('tradFinal').textContent = '$' + Math.round(tradFinal).toLocaleString();
+
+            document.getElementById('rothContrib').textContent = '$' + annual.toLocaleString();
+            document.getElementById('rothGross').textContent = '$' + Math.round(rothGross).toLocaleString();
+            document.getElementById('rothFinal').textContent = '$' + Math.round(rothFinal).toLocaleString();
+
+            document.getElementById('taxDrag').textContent = '$' + Math.round(taxDrag).toLocaleString();
+            document.getElementById('taxGross').textContent = '$' + Math.round(taxGross).toLocaleString();
+            document.getElementById('taxTaxes').textContent = '$' + Math.round(taxTaxes).toLocaleString();
+            document.getElementById('taxFinal').textContent = '$' + Math.round(taxFinal).toLocaleString();
+
+            document.getElementById('tradContribTable').textContent = '$' + totalContrib.toLocaleString();
+            document.getElementById('tradGrossTable').textContent = '$' + Math.round(tradGross).toLocaleString();
+            document.getElementById('tradFinalTable').textContent = '$' + Math.round(tradFinal).toLocaleString();
+            document.getElementById('tradEffective').textContent = (retireTax * 100).toFixed(0) + '%';
+
+            document.getElementById('rothContribTable').textContent = '$' + totalContrib.toLocaleString();
+            document.getElementById('rothGrossTable').textContent = '$' + Math.round(rothGross).toLocaleString();
+            document.getElementById('rothFinalTable').textContent = '$' + Math.round(rothFinal).toLocaleString();
+            document.getElementById('rothEffective').textContent = '0%';
+
+            document.getElementById('taxContribTable').textContent = '$' + totalContrib.toLocaleString();
+            document.getElementById('taxGrossTable').textContent = '$' + Math.round(taxGross).toLocaleString();
+            document.getElementById('taxFinalTable').textContent = '$' + Math.round(taxFinal).toLocaleString();
+            document.getElementById('taxEffective').textContent = ((1 - taxFinal/taxGross) * 100).toFixed(1) + '%';
+
+            document.querySelectorAll('.account-card').forEach(card => card.classList.remove('best'));
+            const best = Math.max(tradFinal, rothFinal, taxFinal);
+            if (best === rothFinal) document.getElementById('rothCard').classList.add('best');
+            else if (best === tradFinal) document.getElementById('traditionalCard').classList.add('best');
+            else document.getElementById('taxableCard').classList.add('best');
+
+            let insight = '';
+            if (rothFinal > tradFinal && rothFinal > taxFinal) {
+                const diff = rothFinal - tradFinal;
+                insight = 'La <strong>cuenta Roth</strong> gana con $' + Math.round(diff).toLocaleString() + ' más que la tradicional. Aunque su tasa fiscal de jubilación (' + (retireTax*100).toFixed(0) + '%) es menor que su tasa actual (' + (currentTax*100).toFixed(0) + '%), la tradicional se acerca, pero el crecimiento libre de impuestos de Roth le da la ventaja.';
+            } else if (tradFinal > rothFinal) {
+                const diff = tradFinal - rothFinal;
+                insight = 'La <strong>cuenta Tradicional</strong> gana por $' + Math.round(diff).toLocaleString() + '. Su tasa fiscal de jubilación más baja (' + (retireTax*100).toFixed(0) + '%) hace que la deducción tradicional sea más valiosa que pagar impuestos ahora.';
+            }
+            document.getElementById('insightText').innerHTML = insight;
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Referencia de Opciones de Inversion - Capitulo 5.3</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+
+            .header {
+                margin-bottom: 0.3in;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            table {
+                width: 100%;
+                font-size: 10pt;
+            }
+
+            .option-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4338ca;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6366f1;
+            margin-top: 0;
+        }
+
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #4338ca;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .option-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .option-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            border-bottom: 2px solid #4338ca;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            color: #4338ca;
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .risk-indicator {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .risk-very-low {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .risk-low {
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .risk-moderate {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .risk-high {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .pros, .cons {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .pros {
+            background-color: #f0fdf4;
+        }
+
+        .cons {
+            background-color: #fef2f2;
+        }
+
+        .list-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .option-features {
+            margin-top: 15px;
+        }
+
+        .feature-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 110px;
+        }
+
+        .suited-for {
+            margin-top: 15px;
+            background-color: #f0f9ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Guia de Referencia de Opciones de Inversion</h1>
+        <p class="subtitle">Informacion Integral para la Toma de Decisiones de Inversion</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresion:</strong> Para guardar este documento como PDF, haz clic en "Imprimir" y selecciona "Guardar como PDF" como destino. Para mejores resultados, usa tamano de papel "Carta" con margenes predeterminados.
+    </div>
+
+    <h2>Introduccion</h2>
+    <p>Esta guia de referencia proporciona informacion detallada sobre varias opciones de inversion para ayudarte a tomar decisiones informadas al desarrollar tu estrategia de inversion. Cada opcion se describe con sus caracteristicas clave, nivel de riesgo, rendimiento potencial y usos apropiados.</p>
+
+    <h2>Tabla Comparativa de Opciones de Inversion</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Opcion de Inversion</th>
+                <th>Nivel de Riesgo</th>
+                <th>Rendimiento Potencial</th>
+                <th>Liquidez</th>
+                <th>Horizonte de Tiempo</th>
+                <th>Inversion Minima</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cuenta de Ahorros</td>
+                <td>Muy Bajo</td>
+                <td>0.5% - 1%</td>
+                <td>Muy Alta</td>
+                <td>Corto plazo</td>
+                <td>$0 - $25</td>
+            </tr>
+            <tr>
+                <td>Certificado de Deposito (CD)</td>
+                <td>Bajo</td>
+                <td>1% - 3%</td>
+                <td>Baja</td>
+                <td>Corto a Mediano</td>
+                <td>$500 - $1,000</td>
+            </tr>
+            <tr>
+                <td>Fondo del Mercado Monetario</td>
+                <td>Bajo</td>
+                <td>1% - 2%</td>
+                <td>Alta</td>
+                <td>Corto plazo</td>
+                <td>$500 - $2,500</td>
+            </tr>
+            <tr>
+                <td>Bonos del Gobierno</td>
+                <td>Bajo a Moderado</td>
+                <td>2% - 4%</td>
+                <td>Moderada</td>
+                <td>Mediano plazo</td>
+                <td>$100 - $1,000</td>
+            </tr>
+            <tr>
+                <td>Bonos Corporativos</td>
+                <td>Moderado</td>
+                <td>3% - 6%</td>
+                <td>Moderada</td>
+                <td>Mediano plazo</td>
+                <td>$1,000 - $5,000</td>
+            </tr>
+            <tr>
+                <td>Fondos Mutuos Balanceados</td>
+                <td>Moderado</td>
+                <td>4% - 7%</td>
+                <td>Moderada a Alta</td>
+                <td>Mediano a Largo</td>
+                <td>$500 - $3,000</td>
+            </tr>
+            <tr>
+                <td>Fondos Indexados</td>
+                <td>Moderado a Alto</td>
+                <td>7% - 10%</td>
+                <td>Alta</td>
+                <td>Largo plazo</td>
+                <td>$0 - $3,000</td>
+            </tr>
+            <tr>
+                <td>Acciones (Individuales)</td>
+                <td>Alto</td>
+                <td>Variable (10%+)</td>
+                <td>Alta</td>
+                <td>Largo plazo</td>
+                <td>Variable ($1 - $1,000+)</td>
+            </tr>
+            <tr>
+                <td>Fondos Mutuos de Crecimiento</td>
+                <td>Alto</td>
+                <td>8% - 12%</td>
+                <td>Moderada a Alta</td>
+                <td>Largo plazo</td>
+                <td>$500 - $3,000</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><em>Nota: Los rangos de rendimiento son aproximaciones basadas en datos historicos. Los rendimientos reales pueden variar y no estan garantizados. Horizontes de tiempo: Corto plazo (0-3 anos), Mediano plazo (3-10 anos), Largo plazo (10+ anos).</em></p>
+
+    <h2>Perfiles Detallados de Opciones de Inversion</h2>
+
+    <div class="option-cards">
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Cuenta de Ahorros</h3>
+                <span class="risk-indicator risk-very-low">Riesgo Muy Bajo</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Una cuenta de deposito basica que gana intereses mientras mantiene los fondos facilmente accesibles.</p>
+                <p><span class="feature-label">Rendimiento:</span> 0.5% - 1% anual</p>
+                <p><span class="feature-label">Liquidez:</span> Muy Alta (acceso inmediato)</p>
+                <p><span class="feature-label">Minimo:</span> $0 - $25 (varia por institucion)</p>
+                <p><span class="feature-label">Proteccion:</span> Asegurado por FDIC hasta $250,000</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Muy seguro, sin riesgo de perdida del principal</li>
+                        <li>Acceso inmediato a los fondos</li>
+                        <li>Sin volatilidad del mercado</li>
+                        <li>Saldo minimo bajo o nulo</li>
+                        <li>Seguro respaldado por el gobierno</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Tasas de interes muy bajas</li>
+                        <li>Usualmente no mantiene el ritmo de la inflacion</li>
+                        <li>Potencial de crecimiento limitado</li>
+                        <li>Algunos pueden tener cargos de mantenimiento</li>
+                        <li>Los intereses son gravables como ingreso ordinario</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Fondos de emergencia</li>
+                    <li>Metas de ahorro a corto plazo (dentro de 1 ano)</li>
+                    <li>Necesidades de transacciones regulares</li>
+                    <li>Aquellos con muy baja tolerancia al riesgo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Certificado de Deposito (CD)</h3>
+                <span class="risk-indicator risk-low">Riesgo Bajo</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Un deposito a plazo que paga una tasa de interes fija por un periodo especifico.</p>
+                <p><span class="feature-label">Rendimiento:</span> 1% - 3% anual (varia por plazo)</p>
+                <p><span class="feature-label">Liquidez:</span> Baja (penalidad por retiro anticipado)</p>
+                <p><span class="feature-label">Plazos:</span> 3 meses a 5+ anos</p>
+                <p><span class="feature-label">Minimo:</span> $500 - $1,000 tipicamente</p>
+                <p><span class="feature-label">Proteccion:</span> Asegurado por FDIC hasta $250,000</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Interes mas alto que cuentas de ahorro</li>
+                        <li>Rendimientos fijos y predecibles</li>
+                        <li>Sin riesgo de perdida del principal si se mantiene hasta el vencimiento</li>
+                        <li>Seguro respaldado por el gobierno</li>
+                        <li>Varias opciones de plazo disponibles</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Acceso limitado a fondos durante el plazo</li>
+                        <li>Penalidades por retiro anticipado</li>
+                        <li>Los rendimientos pueden no mantener el ritmo de la inflacion</li>
+                        <li>Puede requerir deposito minimo</li>
+                        <li>Los intereses son gravables como ingreso ordinario</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas a corto y mediano plazo con plazos conocidos</li>
+                    <li>Estrategias de escalera de CDs</li>
+                    <li>Aquellos que no necesitaran acceso inmediato a fondos</li>
+                    <li>Inversionistas conservadores buscando rendimientos ligeramente mejores que el ahorro</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="option-cards">
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Fondo del Mercado Monetario</h3>
+                <span class="risk-indicator risk-low">Riesgo Bajo</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Un tipo de fondo mutuo que invierte en instrumentos de deuda a corto plazo de alta calidad.</p>
+                <p><span class="feature-label">Rendimiento:</span> 1% - 2% anual</p>
+                <p><span class="feature-label">Liquidez:</span> Alta (1-2 dias habiles)</p>
+                <p><span class="feature-label">Minimo:</span> $500 - $2,500 tipicamente</p>
+                <p><span class="feature-label">Proteccion:</span> No asegurado por FDIC, pero riesgo muy bajo</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Rendimiento mas alto que cuentas de ahorro tipicas</li>
+                        <li>Buena liquidez con opciones de emision de cheques</li>
+                        <li>Valor del Activo Neto (NAV) relativamente estable</li>
+                        <li>Diversificado en muchos valores a corto plazo</li>
+                        <li>Gestion profesional</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>No asegurado por FDIC</li>
+                        <li>Puede tener cargos de administracion</li>
+                        <li>Los rendimientos tipicamente por debajo de la tasa de inflacion</li>
+                        <li>Inversiones minimas mas altas que el ahorro</li>
+                        <li>Los intereses son gravables como ingreso ordinario</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Ahorros a corto plazo con rendimientos ligeramente mejores</li>
+                    <li>Tenencia temporal de efectivo durante incertidumbre del mercado</li>
+                    <li>Fondos de emergencia que necesitan crecimiento modesto</li>
+                    <li>Inversionistas conservadores buscando mayor liquidez que los CDs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Bonos del Gobierno</h3>
+                <span class="risk-indicator risk-low">Riesgo Bajo a Moderado</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Valores de deuda emitidos por el gobierno de EE.UU. con pagos de interes fijos.</p>
+                <p><span class="feature-label">Rendimiento:</span> 2% - 4% anual</p>
+                <p><span class="feature-label">Liquidez:</span> Moderada (se puede vender antes del vencimiento)</p>
+                <p><span class="feature-label">Plazos:</span> 1-30 anos</p>
+                <p><span class="feature-label">Minimo:</span> $100 (Letras del Tesoro), $1,000 (Notas del Tesoro)</p>
+                <p><span class="feature-label">Proteccion:</span> Respaldado por "plena fe y credito" del gobierno de EE.UU.</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Riesgo de incumplimiento extremadamente bajo</li>
+                        <li>Pagos de interes predecibles</li>
+                        <li>Varias opciones de vencimiento</li>
+                        <li>Exento de impuestos estatales y locales</li>
+                        <li>Se puede vender antes del vencimiento</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Rendimientos mas bajos que bonos corporativos</li>
+                        <li>Sujeto a riesgo de tasa de interes</li>
+                        <li>Puede no mantener el ritmo de la inflacion</li>
+                        <li>Impuesto federal sobre los intereses</li>
+                        <li>Menos liquido que cuentas de ahorro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Inversionistas conservadores buscando seguridad</li>
+                    <li>Metas financieras a mediano plazo</li>
+                    <li>Diversificacion en un portafolio mas amplio</li>
+                    <li>Inversionistas enfocados en ingresos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="option-cards">
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Bonos Corporativos</h3>
+                <span class="risk-indicator risk-moderate">Riesgo Moderado</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Valores de deuda emitidos por corporaciones con pagos de interes fijos.</p>
+                <p><span class="feature-label">Rendimiento:</span> 3% - 6% anual</p>
+                <p><span class="feature-label">Liquidez:</span> Moderada</p>
+                <p><span class="feature-label">Plazos:</span> 1-30 anos</p>
+                <p><span class="feature-label">Minimo:</span> $1,000 - $5,000 tipicamente</p>
+                <p><span class="feature-label">Proteccion:</span> Sin respaldo gubernamental, depende de la salud financiera de la empresa</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Rendimientos mas altos que bonos del gobierno</li>
+                        <li>Pagos de interes predecibles</li>
+                        <li>Prioridad sobre accionistas si la empresa liquida</li>
+                        <li>Varias calificaciones de credito para diferentes preferencias de riesgo</li>
+                        <li>Se puede vender antes del vencimiento</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Mayor riesgo de incumplimiento que bonos del gobierno</li>
+                        <li>Sujeto a riesgo de tasa de interes</li>
+                        <li>Menos liquido que acciones o bonos del gobierno</li>
+                        <li>Intereses completamente gravables</li>
+                        <li>El valor fluctua con las condiciones del mercado</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas financieras a mediano plazo</li>
+                    <li>Inversionistas enfocados en ingresos</li>
+                    <li>Aquellos que buscan rendimientos mas altos que bonos del gobierno</li>
+                    <li>Diversificacion del portafolio</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Fondos Mutuos Balanceados</h3>
+                <span class="risk-indicator risk-moderate">Riesgo Moderado</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Fondos administrados profesionalmente que invierten en una mezcla de acciones y bonos.</p>
+                <p><span class="feature-label">Rendimiento:</span> 4% - 7% anual</p>
+                <p><span class="feature-label">Liquidez:</span> Moderada a Alta</p>
+                <p><span class="feature-label">Asignacion:</span> Tipicamente 60% acciones, 40% bonos</p>
+                <p><span class="feature-label">Minimo:</span> $500 - $3,000 tipicamente</p>
+                <p><span class="feature-label">Comisiones:</span> 0.5% - 1.5% ratio de gastos</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Diversificacion incorporada entre clases de activos</li>
+                        <li>Gestion profesional</li>
+                        <li>Balance entre crecimiento e ingresos</li>
+                        <li>Menos volatil que fondos de acciones puras</li>
+                        <li>Rebalanceo automatico</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Las comisiones de administracion reducen los rendimientos</li>
+                        <li>Menos potencial de crecimiento que fondos de acciones puras</li>
+                        <li>Menos control sobre inversiones especificas</li>
+                        <li>Implicaciones fiscales de transacciones del fondo</li>
+                        <li>El rendimiento varia segun el administrador del fondo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas a mediano y largo plazo</li>
+                    <li>Aquellos que buscan crecimiento moderado con volatilidad reducida</li>
+                    <li>Inversionistas que quieren simplicidad con diversificacion</li>
+                    <li>Portafolios en transicion hacia asignaciones mas conservadoras</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="option-cards">
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Fondos Indexados</h3>
+                <span class="risk-indicator risk-moderate">Riesgo Moderado a Alto</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Fondos administrados pasivamente que rastrean indices de mercado especificos (ej. S&P 500).</p>
+                <p><span class="feature-label">Rendimiento:</span> 7% - 10% anual (basado en promedios historicos del mercado de valores)</p>
+                <p><span class="feature-label">Liquidez:</span> Alta</p>
+                <p><span class="feature-label">Minimo:</span> $0 - $3,000 (varia ampliamente)</p>
+                <p><span class="feature-label">Comisiones:</span> 0.03% - 0.3% ratio de gastos (tipicamente bajo)</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Amplia diversificacion en muchos valores</li>
+                        <li>Ratios de gastos muy bajos</li>
+                        <li>Rendimiento que iguala al mercado</li>
+                        <li>Menor rotacion para eficiencia fiscal</li>
+                        <li>Enfoque de inversion simple y pasivo</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Volatilidad a nivel del mercado</li>
+                        <li>Sin posibilidad de superar al mercado</li>
+                        <li>Medidas defensivas limitadas en caidas</li>
+                        <li>Menos supervision humana que la gestion activa</li>
+                        <li>Puede incluir sectores/empresas de bajo rendimiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas a largo plazo (jubilacion, financiamiento universitario)</li>
+                    <li>Inversionistas conscientes de los costos</li>
+                    <li>Aquellos que creen en la eficiencia del mercado</li>
+                    <li>Tenencias principales en un portafolio diversificado</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Acciones Individuales</h3>
+                <span class="risk-indicator risk-high">Riesgo Alto</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Acciones de propiedad en empresas individuales.</p>
+                <p><span class="feature-label">Rendimiento:</span> Altamente variable, potencial de 10%+ (o negativo)</p>
+                <p><span class="feature-label">Liquidez:</span> Alta (durante horas de mercado)</p>
+                <p><span class="feature-label">Minimo:</span> Precio de una accion (puede ser $1 a $1,000+)</p>
+                <p><span class="feature-label">Comisiones:</span> Comisiones de negociacion (muchos corredores ahora ofrecen $0)</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Mayores rendimientos potenciales</li>
+                        <li>Control total sobre inversiones especificas</li>
+                        <li>Derechos de voto en decisiones de la empresa</li>
+                        <li>Potencial ingreso por dividendos</li>
+                        <li>Sin comisiones de administracion</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Mayor volatilidad e incertidumbre</li>
+                        <li>Riesgos especificos de la empresa</li>
+                        <li>Requiere investigacion y monitoreo</li>
+                        <li>Mas dificil lograr diversificacion</li>
+                        <li>Consume tiempo administrar adecuadamente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas de crecimiento a largo plazo</li>
+                    <li>Inversionistas comodos con volatilidad significativa</li>
+                    <li>Aquellos dispuestos a investigar empresas</li>
+                    <li>Complemento a un portafolio diversificado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="option-cards">
+        <div class="option-card">
+            <div class="card-header">
+                <h3 class="card-title">Fondos Mutuos de Crecimiento</h3>
+                <span class="risk-indicator risk-high">Riesgo Alto</span>
+            </div>
+
+            <div class="option-features">
+                <p><span class="feature-label">Descripcion:</span> Fondos administrados activamente enfocados en empresas con alto potencial de crecimiento.</p>
+                <p><span class="feature-label">Rendimiento:</span> 8% - 12% anual (potencial de mayor o menor)</p>
+                <p><span class="feature-label">Liquidez:</span> Moderada a Alta</p>
+                <p><span class="feature-label">Minimo:</span> $500 - $3,000 tipicamente</p>
+                <p><span class="feature-label">Comisiones:</span> 0.7% - 1.5% ratio de gastos</p>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <div class="list-title">Ventajas</div>
+                    <ul>
+                        <li>Seleccion profesional de empresas de crecimiento</li>
+                        <li>Diversificacion incorporada entre empresas</li>
+                        <li>Potencial de superar al mercado</li>
+                        <li>Acceso a investigacion y experiencia</li>
+                        <li>Enfoque simplificado para invertir en crecimiento</li>
+                    </ul>
+                </div>
+
+                <div class="cons">
+                    <div class="list-title">Desventajas</div>
+                    <ul>
+                        <li>Mayor volatilidad que fondos balanceados</li>
+                        <li>Ratios de gastos mas altos</li>
+                        <li>El rendimiento depende de la habilidad del administrador</li>
+                        <li>Puede tener bajo rendimiento en mercados orientados al valor</li>
+                        <li>Potencial de mayores impuestos debido a la rotacion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="suited-for">
+                <div class="list-title">Mejor Para:</div>
+                <ul>
+                    <li>Metas de crecimiento a largo plazo</li>
+                    <li>Inversionistas con mayor tolerancia al riesgo</li>
+                    <li>Aquellos que buscan gestion profesional</li>
+                    <li>Portafolios con horizontes de tiempo mas largos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2>Directrices de Horizonte de Tiempo</h2>
+    <p>Emparejar tus opciones de inversion con tu horizonte de tiempo es crucial para desarrollar una estrategia apropiada:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Horizonte de Tiempo</th>
+                <th>Definicion</th>
+                <th>Vehiculos Mas Apropiados</th>
+                <th>Consideraciones de Riesgo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Corto plazo<br>(0-3 anos)</td>
+                <td>Dinero necesario dentro de los proximos tres anos</td>
+                <td>Cuentas de ahorro, Fondos del mercado monetario, CDs, Bonos del gobierno a corto plazo</td>
+                <td>Enfocarse en preservacion del capital y liquidez; evitar riesgo de mercado con estos fondos</td>
+            </tr>
+            <tr>
+                <td>Mediano plazo<br>(3-10 anos)</td>
+                <td>Dinero necesario en 3-10 anos</td>
+                <td>CDs, Bonos del gobierno y corporativos, Fondos mutuos balanceados</td>
+                <td>Algo de riesgo moderado es aceptable para mejores rendimientos; cierta exposicion al mercado es apropiada</td>
+            </tr>
+            <tr>
+                <td>Largo plazo<br>(10+ anos)</td>
+                <td>Dinero necesario en 10+ anos</td>
+                <td>Fondos indexados, Fondos de crecimiento, Acciones individuales, Fondos de bonos a largo plazo</td>
+                <td>Mayor tolerancia al riesgo apropiada; enfocarse en crecimiento sobre estabilidad; tiempo para recuperarse de fluctuaciones del mercado</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Capitulo 5.3: Evaluando Estrategias de Ahorro e Inversion | PFL Academy</p>
+        <p>PFL Academy 2025. Solo para propositos educativos. No es asesoramiento financiero.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia de Propiedad de Vivienda | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .concept-box {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .definition {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background-color: #e0f2fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .formula-box {
+            background-color: #fef3c7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .formula {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #f3f4f6;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .concept-box {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Capitulo 32: Comprendiendo la Propiedad de Vivienda</h1>
+        <p style="color: var(--text-light);">Conceptos clave para la compra de vivienda e hipotecas</p>
+    </header>
+
+    <div class="concept-box">
+        <div class="concept-title">TERMINOS CLAVE</div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Hipoteca</div>
+            <div>Un prestamo especificamente para comprar bienes raices, donde la propiedad sirve como garantia</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Pago Inicial</div>
+            <div>Pago inicial por adelantado hacia el precio de compra, tipicamente 3-20%</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Principal</div>
+            <div>El monto original del prestamo solicitado para comprar una vivienda</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Interes</div>
+            <div>El costo de pedir dinero prestado, expresado como porcentaje</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Cuenta de Deposito en Garantia (Escrow)</div>
+            <div>Cuenta administrada por el prestamista para recolectar y pagar impuestos de propiedad y seguro</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">PMI (Seguro Hipotecario Privado)</div>
+            <div>Seguro requerido cuando el pago inicial es menor al 20%, protege al prestamista</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Patrimonio de la Vivienda</div>
+            <div>La diferencia entre el valor de mercado de la vivienda y el monto adeudado en la hipoteca</div>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">TIPOS DE HIPOTECAS</div>
+
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Pago Inicial</th>
+                <th>Mejor Para</th>
+            </tr>
+            <tr>
+                <td><strong>Convencional</strong></td>
+                <td>3-20%</td>
+                <td>Buen credito (620+), ingresos estables</td>
+            </tr>
+            <tr>
+                <td><strong>FHA</strong></td>
+                <td>3.5%</td>
+                <td>Compradores primerizos, credito bajo (580+)</td>
+            </tr>
+            <tr>
+                <td><strong>VA</strong></td>
+                <td>0%</td>
+                <td>Militares/veteranos</td>
+            </tr>
+            <tr>
+                <td><strong>USDA</strong></td>
+                <td>0%</td>
+                <td>Areas rurales, aplican limites de ingresos</td>
+            </tr>
+            <tr>
+                <td><strong>Jumbo</strong></td>
+                <td>10-20%</td>
+                <td>Viviendas de alto precio, credito excelente (700+)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="grid">
+        <div class="concept-box">
+            <div class="concept-title">Hipoteca de Tasa Fija</div>
+            <div>La tasa de interes permanece igual durante todo el plazo del prestamo</div>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Pagos mensuales predecibles</li>
+                <li>Plazos comunes: 15, 20, 30 anos</li>
+                <li>Tasas iniciales mas altas que ARM</li>
+                <li>Mejor cuando las tasas estan bajas</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <div class="concept-title">Hipoteca de Tasa Ajustable (ARM)</div>
+            <div>La tasa de interes cambia despues del periodo fijo inicial</div>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Tasas iniciales mas bajas</li>
+                <li>5/1 ARM = fijo 5 anos, se ajusta anualmente</li>
+                <li>Riesgo de aumentos en el pago</li>
+                <li>Mejor si se mudara/refinanciara pronto</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">PITI - PAGO MENSUAL DE HIPOTECA</div>
+
+        <div class="formula-box">
+            <div class="formula">P + I + T + I = Pago Mensual Total</div>
+        </div>
+
+        <div class="grid">
+            <div>
+                <div class="label">P - Principal</div>
+                <div style="font-size: 0.9rem;">Porcion que reduce el saldo de su prestamo</div>
+            </div>
+            <div>
+                <div class="label">I - Interes</div>
+                <div style="font-size: 0.9rem;">Costo de pedir dinero prestado</div>
+            </div>
+            <div>
+                <div class="label">T - Impuestos</div>
+                <div style="font-size: 0.9rem;">Impuestos de propiedad (en deposito en garantia)</div>
+            </div>
+            <div>
+                <div class="label">I - Seguro</div>
+                <div style="font-size: 0.9rem;">Seguro de propietario + PMI si aplica</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">COSTOS REALES DE LA PROPIEDAD DE VIVIENDA</div>
+
+        <div class="grid">
+            <div>
+                <div class="label">Costos Iniciales:</div>
+                <ul style="margin-left: 20px; font-size: 0.9rem;">
+                    <li>Pago inicial (3-20%)</li>
+                    <li>Costos de cierre (2-5%)</li>
+                    <li>Gastos de mudanza</li>
+                    <li>Reparaciones iniciales/muebles</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="label">Costos Continuos:</div>
+                <ul style="margin-left: 20px; font-size: 0.9rem;">
+                    <li>Pago de hipoteca (PITI)</li>
+                    <li>Servicios publicos</li>
+                    <li>Mantenimiento (1% del valor de la vivienda/ano)</li>
+                    <li>Cuotas de HOA (si aplica)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplo:</strong> Para una vivienda de $300,000 con 10% de pago inicial:
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Pago inicial: $30,000</li>
+                <li>Costos de cierre (3%): $9,000</li>
+                <li>Total inicial: $39,000+</li>
+                <li>Mantenimiento anual: ~$3,000</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">PROCESO DE COMPRA DE VIVIENDA</div>
+
+        <ol style="margin-left: 20px;">
+            <li><strong>Preparacion Financiera</strong> (6-12 meses antes)
+                <div style="font-size: 0.85rem; color: var(--text-light);">Mejorar credito, ahorrar para pago inicial, reducir deudas</div>
+            </li>
+            <li><strong>Obtener Pre-Aprobacion</strong> (1-2 meses antes)
+                <div style="font-size: 0.85rem; color: var(--text-light);">Presentar documentos, obtener carta de pre-aprobacion</div>
+            </li>
+            <li><strong>Buscar Vivienda</strong>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Trabajar con agente, ver propiedades</div>
+            </li>
+            <li><strong>Hacer una Oferta</strong>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Negociar precio, incluir contingencias</div>
+            </li>
+            <li><strong>Inspeccion y Avaluo</strong>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Inspeccion profesional, avaluo del prestamista</div>
+            </li>
+            <li><strong>Cierre</strong>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Firmar documentos, pagar costos de cierre, obtener llaves</div>
+            </li>
+        </ol>
+    </div>
+
+    <div class="grid">
+        <div class="concept-box">
+            <div class="concept-title">Beneficios de la Propiedad de Vivienda</div>
+            <ul style="margin-left: 20px;">
+                <li>Construir patrimonio con el tiempo</li>
+                <li>Potencial apreciacion</li>
+                <li>Deducciones fiscales</li>
+                <li>Estabilidad y control</li>
+                <li>Costos de vivienda fijos (tasa fija)</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <div class="concept-title">Desafios de la Propiedad de Vivienda</div>
+            <ul style="margin-left: 20px;">
+                <li>Liquidez limitada</li>
+                <li>Riesgo de mercado</li>
+                <li>Carga de mantenimiento</li>
+                <li>Movilidad reducida</li>
+                <li>Costos de reparacion inesperados</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">LISTA DE VERIFICACION DE PREPARACION FINANCIERA</div>
+
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Recomendado</th>
+            </tr>
+            <tr>
+                <td>Puntaje de Credito</td>
+                <td>620+ (convencional), 580+ (FHA)</td>
+            </tr>
+            <tr>
+                <td>Relacion Deuda-Ingreso</td>
+                <td>Por debajo del 36% (idealmente)</td>
+            </tr>
+            <tr>
+                <td>Pago Inicial</td>
+                <td>3-20% ahorrado</td>
+            </tr>
+            <tr>
+                <td>Fondo de Emergencia</td>
+                <td>3-6 meses de gastos (separado)</td>
+            </tr>
+            <tr>
+                <td>Historial de Empleo</td>
+                <td>2+ anos de ingresos estables</td>
+            </tr>
+            <tr>
+                <td>Estabilidad Geografica</td>
+                <td>Planea quedarse 3-5+ anos</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background-color: #f0f9ff; border-radius: 6px; border-left: 4px solid #3b82f6;">
+        <strong>Conclusion Clave:</strong> La propiedad de vivienda es una decision financiera importante que requiere considerar cuidadosamente sus finanzas, estilo de vida y condiciones del mercado. Comprender todos los costos mas alla del precio de compra y asegurarse de estar verdaderamente listo le ayudara a tomar una decision que se alinee con sus objetivos a largo plazo.
+    </div>
+</body>
+</html>

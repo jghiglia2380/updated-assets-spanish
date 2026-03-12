@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Incentivos de Políticas Estatales - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f9fafb; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; text-align: center; }
+        .header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+        .header p { font-size: 0.95rem; opacity: 0.9; }
+        .content { padding: 24px; }
+        .section { margin-bottom: 24px; }
+        .section-title { font-size: 1.25rem; font-weight: 600; color: #4f46e5; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e5e7eb; }
+        .objective-box { background: #eef2ff; border: 2px solid #6366f1; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+        .objective-box h3 { color: #4f46e5; margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.9rem; }
+        th, td { padding: 10px 8px; text-align: left; border: 1px solid #e5e7eb; vertical-align: top; }
+        th { background: #f3f4f6; font-weight: 600; color: #374151; }
+        .policy-area { background: #eef2ff; font-weight: 600; color: #4f46e5; }
+        .example-row { background: #f9fafb; font-style: italic; color: #6b7280; }
+        input[type="text"], textarea { width: 100%; padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.85rem; }
+        textarea { resize: vertical; min-height: 50px; }
+        .analysis-section { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 20px; margin-top: 24px; }
+        .analysis-section h3 { color: #92400e; margin-bottom: 16px; }
+        .analysis-question { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #fcd34d; }
+        .analysis-question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .analysis-question h4 { color: #78350f; margin-bottom: 12px; font-size: 1rem; }
+        .analysis-question p { font-size: 0.9rem; margin-bottom: 8px; color: #78350f; }
+        .application-section { background: #f0fdf4; border: 2px solid #86efac; border-radius: 8px; padding: 20px; margin-top: 24px; }
+        .application-section h3 { color: #166534; margin-bottom: 16px; }
+        .application-table { width: 100%; border-collapse: collapse; }
+        .application-table th { background: #166534; color: white; }
+        .application-table td { padding: 12px; }
+        .footer { text-align: center; padding: 16px; background: #f9fafb; border-top: 1px solid #e5e7eb; font-size: 0.85rem; color: #6b7280; }
+        @media print { body { background: white; padding: 10px; } .container { box-shadow: none; } }
+        @media (max-width: 768px) { table { font-size: 0.8rem; } th, td { padding: 6px 4px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Analizador de Incentivos de Políticas Estatales</h1>
+            <p>Analiza cómo las políticas gubernamentales crean incentivos que afectan tus finanzas personales</p>
+        </div>
+
+        <div class="content">
+            <div class="objective-box">
+                <h3>Objetivo</h3>
+                <p>Entender cómo el gobierno estatal crea incentivos en educación, vivienda, empleo, medio ambiente y jubilación que afectan tus decisiones financieras personales. Aprende a identificar y aprovechar estas políticas a tu favor.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Parte A: Identificar Políticas de Incentivos Estatales</div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Área de Política</th>
+                            <th style="width: 20%;">Mecanismo de Incentivo</th>
+                            <th style="width: 25%;">Comportamiento que Fomenta</th>
+                            <th style="width: 40%;">Cómo Te Afecta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="policy-area">
+                            <td colspan="4">Educación</td>
+                        </tr>
+                        <tr class="example-row">
+                            <td>Ejemplo</td>
+                            <td>Deducciones fiscales plan 529</td>
+                            <td>Ahorrar para universidad en cuentas con ventajas fiscales</td>
+                            <td>Menores costos universitarios, ahorros fiscales para la familia</td>
+                        </tr>
+                        <tr>
+                            <td>Tu Estado</td>
+                            <td><input type="text" placeholder="Crédito fiscal, beca, subvención..."></td>
+                            <td><input type="text" placeholder="¿Qué comportamiento fomenta?"></td>
+                            <td><input type="text" placeholder="¿Cómo afecta tus planes educativos?"></td>
+                        </tr>
+                        <tr class="policy-area">
+                            <td colspan="4">Vivienda</td>
+                        </tr>
+                        <tr class="example-row">
+                            <td>Ejemplo</td>
+                            <td>Programas para compradores primerizos</td>
+                            <td>Asistencia para enganche, tasas más bajas</td>
+                            <td>Hace la propiedad de vivienda más accesible</td>
+                        </tr>
+                        <tr>
+                            <td>Tu Estado</td>
+                            <td><input type="text" placeholder="Programa de asistencia, beneficio fiscal..."></td>
+                            <td><input type="text" placeholder="¿Qué comportamiento fomenta?"></td>
+                            <td><input type="text" placeholder="¿Cómo afecta tus planes de vivienda?"></td>
+                        </tr>
+                        <tr class="policy-area">
+                            <td colspan="4">Empleo</td>
+                        </tr>
+                        <tr class="example-row">
+                            <td>Ejemplo</td>
+                            <td>Leyes de salario mínimo</td>
+                            <td>Piso salarial para trabajadores</td>
+                            <td>Afecta tu potencial de ingresos</td>
+                        </tr>
+                        <tr>
+                            <td>Tu Estado</td>
+                            <td><input type="text" placeholder="Salario mínimo de tu estado..."></td>
+                            <td><input type="text" placeholder="¿Qué comportamiento fomenta?"></td>
+                            <td><input type="text" placeholder="¿Cómo afecta tus prospectos laborales?"></td>
+                        </tr>
+                        <tr class="policy-area">
+                            <td colspan="4">Medio Ambiente/Energía</td>
+                        </tr>
+                        <tr class="example-row">
+                            <td>Ejemplo</td>
+                            <td>Crédito fiscal para vehículos eléctricos</td>
+                            <td>Comprar vehículos eléctricos</td>
+                            <td>Reduce costo de compra de VE</td>
+                        </tr>
+                        <tr>
+                            <td>Tu Estado</td>
+                            <td><input type="text" placeholder="Reembolso, crédito fiscal, incentivo..."></td>
+                            <td><input type="text" placeholder="¿Qué comportamiento fomenta?"></td>
+                            <td><input type="text" placeholder="¿Cómo podría afectar tus compras futuras?"></td>
+                        </tr>
+                        <tr class="policy-area">
+                            <td colspan="4">Jubilación</td>
+                        </tr>
+                        <tr class="example-row">
+                            <td>Ejemplo</td>
+                            <td>Programa estatal de ahorro para jubilación</td>
+                            <td>Inscripción automática, beneficios fiscales</td>
+                            <td>Más fácil ahorrar, ventajas fiscales</td>
+                        </tr>
+                        <tr>
+                            <td>Tu Estado</td>
+                            <td><input type="text" placeholder="IRA, pensión, programa de ahorro..."></td>
+                            <td><input type="text" placeholder="¿Qué comportamiento fomenta?"></td>
+                            <td><input type="text" placeholder="¿Cómo afectará tu planificación de jubilación?"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="analysis-section">
+                <h3>Parte B: Preguntas de Análisis</h3>
+
+                <div class="analysis-question">
+                    <h4>1. Consecuencias No Deseadas</h4>
+                    <p>Considera la política de salario mínimo de tu estado:</p>
+                    <p><strong>Efecto deseado:</strong> Mayores ingresos para trabajadores</p>
+                    <p><strong>Posibles efectos no deseados:</strong></p>
+                    <textarea placeholder="ej., menos trabajos de nivel inicial, horas reducidas, automatización, precios más altos..."></textarea>
+                    <p style="margin-top: 8px;"><strong>¿Cómo podría esto afectar tus oportunidades laborales u horas disponibles?</strong></p>
+                    <textarea placeholder="Tu análisis..."></textarea>
+                </div>
+
+                <div class="analysis-question">
+                    <h4>2. Incentivos Fiscales</h4>
+                    <p>Investiga los incentivos fiscales disponibles en tu estado (educación, propiedad de vivienda, jubilación):</p>
+                    <p><strong>¿Quién se beneficia más de estos incentivos?</strong></p>
+                    <textarea placeholder="ej., familias con mayores ingresos que pueden ahorrar, propietarios vs inquilinos..."></textarea>
+                    <p style="margin-top: 8px;"><strong>¿Cuál es el costo de oportunidad para tu estado?</strong></p>
+                    <textarea placeholder="¿Qué renuncia el estado en ingresos fiscales? ¿Qué más podría financiar ese dinero?"></textarea>
+                    <p style="margin-top: 8px;"><strong>¿Deberías aprovechar estos incentivos? ¿Cómo?</strong></p>
+                    <textarea placeholder="Tu plan para aprovechar incentivos estatales..."></textarea>
+                </div>
+
+                <div class="analysis-question">
+                    <h4>3. Compensaciones</h4>
+                    <p>Cada incentivo tiene un costo de oportunidad para el gobierno. El dinero gastado en un programa no puede gastarse en otro.</p>
+                    <p><strong>Si fueras un político en tu estado, ¿qué priorizarías? ¿Por qué?</strong></p>
+                    <textarea placeholder="Considera financiamiento educativo, asistencia de vivienda, capacitación laboral, programas ambientales..."></textarea>
+                </div>
+            </div>
+
+            <div class="application-section">
+                <h3>Parte C: Aplicación Personal</h3>
+                <p style="margin-bottom: 16px; font-weight: 600; color: #166534;">¿Cómo puedes usar las políticas de incentivos de tu estado a tu favor?</p>
+
+                <table class="application-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Tu Meta</th>
+                            <th style="width: 35%;">Incentivo Estatal a Aprovechar</th>
+                            <th style="width: 40%;">Acción que Tomarás</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="example-row">
+                            <td>Ejemplo: Comprar primera casa</td>
+                            <td>Programa para compradores primerizos</td>
+                            <td>Investigar elegibilidad, ahorrar para enganche</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Tu meta 1"></td>
+                            <td><input type="text" placeholder="Programa o incentivo estatal"></td>
+                            <td><input type="text" placeholder="Pasos específicos que tomarás"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Tu meta 2"></td>
+                            <td><input type="text" placeholder="Programa o incentivo estatal"></td>
+                            <td><input type="text" placeholder="Pasos específicos que tomarás"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Tu meta 3"></td>
+                            <td><input type="text" placeholder="Programa o incentivo estatal"></td>
+                            <td><input type="text" placeholder="Pasos específicos que tomarás"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 24px; padding: 16px; background: #f9fafb; border-radius: 8px;">
+                <h4 style="color: #4f46e5; margin-bottom: 12px;">Consejos de Investigación</h4>
+                <ul style="margin-left: 20px; color: #6b7280;">
+                    <li>Visita el sitio web oficial del gobierno de tu estado para programas actuales</li>
+                    <li>Busca "[Tu Estado] programas para compradores primerizos"</li>
+                    <li>Revisa el departamento de educación de tu estado para oportunidades de becas</li>
+                    <li>Busca "[Tu Estado] plan 529" para beneficios de ahorro educativo</li>
+                    <li>Investiga "[Tu Estado] salario mínimo 2024" para tasas actuales</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            PFL Academy - L-49: Escasez, Costo de Oportunidad e Incentivos | Actividad 4
+        </div>
+    </div>
+</body>
+</html>

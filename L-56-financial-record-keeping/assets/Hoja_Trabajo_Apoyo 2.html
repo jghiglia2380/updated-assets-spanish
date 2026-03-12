@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Mantenimiento de Registros Financieros | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--surface);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .question-block {
+            background-color: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .answer-space {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .answer-space:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #d1d5db;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--surface);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .answer-space {
+                min-height: 100px;
+                border: 1px solid #999;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hoja de Trabajo de Mantenimiento de Registros Financieros</h1>
+            <p>Actividad de Práctica Guiada</p>
+        </header>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Parte 1: Conocimiento de Retención de Documentos</h2>
+
+                <div class="question-block">
+                    <div class="question">1. ¿Por qué es importante mantener los registros financieros organizados?</div>
+                    <textarea class="answer-space" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <div class="question">2. Relaciona cada documento con su período de retención recomendado:</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de Documento</th>
+                                <th>Período de Retención</th>
+                                <th>Tu Respuesta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Declaraciones de Impuestos</td>
+                                <td>A) Permanente<br>B) 7 años<br>C) 3 años<br>D) 1 año</td>
+                                <td><input type="text" style="width: 60px; padding: 5px;" placeholder="Letra"></td>
+                            </tr>
+                            <tr>
+                                <td>Estados de Cuenta Bancarios</td>
+                                <td>A) Permanente<br>B) 7 años<br>C) 3 años<br>D) 1 año</td>
+                                <td><input type="text" style="width: 60px; padding: 5px;" placeholder="Letra"></td>
+                            </tr>
+                            <tr>
+                                <td>Acta de Nacimiento</td>
+                                <td>A) Permanente<br>B) 7 años<br>C) 3 años<br>D) 1 año</td>
+                                <td><input type="text" style="width: 60px; padding: 5px;" placeholder="Letra"></td>
+                            </tr>
+                            <tr>
+                                <td>Recibos de Mejoras del Hogar</td>
+                                <td>A) Permanente<br>B) 7 años<br>C) 3 años<br>D) 1 año</td>
+                                <td><input type="text" style="width: 60px; padding: 5px;" placeholder="Letra"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Parte 2: Estrategia de Organización Digital</h2>
+
+                <div class="question-block">
+                    <div class="question">3. Crea una estructura de carpetas para tu sistema de archivo digital. Enumera al menos 6 categorías principales:</div>
+                    <textarea class="answer-space" placeholder="Ejemplo: 1. Documentos de Impuestos&#10;2. Registros de Empleo&#10;3. ..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <div class="question">4. ¿Cuáles son tres ventajas del mantenimiento de registros digitales comparado con el archivo en papel?</div>
+                    <div style="margin-top: 10px;">
+                        <strong>Ventaja 1:</strong>
+                        <textarea class="answer-space" style="min-height: 50px;" placeholder="Tu respuesta..."></textarea>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Ventaja 2:</strong>
+                        <textarea class="answer-space" style="min-height: 50px;" placeholder="Tu respuesta..."></textarea>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Ventaja 3:</strong>
+                        <textarea class="answer-space" style="min-height: 50px;" placeholder="Tu respuesta..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Parte 3: Seguridad y Protección</h2>
+
+                <div class="question-block">
+                    <div class="question">5. ¿Qué medidas de seguridad deberías implementar para proteger tus registros financieros digitales?</div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Usar protección con contraseña en archivos sensibles</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Habilitar autenticación de dos factores en almacenamiento en la nube</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Respaldar archivos regularmente en múltiples ubicaciones</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Usar encriptación para documentos altamente sensibles</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Mantener el software antivirus actualizado</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            <span>Evitar Wi-Fi público al acceder a cuentas financieras</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question">6. ¿Dónde deberías almacenar copias físicas de documentos permanentes (acta de nacimiento, escrituras de propiedad, etc.)?</div>
+                    <textarea class="answer-space" placeholder="Describe la mejor ubicación de almacenamiento y por qué..."></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Parte 4: Aplicación y Reflexión</h2>
+
+                <div class="question-block">
+                    <div class="question">7. Crea un plan de acción personal para organizar tus registros financieros:</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tarea</th>
+                                <th>Plazo</th>
+                                <th>Recursos Necesarios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><textarea style="width: 100%; min-height: 50px; border: none; resize: vertical;" placeholder="Tarea 1..."></textarea></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Cuándo?"></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Qué necesitas?"></td>
+                            </tr>
+                            <tr>
+                                <td><textarea style="width: 100%; min-height: 50px; border: none; resize: vertical;" placeholder="Tarea 2..."></textarea></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Cuándo?"></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Qué necesitas?"></td>
+                            </tr>
+                            <tr>
+                                <td><textarea style="width: 100%; min-height: 50px; border: none; resize: vertical;" placeholder="Tarea 3..."></textarea></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Cuándo?"></td>
+                                <td><input type="text" style="width: 100%; padding: 8px; border: none;" placeholder="¿Qué necesitas?"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <strong>Reflexión:</strong> ¿Cómo te ayudará tener un sistema organizado de mantenimiento de registros financieros a alcanzar tus metas financieras?
+                </div>
+                <textarea class="answer-space" placeholder="Escribe tu reflexión..."></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

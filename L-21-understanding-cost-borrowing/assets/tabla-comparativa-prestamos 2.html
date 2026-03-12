@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Comparativa de Préstamos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .low-risk {
+            background-color: #d1fae5;
+        }
+        .medium-risk {
+            background-color: #fef3c7;
+        }
+        .high-risk {
+            background-color: #fee2e2;
+        }
+        .loan-type {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .reflection-section {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .reflection-section h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+        .question {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+        }
+        .question-number {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+        .icon {
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .table-container, .reflection-section {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Tabla Comparativa de Préstamos: Entendiendo Sus Opciones de Préstamo</h1>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Préstamo</th>
+                    <th>¿Típicamente Garantizado?</th>
+                    <th>Rango Típico de Tasa de Interés</th>
+                    <th>Plazos Comunes</th>
+                    <th>Cargos Comunes</th>
+                    <th>Mejor Usado Para</th>
+                    <th>Consideraciones Importantes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="low-risk">
+                    <td class="loan-type"><span class="icon">🏠</span>Préstamos Hipotecarios</td>
+                    <td>Sí (por la vivienda)</td>
+                    <td>3-7%</td>
+                    <td>15-30 años</td>
+                    <td>Cargo por originación, cargo por avalúo, costos de cierre</td>
+                    <td>Compra de vivienda</td>
+                    <td>Requiere buen crédito; compromiso significativo a largo plazo</td>
+                </tr>
+                <tr class="low-risk">
+                    <td class="loan-type"><span class="icon">🚗</span>Préstamos para Automóviles</td>
+                    <td>Sí (por el vehículo)</td>
+                    <td>3-10%</td>
+                    <td>3-7 años</td>
+                    <td>Cargo por originación, cargo por documentación</td>
+                    <td>Compra de vehículo</td>
+                    <td>Plazos más largos significan pagos menores pero más intereses pagados</td>
+                </tr>
+                <tr class="low-risk">
+                    <td class="loan-type"><span class="icon">🎓</span>Préstamos Estudiantiles</td>
+                    <td>No</td>
+                    <td>3-12% (préstamos federales típicamente más bajos que los privados)</td>
+                    <td>10-25 años</td>
+                    <td>Cargo por originación (préstamos federales)</td>
+                    <td>Gastos educativos</td>
+                    <td>Los préstamos federales ofrecen opciones de pago basadas en ingresos</td>
+                </tr>
+                <tr class="medium-risk">
+                    <td class="loan-type"><span class="icon">💰</span>Préstamos Personales</td>
+                    <td>Usualmente no</td>
+                    <td>6-36%</td>
+                    <td>1-7 años</td>
+                    <td>Cargo por originación, penalización por pago anticipado</td>
+                    <td>Consolidación de deuda, gastos mayores</td>
+                    <td>Las tasas varían ampliamente según el puntaje crediticio</td>
+                </tr>
+                <tr class="medium-risk">
+                    <td class="loan-type"><span class="icon">💳</span>Tarjetas de Crédito</td>
+                    <td>No</td>
+                    <td>15-24%</td>
+                    <td>Rotativo (sin plazo fijo)</td>
+                    <td>Cargo anual, cargo por pago tardío, cargo por adelanto en efectivo</td>
+                    <td>Necesidades a corto plazo, emergencias</td>
+                    <td>Alto interés si se mantiene un saldo</td>
+                </tr>
+                <tr class="medium-risk">
+                    <td class="loan-type"><span class="icon">🏡</span>Préstamos/Líneas de Crédito con Garantía Hipotecaria</td>
+                    <td>Sí (por la vivienda)</td>
+                    <td>4-8%</td>
+                    <td>5-30 años</td>
+                    <td>Cargo por solicitud, cargo por avalúo, costos de cierre</td>
+                    <td>Mejoras del hogar, gastos mayores</td>
+                    <td>Riesgo de ejecución hipotecaria si no se realizan los pagos</td>
+                </tr>
+                <tr class="high-risk">
+                    <td class="loan-type"><span class="icon">⚠️</span>Préstamos de Día de Pago</td>
+                    <td>No</td>
+                    <td>300-700% TAE</td>
+                    <td>2-4 semanas</td>
+                    <td>Cargos financieros (muy altos)</td>
+                    <td>Emergencias absolutas únicamente</td>
+                    <td>Extremadamente costoso; puede llevar a ciclos de deuda</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="reflection-section">
+        <h2>💭 Preguntas de Reflexión</h2>
+
+        <div class="question">
+            <div class="question-number">Pregunta 1:</div>
+            <p>¿Qué tipo de préstamo cree que sería el más desafiante de manejar a lo largo del tiempo y por qué?</p>
+            <div style="border: 1px solid #ddd; padding: 10px; min-height: 80px; background: #fafafa; border-radius: 5px; margin-top: 10px;">
+                <em style="color: #999;">Escriba su respuesta aquí...</em>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-number">Pregunta 2:</div>
+            <p>Si tuviera que pedir prestado dinero para una compra grande (por ejemplo, un automóvil o educación), ¿qué tipo de préstamo elegiría y qué factores influirían en su decisión?</p>
+            <div style="border: 1px solid #ddd; padding: 10px; min-height: 80px; background: #fafafa; border-radius: 5px; margin-top: 10px;">
+                <em style="color: #999;">Escriba su respuesta aquí...</em>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; color: #666; font-size: 14px;">
+        <p><strong>Código de Colores:</strong></p>
+        <p>
+            <span style="background: #d1fae5; padding: 5px 15px; border-radius: 5px; margin: 0 5px;">🟢 Menor Riesgo</span>
+            <span style="background: #fef3c7; padding: 5px 15px; border-radius: 5px; margin: 0 5px;">🟡 Riesgo Medio</span>
+            <span style="background: #fee2e2; padding: 5px 15px; border-radius: 5px; margin: 0 5px;">🔴 Mayor Riesgo</span>
+        </p>
+    </div>
+</body>
+</html>

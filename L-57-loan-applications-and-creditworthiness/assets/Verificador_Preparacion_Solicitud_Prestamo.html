@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Preparación para Solicitud de Préstamo | PFL Academy</title>
+    <!--
+    STATE VARIABLES USED:
+    - STATE_AVG_AUTO_LOAN_RATE_NEW
+    - STATE_AVG_AUTO_LOAN_RATE_USED
+    - STATE_AVG_MORTGAGE_RATE
+
+
+    PURPOSE: Assess loan readiness and understand application process
+    USE: Chapter interactive activity (15-20 minutes)
+    -->
+    <style>
+        :root{--primary:#6366f1;--secondary:#8b5cf6;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--text:#1f2937;--text-light:#6b7280;--background:#ffffff;--surface:#f9fafb}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background-color:var(--surface);padding:20px}.container{max-width:1100px;margin:0 auto;background-color:var(--background);border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);overflow:hidden}header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:30px;text-align:center}h1{font-size:2rem;font-weight:700;margin-bottom:10px}.subtitle{font-size:1.1rem;opacity:0.95}.main-content{padding:30px}.section{margin-bottom:30px}.section-title{font-size:1.3rem;font-weight:600;color:var(--primary);margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid var(--primary)}.form-group{margin-bottom:20px}label{display:block;font-weight:600;margin-bottom:8px;color:var(--text)}input[type="text"],input[type="number"],select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:6px;font-size:1rem}input:focus,select:focus{outline:none;border-color:var(--primary)}.readiness-score{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);padding:25px;border-radius:8px;text-align:center;margin:30px 0}.score-circle{width:150px;height:150px;border-radius:50%;margin:0 auto 15px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:700;border:8px solid}.score-excellent{background-color:#d1fae5;color:#065f46;border-color:#10b981}.score-good{background-color:#dbeafe;color:#1e40af;border-color:#3b82f6}.score-fair{background-color:#fef3c7;color:#92400e;border-color:#f59e0b}.score-poor{background-color:#fee2e2;color:#991b1b;border-color:#ef4444}.checklist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}.checklist-card{border:2px solid #e5e7eb;border-radius:8px;padding:20px}.checklist-item{display:flex;align-items:center;padding:10px;margin-bottom:8px;background-color:var(--surface);border-radius:6px}.checklist-item input[type="checkbox"]{width:20px;height:20px;margin-right:12px}.btn{padding:12px 24px;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;border:none;background-color:var(--primary);color:white;width:100%;margin-top:15px}.btn:hover{background-color:#4f46e5}.recommendations{background-color:#fef3c7;border-left:4px solid var(--warning);padding:20px;border-radius:8px;margin-top:20px}.recommendations h3{margin-bottom:10px;color:var(--text)}.recommendations ul{list-style-position:inside;color:var(--text)}.recommendations li{margin-bottom:8px}@media print{body{background-color:white;padding:0}.container{box-shadow:none}.btn{display:none}}@media (max-width:768px){.checklist-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Verificador de Preparación para Solicitud de Préstamo</h1>
+            <p class="subtitle">Evalúa Tu Preparación para Solicitudes de Préstamo</p>
+        </header>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Paso 1: Tu Perfil Financiero</h2>
+                <div class="form-group">
+                    <label>Ingreso Anual</label>
+                    <input type="number" id="income" placeholder="$50,000">
+                </div>
+                <div class="form-group">
+                    <label>Pagos Mensuales de Deuda (excluyendo renta)</label>
+                    <input type="number" id="monthlyDebt" placeholder="$500">
+                </div>
+                <div class="form-group">
+                    <label>Rango de Puntaje de Crédito</label>
+                    <select id="creditScore">
+                        <option value="">Seleccionar...</option>
+                        <option value="800">Excelente (750+)</option>
+                        <option value="700">Bueno (700-749)</option>
+                        <option value="650">Regular (650-699)</option>
+                        <option value="600">Malo (600-649)</option>
+                        <option value="550">Muy Malo (&lt;600)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Situación Laboral</label>
+                    <select id="employment">
+                        <option value="">Seleccionar...</option>
+                        <option value="full">Tiempo completo (2+ años)</option>
+                        <option value="recent">Tiempo completo (&lt;2 años)</option>
+                        <option value="part">Medio tiempo</option>
+                        <option value="self">Autónomo</option>
+                        <option value="none">Desempleado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Préstamo que Consideras</label>
+                    <select id="loanType">
+                        <option value="">Seleccionar...</option>
+                        <option value="auto-new">Préstamo de Auto (Nuevo) - Tasa Promedio: {{STATE_AVG_AUTO_LOAN_RATE_NEW}}%</option>
+                        <option value="auto-used">Préstamo de Auto (Usado) - Tasa Promedio: {{STATE_AVG_AUTO_LOAN_RATE_USED}}%</option>
+                        <option value="mortgage">Hipoteca - Tasa Promedio: {{STATE_AVG_MORTGAGE_RATE}}%</option>
+                        <option value="personal">Préstamo Personal</option>
+                        <option value="student">Préstamo Estudiantil</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Paso 2: Lista de Verificación de Preparación para Solicitud</h2>
+                <div class="checklist-grid">
+                    <div class="checklist-card">
+                        <h3 style="margin-bottom:15px;color:var(--primary)">Documentos Requeridos</h3>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc1" class="readiness-check">
+                            <label for="doc1">Identificación oficial</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc2" class="readiness-check">
+                            <label for="doc2">Número de Seguro Social</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc3" class="readiness-check">
+                            <label for="doc3">Comprobante de ingresos (recibos de nómina)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc4" class="readiness-check">
+                            <label for="doc4">Declaraciones de impuestos (2 años)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc5" class="readiness-check">
+                            <label for="doc5">Estados de cuenta bancarios (3 meses)</label>
+                        </div>
+                    </div>
+
+                    <div class="checklist-card">
+                        <h3 style="margin-bottom:15px;color:var(--primary)">Preparación Financiera</h3>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="fin1" class="readiness-check">
+                            <label for="fin1">Revisé mi informe de crédito</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="fin2" class="readiness-check">
+                            <label for="fin2">Corregí errores en mi crédito</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="fin3" class="readiness-check">
+                            <label for="fin3">Ahorré para el pago inicial</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="fin4" class="readiness-check">
+                            <label for="fin4">Reduje mi relación deuda-ingreso</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="fin5" class="readiness-check">
+                            <label for="fin5">Establecí un fondo de emergencia</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn" onclick="calculateReadiness()">Calcular Mi Puntuación de Preparación</button>
+
+            <div id="resultsSection" style="display:none;">
+                <div class="readiness-score">
+                    <h2>Tu Puntuación de Preparación para Préstamo</h2>
+                    <div id="scoreCircle" class="score-circle">--</div>
+                    <p id="scoreMessage" style="font-size:1.1rem;font-weight:600"></p>
+                </div>
+
+                <div class="recommendations" id="recommendations"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateReadiness(){const income=parseFloat(document.getElementById('income').value)||0;const debt=parseFloat(document.getElementById('monthlyDebt').value)||0;const credit=document.getElementById('creditScore').value;const employment=document.getElementById('employment').value;const checkboxes=document.querySelectorAll('.readiness-check:checked');let score=0;if(income>0)score+=15;if(credit){if(credit>=750)score+=25;else if(credit>=700)score+=20;else if(credit>=650)score+=15;else if(credit>=600)score+=10;else score+=5}if(employment==='full')score+=20;else if(employment==='recent')score+=15;else if(employment==='part')score+=10;else if(employment==='self')score+=12;const dti=(debt*12)/income;if(dti<0.28)score+=15;else if(dti<0.36)score+=10;else if(dti<0.43)score+=5;score+=checkboxes.length*2;const circle=document.getElementById('scoreCircle');const msg=document.getElementById('scoreMessage');const recs=document.getElementById('recommendations');circle.textContent=score;if(score>=80){circle.className='score-circle score-excellent';msg.textContent='Excelente - ¡Estás bien preparado!';recs.innerHTML='<h3>¡Estás Listo!</h3><ul><li>Compara ofertas de múltiples prestamistas</li><li>Negocia mejores tasas</li><li>Revisa todos los términos cuidadosamente antes de firmar</li></ul>'}else if(score>=60){circle.className='score-circle score-good';msg.textContent='Bueno - Se necesitan mejoras menores';recs.innerHTML='<h3>Recomendaciones</h3><ul><li>Reúne los documentos faltantes</li><li>Revisa tu informe de crédito en busca de errores</li><li>Considera aumentar tu pago inicial</li><li>Busca tasas competitivas</li></ul>'}else if(score>=40){circle.className='score-circle score-fair';msg.textContent='Regular - Se necesita preparación significativa';recs.innerHTML='<h3>Acciones Necesarias</h3><ul><li>Trabaja en mejorar tu puntaje de crédito</li><li>Reduce las obligaciones de deuda existentes</li><li>Primero construye ahorros de emergencia</li><li>Reúne toda la documentación requerida</li><li>Considera esperar 6-12 meses</li></ul>'}else{circle.className='score-circle score-poor';msg.textContent='No Preparado - Enfócate en la preparación';recs.innerHTML='<h3>Acciones Prioritarias</h3><ul><li>Primero enfócate en reparar tu crédito</li><li>Establece un historial de empleo estable</li><li>Crea un presupuesto y síguelo</li><li>Paga las deudas existentes</li><li>Construye un fondo de emergencia antes de pedir prestado</li><li>Considera asesoría crediticia</li></ul>'}document.getElementById('resultsSection').style.display='block';document.getElementById('resultsSection').scrollIntoView({behavior:'smooth'})}
+    </script>
+</body>
+</html>

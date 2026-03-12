@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta Analizador de Mercado | PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .header p {
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #10b981;
+            height: 100%;
+            width: 14%;
+            transition: width 0.3s ease;
+        }
+        .content {
+            padding: 30px;
+        }
+        .step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .step.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step-title {
+            font-size: 1.5rem;
+            color: #6366f1;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .step-description {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        .analysis-table th,
+        .analysis-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .analysis-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        .analysis-table select,
+        .analysis-table input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+        }
+        .btn-primary {
+            background-color: #6366f1;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+        .prediction-box {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .prediction-box h3,
+        .prediction-box h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .prediction-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .prediction-item {
+            background-color: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .prediction-item .label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        .prediction-item .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .summary-card {
+            background-color: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .summary-card h3 {
+            color: #6366f1;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+        .action-plan {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .action-plan h4 {
+            color: #10b981;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .checkbox-group {
+            margin-left: 10px;
+        }
+        .checkbox-group div {
+            padding: 6px 0;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .button-group {
+                display: none;
+            }
+            .step {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+        }
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .prediction-grid {
+                grid-template-columns: 1fr;
+            }
+            .analysis-table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Herramienta Analizador de Mercado</h1>
+            <p>Marco sistemático para analizar cualquier mercado usando oferta y demanda</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Paso 1: Seleccionar Mercado -->
+            <div class="step active" id="step1">
+                <h2 class="step-title">Paso 1: Selecciona Tu Mercado</h2>
+                <p class="step-description">Elige el mercado que quieres analizar para decisiones financieras personales</p>
+
+                <div class="form-group">
+                    <label for="marketSelect">Seleccionar Mercado:</label>
+                    <select id="marketSelect">
+                        <option value="">Elige un mercado...</option>
+                        <option value="housing">Mercado de Vivienda de {{STATE_NAME}}</option>
+                        <option value="labor">Mercado Laboral de {{STATE_NAME}} (Carrera)</option>
+                        <option value="electronics">Electrónica de Consumo</option>
+                        <option value="used-car">Mercado de Autos Usados</option>
+                        <option value="rental">Mercado de Alquiler de {{STATE_NAME}}</option>
+                        <option value="custom">Personalizado (Ingresa el Tuyo)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customMarketGroup" style="display:none;">
+                    <label for="customMarket">Ingresa Mercado Personalizado:</label>
+                    <input type="text" id="customMarket" placeholder="ej., Mercado de Smartphones">
+                </div>
+
+                <div class="note">
+                    <strong>Nota:</strong> Para mercados específicos de {{STATE_NAME}} (vivienda, laboral, alquiler), considera las condiciones económicas locales, tendencias demográficas y políticas estatales.
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextStep()">Siguiente: Equilibrio Actual</button>
+                </div>
+            </div>
+
+            <!-- Paso 2: Equilibrio Actual -->
+            <div class="step" id="step2">
+                <h2 class="step-title">Paso 2: Equilibrio Actual del Mercado</h2>
+                <p class="step-description">Describe el estado actual del mercado</p>
+
+                <div class="form-group">
+                    <label for="currentPrice">Precio Actual (Promedio):</label>
+                    <input type="text" id="currentPrice" placeholder="ej., $350,000 o $25/hora">
+                </div>
+
+                <div class="form-group">
+                    <label for="currentQuantity">Cantidad Actual (Aproximada):</label>
+                    <input type="text" id="currentQuantity" placeholder="ej., 1,000 viviendas vendidas por mes">
+                </div>
+
+                <div class="form-group">
+                    <label for="marketDescription">Descripción del Mercado:</label>
+                    <textarea id="marketDescription" placeholder="Describe el estado actual del mercado en {{STATE_NAME}}..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Siguiente: Análisis de Demanda</button>
+                </div>
+            </div>
+
+            <!-- Paso 3: Análisis de Demanda -->
+            <div class="step" id="step3">
+                <h2 class="step-title">Paso 3: Análisis de Demanda</h2>
+                <p class="step-description">Analiza los factores que afectan la demanda en este mercado</p>
+
+                <table class="analysis-table">
+                    <thead>
+                        <tr>
+                            <th>Factor de Demanda</th>
+                            <th>Efecto</th>
+                            <th>Intensidad</th>
+                            <th>Explicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Niveles de Ingreso</strong></td>
+                            <td>
+                                <select class="demand-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="demand-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Cómo están cambiando los ingresos?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Precios de Bienes Relacionados</strong></td>
+                            <td>
+                                <select class="demand-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="demand-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Sustitutos/complementos?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gustos del Consumidor</strong></td>
+                            <td>
+                                <select class="demand-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="demand-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Preferencias cambiando?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expectativas Futuras</strong></td>
+                            <td>
+                                <select class="demand-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="demand-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Qué esperan los compradores?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Número de Compradores</strong></td>
+                            <td>
+                                <select class="demand-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="demand-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Población cambiando?"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="prediction-box">
+                    <h4>Desplazamiento Neto de Demanda:</h4>
+                    <p id="demandShiftResult" style="font-size: 1.2rem; font-weight: bold;">Haz clic en Siguiente para calcular...</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="calculateDemandShift(); nextStep()">Siguiente: Análisis de Oferta</button>
+                </div>
+            </div>
+
+            <!-- Paso 4: Análisis de Oferta -->
+            <div class="step" id="step4">
+                <h2 class="step-title">Paso 4: Análisis de Oferta</h2>
+                <p class="step-description">Analiza los factores que afectan la oferta en este mercado</p>
+
+                <table class="analysis-table">
+                    <thead>
+                        <tr>
+                            <th>Factor de Oferta</th>
+                            <th>Efecto</th>
+                            <th>Intensidad</th>
+                            <th>Explicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Costos de Insumos</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Costos de producción cambiando?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tecnología</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="improve">Mejora</option>
+                                    <option value="worsen">Empeora</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Nueva tecnología?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Número de Vendedores</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Más o menos vendedores?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expectativas Futuras</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="increase">Aumenta</option>
+                                    <option value="decrease">Disminuye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Qué esperan los vendedores?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Política Gubernamental</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="favorable">Favorable</option>
+                                    <option value="unfavorable">Desfavorable</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Políticas que afectan oferta?"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Eventos Naturales</strong></td>
+                            <td>
+                                <select class="supply-effect">
+                                    <option value="neutral">Neutral</option>
+                                    <option value="positive">Positivo</option>
+                                    <option value="negative">Negativo</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="supply-strength">
+                                    <option value="low">Baja</option>
+                                    <option value="medium">Media</option>
+                                    <option value="high">Alta</option>
+                                </select>
+                            </td>
+                            <td><input type="text" placeholder="¿Disrupciones o eventos?"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="prediction-box">
+                    <h4>Desplazamiento Neto de Oferta:</h4>
+                    <p id="supplyShiftResult" style="font-size: 1.2rem; font-weight: bold;">Haz clic en Siguiente para calcular...</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="calculateSupplyShift(); nextStep()">Siguiente: Predicciones</button>
+                </div>
+            </div>
+
+            <!-- Paso 5: Predicciones -->
+            <div class="step" id="step5">
+                <h2 class="step-title">Paso 5: Predicciones del Mercado</h2>
+                <p class="step-description">Basado en tu análisis, esto es lo que probablemente sucederá</p>
+
+                <div class="prediction-box">
+                    <h3>Cambios Predichos en el Mercado</h3>
+                    <div class="prediction-grid">
+                        <div class="prediction-item">
+                            <div class="label">Desplazamiento de Demanda</div>
+                            <div class="value" id="finalDemand">-</div>
+                        </div>
+                        <div class="prediction-item">
+                            <div class="label">Desplazamiento de Oferta</div>
+                            <div class="value" id="finalSupply">-</div>
+                        </div>
+                        <div class="prediction-item">
+                            <div class="label">Dirección del Precio</div>
+                            <div class="value" id="pricePrediction">-</div>
+                        </div>
+                        <div class="prediction-item">
+                            <div class="label">Dirección de Cantidad</div>
+                            <div class="value" id="quantityPrediction">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Plazo de Ajuste:</label>
+                    <select id="timeline">
+                        <option value="days">Días</option>
+                        <option value="weeks">Semanas</option>
+                        <option value="months" selected>Meses</option>
+                        <option value="years">Años</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="confidenceLevel">Nivel de Confianza:</label>
+                    <select id="confidenceLevel">
+                        <option value="low">Bajo - Muchas incertidumbres</option>
+                        <option value="medium" selected>Medio - Algunas incertidumbres</option>
+                        <option value="high">Alto - Tendencias claras</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Siguiente: Plan de Acción</button>
+                </div>
+            </div>
+
+            <!-- Paso 6: Plan de Acción -->
+            <div class="step" id="step6">
+                <h2 class="step-title">Paso 6: Tu Plan de Acción Personal</h2>
+                <p class="step-description">¿Qué deberías hacer basándote en este análisis?</p>
+
+                <div class="action-plan">
+                    <h4>Acciones Recomendadas</h4>
+                    <div id="recommendedActions">Basado en tu análisis de mercado...</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="actionPlan">¿Qué harás?</label>
+                    <textarea id="actionPlan" placeholder="Describe tu plan de acción específico..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="actionTiming">¿Cuándo actuarás?</label>
+                    <input type="text" id="actionTiming" placeholder="ej., Dentro de 3 meses">
+                </div>
+
+                <div class="form-group">
+                    <label for="backupPlan">Plan de Respaldo (si las condiciones cambian):</label>
+                    <textarea id="backupPlan" placeholder="¿Cuál es tu Plan B?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="potentialGains">Ahorros/Ganancias Potenciales:</label>
+                    <input type="text" id="potentialGains" placeholder="ej., $5,000">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Siguiente: Monitorear y Ajustar</button>
+                </div>
+            </div>
+
+            <!-- Paso 7: Monitorear -->
+            <div class="step" id="step7">
+                <h2 class="step-title">Paso 7: Monitorear y Ajustar</h2>
+                <p class="step-description">Establece un sistema para seguir tu mercado</p>
+
+                <div class="form-group">
+                    <label>Indicadores a Seguir:</label>
+                    <div class="checkbox-group">
+                        <div><input type="checkbox" id="track1"> <label for="track1">Tendencias de precios en el mercado</label></div>
+                        <div><input type="checkbox" id="track2"> <label for="track2">Niveles de inventario/oferta</label></div>
+                        <div><input type="checkbox" id="track3"> <label for="track3">Tasas de interés (si aplica)</label></div>
+                        <div><input type="checkbox" id="track4"> <label for="track4">Indicadores económicos de {{STATE_NAME}}</label></div>
+                        <div><input type="checkbox" id="track5"> <label for="track5">Noticias y tendencias de la industria</label></div>
+                        <div><input type="checkbox" id="track6"> <label for="track6">Cambios de política en {{STATE_NAME}}</label></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="changeDecision">¿Qué cambiaría tu decisión?</label>
+                    <textarea id="changeDecision" placeholder="Lista las condiciones que te harían reconsiderar..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewDate">Fecha de Revisión:</label>
+                    <input type="date" id="reviewDate">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
+                    <button class="btn btn-primary" onclick="generateSummary()">Completar Análisis</button>
+                </div>
+            </div>
+
+            <!-- Resumen -->
+            <div class="step" id="summary">
+                <h2 class="step-title">Tu Análisis Completo del Mercado</h2>
+                <p class="step-description">Revisa tu análisis integral del mercado</p>
+
+                <div id="summaryContent"></div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="resetAnalysis()">Iniciar Nuevo Análisis</button>
+                    <button class="btn btn-primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 7;
+        let analysisData = {};
+
+        document.getElementById('marketSelect').addEventListener('change', function() {
+            document.getElementById('customMarketGroup').style.display =
+                this.value === 'custom' ? 'block' : 'none';
+        });
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function nextStep() {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            currentStep++;
+            if (currentStep <= totalSteps) {
+                document.getElementById('step' + currentStep).classList.add('active');
+            }
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep() {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            currentStep--;
+            document.getElementById('step' + currentStep).classList.add('active');
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculateDemandShift() {
+            const effects = document.querySelectorAll('.demand-effect');
+            let increases = 0, decreases = 0;
+
+            effects.forEach(select => {
+                const value = select.value;
+                const row = select.closest('tr');
+                const strength = row.querySelector('.demand-strength').value;
+                const weight = strength === 'high' ? 3 : strength === 'medium' ? 2 : 1;
+
+                if (value === 'increase') increases += weight;
+                else if (value === 'decrease') decreases += weight;
+            });
+
+            let result = '';
+            if (increases > decreases) result = 'DERECHA (Aumento)';
+            else if (decreases > increases) result = 'IZQUIERDA (Disminución)';
+            else result = 'ESTABLE';
+
+            document.getElementById('demandShiftResult').textContent = result;
+            analysisData.demandShift = result;
+        }
+
+        function calculateSupplyShift() {
+            const effects = document.querySelectorAll('.supply-effect');
+            let increases = 0, decreases = 0;
+
+            effects.forEach(select => {
+                const value = select.value;
+                const row = select.closest('tr');
+                const strength = row.querySelector('.supply-strength').value;
+                const weight = strength === 'high' ? 3 : strength === 'medium' ? 2 : 1;
+
+                if (value === 'increase' || value === 'improve' || value === 'favorable' || value === 'positive') {
+                    increases += weight;
+                } else if (value === 'decrease' || value === 'worsen' || value === 'unfavorable' || value === 'negative') {
+                    decreases += weight;
+                }
+            });
+
+            let result = '';
+            if (increases > decreases) result = 'DERECHA (Aumento)';
+            else if (decreases > increases) result = 'IZQUIERDA (Disminución)';
+            else result = 'ESTABLE';
+
+            document.getElementById('supplyShiftResult').textContent = result;
+            analysisData.supplyShift = result;
+
+            calculatePredictions();
+        }
+
+        function calculatePredictions() {
+            const demandShift = analysisData.demandShift || '';
+            const supplyShift = analysisData.supplyShift || '';
+
+            document.getElementById('finalDemand').textContent = demandShift.split(' ')[0] || '-';
+            document.getElementById('finalSupply').textContent = supplyShift.split(' ')[0] || '-';
+
+            let priceDir = '-', qtyDir = '-';
+
+            if (demandShift.includes('DERECHA') && supplyShift.includes('DERECHA')) {
+                priceDir = '?'; qtyDir = 'SUBE';
+            } else if (demandShift.includes('IZQUIERDA') && supplyShift.includes('IZQUIERDA')) {
+                priceDir = '?'; qtyDir = 'BAJA';
+            } else if (demandShift.includes('DERECHA') && supplyShift.includes('IZQUIERDA')) {
+                priceDir = 'SUBE'; qtyDir = '?';
+            } else if (demandShift.includes('IZQUIERDA') && supplyShift.includes('DERECHA')) {
+                priceDir = 'BAJA'; qtyDir = '?';
+            } else if (demandShift.includes('DERECHA')) {
+                priceDir = 'SUBE'; qtyDir = 'SUBE';
+            } else if (demandShift.includes('IZQUIERDA')) {
+                priceDir = 'BAJA'; qtyDir = 'BAJA';
+            } else if (supplyShift.includes('DERECHA')) {
+                priceDir = 'BAJA'; qtyDir = 'SUBE';
+            } else if (supplyShift.includes('IZQUIERDA')) {
+                priceDir = 'SUBE'; qtyDir = 'BAJA';
+            }
+
+            document.getElementById('pricePrediction').textContent = priceDir;
+            document.getElementById('quantityPrediction').textContent = qtyDir;
+
+            const market = document.getElementById('marketSelect').value;
+            let actions = '<ul style="margin-left: 20px; margin-top: 10px;">';
+            if (priceDir === 'SUBE') {
+                if (market === 'housing' || market === 'rental') {
+                    actions += '<li>Considera comprar/alquilar pronto en {{STATE_NAME}}</li>';
+                    actions += '<li>Obtén pre-aprobación para financiamiento</li>';
+                    actions += '<li>Prepárate para actuar rápido en buenas ofertas</li>';
+                } else if (market === 'labor') {
+                    actions += '<li>Entra a este campo profesional - los salarios están subiendo</li>';
+                    actions += '<li>Negocia una compensación más alta</li>';
+                } else {
+                    actions += '<li>Compra ahora si necesitas este producto/servicio</li>';
+                    actions += '<li>Considera alternativas o sustitutos</li>';
+                }
+            } else if (priceDir === 'BAJA') {
+                actions += '<li>Espera mejores precios si es posible</li>';
+                actions += '<li>Negocia agresivamente - tienes ventaja</li>';
+                actions += '<li>Compara opciones para encontrar las mejores ofertas</li>';
+            } else {
+                actions += '<li>Sin urgencia - se espera que los precios se mantengan estables</li>';
+                actions += '<li>Toma tiempo para investigar y comparar opciones</li>';
+            }
+            actions += '</ul>';
+            document.getElementById('recommendedActions').innerHTML = actions;
+        }
+
+        function generateSummary() {
+            document.getElementById('step7').classList.remove('active');
+
+            const market = document.getElementById('marketSelect').value === 'custom'
+                ? document.getElementById('customMarket').value
+                : document.getElementById('marketSelect').options[document.getElementById('marketSelect').selectedIndex].text;
+
+            let html = '<div class="summary-card">';
+            html += '<h3>Resumen del Mercado</h3>';
+            html += '<div class="summary-row"><strong>Mercado:</strong> <span>' + market + '</span></div>';
+            html += '<div class="summary-row"><strong>Precio Actual:</strong> <span>' + (document.getElementById('currentPrice').value || 'No especificado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Cantidad Actual:</strong> <span>' + (document.getElementById('currentQuantity').value || 'No especificado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Fecha de Análisis:</strong> <span>' + new Date().toLocaleDateString('es-ES') + '</span></div>';
+            html += '</div>';
+
+            html += '<div class="summary-card">';
+            html += '<h3>Resultados del Análisis</h3>';
+            html += '<div class="summary-row"><strong>Desplazamiento de Demanda:</strong> <span>' + (analysisData.demandShift || 'No calculado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Desplazamiento de Oferta:</strong> <span>' + (analysisData.supplyShift || 'No calculado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Predicción de Precio:</strong> <span>' + document.getElementById('pricePrediction').textContent + '</span></div>';
+            html += '<div class="summary-row"><strong>Predicción de Cantidad:</strong> <span>' + document.getElementById('quantityPrediction').textContent + '</span></div>';
+            html += '<div class="summary-row"><strong>Plazo:</strong> <span>' + document.getElementById('timeline').value + '</span></div>';
+            html += '<div class="summary-row"><strong>Confianza:</strong> <span>' + document.getElementById('confidenceLevel').options[document.getElementById('confidenceLevel').selectedIndex].text + '</span></div>';
+            html += '</div>';
+
+            html += '<div class="summary-card">';
+            html += '<h3>Plan de Acción</h3>';
+            html += '<div class="summary-row"><strong>Acciones:</strong> <span>' + (document.getElementById('actionPlan').value || 'No especificado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Momento:</strong> <span>' + (document.getElementById('actionTiming').value || 'No especificado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Plan de Respaldo:</strong> <span>' + (document.getElementById('backupPlan').value || 'No especificado') + '</span></div>';
+            html += '<div class="summary-row"><strong>Ganancias Potenciales:</strong> <span>' + (document.getElementById('potentialGains').value || 'No especificado') + '</span></div>';
+            html += '</div>';
+
+            html += '<div class="summary-card">';
+            html += '<h3>Plan de Monitoreo</h3>';
+            html += '<div class="summary-row"><strong>Fecha de Revisión:</strong> <span>' + (document.getElementById('reviewDate').value || 'No establecida') + '</span></div>';
+            html += '<div class="summary-row"><strong>Detonantes de Decisión:</strong> <span>' + (document.getElementById('changeDecision').value || 'No especificado') + '</span></div>';
+            html += '</div>';
+
+            document.getElementById('summaryContent').innerHTML = html;
+            document.getElementById('summary').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetAnalysis() {
+            currentStep = 1;
+            analysisData = {};
+            document.getElementById('summary').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+
+            // Reiniciar todos los campos del formulario
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type === 'checkbox') {
+                    el.checked = false;
+                } else if (el.tagName === 'SELECT') {
+                    el.selectedIndex = 0;
+                } else {
+                    el.value = '';
+                }
+            });
+
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>

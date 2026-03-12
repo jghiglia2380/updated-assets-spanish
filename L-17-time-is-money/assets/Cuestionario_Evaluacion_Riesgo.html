@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Evaluacion de Tolerancia al Riesgo - Capitulo 5.4</title>
+    <style>
+        @media print {
+            body { width: 8.5in; height: 11in; margin: 0; padding: 0.5in; font-size: 12pt; }
+            .no-print { display: none; }
+            table { page-break-inside: avoid; }
+            h1, h2, h3 { page-break-after: avoid; }
+        }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 8.5in; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #4f46e5; }
+        h1 { color: #4f46e5; margin-bottom: 5px; }
+        h2 { color: #4f46e5; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        h3 { color: #6366f1; margin-top: 20px; margin-bottom: 10px; }
+        .question { margin-bottom: 25px; padding: 15px; background-color: #f9fafb; border-radius: 5px; }
+        .question p { font-weight: bold; margin-top: 0; margin-bottom: 10px; }
+        .options { display: flex; flex-direction: column; }
+        .option { margin-bottom: 5px; display: flex; align-items: flex-start; }
+        .option input { margin-top: 5px; margin-right: 10px; }
+        .note { background-color: #f9fafb; padding: 15px; border-left: 4px solid #4f46e5; margin: 20px 0; }
+        .profile { margin-top: 20px; padding: 15px; border-radius: 5px; }
+        .profile-conservative { background-color: #dcfce7; border-left: 4px solid #10b981; }
+        .profile-moderate { background-color: #fef3c7; border-left: 4px solid #f59e0b; }
+        .profile-aggressive { background-color: #fee2e2; border-left: 4px solid #ef4444; }
+        .profile h3 { margin-top: 0; color: #333; }
+        .score-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .score-table, .score-table th, .score-table td { border: 1px solid #ddd; }
+        .score-table th { background-color: #f3f4f6; padding: 10px; text-align: left; }
+        .score-table td { padding: 10px; }
+        button { background-color: #4f46e5; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+        button:hover { background-color: #4338ca; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cuestionario de Evaluacion de Tolerancia al Riesgo</h1>
+        <p>Capitulo 5.4: El Tiempo es Dinero - Desarrollando una Estrategia de Ahorro e Inversion</p>
+    </div>
+
+    <div class="no-print">
+        <p>Este cuestionario le ayudara a evaluar su tolerancia al riesgo para invertir. Responda cada pregunta honestamente basandose en como realmente se sentiria y se comportaria, no en como cree que deberia responder. Cuando termine, puede calcular su puntuacion para determinar su perfil de riesgo.</p>
+        <button onclick="window.print()">Imprimir/Guardar como PDF</button>
+    </div>
+
+    <div class="note">
+        <p><strong>Nota:</strong> Esta evaluacion es solo para fines educativos y proporciona una indicacion general de tolerancia al riesgo. Las decisiones de inversion personales deben tomarse en consulta con un profesional financiero que pueda considerar su situacion financiera completa.</p>
+    </div>
+
+    <h2>Comprendiendo la Tolerancia al Riesgo</h2>
+
+    <p>La tolerancia al riesgo es su nivel personal de comodidad con la incertidumbre financiera y las perdidas potenciales. Esta influenciada por varios factores:</p>
+
+    <ul>
+        <li><strong>Horizonte Temporal:</strong> Cuanto tiempo hasta que necesite el dinero (horizontes mas largos generalmente permiten mas riesgo)</li>
+        <li><strong>Capacidad Financiera:</strong> Su capacidad para absorber perdidas sin afectar su estilo de vida</li>
+        <li><strong>Comodidad Emocional:</strong> Su reaccion psicologica a la volatilidad del mercado y perdidas temporales</li>
+        <li><strong>Conocimiento de Inversiones:</strong> Su comprension de como funcionan los mercados e inversiones</li>
+        <li><strong>Metas Financieras:</strong> Los rendimientos necesarios para alcanzar sus objetivos</li>
+    </ul>
+
+    <h2>Cuestionario de Tolerancia al Riesgo</h2>
+
+    <form id="risk-assessment">
+        <div class="question">
+            <p>1. Cual es su plazo de inversion principal para la mayoria de sus inversiones?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q1" id="q1a" value="1"><label for="q1a">Menos de 3 anos</label></div>
+                <div class="option"><input type="radio" name="q1" id="q1b" value="2"><label for="q1b">3-5 anos</label></div>
+                <div class="option"><input type="radio" name="q1" id="q1c" value="3"><label for="q1c">5-10 anos</label></div>
+                <div class="option"><input type="radio" name="q1" id="q1d" value="4"><label for="q1d">10-20 anos</label></div>
+                <div class="option"><input type="radio" name="q1" id="q1e" value="5"><label for="q1e">Mas de 20 anos</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Como responderia si su portafolio de inversiones repentinamente disminuyera en valor un 20%?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q2" id="q2a" value="1"><label for="q2a">Venderia todas mis inversiones inmediatamente para prevenir mas perdidas</label></div>
+                <div class="option"><input type="radio" name="q2" id="q2b" value="2"><label for="q2b">Venderia algunas de mis inversiones para reducir el riesgo</label></div>
+                <div class="option"><input type="radio" name="q2" id="q2c" value="3"><label for="q2c">Mantendria mis inversiones y esperaria la recuperacion</label></div>
+                <div class="option"><input type="radio" name="q2" id="q2d" value="4"><label for="q2d">Mantendria mis inversiones y quizas compraria mas a precios mas bajos</label></div>
+                <div class="option"><input type="radio" name="q2" id="q2e" value="5"><label for="q2e">Definitivamente invertiria mas para aprovechar los precios mas bajos</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Cual afirmacion describe mejor su actitud hacia el riesgo de inversion?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q3" id="q3a" value="1"><label for="q3a">Quiero minimizar el riesgo y estoy dispuesto a aceptar menores rendimientos para hacerlo</label></div>
+                <div class="option"><input type="radio" name="q3" id="q3b" value="2"><label for="q3b">Estoy comodo con una pequena cantidad de riesgo para lograr rendimientos ligeramente mejores</label></div>
+                <div class="option"><input type="radio" name="q3" id="q3c" value="3"><label for="q3c">Estoy dispuesto a aceptar riesgo moderado para rendimientos moderados</label></div>
+                <div class="option"><input type="radio" name="q3" id="q3d" value="4"><label for="q3d">Estoy comodo con riesgo sustancial para el potencial de mayores rendimientos</label></div>
+                <div class="option"><input type="radio" name="q3" id="q3e" value="5"><label for="q3e">Busco rendimientos maximos y estoy dispuesto a aceptar riesgo significativo para lograrlos</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Con que frecuencia revisa el rendimiento de sus inversiones?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q4" id="q4a" value="1"><label for="q4a">Diariamente</label></div>
+                <div class="option"><input type="radio" name="q4" id="q4b" value="2"><label for="q4b">Semanalmente</label></div>
+                <div class="option"><input type="radio" name="q4" id="q4c" value="3"><label for="q4c">Mensualmente</label></div>
+                <div class="option"><input type="radio" name="q4" id="q4d" value="4"><label for="q4d">Trimestralmente</label></div>
+                <div class="option"><input type="radio" name="q4" id="q4e" value="5"><label for="q4e">Anualmente o con menos frecuencia</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Con cual de los siguientes portafolios de inversion hipoteticos se sentiria mas comodo?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q5" id="q5a" value="1"><label for="q5a">Portafolio A: Tiene un 10% de probabilidad de perder dinero en cualquier ano, con rendimientos anuales promedio de 4-6%</label></div>
+                <div class="option"><input type="radio" name="q5" id="q5b" value="2"><label for="q5b">Portafolio B: Tiene un 20% de probabilidad de perder dinero en cualquier ano, con rendimientos anuales promedio de 6-8%</label></div>
+                <div class="option"><input type="radio" name="q5" id="q5c" value="3"><label for="q5c">Portafolio C: Tiene un 30% de probabilidad de perder dinero en cualquier ano, con rendimientos anuales promedio de 8-10%</label></div>
+                <div class="option"><input type="radio" name="q5" id="q5d" value="4"><label for="q5d">Portafolio D: Tiene un 40% de probabilidad de perder dinero en cualquier ano, con rendimientos anuales promedio de 10-12%</label></div>
+                <div class="option"><input type="radio" name="q5" id="q5e" value="5"><label for="q5e">Portafolio E: Tiene un 50% de probabilidad de perder dinero en cualquier ano, con rendimientos anuales promedio de 12-14%</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. Usted hereda una suma significativa de dinero. Como la invertiria?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q6" id="q6a" value="1"><label for="q6a">100% en inversiones seguras y garantizadas como CDs o cuentas del mercado monetario</label></div>
+                <div class="option"><input type="radio" name="q6" id="q6b" value="2"><label for="q6b">70% en inversiones seguras, 30% en acciones o fondos de acciones</label></div>
+                <div class="option"><input type="radio" name="q6" id="q6c" value="3"><label for="q6c">50% en inversiones seguras, 50% en acciones o fondos de acciones</label></div>
+                <div class="option"><input type="radio" name="q6" id="q6d" value="4"><label for="q6d">30% en inversiones seguras, 70% en acciones o fondos de acciones</label></div>
+                <div class="option"><input type="radio" name="q6" id="q6e" value="5"><label for="q6e">100% en acciones o fondos de acciones</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>7. Cual afirmacion describe mejor su conocimiento y experiencia en inversiones?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q7" id="q7a" value="1"><label for="q7a">Tengo muy poco conocimiento sobre inversiones y nunca he invertido antes</label></div>
+                <div class="option"><input type="radio" name="q7" id="q7b" value="2"><label for="q7b">Tengo algunos conocimientos basicos pero experiencia limitada con inversiones</label></div>
+                <div class="option"><input type="radio" name="q7" id="q7c" value="3"><label for="q7c">Tengo conocimiento moderado y algo de experiencia con diferentes tipos de inversiones</label></div>
+                <div class="option"><input type="radio" name="q7" id="q7d" value="4"><label for="q7d">Tengo buen conocimiento y experiencia significativa con varias inversiones</label></div>
+                <div class="option"><input type="radio" name="q7" id="q7e" value="5"><label for="q7e">Tengo amplio conocimiento y experiencia con una amplia gama de tipos de inversion</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Que tan importante es para usted preservar su monto de inversion inicial (capital)?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q8" id="q8a" value="1"><label for="q8a">Extremadamente importante - No puedo permitirme perder nada de mi capital</label></div>
+                <div class="option"><input type="radio" name="q8" id="q8b" value="2"><label for="q8b">Muy importante - Me preocuparia mucho cualquier perdida de capital</label></div>
+                <div class="option"><input type="radio" name="q8" id="q8c" value="3"><label for="q8c">Moderadamente importante - Puedo aceptar alguna perdida temporal de capital</label></div>
+                <div class="option"><input type="radio" name="q8" id="q8d" value="4"><label for="q8d">Algo importante - Me enfoco mas en el crecimiento a largo plazo que en preservar el capital</label></div>
+                <div class="option"><input type="radio" name="q8" id="q8e" value="5"><label for="q8e">No muy importante - Me enfoco en el maximo crecimiento y entiendo que el capital puede fluctuar significativamente</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Como describiria su situacion financiera?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q9" id="q9a" value="1"><label for="q9a">Tengo deudas significativas y/o ahorros minimos</label></div>
+                <div class="option"><input type="radio" name="q9" id="q9b" value="2"><label for="q9b">Tengo algo de deuda y ahorros limitados</label></div>
+                <div class="option"><input type="radio" name="q9" id="q9c" value="3"><label for="q9c">Tengo mi deuda bajo control y estoy construyendo ahorros</label></div>
+                <div class="option"><input type="radio" name="q9" id="q9d" value="4"><label for="q9d">Tengo deuda minima y buenos ahorros</label></div>
+                <div class="option"><input type="radio" name="q9" id="q9e" value="5"><label for="q9e">Soy financieramente seguro con ahorros sustanciales y deuda minima o nula</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>10. Cual es su meta de inversion principal?</p>
+            <div class="options">
+                <div class="option"><input type="radio" name="q10" id="q10a" value="1"><label for="q10a">Preservar mi capital y obtener ingresos consistentes</label></div>
+                <div class="option"><input type="radio" name="q10" id="q10b" value="2"><label for="q10b">Generar ingresos con algo de potencial de crecimiento</label></div>
+                <div class="option"><input type="radio" name="q10" id="q10c" value="3"><label for="q10c">Equilibrio entre crecimiento e ingresos</label></div>
+                <div class="option"><input type="radio" name="q10" id="q10d" value="4"><label for="q10d">Lograr crecimiento con algunos ingresos</label></div>
+                <div class="option"><input type="radio" name="q10" id="q10e" value="5"><label for="q10e">Maximizar el crecimiento a largo plazo</label></div>
+            </div>
+        </div>
+    </form>
+
+    <div class="no-print">
+        <button onclick="calculateScore()">Calcular Mi Perfil de Riesgo</button>
+    </div>
+
+    <h2>Guia de Puntuacion</h2>
+
+    <p>Para calcular su puntuacion de tolerancia al riesgo:</p>
+    <ol>
+        <li>Asigne puntos para cada pregunta segun sus respuestas (1-5 puntos por pregunta)</li>
+        <li>Sume su total de puntos en las 10 preguntas</li>
+        <li>Compare su total con los rangos a continuacion para identificar su perfil de riesgo</li>
+    </ol>
+
+    <table class="score-table">
+        <tr>
+            <th>Puntuacion Total</th>
+            <th>Perfil de Riesgo</th>
+            <th>Descripcion</th>
+        </tr>
+        <tr>
+            <td>10-20</td>
+            <td>Conservador</td>
+            <td>Usted prioriza la preservacion del capital sobre el crecimiento y prefiere inversiones de bajo riesgo</td>
+        </tr>
+        <tr>
+            <td>21-35</td>
+            <td>Moderado</td>
+            <td>Usted busca equilibrar el crecimiento y el riesgo, aceptando algo de volatilidad del mercado para mejores rendimientos</td>
+        </tr>
+        <tr>
+            <td>36-50</td>
+            <td>Agresivo</td>
+            <td>Usted prioriza el crecimiento y esta dispuesto a aceptar volatilidad significativa del mercado para el potencial de mayores rendimientos</td>
+        </tr>
+    </table>
+
+    <div id="result-container" style="display: none;">
+        <h2>Sus Resultados de Tolerancia al Riesgo</h2>
+        <p>Basado en sus respuestas, su puntuacion total es: <span id="total-score" style="font-weight: bold;"></span></p>
+
+        <div id="profile-conservative" class="profile profile-conservative" style="display: none;">
+            <h3>Perfil de Riesgo Conservador</h3>
+            <p>Usted prioriza proteger su capital sobre el potencial de crecimiento. Se siente incomodo con la volatilidad significativa del mercado y prefiere inversiones estables y predecibles aunque ofrezcan menores rendimientos.</p>
+            <p><strong>Asignacion de Activos Sugerida:</strong></p>
+            <ul>
+                <li>50-60% Bonos</li>
+                <li>20-30% Acciones</li>
+                <li>10-20% Efectivo/Corto plazo</li>
+                <li>0-10% Inversiones alternativas</li>
+            </ul>
+            <p><strong>Vehiculos de Inversion Apropiados:</strong> Cuentas de ahorro de alto rendimiento, CDs, cuentas del mercado monetario, valores del Tesoro, fondos de bonos a corto plazo, fondos balanceados conservadores</p>
+            <p><strong>Mejor Para:</strong> Metas a corto y mediano plazo (1-5 anos), fondos de emergencia, o inversores cerca o en jubilacion</p>
+        </div>
+
+        <div id="profile-moderate" class="profile profile-moderate" style="display: none;">
+            <h3>Perfil de Riesgo Moderado</h3>
+            <p>Usted busca equilibrar el potencial de crecimiento con la gestion del riesgo. Puede tolerar algo de volatilidad del mercado por la oportunidad de lograr mejores rendimientos que las inversiones puramente conservadoras.</p>
+            <p><strong>Asignacion de Activos Sugerida:</strong></p>
+            <ul>
+                <li>40-50% Acciones</li>
+                <li>40-50% Bonos</li>
+                <li>5-10% Efectivo/Corto plazo</li>
+                <li>0-10% Inversiones alternativas</li>
+            </ul>
+            <p><strong>Vehiculos de Inversion Apropiados:</strong> Fondos mutuos balanceados, fondos indexados de mercado amplio, acciones de primera clase, bonos a mediano plazo, bonos corporativos, REITs</p>
+            <p><strong>Mejor Para:</strong> Metas a mediano plazo (5-10 anos), financiamiento universitario, o inversores a mitad de carrera</p>
+        </div>
+
+        <div id="profile-aggressive" class="profile profile-aggressive" style="display: none;">
+            <h3>Perfil de Riesgo Agresivo</h3>
+            <p>Usted prioriza maximizar el potencial de crecimiento y puede soportar volatilidad significativa del mercado. Entiende que perseguir mayores rendimientos conlleva mayor riesgo de perdidas a corto plazo.</p>
+            <p><strong>Asignacion de Activos Sugerida:</strong></p>
+            <ul>
+                <li>70-80% Acciones</li>
+                <li>10-20% Bonos</li>
+                <li>0-5% Efectivo/Corto plazo</li>
+                <li>5-15% Inversiones alternativas</li>
+            </ul>
+            <p><strong>Vehiculos de Inversion Apropiados:</strong> Acciones de crecimiento, acciones de pequena capitalizacion, fondos internacionales y de mercados emergentes, fondos sectoriales, bonos a largo plazo, REITs</p>
+            <p><strong>Mejor Para:</strong> Metas a largo plazo (10+ anos), ahorros para jubilacion para inversores jovenes, o construccion de patrimonio</p>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>Consideraciones Importantes:</strong> La tolerancia al riesgo es solo un factor en el desarrollo de una estrategia de inversion. Sus metas financieras especificas, horizonte temporal, situacion financiera y conocimiento de inversiones tambien son factores criticos. Ademas, la tolerancia al riesgo puede cambiar con el tiempo a medida que cambian sus circunstancias. Reevalue su tolerancia al riesgo periodicamente, especialmente despues de cambios significativos en la vida.</p>
+    </div>
+
+    <div class="no-print">
+        <button onclick="window.print()">Imprimir/Guardar como PDF</button>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const questionCount = 10;
+            let unanswered = [];
+
+            for (let i = 1; i <= questionCount; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector('input[name="' + questionName + '"]:checked');
+
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                } else {
+                    unanswered.push(i);
+                }
+            }
+
+            if (unanswered.length > 0) {
+                alert("Por favor responda todas las preguntas. No ha respondido la(s) pregunta(s): " + unanswered.join(", "));
+                return;
+            }
+
+            document.getElementById('total-score').textContent = score;
+            document.getElementById('result-container').style.display = 'block';
+
+            if (score >= 10 && score <= 20) {
+                document.getElementById('profile-conservative').style.display = 'block';
+                document.getElementById('profile-moderate').style.display = 'none';
+                document.getElementById('profile-aggressive').style.display = 'none';
+            } else if (score >= 21 && score <= 35) {
+                document.getElementById('profile-conservative').style.display = 'none';
+                document.getElementById('profile-moderate').style.display = 'block';
+                document.getElementById('profile-aggressive').style.display = 'none';
+            } else {
+                document.getElementById('profile-conservative').style.display = 'none';
+                document.getElementById('profile-moderate').style.display = 'none';
+                document.getElementById('profile-aggressive').style.display = 'block';
+            }
+
+            document.getElementById('result-container').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Estrategia de Pago de Préstamos Estudiantiles - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #4f46e5;
+            margin-top: 20px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .input-cell {
+            background-color: #f9fafb;
+            min-height: 1.5em;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .step {
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            .step {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Constructor de Estrategia de Pago de Préstamos Estudiantiles</h1>
+            <div class="subtitle">Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles</div>
+        </div>
+
+        <div class="print-instructions">
+            <strong>Instrucciones para el Maestro:</strong> Para guardar como PDF, use la función de impresión de su navegador (Ctrl+P o ⌘+P) y seleccione "Guardar como PDF" como destino.
+        </div>
+
+        <h2>Introducción</h2>
+        <p>
+            Esta hoja de trabajo te guiará a través del desarrollo de una estrategia integral de pago de préstamos estudiantiles basada en tus planes educativos, metas profesionales y situación financiera. Tener un plan antes de pedir prestado puede ayudarte a tomar decisiones informadas sobre el financiamiento de tu educación y asegurar que tus préstamos estudiantiles sean manejables después de la graduación.
+        </p>
+
+        <div class="tips">
+            <strong>CONSEJO:</strong> Revisa y actualiza regularmente tu estrategia de pago a medida que evolucionan tus planes educativos y profesionales. El momento más importante para desarrollar esta estrategia es antes de sacar tu primer préstamo estudiantil, pero debe revisarse anualmente mientras estudias y cada vez que cambien tus circunstancias.
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Análisis de Trayectoria Educativa</h3>
+            <p>
+                Describe tus planes educativos y los costos estimados. Considera diferentes trayectorias para lograr tus metas profesionales.
+            </p>
+
+            <table>
+                <tr>
+                    <td width="50%">Trayectoria Educativa Seleccionada:</td>
+                    <td class="input-cell" width="50%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nombre de la Institución:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Título/Programa:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Duración del Programa:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Costo Por Año (matrícula, cuotas, alojamiento, etc.):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Costo Total del Programa:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+
+            <h4>Trayectorias Alternativas Consideradas:</h4>
+            <div class="input-cell" style="min-height: 80px;">&nbsp;</div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Proyecciones de Carrera e Ingresos</h3>
+            <p>
+                Investiga y documenta el campo profesional que estás buscando y el ingreso esperado después de la graduación.
+            </p>
+
+            <table>
+                <tr>
+                    <td width="50%">Campo Profesional Objetivo:</td>
+                    <td class="input-cell" width="50%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Salario Esperado de Nivel Inicial:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Salario Esperado de Mitad de Carrera (10 años):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Fuentes para Investigación Salarial:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+            </table>
+
+            <h4>Análisis de Retorno de Inversión (ROI):</h4>
+            <table>
+                <tr>
+                    <td width="50%">Costo Total de Educación:</td>
+                    <td class="input-cell" width="50%">$</td>
+                </tr>
+                <tr>
+                    <td>Años para Recuperar Costos Educativos:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>¿Es este ROI razonable?</td>
+                    <td class="input-cell">□ Sí □ No □ Quizás</td>
+                </tr>
+            </table>
+
+            <div class="notes">
+                <strong>Cálculo de ROI:</strong> Una forma simple de estimar esto es dividir tu costo total de educación por tu ganancia salarial anual comparada con no tener título. Por ejemplo, si tu título cuesta $80,000 y aumenta tu salario anual en $20,000, tu período de ROI sería aproximadamente 4 años.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Análisis de Financiamiento</h3>
+            <p>
+                Determina cuánto de tus costos educativos será cubierto por varias fuentes, incluyendo cuánto necesitarás pedir prestado.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Fuente de Financiamiento</th>
+                    <th>Monto Por Año</th>
+                    <th>Monto Total</th>
+                </tr>
+                <tr>
+                    <td>Ahorros Personales</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Contribución Familiar</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Becas (Basadas en Mérito)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Subvenciones (Basadas en Necesidad)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Trabajo-Estudio/Empleo Durante la Escuela</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Otras Fuentes que No Son Préstamos</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total de Financiamiento que No Es Préstamo</strong></td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Monto Necesario en Préstamos</strong><br>(Costo Total - Financiamiento que No Es Préstamo)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>Guía de Préstamos:</strong> Los expertos financieros generalmente recomiendan que tu deuda total de préstamos estudiantiles al graduarte no exceda tu salario esperado del primer año. Si tu préstamo proyectado excede esta guía, considera formas de reducir costos o aumentar el financiamiento que no sea préstamo.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Plan de Préstamos Estudiantiles</h3>
+            <p>
+                Basándote en el monto necesario en préstamos, desarrolla un plan detallado de préstamos que priorice los préstamos federales antes de considerar préstamos privados.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Tipo de Préstamo</th>
+                    <th>Monto Anual</th>
+                    <th>Monto Total</th>
+                    <th>Tasa de Interés Actual</th>
+                </tr>
+                <tr>
+                    <td>Préstamos Directos Subsidiados (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Préstamos Directos No Subsidiados (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Préstamos PLUS para Padres (federal)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Préstamos Privados (especificar prestamista)</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Préstamo Total</strong></td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell">$</td>
+                    <td class="input-cell"></td>
+                </tr>
+            </table>
+
+            <h4>Notas de Estrategia de Préstamos:</h4>
+            <div class="input-cell" style="min-height: 80px;">&nbsp;</div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span> Selección del Plan de Pago</h3>
+            <p>
+                Basándote en tu préstamo proyectado e ingresos futuros, selecciona planes de pago apropiados para tus préstamos estudiantiles.
+            </p>
+
+            <h4>Plan de Pago de Préstamos Federales:</h4>
+            <div class="input-cell">
+                □ Pago Estándar (10 años, pagos fijos)<br>
+                □ Pago Graduado (10 años, pagos comienzan bajos y aumentan)<br>
+                □ Pago Extendido (hasta 25 años)<br>
+                □ Pago Basado en Ingresos (IBR)<br>
+                □ Pague Según Gane (PAYE)<br>
+                □ Pague Según Gane Revisado (REPAYE)<br>
+                □ Plan SAVE (Ahorrando en una Educación Valiosa)<br>
+                □ Trayectoria de Condonación de Préstamos por Servicio Público (PSLF)
+            </div>
+
+            <h4>Razonamiento para el Plan Seleccionado:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h4>Enfoque de Préstamos Privados (si aplica):</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <div class="notes">
+                <strong>Nota:</strong> Los planes de pago basados en ingresos pueden ser beneficiosos si esperas un salario inicial más bajo en relación a tu deuda. Sin embargo, pueden resultar en pagar más intereses con el tiempo. El pago estándar minimiza el total de intereses pagados pero requiere pagos mensuales más altos.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">6</span> Análisis de Presupuesto Post-Graduación</h3>
+            <p>
+                Proyecta cómo tus pagos de préstamos estudiantiles encajarán en tu presupuesto post-graduación.
+            </p>
+
+            <table>
+                <tr>
+                    <td width="60%">Ingreso Bruto Mensual Proyectado:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Salario Neto Mensual Estimado:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Pago Mensual Estimado de Préstamo Estudiantil:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Pago de Préstamo Estudiantil como Porcentaje del Salario Neto:</td>
+                    <td class="input-cell">%</td>
+                </tr>
+            </table>
+
+            <h4>Otros Gastos Mensuales Principales (estimados):</h4>
+            <table>
+                <tr>
+                    <td>Vivienda (renta/hipoteca):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Transporte:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Alimentación:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Servicios Públicos:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Seguros:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Otros Gastos Esenciales:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total de Gastos Esenciales (incluyendo préstamos estudiantiles):</strong></td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Restante para Ahorros y Gastos Discrecionales:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+
+            <div class="notes">
+                <strong>Guía de Presupuesto:</strong> Los expertos financieros típicamente recomiendan mantener los pagos de préstamos estudiantiles por debajo del 10-15% de tu ingreso mensual para mantener un presupuesto equilibrado que permita otras metas financieras.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">7</span> Estrategias para Minimizar Préstamos y Acelerar el Pago</h3>
+            <p>
+                Identifica acciones específicas que puedes tomar antes, durante y después de la escuela para minimizar los préstamos y pagar más rápido.
+            </p>
+
+            <h4>Antes de la Escuela:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h4>Durante la Escuela:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h4>Después de la Graduación:</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <div class="tips">
+                <strong>Ideas de Estrategias:</strong>
+                <ul>
+                    <li>Hacer pagos de intereses mientras estudias (incluso en préstamos no subsidiados)</li>
+                    <li>Solicitar becas adicionales cada año</li>
+                    <li>Considerar trabajar medio tiempo durante la escuela</li>
+                    <li>Usar reembolsos de impuestos, bonos o regalos para hacer pagos extra</li>
+                    <li>Considerar programas de condonación de préstamos si trabajas en servicio público</li>
+                    <li>Explorar beneficios de asistencia de pago de préstamos estudiantiles del empleador</li>
+                    <li>Refinanciar préstamos privados después de graduarte si puedes calificar para tasas más bajas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">8</span> Planificación de Contingencias</h3>
+            <p>
+                Planifica para desafíos potenciales que podrían afectar tu capacidad de pagar tus préstamos estudiantiles.
+            </p>
+
+            <h4>¿Qué pasa si no puedes encontrar empleo inmediatamente después de graduarte?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h4>¿Qué pasa si tu ingreso es menor de lo esperado?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h4>¿Qué pasa si necesitas cambiar de trayectoria profesional?</h4>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <div class="notes">
+                <strong>Protecciones de Préstamos Federales:</strong> Los préstamos estudiantiles federales ofrecen opciones de aplazamiento e indulgencia por dificultades económicas, así como planes de pago basados en ingresos que ajustan tu pago según tus ingresos. Los préstamos privados típicamente ofrecen menos protecciones, por lo que deben considerarse solo después de agotar las opciones de préstamos federales.
+            </div>
+        </div>
+
+        <h2>Resumen de Estrategia de Pago</h2>
+        <p>
+            Resume tu estrategia general de pago de préstamos estudiantiles basada en tu análisis y planificación.
+        </p>
+
+        <div class="input-cell" style="min-height: 150px;">&nbsp;</div>
+
+        <div class="tips">
+            <strong>Consejo Final:</strong> Recuerda que este es un documento vivo que debe actualizarse regularmente a medida que evolucionan tus planes educativos, metas profesionales y situación financiera. Revísalo al menos una vez al año y antes de sacar cualquier préstamo estudiantil adicional.
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

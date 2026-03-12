@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Métricas de Riesgo</title>
+    <!--
+    PURPOSE: Calculate and interpret standard deviation, beta, and Sharpe ratio for investments
+    USE: Activity 2 - Investment Risk Metrics Calculator (10 minutes)
+    -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --surface: #f9fafb;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .metrics-intro {
+            background: #f0f7ff;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .metric-definition {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .metric-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .metric-card p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        .investments-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .investments-table th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        .investments-table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+        }
+        .investments-table tr:nth-child(even) {
+            background: var(--surface);
+        }
+        .value-good {
+            color: var(--success);
+            font-weight: bold;
+        }
+        .value-neutral {
+            color: var(--text);
+        }
+        .value-bad {
+            color: var(--danger);
+            font-weight: bold;
+        }
+        .calculator-section {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .calc-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .calc-item label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .calc-item input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .result-display {
+            background: var(--surface);
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .interpretation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .interp-good {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+        }
+        .interp-neutral {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+        }
+        .interp-bad {
+            background: #fee2e2;
+            border-left: 4px solid var(--danger);
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+        }
+        .btn:hover {
+            background: #4f46e5;
+        }
+        .analysis-box {
+            margin: 20px 0;
+        }
+        .analysis-box label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .analysis-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            min-height: 70px;
+            font-family: inherit;
+        }
+        @media print {
+            body { font-size: 10pt; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Métricas de Riesgo</h1>
+
+    <div class="metrics-intro">
+        <strong>Métricas Clave de Riesgo:</strong> Estas tres métricas te ayudan a entender y comparar el riesgo de inversión. Los retornos más altos usualmente vienen con mayor riesgo - estas herramientas te ayudan a evaluar el equilibrio.
+    </div>
+
+    <div class="metric-definition">
+        <div class="metric-card">
+            <h4>Desviación Estándar (σ)</h4>
+            <p>Mide cuánto varían los retornos del promedio. Mayor = más volátil. Una acción con 15% de desv. est. típicamente oscilará ±15% de su retorno promedio.</p>
+        </div>
+        <div class="metric-card">
+            <h4>Beta (β)</h4>
+            <p>Mide la sensibilidad a los movimientos del mercado. β=1 se mueve con el mercado, β>1 más volátil que el mercado, β<1 menos volátil. β=1.5 significa 50% más volátil que el S&P 500.</p>
+        </div>
+        <div class="metric-card">
+            <h4>Ratio de Sharpe</h4>
+            <p>Retorno por unidad de riesgo. Mayor = mejores retornos ajustados al riesgo. Se calcula como (Retorno - Tasa Libre de Riesgo) / Desviación Estándar. >1 es bueno, >2 es excelente.</p>
+        </div>
+    </div>
+
+    <h3>Tabla de Comparación de Inversiones</h3>
+    <table class="investments-table">
+        <thead>
+            <tr>
+                <th>Inversión</th>
+                <th>Retorno Esperado</th>
+                <th>Desv. Estándar</th>
+                <th>Beta</th>
+                <th>Ratio de Sharpe</th>
+                <th>Nivel de Riesgo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Índice S&P 500</strong></td>
+                <td>10%</td>
+                <td>15%</td>
+                <td>1.00</td>
+                <td class="value-neutral">0.47</td>
+                <td>Moderado</td>
+            </tr>
+            <tr>
+                <td><strong>Acción de Crecimiento Tecnológico</strong></td>
+                <td>15%</td>
+                <td>28%</td>
+                <td>1.40</td>
+                <td class="value-neutral">0.43</td>
+                <td>Alto</td>
+            </tr>
+            <tr>
+                <td><strong>Acción de Servicios Públicos</strong></td>
+                <td>7%</td>
+                <td>12%</td>
+                <td>0.60</td>
+                <td class="value-neutral">0.33</td>
+                <td>Bajo</td>
+            </tr>
+            <tr>
+                <td><strong>Fondo de Bonos</strong></td>
+                <td>4%</td>
+                <td>5%</td>
+                <td>0.10</td>
+                <td class="value-neutral">0.20</td>
+                <td>Muy Bajo</td>
+            </tr>
+            <tr>
+                <td><strong>Valor de Pequeña Capitalización</strong></td>
+                <td>12%</td>
+                <td>22%</td>
+                <td>1.25</td>
+                <td class="value-neutral">0.41</td>
+                <td>Alto</td>
+            </tr>
+            <tr>
+                <td><strong>REIT</strong></td>
+                <td>9%</td>
+                <td>18%</td>
+                <td>0.80</td>
+                <td class="value-neutral">0.33</td>
+                <td>Moderado-Alto</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="calculator-section">
+        <h3>Calcular Ratio de Sharpe</h3>
+        <p>Ingresa valores para calcular el Ratio de Sharpe de cualquier inversión:</p>
+
+        <div class="calc-grid">
+            <div class="calc-item">
+                <label>Retorno Esperado (%)</label>
+                <input type="number" id="calc-return" value="10" step="0.5">
+            </div>
+            <div class="calc-item">
+                <label>Tasa Libre de Riesgo (%)</label>
+                <input type="number" id="calc-rf" value="3" step="0.1">
+            </div>
+            <div class="calc-item">
+                <label>Desviación Estándar (%)</label>
+                <input type="number" id="calc-std" value="15" step="0.5">
+            </div>
+        </div>
+
+        <button class="btn" onclick="calculateSharpe()">Calcular Ratio de Sharpe</button>
+
+        <div class="result-display" style="margin-top: 15px;">
+            <div>Ratio de Sharpe</div>
+            <div class="result-value" id="sharpe-result">0.47</div>
+        </div>
+
+        <div class="interpretation" id="sharpe-interp">
+            <strong>Interpretación:</strong> <span id="interp-text">Un ratio de Sharpe de 0.47 es aceptable. La inversión proporciona un retorno razonable para su nivel de riesgo.</span>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <label>¿Cuál inversión en la tabla tiene el mejor retorno ajustado al riesgo? Explica tu razonamiento.</label>
+        <textarea placeholder="Mira los ratios de Sharpe y explica por qué mayor no siempre es mejor..."></textarea>
+    </div>
+
+    <div class="analysis-box">
+        <label>¿Por qué un inversor podría elegir la Acción de Crecimiento Tecnológico a pesar de su menor ratio de Sharpe que el S&P 500?</label>
+        <textarea placeholder="Considera las metas de inversión, horizonte temporal y potencial de retorno total..."></textarea>
+    </div>
+
+    <div class="analysis-box">
+        <label>¿Cómo usarías beta para construir un portafolio para un inversor conservador?</label>
+        <textarea placeholder="Piensa en combinar inversiones de alto y bajo beta..."></textarea>
+    </div>
+
+    <script>
+        function calculateSharpe() {
+            const ret = parseFloat(document.getElementById('calc-return').value);
+            const rf = parseFloat(document.getElementById('calc-rf').value);
+            const std = parseFloat(document.getElementById('calc-std').value);
+
+            const sharpe = (ret - rf) / std;
+            document.getElementById('sharpe-result').textContent = sharpe.toFixed(2);
+
+            const interpEl = document.getElementById('sharpe-interp');
+            const interpText = document.getElementById('interp-text');
+
+            if (sharpe >= 1) {
+                interpEl.className = 'interpretation interp-good';
+                interpText.textContent = 'Un ratio de Sharpe de ' + sharpe.toFixed(2) + ' es excelente! Esta inversión proporciona fuertes retornos relativos a su riesgo. Ratios por encima de 1 indican buen rendimiento ajustado al riesgo.';
+            } else if (sharpe >= 0.5) {
+                interpEl.className = 'interpretation interp-neutral';
+                interpText.textContent = 'Un ratio de Sharpe de ' + sharpe.toFixed(2) + ' es aceptable. La inversión proporciona un retorno razonable para su nivel de riesgo. La mayoría de las inversiones en acciones caen en este rango.';
+            } else if (sharpe > 0) {
+                interpEl.className = 'interpretation interp-neutral';
+                interpText.textContent = 'Un ratio de Sharpe de ' + sharpe.toFixed(2) + ' está por debajo del promedio. El retorno puede no compensar adecuadamente el riesgo tomado. Considera si el riesgo vale la pena.';
+            } else {
+                interpEl.className = 'interpretation interp-bad';
+                interpText.textContent = 'Un ratio de Sharpe negativo de ' + sharpe.toFixed(2) + ' significa que la inversión retorna menos que la tasa libre de riesgo. Esto generalmente no es una buena inversión.';
+            }
+        }
+
+        // Initial calculation
+        calculateSharpe();
+    </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Deteccion de Fraude - Capitulo 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .simulator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .intro {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .scenario {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        .scenario h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .email-simulation {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .email-field {
+            margin-bottom: 5px;
+        }
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 80px;
+        }
+        .suspicious {
+            background-color: #ffff99;
+            padding: 0 3px;
+        }
+        .analysis-section {
+            background-color: #fff8e6;
+            padding: 15px;
+            border-left: 4px solid #f39c12;
+            margin-bottom: 20px;
+        }
+        .checkbox-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checkbox-list li {
+            margin-bottom: 10px;
+        }
+        .response-section {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-left: 4px solid #27ae60;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .input-field-sm {
+            height: 40px;
+        }
+        .input-field-lg {
+            min-height: 100px;
+        }
+        .answer-key {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+        }
+        .answer-key h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .note {
+            background-color: #fffae6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .fake-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .fake-link {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        @media print {
+            body {
+                padding: 0;
+                background-color: #fff;
+                font-size: 12pt;
+            }
+            .simulator-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="simulator-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Simulador de Deteccion de Fraude</h1>
+
+        <div class="intro">
+            <p><strong>Instrucciones:</strong> Este simulador presenta escenarios realistas de intentos de fraude. Su tarea es analizar cada comunicacion, identificar las senales de alerta que indican fraude y determinar la respuesta apropiada. Esto le ayudara a desarrollar habilidades para detectar fraude en situaciones de la vida real.</p>
+        </div>
+
+        <div class="note">
+            <p><strong>Nota importante:</strong> Los escenarios en este simulador son ejemplos ficticios basados en tacticas de fraude reales. La informacion proporcionada no debe usarse para comparacion del mundo real. Siempre verifique las comunicaciones directamente con la organizacion oficial usando numeros de telefono o sitios web que encuentre independientemente.</p>
+        </div>
+
+        <!-- Escenario 1 -->
+        <div class="scenario">
+            <h3>Escenario 1: Correo de Suspension de Cuenta</h3>
+
+            <div class="email-simulation">
+                <div class="email-header">
+                    <div class="email-field">
+                        <span class="label">De:</span>
+                        <span class="suspicious">security-alert@amazonn-account.com</span>
+                    </div>
+                    <div class="email-field">
+                        <span class="label">Para:</span> [Su Correo]
+                    </div>
+                    <div class="email-field">
+                        <span class="label">Asunto:</span> <span class="suspicious">ACCION REQUERIDA: Su cuenta sera suspendida</span>
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <p><span class="suspicious">Estimado Cliente,</span></p>
+
+                    <p><span class="suspicious">Hemos detectado actividad inusual</span> asociada con su cuenta de Amazon. Su cuenta ha sido <span class="suspicious">temporalmente limitada</span>.</p>
+
+                    <p>Por favor <span class="suspicious">verifique su informacion dentro de 24 horas</span> para evitar la suspension permanente:</p>
+
+                    <a href="#" class="fake-button">VERIFICAR CUENTA AHORA</a>
+
+                    <p>Si no completa la verificacion, <span class="suspicious">no podra acceder a su cuenta, incluyendo:</span></p>
+                    <ul>
+                        <li>Pedidos pendientes</li>
+                        <li>Historial de compras</li>
+                        <li>Listas de deseos y registros</li>
+                    </ul>
+
+                    <p>Gracias por su cooperacion,<br>
+                    Equipo de Seguridad de Amazon</p>
+
+                    <p style="font-size: 0.8em; color: #666;">
+                        <span class="suspicious">Nota: Este correo electronico fue enviado desde una direccion de solo notificacion que no puede aceptar correos entrantes. Por favor no responda a este mensaje.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h4>Su Analisis</h4>
+                <p><strong>1. Identifique las senales de alerta en este correo (marque todas las que apliquen):</strong></p>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Direccion de correo del remitente sospechosa</li>
+                    <li><input type="checkbox"> Saludo generico</li>
+                    <li><input type="checkbox"> Lenguaje urgente/amenazador</li>
+                    <li><input type="checkbox"> Solicita verificacion de cuenta/informacion personal</li>
+                    <li><input type="checkbox"> Consecuencias amenazantes por no cumplir</li>
+                    <li><input type="checkbox"> Solicitud de evitar canales normales de comunicacion</li>
+                    <li><input type="checkbox"> Errores gramaticales o de ortografia</li>
+                </ul>
+
+                <p><strong>2. Que tipo de fraude es probable que sea esto?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Identifique el tipo de estafa..."></textarea>
+
+                <p><strong>3. Por que cree usted que algunas personas podrian caer en este tipo de estafa?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Explique los factores psicologicos..."></textarea>
+            </div>
+
+            <div class="response-section">
+                <h4>Su Respuesta</h4>
+                <p><strong>4. Que deberia hacer si recibe un correo como este?</strong></p>
+                <textarea class="input-field input-field-lg" placeholder="Describa los pasos apropiados..."></textarea>
+            </div>
+
+            <div class="answer-key">
+                <h4>Analisis del Escenario 1</h4>
+                <p><strong>Senales de Alerta:</strong></p>
+                <ul>
+                    <li>Direccion de correo del remitente sospechosa (amazonn-account.com no es un dominio oficial de Amazon)</li>
+                    <li>Saludo generico ("Estimado Cliente" en lugar de su nombre)</li>
+                    <li>Lenguaje urgente y amenazas de suspension de cuenta</li>
+                    <li>Solicitudes de verificacion de informacion</li>
+                    <li>Limites de tiempo (24 horas) para crear presion</li>
+                    <li>Indicaciones para no responder al correo</li>
+                </ul>
+                <p><strong>Respuesta Apropiada:</strong> No haga clic en ningun enlace. Si le preocupa su cuenta, acceda a Amazon directamente escribiendo amazon.com en su navegador. Revise el estado de su cuenta alli. Reporte el correo de phishing a Amazon.</p>
+            </div>
+        </div>
+
+        <!-- Escenario 2 -->
+        <div class="scenario">
+            <h3>Escenario 2: Premio de Loteria por Mensaje de Texto</h3>
+
+            <div class="email-simulation">
+                <div class="email-header">
+                    <div class="email-field">
+                        <span class="label">De:</span>
+                        <span class="suspicious">+1-555-873-2491</span>
+                    </div>
+                    <div class="email-field">
+                        <span class="label">Fecha:</span> Hoy, 2:34 PM
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <p><span class="suspicious">FELICIDADES!!!</span> Su numero fue seleccionado para nuestro sorteo especial del dia! Usted ha <span class="suspicious">GANADO $5,000.00 USD</span>!</p>
+
+                    <p>Para reclamar su <span class="suspicious">premio GARANTIZADO</span>, responda con su nombre completo, direccion y fecha de nacimiento.</p>
+
+                    <p>Luego llame a nuestro agente de reclamaciones al <span class="suspicious">1-800-555-0123</span> para verificar su identidad y <span class="suspicious">pagar la tarifa de procesamiento de $50</span>.</p>
+
+                    <p><span class="suspicious">Debe reclamar dentro de las proximas 2 HORAS o su premio sera entregado a otro ganador!</span></p>
+
+                    <p>Responda STOP para dejar de recibir estos mensajes.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h4>Su Analisis</h4>
+                <p><strong>1. Identifique las senales de alerta en este mensaje de texto (marque todas las que apliquen):</strong></p>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Premio no solicitado/concurso en el que no participo</li>
+                    <li><input type="checkbox"> Solicita informacion personal</li>
+                    <li><input type="checkbox"> Requiere pago para recibir las ganancias</li>
+                    <li><input type="checkbox"> Crea urgencia con limite de tiempo</li>
+                    <li><input type="checkbox"> Uso excesivo de puntuacion/mayusculas</li>
+                    <li><input type="checkbox"> Promete dinero "garantizado"</li>
+                    <li><input type="checkbox"> Numero de telefono desconocido</li>
+                </ul>
+
+                <p><strong>2. Que tipo de fraude es probable que sea esto?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Identifique el tipo de estafa..."></textarea>
+
+                <p><strong>3. A quien podria apuntar especificamente esta estafa?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Identifique posibles victimas y por que..."></textarea>
+            </div>
+
+            <div class="response-section">
+                <h4>Su Respuesta</h4>
+                <p><strong>4. Que deberia hacer si recibe un mensaje de texto como este?</strong></p>
+                <textarea class="input-field input-field-lg" placeholder="Describa los pasos apropiados..."></textarea>
+            </div>
+
+            <div class="answer-key">
+                <h4>Analisis del Escenario 2</h4>
+                <p><strong>Senales de Alerta:</strong></p>
+                <ul>
+                    <li>Premio no solicitado - no puede ganar un concurso en el que no participo</li>
+                    <li>Solicita informacion personal sensible</li>
+                    <li>Requiere pago por adelantado de "tarifa de procesamiento" - las loterias legitimas no requieren pago para reclamar premios</li>
+                    <li>Urgencia extrema (2 horas para reclamar)</li>
+                    <li>Uso excesivo de puntos de exclamacion y mayusculas</li>
+                    <li>Promesas de dinero "garantizado"</li>
+                </ul>
+                <p><strong>Respuesta Apropiada:</strong> No responda, no proporcione informacion personal y no llame al numero. Bloquee el numero y elimine el mensaje. Reporte a su operador telefonico y a la FTC.</p>
+            </div>
+        </div>
+
+        <!-- Escenario 3 -->
+        <div class="scenario">
+            <h3>Escenario 3: Llamada de Estafa de Soporte Tecnico</h3>
+
+            <div class="email-simulation">
+                <div class="email-header">
+                    <div class="email-field">
+                        <span class="label">De:</span>
+                        <span>Llamada Entrante</span>
+                    </div>
+                    <div class="email-field">
+                        <span class="label">ID de Llamada:</span>
+                        <span class="suspicious">SOPORTE MICROSOFT</span>
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <p><em>Transcripcion de la llamada:</em></p>
+
+                    <p>"Hola, le llamo del Centro de Soporte Tecnico de Microsoft. Nuestros sistemas han <span class="suspicious">detectado un virus severo en su computadora</span> que esta robando su informacion personal.</p>
+
+                    <p>Esto es <span class="suspicious">muy urgente</span>. Si no toma accion inmediata, sus cuentas bancarias y datos personales seran comprometidos.</p>
+
+                    <p>Necesito que <span class="suspicious">descargue nuestro software de seguridad</span> para solucionar este problema. Le guiare por el proceso.</p>
+
+                    <p>Tambien necesitare que <span class="suspicious">proporcione su informacion de tarjeta de credito</span> para la tarifa unica de servicio de $299. Esto incluye un paquete de proteccion de por vida para su computadora.</p>
+
+                    <p>Por favor actue ahora - <span class="suspicious">sus datos estan siendo robados mientras hablamos</span>."</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h4>Su Analisis</h4>
+                <p><strong>1. Identifique las senales de alerta en esta llamada telefonica (marque todas las que apliquen):</strong></p>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Llamada de soporte tecnico no solicitada</li>
+                    <li><input type="checkbox"> Dice ser de empresa conocida (Microsoft)</li>
+                    <li><input type="checkbox"> Afirma detectar problemas remotamente</li>
+                    <li><input type="checkbox"> Crea urgencia extrema</li>
+                    <li><input type="checkbox"> Solicita descarga de software</li>
+                    <li><input type="checkbox"> Solicita informacion de pago</li>
+                    <li><input type="checkbox"> Amenaza con consecuencias por no actuar</li>
+                </ul>
+
+                <p><strong>2. Por que es esta estafa particularmente efectiva?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Explique las tacticas psicologicas usadas..."></textarea>
+
+                <p><strong>3. A quien podria apuntar especificamente esta estafa?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Identifique posibles victimas..."></textarea>
+            </div>
+
+            <div class="response-section">
+                <h4>Su Respuesta</h4>
+                <p><strong>4. Que deberia hacer si recibe una llamada como esta?</strong></p>
+                <textarea class="input-field input-field-lg" placeholder="Describa los pasos apropiados..."></textarea>
+            </div>
+
+            <div class="answer-key">
+                <h4>Analisis del Escenario 3</h4>
+                <p><strong>Senales de Alerta:</strong></p>
+                <ul>
+                    <li>Llamada de soporte tecnico no solicitada - Microsoft no llama a clientes sobre problemas de computadora</li>
+                    <li>Afirma detectar problemas en su computadora remotamente</li>
+                    <li>Crea urgencia extrema y miedo</li>
+                    <li>Solicita descargar software (podria ser malware)</li>
+                    <li>Solicita informacion de tarjeta de credito por telefono</li>
+                    <li>Presion para actuar inmediatamente</li>
+                </ul>
+                <p><strong>Respuesta Apropiada:</strong> Cuelgue inmediatamente. No proporcione informacion personal o financiera. No descargue nada. Si le preocupa la seguridad de su computadora, contacte a un profesional de TI de confianza o use software de seguridad legitimo que ya tenga.</p>
+            </div>
+        </div>
+
+        <!-- Escenario 4 -->
+        <div class="scenario">
+            <h3>Escenario 4: Estafa de Romance en Linea</h3>
+
+            <div class="email-simulation">
+                <div class="email-header">
+                    <div class="email-field">
+                        <span class="label">Plataforma:</span>
+                        <span>Aplicacion de Citas</span>
+                    </div>
+                    <div class="email-field">
+                        <span class="label">Contacto:</span>
+                        <span class="suspicious">Nuevo Match - "Michael"</span>
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <p><em>Despues de 2 semanas de conversacion:</em></p>
+
+                    <p>"Hola mi amor! Siento que tenemos una conexion tan especial. <span class="suspicious">Nunca he sentido esto tan rapido con nadie.</span></p>
+
+                    <p>Te cuento algo muy emocionante - trabajo como ingeniero en una plataforma petrolera en el Golfo, y <span class="suspicious">pronto estare de regreso en tierra</span>. No puedo esperar para conocerte en persona.</p>
+
+                    <p>Pero tengo un problema urgente. Mi tarjeta de credito fue bloqueada y necesito pagar mi seguro medico antes de poder regresar a casa. <span class="suspicious">Podrias enviarme $500 a traves de una transferencia bancaria o tarjetas de regalo?</span> Te lo pagare en cuanto llegue.</p>
+
+                    <p>Se que esto es inusual de pedir, pero confio en ti completamente. <span class="suspicious">Por favor no le cuentes a nadie sobre esto</span> - es un poco vergonzoso para mi.</p>
+
+                    <p>Te amo, Michael"</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h4>Su Analisis</h4>
+                <p><strong>1. Identifique las senales de alerta en esta conversacion (marque todas las que apliquen):</strong></p>
+                <ul class="checkbox-list">
+                    <li><input type="checkbox"> Desarrollo rapido de sentimientos intensos</li>
+                    <li><input type="checkbox"> Trabajo que impide encuentros en persona</li>
+                    <li><input type="checkbox"> Crisis financiera repentina</li>
+                    <li><input type="checkbox"> Solicita dinero a traves de metodos dificiles de rastrear</li>
+                    <li><input type="checkbox"> Pide mantener la relacion en secreto</li>
+                    <li><input type="checkbox"> Promete pagar despues</li>
+                    <li><input type="checkbox"> Historia que parece demasiado conveniente</li>
+                </ul>
+
+                <p><strong>2. Por que son las estafas de romance tan efectivas emocionalmente?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Explique las tacticas de manipulacion emocional..."></textarea>
+
+                <p><strong>3. Como podria alguien verificar si esta persona es legitima?</strong></p>
+                <textarea class="input-field input-field-sm" placeholder="Sugiera pasos de verificacion..."></textarea>
+            </div>
+
+            <div class="response-section">
+                <h4>Su Respuesta</h4>
+                <p><strong>4. Que deberia hacer si se encuentra en esta situacion?</strong></p>
+                <textarea class="input-field input-field-lg" placeholder="Describa los pasos apropiados..."></textarea>
+            </div>
+
+            <div class="answer-key">
+                <h4>Analisis del Escenario 4</h4>
+                <p><strong>Senales de Alerta:</strong></p>
+                <ul>
+                    <li>Declaraciones de amor despues de solo 2 semanas sin conocerse</li>
+                    <li>Trabajo que convenientemente impide reuniones (plataforma petrolera)</li>
+                    <li>Crisis financiera repentina despues de establecer confianza</li>
+                    <li>Solicita pago a traves de transferencia bancaria o tarjetas de regalo - metodos dificiles de recuperar</li>
+                    <li>Pide mantener la solicitud de dinero en secreto</li>
+                    <li>Promesas de pagar - que probablemente nunca ocurriran</li>
+                </ul>
+                <p><strong>Respuesta Apropiada:</strong> No envie dinero. Busque las fotos de la persona en Google para ver si fueron robadas de otra cuenta. Sugiera una videollamada - los estafadores la evitaran. Hable con amigos o familiares de confianza. Reporte la cuenta a la plataforma de citas.</p>
+            </div>
+        </div>
+
+        <!-- Seccion de Reflexion -->
+        <div class="section" style="margin-top: 30px;">
+            <h2>Preguntas de Reflexion</h2>
+
+            <p><strong>1. Que patrones comunes noto en todos estos escenarios de fraude?</strong></p>
+            <textarea class="input-field input-field-lg" placeholder="Identifique tacticas comunes usadas en los escenarios..."></textarea>
+
+            <p><strong>2. Cual de estos escenarios cree que seria mas dificil de identificar como fraude? Por que?</strong></p>
+            <textarea class="input-field input-field-lg" placeholder="Reflexione sobre las diferentes tacticas y su efectividad..."></textarea>
+
+            <p><strong>3. Como aplicara lo que aprendio para protegerse a usted y a otros?</strong></p>
+            <textarea class="input-field input-field-lg" placeholder="Describa como usara este conocimiento..."></textarea>
+        </div>
+    </div>
+</body>
+</html>

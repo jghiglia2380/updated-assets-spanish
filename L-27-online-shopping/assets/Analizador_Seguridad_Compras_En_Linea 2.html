@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Seguridad de Compras en Linea - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .intro-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+
+        .intro-section p {
+            color: #4b5563;
+            font-size: 14px;
+        }
+
+        .url-input-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .url-input-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .analyze-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .analyze-btn:hover {
+            background: #4f46e5;
+        }
+
+        .checklist-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .checklist-category {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .checklist-category h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            color: #4b5563;
+        }
+
+        .checklist-item.checked label {
+            color: #10b981;
+            text-decoration: line-through;
+        }
+
+        .red-flags-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .red-flags-section h3 {
+            font-size: 18px;
+            color: #ef4444;
+            margin-bottom: 16px;
+        }
+
+        .red-flag-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .red-flag-item {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .red-flag-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .red-flag-item label {
+            color: #991b1b;
+        }
+
+        .payment-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .payment-card {
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .payment-card.safest {
+            background: #ecfdf5;
+            border-top: 4px solid #10b981;
+        }
+
+        .payment-card.moderate {
+            background: #fffbeb;
+            border-top: 4px solid #f59e0b;
+        }
+
+        .payment-card.risky {
+            background: #fef2f2;
+            border-top: 4px solid #ef4444;
+        }
+
+        .payment-card.selected {
+            border-color: #6366f1;
+        }
+
+        .payment-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .payment-card.safest h4 { color: #10b981; }
+        .payment-card.moderate h4 { color: #f59e0b; }
+        .payment-card.risky h4 { color: #ef4444; }
+
+        .payment-card p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .safety-level {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .payment-card.safest .safety-level {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .payment-card.moderate .safety-level {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .payment-card.risky .safety-level {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 24px;
+            background: #f9fafb;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .score-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .score-number.high { color: #10b981; }
+        .score-number.medium { color: #f59e0b; }
+        .score-number.low { color: #ef4444; }
+
+        .score-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .score-bar {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .score-fill.high { background: #10b981; }
+        .score-fill.medium { background: #f59e0b; }
+        .score-fill.low { background: #ef4444; }
+
+        .recommendation {
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .recommendation.safe {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+        }
+
+        .recommendation.caution {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .recommendation.danger {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .recommendation h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .recommendation.safe h4 { color: #065f46; }
+        .recommendation.caution h4 { color: #92400e; }
+        .recommendation.danger h4 { color: #991b1b; }
+
+        .recommendation p {
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .notes-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .notes-section textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .print-section {
+            text-align: center;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .checklist-grid,
+            .red-flag-grid,
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .checklist-section,
+            .red-flags-section,
+            .payment-section,
+            .results-section,
+            .notes-section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .checklist-grid,
+            .red-flag-grid,
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Analizador de Seguridad de Compras en Linea</h1>
+            <p>Evalue la seguridad de compras en linea e identifique posibles riesgos de seguridad</p>
+        </div>
+
+        <div class="intro-section">
+            <h3>Como Usar Esta Herramienta</h3>
+            <p>Use este analizador para evaluar cualquier sitio web de compras en linea antes de hacer una compra. Ingrese la URL del sitio web, marque las caracteristicas de seguridad que observe, identifique cualquier senal de alerta y reciba un puntaje de seguridad con recomendaciones.</p>
+        </div>
+
+        <div class="url-input-section">
+            <h3>Sitio Web a Analizar</h3>
+            <div class="input-group">
+                <input type="text" id="websiteUrl" placeholder="Ingrese la URL del sitio web (ej., www.ejemplo-tienda.com)">
+                <button class="analyze-btn" onclick="startAnalysis()">Analizar Sitio</button>
+            </div>
+            <p style="font-size: 12px; color: #6b7280;">Ingrese el sitio web de compras que desea evaluar por seguridad</p>
+        </div>
+
+        <div class="checklist-section">
+            <h3>Lista de Verificacion de Seguridad</h3>
+            <p style="font-size: 13px; color: #6b7280; margin-bottom: 16px;">Marque todas las caracteristicas de seguridad que pueda verificar en el sitio web:</p>
+
+            <div class="checklist-grid">
+                <div class="checklist-category">
+                    <h4>
+                        <span class="category-icon" style="background: #dbeafe; color: #1d4ed8;">S</span>
+                        Seguridad del Sitio Web
+                    </h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="https" class="security-check" data-points="15">
+                        <label for="https">La URL comienza con HTTPS (icono de candado visible)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="ssl" class="security-check" data-points="10">
+                        <label for="ssl">Certificado SSL valido (haga clic en el candado para verificar)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="secure-checkout" class="security-check" data-points="10">
+                        <label for="secure-checkout">Pagina de pago segura (HTTPS separado)</label>
+                    </div>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>
+                        <span class="category-icon" style="background: #fef3c7; color: #92400e;">L</span>
+                        Legitimidad del Negocio
+                    </h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="contact" class="security-check" data-points="10">
+                        <label for="contact">Direccion fisica y numero de telefono listados</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="about" class="security-check" data-points="5">
+                        <label for="about">Pagina "Acerca de" con informacion de la empresa</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="policies" class="security-check" data-points="10">
+                        <label for="policies">Politicas claras de devolucion/reembolso</label>
+                    </div>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>
+                        <span class="category-icon" style="background: #d1fae5; color: #065f46;">R</span>
+                        Resenas y Reputacion
+                    </h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="reviews" class="security-check" data-points="10">
+                        <label for="reviews">Resenas de clientes disponibles en el sitio</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="external-reviews" class="security-check" data-points="10">
+                        <label for="external-reviews">Resenas positivas en BBB, Trustpilot, etc.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="social" class="security-check" data-points="5">
+                        <label for="social">Presencia activa en redes sociales</label>
+                    </div>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>
+                        <span class="category-icon" style="background: #ede9fe; color: #5b21b6;">P</span>
+                        Seguridad de Pago
+                    </h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="payment-options" class="security-check" data-points="10">
+                        <label for="payment-options">Multiples opciones de pago (tarjeta de credito, PayPal)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="payment-badges" class="security-check" data-points="5">
+                        <label for="payment-badges">Insignias de seguridad (Norton, McAfee, etc.)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="privacy" class="security-check" data-points="5">
+                        <label for="privacy">Politica de privacidad para datos personales</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="red-flags-section">
+            <h3>Identificador de Senales de Alerta</h3>
+            <p style="font-size: 13px; color: #991b1b; margin-bottom: 16px;">Marque cualquier senal de advertencia que note (cada una reduce el puntaje de seguridad):</p>
+
+            <div class="red-flag-grid">
+                <div class="red-flag-item">
+                    <input type="checkbox" id="no-https" class="red-flag" data-penalty="20">
+                    <label for="no-https">Sin HTTPS / Icono de candado faltante</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="too-good" class="red-flag" data-penalty="15">
+                    <label for="too-good">Precios demasiado buenos para ser verdad (80%+ de descuento)</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="pressure" class="red-flag" data-penalty="10">
+                    <label for="pressure">Tacticas de alta presion (tiempo limitado!)</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="poor-grammar" class="red-flag" data-penalty="15">
+                    <label for="poor-grammar">Mala gramatica y errores ortograficos</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="no-contact" class="red-flag" data-penalty="20">
+                    <label for="no-contact">Sin informacion de contacto o direccion falsa</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="wire-only" class="red-flag" data-penalty="25">
+                    <label for="wire-only">Solo acepta transferencia bancaria o tarjetas de regalo</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="popup" class="red-flag" data-penalty="10">
+                    <label for="popup">Pop-ups excesivos o redirecciones</label>
+                </div>
+                <div class="red-flag-item">
+                    <input type="checkbox" id="new-domain" class="red-flag" data-penalty="10">
+                    <label for="new-domain">Dominio muy nuevo / sitio web creado recientemente</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <h3>Comparacion de Metodos de Pago Seguros</h3>
+            <p style="font-size: 13px; color: #6b7280; margin-bottom: 16px;">Seleccione el metodo de pago que planea usar:</p>
+
+            <div class="payment-methods">
+                <div class="payment-card safest" onclick="selectPayment(this, 'credit')">
+                    <h4>Tarjeta de Credito</h4>
+                    <p>Mejor proteccion contra fraude, facil de disputar cargos, responsabilidad maxima de $50</p>
+                    <div class="safety-level">Opcion Mas Segura</div>
+                </div>
+                <div class="payment-card safest" onclick="selectPayment(this, 'paypal')">
+                    <h4>PayPal / Billetera Digital</h4>
+                    <p>Proteccion al comprador, no comparte info de tarjeta con vendedor</p>
+                    <div class="safety-level">Opcion Mas Segura</div>
+                </div>
+                <div class="payment-card moderate" onclick="selectPayment(this, 'debit')">
+                    <h4>Tarjeta de Debito</h4>
+                    <p>Algo de proteccion pero el dinero sale de la cuenta inmediatamente</p>
+                    <div class="safety-level">Use con Precaucion</div>
+                </div>
+                <div class="payment-card moderate" onclick="selectPayment(this, 'prepaid')">
+                    <h4>Tarjeta Prepagada</h4>
+                    <p>Limita la exposicion pero puede tener menos proteccion contra fraude</p>
+                    <div class="safety-level">Use con Precaucion</div>
+                </div>
+                <div class="payment-card risky" onclick="selectPayment(this, 'wire')">
+                    <h4>Transferencia Bancaria</h4>
+                    <p>Sin proteccion, imposible de revertir, frecuentemente usada en estafas</p>
+                    <div class="safety-level">Evitar</div>
+                </div>
+                <div class="payment-card risky" onclick="selectPayment(this, 'gift')">
+                    <h4>Tarjetas de Regalo</h4>
+                    <p>Sin proteccion, no rastreables, herramienta principal de estafadores</p>
+                    <div class="safety-level">Evitar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h3>Resultados del Analisis de Seguridad</h3>
+            <div class="score-display">
+                <div class="score-number" id="scoreNumber">--</div>
+                <div class="score-label">Puntaje de Seguridad (de 100)</div>
+                <div class="score-bar">
+                    <div class="score-fill" id="scoreFill" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="recommendation" id="recommendation" style="display: none;">
+                <h4 id="recTitle">Recomendacion</h4>
+                <p id="recText">Complete la lista de verificacion arriba para recibir su analisis de seguridad.</p>
+            </div>
+        </div>
+
+        <div class="notes-section">
+            <h3>Notas Adicionales</h3>
+            <textarea id="notes" placeholder="Agregue cualquier observacion adicional sobre el sitio web, preocupaciones que tenga, o razones para su evaluacion..."></textarea>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedPayment = null;
+
+        function startAnalysis() {
+            const url = document.getElementById('websiteUrl').value;
+            if (!url) {
+                alert('Por favor ingrese una URL de sitio web para analizar.');
+                return;
+            }
+            // Reset and enable checkboxes for fresh analysis
+            document.querySelectorAll('.security-check, .red-flag').forEach(cb => {
+                cb.checked = false;
+            });
+            calculateScore();
+        }
+
+        function selectPayment(card, method) {
+            document.querySelectorAll('.payment-card').forEach(c => {
+                c.classList.remove('selected');
+            });
+            card.classList.add('selected');
+            selectedPayment = method;
+            calculateScore();
+        }
+
+        function calculateScore() {
+            let score = 0;
+            let maxScore = 0;
+
+            // Calculate security points
+            document.querySelectorAll('.security-check').forEach(checkbox => {
+                const points = parseInt(checkbox.dataset.points);
+                maxScore += points;
+                if (checkbox.checked) {
+                    score += points;
+                    checkbox.parentElement.classList.add('checked');
+                } else {
+                    checkbox.parentElement.classList.remove('checked');
+                }
+            });
+
+            // Apply red flag penalties
+            let penalties = 0;
+            document.querySelectorAll('.red-flag').forEach(checkbox => {
+                if (checkbox.checked) {
+                    penalties += parseInt(checkbox.dataset.penalty);
+                }
+            });
+
+            // Calculate percentage and apply penalties
+            let percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
+            percentage = Math.max(0, percentage - penalties);
+
+            // Update display
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreFill = document.getElementById('scoreFill');
+            const recommendation = document.getElementById('recommendation');
+            const recTitle = document.getElementById('recTitle');
+            const recText = document.getElementById('recText');
+
+            scoreNumber.textContent = percentage;
+            scoreFill.style.width = percentage + '%';
+
+            // Remove previous classes
+            scoreNumber.classList.remove('high', 'medium', 'low');
+            scoreFill.classList.remove('high', 'medium', 'low');
+            recommendation.classList.remove('safe', 'caution', 'danger');
+
+            // Set recommendation based on score
+            if (percentage >= 70) {
+                scoreNumber.classList.add('high');
+                scoreFill.classList.add('high');
+                recommendation.classList.add('safe');
+                recTitle.textContent = 'Probablemente Seguro para Comprar';
+                recText.textContent = 'Este sitio web muestra buenos indicadores de seguridad. Proceda con su compra usando una tarjeta de credito o PayPal para maxima proteccion. Siempre guarde las confirmaciones de pedido y monitoree su estado de cuenta.';
+            } else if (percentage >= 40) {
+                scoreNumber.classList.add('medium');
+                scoreFill.classList.add('medium');
+                recommendation.classList.add('caution');
+                recTitle.textContent = 'Proceda con Precaucion';
+                recText.textContent = 'Este sitio web tiene algunas preocupaciones de seguridad. Investigue mas la empresa antes de comprar. Si procede, use una tarjeta de credito con fuerte proteccion contra fraude y guarde toda la documentacion.';
+            } else {
+                scoreNumber.classList.add('low');
+                scoreFill.classList.add('low');
+                recommendation.classList.add('danger');
+                recTitle.textContent = 'Alto Riesgo - No Recomendado';
+                recText.textContent = 'Este sitio web muestra multiples senales de advertencia de una posible estafa. No haga una compra. Busque el mismo producto en un minorista bien conocido y establecido en su lugar.';
+            }
+
+            recommendation.style.display = 'block';
+        }
+
+        // Add event listeners to all checkboxes
+        document.querySelectorAll('.security-check, .red-flag').forEach(checkbox => {
+            checkbox.addEventListener('change', calculateScore);
+        });
+    </script>
+</body>
+</html>

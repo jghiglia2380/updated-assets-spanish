@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Manejo de Deuda - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #6366f1;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #6366f1;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background: #f9fafb;
+            width: 18%;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .strategy-box {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .strategy-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+
+        .strategy-box ul {
+            margin-left: 16px;
+            margin-bottom: 8px;
+        }
+
+        .strategy-box li {
+            margin-bottom: 3px;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .pros, .cons {
+            padding: 6px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .pros {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+        }
+
+        .cons {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+        }
+
+        .pros strong { color: #059669; }
+        .cons strong { color: #dc2626; }
+
+        .bankruptcy-section {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .bankruptcy-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #b45309;
+        }
+
+        .bankruptcy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .bankruptcy-item {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .bankruptcy-item h4 {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #b45309;
+        }
+
+        .bankruptcy-item ul {
+            margin-left: 12px;
+            font-size: 10px;
+        }
+
+        .rebuilding-section {
+            background: #ecfdf5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 16px;
+        }
+
+        .rebuilding-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .step-box {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            line-height: 24px;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .step-box h4 {
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-box p {
+            font-size: 9px;
+            color: #4b5563;
+        }
+
+        .warning-signs {
+            background: #fef2f2;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 16px;
+        }
+
+        .warning-signs h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #dc2626;
+            margin-bottom: 8px;
+        }
+
+        .warning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .warning-item {
+            background: white;
+            padding: 6px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .key-formulas {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .key-formulas h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .formula-box {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .formula-box h4 {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .formula-box p {
+            font-size: 10px;
+            font-family: monospace;
+            background: #f3f4f6;
+            padding: 4px;
+            border-radius: 2px;
+        }
+
+        .key-takeaway {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+        }
+
+        .key-takeaway h3 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 6px;
+        }
+
+        .key-takeaway p {
+            font-size: 11px;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .strategy-box,
+            .bankruptcy-section,
+            .rebuilding-section,
+            .warning-signs,
+            .key-formulas {
+                page-break-inside: avoid;
+            }
+
+            .comparison-table {
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column,
+            .bankruptcy-grid,
+            .step-grid,
+            .warning-grid,
+            .formula-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Referencia de Estrategias de Manejo de Deuda</h1>
+        <p>Referencia rapida para manejar altos niveles de deuda</p>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Estrategia</th>
+                <th>Descripcion</th>
+                <th>Mejor Para</th>
+                <th>Impacto en el Credito</th>
+                <th>Plazo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Plan de Manejo de Deuda (PMD)</td>
+                <td>Un consejero de credito negocia tasas mas bajas; usted hace un solo pago</td>
+                <td>Deuda no garantizada con alto interes; necesita estructura</td>
+                <td>Minimo; las cuentas pueden mostrar "administrada"</td>
+                <td>3-5 anos</td>
+            </tr>
+            <tr>
+                <td>Consolidacion de Deuda</td>
+                <td>Combinar deudas en un solo prestamo con menor interes</td>
+                <td>Buen credito; multiples deudas de alta tasa</td>
+                <td>Baja inicial; mejora a largo plazo</td>
+                <td>2-5 anos</td>
+            </tr>
+            <tr>
+                <td>Liquidacion de Deuda</td>
+                <td>Negociar para pagar menos del monto total adeudado</td>
+                <td>No puede hacer pagos minimos; considerando bancarrota</td>
+                <td>Dano significativo; permanece 7 anos</td>
+                <td>2-4 anos</td>
+            </tr>
+            <tr>
+                <td>Transferencia de Saldo</td>
+                <td>Mover deuda a tarjeta con 0% APR por periodo promocional</td>
+                <td>Buen credito; puede pagar durante el periodo promocional</td>
+                <td>Minimo; consulta de nueva cuenta</td>
+                <td>12-21 meses</td>
+            </tr>
+            <tr>
+                <td>Bancarrota Capitulo 7</td>
+                <td>Liquidar activos no exentos para cancelar deudas</td>
+                <td>No puede pagar; activos limitados</td>
+                <td>Severo; permanece 10 anos</td>
+                <td>3-6 meses</td>
+            </tr>
+            <tr>
+                <td>Bancarrota Capitulo 13</td>
+                <td>Plan de pago mientras mantiene sus activos</td>
+                <td>Ingreso regular; quiere conservar casa/auto</td>
+                <td>Severo; permanece 7 anos</td>
+                <td>3-5 anos</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="two-column">
+        <div class="strategy-box">
+            <h3>Metodo Avalancha de Deuda</h3>
+            <ul>
+                <li>Pague los minimos en todas las deudas</li>
+                <li>Destine el extra a la deuda con mayor tasa de interes</li>
+                <li>Cuando se pague, pase a la siguiente tasa mas alta</li>
+                <li>Ahorra la mayor cantidad de dinero en intereses</li>
+            </ul>
+            <div class="pros-cons">
+                <div class="pros">
+                    <strong>Ventajas:</strong> Matematicamente optimo; ahorra mas dinero
+                </div>
+                <div class="cons">
+                    <strong>Desventajas:</strong> Victorias iniciales mas lentas; requiere disciplina
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-box">
+            <h3>Metodo Bola de Nieve de Deuda</h3>
+            <ul>
+                <li>Pague los minimos en todas las deudas</li>
+                <li>Destine el extra al saldo mas pequeno</li>
+                <li>Cuando se pague, pase al siguiente mas pequeno</li>
+                <li>Victorias rapidas generan impulso</li>
+            </ul>
+            <div class="pros-cons">
+                <div class="pros">
+                    <strong>Ventajas:</strong> Victorias psicologicas; genera confianza
+                </div>
+                <div class="cons">
+                    <strong>Desventajas:</strong> Puede pagar mas intereses en total
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bankruptcy-section">
+        <h3>Bancarrota: Opciones de Ultimo Recurso</h3>
+        <div class="bankruptcy-grid">
+            <div class="bankruptcy-item">
+                <h4>Capitulo 7 (Liquidacion)</h4>
+                <ul>
+                    <li>Debe pasar la prueba de medios (ingreso por debajo de la mediana estatal)</li>
+                    <li>Cancela la mayoria de deudas no garantizadas en 3-6 meses</li>
+                    <li>Puede perder activos no exentos</li>
+                    <li>No puede solicitar nuevamente por 8 anos</li>
+                    <li>Permanece en el informe crediticio 10 anos</li>
+                </ul>
+            </div>
+            <div class="bankruptcy-item">
+                <h4>Capitulo 13 (Reorganizacion)</h4>
+                <ul>
+                    <li>Debe tener ingreso regular</li>
+                    <li>Plan de pago de 3-5 anos</li>
+                    <li>Conserva casa, auto y otros activos</li>
+                    <li>Puede solicitar con mas frecuencia</li>
+                    <li>Permanece en el informe crediticio 7 anos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="warning-signs">
+        <h3>Senales de Advertencia de que Necesita Ayuda</h3>
+        <div class="warning-grid">
+            <div class="warning-item">Usar nuevo credito para pagar credito antiguo</div>
+            <div class="warning-item">Solo puede pagar los pagos minimos</div>
+            <div class="warning-item">Relacion deuda-ingreso superior al 40%</div>
+            <div class="warning-item">Recibir llamadas de cobranza</div>
+            <div class="warning-item">Ocultar gastos a la familia</div>
+            <div class="warning-item">Considerar prestamos de dia de pago</div>
+            <div class="warning-item">No pagar facturas a tiempo</div>
+            <div class="warning-item">Sin ahorros de emergencia</div>
+            <div class="warning-item">Ansiedad diaria por las finanzas</div>
+        </div>
+    </div>
+
+    <div class="key-formulas">
+        <h3>Razones Financieras Clave</h3>
+        <div class="formula-grid">
+            <div class="formula-box">
+                <h4>Relacion Deuda-Ingreso</h4>
+                <p>Pagos Mensuales de Deuda / Ingreso Mensual Bruto</p>
+                <span style="font-size: 10px; color: #4b5563;">Objetivo: Menos del 36% | Preocupacion: Mas del 43%</span>
+            </div>
+            <div class="formula-box">
+                <h4>Utilizacion de Credito</h4>
+                <p>Saldos Totales de Tarjetas / Limites Totales de Credito</p>
+                <span style="font-size: 10px; color: #4b5563;">Objetivo: Menos del 30% | Ideal: Menos del 10%</span>
+            </div>
+            <div class="formula-box">
+                <h4>Meta de Fondo de Emergencia</h4>
+                <p>Gastos Mensuales x 3-6</p>
+                <span style="font-size: 10px; color: #4b5563;">Ahorre esto antes de pago agresivo de deuda</span>
+            </div>
+            <div class="formula-box">
+                <h4>Prioridad de Pago</h4>
+                <p>1. Pagos min. 2. Esenciales 3. Extra a deuda</p>
+                <span style="font-size: 10px; color: #4b5563;">Nunca omita minimos; evite cargos por mora</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="rebuilding-section">
+        <h3>Hoja de Ruta para Reconstruir el Credito</h3>
+        <div class="step-grid">
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Tarjeta Asegurada</h4>
+                <p>Obtenga una tarjeta de credito asegurada con deposito pequeno. Use para compras pequenas, pague en su totalidad.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Pagos a Tiempo</h4>
+                <p>Pague todas las facturas a tiempo. Configure pago automatico. El historial de pagos es el 35% del puntaje.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Monitorear Credito</h4>
+                <p>Revise informes por errores. Use servicios gratuitos. Dispute inexactitudes.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Avanzar</h4>
+                <p>Despues de 12-18 meses, solicite tarjeta no asegurada. Mantenga cuentas antiguas abiertas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="strategy-box" style="border-left-color: #10b981;">
+            <h3 style="color: #059669;">Recursos de Ayuda</h3>
+            <ul>
+                <li><strong>NFCC:</strong> Fundacion Nacional para Consejeria de Credito - nfcc.org</li>
+                <li><strong>AICCCA:</strong> Asociacion de Consejeria de Credito al Consumidor Independiente</li>
+                <li><strong>HUD:</strong> Agencias de consejeria de vivienda</li>
+                <li><strong>211:</strong> Marque para programas de asistencia local</li>
+            </ul>
+        </div>
+
+        <div class="strategy-box" style="border-left-color: #ef4444;">
+            <h3 style="color: #dc2626;">Senales de Alerta a Evitar</h3>
+            <ul>
+                <li>Companias que cobran altas tarifas por adelantado</li>
+                <li>Promesas de "arreglar" su credito rapidamente</li>
+                <li>Consejos de dejar de pagar facturas sin explicacion</li>
+                <li>Presion para inscribirse inmediatamente</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="key-takeaway">
+        <h3>Conclusion Clave</h3>
+        <p>La mejor estrategia de manejo de deuda depende de su situacion especifica, incluyendo el monto total de deuda, estabilidad de ingresos, puntaje crediticio y metas personales. La consejeria crediticia de una agencia sin fines de lucro es a menudo un buen primer paso para evaluar opciones. Aunque la bancarrota puede proporcionar un nuevo comienzo, explore todas las alternativas primero ya que su impacto en el credito dura de 7 a 10 anos. Independientemente de la estrategia que use, reconstruir el credito despues requiere paciencia, disciplina y comportamientos financieros positivos consistentes.</p>
+    </div>
+</body>
+</html>

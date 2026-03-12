@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Reducción de Deuda - Hoja de Trabajo</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .case-study {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ffc107;
+        }
+        .debt-item {
+            background-color: #f8d7da;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #dc3545;
+        }
+        .income-info {
+            background-color: #d4edda;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+        .worksheet-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .input-line {
+            border-bottom: 1px solid #ccc;
+            min-height: 30px;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        .numbered-list {
+            counter-reset: item;
+            list-style: none;
+            padding-left: 0;
+        }
+        .numbered-list li {
+            counter-increment: item;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .numbered-list li:before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="background-color: #f8f9fa; padding: 10px; margin-bottom: 20px; border-radius: 5px;">
+        <p><strong>Nota:</strong> Imprima esta página para crear una versión PDF de este documento o complétela digitalmente.</p>
+    </div>
+
+    <h1>Planificador de Reducción de Deuda</h1>
+    <p class="subtitle">PFL Academy - Capítulo 13.1: Estrategias para Manejar Altos Niveles de Deuda</p>
+
+    <h2>Estudio de Caso: La Situación de Emily</h2>
+
+    <div class="case-study">
+        <h3>Información Personal</h3>
+        <p><strong>Nombre:</strong> Emily<br>
+        <strong>Edad:</strong> 28 años<br>
+        <strong>Puntaje Crediticio Actual:</strong> 580</p>
+
+        <h3>Perfil de Deudas</h3>
+        <div class="debt-item">
+            <strong>Tarjeta de Crédito A:</strong> $8,500 con TAE del 22%
+        </div>
+        <div class="debt-item">
+            <strong>Tarjeta de Crédito B:</strong> $6,200 con TAE del 19.5%
+        </div>
+        <div class="debt-item">
+            <strong>Préstamo Personal:</strong> $5,000 con TAE del 12%
+        </div>
+        <div class="debt-item">
+            <strong>Facturas Médicas:</strong> $3,800 (sin interés, pero en cobranza)
+        </div>
+        <div class="debt-item">
+            <strong>Préstamo de Auto:</strong> $12,000 con TAE del 6.5% (auto valuado en $10,000)
+        </div>
+
+        <div class="income-info">
+            <h3>Situación Financiera Mensual</h3>
+            <p><strong>Ingreso Neto Mensual:</strong> $3,200<br>
+            <strong>Gastos Esenciales Mensuales:</strong> $2,400<br>
+            <em>(renta, servicios públicos, alimentos, seguro, gasolina)</em><br>
+            <strong>Ingreso Discrecional:</strong> $800</p>
+        </div>
+    </div>
+
+    <h2>Parte 1: Análisis y Priorización de Deudas</h2>
+
+    <div class="worksheet-section">
+        <h3>Instrucciones:</h3>
+        <p>Enumere las deudas de Emily en orden de prioridad (cuál debe abordarse primero) y explique el razonamiento para cada decisión.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Prioridad</th>
+                    <th>Tipo de Deuda</th>
+                    <th>Monto</th>
+                    <th>Razón para Esta Prioridad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Parte 2: Selección de Estrategia de Manejo de Deuda</h2>
+
+    <div class="worksheet-section">
+        <p><strong>Identifique qué estrategia de manejo de deuda sería más apropiada para la situación de Emily:</strong></p>
+
+        <p style="margin-left: 20px;">☐ Plan de Manejo de Deuda (DMP)<br>
+        ☐ Consolidación de Deuda<br>
+        ☐ Liquidación de Deuda<br>
+        ☐ Bancarrota Capítulo 7<br>
+        ☐ Bancarrota Capítulo 13<br>
+        ☐ Combinación (especifique): <div class="input-line"></div></p>
+
+        <h3>Justificación de la Estrategia Seleccionada:</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Ventajas de Este Enfoque para Emily:</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Desventajas o Riesgos a Considerar:</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+    </div>
+
+    <h2>Parte 3: Presupuesto Mensual y Asignación de Recursos</h2>
+
+    <div class="worksheet-section">
+        <p><strong>Cree un presupuesto mensual mostrando cómo Emily podría asignar sus $800 de ingreso discrecional:</strong></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Monto Mensual</th>
+                    <th>Propósito/Notas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pago de Deuda #1</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>Pago de Deuda #2</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>Pago de Deuda #3</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>Fondo de Emergencia</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td>Otro</td>
+                    <td><div class="input-line"></div></td>
+                    <td><div class="input-line"></div></td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>$800</strong></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Ajustes Potenciales al Presupuesto:</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+    </div>
+
+    <h2>Parte 4: Evaluación de Bancarrota</h2>
+
+    <div class="worksheet-section">
+        <p><strong>Determine si la bancarrota sería apropiada para Emily, y de ser así, qué tipo:</strong></p>
+
+        <h3>¿Es apropiada la bancarrota para Emily?</h3>
+        <p style="margin-left: 20px;">☐ Sí<br>
+        ☐ No</p>
+
+        <h3>Razones para su decisión:</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Si es apropiada, ¿qué tipo de bancarrota?</h3>
+        <p style="margin-left: 20px;">☐ Capítulo 7 (Liquidación)<br>
+        ☐ Capítulo 13 (Reorganización)<br>
+        ☐ N/A</p>
+
+        <h3>Alternativas a considerar antes de la bancarrota:</h3>
+        <ol class="numbered-list">
+            <li><div class="input-line"></div></li>
+            <li><div class="input-line"></div></li>
+            <li><div class="input-line"></div></li>
+        </ol>
+    </div>
+
+    <h2>Parte 5: Plan de Reconstrucción de Crédito (12 Meses)</h2>
+
+    <div class="worksheet-section">
+        <p><strong>Diseñe un plan de 12 meses para que Emily comience a reconstruir su crédito:</strong></p>
+
+        <h3>Meses 1-3: Acciones Inmediatas</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Meses 4-6: Construcción de Momentum</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Meses 7-9: Fortalecimiento del Crédito</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Meses 10-12: Solidificación de Hábitos Positivos</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>Meta de Puntaje Crediticio para el Año 1:</h3>
+        <p>Puntaje actual: 580 → Puntaje objetivo: <div class="input-line" style="display: inline-block; width: 100px;"></div></p>
+    </div>
+
+    <h2>Parte 6: Reflexión</h2>
+
+    <div class="worksheet-section">
+        <h3>¿Qué factores fueron más importantes al crear este plan de reducción de deuda?</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>¿Qué desafíos podría enfrentar Emily al implementar este plan?</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+
+        <h3>¿Cómo podría este ejercicio aplicarse a situaciones de deuda en la vida real?</h3>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+        <div class="input-line"></div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 15px; background-color: #e8f4f8; border-radius: 5px;">
+        <p style="margin: 0; text-align: center; color: #666;">
+            <strong>PFL Academy</strong> | Capítulo 13.1: Estrategias para Manejar Altos Niveles de Deuda
+        </p>
+    </div>
+</body>
+</html>

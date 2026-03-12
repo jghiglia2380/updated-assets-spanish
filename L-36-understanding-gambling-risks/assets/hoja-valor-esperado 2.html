@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo: Valor Esperado - L-36</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        .formula-box {
+            background-color: #ffe6e6;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .example {
+            background-color: #f0f8ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .calculation-space {
+            background-color: #f9f9f9;
+            border: 1px dashed #999;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+        .answer-line {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            min-width: 200px;
+        }
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoja de Trabajo: Valor Esperado en Juegos de Azar</h1>
+    <p><strong>Capítulo 12.1:</strong> Comprendiendo los Riesgos del Juego</p>
+    <p><strong>Nombre:</strong> _________________________ <strong>Fecha:</strong> _____________</p>
+
+    <h2>Fórmula del Valor Esperado</h2>
+    <div class="formula-box">
+        <p><strong>VE = (Probabilidad de Ganar × Monto Ganado) - (Probabilidad de Perder × Monto Perdido)</strong></p>
+        <p>Un valor esperado <strong>negativo</strong> significa que perderá dinero a largo plazo.</p>
+        <p>Un valor esperado <strong>positivo</strong> significa que ganará dinero a largo plazo.</p>
+    </div>
+
+    <h2>Ejemplo Resuelto: Apuesta en Ruleta</h2>
+    <div class="example">
+        <p><strong>Escenario:</strong> Apuesta $10 al rojo en la ruleta americana (18 rojos, 18 negros, 2 verdes de 38 espacios totales)</p>
+
+        <p><strong>Paso 1:</strong> Identificar probabilidades</p>
+        <ul>
+            <li>Probabilidad de ganar (rojo): 18/38 = 0.474</li>
+            <li>Probabilidad de perder (no rojo): 20/38 = 0.526</li>
+        </ul>
+
+        <p><strong>Paso 2:</strong> Identificar montos</p>
+        <ul>
+            <li>Monto ganado si gana: $10</li>
+            <li>Monto perdido si pierde: $10</li>
+        </ul>
+
+        <p><strong>Paso 3:</strong> Calcular valor esperado</p>
+        <p>VE = (0.474 × $10) - (0.526 × $10)</p>
+        <p>VE = $4.74 - $5.26 = <strong>-$0.52</strong></p>
+
+        <p><strong>Interpretación:</strong> Por cada apuesta de $10, espera perder aproximadamente $0.52 en promedio.</p>
+    </div>
+
+    <h2>Ejercicios de Práctica</h2>
+
+    <div class="calculation-space">
+        <h3>Ejercicio 1: Lanzamiento de Moneda Simple</h3>
+        <p>Usted apuesta $5 en el lanzamiento de una moneda. Si sale cara, gana $5. Si sale cruz, pierde $5.</p>
+
+        <p>Probabilidad de ganar: <span class="answer-line"></span></p>
+        <p>Probabilidad de perder: <span class="answer-line"></span></p>
+        <p>Monto ganado: <span class="answer-line"></span></p>
+        <p>Monto perdido: <span class="answer-line"></span></p>
+
+        <p><strong>Cálculo del VE:</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+
+        <p><strong>Valor Esperado:</strong> <span class="answer-line"></span></p>
+        <p><strong>¿Qué significa esto?</strong> <span class="answer-line"></span></p>
+    </div>
+
+    <div class="calculation-space">
+        <h3>Ejercicio 2: Juego de Dados</h3>
+        <p>Usted apuesta $20 en lanzar un 6. Si sale un 6, gana $100. Si sale cualquier otro número, pierde $20.</p>
+
+        <p>Probabilidad de ganar (sacar un 6): <span class="answer-line"></span></p>
+        <p>Probabilidad de perder: <span class="answer-line"></span></p>
+        <p>Monto ganado: <span class="answer-line"></span></p>
+        <p>Monto perdido: <span class="answer-line"></span></p>
+
+        <p><strong>Cálculo del VE:</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+
+        <p><strong>Valor Esperado:</strong> <span class="answer-line"></span></p>
+        <p><strong>¿Es este un buen juego para el jugador?</strong> <span class="answer-line"></span></p>
+    </div>
+
+    <div class="calculation-space">
+        <h3>Ejercicio 3: Billete de Lotería</h3>
+        <p>Un billete de lotería cuesta $2. Las probabilidades de ganar son 1 en 1,000,000. El premio es $1,000,000.</p>
+
+        <p>Probabilidad de ganar: <span class="answer-line"></span></p>
+        <p>Probabilidad de perder: <span class="answer-line"></span></p>
+        <p>Monto ganado: <span class="answer-line"></span></p>
+        <p>Monto perdido: <span class="answer-line"></span></p>
+
+        <p><strong>Cálculo del VE:</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+
+        <p><strong>Valor Esperado:</strong> <span class="answer-line"></span></p>
+        <p><strong>¿Qué tan buena inversión es esto?</strong> <span class="answer-line"></span></p>
+    </div>
+
+    <h2>Tabla de Ventaja de la Casa</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Juego</th>
+                <th>Ventaja de la Casa</th>
+                <th>Pérdida Esperada por $100 Apostados</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Blackjack (estrategia básica)</td>
+                <td>0.5% - 2%</td>
+                <td>$0.50 - $2.00</td>
+            </tr>
+            <tr>
+                <td>Ruleta Europea</td>
+                <td>2.7%</td>
+                <td>$2.70</td>
+            </tr>
+            <tr>
+                <td>Ruleta Americana</td>
+                <td>5.26%</td>
+                <td>$5.26</td>
+            </tr>
+            <tr>
+                <td>Máquinas Tragamonedas</td>
+                <td>2% - 15%</td>
+                <td>$2.00 - $15.00</td>
+            </tr>
+            <tr>
+                <td>Keno</td>
+                <td>25% - 30%</td>
+                <td>$25.00 - $30.00</td>
+            </tr>
+            <tr>
+                <td>Lotería</td>
+                <td>40% - 50%</td>
+                <td>$40.00 - $50.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Preguntas de Reflexión</h2>
+    <div class="calculation-space">
+        <p><strong>1. ¿Por qué el valor esperado es importante al considerar el juego?</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+
+        <p><strong>2. ¿Qué significa cuando un juego tiene un valor esperado negativo?</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+
+        <p><strong>3. ¿Puede un jugador vencer la ventaja de la casa a largo plazo? ¿Por qué sí o por qué no?</strong></p>
+        <p>___________________________________________________________________</p>
+        <p>___________________________________________________________________</p>
+    </div>
+
+    <div class="no-print" style="margin-top: 30px; padding: 15px; background-color: #fff3cd; border-radius: 5px;">
+        <p><strong>Nota:</strong> Esta hoja de trabajo es parte del Capítulo 12.1: Comprendiendo los Riesgos del Juego</p>
+        <p>Para imprimir, use Ctrl+P (Windows) o Cmd+P (Mac)</p>
+    </div>
+</body>
+</html>

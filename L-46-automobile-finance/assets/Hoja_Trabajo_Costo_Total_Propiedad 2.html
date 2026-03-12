@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Costo Total de Propiedad | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text);
+            padding: 20px;
+            background: #f9fafb;
+        }
+
+        .worksheet {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid var(--border);
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .state-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .instructions {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .section {
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+        }
+
+        .form-label {
+            padding: 8px;
+            background: #f9fafb;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .form-input {
+            padding: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .form-input input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px dotted var(--text-light);
+            padding: 4px;
+            text-align: right;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .form-input input:focus {
+            outline: none;
+            border-bottom-color: var(--primary);
+        }
+
+        .calculation-row {
+            background: #fef3c7;
+            font-weight: 600;
+        }
+
+        .total-row {
+            background: #dcfce7;
+            font-weight: 700;
+        }
+
+        .state-info {
+            background: #eff6ff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+        }
+
+        .state-info strong {
+            color: #3b82f6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .year-column {
+            text-align: center;
+        }
+
+        .year-column input {
+            width: 70px;
+            text-align: center;
+            border: 1px solid var(--border);
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .notes-section {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .notes-section h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .notes-area {
+            width: 100%;
+            min-height: 80px;
+            border: 1px solid var(--border);
+            padding: 8px;
+            font-family: inherit;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--text-light);
+            color: white;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .worksheet {
+                border: none;
+            }
+
+            .action-buttons {
+                display: none;
+            }
+
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .worksheet {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet">
+        <header>
+            <h1>Hoja de Trabajo de Costo Total de Propiedad</h1>
+            <p class="subtitle">Calcule el Costo Completo de Propiedad de un Vehículo a 6 Años</p>
+            <div class="state-badge">{{STATE_NAME}}</div>
+        </header>
+
+        <div class="instructions">
+            <strong>Instrucciones:</strong> Complete cada sección para calcular el verdadero costo total de poseer un vehículo durante 6 años.
+            Esta hoja de trabajo le ayuda a entender los costos más allá del precio de etiqueta.
+        </div>
+
+        <!-- Sección 1: Información del Vehículo y Préstamo -->
+        <div class="section">
+            <h2>Sección 1: Información del Vehículo y Préstamo</h2>
+
+            <div class="form-grid">
+                <div class="form-label">Marca/Modelo del Vehículo:</div>
+                <div class="form-input"><input type="text" id="vehicleName" placeholder="ej., Honda Civic"></div>
+
+                <div class="form-label">Precio del Vehículo:</div>
+                <div class="form-input">$<input type="number" id="vehiclePrice" placeholder="25,000" oninput="calculate()"></div>
+
+                <div class="form-label">Enganche:</div>
+                <div class="form-input">$<input type="number" id="downPayment" placeholder="3,000" oninput="calculate()"></div>
+
+                <div class="form-label">Monto del Préstamo (Precio - Enganche):</div>
+                <div class="form-input calculation-row">$<input type="number" id="loanAmount" readonly></div>
+
+                <div class="form-label">Tasa de Interés (%):</div>
+                <div class="form-input"><input type="number" id="interestRate" placeholder="5.5" step="0.1" oninput="calculate()">%</div>
+
+                <div class="form-label">Plazo del Préstamo (meses):</div>
+                <div class="form-input"><input type="number" id="loanTerm" placeholder="60" oninput="calculate()"></div>
+
+                <div class="form-label">Pago Mensual:</div>
+                <div class="form-input calculation-row">$<input type="number" id="monthlyPayment" readonly></div>
+
+                <div class="form-label">Total de Intereses Pagados:</div>
+                <div class="form-input calculation-row">$<input type="number" id="totalInterest" readonly></div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Tarifas e Impuestos Estatales -->
+        <div class="section">
+            <h2>Sección 2: Tarifas e Impuestos de {{STATE_NAME}}</h2>
+
+            <div class="state-info">
+                <strong>Tarifas de {{STATE_NAME}}:</strong> Impuesto sobre Ventas: {{STATE_SALES_TAX}}% | Registro Inicial: ${{STATE_REGISTRATION_INITIAL}} | Registro Anual: ${{STATE_REGISTRATION_ANNUAL}}
+            </div>
+
+            <div class="form-grid">
+                <div class="form-label">Impuesto sobre Ventas ({{STATE_SALES_TAX}}%):</div>
+                <div class="form-input calculation-row">$<input type="number" id="salesTax" readonly></div>
+
+                <div class="form-label">Registro/Título Inicial:</div>
+                <div class="form-input">$<input type="number" id="regInitial" value="{{STATE_REGISTRATION_INITIAL}}" oninput="calculate()"></div>
+
+                <div class="form-label">Registro Anual (x6 años):</div>
+                <div class="form-input calculation-row">$<input type="number" id="regTotal" readonly></div>
+            </div>
+        </div>
+
+        <!-- Sección 3: Costos Operativos Anuales -->
+        <div class="section">
+            <h2>Sección 3: Costos Operativos Anuales</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría de Gasto</th>
+                        <th style="width: 100px;">Costo Anual</th>
+                        <th style="width: 100px;">Total 6 Años</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Seguro (prom ${{STATE_INSURANCE_AVG_TEEN}}/mes para adolescentes)</td>
+                        <td class="year-column">$<input type="number" id="insuranceAnnual" placeholder="2,820" oninput="calculate()"></td>
+                        <td class="year-column calculation-row"><span id="insurance6yr">$0</span></td>
+                    </tr>
+                    <tr>
+                        <td>Combustible (${{STATE_GAS_PRICE_CURRENT}}/gal prom)</td>
+                        <td class="year-column">$<input type="number" id="fuelAnnual" placeholder="1,500" oninput="calculate()"></td>
+                        <td class="year-column calculation-row"><span id="fuel6yr">$0</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento (aceite, llantas, frenos)</td>
+                        <td class="year-column">$<input type="number" id="maintAnnual" placeholder="800" oninput="calculate()"></td>
+                        <td class="year-column calculation-row"><span id="maint6yr">$0</span></td>
+                    </tr>
+                    <tr>
+                        <td>Reparaciones Estimadas (prom en 6 años)</td>
+                        <td class="year-column">$<input type="number" id="repairsAnnual" placeholder="500" oninput="calculate()"></td>
+                        <td class="year-column calculation-row"><span id="repairs6yr">$0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sección 4: Resumen del Costo Total -->
+        <div class="section">
+            <h2>Sección 4: Resumen del Costo Total</h2>
+
+            <div class="form-grid">
+                <div class="form-label">Total Pagos del Préstamo (incl. enganche):</div>
+                <div class="form-input">$<input type="number" id="totalLoanCost" readonly></div>
+
+                <div class="form-label">Total Tarifas e Impuestos:</div>
+                <div class="form-input">$<input type="number" id="totalFees" readonly></div>
+
+                <div class="form-label">Total Costos Operativos (6 años):</div>
+                <div class="form-input">$<input type="number" id="totalOperating" readonly></div>
+
+                <div class="form-label"><strong>COSTO TOTAL BRUTO:</strong></div>
+                <div class="form-input total-row">$<input type="number" id="grossTotal" readonly></div>
+            </div>
+
+            <div style="margin-top: 16px; padding-top: 16px; border-top: 2px solid var(--border);">
+                <div class="form-grid">
+                    <div class="form-label">Valor Estimado del Vehículo Después de 6 Años:</div>
+                    <div class="form-input">$<input type="number" id="residualValue" placeholder="8,750" oninput="calculate()"></div>
+
+                    <div class="form-label"><strong>COSTO NETO DE PROPIEDAD:</strong></div>
+                    <div class="form-input total-row" style="font-size: 1.1rem;">$<input type="number" id="netCost" readonly></div>
+
+                    <div class="form-label">Costo Por Milla (12,000 mi/año):</div>
+                    <div class="form-input calculation-row">$<input type="number" id="costPerMile" readonly> /milla</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-section">
+            <h3>Notas y Reflexiones</h3>
+            <textarea class="notes-area" placeholder="¿Qué le sorprendió sobre el costo total? ¿Cómo se compara esto con otros vehículos que ha investigado?"></textarea>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.print()">Imprimir Hoja de Trabajo</button>
+            <button class="btn btn-secondary" onclick="clearForm()">Borrar Todo</button>
+        </div>
+    </div>
+
+    <script>
+        const STATE_TAX = parseFloat('{{STATE_SALES_TAX}}') || 6.0;
+        const STATE_REG_ANNUAL = parseFloat('{{STATE_REGISTRATION_ANNUAL}}') || 75;
+
+        function calculate() {
+            const price = parseFloat(document.getElementById('vehiclePrice').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const months = parseFloat(document.getElementById('loanTerm').value) || 60;
+
+            // Cálculos del préstamo
+            const loanAmount = price - downPayment;
+            document.getElementById('loanAmount').value = loanAmount.toFixed(2);
+
+            let monthlyPayment = 0;
+            let totalInterest = 0;
+            if (rate > 0 && months > 0 && loanAmount > 0) {
+                const monthlyRate = rate / 100 / 12;
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+                totalInterest = (monthlyPayment * months) - loanAmount;
+            }
+            document.getElementById('monthlyPayment').value = monthlyPayment.toFixed(2);
+            document.getElementById('totalInterest').value = totalInterest.toFixed(2);
+
+            // Impuestos y tarifas
+            const salesTax = price * (STATE_TAX / 100);
+            document.getElementById('salesTax').value = salesTax.toFixed(2);
+
+            const regInitial = parseFloat(document.getElementById('regInitial').value) || 0;
+            const regTotal = STATE_REG_ANNUAL * 6;
+            document.getElementById('regTotal').value = regTotal.toFixed(2);
+
+            // Costos operativos
+            const insuranceAnnual = parseFloat(document.getElementById('insuranceAnnual').value) || 0;
+            const fuelAnnual = parseFloat(document.getElementById('fuelAnnual').value) || 0;
+            const maintAnnual = parseFloat(document.getElementById('maintAnnual').value) || 0;
+            const repairsAnnual = parseFloat(document.getElementById('repairsAnnual').value) || 0;
+
+            document.getElementById('insurance6yr').textContent = '$' + (insuranceAnnual * 6).toLocaleString();
+            document.getElementById('fuel6yr').textContent = '$' + (fuelAnnual * 6).toLocaleString();
+            document.getElementById('maint6yr').textContent = '$' + (maintAnnual * 6).toLocaleString();
+            document.getElementById('repairs6yr').textContent = '$' + (repairsAnnual * 6).toLocaleString();
+
+            // Totales
+            const totalLoanCost = (monthlyPayment * months) + downPayment;
+            const totalFees = salesTax + regInitial + regTotal;
+            const totalOperating = (insuranceAnnual + fuelAnnual + maintAnnual + repairsAnnual) * 6;
+
+            document.getElementById('totalLoanCost').value = totalLoanCost.toFixed(2);
+            document.getElementById('totalFees').value = totalFees.toFixed(2);
+            document.getElementById('totalOperating').value = totalOperating.toFixed(2);
+
+            const grossTotal = totalLoanCost + totalFees + totalOperating;
+            document.getElementById('grossTotal').value = grossTotal.toFixed(2);
+
+            // Costo neto
+            const residualValue = parseFloat(document.getElementById('residualValue').value) || 0;
+            const netCost = grossTotal - residualValue;
+            document.getElementById('netCost').value = netCost.toFixed(2);
+
+            const totalMiles = 12000 * 6;
+            const costPerMile = netCost / totalMiles;
+            document.getElementById('costPerMile').value = costPerMile.toFixed(2);
+        }
+
+        function clearForm() {
+            if (confirm('¿Borrar todos los valores?')) {
+                document.querySelectorAll('input').forEach(input => {
+                    if (!input.readOnly && input.id !== 'regInitial') {
+                        input.value = '';
+                    }
+                });
+                calculate();
+            }
+        }
+
+        // Inicializar
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Marco de Decisión de Seguros - Capítulo 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .framework-step {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .framework-step {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .criteria-section {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .mini-table {
+            max-width: 400px;
+        }
+
+        .mini-table th:first-child {
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Plantilla de Marco de Decisión de Seguros</h1>
+        <p>Capítulo 11.3: Gestión de Costos de Seguros</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <h1>Plantilla de Marco de Decisión de Seguros</h1>
+    <p><strong>Capítulo 11.3: Gestión de Costos de Seguros</strong></p>
+
+    <h2>Propósito de Este Marco</h2>
+    <p>Este marco de decisión proporciona un enfoque sistemático para tomar decisiones de seguros, asegurando que consideres todos los factores importantes y tomes decisiones alineadas con tus objetivos financieros y tolerancia al riesgo.</p>
+
+    <div class="info-box">
+        <h3>Cómo Usar Este Marco</h3>
+        <ol>
+            <li>Trabaja a través de cada paso en secuencia</li>
+            <li>Personaliza los criterios y ponderaciones según tus circunstancias personales</li>
+            <li>Documenta tu proceso de decisión para referencia futura</li>
+            <li>Revisa y actualiza tus decisiones periódicamente a medida que cambie tu situación</li>
+        </ol>
+        <p>Este marco puede aplicarse a cualquier tipo de decisión de seguro, desde seleccionar planes de seguro de salud hasta elegir cobertura de seguro de auto o decidir sobre seguro de vivienda.</p>
+    </div>
+
+    <h2>El Marco de Decisión de Seguros de Cinco Pasos</h2>
+
+    <div class="framework-step">
+        <h3><span class="step-number">1</span> Evaluación de Necesidades</h3>
+        <p>Comienza identificando claramente tus necesidades de seguro, riesgos contra los cuales protegerte y restricciones financieras relevantes.</p>
+
+        <h4>Tipo de Seguro: <span class="input-field" style="display: inline-block; min-width: 200px;"></span></h4>
+
+        <table>
+            <tr>
+                <th>Preguntas de Evaluación</th>
+                <th>Tu Respuesta</th>
+            </tr>
+            <tr>
+                <td>¿Contra qué riesgos específicos necesito protección?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Qué activos o posibles responsabilidades necesitan cobertura?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es mi presupuesto mensual para este seguro?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es el estado de mi fondo de emergencia? ¿Podría cubrir un deducible alto?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es mi tolerancia al riesgo (baja, media, alta)?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Hay consideraciones especiales debido a mi etapa de vida?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es mi historial de reclamos para este tipo de seguro?</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Requisitos Clave de Cobertura</h4>
+        <p>Enumera los elementos de cobertura más importantes que necesitas (por ejemplo, proveedores específicos, montos de cobertura, características):</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+    </div>
+
+    <div class="framework-step">
+        <h3><span class="step-number">2</span> Análisis de Opciones</h3>
+        <p>Investiga y documenta las opciones de seguro disponibles que podrían satisfacer tus necesidades.</p>
+
+        <table>
+            <tr>
+                <th>Opción de Seguro</th>
+                <th>Características Clave</th>
+                <th>Costo Mensual</th>
+                <th>Beneficios Potenciales</th>
+                <th>Desventajas Potenciales</th>
+            </tr>
+            <tr>
+                <td class="input-field">Opción 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field">Opción 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field">Opción 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field">Opción 4</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Fuentes de Información</h4>
+        <p>Documenta dónde obtuviste información sobre estas opciones:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+
+        <h4>Investigación Adicional de Opciones Necesaria</h4>
+        <p>Anota cualquier información adicional que necesites recopilar:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="framework-step">
+        <h3><span class="step-number">3</span> Análisis de Escenarios</h3>
+        <p>Analiza cómo se desempeñaría cada opción bajo diferentes escenarios potenciales.</p>
+
+        <h4>Escenario 1: Mejor Caso (Uso Mínimo/Sin Reclamos)</h4>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Prima Anual</th>
+                <th>Gastos de Bolsillo Esperados</th>
+                <th>Costo Anual Total</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Opción 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 4</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Escenario 2: Caso Esperado (Uso/Reclamos Promedio)</h4>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Prima Anual</th>
+                <th>Gastos de Bolsillo Esperados</th>
+                <th>Costo Anual Total</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Opción 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 4</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Escenario 3: Peor Caso (Uso Máximo/Reclamos Importantes)</h4>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Prima Anual</th>
+                <th>Gastos de Bolsillo Esperados</th>
+                <th>Costo Anual Total</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Opción 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 4</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Evaluación de Probabilidad de Escenarios</h4>
+        <p>Basándote en tu historial y circunstancias, estima la probabilidad de cada escenario:</p>
+        <table class="mini-table">
+            <tr>
+                <th>Escenario</th>
+                <th>Probabilidad (%)</th>
+            </tr>
+            <tr>
+                <td>Mejor Caso (Uso Mínimo)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Caso Esperado (Uso Promedio)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Peor Caso (Uso Máximo)</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+        <p>El total debe ser igual al 100%</p>
+
+        <h4>Análisis de Valor Esperado</h4>
+        <p>Calcula el costo promedio ponderado por probabilidad para cada opción:</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="framework-step">
+        <h3><span class="step-number">4</span> Evaluación Basada en Criterios</h3>
+        <p>Evalúa las opciones contra tus criterios clave de decisión, más allá de solo consideraciones de costo.</p>
+
+        <div class="criteria-section">
+            <h4>Criterios de Decisión</h4>
+            <p>Primero, establece y pondera tus criterios según su importancia personal:</p>
+            <table>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Peso (1-10)</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Asequibilidad mensual</td>
+                    <td class="input-field"></td>
+                    <td>Qué tan bien la prima encaja en tu presupuesto mensual</td>
+                </tr>
+                <tr>
+                    <td>Costos de bolsillo</td>
+                    <td class="input-field"></td>
+                    <td>Costos esperados al usar el seguro</td>
+                </tr>
+                <tr>
+                    <td>Amplitud de cobertura</td>
+                    <td class="input-field"></td>
+                    <td>Extensión de la cobertura para tus necesidades específicas</td>
+                </tr>
+                <tr>
+                    <td>Protección financiera</td>
+                    <td class="input-field"></td>
+                    <td>Protección contra gastos catastróficos</td>
+                </tr>
+                <tr>
+                    <td>Calidad de proveedor/red</td>
+                    <td class="input-field"></td>
+                    <td>Acceso a proveedores/servicios preferidos</td>
+                </tr>
+                <tr>
+                    <td>Conveniencia</td>
+                    <td class="input-field"></td>
+                    <td>Facilidad de uso, proceso de reclamos, servicio al cliente</td>
+                </tr>
+                <tr>
+                    <td>Reputación de la compañía</td>
+                    <td class="input-field"></td>
+                    <td>Confiabilidad y credibilidad del asegurador</td>
+                </tr>
+                <tr>
+                    <td class="input-field">Criterio personalizado</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field">Criterio personalizado</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h4>Puntuación de Opciones</h4>
+        <p>Puntúa cada opción en cada criterio (1-10, siendo 10 el mejor):</p>
+        <table>
+            <tr>
+                <th>Criterio</th>
+                <th>Peso</th>
+                <th>Puntuación Opción 1</th>
+                <th>Puntuación Opción 2</th>
+                <th>Puntuación Opción 3</th>
+                <th>Puntuación Opción 4</th>
+            </tr>
+            <tr>
+                <td>Asequibilidad mensual</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Costos de bolsillo</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Amplitud de cobertura</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Protección financiera</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Calidad de proveedor/red</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Conveniencia</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Reputación de la compañía</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field">Criterio personalizado</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field">Criterio personalizado</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Ponderado</strong><br>(suma de peso × puntuación)</td>
+                <td></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td><strong>Clasificación</strong></td>
+                <td></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="framework-step">
+        <h3><span class="step-number">5</span> Decisión e Implementación</h3>
+        <p>Toma tu decisión final y crea un plan de implementación.</p>
+
+        <h4>Resumen de la Decisión</h4>
+        <p>Basándote en tu análisis, ¿qué opción has seleccionado?</p>
+        <div class="input-field" style="min-height: 40px;"></div>
+
+        <h4>Factores Clave de la Decisión</h4>
+        <p>Resume las principales razones de tu decisión:</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+
+        <h4>Riesgos o Preocupaciones Potenciales</h4>
+        <p>¿Qué aspectos de tu decisión todavía te preocupan?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+
+        <h4>Plan de Mitigación de Riesgos</h4>
+        <p>¿Cómo abordarás estas preocupaciones?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+
+        <h4>Pasos de Implementación</h4>
+        <p>Enumera los pasos específicos que tomarás para implementar tu decisión:</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+
+        <h4>Cronograma de Revisión de la Decisión</h4>
+        <p>¿Cuándo revisarás esta decisión para asegurarte de que aún satisface tus necesidades?</p>
+        <div class="input-field"></div>
+
+        <h4>Métricas de Éxito</h4>
+        <p>¿Cómo medirás si esta decisión de seguro fue exitosa?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="warning-box">
+        <h3>Notas de Personalización del Marco de Decisión</h3>
+        <p>Este marco puede personalizarse para diferentes tipos de decisiones de seguros:</p>
+        <ul>
+            <li><strong>Seguro de Salud:</strong> Enfatiza las redes de proveedores, cobertura de medicamentos recetados y utilización esperada de atención médica</li>
+            <li><strong>Seguro de Auto:</strong> Enfócate en límites de responsabilidad, deducibles y opciones de cobertura adicional</li>
+            <li><strong>Seguro de Vivienda/Inquilino:</strong> Considera el valor de reposición, cláusulas especiales para objetos de valor y cobertura contra desastres</li>
+            <li><strong>Seguro de Vida:</strong> Prioriza el monto de cobertura, término vs. permanente y estabilidad de la prima</li>
+        </ul>
+        <p>Ajusta las ponderaciones de los criterios y consideraciones específicas según el tipo de seguro y tus circunstancias personales.</p>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Capítulo 11.3: Gestión de Costos de Seguros | Plantilla de Marco de Decisión de Seguros</p>
+        <p>Página 1 de 1</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+</body>
+</html>

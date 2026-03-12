@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Escenarios de Políticas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+        }
+
+        .policy-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .policy-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .policy-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fiscal { color: #059669; }
+        .monetary { color: #7c3aed; }
+
+        .policy-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .policy-option:hover {
+            background: #e5e7eb;
+        }
+
+        .policy-option input {
+            margin-right: 10px;
+        }
+
+        .policy-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .option-name {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .option-desc {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .simulate-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 25px;
+        }
+
+        .simulate-btn:hover {
+            background: #4f46e5;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .outcome-card {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .outcome-card h4 {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .outcome-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .gdp-card { background: #dbeafe; color: #1e40af; }
+        .inflation-card { background: #fee2e2; color: #dc2626; }
+        .unemployment-card { background: #fef3c7; color: #92400e; }
+        .rates-card { background: #e0e7ff; color: #4338ca; }
+
+        .analysis-box {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 15px;
+        }
+
+        .analysis-box h3 {
+            font-size: 1rem;
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+
+        .analysis-box p {
+            color: #064e3b;
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .warning-box p {
+            color: #78350f;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .simulate-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .policy-controls {
+                grid-template-columns: 1fr;
+            }
+            .outcome-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador de Escenarios de Políticas</h1>
+            <p class="subtitle">Combina políticas fiscales y monetarias para ver los resultados económicos</p>
+        </header>
+
+        <div class="policy-controls">
+            <div class="policy-section">
+                <div class="policy-title fiscal">📊 Política Fiscal</div>
+                <div class="policy-option">
+                    <input type="radio" name="fiscal" value="expansionary" id="fiscal-exp">
+                    <label for="fiscal-exp">
+                        <div class="option-name">Expansiva</div>
+                        <div class="option-desc">↑ Gasto, ↓ Impuestos</div>
+                    </label>
+                </div>
+                <div class="policy-option">
+                    <input type="radio" name="fiscal" value="neutral" id="fiscal-neutral" checked>
+                    <label for="fiscal-neutral">
+                        <div class="option-name">Neutral</div>
+                        <div class="option-desc">Presupuesto equilibrado</div>
+                    </label>
+                </div>
+                <div class="policy-option">
+                    <input type="radio" name="fiscal" value="contractionary" id="fiscal-con">
+                    <label for="fiscal-con">
+                        <div class="option-name">Contractiva</div>
+                        <div class="option-desc">↓ Gasto, ↑ Impuestos</div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title monetary">🏦 Política Monetaria</div>
+                <div class="policy-option">
+                    <input type="radio" name="monetary" value="expansionary" id="monetary-exp">
+                    <label for="monetary-exp">
+                        <div class="option-name">Expansiva</div>
+                        <div class="option-desc">↓ Tasas de interés</div>
+                    </label>
+                </div>
+                <div class="policy-option">
+                    <input type="radio" name="monetary" value="neutral" id="monetary-neutral" checked>
+                    <label for="monetary-neutral">
+                        <div class="option-name">Neutral</div>
+                        <div class="option-desc">Tasas estables</div>
+                    </label>
+                </div>
+                <div class="policy-option">
+                    <input type="radio" name="monetary" value="contractionary" id="monetary-con">
+                    <label for="monetary-con">
+                        <div class="option-name">Contractiva</div>
+                        <div class="option-desc">↑ Tasas de interés</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button class="simulate-btn" onclick="simulate()">Simular Resultados Económicos</button>
+
+        <div class="results" id="results">
+            <div class="outcome-grid">
+                <div class="outcome-card gdp-card">
+                    <h4>Crecimiento del PIB</h4>
+                    <div class="outcome-value" id="gdpOutcome">2.0%</div>
+                </div>
+                <div class="outcome-card inflation-card">
+                    <h4>Inflación</h4>
+                    <div class="outcome-value" id="inflationOutcome">2.0%</div>
+                </div>
+                <div class="outcome-card unemployment-card">
+                    <h4>Desempleo</h4>
+                    <div class="outcome-value" id="unemploymentOutcome">4.0%</div>
+                </div>
+                <div class="outcome-card rates-card">
+                    <h4>Tasas de Interés</h4>
+                    <div class="outcome-value" id="ratesOutcome">3.0%</div>
+                </div>
+            </div>
+
+            <div class="analysis-box">
+                <h3>Análisis de Políticas</h3>
+                <p id="analysisText">Selecciona las políticas y simula para ver el análisis.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Riesgos Potenciales</h4>
+                <p id="warningText">Los riesgos aparecerán aquí después de la simulación.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Política Fiscal y Monetaria</p>
+        </footer>
+    </div>
+
+    <script>
+        function simulate() {
+            const fiscal = document.querySelector('input[name="fiscal"]:checked').value;
+            const monetary = document.querySelector('input[name="monetary"]:checked').value;
+
+            let gdp = 2.0, inflation = 2.0, unemployment = 4.0, rates = 3.0;
+            let analysis = '', warning = '';
+
+            // Calculate outcomes based on policy mix
+            if (fiscal === 'expansionary') {
+                gdp += 1.5;
+                inflation += 1.0;
+                unemployment -= 0.8;
+            } else if (fiscal === 'contractionary') {
+                gdp -= 1.0;
+                inflation -= 0.5;
+                unemployment += 0.5;
+            }
+
+            if (monetary === 'expansionary') {
+                gdp += 1.0;
+                inflation += 0.8;
+                unemployment -= 0.5;
+                rates -= 2.0;
+            } else if (monetary === 'contractionary') {
+                gdp -= 0.8;
+                inflation -= 1.0;
+                unemployment += 0.3;
+                rates += 2.0;
+            }
+
+            // Generate analysis
+            if (fiscal === 'expansionary' && monetary === 'expansionary') {
+                analysis = 'Doble estímulo: Ambas políticas impulsan el crecimiento. Este enfoque agresivo puede impulsar rápidamente la economía pero corre el riesgo de sobrecalentamiento y alta inflación.';
+                warning = 'Alto riesgo de inflación. Pueden formarse burbujas de activos. La deuda gubernamental aumenta rápidamente.';
+            } else if (fiscal === 'contractionary' && monetary === 'contractionary') {
+                analysis = 'Doble restricción: Ambas políticas combaten la inflación. Efectivo para reducir presiones de precios pero corre el riesgo de causar recesión y mayor desempleo.';
+                warning = 'Riesgo de recesión. Pérdidas de empleo probables. El gasto del consumidor disminuirá drásticamente.';
+            } else if (fiscal === 'expansionary' && monetary === 'contractionary') {
+                analysis = 'Conflicto de políticas: Estímulo fiscal vs. ajuste monetario. El gasto gubernamental compite con los aumentos de tasas de la Fed, creando señales mixtas y mayores costos de interés.';
+                warning = 'Los costos de endeudamiento del gobierno aumentan. La efectividad de la política se reduce. La incertidumbre económica aumenta.';
+            } else if (fiscal === 'contractionary' && monetary === 'expansionary') {
+                analysis = 'Enfoque equilibrado: Austeridad fiscal con apoyo monetario. Ayuda a controlar la deuda mientras mantiene el crecimiento. A menudo se usa para períodos de reducción de deuda.';
+                warning = 'Potencial de crecimiento limitado. Los servicios públicos pueden sufrir por los recortes de gasto.';
+            } else if (fiscal === 'neutral' && monetary === 'neutral') {
+                analysis = 'Statu quo: Sin intervención activa de políticas. La economía sigue su tendencia natural. Apropiado durante períodos estables.';
+                warning = 'Sin respuesta activa a problemas emergentes. Puede perder oportunidades de mejora.';
+            } else {
+                analysis = 'Intervención moderada: Una política activa, una neutral. Proporciona estímulo o restricción dirigida sin reaccionar exageradamente.';
+                warning = 'La efectividad depende de una evaluación económica precisa. Los resultados pueden ser modestos.';
+            }
+
+            document.getElementById('gdpOutcome').textContent = gdp.toFixed(1) + '%';
+            document.getElementById('inflationOutcome').textContent = Math.max(0, inflation).toFixed(1) + '%';
+            document.getElementById('unemploymentOutcome').textContent = Math.max(2, unemployment).toFixed(1) + '%';
+            document.getElementById('ratesOutcome').textContent = Math.max(0, rates).toFixed(1) + '%';
+            document.getElementById('analysisText').textContent = analysis;
+            document.getElementById('warningText').textContent = warning;
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

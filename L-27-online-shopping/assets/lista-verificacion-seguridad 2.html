@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Verificación de Seguridad para Compras en Línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #dc2626;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .checklist-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fef2f2;
+            border-radius: 6px;
+            border-left: 4px solid #dc2626;
+        }
+        .section h2 {
+            color: #dc2626;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .checklist-item {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+        .warning-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .warning-box h3 {
+            margin: 0 0 10px 0;
+            color: #f59e0b;
+        }
+        .tips-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .tips-box h3 {
+            margin: 0 0 10px 0;
+            color: #3b82f6;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .header {
+                background-color: #dc2626 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Lista de Verificación de Seguridad para Compras en Línea</h1>
+        <p>L-27: Compras en Línea - Día 2</p>
+    </div>
+
+    <div class="checklist-container">
+        <div class="warning-box">
+            <h3>⚠️ Importante</h3>
+            <p>Use esta lista de verificación cada vez que compre en línea para proteger su información personal y financiera. Marque cada elemento a medida que lo verifica.</p>
+        </div>
+
+        <div class="section">
+            <h2>Antes de Comprar</h2>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="research">
+                <label for="research"><strong>Investigar el sitio web</strong><br>
+                Busque reseñas del vendedor en línea. Verifique calificaciones en sitios como Better Business Bureau o Trustpilot.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="url">
+                <label for="url"><strong>Verificar la URL del sitio web</strong><br>
+                Asegúrese de que la URL comience con "https://" (la "s" significa "seguro"). Busque el ícono de candado en la barra de direcciones.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="spelling">
+                <label for="spelling"><strong>Revisar la ortografía de la URL</strong><br>
+                Los estafadores crean sitios falsos con URLs similares (ejemplo: "amazom.com" en lugar de "amazon.com").</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="contact">
+                <label for="contact"><strong>Verificar información de contacto</strong><br>
+                Los sitios legítimos tienen información de contacto clara: dirección física, número de teléfono y email de servicio al cliente.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="policy">
+                <label for="policy"><strong>Leer la política de privacidad</strong><br>
+                Verifique cómo el sitio web protege y usa su información personal.</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Durante la Compra</h2>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="network">
+                <label for="network"><strong>Usar una conexión segura</strong><br>
+                Nunca compre en línea usando WiFi público. Use su red doméstica segura o datos móviles.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="credit">
+                <label for="credit"><strong>Usar tarjeta de crédito en lugar de débito</strong><br>
+                Las tarjetas de crédito ofrecen mejor protección contra fraude que las tarjetas de débito.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="payment">
+                <label for="payment"><strong>Verificar el proceso de pago seguro</strong><br>
+                El sitio debe usar cifrado durante el pago. Busque indicadores de seguridad como el candado y "https".</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="info">
+                <label for="info"><strong>Proporcionar solo información necesaria</strong><br>
+                No comparta información innecesaria como su número de seguro social o fecha de nacimiento completa.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="price">
+                <label for="price"><strong>Verificar el precio total</strong><br>
+                Revise el costo total incluyendo envío, impuestos y cualquier cargo adicional antes de confirmar.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="screenshot">
+                <label for="screenshot"><strong>Guardar confirmación</strong><br>
+                Tome captura de pantalla o imprima la confirmación del pedido con el número de seguimiento.</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Después de Comprar</h2>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="email">
+                <label for="email"><strong>Verificar email de confirmación</strong><br>
+                Debería recibir un email de confirmación con detalles del pedido. Si no lo recibe, contacte al vendedor.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="monitor">
+                <label for="monitor"><strong>Monitorear su cuenta bancaria</strong><br>
+                Revise su estado de cuenta para verificar que el cargo sea correcto y no haya cargos no autorizados.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="delivery">
+                <label for="delivery"><strong>Rastrear su paquete</strong><br>
+                Use el número de seguimiento para monitorear la entrega de su paquete.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="inspect">
+                <label for="inspect"><strong>Inspeccionar el producto</strong><br>
+                Revise el producto inmediatamente al recibirlo. Reporte cualquier problema dentro del período de devolución.</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="report">
+                <label for="report"><strong>Reportar actividad sospechosa</strong><br>
+                Si sospecha fraude, contacte su banco/tarjeta de crédito y reporte a la FTC en ReportFraud.ftc.gov.</label>
+            </div>
+        </div>
+
+        <div class="tips-box">
+            <h3>💡 Señales de Advertencia de Sitios Web Fraudulentos</h3>
+            <ul>
+                <li>Precios demasiado buenos para ser verdad</li>
+                <li>Errores ortográficos o gramática pobre en el sitio web</li>
+                <li>Falta de información de contacto o política de devolución</li>
+                <li>Presión para comprar inmediatamente ("¡Oferta por tiempo limitado!")</li>
+                <li>Solicitud de pago por transferencia bancaria o tarjeta de regalo</li>
+                <li>Sin reseñas de clientes o solo reseñas falsas</li>
+                <li>Popups excesivos o anuncios sospechosos</li>
+            </ul>
+        </div>
+
+        <div class="tips-box" style="background-color: #d1fae5; border-left-color: #059669;">
+            <h3 style="color: #059669;">✓ Recursos Útiles</h3>
+            <ul>
+                <li><strong>Better Business Bureau:</strong> www.bbb.org - Verificar calificaciones de empresas</li>
+                <li><strong>FTC (Comisión Federal de Comercio):</strong> www.consumer.ftc.gov - Reportar fraude</li>
+                <li><strong>AnnualCreditReport.com:</strong> Revisar su reporte de crédito gratis</li>
+                <li><strong>Su banco/tarjeta de crédito:</strong> Reportar transacciones fraudulentas inmediatamente</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

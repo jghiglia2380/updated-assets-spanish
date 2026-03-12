@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Cronograma de Metas Financieras - Capítulo 1.4: Establecimiento de Metas Financieras</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Specific styles for this template */
+        .timeline-section {
+            margin-bottom: 30px;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .timeline-line {
+            position: relative;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            margin: 40px 0 60px 0;
+        }
+
+        .milestone-marker {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #4f46e5;
+            border-radius: 50%;
+            top: -8px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .milestone-label {
+            position: absolute;
+            text-align: center;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #374151;
+            white-space: nowrap;
+            top: -30px;
+        }
+
+        .milestone-details {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+        }
+
+        .milestone-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #4f46e5;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+
+        .example-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .timeline-container { page-break-inside: avoid; }
+            .milestone-details { page-break-inside: avoid; }
+            input, textarea {
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abra esta página en Chrome, Edge o Firefox. Haga clic en Imprimir (Ctrl+P o Cmd+P),
+        luego seleccione "Guardar como PDF" como destino. Haga clic en "Guardar" y elija dónde guardar el archivo en su computadora.</p>
+    </div>
+
+    <div class="header">
+        <h1>Plantilla de Cronograma de Metas Financieras</h1>
+        <p><strong>Capítulo 1.4:</strong> Establecimiento de Metas Financieras</p>
+    </div>
+
+    <div class="intro">
+        <p>Esta plantilla le ayudará a crear un cronograma visual para sus metas financieras, dividiéndolas en hitos específicos con acciones y revisiones. Un cronograma bien diseñado transforma una meta distante en una serie de pasos manejables.</p>
+    </div>
+
+    <div class="example-box">
+        <h3>Beneficios del Cronograma</h3>
+        <ul>
+            <li>Convierte metas grandes en objetivos de hitos manejables</li>
+            <li>Crea una hoja de ruta visual para su viaje financiero</li>
+            <li>Le ayuda a monitorear el progreso a intervalos regulares</li>
+            <li>Le permite celebrar logros más pequeños en el camino</li>
+            <li>Facilita el ajuste cuando las circunstancias cambian</li>
+        </ul>
+    </div>
+
+    <h2>Cronograma de Meta a Corto Plazo (1 Año o Menos)</h2>
+
+    <div class="goal-summary">
+        <p><strong>Meta SMART:</strong> <input type="text" style="width: 90%; padding: 8px;" placeholder="Ingrese aquí su declaración completa de meta SMART"></p>
+    </div>
+
+    <div class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-line">
+                <div class="milestone-marker" style="left: 0%;">1</div>
+                <div class="milestone-marker" style="left: 25%;">2</div>
+                <div class="milestone-marker" style="left: 50%;">3</div>
+                <div class="milestone-marker" style="left: 75%;">4</div>
+                <div class="milestone-marker" style="left: 100%;">5</div>
+
+                <div class="milestone-label" style="left: 0%;">Inicio</div>
+                <div class="milestone-label" style="left: 25%;">25% Completo</div>
+                <div class="milestone-label" style="left: 50%;">Punto Medio</div>
+                <div class="milestone-label" style="left: 75%;">75% Completo</div>
+                <div class="milestone-label" style="left: 100%;">Meta Lograda</div>
+            </div>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">1</span> Comenzando</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para comenzar su meta"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">2</span> Hito del 25%</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">3</span> Punto Medio</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">4</span> Hito del 75%</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">5</span> Logro de la Meta</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Final</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Finales</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones finales necesarias para lograr su meta"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Próxima Meta</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Qué meta financiera perseguirá a continuación?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración Final</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará el logro de su meta?"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <h3>Consejos para Cronograma a Corto Plazo</h3>
+        <ul>
+            <li>Para metas de ahorro, divida la cantidad total por el número de semanas/meses para crear sus hitos</li>
+            <li>Establezca plazos realistas basados en sus patrones de ingresos y gastos</li>
+            <li>Considere fechas de hitos que se alineen con cuando recibe ingresos</li>
+            <li>Cree recordatorios visuales de su cronograma para mantener la motivación</li>
+            <li>Elija recompensas que no socaven su progreso financiero</li>
+        </ul>
+    </div>
+
+    <h2>Cronograma de Meta a Largo Plazo (Más de 1 Año)</h2>
+
+    <div class="goal-summary">
+        <p><strong>Meta SMART:</strong> <input type="text" style="width: 90%; padding: 8px;" placeholder="Ingrese aquí su declaración completa de meta SMART"></p>
+    </div>
+
+    <div class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-line">
+                <div class="milestone-marker" style="left: 0%;">1</div>
+                <div class="milestone-marker" style="left: 25%;">2</div>
+                <div class="milestone-marker" style="left: 50%;">3</div>
+                <div class="milestone-marker" style="left: 75%;">4</div>
+                <div class="milestone-marker" style="left: 100%;">5</div>
+
+                <div class="milestone-label" style="left: 0%;">Inicio</div>
+                <div class="milestone-label" style="left: 25%;">25% Completo</div>
+                <div class="milestone-label" style="left: 50%;">Punto Medio</div>
+                <div class="milestone-label" style="left: 75%;">75% Completo</div>
+                <div class="milestone-label" style="left: 100%;">Meta Lograda</div>
+            </div>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">1</span> Comenzando</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para comenzar su meta"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">2</span> Hito del 25%</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">3</span> Punto Medio</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+                <tr>
+                    <th>Verificación de Ajuste</th>
+                    <td><textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="¿Se necesitan ajustes a su meta o cronograma original?"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">4</span> Hito del 75%</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Ahorrada/Progreso</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Necesarias</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones específicas necesarias para alcanzar este hito"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Método de Revisión</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo hará seguimiento del progreso?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración/Recompensa</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará este hito?"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="milestone-details">
+            <h3><span class="milestone-number">5</span> Logro de la Meta</h3>
+            <table>
+                <tr>
+                    <th>Fecha Objetivo</th>
+                    <td><input type="date" style="padding: 8px;"></td>
+                </tr>
+                <tr>
+                    <th>Cantidad Final</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <th>Acciones Finales</th>
+                    <td>
+                        <textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="Enumere las acciones finales necesarias para lograr su meta"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Próxima Meta</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Qué meta financiera perseguirá a continuación?"></td>
+                </tr>
+                <tr>
+                    <th>Celebración Final</th>
+                    <td><input type="text" style="width: 90%; padding: 8px;" placeholder="¿Cómo celebrará el logro de su meta?"></td>
+                </tr>
+                <tr>
+                    <th>Lecciones Aprendidas</th>
+                    <td><textarea style="width: 90%; padding: 8px; min-height: 60px;" placeholder="¿Qué aprendió de este viaje de meta a largo plazo?"></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <h3>Consejos para Cronograma a Largo Plazo</h3>
+        <ul>
+            <li>Divida su meta a largo plazo en puntos de control anuales</li>
+            <li>Considere cómo sus ingresos podrían cambiar durante este cronograma</li>
+            <li>Incluya factores económicos como la inflación en sus cálculos</li>
+            <li>Programe revisiones regulares para ajustar según circunstancias cambiantes</li>
+            <li>Conéctese con su yo futuro escribiendo una nota sobre por qué esta meta importa</li>
+            <li>Para metas de varios años, cree una forma visual de ver el progreso (gráfico, barra de progreso, etc.)</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h3>Ejemplo de Cronograma</h3>
+        <p><strong>Meta:</strong> Ahorrar $5,000 para un auto usado en 24 meses ahorrando $208.34 mensuales.</p>
+        <ul>
+            <li><strong>Hito 1 (Inicio):</strong> Abrir cuenta de ahorros dedicada, automatizar transferencia mensual de $208, reducir suscripciones de streaming para ahorrar $50/mes</li>
+            <li><strong>Hito 2 (25% - $1,250):</strong> Investigar modelos y costos de autos, aumentar horas en trabajo de medio tiempo</li>
+            <li><strong>Hito 3 (50% - $2,500):</strong> Revisar costos de seguro, ajustar presupuesto si es necesario, comenzar a buscar autos disponibles</li>
+            <li><strong>Hito 4 (75% - $3,750):</strong> Crear presupuesto detallado de auto (gasolina, seguro, mantenimiento), obtener licencia de conducir si es necesario</li>
+            <li><strong>Hito 5 (100% - $5,000):</strong> Comprar auto, crear plan de ahorro continuo para mantenimiento</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.4: Establecimiento de Metas Financieras</p>
+    </div>
+</body>
+</html>

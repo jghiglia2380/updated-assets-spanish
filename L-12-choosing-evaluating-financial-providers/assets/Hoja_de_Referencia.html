@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoja de Referencia para Comparar Servicios Financieros | PFL Academy</title>
+<style>
+:root {
+    --primary: #6366f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1f2937;
+    background: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.print-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.print-btn:hover {
+    background: #4f46e5;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.section ul {
+    list-style-position: inside;
+    margin-left: 10px;
+}
+
+.section li {
+    margin-bottom: 6px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.highlight-box {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.key-points {
+    background: #eff6ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.key-points h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.key-points ul {
+    list-style-position: inside;
+}
+
+.key-points li {
+    margin-bottom: 6px;
+}
+
+/* Fee Types Table */
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.fee-table th,
+.fee-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+}
+
+.fee-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.fee-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* Checklist Styling */
+.checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--primary);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Comparison Tips */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.tip-card {
+    background: #f0f9ff;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.tip-card strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+.tip-card span {
+    font-size: 0.8rem;
+}
+
+@media print {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .print-btn {
+        display: none;
+    }
+
+    .grid {
+        gap: 10px;
+    }
+
+    .section {
+        break-inside: avoid;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checklist {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Hoja de Referencia para Comparar Servicios Financieros</h1>
+        <p class="subtitle">Criterios Clave para Evaluar y Comparar Proveedores de Servicios Financieros</p>
+    </header>
+
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+    <div class="key-points">
+        <h3>Criterios Clave de Comparacion</h3>
+        <ul>
+            <li><strong>Tarifas:</strong> Mantenimiento mensual, cajeros automaticos, sobregiros, transferencias y otras tarifas de servicio</li>
+            <li><strong>Tasas de Interes:</strong> APY en ahorros, cuentas corrientes, CDs y tasas en prestamos</li>
+            <li><strong>Accesibilidad:</strong> Ubicaciones de sucursales, red de cajeros automaticos, capacidades en linea/moviles</li>
+            <li><strong>Servicios Ofrecidos:</strong> Gama completa de productos que satisfagan sus necesidades actuales y futuras</li>
+            <li><strong>Servicio al Cliente:</strong> Horarios de disponibilidad, capacidad de respuesta y calidad del soporte</li>
+            <li><strong>Seguridad:</strong> Seguro FDIC/NCUA, proteccion contra fraude y funciones de seguridad digital</li>
+        </ul>
+    </div>
+
+    <div class="grid">
+        <div class="section full-width">
+            <div class="section-title">Tipos de Tarifas Explicados</div>
+            <table class="fee-table">
+                <tr>
+                    <th>Tipo de Tarifa</th>
+                    <th>Descripcion</th>
+                    <th>Rango Tipico</th>
+                    <th>Como Evitarla</th>
+                </tr>
+                <tr>
+                    <td><strong>Mantenimiento Mensual</strong></td>
+                    <td>Tarifa regular por mantenimiento de cuenta</td>
+                    <td>$0 - $15/mes</td>
+                    <td>Deposito directo, saldo minimo o elegir cuentas sin tarifa</td>
+                </tr>
+                <tr>
+                    <td><strong>Tarifa de Cajero Automatico</strong></td>
+                    <td>Uso de cajeros fuera de la red</td>
+                    <td>$2.50 - $5 por uso</td>
+                    <td>Usar cajeros de la red o cuentas con reembolso de cajeros</td>
+                </tr>
+                <tr>
+                    <td><strong>Tarifa de Sobregiro</strong></td>
+                    <td>Gastar mas del saldo disponible</td>
+                    <td>$25 - $35 por ocurrencia</td>
+                    <td>Vincular cuenta de ahorros, cancelar cobertura de sobregiro, configurar alertas</td>
+                </tr>
+                <tr>
+                    <td><strong>Transferencia Bancaria</strong></td>
+                    <td>Enviar dinero electronicamente</td>
+                    <td>$15 - $50 por transferencia</td>
+                    <td>Usar alternativas gratuitas como Zelle, transferencias ACH</td>
+                </tr>
+                <tr>
+                    <td><strong>Transaccion Internacional</strong></td>
+                    <td>Compras en moneda extranjera</td>
+                    <td>1% - 3% de la compra</td>
+                    <td>Usar tarjetas sin tarifas de transaccion internacional</td>
+                </tr>
+                <tr>
+                    <td><strong>Estado de Cuenta en Papel</strong></td>
+                    <td>Recibir estados de cuenta por correo</td>
+                    <td>$2 - $5/mes</td>
+                    <td>Inscribirse en estados de cuenta electronicos</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Lista de Verificacion de Caracteristicas del Servicio</div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Deposito de cheques movil</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Pago de facturas en linea</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Transferencias Zelle/P2P</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Controles de tarjeta (bloquear/desbloquear)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Alertas en tiempo real</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Herramientas de presupuesto</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Transferencias externas</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Opciones de cuenta conjunta</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Funciones de metas de ahorro</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Soporte al cliente 24/7</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Autenticacion de dos factores</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Recompensas de tarjeta de debito</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guia de Comparacion de APY</div>
+            <ul>
+                <li><strong>Bancos Tradicionales:</strong> 0.01% - 0.10% APY</li>
+                <li><strong>Cooperativas de Credito:</strong> 0.10% - 0.50% APY</li>
+                <li><strong>Bancos en Linea:</strong> 3.00% - 5.00% APY</li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.85rem;"><strong>Ejemplo de Impacto:</strong> Con $5,000 en ahorros durante 1 ano:</p>
+            <ul style="font-size: 0.85rem;">
+                <li>Al 0.05% = $2.50 ganados</li>
+                <li>Al 0.25% = $12.50 ganados</li>
+                <li>Al 4.00% = $200 ganados</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Que Buscar</div>
+            <ul>
+                <li><strong>Costo Total:</strong> Sume TODAS las tarifas que probablemente pagara</li>
+                <li><strong>Conveniencia:</strong> Acceso cuando y donde lo necesite</li>
+                <li><strong>Crecimiento:</strong> Tasas de interes que ayuden a crecer su dinero</li>
+                <li><strong>Flexibilidad:</strong> Facilidad para hacer cambios si es necesario</li>
+                <li><strong>Necesidades Futuras:</strong> Productos que pueda necesitar mas adelante</li>
+                <li><strong>Reputacion:</strong> Resenas y calificaciones de satisfaccion</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Senales de Alerta al Comparar</div>
+            <ul>
+                <li>Tarifas ocultas no claramente divulgadas</li>
+                <li>Requisitos complejos para evitar tarifas</li>
+                <li>Malas resenas de la aplicacion movil</li>
+                <li>Horarios limitados de servicio al cliente</li>
+                <li>Requisitos excesivos de saldo minimo</li>
+                <li>Tiempos de espera largos para transferencias</li>
+                <li>Falta de seguro FDIC/NCUA</li>
+                <li>Sin politicas de proteccion contra fraude</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section full-width" style="margin-bottom: 20px;">
+        <div class="section-title">Consejos Inteligentes de Comparacion</div>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <strong>Calcule el Costo Real</strong>
+                <span>No compare solo las tarifas mensuales - sume el uso de cajeros, sobregiros y otros cargos que realmente incurrira</span>
+            </div>
+            <div class="tip-card">
+                <strong>Considere Sus Habitos</strong>
+                <span>Una red gratuita de cajeros importa mas si usa efectivo frecuentemente; un APY alto importa mas con saldos mayores</span>
+            </div>
+            <div class="tip-card">
+                <strong>Piense a Largo Plazo</strong>
+                <span>Considere necesidades futuras como prestamos, hipotecas o servicios de inversion - las relaciones pueden proporcionar mejores tasas</span>
+            </div>
+            <div class="tip-card">
+                <strong>Lea la Letra Pequena</strong>
+                <span>Las tasas promocionales pueden expirar; las exenciones de tarifas pueden tener requisitos complejos</span>
+            </div>
+            <div class="tip-card">
+                <strong>Pruebe la Aplicacion</strong>
+                <span>Descargue y explore la aplicacion movil antes de comprometerse - la usara frecuentemente</span>
+            </div>
+            <div class="tip-card">
+                <strong>Multiples Cuentas Esta Bien</strong>
+                <span>Usar diferentes proveedores para diferentes necesidades (corriente vs. ahorros) es una estrategia inteligente</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <strong>Recuerde:</strong> El "mejor" proveedor de servicios financieros es el que mejor se adapta a SUS necesidades, habitos y metas financieras especificas. Un proveedor perfecto para una persona puede no ser ideal para otra. En {{STATE_NAME}}, asegurese de comparar cooperativas de credito locales y bancos comunitarios junto con las opciones nacionales - a menudo ofrecen tasas competitivas y servicio personalizado. Tomese el tiempo para investigar a fondo antes de tomar su decision, y no dude en cambiar si sus necesidades cambian.
+    </div>
+</div>
+</body>
+</html>

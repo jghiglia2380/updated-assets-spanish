@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Investigación sobre Derechos del Consumidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .worksheet-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            border-left: 4px solid #4caf50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+        }
+        .section-title {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: -20px -20px 15px -20px;
+            font-weight: bold;
+        }
+        .research-field {
+            margin: 15px 0;
+        }
+        .research-field label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .research-field textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .research-field input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .research-field textarea:focus,
+        .research-field input[type="text"]:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .hint {
+            font-size: 12px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoja de Trabajo de Investigación</h1>
+    <h2>Derechos del Consumidor y Recursos</h2>
+
+    <div class="worksheet-container">
+        <div class="instructions">
+            <strong>Instrucciones:</strong> Use recursos en línea confiables para investigar información adicional sobre protecciones de crédito al consumidor. Complete cada sección con notas detalladas de su investigación.
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sección 1: Presentación de Quejas ante Agencias Reguladoras</div>
+
+            <div class="research-field">
+                <label>¿Cuáles son las principales agencias donde los consumidores pueden presentar quejas sobre violaciones de crédito?</label>
+                <textarea id="agencies"></textarea>
+                <div class="hint">Pista: Investigue sobre CFPB, FTC y otras agencias relevantes</div>
+            </div>
+
+            <div class="research-field">
+                <label>¿Cuál es el proceso para presentar una queja ante el CFPB (Consumer Financial Protection Bureau)?</label>
+                <textarea id="cfpb-process"></textarea>
+            </div>
+
+            <div class="research-field">
+                <label>¿Qué información necesita un consumidor para presentar una queja efectiva?</label>
+                <textarea id="required-info"></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sección 2: Recursos para Consumidores sobre Violaciones de Derechos</div>
+
+            <div class="research-field">
+                <label>Sitios web oficiales del gobierno que proporcionan información sobre derechos del consumidor:</label>
+                <textarea id="govt-websites"></textarea>
+                <div class="hint">Incluya URLs y una breve descripción de cada sitio</div>
+            </div>
+
+            <div class="research-field">
+                <label>Organizaciones sin fines de lucro que ayudan a consumidores con problemas de crédito:</label>
+                <textarea id="nonprofits"></textarea>
+            </div>
+
+            <div class="research-field">
+                <label>Recursos de asistencia legal gratuita o de bajo costo disponibles:</label>
+                <textarea id="legal-aid"></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sección 3: Actualizaciones Recientes a las Leyes de Crédito al Consumidor</div>
+
+            <div class="research-field">
+                <label>Cambios o actualizaciones recientes a las leyes de crédito al consumidor (últimos 3 años):</label>
+                <textarea id="recent-updates"></textarea>
+                <div class="hint">Busque noticias sobre nuevas regulaciones o modificaciones a leyes existentes</div>
+            </div>
+
+            <div class="research-field">
+                <label>¿Cómo afectan estos cambios a los consumidores?</label>
+                <textarea id="impact"></textarea>
+            </div>
+
+            <div class="research-field">
+                <label>Legislación propuesta que podría cambiar las protecciones al consumidor:</label>
+                <textarea id="proposed-legislation"></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sección 4: Información de Contacto de Recursos Clave</div>
+
+            <div class="research-field">
+                <label>Consumer Financial Protection Bureau (CFPB):</label>
+                <input type="text" id="cfpb-phone" placeholder="Teléfono">
+                <input type="text" id="cfpb-website" placeholder="Sitio web" style="margin-top: 10px;">
+            </div>
+
+            <div class="research-field">
+                <label>Federal Trade Commission (FTC):</label>
+                <input type="text" id="ftc-phone" placeholder="Teléfono">
+                <input type="text" id="ftc-website" placeholder="Sitio web" style="margin-top: 10px;">
+            </div>
+
+            <div class="research-field">
+                <label>Oficina del Fiscal General de su Estado:</label>
+                <input type="text" id="ag-phone" placeholder="Teléfono">
+                <input type="text" id="ag-website" placeholder="Sitio web" style="margin-top: 10px;">
+            </div>
+
+            <div class="research-field">
+                <label>Recurso local o comunitario adicional:</label>
+                <input type="text" id="local-resource" placeholder="Nombre de la organización">
+                <input type="text" id="local-phone" placeholder="Teléfono" style="margin-top: 10px;">
+                <input type="text" id="local-website" placeholder="Sitio web" style="margin-top: 10px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save functionality
+        const fields = [
+            'agencies', 'cfpb-process', 'required-info',
+            'govt-websites', 'nonprofits', 'legal-aid',
+            'recent-updates', 'impact', 'proposed-legislation',
+            'cfpb-phone', 'cfpb-website', 'ftc-phone', 'ftc-website',
+            'ag-phone', 'ag-website', 'local-resource', 'local-phone', 'local-website'
+        ];
+
+        // Save to localStorage
+        function autoSave() {
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    localStorage.setItem('research_' + field, element.value);
+                }
+            });
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            fields.forEach(field => {
+                const saved = localStorage.getItem('research_' + field);
+                if (saved) {
+                    const element = document.getElementById(field);
+                    if (element) {
+                        element.value = saved;
+                    }
+                }
+            });
+        });
+
+        // Add event listeners for auto-save
+        fields.forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', autoSave);
+            }
+        });
+    </script>
+</body>
+</html>

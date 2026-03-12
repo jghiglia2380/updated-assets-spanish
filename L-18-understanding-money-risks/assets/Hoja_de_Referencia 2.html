@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Gestion de Riesgos - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; font-size: 12px; line-height: 1.5; color: #1f2937; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 3px solid #6366f1; }
+        .header h1 { font-size: 24px; color: #6366f1; margin-bottom: 4px; }
+        .header p { color: #6b7280; font-size: 12px; }
+        .risk-types-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 11px; }
+        .risk-types-table th { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 10px 8px; text-align: left; font-weight: 600; }
+        .risk-types-table td { padding: 8px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+        .risk-types-table tr:hover { background-color: #f9fafb; }
+        .risk-types-table td:first-child { font-weight: 600; background: #f9fafb; width: 18%; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .three-column { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+        .concept-box { background: #f9fafb; padding: 12px; border-radius: 6px; border-left: 4px solid #6366f1; }
+        .concept-box h3 { font-size: 14px; font-weight: 700; color: #6366f1; margin-bottom: 8px; }
+        .concept-box ul { margin-left: 16px; margin-bottom: 8px; }
+        .concept-box li { margin-bottom: 3px; }
+        .profile-section { background: #eff6ff; padding: 12px; border-radius: 6px; margin-bottom: 16px; }
+        .profile-section h3 { font-size: 14px; font-weight: 600; color: #3b82f6; margin-bottom: 8px; }
+        .profile-card { background: white; padding: 10px; border-radius: 4px; margin-bottom: 8px; }
+        .profile-card:last-child { margin-bottom: 0; }
+        .profile-card h4 { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+        .profile-card.conservative h4 { color: #10b981; }
+        .profile-card.moderate h4 { color: #f59e0b; }
+        .profile-card.aggressive h4 { color: #ef4444; }
+        .profile-card p { font-size: 10px; color: #4b5563; margin-bottom: 4px; }
+        .allocation-bar { display: flex; height: 12px; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+        .allocation-stocks { background: #6366f1; }
+        .allocation-bonds { background: #3b82f6; }
+        .allocation-cash { background: #10b981; }
+        .diversification-section { background: #ecfdf5; padding: 12px; border-radius: 6px; border-left: 4px solid #10b981; margin-bottom: 16px; }
+        .diversification-section h3 { font-size: 14px; font-weight: 600; color: #059669; margin-bottom: 8px; }
+        .diversification-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .diversification-item { background: white; padding: 8px; border-radius: 4px; }
+        .diversification-item h4 { font-size: 11px; font-weight: 600; color: #059669; margin-bottom: 4px; }
+        .diversification-item ul { margin-left: 12px; font-size: 10px; }
+        .fraud-warning { background: #fef2f2; padding: 12px; border-radius: 6px; border-left: 4px solid #ef4444; margin-bottom: 16px; }
+        .fraud-warning h3 { font-size: 14px; font-weight: 600; color: #dc2626; margin-bottom: 8px; }
+        .fraud-warning ul { margin-left: 16px; }
+        .fraud-warning li { margin-bottom: 4px; }
+        .formulas-section { background: #fffbeb; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-bottom: 16px; }
+        .formulas-section h3 { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 8px; }
+        .formula-item { background: white; padding: 8px; border-radius: 4px; margin-bottom: 8px; }
+        .formula-item:last-child { margin-bottom: 0; }
+        .formula-item h4 { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+        .formula-item code { font-family: monospace; background: #fef3c7; padding: 2px 6px; border-radius: 3px; font-size: 10px; }
+        .formula-item p { font-size: 10px; color: #4b5563; margin-top: 4px; }
+        .key-takeaway { background: #eff6ff; padding: 12px; border-radius: 6px; border-left: 4px solid #3b82f6; }
+        .key-takeaway h3 { font-size: 12px; font-weight: 600; color: #3b82f6; margin-bottom: 6px; }
+        .key-takeaway p { font-size: 11px; }
+        .footer { text-align: center; margin-top: 20px; padding-top: 12px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 10px; }
+        @media print { body { padding: 10px; font-size: 10px; } .concept-box, .profile-section, .diversification-section, .fraud-warning, .formulas-section { page-break-inside: avoid; } .risk-types-table { font-size: 9px; } }
+        @media (max-width: 768px) { .two-column, .three-column, .diversification-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Referencia de Gestion de Riesgos</h1>
+        <p>Referencia rapida para comprender y gestionar riesgos financieros</p>
+    </div>
+
+    <table class="risk-types-table">
+        <thead>
+            <tr><th>Tipo de Riesgo</th><th>Definicion</th><th>Ejemplo</th><th>Estrategia de Gestion</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Riesgo de Mercado</td><td>Posibilidad de perdidas debido a factores que afectan los mercados financieros generales (recesiones, eventos politicos, crisis globales)</td><td>El portafolio de acciones cae 20% durante una recesion economica</td><td>Diversificacion, horizonte temporal largo, evitar venta por panico</td></tr>
+            <tr><td>Riesgo Financiero</td><td>Riesgo relacionado con la capacidad de una empresa para gestionar deuda y cumplir obligaciones financieras</td><td>Una empresa quiebra y los tenedores de bonos pierden su inversion</td><td>Investigar finanzas de la empresa, calificaciones crediticias, evitar sobreconcentracion</td></tr>
+            <tr><td>Riesgo de Inflacion</td><td>Posibilidad de que el poder adquisitivo disminuya a medida que los precios suben con el tiempo</td><td>$10,000 en ahorros pierde 26% de poder adquisitivo en 10 anos con 3% de inflacion</td><td>Incluir inversiones de crecimiento, considerar I-bonds, TIPS</td></tr>
+            <tr><td>Riesgo de Fraude</td><td>Peligro de perder dinero debido a estafas, enganos o esquemas fraudulentos</td><td>Esquema Ponzi promete 20% de rendimientos garantizados "sin riesgo"</td><td>Diligencia debida, verificar credenciales, evitar ofertas demasiado buenas para ser verdad</td></tr>
+            <tr><td>Riesgo de Liquidez</td><td>Riesgo de no poder vender una inversion rapidamente sin perdida significativa</td><td>Bienes raices no pueden venderse rapidamente durante una caida del mercado</td><td>Mantener fondo de emergencia, equilibrar inversiones liquidas e iliquidas</td></tr>
+            <tr><td>Riesgo de Tasa de Interes</td><td>Riesgo de que los valores de los bonos disminuyan cuando las tasas de interes suben</td><td>Los valores de los bonos caen cuando la Reserva Federal aumenta las tasas</td><td>Escalera de bonos, duraciones mas cortas, renta fija diversificada</td></tr>
+        </tbody>
+    </table>
+
+    <div class="profile-section">
+        <h3>Perfiles de Tolerancia al Riesgo</h3>
+        <div class="profile-card conservative">
+            <h4>Conservador (Baja Tolerancia al Riesgo)</h4>
+            <p><strong>Caracteristicas:</strong> Horizonte temporal corto, baja estabilidad de ingresos, altas necesidades de liquidez, incomodo con la volatilidad</p>
+            <p><strong>Asignacion Sugerida:</strong> 20% Acciones / 50% Bonos / 30% Efectivo</p>
+            <div class="allocation-bar">
+                <div class="allocation-stocks" style="width: 20%"></div>
+                <div class="allocation-bonds" style="width: 50%"></div>
+                <div class="allocation-cash" style="width: 30%"></div>
+            </div>
+        </div>
+        <div class="profile-card moderate">
+            <h4>Moderado (Tolerancia Media al Riesgo)</h4>
+            <p><strong>Caracteristicas:</strong> Horizonte temporal medio (5-10 anos), ingresos estables, metas equilibradas, puede tolerar alguna fluctuacion</p>
+            <p><strong>Asignacion Sugerida:</strong> 50% Acciones / 35% Bonos / 15% Efectivo</p>
+            <div class="allocation-bar">
+                <div class="allocation-stocks" style="width: 50%"></div>
+                <div class="allocation-bonds" style="width: 35%"></div>
+                <div class="allocation-cash" style="width: 15%"></div>
+            </div>
+        </div>
+        <div class="profile-card aggressive">
+            <h4>Agresivo (Alta Tolerancia al Riesgo)</h4>
+            <p><strong>Caracteristicas:</strong> Horizonte temporal largo (10+ anos), alta estabilidad de ingresos, bajas necesidades de liquidez, comodo con la volatilidad</p>
+            <p><strong>Asignacion Sugerida:</strong> 80% Acciones / 15% Bonos / 5% Efectivo</p>
+            <div class="allocation-bar">
+                <div class="allocation-stocks" style="width: 80%"></div>
+                <div class="allocation-bonds" style="width: 15%"></div>
+                <div class="allocation-cash" style="width: 5%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="concept-box">
+            <h3>Clases de Activos por Nivel de Riesgo</h3>
+            <ul>
+                <li><strong>Bajo Riesgo:</strong> Cuentas de ahorro, CDs, bonos del Tesoro, fondos del mercado monetario</li>
+                <li><strong>Riesgo Moderado:</strong> Bonos de grado de inversion, fondos balanceados, acciones de primera clase, REITs</li>
+                <li><strong>Alto Riesgo:</strong> Acciones de crecimiento, acciones de pequena capitalizacion, mercados emergentes, fondos sectoriales</li>
+                <li><strong>Muy Alto Riesgo:</strong> Opciones, futuros, criptomonedas, acciones de centavos</li>
+            </ul>
+        </div>
+        <div class="concept-box">
+            <h3>Relacion Riesgo-Rendimiento</h3>
+            <ul>
+                <li>Mayor potencial de rendimiento = Mayor riesgo</li>
+                <li>Menor riesgo = Menor potencial de rendimiento</li>
+                <li>Ninguna inversion esta completamente libre de riesgo</li>
+                <li>El horizonte temporal afecta el nivel de riesgo apropiado</li>
+                <li>La diversificacion puede reducir el riesgo sin reducir proporcionalmente los rendimientos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="diversification-section">
+        <h3>Estrategias de Diversificacion</h3>
+        <div class="diversification-grid">
+            <div class="diversification-item">
+                <h4>Diversificacion por Clase de Activo</h4>
+                <ul>
+                    <li>Acciones para crecimiento</li>
+                    <li>Bonos para ingresos/estabilidad</li>
+                    <li>Efectivo para liquidez</li>
+                    <li>Bienes raices como cobertura contra inflacion</li>
+                </ul>
+            </div>
+            <div class="diversification-item">
+                <h4>Diversificacion por Sector</h4>
+                <ul>
+                    <li>Tecnologia</li>
+                    <li>Salud</li>
+                    <li>Bienes de consumo</li>
+                    <li>Servicios financieros</li>
+                    <li>Energia/Servicios publicos</li>
+                </ul>
+            </div>
+            <div class="diversification-item">
+                <h4>Diversificacion Geografica</h4>
+                <ul>
+                    <li>Acciones nacionales de EE.UU.</li>
+                    <li>Mercados desarrollados internacionales</li>
+                    <li>Mercados emergentes</li>
+                    <li>Bonos globales</li>
+                </ul>
+            </div>
+            <div class="diversification-item">
+                <h4>Diversificacion Temporal</h4>
+                <ul>
+                    <li>Promedio de costo en dolares</li>
+                    <li>Contribuciones regulares</li>
+                    <li>Escalera de CDs</li>
+                    <li>Escalera de bonos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="fraud-warning">
+        <h3>Senales de Alerta: Signos de Advertencia de Fraude de Inversiones</h3>
+        <ul>
+            <li><strong>Rendimientos altos garantizados sin riesgo</strong> - Todas las inversiones conllevan algun riesgo</li>
+            <li><strong>Presion para invertir inmediatamente</strong> - "Oferta por tiempo limitado" o "Actue ahora"</li>
+            <li><strong>Inversiones no registradas</strong> - Verifique en SEC.gov o FINRA BrokerCheck</li>
+            <li><strong>Vendedores sin licencia</strong> - Siempre verifique credenciales</li>
+            <li><strong>No pueden explicar la estrategia claramente</strong> - Si suena demasiado complejo, sea cauteloso</li>
+            <li><strong>Documentacion faltante</strong> - Las inversiones legitimas proporcionan prospectos y divulgaciones</li>
+            <li><strong>Dificultad para recibir pagos</strong> - Problemas para retirar dinero es una senal de alerta importante</li>
+        </ul>
+    </div>
+
+    <div class="formulas-section">
+        <h3>Formulas y Conceptos Clave</h3>
+        <div class="formula-item">
+            <h4>Regla del 72 (Tiempo de Duplicacion)</h4>
+            <code>Anos para Duplicar = 72 / % de Rendimiento Anual</code>
+            <p>Ejemplo: Con 8% de rendimiento, el dinero se duplica en 72/8 = 9 anos</p>
+        </div>
+        <div class="formula-item">
+            <h4>Impacto de la Inflacion</h4>
+            <code>Rendimiento Real = Rendimiento Nominal - Tasa de Inflacion</code>
+            <p>Ejemplo: 5% de rendimiento - 3% de inflacion = 2% de rendimiento real</p>
+        </div>
+        <div class="formula-item">
+            <h4>Regla de Asignacion Basada en Edad</h4>
+            <code>% de Acciones = 110 - Su Edad (o 100 - Edad para conservador)</code>
+            <p>Ejemplo: Edad 25 = 85% acciones, 15% bonos; Edad 60 = 50% acciones, 50% bonos</p>
+        </div>
+        <div class="formula-item">
+            <h4>Objetivo del Fondo de Emergencia</h4>
+            <code>Fondo de Emergencia = Gastos Mensuales x 3 a 6 meses</code>
+            <p>Mayor inestabilidad laboral o preocupaciones de salud = objetivo de 6 meses</p>
+        </div>
+    </div>
+
+    <div class="three-column">
+        <div class="concept-box">
+            <h3>Antes de Invertir</h3>
+            <ul>
+                <li>Construir fondo de emergencia primero</li>
+                <li>Pagar deudas de alto interes</li>
+                <li>Definir sus metas y plazo</li>
+                <li>Evaluar su tolerancia al riesgo</li>
+                <li>Investigar opciones de inversion</li>
+            </ul>
+        </div>
+        <div class="concept-box">
+            <h3>Durante la Inversion</h3>
+            <ul>
+                <li>Diversificar entre clases de activos</li>
+                <li>Invertir regularmente (promedio de costo en dolares)</li>
+                <li>Rebalancear periodicamente</li>
+                <li>Evitar decisiones emocionales</li>
+                <li>Mantener costos bajos</li>
+            </ul>
+        </div>
+        <div class="concept-box">
+            <h3>Gestion de Riesgos</h3>
+            <ul>
+                <li>Nunca invertir lo que no puede permitirse perder</li>
+                <li>Hacer coincidir riesgo con horizonte temporal</li>
+                <li>Revisar y ajustar a medida que cambia la vida</li>
+                <li>Mantenerse informado pero evitar reaccionar exageradamente</li>
+                <li>Buscar asesoramiento profesional cuando sea necesario</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="key-takeaway">
+        <h3>Punto Clave</h3>
+        <p>El riesgo es inherente a todas las decisiones financieras, pero puede gestionarse eficazmente a traves de la educacion, la diversificacion y la autoevaluacion honesta. Comprender su tolerancia personal al riesgo y hacerla coincidir con estrategias de inversion apropiadas le permite perseguir sus metas financieras mientras mantiene tranquilidad mental. Recuerde: el objetivo no es eliminar el riesgo por completo, sino asumir riesgos apropiados que se alineen con sus metas, plazo y nivel de comodidad. Comience con un solido fondo de emergencia, diversifique sus inversiones, sea paciente durante la volatilidad del mercado y ajuste su estrategia a medida que cambien sus circunstancias de vida.</p>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy - Capitulo 5.5: Comprendiendo los Riesgos Monetarios</p>
+        <p>Esta hoja de referencia es solo para fines educativos. Consulte a un profesional financiero para asesoramiento personalizado.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Comparación de Préstamos - Capítulo 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .worksheet-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .conclusion {
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .worksheet-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Hoja de Trabajo de Comparación de Préstamos</h1>
+
+        <div class="note">
+            <p><strong>Instrucciones:</strong> Use esta hoja de trabajo para comparar diferentes opciones de préstamos. Complete los detalles de cada préstamo que esté considerando, luego calcule y compare los costos totales para tomar una decisión informada.</p>
+        </div>
+
+        <h2>Tabla de Comparación de Préstamos</h2>
+
+        <table>
+            <tr>
+                <th>Detalles del Préstamo</th>
+                <th>Opción 1</th>
+                <th>Opción 2</th>
+                <th>Opción 3</th>
+            </tr>
+            <tr>
+                <td>Tipo de Préstamo</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Monto del Préstamo (Principal)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Tasa de Interés (TAE)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Plazo del Préstamo (meses/años)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Pago Mensual</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Interés Total Pagado</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Costo Total (Principal + Interés)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Cargos Adicionales</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Costo Total Real (Principal + Interés + Cargos)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Es Garantizado o No Garantizado?</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Garantía Requerida (si aplica)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Penalidad por Pago Anticipado?</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h2>Factores Adicionales a Considerar</h2>
+
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Opción 1</th>
+                <th>Opción 2</th>
+                <th>Opción 3</th>
+            </tr>
+            <tr>
+                <td>Requisito de Puntaje de Crédito</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Impacto en el Presupuesto Mensual</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Flexibilidad de los Términos de Pago</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Calidad del Servicio al Cliente</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Reseñas/Reputación del Prestamista</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h2>Análisis de Costo de Oportunidad</h2>
+        <p>Considere qué más podría hacer con el dinero gastado en intereses y cargos:</p>
+
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Interés Total + Cargos</th>
+                <th>En qué podría usarse este dinero en su lugar</th>
+            </tr>
+            <tr>
+                <td>Opción 1</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 2</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Opción 3</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <div class="conclusion">
+            <h2>Análisis de Decisión</h2>
+            <p><strong>Basándome en mi análisis, la mejor opción parece ser:</strong></p>
+            <p class="input-field" style="height: 40px;"></p>
+
+            <p><strong>Mi razonamiento:</strong></p>
+            <p class="input-field" style="height: 80px;"></p>
+        </div>
+    </div>
+</body>
+</html>

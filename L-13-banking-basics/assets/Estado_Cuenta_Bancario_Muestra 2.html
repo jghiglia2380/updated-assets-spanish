@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Cuenta Bancario de Muestra</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .bank-header {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bank-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .statement-info {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        .account-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border: 1px solid #d1e7f0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .transaction-table th {
+            background-color: #e8f4f8;
+        }
+        .fee {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .credit {
+            color: #27ae60;
+        }
+        .debit {
+            color: #e74c3c;
+        }
+        .balance {
+            font-weight: bold;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            table {
+                font-size: 10pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresion:</strong>
+        <p>Para guardar este documento como PDF o imprimirlo:</p>
+        <ol>
+            <li>Presione Ctrl+P (Windows) o Cmd+P (Mac)</li>
+            <li>Seleccione "Guardar como PDF" o su impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir"</li>
+        </ol>
+    </div>
+
+    <div class="bank-header">
+        <div class="bank-logo">PRIMER BANCO NACIONAL</div>
+        <div>Miembro FDIC</div>
+    </div>
+
+    <div class="statement-info">
+        <h2>Estado de Cuenta</h2>
+        <p><strong>Titular de la Cuenta:</strong> Jordan Smith</p>
+        <p><strong>Numero de Cuenta:</strong> XXXX-XXXX-1234</p>
+        <p><strong>Periodo del Estado de Cuenta:</strong> 1 de Mayo, 2025 - 31 de Mayo, 2025</p>
+        <p><strong>Servicio al Cliente:</strong> 1-800-555-1234</p>
+    </div>
+
+    <div class="account-summary">
+        <h3>Resumen de Cuenta</h3>
+        <table>
+            <tr>
+                <td><strong>Saldo Inicial:</strong></td>
+                <td class="balance">$1,250.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total de Depositos y Creditos:</strong></td>
+                <td class="credit">+$1,950.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total de Retiros y Debitos:</strong></td>
+                <td class="debit">-$1,735.45</td>
+            </tr>
+            <tr>
+                <td><strong>Total de Cargos:</strong></td>
+                <td class="fee">-$39.00</td>
+            </tr>
+            <tr>
+                <td><strong>Saldo Final:</strong></td>
+                <td class="balance">$1,425.55</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Historial de Transacciones</h3>
+    <table class="transaction-table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Descripcion</th>
+                <th>No. Cheque</th>
+                <th>Cantidad</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Starting balance -->
+            <tr>
+                <td>01/05/2025</td>
+                <td><strong>Saldo Inicial</strong></td>
+                <td></td>
+                <td></td>
+                <td class="balance">$1,250.00</td>
+            </tr>
+
+            <!-- Regular transactions -->
+            <tr>
+                <td>01/05/2025</td>
+                <td>Cheque - Pago de Renta</td>
+                <td>101</td>
+                <td class="debit">-$750.00</td>
+                <td>$500.00</td>
+            </tr>
+            <tr>
+                <td>02/05/2025</td>
+                <td>DEPOSITO DIRECTO - CAFE CIUDAD CENTRAL</td>
+                <td></td>
+                <td class="credit">+$850.00</td>
+                <td>$1,350.00</td>
+            </tr>
+            <tr>
+                <td>03/05/2025</td>
+                <td>COMPRA POS - SUPERMERCADO</td>
+                <td></td>
+                <td class="debit">-$87.35</td>
+                <td>$1,262.65</td>
+            </tr>
+            <tr>
+                <td>05/05/2025</td>
+                <td>RETIRO ATM - CAJERO PRIMER BANCO NACIONAL</td>
+                <td></td>
+                <td class="debit">-$60.00</td>
+                <td>$1,202.65</td>
+            </tr>
+            <tr>
+                <td>07/05/2025</td>
+                <td>COMPRA POS - GASOLINERA EXPRESS</td>
+                <td></td>
+                <td class="debit">-$45.75</td>
+                <td>$1,156.90</td>
+            </tr>
+            <tr>
+                <td>09/05/2025</td>
+                <td>PAGO EN LINEA - FACTURA CELULAR</td>
+                <td></td>
+                <td class="debit">-$85.99</td>
+                <td>$1,070.91</td>
+            </tr>
+            <tr>
+                <td>10/05/2025</td>
+                <td>CHEQUE - PAGO DE SEGURO</td>
+                <td>102</td>
+                <td class="debit">-$125.50</td>
+                <td>$945.41</td>
+            </tr>
+            <tr>
+                <td>12/05/2025</td>
+                <td>RETIRO ATM - CAJERO TIENDA DE ESQUINA</td>
+                <td></td>
+                <td class="debit">-$40.00</td>
+                <td>$905.41</td>
+            </tr>
+            <tr class="fee">
+                <td>12/05/2025</td>
+                <td>CARGO ATM - FUERA DE RED</td>
+                <td></td>
+                <td class="fee">-$3.50</td>
+                <td>$901.91</td>
+            </tr>
+            <tr>
+                <td>15/05/2025</td>
+                <td>COMPRA POS - LIBRERIA</td>
+                <td></td>
+                <td class="debit">-$24.99</td>
+                <td>$876.92</td>
+            </tr>
+            <tr>
+                <td>16/05/2025</td>
+                <td>DEPOSITO DIRECTO - CAFE CIUDAD CENTRAL</td>
+                <td></td>
+                <td class="credit">+$850.00</td>
+                <td>$1,726.92</td>
+            </tr>
+            <tr>
+                <td>18/05/2025</td>
+                <td>COMPRA POS - RESTAURANTE</td>
+                <td></td>
+                <td class="debit">-$35.45</td>
+                <td>$1,691.47</td>
+            </tr>
+            <tr>
+                <td>20/05/2025</td>
+                <td>CHEQUE - FACTURA DE SERVICIOS</td>
+                <td>103</td>
+                <td class="debit">-$78.90</td>
+                <td>$1,612.57</td>
+            </tr>
+            <tr>
+                <td>21/05/2025</td>
+                <td>DEPOSITO MOVIL</td>
+                <td></td>
+                <td class="credit">+$250.00</td>
+                <td>$1,862.57</td>
+            </tr>
+            <tr>
+                <td>22/05/2025</td>
+                <td>COMPRA POS - TIENDA DE ROPA</td>
+                <td></td>
+                <td class="debit">-$129.65</td>
+                <td>$1,732.92</td>
+            </tr>
+            <tr>
+                <td>24/05/2025</td>
+                <td>COMPRA POS - SUPERMERCADO</td>
+                <td></td>
+                <td class="debit">-$92.87</td>
+                <td>$1,640.05</td>
+            </tr>
+            <tr>
+                <td>25/05/2025</td>
+                <td>TRANSFERENCIA EN LINEA A AHORROS</td>
+                <td></td>
+                <td class="debit">-$100.00</td>
+                <td>$1,540.05</td>
+            </tr>
+            <tr>
+                <td>27/05/2025</td>
+                <td>COMPRA POS - TIENDA DE ELECTRONICA</td>
+                <td></td>
+                <td class="debit">-$79.00</td>
+                <td>$1,461.05</td>
+            </tr>
+            <tr class="fee">
+                <td>29/05/2025</td>
+                <td>CARGO DE MANTENIMIENTO MENSUAL</td>
+                <td></td>
+                <td class="fee">-$12.00</td>
+                <td>$1,449.05</td>
+            </tr>
+            <tr>
+                <td>30/05/2025</td>
+                <td>TRANSFERENCIA POR SOBREGIRO DESDE AHORROS</td>
+                <td></td>
+                <td class="credit">+$0.00</td>
+                <td>$1,449.05</td>
+            </tr>
+            <tr class="fee">
+                <td>30/05/2025</td>
+                <td>CARGO POR TRANSFERENCIA DE SOBREGIRO</td>
+                <td></td>
+                <td class="fee">-$12.50</td>
+                <td>$1,436.55</td>
+            </tr>
+            <tr class="fee">
+                <td>31/05/2025</td>
+                <td>CARGO POR ESTADO DE CUENTA EN PAPEL</td>
+                <td></td>
+                <td class="fee">-$11.00</td>
+                <td>$1,425.55</td>
+            </tr>
+
+            <!-- Ending balance -->
+            <tr>
+                <td>31/05/2025</td>
+                <td><strong>Saldo Final</strong></td>
+                <td></td>
+                <td></td>
+                <td class="balance">$1,425.55</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <h3>Informacion Importante</h3>
+        <p><strong>Resumen de Cargos:</strong></p>
+        <ul>
+            <li>Cargo ATM (Fuera de Red): $3.50</li>
+            <li>Cargo de Mantenimiento Mensual: $12.00</li>
+            <li>Cargo por Transferencia de Sobregiro: $12.50</li>
+            <li>Cargo por Estado de Cuenta en Papel: $11.00</li>
+            <li><strong>Total de Cargos: $39.00</strong></li>
+        </ul>
+
+        <p><strong>Formas de Evitar Cargos:</strong></p>
+        <ul>
+            <li>Mantenga un saldo minimo diario de $1,500 para eximir el Cargo de Mantenimiento Mensual</li>
+            <li>Use cajeros automaticos de Primer Banco Nacional para evitar cargos de ATM fuera de red</li>
+            <li>Inscribase en Proteccion contra Sobregiro sin cargos por transferencia</li>
+            <li>Inscribase en estados de cuenta electronicos para evitar el Cargo por Estado de Cuenta en Papel</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h3>Notas Educativas</h3>
+        <p>Este es un estado de cuenta bancario de muestra creado con propositos educativos. En este estado de cuenta:</p>
+        <ul>
+            <li>Los cargos estan resaltados en rojo para hacerlos mas faciles de identificar</li>
+            <li>Se muestran multiples tipos de transacciones (cheques, retiros de ATM, compras POS, etc.)</li>
+            <li>El estado de cuenta incluye un saldo inicial y final</li>
+            <li>Se incluye informacion sobre como evitar cargos</li>
+        </ul>
+        <p>Al conciliar su propio estado de cuenta bancario, busque:</p>
+        <ul>
+            <li>Transacciones que no reconoce (posible fraude)</li>
+            <li>Cargos inesperados</li>
+            <li>Errores en las cantidades reportadas</li>
+            <li>Cheques o depositos que aun no se han procesado</li>
+        </ul>
+    </div>
+</body>
+</html>

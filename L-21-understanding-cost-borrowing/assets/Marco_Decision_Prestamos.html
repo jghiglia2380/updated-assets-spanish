@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco de Decisión de Préstamos - Capítulo 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .framework-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .input-field {
+            background-color: #fff;
+            min-height: 20px;
+            border-bottom: 1px solid #999;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        .input-field.large {
+            min-height: 80px;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .tip {
+            background-color: #e8fcef;
+            padding: 10px;
+            border-left: 4px solid #2ecc71;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .framework-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="framework-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Marco Personal de Decisión de Préstamos</h1>
+
+        <div class="note">
+            <p><strong>Instrucciones:</strong> Esta plantilla le ayudará a desarrollar un marco personalizado para tomar decisiones sobre préstamos. Complete cada sección cuidadosamente para crear una guía que pueda consultar cuando considere préstamos en el futuro.</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Mi Filosofía de Préstamos</h2>
+            <p>Escriba una breve declaración sobre su enfoque general para pedir dinero prestado. Considere sus valores, metas y actitud hacia la deuda.</p>
+            <div class="input-field large"></div>
+
+            <div class="tip">
+                <p>Piense en: ¿Es pedir prestado algo que quiere evitar siempre que sea posible, o lo ve como una herramienta para lograr metas? ¿Qué principios guiarán sus decisiones de préstamos?</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Razones Apropiadas para Pedir Prestado</h2>
+            <p>Liste los propósitos específicos para los cuales consideraría pedir dinero prestado y explique por qué pedir prestado tiene sentido en estos casos.</p>
+
+            <table>
+                <tr>
+                    <th>Propósito</th>
+                    <th>Por Qué Pedir Prestado Puede Ser Apropiado</th>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>3. Cuándo Evitaré Pedir Prestado</h2>
+            <p>Identifique situaciones o propósitos para los cuales evitará endeudarse y explique su razonamiento.</p>
+
+            <table>
+                <tr>
+                    <th>Propósito</th>
+                    <th>Por Qué Evitaré Pedir Prestado</th>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>4. Mis Criterios de Decisión</h2>
+            <p>Liste los factores específicos que evaluará al tomar una decisión de préstamo, en orden de importancia.</p>
+
+            <ol>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ol>
+
+            <div class="tip">
+                <p>Considere factores como: tasa de interés, costo total, pago mensual, plazo del préstamo, tipo de crédito, propósito del préstamo, alternativas a pedir prestado, etc.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Mis Límites Personales de Préstamos</h2>
+            <p>Establezca límites específicos para sus préstamos para asegurar que sigan siendo manejables.</p>
+
+            <table>
+                <tr>
+                    <td><strong>Relación máxima deuda-ingreso que mantendré:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Porcentaje máximo de ingreso mensual para todos los pagos de deuda:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Puntaje de crédito mínimo que mantendré:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Tasa de interés máxima que aceptaré para cualquier préstamo:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Otros límites personales:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>6. Estrategias de Minimización de Costos</h2>
+            <p>Liste estrategias específicas que usará para minimizar los costos de préstamos cuando necesite tomar un préstamo.</p>
+
+            <ul class="checklist">
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ul>
+
+            <div class="tip">
+                <p>Ejemplos: buscar las mejores tasas, hacer pagos iniciales más grandes, elegir plazos de préstamo más cortos cuando sea posible, hacer pagos quincenales, etc.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. Mi Lista de Verificación Antes de Pedir Prestado</h2>
+            <p>Cree una lista de verificación de preguntas que hacerse antes de tomar cualquier préstamo.</p>
+
+            <ul class="checklist">
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ul>
+
+            <div class="tip">
+                <p>Ejemplos: ¿He considerado todas las alternativas? ¿Es esta compra/gasto realmente necesaria? ¿Puedo retrasar esta compra hasta que pueda ahorrar más? ¿Cómo afectará esta deuda a mis otras metas financieras?</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. Mi Plan de Revisión del Marco</h2>
+            <p>Especifique cuándo y cómo revisará y actualizará este marco a medida que cambie su situación financiera.</p>
+            <div class="input-field large"></div>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> Este marco es personal para usted y debe reflejar sus valores y metas financieras. Consúltelo siempre que esté considerando endeudarse para asegurarse de tomar decisiones de préstamos consistentes y bien razonadas.</p>
+        </div>
+    </div>
+</body>
+</html>

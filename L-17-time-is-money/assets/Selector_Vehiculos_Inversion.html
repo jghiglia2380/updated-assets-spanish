@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Vehiculos de Inversion - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .instructions {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .instructions h3 {
+            font-size: 16px;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .instructions p {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .step-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group select,
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .input-group select:focus,
+        .input-group input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .slider-container {
+            padding: 8px 0;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, #10b981, #f59e0b, #ef4444);
+            -webkit-appearance: none;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #6366f1;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-value {
+            text-align: center;
+            font-weight: 600;
+            color: #6366f1;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .goal-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .goal-card {
+            background: #f9fafb;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .goal-card:hover {
+            border-color: #c7d2fe;
+        }
+
+        .goal-card.selected {
+            border-color: #6366f1;
+            background: #f5f3ff;
+        }
+
+        .goal-card h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .goal-card p {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .results-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .results-placeholder {
+            text-align: center;
+            padding: 40px;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .recommendation-card {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .recommendation-card h4 {
+            font-size: 16px;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-card p {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .detail-box {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .detail-box .label {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .detail-box .value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .allocation-section {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .allocation-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .allocation-bar {
+            height: 32px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .allocation-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .allocation-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .reflection-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .reflection-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .question-box {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .question-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-box label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .question-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .print-section {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 0 8px;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section {
+                display: none;
+            }
+
+            .step-section,
+            .results-section,
+            .reflection-section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .goal-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendation-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Selector de Vehiculos de Inversion</h1>
+            <p>Encuentre los vehiculos de inversion adecuados segun sus metas, plazo y tolerancia al riesgo</p>
+        </div>
+
+        <div class="instructions">
+            <h3>Como Usar Esta Herramienta</h3>
+            <p>Responda las preguntas a continuacion sobre sus metas financieras, horizonte temporal y tolerancia al riesgo. La herramienta recomendara vehiculos de inversion apropiados y sugerira una estrategia de asignacion de activos adaptada a su situacion.</p>
+        </div>
+
+        <div class="step-section">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Defina Su Meta Financiera</div>
+            </div>
+
+            <div class="input-group">
+                <label>Para que esta ahorrando/invirtiendo?</label>
+                <div class="goal-cards">
+                    <div class="goal-card" onclick="selectGoal(this, 'emergency')">
+                        <h4>Fondo de Emergencia</h4>
+                        <p>3-6 meses de gastos</p>
+                    </div>
+                    <div class="goal-card" onclick="selectGoal(this, 'car')">
+                        <h4>Compra de Vehiculo</h4>
+                        <p>Enganche o costo total</p>
+                    </div>
+                    <div class="goal-card" onclick="selectGoal(this, 'education')">
+                        <h4>Educacion</h4>
+                        <p>Universidad o capacitacion</p>
+                    </div>
+                    <div class="goal-card" onclick="selectGoal(this, 'home')">
+                        <h4>Enganche de Casa</h4>
+                        <p>Primera compra de vivienda</p>
+                    </div>
+                    <div class="goal-card" onclick="selectGoal(this, 'retirement')">
+                        <h4>Jubilacion</h4>
+                        <p>Ahorros a largo plazo</p>
+                    </div>
+                    <div class="goal-card" onclick="selectGoal(this, 'wealth')">
+                        <h4>Construccion de Patrimonio</h4>
+                        <p>Inversion general</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Monto Objetivo ($)</label>
+                <input type="number" id="targetAmount" placeholder="ej., 10000" onchange="generateRecommendations()">
+            </div>
+        </div>
+
+        <div class="step-section">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Establezca Su Horizonte Temporal</div>
+            </div>
+
+            <div class="input-group">
+                <label>Cuando necesitara este dinero?</label>
+                <select id="timeHorizon" onchange="generateRecommendations()">
+                    <option value="">Seleccione horizonte temporal...</option>
+                    <option value="1">Menos de 1 ano</option>
+                    <option value="2">1-3 anos</option>
+                    <option value="5">3-5 anos</option>
+                    <option value="10">5-10 anos</option>
+                    <option value="20">10-20 anos</option>
+                    <option value="30">20+ anos</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="step-section">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Evalue Su Tolerancia al Riesgo</div>
+            </div>
+
+            <div class="input-group">
+                <label>Que tan comodo se siente con el riesgo?</label>
+                <div class="slider-container">
+                    <div class="slider-labels">
+                        <span>Conservador</span>
+                        <span>Moderado</span>
+                        <span>Agresivo</span>
+                    </div>
+                    <input type="range" id="riskSlider" min="1" max="10" value="5" oninput="updateRiskValue()">
+                    <div class="slider-value" id="riskValue">Moderado (5/10)</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Si su inversion bajara 20% en un mes, que haria?</label>
+                <select id="reactionSelect" onchange="generateRecommendations()">
+                    <option value="">Seleccione su reaccion...</option>
+                    <option value="sell">Vender todo para prevenir mas perdidas</option>
+                    <option value="some">Vender algo para reducir exposicion</option>
+                    <option value="hold">Mantener y esperar la recuperacion</option>
+                    <option value="buy">Comprar mas al precio mas bajo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h3>Vehiculos de Inversion Recomendados</h3>
+            <div id="resultsContent">
+                <div class="results-placeholder">
+                    Complete los pasos anteriores para ver recomendaciones personalizadas
+                </div>
+            </div>
+        </div>
+
+        <div class="reflection-section">
+            <h3>Preguntas de Reflexion</h3>
+
+            <div class="question-box">
+                <label>1. Como influyo su horizonte temporal en los vehiculos de inversion recomendados?</label>
+                <textarea placeholder="Considere por que los horizontes temporales mas cortos tipicamente favorecen inversiones mas seguras..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <label>2. Por que es importante hacer coincidir su tolerancia al riesgo con sus opciones de inversion?</label>
+                <textarea placeholder="Piense en lo que sucede cuando los inversores asumen mas riesgo del que les resulta comodo..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <label>3. Como podria cambiar su estrategia de inversion a medida que se acerca a su meta?</label>
+                <textarea placeholder="Considere como el horizonte temporal y el riesgo deben ajustarse a medida que se acerca a su fecha objetivo..."></textarea>
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="btn btn-secondary" onclick="resetForm()">Comenzar de Nuevo</button>
+            <button class="btn btn-primary" onclick="window.print()">Imprimir Resultados</button>
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy - Capitulo 5.4: El Tiempo es Dinero - Desarrollando una Estrategia de Ahorro e Inversion</p>
+        </div>
+    </div>
+
+    <script>
+        let selectedGoal = '';
+
+        function selectGoal(card, goal) {
+            document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedGoal = goal;
+            generateRecommendations();
+        }
+
+        function updateRiskValue() {
+            const value = document.getElementById('riskSlider').value;
+            const labels = ['Muy Conservador', 'Conservador', 'Ligeramente Conservador', 'Moderado-Conservador', 'Moderado', 'Moderado', 'Moderado-Agresivo', 'Agresivo', 'Muy Agresivo', 'Riesgo Maximo'];
+            document.getElementById('riskValue').textContent = `${labels[value - 1]} (${value}/10)`;
+            generateRecommendations();
+        }
+
+        function generateRecommendations() {
+            const timeHorizon = document.getElementById('timeHorizon').value;
+            const riskLevel = parseInt(document.getElementById('riskSlider').value);
+            const targetAmount = document.getElementById('targetAmount').value;
+            const reaction = document.getElementById('reactionSelect').value;
+
+            if (!selectedGoal || !timeHorizon) {
+                return;
+            }
+
+            const container = document.getElementById('resultsContent');
+
+            // Determine investment strategy based on inputs
+            let primaryVehicle, secondaryVehicle, allocation;
+            let stockAllocation, bondAllocation, cashAllocation;
+
+            // Base allocation on time horizon
+            if (parseInt(timeHorizon) <= 2) {
+                // Short-term: prioritize safety
+                stockAllocation = Math.min(riskLevel * 5, 20);
+                bondAllocation = Math.min(riskLevel * 10, 30);
+                cashAllocation = 100 - stockAllocation - bondAllocation;
+                primaryVehicle = {
+                    name: 'Cuenta de Ahorros de Alto Rendimiento',
+                    description: 'Cuenta asegurada por FDIC con tasas de interes competitivas. Perfecta para metas a corto plazo donde necesita acceso garantizado a su dinero.',
+                    risk: 'Muy Bajo',
+                    return: '3-5%',
+                    liquidity: 'Alta'
+                };
+                secondaryVehicle = {
+                    name: 'CDs a Corto Plazo',
+                    description: 'Certificados de Deposito con plazos de 3-12 meses. Ofrece rendimientos ligeramente mas altos que las cuentas de ahorro con seguro FDIC.',
+                    risk: 'Muy Bajo',
+                    return: '4-5%',
+                    liquidity: 'Baja'
+                };
+            } else if (parseInt(timeHorizon) <= 5) {
+                // Medium-term: balanced approach
+                stockAllocation = 20 + (riskLevel * 3);
+                bondAllocation = 40 + (riskLevel * 2);
+                cashAllocation = 100 - stockAllocation - bondAllocation;
+                primaryVehicle = {
+                    name: 'Fondos de Bonos',
+                    description: 'Fondos mutuos o ETFs que invierten en bonos corporativos y gubernamentales. Proporciona ingresos estables con riesgo moderado.',
+                    risk: 'Bajo-Moderado',
+                    return: '4-6%',
+                    liquidity: 'Moderada'
+                };
+                secondaryVehicle = {
+                    name: 'Fondos Mutuos Balanceados',
+                    description: 'Fondos que invierten tanto en acciones como en bonos, tipicamente en proporcion 60/40 o 50/50. Buenos para crecimiento moderado con algo de proteccion.',
+                    risk: 'Moderado',
+                    return: '5-8%',
+                    liquidity: 'Moderada'
+                };
+            } else if (parseInt(timeHorizon) <= 10) {
+                // Medium-long term: growth focus
+                stockAllocation = 50 + (riskLevel * 3);
+                bondAllocation = 40 - (riskLevel * 2);
+                cashAllocation = 100 - stockAllocation - bondAllocation;
+                primaryVehicle = {
+                    name: 'Fondos Indexados/ETFs',
+                    description: 'Fondos de bajo costo que replican indices de mercado como el S&P 500. Proporciona amplia diversificacion y potencial de crecimiento a largo plazo.',
+                    risk: 'Moderado-Alto',
+                    return: '7-10%',
+                    liquidity: 'Alta'
+                };
+                secondaryVehicle = {
+                    name: 'Fondos de Fecha Objetivo',
+                    description: 'Ajusta automaticamente la asignacion segun su fecha objetivo. Se vuelve mas conservador a medida que se acerca a su meta.',
+                    risk: 'Moderado',
+                    return: '6-9%',
+                    liquidity: 'Moderada'
+                };
+            } else {
+                // Long-term: aggressive growth
+                stockAllocation = 70 + (riskLevel * 2);
+                bondAllocation = 25 - riskLevel;
+                cashAllocation = 100 - stockAllocation - bondAllocation;
+                primaryVehicle = {
+                    name: 'Portafolio Diversificado de Acciones',
+                    description: 'Mezcla de fondos indexados en diferentes sectores del mercado (gran capitalizacion, pequena capitalizacion, internacional). Maximo potencial de crecimiento a largo plazo.',
+                    risk: 'Alto',
+                    return: '8-12%',
+                    liquidity: 'Alta'
+                };
+                secondaryVehicle = {
+                    name: 'Fondos Mutuos de Crecimiento',
+                    description: 'Fondos gestionados activamente enfocados en empresas con alto potencial de crecimiento. Comisiones mas altas pero potencial de rendimientos superiores al mercado.',
+                    risk: 'Alto',
+                    return: '8-15%',
+                    liquidity: 'Moderada'
+                };
+            }
+
+            // Ensure allocations are valid
+            stockAllocation = Math.max(0, Math.min(100, stockAllocation));
+            bondAllocation = Math.max(0, Math.min(100 - stockAllocation, bondAllocation));
+            cashAllocation = 100 - stockAllocation - bondAllocation;
+
+            let html = `
+                <div class="recommendation-card">
+                    <h4>Recomendacion Principal: ${primaryVehicle.name}</h4>
+                    <p>${primaryVehicle.description}</p>
+                    <div class="recommendation-details">
+                        <div class="detail-box">
+                            <div class="label">Nivel de Riesgo</div>
+                            <div class="value">${primaryVehicle.risk}</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="label">Rendimiento Esperado</div>
+                            <div class="value">${primaryVehicle.return}</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="label">Liquidez</div>
+                            <div class="value">${primaryVehicle.liquidity}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <h4>Recomendacion Secundaria: ${secondaryVehicle.name}</h4>
+                    <p>${secondaryVehicle.description}</p>
+                    <div class="recommendation-details">
+                        <div class="detail-box">
+                            <div class="label">Nivel de Riesgo</div>
+                            <div class="value">${secondaryVehicle.risk}</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="label">Rendimiento Esperado</div>
+                            <div class="value">${secondaryVehicle.return}</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="label">Liquidez</div>
+                            <div class="value">${secondaryVehicle.liquidity}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="allocation-section">
+                    <h4>Asignacion de Activos Sugerida</h4>
+                    <div class="allocation-bar">
+                        <div class="allocation-segment" style="width: ${stockAllocation}%; background: #6366f1;">${stockAllocation}%</div>
+                        <div class="allocation-segment" style="width: ${bondAllocation}%; background: #10b981;">${bondAllocation}%</div>
+                        <div class="allocation-segment" style="width: ${cashAllocation}%; background: #f59e0b;">${cashAllocation}%</div>
+                    </div>
+                    <div class="allocation-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #6366f1;"></div>
+                            <span>Acciones (${stockAllocation}%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #10b981;"></div>
+                            <span>Bonos (${bondAllocation}%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #f59e0b;"></div>
+                            <span>Efectivo/Ahorros (${cashAllocation}%)</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function resetForm() {
+            selectedGoal = '';
+            document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('selected'));
+            document.getElementById('targetAmount').value = '';
+            document.getElementById('timeHorizon').value = '';
+            document.getElementById('riskSlider').value = 5;
+            document.getElementById('reactionSelect').value = '';
+            updateRiskValue();
+            document.getElementById('resultsContent').innerHTML = '<div class="results-placeholder">Complete los pasos anteriores para ver recomendaciones personalizadas</div>';
+            document.querySelectorAll('textarea').forEach(ta => ta.value = '');
+        }
+
+        // Initialize
+        updateRiskValue();
+    </script>
+</body>
+</html>

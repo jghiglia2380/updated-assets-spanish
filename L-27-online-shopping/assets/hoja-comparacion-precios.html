@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo para Comparación de Precios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #059669;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .instructions {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #059669;
+        }
+        .product-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #374151;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #059669;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .retailer-row {
+            background-color: #ecfdf5;
+        }
+        button {
+            background-color: #059669;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #047857;
+        }
+        .button-secondary {
+            background-color: #6b7280;
+        }
+        .button-secondary:hover {
+            background-color: #4b5563;
+        }
+        .summary {
+            background-color: #dbeafe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .summary h2 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+        .best-deal {
+            background-color: #d1fae5;
+            border-left: 4px solid #059669;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .header, th {
+                background-color: #059669 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Trabajo para Comparación de Precios</h1>
+        <p>L-27: Compras en Línea - Día 2</p>
+    </div>
+
+    <div class="instructions">
+        <h2>Instrucciones</h2>
+        <p>Use esta hoja de trabajo para comparar precios del mismo producto en diferentes minoristas. Investigue al menos 3 opciones y compare el costo total, incluyendo envío e impuestos.</p>
+    </div>
+
+    <div class="product-section">
+        <h2>Información del Producto</h2>
+        <div class="input-group">
+            <label for="productName">Nombre del Producto:</label>
+            <input type="text" id="productName" placeholder="Ejemplo: Auriculares inalámbricos Sony WH-1000XM4">
+        </div>
+        <div class="input-group">
+            <label for="productSpecs">Especificaciones Clave:</label>
+            <input type="text" id="productSpecs" placeholder="Ejemplo: Cancelación de ruido, Bluetooth 5.0, 30 horas de batería">
+        </div>
+    </div>
+
+    <div class="table-container">
+        <h2>Comparación de Minoristas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Minorista</th>
+                    <th>Precio Base</th>
+                    <th>Envío</th>
+                    <th>Impuestos</th>
+                    <th>Descuentos</th>
+                    <th>Total</th>
+                    <th>Tiempo de Entrega</th>
+                    <th>Política de Devolución</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+            <tbody id="retailerTable">
+                <tr class="retailer-row">
+                    <td><input type="text" id="r1_name" placeholder="Minorista 1" style="width: 120px;"></td>
+                    <td>$<input type="number" id="r1_price" step="0.01" style="width: 80px;" oninput="calculateTotal(1)"></td>
+                    <td>$<input type="number" id="r1_shipping" step="0.01" style="width: 60px;" oninput="calculateTotal(1)"></td>
+                    <td>$<input type="number" id="r1_tax" step="0.01" style="width: 60px;" oninput="calculateTotal(1)"></td>
+                    <td>$<input type="number" id="r1_discount" step="0.01" style="width: 60px;" oninput="calculateTotal(1)"></td>
+                    <td><strong id="r1_total">$0.00</strong></td>
+                    <td><input type="text" id="r1_delivery" placeholder="3-5 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r1_return" placeholder="30 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r1_rating" placeholder="4.5/5" style="width: 60px;"></td>
+                </tr>
+                <tr class="retailer-row">
+                    <td><input type="text" id="r2_name" placeholder="Minorista 2" style="width: 120px;"></td>
+                    <td>$<input type="number" id="r2_price" step="0.01" style="width: 80px;" oninput="calculateTotal(2)"></td>
+                    <td>$<input type="number" id="r2_shipping" step="0.01" style="width: 60px;" oninput="calculateTotal(2)"></td>
+                    <td>$<input type="number" id="r2_tax" step="0.01" style="width: 60px;" oninput="calculateTotal(2)"></td>
+                    <td>$<input type="number" id="r2_discount" step="0.01" style="width: 60px;" oninput="calculateTotal(2)"></td>
+                    <td><strong id="r2_total">$0.00</strong></td>
+                    <td><input type="text" id="r2_delivery" placeholder="3-5 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r2_return" placeholder="30 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r2_rating" placeholder="4.5/5" style="width: 60px;"></td>
+                </tr>
+                <tr class="retailer-row">
+                    <td><input type="text" id="r3_name" placeholder="Minorista 3" style="width: 120px;"></td>
+                    <td>$<input type="number" id="r3_price" step="0.01" style="width: 80px;" oninput="calculateTotal(3)"></td>
+                    <td>$<input type="number" id="r3_shipping" step="0.01" style="width: 60px;" oninput="calculateTotal(3)"></td>
+                    <td>$<input type="number" id="r3_tax" step="0.01" style="width: 60px;" oninput="calculateTotal(3)"></td>
+                    <td>$<input type="number" id="r3_discount" step="0.01" style="width: 60px;" oninput="calculateTotal(3)"></td>
+                    <td><strong id="r3_total">$0.00</strong></td>
+                    <td><input type="text" id="r3_delivery" placeholder="3-5 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r3_return" placeholder="30 días" style="width: 100px;"></td>
+                    <td><input type="text" id="r3_rating" placeholder="4.5/5" style="width: 60px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="findBestDeal()">Encontrar Mejor Oferta</button>
+        <button class="button-secondary" onclick="window.print()">Imprimir Comparación</button>
+        <button class="button-secondary" onclick="resetForm()">Restablecer</button>
+    </div>
+
+    <div class="summary" id="summary" style="display: none;">
+        <h2>Resumen de Comparación</h2>
+        <div id="summaryContent"></div>
+    </div>
+
+    <script>
+        function calculateTotal(retailer) {
+            const price = parseFloat(document.getElementById(`r${retailer}_price`).value) || 0;
+            const shipping = parseFloat(document.getElementById(`r${retailer}_shipping`).value) || 0;
+            const tax = parseFloat(document.getElementById(`r${retailer}_tax`).value) || 0;
+            const discount = parseFloat(document.getElementById(`r${retailer}_discount`).value) || 0;
+
+            const total = price + shipping + tax - discount;
+            document.getElementById(`r${retailer}_total`).textContent = '$' + total.toFixed(2);
+        }
+
+        function findBestDeal() {
+            const retailers = [1, 2, 3];
+            const deals = [];
+
+            for (let i of retailers) {
+                const name = document.getElementById(`r${i}_name`).value || `Minorista ${i}`;
+                const totalText = document.getElementById(`r${i}_total`).textContent;
+                const total = parseFloat(totalText.replace('$', '')) || 0;
+                const delivery = document.getElementById(`r${i}_delivery`).value || 'No especificado';
+                const returnPolicy = document.getElementById(`r${i}_return`).value || 'No especificado';
+                const rating = document.getElementById(`r${i}_rating`).value || 'No especificado';
+
+                if (total > 0) {
+                    deals.push({
+                        retailer: i,
+                        name: name,
+                        total: total,
+                        delivery: delivery,
+                        return: returnPolicy,
+                        rating: rating
+                    });
+                }
+            }
+
+            if (deals.length === 0) {
+                alert('Por favor, ingrese información para al menos un minorista.');
+                return;
+            }
+
+            // Sort by total (lowest first)
+            deals.sort((a, b) => a.total - b.total);
+
+            const bestDeal = deals[0];
+            let summaryHTML = '<div class="best-deal">';
+            summaryHTML += `<h3>🎉 Mejor Oferta: ${bestDeal.name}</h3>`;
+            summaryHTML += `<p><strong>Precio Total:</strong> $${bestDeal.total.toFixed(2)}</p>`;
+            summaryHTML += `<p><strong>Tiempo de Entrega:</strong> ${bestDeal.delivery}</p>`;
+            summaryHTML += `<p><strong>Política de Devolución:</strong> ${bestDeal.return}</p>`;
+            summaryHTML += `<p><strong>Calificación:</strong> ${bestDeal.rating}</p>`;
+            summaryHTML += '</div>';
+
+            if (deals.length > 1) {
+                summaryHTML += '<h3 style="margin-top: 20px;">Comparación de Todas las Opciones:</h3>';
+                summaryHTML += '<ul>';
+                for (let deal of deals) {
+                    summaryHTML += `<li><strong>${deal.name}:</strong> $${deal.total.toFixed(2)} - ${deal.delivery} - Devolución: ${deal.return} - Calificación: ${deal.rating}</li>`;
+                }
+                summaryHTML += '</ul>';
+
+                const savings = deals[deals.length - 1].total - bestDeal.total;
+                if (savings > 0) {
+                    summaryHTML += `<p style="margin-top: 15px; color: #059669;"><strong>💰 Ahorro potencial al elegir la mejor oferta: $${savings.toFixed(2)}</strong></p>`;
+                }
+            }
+
+            document.getElementById('summaryContent').innerHTML = summaryHTML;
+            document.getElementById('summary').style.display = 'block';
+
+            // Scroll to summary
+            document.getElementById('summary').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            if (confirm('¿Está seguro de que desea restablecer toda la información?')) {
+                document.getElementById('productName').value = '';
+                document.getElementById('productSpecs').value = '';
+
+                for (let i = 1; i <= 3; i++) {
+                    document.getElementById(`r${i}_name`).value = '';
+                    document.getElementById(`r${i}_price`).value = '';
+                    document.getElementById(`r${i}_shipping`).value = '';
+                    document.getElementById(`r${i}_tax`).value = '';
+                    document.getElementById(`r${i}_discount`).value = '';
+                    document.getElementById(`r${i}_total`).textContent = '$0.00';
+                    document.getElementById(`r${i}_delivery`).value = '';
+                    document.getElementById(`r${i}_return`).value = '';
+                    document.getElementById(`r${i}_rating`).value = '';
+                }
+
+                document.getElementById('summary').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

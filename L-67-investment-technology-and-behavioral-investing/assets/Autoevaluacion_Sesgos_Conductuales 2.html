@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Autoevaluación de Sesgos Conductuales</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .question { background: #f9fafb; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid var(--primary); }
+        .question-text { font-weight: bold; margin-bottom: 10px; }
+        .options { display: grid; gap: 8px; }
+        .option { padding: 10px; background: white; border: 2px solid #d1d5db; border-radius: 4px; cursor: pointer; }
+        .option:hover { border-color: var(--primary); background: #f0f7ff; }
+        .option.selected { border-color: var(--primary); background: #e0e7ff; }
+        .results { background: #e0e7ff; padding: 15px; border-radius: 5px; margin: 15px 0; display: none; }
+        .bias-result { background: white; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .bias-name { font-weight: bold; color: var(--primary); }
+        .bias-score { float: right; }
+        .high { color: var(--danger); }
+        .medium { color: var(--warning); }
+        .low { color: var(--success); }
+        .progress { background: #e5e7eb; border-radius: 4px; height: 8px; margin: 5px 0; }
+        .progress-bar { background: var(--primary); height: 100%; border-radius: 4px; }
+        .recommendation { background: #fef3c7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        @media print { body { font-size: 11pt; } button { display: none; } }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario de Autoevaluación de Sesgos Conductuales</h1>
+    <p>Identifique su susceptibilidad a los sesgos comunes de inversión</p>
+    <div id="quiz-container"></div>
+    <div style="text-align: center; margin: 20px 0;">
+        <button onclick="showResults()">Calcular Mi Perfil de Sesgos</button>
+    </div>
+    <div class="results" id="results">
+        <h2 style="margin-top: 0;">Su Perfil de Sesgos</h2>
+        <div id="bias-scores"></div>
+    </div>
+    <div class="recommendation" id="recommendations" style="display: none;">
+        <h2 style="margin-top: 0;">Recomendaciones Personalizadas</h2>
+        <div id="rec-content"></div>
+    </div>
+    <script>
+        const questions = [
+            { id: 1, text: "Su acción cae un 20% justo después de comprarla. ¿Qué hace?", bias: "loss_aversion", options: [
+                { text: "Vender inmediatamente para prevenir más pérdidas", score: 3 },
+                { text: "Mantener y esperar a que recupere su precio de compra", score: 2 },
+                { text: "Revisar los fundamentos y decidir basándose en la perspectiva actual", score: 0 }
+            ]},
+            { id: 2, text: "Ha ganado un 50% en una acción. ¿Su reacción?", bias: "overconfidence", options: [
+                { text: "Sabía que esto pasaría - soy bueno seleccionando acciones", score: 3 },
+                { text: "Tuve suerte con esta", score: 0 },
+                { text: "Las condiciones del mercado favorecieron esta acción", score: 1 }
+            ]},
+            { id: 3, text: "Al investigar una acción que posee, tiende a:", bias: "confirmation", options: [
+                { text: "Buscar noticias que confirmen que mi decisión fue correcta", score: 3 },
+                { text: "Buscar activamente argumentos bajistas en su contra", score: 0 },
+                { text: "Leer análisis positivos y negativos por igual", score: 1 }
+            ]},
+            { id: 4, text: "Un amigo le cuenta sobre una acción 'caliente' que ha duplicado recientemente. Usted:", bias: "herd_mentality", options: [
+                { text: "Comprar inmediatamente antes de perder la oportunidad", score: 3 },
+                { text: "Investigarla a fondo antes de decidir", score: 0 },
+                { text: "Comprar una pequeña cantidad para probar", score: 2 }
+            ]},
+            { id: 5, text: "Compró una acción a $100. Ahora está en $80. Al pensar en ella, usted:", bias: "anchoring", options: [
+                { text: "Se enfoca en volver a $100 antes de vender", score: 3 },
+                { text: "Evalúa si vale $80 basándose en datos actuales", score: 0 },
+                { text: "Considera su precio de compra original en su decisión", score: 2 }
+            ]},
+            { id: 6, text: "Después de una caída del mercado, usted:", bias: "recency", options: [
+                { text: "Asume que los mercados seguirán cayendo y vende todo", score: 3 },
+                { text: "Lo ve como oportunidad de compra basándose en patrones históricos", score: 0 },
+                { text: "Espera para ver si la caída continúa antes de decidir", score: 2 }
+            ]},
+            { id: 7, text: "Cuando su tesis de inversión resulta incorrecta, usted:", bias: "loss_aversion", options: [
+                { text: "Mantiene la acción esperando al menos recuperar lo invertido", score: 3 },
+                { text: "Vende y reasigna a mejores oportunidades", score: 0 },
+                { text: "Compra más para bajar su costo promedio", score: 2 }
+            ]},
+            { id: 8, text: "Se siente más seguro sobre las inversiones cuando:", bias: "overconfidence", options: [
+                { text: "Ha hecho su propio análisis y seleccionado la acción", score: 3 },
+                { text: "Está invertido en fondos indexados diversificados", score: 0 },
+                { text: "Varios expertos recomiendan la misma inversión", score: 1 }
+            ]}
+        ];
+        const biasInfo = {
+            loss_aversion: { name: "Aversión a la Pérdida", description: "Tendencia a sentir las pérdidas más fuertemente que las ganancias equivalentes, llevando a malas decisiones de venta." },
+            overconfidence: { name: "Exceso de Confianza", description: "Sobreestimar su habilidad para seleccionar acciones o cronometrar el mercado." },
+            confirmation: { name: "Sesgo de Confirmación", description: "Buscar información que confirma sus creencias existentes mientras ignora evidencia contradictoria." },
+            herd_mentality: { name: "Mentalidad de Rebaño", description: "Seguir a la multitud hacia inversiones populares sin análisis independiente." },
+            anchoring: { name: "Anclaje", description: "Fijarse en números específicos (como precio de compra) en lugar del valor actual." },
+            recency: { name: "Sesgo de Recencia", description: "Dar demasiado peso a eventos recientes al tomar decisiones." }
+        };
+        let answers = {};
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <div class="question-text">${index + 1}. ${q.text}</div>
+                    <div class="options" id="options-${q.id}">
+                        ${q.options.map((opt, i) => `
+                            <div class="option" onclick="selectOption(${q.id}, ${i}, ${opt.score}, '${q.bias}', this)">
+                                ${opt.text}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        function selectOption(questionId, optionIndex, score, bias, element) {
+            answers[questionId] = { score, bias };
+            const options = document.querySelectorAll(`#options-${questionId} .option`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+        function showResults() {
+            if (Object.keys(answers).length < questions.length) {
+                alert('Por favor responda todas las preguntas antes de ver sus resultados.');
+                return;
+            }
+            const biasScores = { loss_aversion: 0, overconfidence: 0, confirmation: 0, herd_mentality: 0, anchoring: 0, recency: 0 };
+            Object.values(answers).forEach(answer => { biasScores[answer.bias] += answer.score; });
+            const scoresContainer = document.getElementById('bias-scores');
+            scoresContainer.innerHTML = '';
+            let recommendations = [];
+            Object.entries(biasScores).forEach(([bias, score]) => {
+                const maxScore = questions.filter(q => q.bias === bias).length * 3;
+                const percentage = (score / maxScore) * 100;
+                let level, levelClass;
+                if (percentage >= 66) { level = 'Alto'; levelClass = 'high'; recommendations.push(biasInfo[bias]); }
+                else if (percentage >= 33) { level = 'Medio'; levelClass = 'medium'; }
+                else { level = 'Bajo'; levelClass = 'low'; }
+                scoresContainer.innerHTML += `
+                    <div class="bias-result">
+                        <span class="bias-name">${biasInfo[bias].name}</span>
+                        <span class="bias-score ${levelClass}">${level} (${Math.round(percentage)}%)</span>
+                        <div class="progress"><div class="progress-bar" style="width: ${percentage}%;"></div></div>
+                    </div>
+                `;
+            });
+            document.getElementById('results').style.display = 'block';
+            if (recommendations.length > 0) {
+                const recContent = document.getElementById('rec-content');
+                recContent.innerHTML = '<p><strong>Enfóquese en estos sesgos:</strong></p><ul>' +
+                    recommendations.map(r => `<li><strong>${r.name}:</strong> ${r.description}</li>`).join('') + '</ul>';
+                document.getElementById('recommendations').style.display = 'block';
+            }
+        }
+        initQuiz();
+    </script>
+</body>
+</html>

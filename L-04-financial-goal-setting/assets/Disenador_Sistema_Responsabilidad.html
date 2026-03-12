@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñador de Sistema de Responsabilidad - Capítulo 1.4: Establecimiento de Metas Financieras</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        .section {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"], textarea, select {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .review-table td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            .section { page-break-inside: avoid; }
+            .checkbox-group { display: block; }
+            .checkbox-item { margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abra esta página en Chrome, Edge o Firefox. Haga clic en Imprimir (Ctrl+P o Cmd+P),
+        luego seleccione "Guardar como PDF" como destino.</p>
+    </div>
+    
+    <div class="header">
+        <h1>Diseñador de Sistema de Responsabilidad</h1>
+        <p><strong>Capítulo 1.4:</strong> Establecimiento de Metas Financieras</p>
+    </div>
+    
+    <div class="intro">
+        <p>Esta hoja de trabajo le ayudará a diseñar un sistema de responsabilidad personalizado para mantenerlo en el camino con sus metas financieras. Los sistemas de responsabilidad efectivos coinciden con sus preferencias personales y proporcionan el equilibrio adecuado de estructura, retroalimentación y motivación.</p>
+    </div>
+    
+    <div class="info-box">
+        <h3>Por Qué Importa la Responsabilidad</h3>
+        <p>Las investigaciones muestran que las personas con sistemas de responsabilidad tienen hasta un 95% más de probabilidad de lograr sus metas que aquellas sin ellos. La responsabilidad proporciona estructura, consistencia, motivación externa y retroalimentación regular que le ayuda a mantenerse en el camino incluso cuando surgen desafíos.</p>
+    </div>
+    
+    <div class="section">
+        <h2>Resumen de Metas</h2>
+        <div class="form-group">
+            <label class="input-label">Meta a Corto Plazo:</label>
+            <input type="text" placeholder="Ingrese aquí su meta SMART a corto plazo">
+        </div>
+        <div class="form-group">
+            <label class="input-label">Meta a Largo Plazo:</label>
+            <input type="text" placeholder="Ingrese aquí su meta SMART a largo plazo">
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>1. Herramientas de Seguimiento</h2>
+        <p>Seleccione las herramientas que usará para hacer seguimiento de su progreso hacia sus metas financieras:</p>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-1">
+                <label for="tool-1">Aplicación de presupuesto móvil</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-2">
+                <label for="tool-2">Rastreador de hoja de cálculo</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-3">
+                <label for="tool-3">Diario o planificador físico</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-4">
+                <label for="tool-4">Recordatorios de calendario</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-5">
+                <label for="tool-5">Aplicación de seguimiento de hábitos</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-6">
+                <label for="tool-6">Gráfico de progreso visual</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-7">
+                <label for="tool-7">Notificaciones de aplicación bancaria</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="tool-8">
+                <label for="tool-8">Otro</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Detalles Específicos de Herramientas de Seguimiento:</label>
+            <textarea placeholder="Enumere las aplicaciones, plantillas o métodos específicos que usará (ej., aplicación Mint, plantilla de presupuesto de Google Sheets, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">¿Qué métricas específicas hará seguimiento?</label>
+            <textarea placeholder="Ejemplos: cantidad de ahorro semanal, gasto mensual en categorías específicas, porcentaje de progreso hacia la meta, etc."></textarea>
+        </div>
+    </div>
+    
+    <div class="tips-box">
+        <h3>Consejos para Herramientas de Seguimiento</h3>
+        <ul>
+            <li>Elija herramientas que coincidan con su estilo personal (digital vs. físico, simple vs. detallado)</li>
+            <li>Comience con un método de seguimiento principal antes de agregar otros</li>
+            <li>Haga el seguimiento lo más automático posible para aumentar la consistencia</li>
+            <li>Los métodos de seguimiento visual (gráficos, barras de progreso) pueden aumentar la motivación</li>
+            <li>Considere herramientas que le permitan hacer seguimiento tanto de hábitos conductuales (ahorrar regularmente) como de resultados (total ahorrado)</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>2. Compañeros de Responsabilidad</h2>
+        <p>Identifique personas que le ayudarán a mantenerse responsable y cómo le apoyarán:</p>
+        
+        <div class="form-group">
+            <label class="input-label">Compañero de Responsabilidad 1:</label>
+            <input type="text" placeholder="Nombre">
+            
+            <label class="input-label">Relación:</label>
+            <select>
+                <option value="">Seleccione relación</option>
+                <option value="family">Miembro de familia</option>
+                <option value="friend">Amigo</option>
+                <option value="mentor">Mentor/profesor</option>
+                <option value="coach">Asesor financiero</option>
+                <option value="other">Otro</option>
+            </select>
+            
+            <label class="input-label">¿Cómo le ayudarán a mantenerse responsable?</label>
+            <select>
+                <option value="">Seleccione método de responsabilidad</option>
+                <option value="weekly">Conversaciones de revisión semanal</option>
+                <option value="monthly">Reuniones de revisión mensual</option>
+                <option value="progress">Actualizaciones regulares de progreso vía texto/correo electrónico</option>
+                <option value="joint">Compañero conjunto de establecimiento de metas</option>
+                <option value="custom">Arreglo personalizado</option>
+            </select>
+            
+            <label class="input-label">Detalles de su arreglo de responsabilidad:</label>
+            <textarea placeholder="Describa exactamente cómo esta persona le ayudará a mantenerse responsable (cuándo se revisará, qué compartirá, cómo responderán, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Compañero de Responsabilidad 2 (opcional):</label>
+            <input type="text" placeholder="Nombre">
+            
+            <label class="input-label">Relación:</label>
+            <select>
+                <option value="">Seleccione relación</option>
+                <option value="family">Miembro de familia</option>
+                <option value="friend">Amigo</option>
+                <option value="mentor">Mentor/profesor</option>
+                <option value="coach">Asesor financiero</option>
+                <option value="other">Otro</option>
+            </select>
+            
+            <label class="input-label">¿Cómo le ayudarán a mantenerse responsable?</label>
+            <select>
+                <option value="">Seleccione método de responsabilidad</option>
+                <option value="weekly">Conversaciones de revisión semanal</option>
+                <option value="monthly">Reuniones de revisión mensual</option>
+                <option value="progress">Actualizaciones regulares de progreso vía texto/correo electrónico</option>
+                <option value="joint">Compañero conjunto de establecimiento de metas</option>
+                <option value="custom">Arreglo personalizado</option>
+            </select>
+            
+            <label class="input-label">Detalles de su arreglo de responsabilidad:</label>
+            <textarea placeholder="Describa exactamente cómo esta persona le ayudará a mantenerse responsable"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>3. Cronograma de Revisión</h2>
+        <p>Establezca un cronograma regular para revisar su progreso hacia sus metas financieras:</p>
+        
+        <h3>Revisiones de Meta a Corto Plazo</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-1">
+                <label for="short-review-1">Revisión diaria (2-3 minutos)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-2">
+                <label for="short-review-2">Mini-revisión semanal (10-15 minutos)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-3">
+                <label for="short-review-3">Revisión quincenal de progreso (15-20 minutos)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="short-review-4">
+                <label for="short-review-4">Revisión mensual detallada (30+ minutos)</label>
+            </div>
+        </div>
+        
+        <h3>Revisiones de Meta a Largo Plazo</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-1">
+                <label for="long-review-1">Revisión mensual (15 minutos)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-2">
+                <label for="long-review-2">Revisión trimestral detallada (1 hora)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-3">
+                <label for="long-review-3">Ajuste semestral de metas (1-2 horas)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="long-review-4">
+                <label for="long-review-4">Revisión anual integral (2+ horas)</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Fechas Específicas de Revisión:</label>
+            <textarea placeholder="Programe fechas y horas específicas para sus revisiones (ej., 'Cada domingo a las 7 p.m.', 'Primer día de cada mes', etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Proceso de Revisión:</label>
+            <textarea placeholder="Describa su proceso de revisión paso a paso. ¿Qué analizará? ¿Cómo evaluará el progreso? ¿Qué ajustes podría hacer?"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Recompensas por Hitos</h2>
+        <p>Planifique celebraciones o recompensas por alcanzar hitos clave para mantener la motivación:</p>
+        
+        <table class="review-table">
+            <tr>
+                <td>Recompensa por 25% de Progreso:</td>
+                <td><input type="text" placeholder="¿Cómo celebrará este hito?"></td>
+            </tr>
+            <tr>
+                <td>Recompensa por 50% de Progreso:</td>
+                <td><input type="text" placeholder="¿Cómo celebrará este hito?"></td>
+            </tr>
+            <tr>
+                <td>Recompensa por 75% de Progreso:</td>
+                <td><input type="text" placeholder="¿Cómo celebrará este hito?"></td>
+            </tr>
+            <tr>
+                <td>Celebración por Completar Meta:</td>
+                <td><input type="text" placeholder="¿Cómo celebrará el logro de su meta?"></td>
+            </tr>
+        </table>
+        
+        <div class="tips-box">
+            <p><strong>Importante:</strong> ¡Elija recompensas que no socaven sus metas financieras! Considere recompensas no monetarias como experiencias, tiempo con amigos, pequeños placeres o privilegios especiales.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Sistema de Recordatorios</h2>
+        <p>Cree un sistema de recordatorios para mantener sus metas en mente:</p>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-1">
+                <label for="reminder-1">Recordatorios visuales (fotos, notas, tablero de visión)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-2">
+                <label for="reminder-2">Alertas de calendario digital</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-3">
+                <label for="reminder-3">Recordatorios/notificaciones de smartphone</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-4">
+                <label for="reminder-4">Correos electrónicos programados a uno mismo</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-5">
+                <label for="reminder-5">Apilamiento de hábitos (conectar a hábitos existentes)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="reminder-6">
+                <label for="reminder-6">Desencadenantes/señales ambientales</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Ubicación/Tiempo de Recordatorios:</label>
+            <textarea placeholder="¿Dónde colocará recordatorios? ¿Cuándo aparecerán? ¿Con qué frecuencia?"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>6. Mantenimiento de Motivación</h2>
+        <p>Planifique estrategias para mantener la motivación cuando el progreso parezca lento o surjan desafíos:</p>
+        
+        <div class="form-group">
+            <label class="input-label">Su Declaración de "Por Qué":</label>
+            <textarea placeholder="Escriba una declaración poderosa sobre por qué lograr esta meta es profundamente importante para usted"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Motivación Visual:</label>
+            <textarea placeholder="Describa qué recordatorios visuales creará para mantenerse motivado (fotos, elementos de tablero de visión, gráficos de progreso, etc.)"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="input-label">Estrategias de Motivación:</label>
+            <textarea placeholder="¿Qué estrategias específicas usará cuando su motivación sea baja? (Revisar su 'por qué', hablar con un compañero de responsabilidad, celebrar pequeñas victorias, etc.)"></textarea>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Resumen Completo del Sistema de Responsabilidad</h2>
+        <p>Resuma su sistema completo de responsabilidad para ver cómo todas las piezas funcionan juntas:</p>
+        
+        <textarea style="min-height: 120px;" placeholder="Reúna todos los elementos de su sistema de responsabilidad en un resumen cohesivo. ¿Cómo funcionan juntos las herramientas de seguimiento, compañeros de responsabilidad, cronograma de revisión, recompensas, recordatorios y estrategias de motivación?"></textarea>
+    </div>
+    
+    <div class="info-box">
+        <h3>Compromiso de Implementación</h3>
+        <p>Para aumentar sus posibilidades de éxito, comprométase a implementar su sistema de responsabilidad inmediatamente después de diseñarlo. Los pasos pequeños e inmediatos aumentan dramáticamente el cumplimiento. ¿Qué acción tomará dentro de 24 horas para comenzar a implementar este sistema?</p>
+        <textarea placeholder="Describa la primera acción que tomará para implementar su sistema de responsabilidad (ej., Configurar aplicación de seguimiento, Programar reunión con compañero de responsabilidad, etc.)"></textarea>
+    </div>
+    
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.4: Establecimiento de Metas Financieras</p>
+    </div>
+</body>
+</html>

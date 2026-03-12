@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador Integral de Planes de Seguro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .plan-column {
+            width: 25%;
+        }
+        .highlight-best {
+            background-color: #d4edda !important;
+            font-weight: bold;
+        }
+        .highlight-worst {
+            background-color: #f8d7da !important;
+        }
+        .calculation-box {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .scenario {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+        @media print {
+            body { padding: 10px; }
+            table { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Comparador Integral de Planes de Seguro Médico</h1>
+
+    <h2>Características de los Planes</h2>
+    <table>
+        <tr>
+            <th>Característica</th>
+            <th class="plan-column">Plan A: Deducible Bajo</th>
+            <th class="plan-column">Plan B: Deducible Medio</th>
+            <th class="plan-column">Plan C: HDHP</th>
+        </tr>
+        <tr>
+            <td><strong>Prima Mensual</strong></td>
+            <td>$400</td>
+            <td>$300</td>
+            <td>$200</td>
+        </tr>
+        <tr>
+            <td><strong>Prima Anual</strong></td>
+            <td>$4,800</td>
+            <td>$3,600</td>
+            <td>$2,400</td>
+        </tr>
+        <tr>
+            <td><strong>Deducible Anual</strong></td>
+            <td>$750</td>
+            <td>$1,500</td>
+            <td>$3,000</td>
+        </tr>
+        <tr>
+            <td><strong>Coaseguro</strong></td>
+            <td>20%</td>
+            <td>20%</td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td><strong>Máximo de Gastos de Bolsillo</strong></td>
+            <td>$4,000</td>
+            <td>$5,000</td>
+            <td>$6,000</td>
+        </tr>
+        <tr>
+            <td><strong>Copago Médico Primario</strong></td>
+            <td>$25</td>
+            <td>$30 (después deducible)</td>
+            <td>Aplica a deducible</td>
+        </tr>
+        <tr>
+            <td><strong>Copago Especialista</strong></td>
+            <td>$50</td>
+            <td>$60 (después deducible)</td>
+            <td>Aplica a deducible</td>
+        </tr>
+        <tr>
+            <td><strong>Elegible para HSA</strong></td>
+            <td>No</td>
+            <td>No</td>
+            <td>Sí</td>
+        </tr>
+    </table>
+
+    <h2>Cálculo de Costos - Escenario de Uso Mínimo</h2>
+    <div class="scenario">
+        <strong>Servicios del Año:</strong>
+        <ul>
+            <li>Examen físico anual (preventivo, cubierto 100%)</li>
+            <li>2 visitas al médico primario</li>
+            <li>5 medicamentos genéricos ($15 cada uno)</li>
+        </ul>
+    </div>
+
+    <table>
+        <tr>
+            <th>Componente de Costo</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Prima Anual</td>
+            <td>$4,800</td>
+            <td>$3,600</td>
+            <td>$2,400</td>
+        </tr>
+        <tr>
+            <td>Copagos/Visitas</td>
+            <td>$50 (2 × $25)</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+        <tr>
+            <td>Medicamentos</td>
+            <td>$75 (5 × $15)</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+        <tr>
+            <td>Deducible Aplicado</td>
+            <td>$0</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+        <tr class="highlight-best">
+            <td><strong>COSTO TOTAL</strong></td>
+            <td>$4,925</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+    </table>
+
+    <h2>Cálculo de Costos - Escenario de Uso Moderado</h2>
+    <div class="scenario">
+        <strong>Servicios del Año:</strong>
+        <ul>
+            <li>Examen físico anual (preventivo, cubierto 100%)</li>
+            <li>3 visitas al médico primario</li>
+            <li>2 visitas al especialista</li>
+            <li>12 medicamentos genéricos, 6 medicamentos de marca ($40 cada uno)</li>
+            <li>Procedimiento ambulatorio menor: $3,000</li>
+        </ul>
+    </div>
+
+    <table>
+        <tr>
+            <th>Componente de Costo</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Prima Anual</td>
+            <td>$4,800</td>
+            <td>$3,600</td>
+            <td>$2,400</td>
+        </tr>
+        <tr>
+            <td>Deducible Pagado</td>
+            <td>$750</td>
+            <td>$1,500</td>
+            <td>$3,000</td>
+        </tr>
+        <tr>
+            <td>Copagos Médicos</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+            <td>Incluido en deducible</td>
+        </tr>
+        <tr>
+            <td>Medicamentos</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+        <tr>
+            <td>Coaseguro por Procedimiento</td>
+            <td>$_____ (20% de saldo)</td>
+            <td>$_____ (20% de saldo)</td>
+            <td>$0 (cubierto por deducible)</td>
+        </tr>
+        <tr class="highlight-best">
+            <td><strong>COSTO TOTAL</strong></td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+    </table>
+
+    <h2>Cálculo de Costos - Escenario de Uso Intensivo</h2>
+    <div class="scenario">
+        <strong>Servicios del Año:</strong>
+        <ul>
+            <li>5 visitas al médico primario</li>
+            <li>8 visitas al especialista</li>
+            <li>24 medicamentos genéricos, 12 medicamentos de marca</li>
+            <li>Cirugía mayor: $30,000</li>
+        </ul>
+    </div>
+
+    <table>
+        <tr>
+            <th>Componente de Costo</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Prima Anual</td>
+            <td>$4,800</td>
+            <td>$3,600</td>
+            <td>$2,400</td>
+        </tr>
+        <tr>
+            <td>Máximo de Gastos de Bolsillo Alcanzado</td>
+            <td colspan="3"><em>Cuando los gastos médicos son muy altos, el máximo de gastos de bolsillo limita su costo total</em></td>
+        </tr>
+        <tr class="highlight-best">
+            <td><strong>COSTO TOTAL (Prima + Máx. Gastos)</strong></td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+            <td>$_____ (calcular)</td>
+        </tr>
+    </table>
+
+    <div class="calculation-box">
+        <h3>Resumen de Análisis</h3>
+        <p><strong>Mejor Plan para Uso Mínimo:</strong> _______________________</p>
+        <p><strong>Mejor Plan para Uso Moderado:</strong> _______________________</p>
+        <p><strong>Mejor Plan para Uso Intensivo:</strong> _______________________</p>
+        <p><strong>Recomendación Personal:</strong> _______________________</p>
+        <p><strong>Justificación:</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+    </div>
+
+    <h2>Factores No Financieros a Considerar</h2>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Plan A</th>
+            <th>Plan B</th>
+            <th>Plan C</th>
+        </tr>
+        <tr>
+            <td>Amplitud de la Red</td>
+            <td>Amplia</td>
+            <td>Moderada</td>
+            <td>Moderada</td>
+        </tr>
+        <tr>
+            <td>Necesidad de Referencias</td>
+            <td>No</td>
+            <td>Algunas</td>
+            <td>Algunas</td>
+        </tr>
+        <tr>
+            <td>Ventajas Fiscales (HSA)</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Sí</td>
+        </tr>
+        <tr>
+            <td>Predictibilidad de Costos</td>
+            <td>Alta</td>
+            <td>Media</td>
+            <td>Baja</td>
+        </tr>
+    </table>
+
+    <div class="calculation-box">
+        <h3>Reflexión Final</h3>
+        <p><strong>¿Cómo afecta su estado de salud actual su elección?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>¿Cómo afectan sus ahorros de emergencia su decisión sobre deducibles?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>¿Qué valor tiene para usted la predictibilidad de costos vs. primas más bajas?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+    </div>
+</body>
+</html>

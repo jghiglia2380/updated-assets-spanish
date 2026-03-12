@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Compra de Vivienda y Plan de Ahorro</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #6366f1;
+        }
+
+        .goals-section {
+            border-left: 5px solid #60a5fa;
+        }
+
+        .savings-section {
+            border-left: 5px solid #10b981;
+        }
+
+        .action-section {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .preparation-section {
+            border-left: 5px solid #ec4899;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .tip-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .calculator-section {
+            background-color: #eef2ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .note {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4f46e5, #8b5cf6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cronograma de Compra de Vivienda y Plan de Ahorro</h1>
+        <p>Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta hoja de trabajo le ayudará a crear un cronograma personalizado y plan de ahorro para comprar una casa. Trabaje cada sección para establecer sus metas, determinar sus necesidades financieras, crear una estrategia de ahorro y desarrollar un plan de acción para convertirse en propietario.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haga clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="timeline-section goals-section">
+        <h2>Sección 1: Metas de Propiedad de Vivienda</h2>
+
+        <h3>Cronograma Objetivo de Compra de Casa</h3>
+        <p>¿Cuándo planea comprar una casa?</p>
+
+        <table>
+            <tr>
+                <th width="50%">Opción de Cronograma</th>
+                <th width="50%">Seleccione Uno</th>
+            </tr>
+            <tr>
+                <td>Corto plazo (1-2 años)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mediano plazo (3-5 años)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Largo plazo (6+ años)</td>
+                <td><input type="checkbox" class="input-box"></td>
+            </tr>
+        </table>
+
+        <p>Fecha objetivo de compra (mes/año): <input type="text" class="input-box" style="width: 200px;"></p>
+
+        <h3>Preferencias de Vivienda</h3>
+        <p>Describa su casa ideal futura:</p>
+        <table>
+            <tr>
+                <td width="50%">Ubicación/Área:</td>
+                <td width="50%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Tipo de Casa (unifamiliar, condominio, townhouse, etc.):</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Tamaño Deseado (metros cuadrados):</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Número de Habitaciones:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Número de Baños:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Características Imprescindibles:</td>
+                <td><textarea class="input-box" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td>Características Deseables:</td>
+                <td><textarea class="input-box" rows="3"></textarea></td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Sea realista sobre su primera casa. Muchos compradores primerizos usan su casa inicial como un escalón hacia la casa de sus sueños más adelante en la vida.</p>
+        </div>
+
+        <h3>Rango de Precio Objetivo</h3>
+        <p>Basado en su investigación de casas en su área deseada que cumplan con sus preferencias:</p>
+        <table>
+            <tr>
+                <td width="50%">Precio Estimado de Compra de Casa:</td>
+                <td width="50%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Precio Mínimo del Rango:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Precio Máximo del Rango:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="timeline-section savings-section">
+        <h2>Sección 2: Requisitos Financieros</h2>
+
+        <h3>Cálculo del Enganche</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Precio Objetivo de Compra de Casa:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Porcentaje de Enganche Deseado:</td>
+                    <td><input type="text" class="input-box">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Monto de Enganche Requerido:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+
+            <p class="note">Porcentajes comunes de enganche: 3-5% (FHA, algunos préstamos convencionales), 10% (PMI más bajo), 20% (sin PMI requerido)</p>
+        </div>
+
+        <h3>Estimación de Costos de Cierre</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Precio Objetivo de Compra de Casa:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Porcentaje Estimado de Costos de Cierre:</td>
+                    <td><input type="text" class="input-box">%</td>
+                </tr>
+                <tr>
+                    <td><strong>Costos de Cierre Estimados:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+
+            <p class="note">Los costos de cierre típicamente oscilan entre 2-5% del precio de compra.</p>
+        </div>
+
+        <h3>Gastos de Mudanza</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Costos de Mudanza:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Reparaciones/Mejoras Iniciales:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Muebles/Electrodomésticos:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Otros Gastos de Mudanza:</td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Total de Gastos de Mudanza:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Fondo de Emergencia</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Estimación de Pago Mensual de Vivienda (PITI):</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Número de Meses de Pagos de Vivienda (recomendado: 3-6):</td>
+                    <td><input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Fondo de Emergencia para Vivienda:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Total de Ahorros Necesarios</h3>
+        <table>
+            <tr>
+                <td width="60%">Enganche:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Costos de Cierre:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Gastos de Mudanza:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Fondo de Emergencia para Vivienda:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL DE AHORROS NECESARIOS:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="timeline-section preparation-section">
+        <h2>Sección 3: Plan de Ahorro</h2>
+
+        <h3>Evaluación de Ahorros Actuales</h3>
+        <table>
+            <tr>
+                <td width="60%">Ahorros Actuales Disponibles para Compra de Casa:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Fondos Adicionales Esperados (regalos, bonos, etc.):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Total de Fondos Actuales:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Monto Adicional Necesario:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+
+        <h3>Plan de Ahorro Mensual</h3>
+        <div class="calculator-section">
+            <table>
+                <tr>
+                    <td width="60%">Monto Adicional Necesario:</td>
+                    <td width="40%">$<input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td>Meses Hasta la Fecha Objetivo de Compra:</td>
+                    <td><input type="text" class="input-box"></td>
+                </tr>
+                <tr>
+                    <td><strong>Ahorro Mensual Requerido:</strong></td>
+                    <td>$<input type="text" class="input-box"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Estrategias de Ahorro</h3>
+        <table>
+            <tr>
+                <th>Estrategia</th>
+                <th>Monto Mensual</th>
+                <th>Plan de Implementación</th>
+            </tr>
+            <tr>
+                <td>Reducir Gastos Actuales</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Aumentar Ingresos</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Automatizar Transferencias de Ahorro</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Redirigir Ingresos Inesperados (devoluciones de impuestos, bonos)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td>Otra Estrategia: <input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>Total de Ahorro Mensual:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Considere abrir una cuenta de ahorros de alto rendimiento dedicada específicamente para su fondo de compra de casa para mantenerlo separado de sus otros ahorros y ganar más intereses.</p>
+        </div>
+
+        <h3>Seguimiento de Progreso de Ahorro</h3>
+        <table>
+            <tr>
+                <td width="40%">Total de Ahorros Necesarios:</td>
+                <td width="60%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Monto Actual Ahorrado:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Porcentaje de Progreso de Ahorro:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+        </table>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <p class="note">Actualice este seguimiento regularmente para monitorear su progreso hacia su meta de ahorro.</p>
+    </div>
+
+    <div class="timeline-section action-section">
+        <h2>Sección 4: Plan de Preparación de Crédito</h2>
+
+        <h3>Estado Actual de Crédito</h3>
+        <table>
+            <tr>
+                <td width="60%">Puntaje de Crédito Actual:</td>
+                <td width="40%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Puntaje de Crédito Objetivo para Términos Hipotecarios Óptimos:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Relación Deuda-Ingreso Actual:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+            <tr>
+                <td>Relación Deuda-Ingreso Objetivo:</td>
+                <td><input type="text" class="input-box">%</td>
+            </tr>
+        </table>
+
+        <h3>Plan de Mejora de Crédito</h3>
+        <table>
+            <tr>
+                <th>Elemento de Acción</th>
+                <th>Fecha Objetivo de Finalización</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Revisar informes de crédito para errores</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Disputar cualquier inexactitud encontrada</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pagar saldos de tarjetas de crédito</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Pagar deudas específicas: <input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mantener historial de pagos a tiempo</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Evitar abrir nuevas cuentas de crédito</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Acción adicional: <input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> La mayoría de los prestamistas hipotecarios buscan puntajes de crédito de 740+ para las mejores tasas, aunque puede calificar para muchos programas de préstamo con puntajes de 620 o más.</p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="timeline-section">
+        <h2>Sección 5: Cronograma de Compra de Vivienda</h2>
+
+        <h3>Hitos del Cronograma</h3>
+        <p>Cree un cronograma detallado con hitos clave en su camino hacia la propiedad de vivienda:</p>
+
+        <table>
+            <tr>
+                <th width="20%">Fecha Objetivo</th>
+                <th width="30%">Hito</th>
+                <th width="50%">Pasos de Acción</th>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Comenzar a ahorrar para el enganche</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Obtener informes de crédito y comenzar mejora de crédito</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Investigar programas para compradores primerizos</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Pagar deudas específicas</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Alcanzar 50% de la meta de ahorro</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Investigar vecindarios preferidos</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Comenzar investigación de pre-calificación hipotecaria</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Alcanzar 100% de la meta de ahorro</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Obtener pre-aprobación para hipoteca</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Comenzar búsqueda de casa</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Hacer oferta por una casa</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td>Cerrar la compra de la casa</td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+
+        <h3>Sistema de Responsabilidad</h3>
+        <p>Cree un sistema para mantenerse responsable de su cronograma:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+
+        <h3>Obstáculos Potenciales y Soluciones</h3>
+        <table>
+            <tr>
+                <th>Obstáculo Potencial</th>
+                <th>Estrategia de Solución</th>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="timeline-section">
+        <h2>Sección 6: Recursos y Apoyo</h2>
+
+        <h3>Programas para Compradores Primerizos</h3>
+        <p>Investigue y liste los programas para los que podría ser elegible:</p>
+        <table>
+            <tr>
+                <th>Nombre del Programa</th>
+                <th>Beneficios</th>
+                <th>Requisitos de Elegibilidad</th>
+                <th>Proceso de Solicitud</th>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+                <td><textarea class="input-box" rows="2"></textarea></td>
+            </tr>
+        </table>
+
+        <h3>Equipo de Apoyo Profesional</h3>
+        <p>Identifique profesionales con los que querrá trabajar durante su proceso de compra de casa:</p>
+        <table>
+            <tr>
+                <th>Rol Profesional</th>
+                <th>Nombre/Empresa</th>
+                <th>Información de Contacto</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Prestamista/Corredor Hipotecario</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Agente de Bienes Raíces</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Inspector de Viviendas</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Abogado de Bienes Raíces</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Agente de Seguros de Casa</td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+
+        <h3>Recursos Educativos</h3>
+        <p>Liste recursos que puede usar para aprender más sobre el proceso de compra de vivienda:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+    </div>
+
+    <div class="timeline-section">
+        <h2>Resumen del Plan de Compra de Vivienda</h2>
+
+        <table>
+            <tr>
+                <td width="50%">Fecha Objetivo de Compra de Casa:</td>
+                <td width="50%"><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Rango de Precio Objetivo de Casa:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Total de Ahorros Necesarios:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Meta de Ahorro Mensual:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Meta de Puntaje de Crédito:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Próximo Hito Principal:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Fecha Objetivo para Próximo Hito:</td>
+                <td><input type="text" class="input-box"></td>
+            </tr>
+        </table>
+
+        <h3>Declaración de Compromiso</h3>
+        <p>Me comprometo a seguir este plan de compra de vivienda tomando acción consistente hacia mis metas de propiedad:</p>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+
+        <p>Firma: _________________________________ Fecha: _________________</p>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </footer>
+</body>
+</html>

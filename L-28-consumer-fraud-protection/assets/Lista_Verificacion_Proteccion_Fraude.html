@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Verificacion de Proteccion contra Fraude - Capitulo 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .checkbox {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            margin-right: 15px;
+            position: relative;
+        }
+        .item-content {
+            flex: 1;
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .item-description {
+            color: #555;
+            font-size: 0.95em;
+        }
+        .priority-high {
+            border-left: 4px solid #e74c3c;
+        }
+        .priority-medium {
+            border-left: 4px solid #f39c12;
+        }
+        .priority-low {
+            border-left: 4px solid #2ecc71;
+        }
+        .priority-indicator {
+            font-size: 0.8em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .high {
+            background-color: #fcdddb;
+            color: #c0392b;
+        }
+        .medium {
+            background-color: #fef0cd;
+            color: #d35400;
+        }
+        .low {
+            background-color: #e9f7ef;
+            color: #27ae60;
+        }
+        .note {
+            background-color: #fffae6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .resources {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .resources h3 {
+            margin-top: 0;
+        }
+        .resources ul {
+            margin-bottom: 0;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .checklist-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .checklist-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checklist-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Lista de Verificacion de Proteccion contra Fraude</h1>
+        <p>Use esta lista de verificacion completa para protegerse de los tipos comunes de fraude al consumidor. Los elementos estan organizados por prioridad para ayudarle a enfocarse primero en las medidas de proteccion mas importantes.</p>
+
+        <div class="note">
+            <p><strong>Como usar esta lista:</strong> Marque los elementos a medida que los complete. Comience con los elementos de alta prioridad (borde rojo), luego progrese a los de prioridad media (borde naranja) y baja prioridad (borde verde). Programe revisiones regulares de esta lista para mantener su proteccion.</p>
+        </div>
+
+        <div class="section">
+            <h2>Seguridad de Cuentas</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Habilitar autenticacion de dos factores en cuentas financieras<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Configure la autenticacion de dos factores (2FA) en todas las cuentas bancarias, de tarjetas de credito, de inversiones y aplicaciones de pago. Esto agrega una capa adicional de seguridad al requerir un segundo metodo de verificacion ademas de su contrasena.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Usar contrasenas unicas para cuentas financieras<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Cree contrasenas fuertes y unicas para cada cuenta financiera. Nunca reutilice contrasenas en multiples cuentas, especialmente para banca, tarjetas de credito o plataformas de inversion.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Proteger su cuenta de correo electronico<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Habilite 2FA en su cuenta de correo electronico y use una contrasena fuerte y unica. Su correo electronico es a menudo el metodo de recuperacion para otras cuentas, lo que lo convierte en un objetivo principal para los hackers.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Usar un administrador de contrasenas<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Implemente un administrador de contrasenas de buena reputacion para generar, almacenar y gestionar contrasenas fuertes y unicas para todas sus cuentas. Esto hace practico usar diferentes contrasenas para cada servicio.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Configurar alertas de inicio de sesion<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Configure notificaciones para inicios de sesion de cuentas donde este disponible. Esto le permite identificar rapidamente intentos de acceso no autorizados.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Actualizar regularmente preguntas y respuestas de seguridad<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Revise y actualice periodicamente las preguntas de seguridad de sus cuentas. Evite usar respuestas que puedan encontrarse facilmente en redes sociales o registros publicos.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Monitoreo Financiero</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Revisar estados financieros semanalmente<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Revise los estados de cuenta bancarios y de tarjetas de credito al menos semanalmente para identificar transacciones no autorizadas. Reporte cualquier actividad sospechosa inmediatamente a su institucion financiera.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Revisar sus informes de credito regularmente<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Revise sus informes de credito de las tres principales agencias (Equifax, Experian y TransUnion) al menos una vez cada cuatro meses. Tiene derecho a un informe gratuito de cada agencia anualmente a traves de AnnualCreditReport.com.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Configurar alertas de transacciones<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Configure notificaciones para transacciones por encima de cierto monto o para tipos especificos de transacciones (por ejemplo, compras en linea, transacciones internacionales).</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Considerar un congelamiento de credito<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Coloque un congelamiento de credito con las tres principales agencias de credito para evitar que se abran nuevas cuentas de credito a su nombre. Esto puede ser especialmente importante si no esta solicitando credito activamente.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Evaluar servicios de monitoreo de credito<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Considere usar un servicio de monitoreo de credito que proporcione alertas en tiempo real para cambios en su informe de credito, actividad sospechosa o posible robo de identidad.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Comportamiento en Linea</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Nunca hacer clic en enlaces de correos no solicitados<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Evite hacer clic en enlaces de correos electronicos inesperados, especialmente aquellos que dicen ser de instituciones financieras, agencias gubernamentales o empresas con las que hace negocios. En su lugar, navegue directamente al sitio web de la organizacion escribiendo la URL en su navegador.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Verificar comunicaciones a traves de canales oficiales<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Si recibe un mensaje que dice ser de su banco, una agencia gubernamental u otra organizacion, contactelos directamente usando el numero de telefono en su sitio web oficial o en el reverso de su tarjeta de credito/debito para verificar su autenticidad.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Usar conexiones seguras y encriptadas<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Asegurese de que los sitios web usen HTTPS (busque un icono de candado en la barra de direcciones) antes de ingresar informacion personal o financiera. Evite realizar transacciones sensibles en redes WiFi publicas.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Ser cauteloso con las descargas<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Solo descargue archivos y aplicaciones de fuentes confiables. Sea especialmente cuidadoso con los archivos adjuntos de correo electronico, incluso si parecen provenir de alguien que conoce.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Usar una VPN para transacciones sensibles<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Considere usar una Red Privada Virtual (VPN) cuando acceda a cuentas financieras o realice transacciones sensibles, especialmente cuando use redes WiFi publicas.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Seguridad de Dispositivos</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Mantener los dispositivos actualizados<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Instale actualizaciones de seguridad para su sistema operativo, navegadores y aplicaciones rapidamente. Estas actualizaciones a menudo corrigen vulnerabilidades de seguridad que podrian ser explotadas por estafadores.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Proteger sus dispositivos moviles<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Habilite codigos de acceso fuertes, reconocimiento facial o autenticacion de huella digital en todos los dispositivos. Configure el bloqueo automatico de pantalla despues de un corto periodo de inactividad.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Instalar software de seguridad de buena reputacion<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Use software antivirus y antimalware confiable en sus dispositivos. Habilite escaneos regulares para detectar y eliminar posibles amenazas.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Revisar permisos de aplicaciones<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Revise regularmente los permisos otorgados a las aplicaciones en sus dispositivos. Elimine aplicaciones innecesarias y limite los permisos solo a lo que cada aplicacion necesita para funcionar.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Habilitar capacidades de borrado remoto<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Configure la capacidad de borrar remotamente los datos de sus dispositivos si se pierden o son robados (por ejemplo, Find My iPhone para dispositivos Apple, Find My Device para Android).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Compartir Informacion</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Limitar informacion personal en redes sociales<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Revise la configuracion de privacidad de sus redes sociales y limite la informacion personal que comparte publicamente. Evite publicar detalles que podrian usarse para responder preguntas de seguridad o robar su identidad (fecha de nacimiento, ciudad natal, escuelas a las que asistio, etc.).</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Destruir documentos sensibles<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Use una trituradora de corte cruzado para destruir documentos que contengan informacion personal antes de desecharlos, incluyendo estados financieros, ofertas de credito preaprobadas y registros medicos.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Ser cauteloso con el correo<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Recoja el correo rapidamente y considere usar un buzon con llave o apartado postal. Ponga en espera la entrega de correo cuando viaje. Opte por estados de cuenta electronicos cuando sea posible.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Revisar configuracion de compartir datos<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Revise y ajuste regularmente la configuracion de privacidad en cuentas financieras, sitios web de compras y aplicaciones para limitar el uso compartido de datos y de marketing de su informacion.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Optar por no recibir ofertas de credito preseleccionadas<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Visite OptOutPrescreen.com o llame al 1-888-5-OPTOUT para dejar de recibir ofertas de tarjetas de credito y seguros preaprobadas por correo, que pueden ser objetivo de ladrones de identidad.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Educacion y Concienciacion</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Mantenerse informado sobre estafas actuales<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Consulte regularmente fuentes confiables como el sitio web de Informacion al Consumidor de la FTC (consumer.ftc.gov) o suscribase a alertas de estafas para mantenerse actualizado sobre tacticas de fraude nuevas y emergentes.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Educar a los miembros de la familia<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Comparta estrategias de prevencion de fraude con los miembros de la familia, especialmente aquellos que pueden ser mas vulnerables a las estafas como familiares mayores o hermanos menores.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Reportar estafas<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Reporte estafas sospechosas a las autoridades apropiadas como la FTC (reportfraud.ftc.gov), el Centro de Quejas de Delitos en Internet del FBI (IC3.gov) o la oficina del fiscal general de su estado.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Plan de Respuesta de Emergencia</h2>
+
+            <div class="checklist-item priority-high">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Crear una lista de contactos para reportar fraude<span class="priority-indicator high">Alta Prioridad</span></div>
+                    <div class="item-description">Recopile informacion de contacto de sus instituciones financieras, agencias de credito y agencias de reporte de fraude para poder actuar rapidamente si sospecha fraude o robo de identidad.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Conocer los pasos a seguir si es victima<span class="priority-indicator medium">Prioridad Media</span></div>
+                    <div class="item-description">Familiaricese con las acciones inmediatas a tomar si sospecha fraude, incluyendo contactar instituciones financieras, colocar alertas de fraude, presentar informes y documentar todas las comunicaciones.</div>
+                </div>
+            </div>
+
+            <div class="checklist-item priority-low">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <div class="item-title">Crear un sistema para rastrear resolucion de fraude<span class="priority-indicator low">Baja Prioridad</span></div>
+                    <div class="item-description">Desarrolle un metodo para documentar todas las comunicaciones relacionadas con fraude, incluyendo fechas, nombres de contacto y elementos de accion para ayudar a agilizar el proceso de resolucion si ocurre fraude.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources">
+            <h3>Recursos Clave</h3>
+            <ul>
+                <li><strong>Sitio Web de Robo de Identidad de la FTC:</strong> <a href="https://www.identitytheft.gov">IdentityTheft.gov</a></li>
+                <li><strong>Informes de Credito Gratuitos:</strong> <a href="https://www.annualcreditreport.com">AnnualCreditReport.com</a></li>
+                <li><strong>Alertas de Estafas de la FTC:</strong> <a href="https://www.consumer.ftc.gov/features/scam-alerts">consumer.ftc.gov/features/scam-alerts</a></li>
+                <li><strong>Reportar Fraude:</strong> <a href="https://reportfraud.ftc.gov">ReportFraud.ftc.gov</a></li>
+                <li><strong>Alertas de Fraude de Agencias de Credito:</strong>
+                    <ul>
+                        <li>Equifax: 1-800-525-6285</li>
+                        <li>Experian: 1-888-397-3742</li>
+                        <li>TransUnion: 1-800-680-7289</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> La prevencion del fraude es un proceso continuo, no una accion unica. Programe revisiones trimestrales de esta lista para asegurar que sus medidas de proteccion sigan siendo actuales y efectivas. Adapte sus estrategias de proteccion a medida que evolucionen la tecnologia, las circunstancias personales y las tacticas de fraude.</p>
+        </div>
+    </div>
+</body>
+</html>

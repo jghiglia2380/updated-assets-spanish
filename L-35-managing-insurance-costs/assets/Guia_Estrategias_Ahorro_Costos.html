@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estrategias de Ahorro de Costos - Capítulo 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .strategy-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .strategy-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .strategy-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #3498db;
+        }
+
+        .strategy-section h3 {
+            margin: 0;
+            color: #2980b9;
+        }
+
+        .example {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        .persona {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .pros-cons {
+            display: flex;
+            margin: 15px 0;
+        }
+
+        .pros, .cons {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .pros {
+            background-color: #e8f5e9;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .cons {
+            background-color: #ffebee;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .pros h4 {
+            color: #4caf50;
+            margin-top: 0;
+        }
+
+        .cons h4 {
+            color: #e53935;
+            margin-top: 0;
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .application-table th:first-child {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Guía de Estrategias de Ahorro de Costos</h1>
+        <p>Capítulo 11.3: Gestión de Costos de Seguros</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <h1>Guía de Estrategias de Ahorro de Costos</h1>
+    <p><strong>Capítulo 11.3: Gestión de Costos de Seguros</strong></p>
+
+    <h2>Introducción a las Estrategias de Ahorro en Costos de Seguros</h2>
+    <p>El seguro es un gasto necesario para protegerte a ti mismo, a tu familia y a tus bienes. Sin embargo, existen muchas estrategias efectivas para gestionar los costos del seguro mientras mantienes una cobertura adecuada. Esta guía describe cinco estrategias clave para reducir los costos de seguros y proporciona orientación sobre qué estrategias funcionan mejor para diferentes situaciones personales.</p>
+
+    <div class="example">
+        <h3>Cómo Usar Esta Guía</h3>
+        <ol>
+            <li>Revisa los cinco enfoques estratégicos para reducir los costos de seguros</li>
+            <li>Considera qué estrategias se alinean con tu situación financiera personal</li>
+            <li>Evalúa los pros y contras de cada enfoque</li>
+            <li>Crea un plan personalizado combinando múltiples estrategias</li>
+            <li>Implementa tu plan y monitorea los resultados</li>
+        </ol>
+        <p>Recuerda: El objetivo es optimizar los costos de seguros mientras mantienes una protección adecuada contra riesgos significativos.</p>
+    </div>
+
+    <h2>Cinco Estrategias Clave de Ahorro de Costos</h2>
+
+    <div class="strategy-section">
+        <div class="strategy-header">
+            <div class="strategy-icon">💰</div>
+            <h3>Estrategia 1: Aumentar Deducibles para Primas Más Bajas</h3>
+        </div>
+
+        <p>Una de las formas más directas de reducir las primas de seguros es elegir deducibles más altos. Esto significa que pagarás más de tu bolsillo cuando hagas un reclamo, pero tus pagos regulares de primas serán más bajos.</p>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Reducción inmediata en los costos de primas</li>
+                    <li>Puede ahorrar cantidades significativas con el tiempo si rara vez presentas reclamos</li>
+                    <li>Fomenta una consideración más cuidadosa antes de presentar reclamos pequeños</li>
+                    <li>Típicamente resulta en ahorros del 10-40% en primas, dependiendo del aumento</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Mayores costos de bolsillo cuando necesitas presentar un reclamo</li>
+                    <li>Requiere ahorros de emergencia suficientes para cubrir el deducible</li>
+                    <li>Puede no ser rentable si esperas presentar reclamos frecuentemente</li>
+                    <li>Podría crear dificultades financieras si ocurren múltiples reclamos en un período corto</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Directrices de Implementación</h4>
+        <ul>
+            <li><strong>Para seguro de auto:</strong> Considera aumentar tu deducible de $500 a $1,000 o incluso $1,500</li>
+            <li><strong>Para seguro de vivienda:</strong> Considera deducibles del 1-2% del valor asegurado de tu casa</li>
+            <li><strong>Para seguro de salud:</strong> Los planes de salud con deducible alto (HDHP) ofrecen primas más bajas y elegibilidad para HSA</li>
+        </ul>
+
+        <div class="example">
+            <h4>Ejemplo de Ahorros</h4>
+            <p>Aumentar el deducible del seguro de auto de $250 a $1,000 podría reducir tu prima aproximadamente un 15-30%, resultando en ahorros de $150-300 anuales en una prima de $1,000.</p>
+        </div>
+
+        <h4>Ideal Para</h4>
+        <ul>
+            <li>Personas con ahorros de emergencia adecuados para cubrir deducibles más altos</li>
+            <li>Aquellos con historial de conducción limpio o bajo historial de reclamos</li>
+            <li>Individuos que pueden permitirse auto-asegurarse para pérdidas menores</li>
+            <li>Personas que prefieren gastos mensuales más bajos sobre posibles costos únicos</li>
+        </ul>
+    </div>
+
+    <div class="strategy-section">
+        <div class="strategy-header">
+            <div class="strategy-icon">🏦</div>
+            <h3>Estrategia 2: Usar Cuentas de Ahorro para la Salud (HSA) para Beneficios Fiscales</h3>
+        </div>
+
+        <p>Las Cuentas de Ahorro para la Salud (HSA) son cuentas con ventajas fiscales disponibles para individuos inscritos en planes de salud con deducible alto (HDHP). Ofrecen una triple ventaja fiscal y pueden compensar significativamente los costos de los HDHP.</p>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Triple ventaja fiscal: las contribuciones son deducibles de impuestos, el crecimiento está libre de impuestos, y los retiros para gastos médicos calificados están libres de impuestos</li>
+                    <li>Los fondos se transfieren año tras año (a diferencia de las FSA)</li>
+                    <li>La cuenta es portátil si cambias de empleador</li>
+                    <li>Se puede usar como cuenta de jubilación después de los 65 años</li>
+                    <li>Muchos empleadores contribuyen a las HSA de los empleados</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Solo disponible con planes de salud con deducible alto</li>
+                    <li>Límites de contribución anual ($3,650 para individuos, $7,300 para familias en 2022)</li>
+                    <li>Penalización del 20% en retiros no médicos antes de los 65 años</li>
+                    <li>Requiere gestión activa y mantenimiento de registros</li>
+                    <li>Puede no ser beneficioso para aquellos con necesidades médicas frecuentes</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Directrices de Implementación</h4>
+        <ul>
+            <li>Inscríbete en un plan de salud con deducible alto (HDHP) calificado</li>
+            <li>Abre una HSA a través de tu empleador o un proveedor independiente</li>
+            <li>Contribuye dólares antes de impuestos hasta el límite anual</li>
+            <li>Considera contribuir los ahorros de primas por elegir un HDHP</li>
+            <li>Guarda recibos de todos los gastos médicos calificados</li>
+        </ul>
+
+        <div class="example">
+            <h4>Ejemplo de Ahorros</h4>
+            <p>Si estás en el tramo impositivo del 24% y contribuyes $3,000 a una HSA, ahorrarás $720 en impuestos federales sobre la renta. Si tu empleador agrega una contribución de $500, tu beneficio total aumenta a $1,220.</p>
+        </div>
+
+        <h4>Ideal Para</h4>
+        <ul>
+            <li>Individuos generalmente saludables con pocos gastos médicos esperados</li>
+            <li>Aquellos que buscan construir ahorros con ventajas fiscales para futuros costos médicos</li>
+            <li>Personas que desean complementar sus ahorros para la jubilación</li>
+            <li>Individuos con ingresos más altos que buscan deducciones fiscales adicionales</li>
+        </ul>
+    </div>
+
+    <div class="strategy-section">
+        <div class="strategy-header">
+            <div class="strategy-icon">📦</div>
+            <h3>Estrategia 3: Combinar Múltiples Pólizas con un Solo Asegurador</h3>
+        </div>
+
+        <p>Combinar múltiples pólizas de seguro (como auto, hogar, inquilino o seguro de vida) con la misma compañía típicamente resulta en descuentos por múltiples pólizas y puede simplificar la gestión de tu seguro.</p>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Los descuentos típicamente varían del 5-25% en todas las pólizas</li>
+                    <li>Un solo punto de contacto para todas las necesidades de seguro</li>
+                    <li>Facturación y gestión simplificadas</li>
+                    <li>Puede calificar para descuentos por lealtad con el tiempo</li>
+                    <li>A menudo conduce a mejor servicio de reclamos como cliente de múltiples pólizas</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Puede no siempre resultar en el costo total más bajo en todas las pólizas</li>
+                    <li>Podría llevar a complacencia en buscar otras opciones</li>
+                    <li>Todas las pólizas sujetas a los aumentos de tarifas de la misma compañía</li>
+                    <li>Potencial de que todas las pólizas se vean afectadas por un solo reclamo</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Directrices de Implementación</h4>
+        <ul>
+            <li>Solicita cotizaciones de pólizas combinadas de múltiples aseguradores</li>
+            <li>Compara el costo combinado con el costo total de pólizas separadas de diferentes compañías</li>
+            <li>Considera tanto los ahorros en primas como las posibles diferencias en cobertura</li>
+            <li>Pregunta sobre descuentos adicionales al combinar (por ejemplo, facturación sin papel, pago automático)</li>
+        </ul>
+
+        <div class="example">
+            <h4>Ejemplo de Ahorros</h4>
+            <p>Combinar seguro de auto y hogar a menudo ahorra 10-15% en seguro de auto y 5-10% en seguro de vivienda. Por ejemplo, en una póliza de auto de $1,000 y una póliza de hogar de $1,200, podrías ahorrar $100-150 en auto y $60-120 en seguro de hogar, totalizando $160-270 en ahorros anuales.</p>
+        </div>
+
+        <h4>Ideal Para</h4>
+        <ul>
+            <li>Propietarios de vivienda con múltiples necesidades de seguro</li>
+            <li>Familias con múltiples vehículos</li>
+            <li>Aquellos que valoran la simplicidad en la gestión de seguros</li>
+            <li>Personas que prefieren construir una relación con un solo proveedor de seguros</li>
+        </ul>
+    </div>
+
+    <div class="strategy-section">
+        <div class="strategy-header">
+            <div class="strategy-icon">📈</div>
+            <h3>Estrategia 4: Mejorar el Puntaje de Crédito para Mejores Tarifas</h3>
+        </div>
+
+        <p>Muchas compañías de seguros usan puntajes de seguros basados en crédito para ayudar a determinar las primas, particularmente para seguros de auto y hogar. Mejorar tu puntaje de crédito puede llevar a tarifas de seguro más bajas con el tiempo.</p>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>Puede impactar significativamente las primas de seguro (reducción del 5-30%)</li>
+                    <li>Los beneficios se extienden más allá del seguro a préstamos, tarjetas de crédito, etc.</li>
+                    <li>Solución a largo plazo con beneficios continuos</li>
+                    <li>Crea beneficios financieros más allá de solo los ahorros en seguros</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Toma tiempo ver resultados (típicamente 6-12 meses)</li>
+                    <li>Requiere hábitos financieros consistentes</li>
+                    <li>No es una solución rápida para ahorros inmediatos</li>
+                    <li>El impacto del puntaje de crédito varía según el asegurador y el estado</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Directrices de Implementación</h4>
+        <ul>
+            <li>Obtén tus informes y puntajes de crédito para entender tu punto de partida</li>
+            <li>Paga las facturas a tiempo cada mes (configura pagos automáticos si es útil)</li>
+            <li>Reduce los saldos de tarjetas de crédito (apunta a menos del 30% del crédito disponible)</li>
+            <li>Evita abrir nuevas cuentas de crédito innecesariamente</li>
+            <li>Monitorea tus informes de crédito por errores y disputa cualquier inexactitud</li>
+        </ul>
+
+        <div class="example">
+            <h4>Ejemplo de Ahorros</h4>
+            <p>Mejorar tu puntaje de crédito de "regular" (580-669) a "bueno" (670-739) podría reducir tu prima de seguro de auto en un promedio del 17%. En una prima anual de $1,200, eso representa un ahorro de aproximadamente $200 por año.</p>
+        </div>
+
+        <h4>Ideal Para</h4>
+        <ul>
+            <li>Cualquier persona con crédito menor que excelente</li>
+            <li>Aquellos que planean mantener pólizas de seguro a largo plazo</li>
+            <li>Personas que ya están trabajando en mejorar su salud financiera general</li>
+            <li>Individuos con paciencia para aumentos graduales en ahorros</li>
+        </ul>
+    </div>
+
+    <div class="strategy-section">
+        <div class="strategy-header">
+            <div class="strategy-icon">🏢</div>
+            <h3>Estrategia 5: Aprovechar al Máximo los Beneficios del Empleador</h3>
+        </div>
+
+        <p>Los planes de seguro patrocinados por el empleador a menudo ofrecen ventajas de costos significativas a través de tarifas grupales, contribuciones del empleador y opciones de pago antes de impuestos. Maximizar estos beneficios puede llevar a ahorros sustanciales.</p>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>Ventajas</h4>
+                <ul>
+                    <li>El empleador a menudo paga una porción de las primas (50-80% es común)</li>
+                    <li>Las primas pueden pagarse con dólares antes de impuestos</li>
+                    <li>Las tarifas grupales son típicamente más bajas que las tarifas individuales</li>
+                    <li>Proceso de inscripción simplificado</li>
+                    <li>Puede ofrecer beneficios adicionales como programas de bienestar</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>Desventajas</h4>
+                <ul>
+                    <li>Elección limitada de planes y proveedores</li>
+                    <li>Beneficios vinculados al estado de empleo</li>
+                    <li>Puede no ser la mejor opción para todos los miembros de la familia</li>
+                    <li>Potencial de cobertura reducida si el empleador cambia de planes</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Directrices de Implementación</h4>
+        <ul>
+            <li>Revisa minuciosamente todas las opciones de beneficios durante los períodos de inscripción abierta</li>
+            <li>Asiste a las sesiones informativas de beneficios y haz preguntas</li>
+            <li>Considera cuentas de gastos flexibles (FSA) para atención médica y cuidado de dependientes</li>
+            <li>Aprovecha los incentivos y descuentos de bienestar</li>
+            <li>Compara los planes del empleador/pareja del cónyuge para determinar la cobertura más ventajosa</li>
+        </ul>
+
+        <div class="example">
+            <h4>Ejemplo de Ahorros</h4>
+            <p>Si tu empleador cubre el 70% de una prima de seguro de salud anual de $7,000, ahorras $4,900. Pagar tu porción de $2,100 antes de impuestos en el tramo impositivo federal del 22% ahorra $462 adicionales en impuestos, para un ahorro total de $5,362 comparado con un plan individual.</p>
+        </div>
+
+        <h4>Ideal Para</h4>
+        <ul>
+            <li>Empleados de tiempo completo con acceso a beneficios integrales</li>
+            <li>Aquellos cuyos empleadores ofrecen contribuciones significativas a las primas</li>
+            <li>Familias donde coordinar múltiples planes de empleadores puede maximizar la cobertura</li>
+            <li>Individuos que pueden beneficiarse de pagos de primas antes de impuestos</li>
+        </ul>
+    </div>
+
+    <h2>Aplicando Estrategias a Diferentes Situaciones Financieras</h2>
+
+    <p>Diferentes estrategias funcionan mejor para personas en diferentes etapas de la vida y situaciones financieras. A continuación se presentan recomendaciones para tres perfiles comunes:</p>
+
+    <div class="persona">
+        <h3>Perfil 1: Recién Graduado con Ahorros Limitados</h3>
+        <p><strong>Perfil Financiero:</strong> Ingreso de nivel de entrada, fondo de emergencia mínimo, buena salud, deuda de préstamos estudiantiles, sin dependientes</p>
+
+        <h4>Estrategias Recomendadas (Clasificadas)</h4>
+        <ol>
+            <li><strong>Aprovechar los Beneficios del Empleador</strong> - Aprovechar las tarifas grupales y las contribuciones del empleador para ahorros inmediatos</li>
+            <li><strong>Aumentar Deducibles con Precaución</strong> - Considerar deducibles moderadamente más altos mientras construyes ahorros de emergencia</li>
+            <li><strong>Mejorar el Puntaje de Crédito</strong> - Enfocarse en establecer buenos hábitos de crédito para beneficios a largo plazo</li>
+            <li><strong>Combinar Pólizas</strong> - Comenzar con un paquete básico de seguro de inquilino y auto</li>
+            <li><strong>Usar HSA</strong> - Considerar si las necesidades de salud son mínimas y el empleador contribuye</li>
+        </ol>
+
+        <h4>Notas de Implementación</h4>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="persona">
+        <h3>Perfil 2: Profesional de Carrera Media con Familia</h3>
+        <p><strong>Perfil Financiero:</strong> Carrera establecida, fondo de emergencia moderado, propietario de vivienda, múltiples necesidades de seguro (hogar, auto, vida), dependientes</p>
+
+        <h4>Estrategias Recomendadas (Clasificadas)</h4>
+        <ol>
+            <li><strong>Combinar Múltiples Pólizas</strong> - Maximizar descuentos por múltiples pólizas en seguros de hogar, auto y vida</li>
+            <li><strong>Utilización de HSA</strong> - Considerar por las ventajas fiscales y ahorros médicos a largo plazo</li>
+            <li><strong>Optimización de Beneficios del Empleador</strong> - Coordinar cobertura con el plan del cónyuge para cobertura familiar óptima</li>
+            <li><strong>Aumentos Estratégicos de Deducibles</strong> - Ajustar según la capacidad del fondo de emergencia</li>
+            <li><strong>Gestión del Puntaje de Crédito</strong> - Mantener buen crédito para las mejores tarifas</li>
+        </ol>
+
+        <h4>Notas de Implementación</h4>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="persona">
+        <h3>Perfil 3: Padre Pre-Jubilación con Preocupaciones de Salud</h3>
+        <p><strong>Perfil Financiero:</strong> Años de ingresos máximos, fondo de emergencia sólido, patrimonio de vivienda establecido, hijos en edad universitaria, necesidades de salud crecientes</p>
+
+        <h4>Estrategias Recomendadas (Clasificadas)</h4>
+        <ol>
+            <li><strong>Maximización de Beneficios del Empleador</strong> - Aprovechar al máximo antes de la jubilación</li>
+            <li><strong>Optimización del Puntaje de Crédito</strong> - Asegurar excelente crédito para las mejores tarifas durante la transición a la jubilación</li>
+            <li><strong>Combinar con Asegurador a Largo Plazo</strong> - Aprovechar descuentos por lealtad y relación</li>
+            <li><strong>Ajustes Selectivos de Deducibles</strong> - Deducibles más altos donde sea apropiado, más bajos para seguros de uso frecuente</li>
+            <li><strong>Contribuciones Máximas a HSA</strong> - Construir fondos con ventajas fiscales para costos de atención médica en la jubilación</li>
+        </ol>
+
+        <h4>Notas de Implementación</h4>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <h2>Hoja de Trabajo de Aplicación Personal</h2>
+
+    <p>Usa esta sección para evaluar qué estrategias funcionarán mejor para tu situación personal.</p>
+
+    <table class="application-table">
+        <tr>
+            <th>Tu Perfil Financiero</th>
+            <td class="input-field" style="min-height: 100px;"></td>
+        </tr>
+        <tr>
+            <th>Gastos Actuales de Seguros</th>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <th>Estado del Fondo de Emergencia</th>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <th>Rango de Puntaje de Crédito</th>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <th>Beneficios del Empleador Disponibles</th>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Evaluación de Estrategias</h3>
+
+    <table>
+        <tr>
+            <th>Estrategia</th>
+            <th>¿Aplicable a Mi Situación?</th>
+            <th>Ahorro Anual Potencial</th>
+            <th>Plan de Implementación</th>
+        </tr>
+        <tr>
+            <td>Aumentar Deducibles</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Usar HSA</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Combinar Pólizas</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Mejorar Puntaje de Crédito</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+        <tr>
+            <td>Beneficios del Empleador</td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+            <td class="input-field"></td>
+        </tr>
+    </table>
+
+    <h3>Mi Plan de Acción para Ahorrar Costos</h3>
+
+    <div class="input-field" style="min-height: 150px;"></div>
+
+    <div class="footer">
+        <p>PFL Academy | Capítulo 11.3: Gestión de Costos de Seguros | Guía de Estrategias de Ahorro de Costos</p>
+        <p>Página 1 de 1</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+</body>
+</html>

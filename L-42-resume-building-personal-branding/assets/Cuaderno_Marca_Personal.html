@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaderno de Marca Personal - Capítulo 15.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            .worksheet {
+                page-break-inside: avoid;
+            }
+            .write-space {
+                border: 1px solid #888;
+                min-height: 100px;
+                margin: 10px 0;
+                padding: 5px;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1a237e;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #283593;
+            border-bottom: 1px solid #283593;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #303f9f;
+            margin-top: 25px;
+        }
+
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+
+        .intro-box {
+            background-color: #e8eaf6;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3f51b5;
+            border-radius: 4px;
+        }
+
+        .tip-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+            border-radius: 4px;
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+            border-radius: 4px;
+        }
+
+        .worksheet {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .worksheet-title {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .write-space {
+            border: 2px solid #c5cae9;
+            border-radius: 4px;
+            min-height: 120px;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .short-write-space {
+            border: 2px solid #c5cae9;
+            border-radius: 4px;
+            min-height: 50px;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .reflection-question {
+            font-weight: bold;
+            color: #3f51b5;
+            margin-top: 15px;
+        }
+
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3f51b5;
+            border-radius: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e8eaf6;
+            color: #3f51b5;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #303f9f;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Instrucciones de Impresión</h3>
+        <p>Para guardar este documento como PDF o imprimir una copia física:</p>
+        <ol>
+            <li>Haga clic en el botón "Imprimir" a continuación o use la función de impresión de su navegador (Ctrl+P o Cmd+P)</li>
+            <li>En el cuadro de diálogo de impresión, seleccione "Guardar como PDF" como destino/impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir" para crear su PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    </div>
+
+    <h1>Cuaderno de Marca Personal</h1>
+
+    <div class="intro-box">
+        <p>Este cuaderno te guiará a través del desarrollo de una marca personal cohesiva y auténtica que refleje tu identidad profesional única. Trabaja cada sección de manera secuencial para construir una comprensión integral de los elementos de tu marca personal y cómo expresarlos efectivamente.</p>
+        <p><strong>¿Qué es una marca personal?</strong> Tu marca personal es la combinación única de habilidades, experiencias y rasgos de personalidad que define tu reputación profesional. Es cómo te presentas al mundo y la impresión que dejas en otros en tu campo.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 1: Fundamentos de la Marca Personal</h2>
+    <p>Antes de desarrollar tu estrategia de marca personal, necesitas entender los elementos centrales que formarán tu base.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Ejercicio de Autoevaluación</div>
+
+        <div class="reflection-question">1. ¿Cuáles son tus 3-5 principales fortalezas profesionales o académicas?</div>
+        <p>Piensa en lo que haces excepcionalmente bien, habilidades que has desarrollado o talentos naturales que posees.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. ¿Qué experiencias han moldeado tu trayectoria profesional hasta ahora?</div>
+        <p>Considera educación, prácticas, empleos, proyectos, trabajo voluntario o actividades extracurriculares.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. ¿Qué valores guían tu enfoque hacia el trabajo y las relaciones profesionales?</div>
+        <p>Ejemplos: integridad, innovación, colaboración, excelencia, creatividad, responsabilidad, etc.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. ¿Qué te motiva profesionalmente?</div>
+        <p>¿Qué te impulsa a sobresalir? ¿Qué tipos de trabajo te dan energía y satisfacción?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">5. ¿Qué te hace diferente de otros con cualificaciones similares?</div>
+        <p>Considera combinaciones únicas de habilidades, experiencias inusuales, perspectivas especiales o enfoques distintivos.</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Identificando tu Audiencia Objetivo</div>
+
+        <p>Tu marca personal debe diseñarse pensando en tu audiencia objetivo—las personas que más deseas alcanzar e influenciar profesionalmente.</p>
+
+        <div class="reflection-question">1. ¿A quién quieres llegar con tu marca personal?</div>
+        <p>Considera: posibles empleadores, clientes, colegas, mentores, líderes de la industria, etc.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. ¿Qué industrias o campos estás considerando?</div>
+        <p>Sé lo más específico posible sobre sectores, especialidades o nichos.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. ¿Qué valoran o buscan estas audiencias en los profesionales?</div>
+        <p>Investiga las cualificaciones, rasgos y habilidades más valoradas en tu campo objetivo.</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. ¿Cómo puedes alinear tus fortalezas con lo que valora tu audiencia?</div>
+        <p>Identifica la superposición entre tus cualidades únicas y lo que busca tu audiencia.</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="tip-box">
+        <h3>Consejo de Investigación</h3>
+        <p>Para entender mejor las expectativas de tu audiencia objetivo:</p>
+        <ul>
+            <li>Estudia las descripciones de empleo en tu campo deseado</li>
+            <li>Investiga los perfiles de profesionales exitosos en tu industria objetivo</li>
+            <li>Sigue a líderes de pensamiento de la industria en redes sociales</li>
+            <li>Asiste a eventos o seminarios web de la industria</li>
+            <li>Realiza entrevistas informativas con profesionales en tus roles objetivo</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 2: Posicionamiento de Marca Personal</h2>
+    <p>Con una comprensión clara de tu base y audiencia, ahora puedes definir cómo deseas posicionarte profesionalmente.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Mapeo de Identidad Profesional</div>
+
+        <div class="reflection-question">1. Identidad Profesional</div>
+        <p>¿Cómo describirías tu yo profesional en una oración? (ej., "Soy un analista de datos que transforma información compleja en insights empresariales accionables.")</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. Experiencia Central</div>
+        <p>¿Qué experiencia o habilidades específicas forman el centro de tu identidad profesional?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. Adjetivos Profesionales</div>
+        <p>Lista 5-7 adjetivos que describan cómo quieres ser percibido profesionalmente:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. Propuesta de Valor</div>
+        <p>Completa esta declaración: "Ayudo a [audiencia objetivo] a [beneficio que reciben] a través de mi [enfoque único/habilidades/perspectiva]."</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Desarrollo de la Declaración de Marca Personal</div>
+
+        <p>Tu declaración de marca personal es una descripción concisa y convincente de tu identidad profesional y el valor único que ofreces. Sirve como base para cómo te presentas en todas las plataformas.</p>
+
+        <div class="tip-box">
+            <h4>Fórmula de Declaración de Marca Personal:</h4>
+            <p><strong>Soy un/a [identidad profesional] que [enfoque único o metodología] para [beneficio proporcionado]. Combino [habilidad/cualidad clave] con [habilidad/cualidad complementaria] para ayudar a [audiencia objetivo] a lograr [resultado deseado].</strong></p>
+        </div>
+
+        <div class="example-box">
+            <h4>Ejemplos de Declaraciones de Marca:</h4>
+            <p><strong>Estudiante de Marketing:</strong> "Soy un estudiante de marketing que combina el análisis basado en datos con la narrativa creativa para desarrollar campañas atractivas. Aprovecho mis fuertes habilidades de investigación y mi formación artística para ayudar a las marcas a conectar auténticamente con sus audiencias objetivo y generar resultados medibles."</p>
+            <p><strong>Graduado en Analítica de Negocios:</strong> "Soy un profesional de analítica de negocios que transforma datos complejos en insights claros y accionables. Combino experiencia técnica en visualización de datos con fuertes habilidades de comunicación para ayudar a las organizaciones a tomar decisiones estratégicas informadas que impulsen el crecimiento y la eficiencia."</p>
+        </div>
+
+        <div class="reflection-question">Redacta tu declaración de marca personal usando elementos de los ejercicios anteriores:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Refina tu declaración para hacerla más concisa e impactante:</div>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 3: Expresión de Marca Personal</h2>
+    <p>Ahora que has definido el posicionamiento de tu marca personal, necesitas determinar cómo expresarla consistentemente en diferentes canales.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Planificación de Identidad Visual</div>
+
+        <p>Tu identidad visual incluye los elementos visuales que representan tu marca personal.</p>
+
+        <div class="reflection-question">1. Foto Profesional</div>
+        <p>¿Qué tipo de foto profesional representará mejor tu marca personal? (Considera el entorno, vestimenta, expresión, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. Paleta de Colores</div>
+        <p>Selecciona 2-3 colores que reflejen los atributos de tu marca personal y atraigan a tu audiencia objetivo:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. Tipografía/Selección de Fuentes</div>
+        <p>¿Qué tipo de fuentes representan mejor tu marca personal? (Moderna, tradicional, creativa, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. Estilo Visual</div>
+        <p>Describe el estilo visual general que deseas mantener (minimalista, audaz, creativo, corporativo, etc.):</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Definición del Estilo de Comunicación</div>
+
+        <p>Cómo te comunicas es un aspecto clave de tu marca personal. Define tu estilo de comunicación para mantener la consistencia.</p>
+
+        <div class="reflection-question">1. Tono de Voz</div>
+        <p>¿Cómo quieres sonar en tus comunicaciones profesionales? (Formal, conversacional, autoritativo, inspirador, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. Estilo de Escritura</div>
+        <p>¿Qué estilo de escritura representa mejor tu marca personal? (Conciso, detallado, narrativo, analítico, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. Mensajes Clave</div>
+        <p>¿Cuáles son 3-5 mensajes clave que deseas comunicar consistentemente sobre ti mismo?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. Historia Profesional</div>
+        <p>Bosqueja la narrativa de tu trayectoria profesional que compartirás en networking y entrevistas:</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Planificación de Estrategia de Contenido</div>
+
+        <p>El contenido que creas y compartes contribuye significativamente a tu marca personal. Planifica tu estrategia de contenido para reforzar tu identidad profesional.</p>
+
+        <div class="reflection-question">1. Temas de Contenido</div>
+        <p>Lista 3-5 temas o temáticas profesionales que puedas discutir regularmente para demostrar tu experiencia:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. Tipos de Contenido</div>
+        <p>¿Qué tipos de contenido crearás o compartirás? (Artículos, estudios de caso, noticias de la industria, destacados de proyectos, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">3. Plataformas</div>
+        <p>¿Qué plataformas son más apropiadas para tu contenido y audiencia objetivo?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">4. Estrategia de Engagement</div>
+        <p>¿Cómo interactuarás con el contenido de otros y construirás tu red profesional?</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 4: Estrategias de Branding Específicas por Plataforma</h2>
+    <p>Diferentes plataformas profesionales requieren enfoques adaptados mientras se mantiene la consistencia general de la marca.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Estrategia de Branding en LinkedIn</div>
+
+        <p>LinkedIn es la principal plataforma de redes profesionales y frecuentemente el primer lugar donde empleadores o colegas buscarán tu perfil profesional.</p>
+
+        <div class="reflection-question">Titular del Perfil</div>
+        <p>Escribe un titular convincente que comunique rápidamente tu identidad profesional (máximo 120 caracteres):</p>
+        <div class="short-write-space"></div>
+
+        <div class="reflection-question">Resumen de la Sección Acerca de</div>
+        <p>Redacta un breve resumen que incorpore tu declaración de marca personal y cualificaciones clave:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Contenido Destacado</div>
+        <p>¿Qué proyectos, artículos o logros deberías destacar en tu sección Destacados?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Habilidades a Destacar</div>
+        <p>Lista las 10 principales habilidades que deberías presentar en tu perfil que se alinean con tu marca personal:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Estrategia de Compartir Contenido</div>
+        <p>¿Con qué frecuencia publicarás o compartirás contenido, y qué tipos de contenido reforzarán tu marca?</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Estrategia de Portafolio Profesional</div>
+
+        <p>Ya sea en línea o impreso, un portafolio muestra tu trabajo y refuerza tu marca personal.</p>
+
+        <div class="reflection-question">Formato del Portafolio</div>
+        <p>¿Qué formato es más apropiado para mostrar tu trabajo? (Sitio web, PDF, portafolio físico, GitHub, etc.)</p>
+        <div class="short-write-space"></div>
+
+        <div class="reflection-question">Proyectos a Incluir</div>
+        <p>Lista 5-7 proyectos o ejemplos de trabajo que mejor demuestren tu experiencia y se alineen con tu marca personal:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Estructura de Organización</div>
+        <p>¿Cómo organizarás tu portafolio? (Cronológico, por tipo de proyecto, por habilidad demostrada, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Presentación Visual</div>
+        <p>¿Cómo asegurarás que la presentación visual de tu portafolio se alinee con tu identidad de marca general?</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Estrategia de Plataformas Adicionales</div>
+
+        <p>Dependiendo de tu campo y objetivos, puedes querer establecer tu marca personal en plataformas adicionales.</p>
+
+        <div class="reflection-question">1. Plataformas Adicionales Relevantes</div>
+        <p>¿Qué plataformas adicionales son relevantes para tu marca personal? (GitHub, Behance, Medium, plataformas específicas de la industria, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">2. Estrategia Específica por Plataforma</div>
+        <p>Para cada plataforma identificada, anota cómo adaptarás tu marca personal manteniendo la consistencia:</p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Propósito</th>
+                <th>Enfoque de Contenido</th>
+                <th>Adaptación de Marca</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 5: Implementación y Gestión de Marca Personal</h2>
+    <p>Implementar tu estrategia de marca personal requiere planificación, consistencia y gestión continua.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Plan de Implementación</div>
+
+        <p>Crea un cronograma para implementar tu estrategia de marca personal en todas las plataformas.</p>
+
+        <div class="reflection-question">Acciones Inmediatas (Próximos 7 Días)</div>
+        <p>Lista los pasos específicos que tomarás inmediatamente para comenzar a implementar tu marca personal:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Acciones a Corto Plazo (1-4 Semanas)</div>
+        <p>Lista las acciones que tomarás en las próximas semanas para desarrollar más tu marca personal:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Acciones a Mediano Plazo (1-3 Meses)</div>
+        <p>Lista las acciones que tomarás en los próximos meses para fortalecer tu presencia de marca:</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Acciones a Largo Plazo (3+ Meses)</div>
+        <p>Lista las acciones continuas o futuras para mantener y evolucionar tu marca personal:</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Lista de Verificación de Consistencia de Marca</div>
+
+        <p>Usa esta lista de verificación para asegurar la consistencia en todas tus plataformas y materiales profesionales.</p>
+
+        <p><strong>Consistencia Visual:</strong></p>
+        <ul class="checklist">
+            <li>Foto de perfil consistente en todas las plataformas</li>
+            <li>Esquema de colores cohesivo en materiales visuales</li>
+            <li>Elementos de diseño consistentes en todos los documentos y perfiles</li>
+            <li>Formato profesional que refleje la marca personal</li>
+            <li>Vestimenta/apariencia apropiada en entornos profesionales</li>
+        </ul>
+
+        <p><strong>Consistencia del Mensaje:</strong></p>
+        <ul class="checklist">
+            <li>Identidad profesional consistente en todas las plataformas</li>
+            <li>Declaraciones y descripciones de marca personal alineadas</li>
+            <li>Historia profesional e información de antecedentes coherente</li>
+            <li>Promoción uniforme de habilidades y fortalezas clave</li>
+            <li>Tono y estilo de comunicación consistente</li>
+        </ul>
+
+        <p><strong>Consistencia de Contenido:</strong></p>
+        <ul class="checklist">
+            <li>Contenido alineado con temas profesionales definidos</li>
+            <li>Calendario regular de creación/compartición de contenido</li>
+            <li>Patrones de engagement que reflejen los valores de la marca</li>
+            <li>Interacciones profesionales que refuercen la identidad de marca</li>
+            <li>Proyectos y ejemplos de trabajo que apoyen el posicionamiento de marca</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Monitoreo y Evolución de la Marca</div>
+
+        <p>Tu marca personal debe evolucionar a medida que creces profesionalmente. Crea un plan para monitorear y refinar tu marca con el tiempo.</p>
+
+        <div class="reflection-question">Recopilación de Retroalimentación</div>
+        <p>¿Cómo recopilarás retroalimentación sobre cómo otros perciben tu marca personal?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Métricas de Rendimiento</div>
+        <p>¿Qué métricas rastrearás para medir la efectividad de tu marca personal? (Vistas de perfil, tasas de engagement, resultados de networking, etc.)</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Revisión Periódica</div>
+        <p>¿Con qué frecuencia revisarás y potencialmente refinarás los elementos de tu marca personal?</p>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Integración del Crecimiento</div>
+        <p>¿Cómo incorporarás nuevas habilidades, experiencias y logros en tu marca personal en evolución?</p>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="tip-box">
+        <h3>Verificación de Autenticidad de Marca Personal</h3>
+        <p>El branding personal efectivo debe sentirse auténtico, no forzado. Hazte estas preguntas para asegurar que tu marca personal sea genuina:</p>
+        <ul>
+            <li>¿Esta representación de marca se siente fiel a quién soy profesionalmente?</li>
+            <li>¿Las personas que me conocen bien reconocerían esto como una representación precisa?</li>
+            <li>¿Puedo mantener consistentemente esta marca sin que se sienta agotador o falso?</li>
+            <li>¿Esta marca destaca mis fortalezas reales en lugar de las aspiracionales?</li>
+            <li>¿Los elementos de mi marca están alineados con mis valores y estilo de trabajo?</li>
+        </ul>
+        <p>Si respondiste "no" a alguna de estas preguntas, revisa los elementos de tu marca personal para asegurar la autenticidad.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Hoja de Resumen de Marca Personal</h2>
+    <p>Consolida los elementos de tu marca personal de los ejercicios anteriores en este resumen para referencia rápida.</p>
+
+    <div class="worksheet">
+        <div class="worksheet-title">Resumen de Marca Personal</div>
+
+        <div class="reflection-question">Identidad Profesional:</div>
+        <div class="short-write-space"></div>
+
+        <div class="reflection-question">Declaración de Marca Personal:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Fortalezas y Experiencia Central:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Audiencia Objetivo:</div>
+        <div class="short-write-space"></div>
+
+        <div class="reflection-question">Diferenciadores Clave:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Elementos de Identidad Visual:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Estilo y Tono de Comunicación:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Temas y Enfoque de Contenido:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Plataformas Principales y Estrategias:</div>
+        <div class="write-space"></div>
+
+        <div class="reflection-question">Prioridades Principales de Implementación:</div>
+        <div class="write-space"></div>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Instrucciones de Impresión</h3>
+        <p>Para guardar este documento como PDF o imprimir una copia física:</p>
+        <ol>
+            <li>Haga clic en el botón "Imprimir" a continuación o use la función de impresión de su navegador (Ctrl+P o Cmd+P)</li>
+            <li>En el cuadro de diálogo de impresión, seleccione "Guardar como PDF" como destino/impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir" para crear su PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    </div>
+</body>
+</html>

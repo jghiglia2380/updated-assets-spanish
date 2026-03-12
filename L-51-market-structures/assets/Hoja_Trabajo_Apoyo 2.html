@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Práctica de Estructuras de Mercado - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .instructions {
+            background: #eef2ff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .answer-space {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 2px dashed #d1d5db;
+            min-height: 80px;
+        }
+
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+        }
+
+        .scenario-box {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .scenario-box h4 {
+            color: #4f46e5;
+            margin-bottom: 8px;
+        }
+
+        .sub-questions {
+            margin-left: 16px;
+            margin-top: 12px;
+        }
+
+        .sub-questions label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .sub-questions input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .matching-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .matching-column {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .matching-column h4 {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .matching-item {
+            padding: 8px 12px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .matching-answer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .matching-answer input {
+            width: 40px;
+            padding: 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .negotiation-plan {
+            background: #fff7ed;
+            border: 2px solid #fed7aa;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .negotiation-plan h4 {
+            color: #ea580c;
+            margin-bottom: 12px;
+        }
+
+        .negotiation-plan .input-group {
+            margin-bottom: 12px;
+        }
+
+        .negotiation-plan label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .negotiation-plan input,
+        .negotiation-plan textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #059669;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            background: #f8fafc;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .matching-section {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Práctica de Estructuras de Mercado</h1>
+            <p>Ejercicios de práctica para clasificación de estructuras, excedente del consumidor y planificación de negociaciones</p>
+        </div>
+
+        <div class="content">
+            <!-- Parte 1: Identificación de Estructuras de Mercado -->
+            <div class="section">
+                <h3 class="section-title">Parte 1: Identificación de Estructuras de Mercado</h3>
+                <div class="instructions">
+                    <strong>Instrucciones:</strong> Para cada negocio/industria, identifica la estructura de mercado (Competencia Perfecta, Competencia Monopolística, Oligopolio o Monopolio) y explica tu razonamiento.
+                </div>
+
+                <div class="question">
+                    <div class="question-text">1. Compañía eléctrica local</div>
+                    <div class="answer-space"><textarea placeholder="Estructura de mercado y razonamiento..."></textarea></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">2. Restaurantes de comida rápida (McDonald's, Burger King, Wendy's, etc.)</div>
+                    <div class="answer-space"><textarea placeholder="Estructura de mercado y razonamiento..."></textarea></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">3. Agricultores vendiendo maíz en un mercado de commodities</div>
+                    <div class="answer-space"><textarea placeholder="Estructura de mercado y razonamiento..."></textarea></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">4. Fabricantes de smartphones (Apple, Samsung, Google)</div>
+                    <div class="answer-space"><textarea placeholder="Estructura de mercado y razonamiento..."></textarea></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">5. Cafeterías en tu vecindario</div>
+                    <div class="answer-space"><textarea placeholder="Estructura de mercado y razonamiento..."></textarea></div>
+                </div>
+            </div>
+
+            <!-- Parte 2: Escenarios de Excedente del Consumidor -->
+            <div class="section">
+                <h3 class="section-title">Parte 2: Escenarios de Excedente del Consumidor</h3>
+                <div class="instructions">
+                    <strong>Instrucciones:</strong> Para cada escenario, analiza la estructura de mercado y cómo afecta tu excedente del consumidor (la diferencia entre lo que estás dispuesto a pagar y lo que realmente pagas).
+                </div>
+
+                <div class="scenario-box">
+                    <h4>Escenario A: Servicio de Internet</h4>
+                    <p>Necesitas servicio de internet para tu departamento. Solo hay un proveedor en tu área que cobra $80/mes. Valoras el internet en $100/mes.</p>
+                    <div class="sub-questions">
+                        <label>a) ¿Qué estructura de mercado es esta?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>b) ¿Cuál es tu excedente del consumidor?</label>
+                        <input type="text" placeholder="Calcula: Valor - Precio = $...">
+                        <label>c) ¿Qué protecciones al consumidor podrían ayudarte?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>d) ¿Qué alternativas a largo plazo podrías considerar?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                    </div>
+                </div>
+
+                <div class="scenario-box">
+                    <h4>Escenario B: Compra de Smartphone</h4>
+                    <p>Estás comprando un smartphone nuevo. Tres marcas principales (Apple, Samsung, Google) dominan el 90% del mercado. Valoras un buen teléfono en $900, y los precios van de $700-$1200.</p>
+                    <div class="sub-questions">
+                        <label>a) ¿Qué estructura de mercado es esta?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>b) ¿Cómo afecta esto tu poder de negociación?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>c) ¿Qué estrategias puedes usar para maximizar tu excedente del consumidor?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                    </div>
+                </div>
+
+                <div class="scenario-box">
+                    <h4>Escenario C: Medicamento Genérico</h4>
+                    <p>Necesitas ibuprofeno para dolores de cabeza. La marca de tienda cuesta $4, Advil cuesta $12. Ambos contienen exactamente el mismo ingrediente activo en la misma dosis.</p>
+                    <div class="sub-questions">
+                        <label>a) ¿Qué estructura de mercado es esta?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>b) ¿Cuál deberías comprar y por qué?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                        <label>c) ¿Por qué la marca reconocida cuesta más si el producto es idéntico?</label>
+                        <input type="text" placeholder="Tu respuesta...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte 3: Ejercicio de Emparejamiento -->
+            <div class="section">
+                <h3 class="section-title">Parte 3: Empareja la Estrategia con la Estructura de Mercado</h3>
+                <div class="instructions">
+                    <strong>Instrucciones:</strong> Empareja cada estrategia del consumidor (A-D) con la estructura de mercado apropiada (1-4).
+                </div>
+
+                <div class="matching-section">
+                    <div class="matching-column">
+                        <h4>Estructuras de Mercado:</h4>
+                        <div class="matching-item">1. Competencia Perfecta</div>
+                        <div class="matching-item">2. Competencia Monopolística</div>
+                        <div class="matching-item">3. Oligopolio</div>
+                        <div class="matching-item">4. Monopolio</div>
+                    </div>
+                    <div class="matching-column">
+                        <h4>Estrategias del Consumidor:</h4>
+                        <div class="matching-answer">
+                            <input type="text" placeholder="#">
+                            <span>A. Minimizar consumo; buscar sustitutos a largo plazo</span>
+                        </div>
+                        <div class="matching-answer">
+                            <input type="text" placeholder="#">
+                            <span>B. Comprar solo por precio; usar apps de comparación</span>
+                        </div>
+                        <div class="matching-answer">
+                            <input type="text" placeholder="#">
+                            <span>C. Negociar en renovación; usar ofertas de competidores como palanca</span>
+                        </div>
+                        <div class="matching-answer">
+                            <input type="text" placeholder="#">
+                            <span>D. Evaluar si la diferenciación vale el precio extra</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte 4: Planificación de Negociación -->
+            <div class="section">
+                <h3 class="section-title">Parte 4: Planificación de Negociación</h3>
+                <div class="instructions">
+                    <strong>Instrucciones:</strong> Elige un servicio de oligopolio que uses actualmente y crea un plan de negociación.
+                </div>
+
+                <div class="negotiation-plan">
+                    <h4>Tu Plan de Negociación</h4>
+                    <div class="input-group">
+                        <label>Servicio a negociar (ej., celular, seguro de auto, internet):</label>
+                        <input type="text" placeholder="Ingresa el servicio...">
+                    </div>
+                    <div class="input-group">
+                        <label>Proveedor actual y costo mensual:</label>
+                        <input type="text" placeholder="Proveedor: $XX/mes">
+                    </div>
+                    <div class="input-group">
+                        <label>Ofertas de competidores que has investigado:</label>
+                        <textarea placeholder="Lista al menos 2 ofertas de competidores con precios..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Tu guión de negociación:</label>
+                        <textarea placeholder="Escribe lo que dirás cuando llames para negociar..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Ahorro objetivo por mes:</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="input-group">
+                        <label>¿Cuándo harás esta llamada?</label>
+                        <input type="text" placeholder="Fecha/hora...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte 5: Aplicación Personal -->
+            <div class="section">
+                <h3 class="section-title">Parte 5: Aplicación Personal</h3>
+                <div class="question">
+                    <div class="question-text">Lista 3 mercados monopolísticos u oligopolísticos con los que interactúas regularmente. Para cada uno, describe cómo la estructura de mercado afecta los precios y tus opciones:</div>
+                    <div class="answer-space" style="min-height: 150px;">
+                        <textarea placeholder="1. [Mercado/Servicio]:
+   Estructura de mercado:
+   Cómo me afecta:
+
+2. [Mercado/Servicio]:
+   Estructura de mercado:
+   Cómo me afecta:
+
+3. [Mercado/Servicio]:
+   Estructura de mercado:
+   Cómo me afecta:"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="window.print()">Imprimir Hoja de Trabajo</button>
+                <button class="btn btn-secondary" onclick="clearForm()">Limpiar Formulario</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            PFL Academy - L-51: Estructuras de Mercado y Elección del Consumidor
+        </div>
+    </div>
+
+    <script>
+        function clearForm() {
+            if (confirm('¿Estás seguro de que quieres borrar todas las entradas?')) {
+                document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+                    input.value = '';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

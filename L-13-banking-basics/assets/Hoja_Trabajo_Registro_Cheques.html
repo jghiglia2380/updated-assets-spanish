@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Registro de Cheques</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            font-size: 22px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .check-register {
+            width: 100%;
+        }
+        .check-register th {
+            background-color: #e8f4f8;
+        }
+        .check-register td {
+            height: 30px;
+        }
+        .amount-column {
+            width: 15%;
+        }
+        .date-column {
+            width: 12%;
+        }
+        .check-no-column {
+            width: 10%;
+        }
+        .description-column {
+            width: 35%;
+        }
+        .balance-column {
+            width: 15%;
+        }
+        .example-row {
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .instructions {
+            background-color: #e8f4f8;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            .print-instructions {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 16pt;
+            }
+            h3 {
+                font-size: 14pt;
+            }
+            table {
+                font-size: 10pt;
+            }
+            .check-register td {
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresion:</strong>
+        <p>Para guardar este documento como PDF o imprimirlo:</p>
+        <ol>
+            <li>Presione Ctrl+P (Windows) o Cmd+P (Mac)</li>
+            <li>Seleccione "Guardar como PDF" o su impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir"</li>
+        </ol>
+    </div>
+
+    <h1>Hoja de Trabajo de Registro de Cheques</h1>
+
+    <div class="instructions">
+        <h3>Instrucciones:</h3>
+        <ol>
+            <li>Use este registro de cheques para registrar todas las transacciones de su estado de cuenta bancario.</li>
+            <li>Para cada transaccion, registre la fecha, numero de cheque (si aplica), descripcion y cantidad.</li>
+            <li>Para pagos o retiros, ingrese la cantidad en la columna "Pago/Retiro (-)".</li>
+            <li>Para depositos o creditos, ingrese la cantidad en la columna "Deposito/Credito (+)".</li>
+            <li>Calcule su nuevo saldo despues de cada transaccion:
+                <ul>
+                    <li>Restando pagos/retiros de su saldo anterior</li>
+                    <li>Sumando depositos/creditos a su saldo anterior</li>
+                </ul>
+            </li>
+            <li>Despues de registrar todas las transacciones, compare su saldo final con el saldo final en su estado de cuenta bancario.</li>
+            <li>Si hay una discrepancia, busque:
+                <ul>
+                    <li>Transacciones que pudo haber omitido</li>
+                    <li>Errores de calculo</li>
+                    <li>Elementos pendientes (como cheques que aun no se han cobrado)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Saldo Inicial: $1,250.00</h2>
+
+    <table class="check-register">
+        <thead>
+            <tr>
+                <th class="date-column">Fecha</th>
+                <th class="check-no-column">No. Cheque</th>
+                <th class="description-column">Descripcion de Transaccion</th>
+                <th class="amount-column">Pago/Retiro (-)</th>
+                <th class="amount-column">Deposito/Credito (+)</th>
+                <th class="balance-column">Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Pre-filled example transaction -->
+            <tr class="example-row">
+                <td>01/05/2025</td>
+                <td>101</td>
+                <td>Pago de Renta</td>
+                <td>$750.00</td>
+                <td></td>
+                <td>$500.00</td>
+            </tr>
+            <tr class="example-row">
+                <td>02/05/2025</td>
+                <td></td>
+                <td>Deposito Directo de Nomina</td>
+                <td></td>
+                <td>$850.00</td>
+                <td>$1,350.00</td>
+            </tr>
+            <!-- Empty rows for student completion -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Seccion de Conciliacion</h2>
+
+    <div class="instructions">
+        <p>Despues de registrar todas las transacciones, use esta seccion para conciliar su registro de cheques con su estado de cuenta bancario.</p>
+    </div>
+
+    <table>
+        <tr>
+            <td style="width: 50%; padding: 15px; vertical-align: top;">
+                <h3>Conciliacion del Registro</h3>
+
+                <p><strong>Saldo Final del Registro de Cheques:</strong> $_____________</p>
+
+                <p><strong>Depositos Pendientes</strong> (depositos que ha registrado que no aparecen en su estado de cuenta):</p>
+                <p>+ $_____________</p>
+                <p>+ $_____________</p>
+                <p>+ $_____________</p>
+
+                <p><strong>Cheques/Pagos Pendientes</strong> (pagos que ha registrado que no aparecen en su estado de cuenta):</p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+
+                <p><strong>Saldo Ajustado:</strong> $_____________</p>
+            </td>
+            <td style="width: 50%; padding: 15px; vertical-align: top;">
+                <h3>Conciliacion del Estado de Cuenta Bancario</h3>
+
+                <p><strong>Saldo Final del Estado de Cuenta Bancario:</strong> $_____________</p>
+
+                <p><strong>Cargos Bancarios No Registrados en el Registro:</strong></p>
+                <p>- $_____________</p>
+                <p>- $_____________</p>
+
+                <p><strong>Intereses Ganados No Registrados en el Registro:</strong></p>
+                <p>+ $_____________</p>
+
+                <p><strong>Otros Ajustes:</strong></p>
+                <p>+/- $_____________</p>
+
+                <p><strong>Saldo Ajustado:</strong> $_____________</p>
+            </td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <p><strong>Nota:</strong> Sus saldos ajustados de ambos lados deben coincidir. Si no coinciden, busque:</p>
+        <ul>
+            <li>Transacciones que omitio registrar</li>
+            <li>Errores de calculo en su registro</li>
+            <li>Errores al identificar elementos pendientes</li>
+            <li>Numeros transpuestos (por ejemplo, escribir $53 en lugar de $35)</li>
+            <li>Posibles errores del banco (raros, pero posibles)</li>
+        </ul>
+    </div>
+
+    <h2>Codigos y Descripciones Comunes de Transacciones</h2>
+
+    <table>
+        <tr>
+            <th>Codigo/Abreviatura</th>
+            <th>Descripcion</th>
+        </tr>
+        <tr>
+            <td>ATM</td>
+            <td>Retiro de Cajero Automatico</td>
+        </tr>
+        <tr>
+            <td>POS</td>
+            <td>Punto de Venta (compra con tarjeta de debito)</td>
+        </tr>
+        <tr>
+            <td>ACH</td>
+            <td>Camara de Compensacion Automatizada (transferencia electronica)</td>
+        </tr>
+        <tr>
+            <td>DD</td>
+            <td>Deposito Directo</td>
+        </tr>
+        <tr>
+            <td>INT</td>
+            <td>Intereses Ganados</td>
+        </tr>
+        <tr>
+            <td>SC o SVC CHG</td>
+            <td>Cargo por Servicio/Comision</td>
+        </tr>
+        <tr>
+            <td>OD</td>
+            <td>Sobregiro</td>
+        </tr>
+        <tr>
+            <td>XFER</td>
+            <td>Transferencia entre cuentas</td>
+        </tr>
+        <tr>
+            <td>PMT</td>
+            <td>Pago</td>
+        </tr>
+        <tr>
+            <td>DEP</td>
+            <td>Deposito</td>
+        </tr>
+    </table>
+
+    <h2>Consejos para una Administracion Efectiva de Cuentas</h2>
+
+    <ol>
+        <li><strong>Registre las transacciones inmediatamente</strong> para evitar olvidarlas.</li>
+        <li><strong>Siempre calcule su saldo actual</strong> para prevenir sobregiros.</li>
+        <li><strong>Concilie su cuenta al menos mensualmente</strong> cuando reciba su estado de cuenta.</li>
+        <li><strong>Guarde todos los recibos</strong> hasta que los haya verificado contra su estado de cuenta bancario.</li>
+        <li><strong>Anote el proposito de cada transaccion</strong> en el campo de descripcion para mejor seguimiento.</li>
+        <li><strong>Este atento a cargos recurrentes</strong> que podrian estar drenando innecesariamente su cuenta.</li>
+        <li><strong>Configure alertas de saldo bajo</strong> a traves de los servicios en linea de su banco si estan disponibles.</li>
+        <li><strong>Considere usar aplicaciones financieras</strong> que pueden automatizar parte de este seguimiento para usted.</li>
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Presupuesto Universitario - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .input-cell {
+            background-color: #f9fafb;
+        }
+
+        .expense-category {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .example {
+            background-color: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Hoja de Trabajo de Presupuesto Universitario</h1>
+            <div class="subtitle">Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles</div>
+        </div>
+
+        <div class="print-instructions">
+            <strong>Instrucciones para el Maestro:</strong> Para guardar como PDF, use la función de impresión de su navegador (Ctrl+P o ⌘+P) y seleccione "Guardar como PDF" como destino.
+        </div>
+
+        <h2>Introducción</h2>
+        <p>
+            Esta hoja de trabajo te ayudará a analizar los gastos universitarios e identificar estrategias para reducir costos. Al minimizar los gastos, puedes reducir la cantidad que necesitas pedir prestado en préstamos estudiantiles. Completa esta hoja de trabajo para el tipo de institución que estás considerando asistir.
+        </p>
+
+        <div class="tips">
+            <strong>CONSEJO:</strong> Para cada categoría de gastos, considera todas las formas posibles de reducir costos. Incluso pequeños ahorros se acumulan durante 4+ años de universidad y pueden reducir significativamente tu deuda total de préstamos estudiantiles.
+        </div>
+
+        <h2>Información de la Universidad</h2>
+        <table>
+            <tr>
+                <td width="50%">Nombre de la Institución:</td>
+                <td class="input-cell" width="50%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Tipo de Institución:</td>
+                <td class="input-cell">
+                    □ Pública (Dentro del Estado)<br>
+                    □ Pública (Fuera del Estado)<br>
+                    □ Privada<br>
+                    □ Colegio Comunitario<br>
+                    □ Escuela Técnica/Vocacional
+                </td>
+            </tr>
+            <tr>
+                <td>Programa/Título:</td>
+                <td class="input-cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Duración Esperada del Programa:</td>
+                <td class="input-cell">&nbsp;</td>
+            </tr>
+        </table>
+
+        <h2>Análisis de Gastos Universitarios Anuales</h2>
+        <p>
+            Para cada categoría de gastos, lista el costo anual típico, identifica al menos una estrategia para reducir ese costo y calcula tus ahorros anuales potenciales.
+        </p>
+
+        <table>
+            <tr>
+                <th width="30%">Categoría de Gastos</th>
+                <th width="15%">Costo Anual Típico</th>
+                <th width="40%">Estrategias de Reducción de Costos</th>
+                <th width="15%">Ahorros Anuales Potenciales</th>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Matrícula y Cuotas</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Comenzar en colegio comunitario y transferirse; asistir a universidad pública del estado; solicitar becas; buscar programas sin matrícula; negociar con la oficina de ayuda financiera; aprovechar asistencia de matrícula del empleador
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Alojamiento</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Vivir en casa; convertirse en asistente residente (RA); compartir apartamento con múltiples compañeros; buscar alojamiento fuera del campus; elegir opciones de alojamiento menos costosas
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Plan de Comidas/Alimentación</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Elegir plan de comidas más económico; cocinar tus propias comidas; usar despensa del campus; compartir compras con compañeros de cuarto; usar descuentos estudiantiles en restaurantes locales
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Libros y Materiales</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Alquilar libros de texto; comprar libros usados; usar versiones digitales; compartir libros con compañeros de clase; revisar copias de reserva en la biblioteca del campus; usar recursos educativos abiertos (REA)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Transporte</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Usar transporte público; caminar o usar bicicleta; compartir auto con otros estudiantes; usar servicio de transporte del campus; limitar viajes a casa; evitar llevar auto al campus
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Gastos Personales</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Crear y seguir un presupuesto; usar descuentos estudiantiles; limitar comer fuera; minimizar gastos de entretenimiento; usar instalaciones recreativas del campus en lugar de membresías de gimnasio
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Salud/Seguro Médico</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Permanecer en el plan de seguro de los padres; usar servicios de salud del campus; comparar opciones de seguro; aprovechar atención preventiva
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Tecnología</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Usar laboratorios de computación del campus; comprar dispositivos reacondicionados; obtener descuentos estudiantiles en laptops y software; compartir suscripciones con compañeros de cuarto
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category">Otros Gastos</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">
+                    <div class="example">
+                        <strong>Estrategias de Ejemplo:</strong> Lista cualquier otro gasto específico de tu situación y estrategias para reducirlos
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="expense-category"><strong>TOTAL</strong></td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+                <td class="input-cell">$</td>
+            </tr>
+        </table>
+
+        <h2>Fuentes de Ingresos Durante la Universidad</h2>
+        <p>
+            Lista fuentes potenciales de ingresos durante la universidad que pueden ayudar a reducir tu necesidad de préstamos estudiantiles.
+        </p>
+
+        <table>
+            <tr>
+                <th width="50%">Fuente de Ingresos</th>
+                <th width="25%">Monto Anual Estimado</th>
+                <th width="25%">¿Es Realista?</th>
+            </tr>
+            <tr>
+                <td>Trabajo de medio tiempo durante el año escolar</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Empleo de verano</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Trabajo-estudio</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Becas (basadas en mérito)</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Subvenciones (basadas en necesidad)</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Contribución familiar</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Ahorros personales</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td>Otro: _________________</td>
+                <td class="input-cell">$</td>
+                <td class="input-cell">□ Sí □ No □ Quizás</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td class="input-cell">$</td>
+                <td class="input-cell"></td>
+            </tr>
+        </table>
+
+        <h2>Análisis de Préstamos Estudiantiles</h2>
+
+        <table>
+            <tr>
+                <td width="60%">Costo Universitario Anual Total (del análisis de gastos):</td>
+                <td class="input-cell" width="40%">$</td>
+            </tr>
+            <tr>
+                <td>Ingresos/Recursos Anuales Totales (de fuentes de ingresos):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Brecha de Financiamiento Anual (cantidad necesaria de préstamos):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Ahorros Anuales Potenciales Totales (del análisis de gastos):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Brecha de Financiamiento Anual Revisada (después de implementar estrategias de ahorro):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Costo Total Estimado del Programa (costo anual × duración del programa):</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Préstamo Total Estimado Necesario:</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Préstamo Total Estimado Después de Estrategias de Ahorro:</td>
+                <td class="input-cell">$</td>
+            </tr>
+            <tr>
+                <td>Reducción Total en Préstamos:</td>
+                <td class="input-cell">$</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Nota:</strong> Recuerda que cada dólar que no pidas prestado es un dólar (más intereses) que no tendrás que pagar después de graduarte. Incluso ahorros modestos pueden reducir significativamente tu deuda total de préstamos estudiantiles y pagos mensuales después de la graduación.
+        </div>
+
+        <h2>Preguntas de Reflexión</h2>
+        <p>
+            Responde las siguientes preguntas para ayudar a desarrollar tu estrategia de financiamiento educativo:
+        </p>
+
+        <ol>
+            <li>¿Cuáles son las tres estrategias más efectivas que identificaste para reducir gastos universitarios?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <li>¿Qué tan realistas son estas estrategias para tu situación particular?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <li>¿Qué fuentes de ingresos adicionales podrías desarrollar antes o durante la universidad?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <li>¿Cómo se compara el préstamo total estimado con tu salario inicial esperado en tu campo elegido?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <li>¿Qué pasos tomarás ahora para prepararte financieramente para la universidad y minimizar tu necesidad de préstamos estudiantiles?</li>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+        </ol>
+
+        <div class="tips">
+            <strong>Consejo de Planificación Financiera:</strong> Los expertos financieros generalmente recomiendan que tu deuda total de préstamos estudiantiles no exceda tu salario esperado del primer año después de graduarte. Investiga los salarios iniciales típicos en tu campo elegido para asegurarte de que tu plan de préstamos sea sostenible.
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

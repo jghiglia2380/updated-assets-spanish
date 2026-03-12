@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Oferta y Demanda | PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6366f1;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #6366f1;
+        }
+        .subtitle {
+            color: #6b7280;
+            margin-top: 5px;
+        }
+        .box {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #6366f1;
+        }
+        .box-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            background-color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        .law-box {
+            background-color: #eef2ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .shifter-list {
+            margin-left: 20px;
+        }
+        .shifter-list li {
+            margin: 4px 0;
+        }
+        .application-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .application-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        .elasticity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .elastic-box {
+            background-color: #dbeafe;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .inelastic-box {
+            background-color: #fee2e2;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .takeaway {
+            background-color: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 15px;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: #f3f4f6;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 11px;
+            }
+            .box {
+                break-inside: avoid;
+            }
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .elasticity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Referencia de Oferta y Demanda</h1>
+        <p class="subtitle">Referencia rápida para toma de decisiones financieras personales</p>
+    </header>
+
+    <div class="box">
+        <div class="box-title">LEY DE LA DEMANDA</div>
+        <p><strong>Definición:</strong> Cuando el precio aumenta, la cantidad demandada disminuye (y viceversa)</p>
+        <div class="law-box">
+            <strong>Ejemplo de Finanzas Personales:</strong> Cuando los precios de la gasolina suben a $5/galón, manejas menos y compartes auto. Cuando bajan a $2.50/galón, haces más viajes por carretera.
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">LEY DE LA OFERTA</div>
+        <p><strong>Definición:</strong> Cuando el precio aumenta, la cantidad ofrecida aumenta (y viceversa)</p>
+        <div class="law-box">
+            <strong>Ejemplo de Finanzas Personales:</strong> Cuando los salarios de enfermeros aumentan, más personas entran a programas de enfermería. Cuando los salarios bajan, menos personas persiguen esa carrera.
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="box">
+            <div class="box-title">Factores que Desplazan la Demanda</div>
+            <ul class="shifter-list">
+                <li><strong>Cambios en el ingreso</strong> - Más ingreso = más demanda (para bienes normales)</li>
+                <li><strong>Preferencias del consumidor</strong> - Tendencias, gustos, publicidad</li>
+                <li><strong>Precios de bienes relacionados</strong> - Sustitutos y complementarios</li>
+                <li><strong>Expectativas futuras</strong> - ¿Esperas que suban los precios? Compra ahora</li>
+                <li><strong>Número de compradores</strong> - Crecimiento poblacional aumenta demanda</li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="box-title">Factores que Desplazan la Oferta</div>
+            <ul class="shifter-list">
+                <li><strong>Costos de producción</strong> - Mayores costos = menos oferta</li>
+                <li><strong>Tecnología</strong> - Mejor tecnología = oferta más eficiente</li>
+                <li><strong>Desastres naturales</strong> - Disrupciones reducen oferta</li>
+                <li><strong>Políticas gubernamentales</strong> - Impuestos, regulaciones, subsidios</li>
+                <li><strong>Número de vendedores</strong> - Más competencia = más oferta</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">EQUILIBRIO</div>
+        <p><strong>Definición:</strong> El precio donde la cantidad demandada iguala a la cantidad ofrecida</p>
+        <div class="highlight">
+            <strong>Idea Clave:</strong> Los mercados naturalmente se mueven hacia el equilibrio. Entender esto te ayuda a predecir cuándo los precios podrían ser temporales vs. permanentes.
+            <p style="margin-top: 8px;"><strong>Ejemplo:</strong> Una escasez de vivienda empuja los precios arriba del equilibrio - espera rentas más altas hasta que se construyan más apartamentos.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">GUÍA DE PREDICCIÓN DEL MERCADO</div>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem;">
+            <tr style="background-color: #f3f4f6;">
+                <th style="padding: 8px; border: 1px solid #e5e7eb;">Si la Demanda...</th>
+                <th style="padding: 8px; border: 1px solid #e5e7eb;">Y la Oferta...</th>
+                <th style="padding: 8px; border: 1px solid #e5e7eb;">Entonces el Precio...</th>
+                <th style="padding: 8px; border: 1px solid #e5e7eb;">Y la Cantidad...</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Aumenta</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Estable</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #dc2626;">Sube</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #16a34a;">Sube</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Disminuye</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Estable</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #16a34a;">Baja</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #dc2626;">Baja</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Estable</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Aumenta</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #16a34a;">Baja</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #16a34a;">Sube</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Estable</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Disminuye</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #dc2626;">Sube</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #dc2626;">Baja</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Aumenta</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Disminuye</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #dc2626;">Sube fuertemente</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Incierto</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Disminuye</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Aumenta</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; color: #16a34a;">Baja fuertemente</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">Incierto</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <div class="box-title">ELASTICIDAD DEL PRECIO</div>
+        <p>¿Qué tan sensible es la cantidad demandada a los cambios de precio?</p>
+
+        <div class="elasticity-grid">
+            <div class="elastic-box">
+                <strong style="color: #1d4ed8;">Elástica (Sensible)</strong>
+                <ul style="margin: 8px 0 0 15px; font-size: 0.9rem;">
+                    <li>Bienes de lujo</li>
+                    <li>Muchos sustitutos</li>
+                    <li>No esenciales</li>
+                </ul>
+                <p style="margin-top: 8px; font-size: 0.85rem;"><strong>Estrategia:</strong> Espera rebajas, negocia, encuentra alternativas</p>
+            </div>
+            <div class="inelastic-box">
+                <strong style="color: #dc2626;">Inelástica (Insensible)</strong>
+                <ul style="margin: 8px 0 0 15px; font-size: 0.9rem;">
+                    <li>Necesidades</li>
+                    <li>Pocos sustitutos</li>
+                    <li>Necesidades urgentes</li>
+                </ul>
+                <p style="margin-top: 8px; font-size: 0.85rem;"><strong>Estrategia:</strong> Reducir consumo, encontrar alternativas a largo plazo</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">APLICACIONES EN FINANZAS PERSONALES</div>
+
+        <div class="application-item">
+            <span class="application-label">Vivienda:</span> Alta demanda + oferta limitada = rentas subiendo. Programa tu búsqueda de apartamento durante temporadas bajas (invierno) cuando la demanda es menor.
+        </div>
+
+        <div class="application-item">
+            <span class="application-label">Carreras:</span> Alta demanda de habilidades + baja oferta de trabajadores = salarios más altos. Elige carreras donde la demanda supere la oferta.
+        </div>
+
+        <div class="application-item">
+            <span class="application-label">Compras:</span> Compra artículos de temporada fuera de temporada cuando la demanda es baja (abrigos de invierno en primavera, aires acondicionados en otoño).
+        </div>
+
+        <div class="application-item">
+            <span class="application-label">Negociación:</span> Tienes más poder cuando la oferta es alta y la demanda es baja. Menos poder cuando tienes demanda inelástica por algo.
+        </div>
+
+        <div class="application-item">
+            <span class="application-label">Inversión:</span> Identifica mercados donde los desequilibrios de oferta/demanda crean oportunidades (ej., vivienda en ciudades en crecimiento).
+        </div>
+    </div>
+
+    <div class="takeaway">
+        <strong>Conclusión Clave:</strong> La oferta y la demanda determinan los precios en mercados libres. Usa este conocimiento para programar compras, elegir carreras, negociar efectivamente y tomar decisiones financieras más inteligentes. Compra cuando la oferta es alta y la demanda es baja; vende cuando la demanda es alta y la oferta es baja.
+    </div>
+</body>
+</html>

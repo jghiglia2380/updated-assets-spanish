@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Análisis de Decisiones de la Reserva Federal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .economic-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .data-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+        }
+
+        .data-card h3 {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .data-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .data-status {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .status-high { background: #fee2e2; color: #dc2626; }
+        .status-low { background: #dbeafe; color: #2563eb; }
+        .status-target { background: #d1fae5; color: #059669; }
+
+        .decision-section {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1e40af;
+        }
+
+        .decision-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .decision-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            border: 3px solid #e5e7eb;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .decision-btn:hover {
+            border-color: #6366f1;
+        }
+
+        .decision-btn.selected {
+            border-color: #6366f1;
+            background: #eef2ff;
+        }
+
+        .decision-btn .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .decision-btn .label {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .decision-btn .desc {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .reasoning-section {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .analyze-btn:hover {
+            background: #4f46e5;
+        }
+
+        .results {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .result-box {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .analysis-result {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+        }
+
+        .impact-result {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+        }
+
+        .result-box h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        .result-box p {
+            color: #4b5563;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .analyze-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .decision-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Análisis de Decisiones de la Reserva Federal</h1>
+            <p class="subtitle">Analiza indicadores económicos y toma decisiones sobre tasas de interés</p>
+        </header>
+
+        <div class="economic-data">
+            <div class="data-card">
+                <h3>Tasa de Inflación</h3>
+                <div class="data-value" id="inflationRate">4.2%</div>
+                <div class="data-status status-high">Por Encima del Objetivo</div>
+            </div>
+            <div class="data-card">
+                <h3>Desempleo</h3>
+                <div class="data-value" id="unemploymentRate">3.8%</div>
+                <div class="data-status status-target">Cerca del Objetivo</div>
+            </div>
+            <div class="data-card">
+                <h3>Crecimiento del PIB</h3>
+                <div class="data-value" id="gdpGrowth">2.1%</div>
+                <div class="data-status status-target">Moderado</div>
+            </div>
+            <div class="data-card">
+                <h3>Tasa Actual de la Fed</h3>
+                <div class="data-value" id="currentRate">5.25%</div>
+                <div class="data-status status-high">Elevada</div>
+            </div>
+        </div>
+
+        <div class="decision-section">
+            <div class="section-title">Tu Decisión sobre Tasas de Interés</div>
+            <div class="decision-options">
+                <button class="decision-btn" onclick="selectDecision('raise')">
+                    <div class="icon">📈</div>
+                    <div class="label">Subir Tasas</div>
+                    <div class="desc">+0.25% para combatir la inflación</div>
+                </button>
+                <button class="decision-btn" onclick="selectDecision('hold')">
+                    <div class="icon">➡️</div>
+                    <div class="label">Mantener Estables</div>
+                    <div class="desc">Mantener las tasas actuales</div>
+                </button>
+                <button class="decision-btn" onclick="selectDecision('lower')">
+                    <div class="icon">📉</div>
+                    <div class="label">Bajar Tasas</div>
+                    <div class="desc">-0.25% para impulsar el crecimiento</div>
+                </button>
+            </div>
+        </div>
+
+        <div class="reasoning-section">
+            <label for="reasoning">Explica Tu Razonamiento</label>
+            <textarea id="reasoning" placeholder="Considera el doble mandato: estabilidad de precios y máximo empleo. ¿Qué indicadores económicos influyeron en tu decisión? ¿Cuáles son los riesgos potenciales de tu elección?"></textarea>
+        </div>
+
+        <button class="analyze-btn" onclick="analyzeDecision()">Analizar Mi Decisión</button>
+
+        <div class="results" id="results">
+            <div class="result-box analysis-result">
+                <h3>Análisis de la Decisión</h3>
+                <p id="analysisText"></p>
+            </div>
+            <div class="result-box impact-result">
+                <h3>Impacto Económico Previsto</h3>
+                <p id="impactText"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Política Fiscal y Monetaria</p>
+        </footer>
+    </div>
+
+    <script>
+        let selectedDecision = null;
+
+        function selectDecision(decision) {
+            selectedDecision = decision;
+            document.querySelectorAll('.decision-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.closest('.decision-btn').classList.add('selected');
+        }
+
+        function analyzeDecision() {
+            if (!selectedDecision) {
+                alert('Por favor selecciona una decisión sobre tasas de interés primero.');
+                return;
+            }
+
+            const reasoning = document.getElementById('reasoning').value;
+            let analysisText = '';
+            let impactText = '';
+
+            if (selectedDecision === 'raise') {
+                analysisText = 'Subir las tasas es una elección razonable dado que la inflación está en 4.2% (por encima del objetivo del 2%). Esta política monetaria contractiva debería ayudar a reducir las presiones inflacionarias al aumentar los costos de endeudamiento y desacelerar el gasto.';
+                impactText = 'Resultados esperados: La inflación puede disminuir en 6-12 meses. El gasto del consumidor y la inversión empresarial probablemente se desacelerarán. Las tasas hipotecarias y los costos de préstamos aumentarán. Riesgo: Podría aumentar el desempleo si se mantiene demasiado tiempo.';
+            } else if (selectedDecision === 'hold') {
+                analysisText = 'Mantener las tasas estables es un enfoque cauteloso que permite tiempo para evaluar el impacto de aumentos de tasas anteriores. Con el desempleo cerca del objetivo (3.8%) y un crecimiento moderado del PIB, esto equilibra ambos lados del doble mandato.';
+                impactText = 'Resultados esperados: Las condiciones económicas permanecen estables a corto plazo. La inflación puede continuar disminuyendo lentamente. Proporciona tiempo para evaluar los efectos retrasados de políticas anteriores. Riesgo: La inflación podría permanecer persistente si no se toman más medidas.';
+            } else if (selectedDecision === 'lower') {
+                analysisText = 'Bajar las tasas con una inflación del 4.2% sería una elección poco convencional. Esta política expansiva prioriza el crecimiento sobre la estabilidad de precios. Esto podría justificarse si crees que la inflación caerá naturalmente o que el crecimiento del PIB está en riesgo.';
+                impactText = 'Resultados esperados: Se estimularía el crecimiento económico, potencialmente previniendo una recesión. Sin embargo, la inflación podría aumentar más. El endeudamiento del consumidor se vuelve más barato. Riesgo: Podría desanclar las expectativas de inflación.';
+            }
+
+            document.getElementById('analysisText').textContent = analysisText;
+            document.getElementById('impactText').textContent = impactText;
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

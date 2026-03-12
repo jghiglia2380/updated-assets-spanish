@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Practica de Propiedad de Vivienda | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .scenario {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .scenario-number {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .answer-space {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 80px;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .hint-box {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .calculation-box {
+            background-color: #e0f2fe;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            textarea {
+                border: none !important;
+                min-height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Capitulo 32: Comprendiendo la Propiedad de Vivienda</h1>
+        <p class="subtitle">Practique calculando costos y evaluando la preparacion para comprar una vivienda</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Calculando Costos de Compra de Vivienda</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 1: Costos Iniciales</div>
+            <p>Esta considerando comprar una vivienda por $280,000. Calcule los costos iniciales:</p>
+
+            <div class="calculation-box">
+                <table>
+                    <tr>
+                        <td>Precio de la Vivienda:</td>
+                        <td>$280,000</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Inicial (10%):</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>Costos de Cierre (3%):</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>Gastos de Mudanza (estimado):</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <th>Total de Costos Iniciales:</th>
+                        <th>$_______</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="question">a) Si puede ahorrar $800 por mes, ¿cuantos meses le tomaria ahorrar para estos costos iniciales?</div>
+            <div class="answer-space">
+                <textarea placeholder="Muestre su calculo..."></textarea>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 2: Desglose del Pago Mensual</div>
+            <p>Usando la misma vivienda de $280,000 con 10% de pago inicial, su hipoteca seria de $252,000 al 6.5% de interes por 30 anos. Su pago mensual de principal e intereses seria aproximadamente $1,593.</p>
+
+            <div class="question">a) Calcule el pago mensual total estimado (PITI):</div>
+            <div class="calculation-box">
+                <table>
+                    <tr>
+                        <td>Principal e Intereses:</td>
+                        <td>$1,593</td>
+                    </tr>
+                    <tr>
+                        <td>Impuestos de Propiedad ($3,500/ano / 12):</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>Seguro de Propietario ($1,200/ano / 12):</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>PMI (0.5% del prestamo / 12):</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <th>Total Mensual PITI:</th>
+                        <th>$_______</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="question">b) ¿Que ingreso bruto anual necesitaria si la vivienda no debe superar el 28% del ingreso bruto?</div>
+            <div class="answer-space">
+                <textarea placeholder="Muestre su calculo..."></textarea>
+            </div>
+
+            <div class="hint-box">
+                <strong>Pista:</strong> Pago mensual / 0.28 = Ingreso bruto mensual requerido
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Comparando Opciones de Hipoteca</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 3: Fija vs. ARM</div>
+            <p>Compare estas opciones de hipoteca para un prestamo de $200,000:</p>
+
+            <table>
+                <tr>
+                    <th>Caracteristica</th>
+                    <th>Fija a 30 Anos</th>
+                    <th>5/1 ARM</th>
+                </tr>
+                <tr>
+                    <td>Tasa de Interes Inicial</td>
+                    <td>6.5%</td>
+                    <td>5.5%</td>
+                </tr>
+                <tr>
+                    <td>P&I Mensual Inicial</td>
+                    <td>$1,264</td>
+                    <td>$1,136</td>
+                </tr>
+                <tr>
+                    <td>Tasa Despues de 5 Anos</td>
+                    <td>6.5% (sin cambio)</td>
+                    <td>Podria ser 7.5% o mas</td>
+                </tr>
+            </table>
+
+            <div class="question">a) ¿Cuanto ahorraria por mes en los primeros 5 anos con el ARM?</div>
+            <div class="answer-space">
+                <textarea placeholder="Muestre su calculo..."></textarea>
+            </div>
+
+            <div class="question">b) ¿Cuales son los riesgos de elegir el ARM?</div>
+            <div class="answer-space">
+                <textarea placeholder="Liste los riesgos potenciales..."></textarea>
+            </div>
+
+            <div class="question">c) ¿En que situaciones el ARM podria ser una buena opcion?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 4: Seleccion del Tipo de Prestamo</div>
+            <p>Relacione cada comprador con el tipo de prestamo mas apropiado:</p>
+
+            <table>
+                <tr>
+                    <th>Perfil del Comprador</th>
+                    <th>Mejor Tipo de Prestamo</th>
+                    <th>¿Por que?</th>
+                </tr>
+                <tr>
+                    <td>Veterano del ejercito comprando primera vivienda, ahorros limitados</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Comprador primerizo, puntaje de credito 590, 5% ahorrado</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Alto ingreso comprando vivienda de $800,000, credito 720</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Comprador en area rural, ingresos moderados</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Analisis de Alquilar vs. Comprar</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 5: Comparacion de Costos</div>
+            <p>Compare alquilar vs. comprar en este escenario:</p>
+
+            <div class="calculation-box">
+                <strong>Opcion A: Alquilar</strong>
+                <ul style="margin-left: 20px;">
+                    <li>Alquiler mensual: $1,500</li>
+                    <li>Seguro de inquilino: $25/mes</li>
+                </ul>
+
+                <strong style="margin-top: 10px; display: block;">Opcion B: Comprar</strong>
+                <ul style="margin-left: 20px;">
+                    <li>PITI Mensual: $1,850</li>
+                    <li>Mantenimiento (prom.): $250/mes</li>
+                    <li>Construyendo patrimonio: ~$400/mes</li>
+                </ul>
+            </div>
+
+            <div class="question">a) ¿Cual es la diferencia mensual en costos de bolsillo?</div>
+            <div class="answer-space">
+                <textarea placeholder="Muestre su calculo..."></textarea>
+            </div>
+
+            <div class="question">b) ¿Que factores no financieros deben considerarse?</div>
+            <div class="answer-space">
+                <textarea placeholder="Liste factores como flexibilidad, responsabilidad de mantenimiento, etc..."></textarea>
+            </div>
+
+            <div class="question">c) Para alguien que planea mudarse en 2 anos, ¿que recomendaria y por que?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su recomendacion y razonamiento..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: Evaluacion de Preparacion para la Propiedad de Vivienda</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 6: Preparacion Personal</div>
+            <p>Califique su preparacion actual para la propiedad de vivienda (1 = No Listo, 5 = Muy Listo):</p>
+
+            <table>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Calificacion (1-5)</th>
+                    <th>Pasos para Mejorar</th>
+                </tr>
+                <tr>
+                    <td>Puntaje de credito (620+ para convencional)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ahorros para pago inicial</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ingresos estables (2+ anos)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Fondo de emergencia (3-6 meses)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Relacion deuda-ingreso (menos del 36%)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Estabilidad geografica (3-5 anos)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="question">Basado en su evaluacion, ¿cuando podria ser realista la propiedad de vivienda para usted?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su linea de tiempo y hitos clave..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 5: Pensamiento Critico</div>
+
+        <div class="scenario">
+            <div class="question">1. ¿Por que los prestamistas requieren PMI para pagos iniciales menores al 20%?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su explicacion..."></textarea>
+            </div>
+
+            <div class="question">2. Un amigo dice "Alquilar es solo tirar el dinero." ¿Como responderia?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+
+            <div class="question">3. ¿Cuales son tres preguntas que debe hacer antes de comprar una vivienda en un vecindario especifico?</div>
+            <div class="answer-space">
+                <textarea placeholder="1.&#10;&#10;2.&#10;&#10;3."></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

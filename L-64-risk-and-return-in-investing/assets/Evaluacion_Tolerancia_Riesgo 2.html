@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Evaluación de Tolerancia al Riesgo</title>
+    <!--
+    PURPOSE: Determine personal risk tolerance through time horizon, financial situation, and emotional temperament
+    USE: Activity 1 - Risk Tolerance Assessment and Analysis (15 minutes)
+    -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --surface: #f9fafb;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .section {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .question {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 12px 0;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: grid;
+            gap: 8px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .option:hover {
+            background: #f3f4f6;
+        }
+        .option input {
+            width: auto;
+        }
+        .result-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .result-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .result-score {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .result-profile {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .score-bar {
+            background: rgba(255,255,255,0.3);
+            height: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .score-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: white;
+            transition: width 0.5s;
+        }
+        .score-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+        .allocation-suggestion {
+            background: white;
+            color: var(--text);
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .allocation-bar {
+            display: flex;
+            height: 30px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .alloc-stocks {
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .alloc-bonds {
+            background: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #4f46e5;
+        }
+        .analysis-box {
+            margin: 20px 0;
+        }
+        .analysis-box label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .analysis-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            min-height: 70px;
+            font-family: inherit;
+        }
+        @media print {
+            .btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Evaluación de Tolerancia al Riesgo</h1>
+
+    <p>Responde estas preguntas honestamente para determinar tu tolerancia al riesgo de inversión. Tu puntuación sugerirá una estrategia de asignación de activos apropiada.</p>
+
+    <!-- Time Horizon Section -->
+    <div class="section">
+        <div class="section-title">Parte 1: Horizonte Temporal</div>
+
+        <div class="question">
+            <div class="question-text">1. ¿Cuándo esperas necesitar este dinero?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q1" value="1"> Menos de 3 años
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="2"> 3-5 años
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="3"> 6-10 años
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="4"> 11-20 años
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="5"> Más de 20 años
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">2. ¿Qué tan estable es tu ingreso?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q2" value="1"> Muy inestable (trabajo por encargo, comisión)
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="2"> Algo inestable
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="3"> Moderadamente estable
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="4"> Posición asalariada estable
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="5"> Muy estable (titular, gobierno)
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Situation Section -->
+    <div class="section">
+        <div class="section-title">Parte 2: Situación Financiera</div>
+
+        <div class="question">
+            <div class="question-text">3. ¿Cuántos meses de gastos tienes en ahorros de emergencia?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q3" value="1"> Ninguno
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="2"> 1-2 meses
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="3"> 3-5 meses
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="4"> 6-12 meses
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="5"> Más de 12 meses
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">4. ¿Qué porcentaje de tu ingreso puedes ahorrar?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q4" value="1"> 0% - Viviendo de cheque en cheque
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="2"> 1-5%
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="3"> 6-10%
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="4"> 11-15%
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="5"> Más del 15%
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emotional Temperament Section -->
+    <div class="section">
+        <div class="section-title">Parte 3: Temperamento Emocional</div>
+
+        <div class="question">
+            <div class="question-text">5. Si tu portafolio cayera 20% en un mes, tú:</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q5" value="1"> Venderías todo inmediatamente
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="2"> Venderías algo para reducir el riesgo
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="3"> Mantendrías y esperarías a ver qué pasa
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="4"> Comprarías más a precios más bajos
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="5"> Aumentarías significativamente las compras
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">6. ¿Qué afirmación describe mejor tu filosofía de inversión?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q6" value="1"> No puedo permitirme perder ningún dinero
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="2"> Prefiero la seguridad sobre los retornos
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="3"> Quiero equilibrio entre seguridad y crecimiento
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="4"> Priorizo el crecimiento, aceptando algo de riesgo
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="5"> Máximo crecimiento, puedo manejar grandes fluctuaciones
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">7. ¿Cómo te sentirías si tu inversión perdiera 30% de su valor?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="q7" value="1"> Devastado - no podría dormir por las noches
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="2"> Muy preocupado y ansioso
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="3"> Preocupado pero manejable
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="4"> Algo incómodo pero bien
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="5"> Bien - es parte de invertir
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="calculateScore()">Calcular Mi Tolerancia al Riesgo</button>
+
+    <!-- Results Section -->
+    <div class="result-section" id="results" style="display: none;">
+        <div class="result-label">Tu Puntuación de Tolerancia al Riesgo</div>
+        <div class="result-score" id="score">--</div>
+        <div class="result-profile" id="profile">--</div>
+
+        <div class="score-bar">
+            <div class="score-fill" id="score-fill" style="width: 0%;"></div>
+        </div>
+        <div class="score-labels">
+            <span>Conservador</span>
+            <span>Moderado</span>
+            <span>Agresivo</span>
+        </div>
+
+        <div class="allocation-suggestion">
+            <strong>Asignación de Activos Sugerida:</strong>
+            <div class="allocation-bar" id="alloc-bar">
+                <div class="alloc-stocks" id="alloc-stocks" style="width: 60%;">60% Acciones</div>
+                <div class="alloc-bonds" id="alloc-bonds" style="width: 40%;">40% Bonos</div>
+            </div>
+            <p id="alloc-text" style="margin: 10px 0; font-size: 0.9rem;"></p>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <label>Reflexión: ¿Este resultado coincide con cómo piensas sobre el dinero? ¿Por qué sí o por qué no?</label>
+        <textarea placeholder="Considera si tus respuestas reflejaron tus verdaderos sentimientos o lo que crees que deberías sentir..."></textarea>
+    </div>
+
+    <div class="analysis-box">
+        <label>¿Cómo podría cambiar tu tolerancia al riesgo en diferentes situaciones de vida?</label>
+        <textarea placeholder="Piensa en el matrimonio, tener hijos, cambios de trabajo, acercarse a la jubilación..."></textarea>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let total = 0;
+            let answered = 0;
+
+            for (let i = 1; i <= 7; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected) {
+                    total += parseInt(selected.value);
+                    answered++;
+                }
+            }
+
+            if (answered < 7) {
+                alert('Por favor responde todas las preguntas antes de calcular tu puntuación.');
+                return;
+            }
+
+            const maxScore = 35;
+            const percentage = (total / maxScore) * 100;
+
+            let profile, stockPct, bondPct, allocText;
+
+            if (total <= 11) {
+                profile = 'Conservador';
+                stockPct = 30;
+                bondPct = 70;
+                allocText = 'Enfoque en preservación de capital con mínima volatilidad. Adecuado para horizontes temporales cortos o baja tolerancia al riesgo.';
+            } else if (total <= 17) {
+                profile = 'Moderadamente Conservador';
+                stockPct = 45;
+                bondPct = 55;
+                allocText = 'Equilibrio con ligera preferencia por la estabilidad. Bueno para metas a mediano plazo con tolerancia moderada al riesgo.';
+            } else if (total <= 23) {
+                profile = 'Moderado';
+                stockPct = 60;
+                bondPct = 40;
+                allocText = 'Enfoque equilibrado clásico. Adecuado para la mayoría de los inversores a largo plazo que buscan crecimiento con riesgo manejable.';
+            } else if (total <= 29) {
+                profile = 'Moderadamente Agresivo';
+                stockPct = 75;
+                bondPct = 25;
+                allocText = 'Orientado al crecimiento con mayor tolerancia a la volatilidad. Mejor para horizontes temporales largos y situaciones financieras estables.';
+            } else {
+                profile = 'Agresivo';
+                stockPct = 90;
+                bondPct = 10;
+                allocText = 'Máximo potencial de crecimiento con volatilidad significativa. Solo para horizontes temporales muy largos y alta resiliencia emocional.';
+            }
+
+            document.getElementById('score').textContent = total + '/35';
+            document.getElementById('profile').textContent = profile;
+            document.getElementById('score-fill').style.width = percentage + '%';
+            document.getElementById('alloc-stocks').style.width = stockPct + '%';
+            document.getElementById('alloc-stocks').textContent = stockPct + '% Acciones';
+            document.getElementById('alloc-bonds').style.width = bondPct + '%';
+            document.getElementById('alloc-bonds').textContent = bondPct + '% Bonos';
+            document.getElementById('alloc-text').textContent = allocText;
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

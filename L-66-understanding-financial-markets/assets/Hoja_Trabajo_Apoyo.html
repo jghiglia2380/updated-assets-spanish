@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendiendo los Mercados Financieros - Hoja de Trabajo | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--surface);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--background);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 15px 0 10px;
+        }
+
+        .instruction {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .question-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .answer-space {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 15px;
+            min-height: 80px;
+            background: white;
+            margin-top: 10px;
+        }
+
+        .answer-space.large {
+            min-height: 120px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background: white;
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+
+        .scenario-box {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .scenario-title {
+            color: #f59e0b;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border: 1px solid #000;
+            }
+
+            .answer-space {
+                border: 1px solid #000;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Entendiendo los Mercados Financieros</h1>
+            <div class="subtitle">Hoja de Trabajo de Apoyo - Actividad de Práctica Guiada</div>
+        </header>
+
+        <div class="content">
+            <div class="instruction">
+                <strong>Instrucciones:</strong> Complete cada sección a continuación para demostrar su comprensión de los mercados financieros. Use ejemplos de las discusiones en clase y la herramienta Explorador de Mercados Financieros.
+            </div>
+
+            <!-- Parte 1: Identificación de Mercados -->
+            <div class="section">
+                <h2>Parte 1: Identificación de Mercados</h2>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">1</span>
+                        Relacione cada instrumento financiero con el mercado correcto:
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Instrumento Financiero</th>
+                            <th>Tipo de Mercado</th>
+                        </tr>
+                        <tr>
+                            <td>Acción común de Apple Inc. (AAPL)</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td>Bono del Tesoro de EE.UU. a 10 años</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td>Contrato de futuros de oro</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td>Par de divisas EUR/USD</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td>Bono corporativo de Microsoft</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td>Futuros de petróleo crudo</td>
+                            <td class="answer-space"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">2</span>
+                        Para cada mercado a continuación, identifique DOS participantes clave y explique su rol:
+                    </div>
+
+                    <h3>Mercado de Valores</h3>
+                    <div class="answer-space large"></div>
+
+                    <h3>Mercado de Bonos</h3>
+                    <div class="answer-space large"></div>
+
+                    <h3>Mercado de Commodities</h3>
+                    <div class="answer-space large"></div>
+
+                    <h3>Mercado Forex</h3>
+                    <div class="answer-space large"></div>
+                </div>
+            </div>
+
+            <!-- Parte 2: Características del Mercado -->
+            <div class="section">
+                <h2>Parte 2: Características del Mercado</h2>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">3</span>
+                        Complete la tabla de comparación:
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Mercado de Valores</th>
+                            <th>Mercado de Bonos</th>
+                            <th>Mercado de Commodities</th>
+                            <th>Mercado Forex</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Horario de Trading</strong></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nivel de Riesgo</strong></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Objetivo Típico</strong></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                            <td class="answer-space"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">4</span>
+                        Explique la diferencia entre mercados de propiedad (renta variable) y mercados de deuda:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+            </div>
+
+            <!-- Parte 3: Aplicaciones del Mundo Real -->
+            <div class="section">
+                <h2>Parte 3: Aplicaciones del Mundo Real</h2>
+
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario A: Decisión de Inversión</div>
+                    <p>Sara tiene $5,000 para invertir y quiere construir un portafolio diversificado. Tiene 18 años y no necesitará el dinero por al menos 10 años. Está dispuesta a aceptar riesgo moderado.</p>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">5</span>
+                        ¿Qué mercados debería considerar Sara y por qué? Recomiende una asignación porcentual en al menos dos mercados diferentes:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario B: Operaciones Empresariales</div>
+                    <p>Una empresa tecnológica de EE.UU. necesita pagar a proveedores en Europa (en Euros) en 3 meses pero le preocupa que el Euro se fortalezca frente al dólar, haciendo el pago más costoso.</p>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">6</span>
+                        ¿Qué mercado financiero podría ayudar a esta empresa a gestionar su riesgo cambiario? Explique cómo:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario C: Planificación de Jubilación</div>
+                    <p>El Sr. García tiene 60 años y planea jubilarse en 5 años. Quiere ingresos estables y predecibles con bajo riesgo para su inversión principal.</p>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">7</span>
+                        ¿Qué mercado sería el MÁS apropiado para el Sr. García y por qué?
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+            </div>
+
+            <!-- Parte 4: Pensamiento Crítico -->
+            <div class="section">
+                <h2>Parte 4: Pensamiento Crítico</h2>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">8</span>
+                        ¿Por qué cree que el mercado Forex opera 24 horas al día mientras que el mercado de valores tiene horarios específicos de trading?
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">9</span>
+                        ¿Cómo son diferentes los mercados de commodities de otros mercados financieros? Explique qué los hace únicos:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">10</span>
+                        Explique cómo los cuatro mercados (valores, bonos, commodities, forex) están interconectados. Dé al menos un ejemplo:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+            </div>
+
+            <!-- Parte 5: Aplicación Personal -->
+            <div class="section">
+                <h2>Parte 5: Aplicación Personal</h2>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">11</span>
+                        Basándose en lo que ha aprendido, ¿qué mercado financiero le interesa más para sus metas financieras futuras? Explique por qué:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">
+                        <span class="question-number">12</span>
+                        ¿Qué información adicional necesitaría antes de invertir en cualquiera de estos mercados? Liste al menos 3 cosas:
+                    </div>
+                    <div class="answer-space large"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Cálculo de Presupuesto Universitario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .instructions {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2196f3;
+            line-height: 1.6;
+        }
+        .budget-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .category {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .amount {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+        .total-row {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        .total-row td {
+            border-top: 2px solid #3498db;
+            padding: 15px 12px;
+        }
+        .reflection-section {
+            background-color: #fff9e6;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .reflection-section h3 {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        .reflection-question {
+            margin: 20px 0;
+        }
+        .reflection-question label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #f39c12;
+        }
+        .save-button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .save-button:hover {
+            background-color: #229954;
+        }
+        .strategy-note {
+            font-size: 13px;
+            color: #16a085;
+            font-style: italic;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .save-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoja de Cálculo de Presupuesto Universitario</h1>
+    <div class="subtitle">Analizando los Costos Universitarios de Alex</div>
+
+    <div class="instructions">
+        <strong>Instrucciones:</strong><br>
+        1. <strong>Revisar el Presupuesto:</strong> Examine el presupuesto de Alex en la tabla proporcionada. La tabla incluye gastos universitarios comunes junto con sus costos mensuales y anuales estimados.<br>
+        2. <strong>Calcular los Gastos Totales:</strong> Los totales se calculan automáticamente para mostrar cuánto necesitará Alex para cubrir todos sus gastos universitarios durante el año.<br>
+        3. <strong>Explorar Estrategias de Ahorro:</strong> Revise las "Estrategias Potenciales de Ahorro" para cada categoría y considere formas adicionales en que Alex podría reducir sus costos.<br>
+        4. <strong>Reflexionar sobre el Impacto:</strong> Complete las preguntas de reflexión debajo de la tabla para considerar cómo las estrategias de ahorro pueden reducir las necesidades de préstamos de Alex.
+    </div>
+
+    <div class="budget-container">
+        <h2 style="color: #3498db; margin-bottom: 20px;">Presupuesto Universitario de Alex - Primer Año</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría de Gastos</th>
+                    <th>Costo Mensual</th>
+                    <th>Costo Anual</th>
+                    <th>Estrategias Potenciales de Ahorro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="category">Matrícula y Cuotas</td>
+                    <td class="amount">-</td>
+                    <td class="amount">$12,000</td>
+                    <td class="strategy-note">Solicitar becas, considerar universidad comunitaria para los primeros dos años, buscar ayuda financiera</td>
+                </tr>
+                <tr>
+                    <td class="category">Libros y Materiales</td>
+                    <td class="amount">$150</td>
+                    <td class="amount">$1,350</td>
+                    <td class="strategy-note">Comprar libros usados, alquilar libros de texto, usar recursos de biblioteca, compartir con compañeros</td>
+                </tr>
+                <tr>
+                    <td class="category">Alojamiento (Alquiler)</td>
+                    <td class="amount">$700</td>
+                    <td class="amount">$8,400</td>
+                    <td class="strategy-note">Conseguir compañeros de cuarto, vivir fuera del campus, elegir vivienda más asequible</td>
+                </tr>
+                <tr>
+                    <td class="category">Plan de Comidas/Comestibles</td>
+                    <td class="amount">$400</td>
+                    <td class="amount">$4,800</td>
+                    <td class="strategy-note">Cocinar en casa, usar plan de comidas parcial, comprar al por mayor, evitar comer fuera</td>
+                </tr>
+                <tr>
+                    <td class="category">Transporte</td>
+                    <td class="amount">$150</td>
+                    <td class="amount">$1,800</td>
+                    <td class="strategy-note">Usar transporte público, andar en bicicleta, compartir auto, vivir cerca del campus</td>
+                </tr>
+                <tr>
+                    <td class="category">Servicios Públicos</td>
+                    <td class="amount">$100</td>
+                    <td class="amount">$1,200</td>
+                    <td class="strategy-note">Compartir costos con compañeros de cuarto, ser consciente de la energía, limitar uso de datos</td>
+                </tr>
+                <tr>
+                    <td class="category">Teléfono/Internet</td>
+                    <td class="amount">$80</td>
+                    <td class="amount">$960</td>
+                    <td class="strategy-note">Usar plan familiar, usar Wi-Fi del campus, elegir plan más económico</td>
+                </tr>
+                <tr>
+                    <td class="category">Gastos Personales</td>
+                    <td class="amount">$200</td>
+                    <td class="amount">$2,400</td>
+                    <td class="strategy-note">Crear presupuesto de gastos discrecionales, limitar entretenimiento costoso, aprovechar eventos gratuitos del campus</td>
+                </tr>
+                <tr>
+                    <td class="category">Seguro de Salud</td>
+                    <td class="amount">$150</td>
+                    <td class="amount">$1,800</td>
+                    <td class="strategy-note">Permanecer en el plan de los padres si es posible, usar servicios de salud del campus</td>
+                </tr>
+                <tr>
+                    <td class="category">Ropa y Artículos de Aseo</td>
+                    <td class="amount">$75</td>
+                    <td class="amount">$900</td>
+                    <td class="strategy-note">Comprar en tiendas de descuento, aprovechar ventas, comprar artículos genéricos</td>
+                </tr>
+                <tr class="total-row">
+                    <td class="category">COSTO TOTAL ANUAL</td>
+                    <td class="amount">~$2,005/mes</td>
+                    <td class="amount">$35,610</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background-color: #e8f5e9; padding: 15px; border-radius: 5px; margin-top: 20px;">
+            <strong style="color: #27ae60;">Análisis de Ahorro Potencial:</strong><br>
+            Si Alex implementa las estrategias de ahorro sugeridas, podría potencialmente reducir sus gastos anuales en $5,000-$8,000, lo que significa menos necesidad de préstamos y menos deuda después de la graduación.
+        </div>
+    </div>
+
+    <div class="reflection-section">
+        <h3>Preguntas de Reflexión</h3>
+
+        <div class="reflection-question">
+            <label>1. ¿Qué estrategias recomendaría a Alex para reducir sus necesidades totales de préstamos?</label>
+            <textarea id="question1" placeholder="Escriba su respuesta aquí..."></textarea>
+        </div>
+
+        <div class="reflection-question">
+            <label>2. ¿Cómo podría la reducción de gastos personales impactar la experiencia universitaria general de Alex? ¿Qué equilibrio recomendaría entre ahorrar dinero y disfrutar la vida universitaria?</label>
+            <textarea id="question2" placeholder="Escriba su respuesta aquí..."></textarea>
+        </div>
+
+        <button class="save-button" onclick="saveReflection()">Guardar Respuestas de Reflexión</button>
+    </div>
+
+    <script>
+        // Auto-save functionality
+        const fields = ['question1', 'question2'];
+
+        function autoSave() {
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    localStorage.setItem('budget_' + field, element.value);
+                }
+            });
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            fields.forEach(field => {
+                const saved = localStorage.getItem('budget_' + field);
+                if (saved) {
+                    document.getElementById(field).value = saved;
+                }
+            });
+        });
+
+        // Add event listeners
+        fields.forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', autoSave);
+            }
+        });
+
+        function saveReflection() {
+            autoSave();
+            alert('¡Sus respuestas de reflexión han sido guardadas exitosamente!');
+        }
+    </script>
+</body>
+</html>

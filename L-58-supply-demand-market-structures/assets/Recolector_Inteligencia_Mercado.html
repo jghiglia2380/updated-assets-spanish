@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recolector de Inteligencia de Mercado</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .form-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .section-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #1f2937; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .analyze-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .analyze-btn:hover { background: #4f46e5; }
+        .results { display: none; margin-top: 20px; }
+        .results.active { display: block; }
+        .analysis-card {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .analysis-card h4 { margin-bottom: 8px; }
+        .supply-card { background: #dbeafe; border-left: 4px solid #3b82f6; }
+        .demand-card { background: #fce7f3; border-left: 4px solid #ec4899; }
+        .timing-card { background: #d1fae5; border-left: 4px solid #10b981; }
+        .recommendation {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #f59e0b;
+        }
+        .recommendation h3 { color: #92400e; margin-bottom: 10px; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .analyze-btn,
+            .no-print {
+                display: none !important;
+            }
+            .results {
+                display: block !important;
+            }
+            .analysis-card,
+            .recommendation {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recolector de Inteligencia de Mercado</h1>
+            <p class="subtitle">Aplica análisis de oferta-demanda a tu compra planificada</p>
+        </header>
+
+        <div class="form-section">
+            <div class="section-title">Tu Compra Planificada</div>
+            <div class="form-group">
+                <label>Producto/Servicio</label>
+                <input type="text" id="product" placeholder="ej., Auto usado, Laptop, Boletos de concierto">
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Precio Estimado</label>
+                    <input type="number" id="price" placeholder="1000">
+                </div>
+                <div class="form-group">
+                    <label>Estructura de Mercado</label>
+                    <select id="structure">
+                        <option value="competitive">Competitivo (muchos vendedores)</option>
+                        <option value="oligopoly">Oligopolio (pocos vendedores principales)</option>
+                        <option value="monopoly">Monopolio (un vendedor)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title">Condiciones Actuales del Mercado</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Tendencia de Oferta</label>
+                    <select id="supply">
+                        <option value="high">Alta - Mucha disponibilidad</option>
+                        <option value="normal">Normal</option>
+                        <option value="low">Baja - Escasez/Falta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tendencia de Demanda</label>
+                    <select id="demand">
+                        <option value="high">Alta - Muy popular</option>
+                        <option value="normal">Normal</option>
+                        <option value="low">Baja - Pocos compradores</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>¿Cuándo lo necesitas?</label>
+                <select id="urgency">
+                    <option value="now">Inmediatamente</option>
+                    <option value="soon">Dentro de un mes</option>
+                    <option value="flexible">Flexible (puedo esperar)</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="analyze-btn" onclick="analyze()">Analizar Mercado y Obtener Recomendación</button>
+
+        <div class="results" id="results">
+            <div class="analysis-card supply-card">
+                <h4>📦 Análisis de Oferta</h4>
+                <p id="supplyAnalysis"></p>
+            </div>
+            <div class="analysis-card demand-card">
+                <h4>🛒 Análisis de Demanda</h4>
+                <p id="demandAnalysis"></p>
+            </div>
+            <div class="analysis-card timing-card">
+                <h4>⏰ Análisis de Momento</h4>
+                <p id="timingAnalysis"></p>
+            </div>
+            <div class="recommendation">
+                <h3>💡 Recomendación de Compra</h3>
+                <p id="recommendation"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Inteligencia de Mercado</p>
+        </footer>
+    </div>
+
+    <script>
+        function analyze() {
+            const product = document.getElementById('product').value || 'tu artículo';
+            const structure = document.getElementById('structure').value;
+            const supply = document.getElementById('supply').value;
+            const demand = document.getElementById('demand').value;
+            const urgency = document.getElementById('urgency').value;
+
+            let supplyText = '', demandText = '', timingText = '', recText = '';
+
+            // Supply analysis
+            if (supply === 'high') {
+                supplyText = 'La alta oferta significa que los compradores tienen poder de negociación. Los vendedores compiten por clientes, así que negocia firmemente y compara ofertas.';
+            } else if (supply === 'low') {
+                supplyText = 'La baja oferta da más poder a los vendedores. Espera menos margen de negociación y posibles aumentos de precio. Considera alternativas o esperar.';
+            } else {
+                supplyText = 'Condiciones normales de oferta. Las tácticas de negociación estándar deberían funcionar. Obtén múltiples cotizaciones.';
+            }
+
+            // Demand analysis
+            if (demand === 'high') {
+                demandText = 'La alta demanda significa que compites con otros compradores. Los vendedores pueden ser firmes en el precio. Muévete rápido si encuentras un buen trato.';
+            } else if (demand === 'low') {
+                demandText = '¡La baja demanda es excelente para compradores! Los vendedores necesitan tu negocio. Presiona por descuentos, extras o mejores términos.';
+            } else {
+                demandText = 'La demanda normal te da apalancamiento de compra estándar. Investiga precios justos y no te apresures.';
+            }
+
+            // Timing + recommendation
+            if (supply === 'low' && demand === 'high') {
+                if (urgency === 'flexible') {
+                    timingText = 'Peores condiciones de compra ahora mismo. Si puedes esperar, los precios probablemente mejorarán cuando aumente la oferta o disminuya la demanda.';
+                    recText = `Espera para comprar ${product}. Las condiciones actuales favorecen significativamente a los vendedores. Configura alertas de precio y monitorea por mejores condiciones.`;
+                } else {
+                    timingText = 'Mercado difícil para compradores. Puede que necesites pagar una prima o aceptar términos menos favorables debido a la presión de tiempo.';
+                    recText = `Si debes comprar ahora, establece un precio máximo firme y prepárate para retirarte. Considera alternativas u opciones usadas/reacondicionadas.`;
+                }
+            } else if (supply === 'high' && demand === 'low') {
+                timingText = '¡Excelentes condiciones de compra! Los vendedores están motivados a mover inventario. Este es el mejor momento para negociar.';
+                recText = `¡Compra ahora! Tienes fuerte apalancamiento. Pide 10-15% de descuento sobre el precio de lista, extras gratis o mejores términos de garantía.`;
+            } else if (urgency === 'flexible') {
+                timingText = 'Con flexibilidad, puedes esperar ofertas, descuentos de temporada o mejores condiciones de mercado.';
+                recText = `Investiga los períodos típicos de ofertas para ${product}. Sigue los precios durante algunas semanas. Configura alertas de ofertas. Estás en una posición fuerte.`;
+            } else {
+                timingText = 'Condiciones moderadas. Aplican estrategias de compra estándar - obtén cotizaciones, compara, negocia.';
+                recText = `Obtén al menos 3 cotizaciones antes de decidir. Pide a cada vendedor que supere las ofertas de los demás. No muestres urgencia.`;
+            }
+
+            // Structure modifier
+            if (structure === 'monopoly') {
+                recText += ' Nota: Un solo vendedor limita significativamente tu poder de negociación.';
+            } else if (structure === 'oligopoly') {
+                recText += ' Compara precios entre los principales vendedores - frecuentemente igualan a los competidores.';
+            }
+
+            document.getElementById('supplyAnalysis').textContent = supplyText;
+            document.getElementById('demandAnalysis').textContent = demandText;
+            document.getElementById('timingAnalysis').textContent = timingText;
+            document.getElementById('recommendation').textContent = recText;
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Timing de Ganancias de Capital</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .scenario { background: #f9fafb; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; box-sizing: border-box; }
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .timing-card { background: white; padding: 15px; border-radius: 5px; border: 2px solid #d1d5db; }
+        .timing-card h3 { margin: 0 0 10px 0; font-size: 16px; }
+        .timing-card.short-term { border-color: var(--danger); }
+        .timing-card.short-term h3 { color: var(--danger); }
+        .timing-card.long-term { border-color: var(--success); }
+        .timing-card.long-term h3 { color: var(--success); }
+        .metric { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f3f4f6; font-size: 12px; }
+        .metric-value { font-weight: bold; }
+        .net-proceeds { text-align: center; padding: 10px; background: #f9fafb; border-radius: 4px; margin-top: 10px; }
+        .net-value { font-size: 24px; font-weight: bold; }
+        .savings { background: #d1fae5; padding: 15px; border-radius: 5px; margin: 15px 0; text-align: center; }
+        .savings-value { font-size: 32px; font-weight: bold; color: var(--success); }
+        .strategy-tips { background: #fef3c7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        .holding-period { background: #e0e7ff; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        @media print { body { font-size: 11pt; } button { display: none; } .comparison { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <h1>Herramienta de Timing de Ganancias de Capital</h1>
+    <p>Comprende cómo el período de tenencia afecta tu factura fiscal</p>
+
+    <div class="scenario">
+        <h2 style="margin-top: 0;">Tu Escenario de Inversión</h2>
+        <div class="input-grid">
+            <div class="input-group">
+                <label>Precio de Compra ($)</label>
+                <input type="number" id="purchase" value="10000" step="500">
+            </div>
+            <div class="input-group">
+                <label>Valor Actual ($)</label>
+                <input type="number" id="current" value="15000" step="500">
+            </div>
+            <div class="input-group">
+                <label>Días Mantenido</label>
+                <input type="number" id="daysHeld" value="300" step="30">
+            </div>
+            <div class="input-group">
+                <label>Tu Tramo Fiscal (%)</label>
+                <select id="taxBracket">
+                    <option value="10">10%</option>
+                    <option value="12">12%</option>
+                    <option value="22" selected>22%</option>
+                    <option value="24">24%</option>
+                    <option value="32">32%</option>
+                    <option value="35">35%</option>
+                    <option value="37">37%</option>
+                </select>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+            <button onclick="calculate()">Calcular Impacto Fiscal</button>
+        </div>
+    </div>
+
+    <div class="holding-period" id="holdingPeriod">
+        <strong>Estado del Período de Tenencia:</strong> <span id="periodStatus">300 días - Corto plazo (necesita 66 más días para largo plazo)</span>
+    </div>
+
+    <div class="comparison">
+        <div class="timing-card short-term">
+            <h3>Vender Ahora (Corto Plazo)</h3>
+            <div class="metric"><span>Ganancia de Capital</span><span class="metric-value" id="stGain">$5,000</span></div>
+            <div class="metric"><span>Tasa de Impuesto</span><span class="metric-value" id="stRate">22%</span></div>
+            <div class="metric"><span>Impuesto Adeudado</span><span class="metric-value" id="stTax">$1,100</span></div>
+            <div class="net-proceeds">
+                <div>Producto Neto</div>
+                <div class="net-value" id="stNet">$13,900</div>
+            </div>
+        </div>
+
+        <div class="timing-card long-term">
+            <h3>Esperar Largo Plazo</h3>
+            <div class="metric"><span>Ganancia de Capital</span><span class="metric-value" id="ltGain">$5,000</span></div>
+            <div class="metric"><span>Tasa de Impuesto</span><span class="metric-value" id="ltRate">15%</span></div>
+            <div class="metric"><span>Impuesto Adeudado</span><span class="metric-value" id="ltTax">$750</span></div>
+            <div class="net-proceeds">
+                <div>Producto Neto</div>
+                <div class="net-value" id="ltNet">$14,250</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="savings">
+        <div>Ahorro Fiscal por Esperar</div>
+        <div class="savings-value" id="savings">$350</div>
+        <div id="waitDays">Espera 66 días más para ahorrar esta cantidad</div>
+    </div>
+
+    <div class="strategy-tips">
+        <h2 style="margin-top: 0;">📋 Estrategias de Timing</h2>
+        <ul style="font-size: 13px; margin: 10px 0;">
+            <li><strong>Mantén al menos 366 días</strong> para calificar para tasas de largo plazo (0%, 15%, o 20%)</li>
+            <li><strong>Cosecha pérdidas estratégicamente</strong> para compensar ganancias (ver Cosecha de Pérdidas Fiscales)</li>
+            <li><strong>Considera tu año de ingresos</strong> - realiza ganancias en años de menores ingresos</li>
+            <li><strong>Agrupa ganancias con pérdidas</strong> - vende ganadores y perdedores en el mismo año</li>
+            <li><strong>Dona acciones apreciadas</strong> - la caridad recibe valor completo, tú evitas el impuesto</li>
+        </ul>
+    </div>
+
+    <script>
+        function calculate() {
+            const purchase = parseFloat(document.getElementById('purchase').value) || 0;
+            const current = parseFloat(document.getElementById('current').value) || 0;
+            const daysHeld = parseInt(document.getElementById('daysHeld').value) || 0;
+            const taxBracket = parseFloat(document.getElementById('taxBracket').value) / 100;
+
+            const gain = current - purchase;
+            const daysToLongTerm = Math.max(0, 366 - daysHeld);
+            const isLongTerm = daysHeld >= 366;
+
+            const stRate = taxBracket;
+
+            let ltRate;
+            if (taxBracket <= 0.12) {
+                ltRate = 0;
+            } else if (taxBracket <= 0.35) {
+                ltRate = 0.15;
+            } else {
+                ltRate = 0.20;
+            }
+
+            const stTax = gain * stRate;
+            const ltTax = gain * ltRate;
+            const stNet = current - stTax;
+            const ltNet = current - ltTax;
+            const savings = stTax - ltTax;
+
+            let periodStatus = `${daysHeld} días - `;
+            if (isLongTerm) {
+                periodStatus += '<span style="color: var(--success); font-weight: bold;">Largo plazo ✓</span>';
+            } else {
+                periodStatus += `<span style="color: var(--warning);">Corto plazo (necesita ${daysToLongTerm} días más)</span>`;
+            }
+            document.getElementById('periodStatus').innerHTML = periodStatus;
+
+            document.getElementById('stGain').textContent = '$' + gain.toLocaleString();
+            document.getElementById('stRate').textContent = (stRate * 100).toFixed(0) + '%';
+            document.getElementById('stTax').textContent = '$' + Math.round(stTax).toLocaleString();
+            document.getElementById('stNet').textContent = '$' + Math.round(stNet).toLocaleString();
+
+            document.getElementById('ltGain').textContent = '$' + gain.toLocaleString();
+            document.getElementById('ltRate').textContent = (ltRate * 100).toFixed(0) + '%';
+            document.getElementById('ltTax').textContent = '$' + Math.round(ltTax).toLocaleString();
+            document.getElementById('ltNet').textContent = '$' + Math.round(ltNet).toLocaleString();
+
+            document.getElementById('savings').textContent = '$' + Math.round(savings).toLocaleString();
+
+            if (isLongTerm) {
+                document.getElementById('waitDays').textContent = '¡Ya calificas para tasas de largo plazo!';
+            } else {
+                document.getElementById('waitDays').textContent = `Espera ${daysToLongTerm} días más para ahorrar esta cantidad`;
+            }
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

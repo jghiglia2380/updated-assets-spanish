@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos de Propiedad de Vivienda</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body { font-size: 12pt; color: #000; background-color: #fff; }
+            .no-print { display: none; }
+            table { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+            @page { margin: 0.5in; }
+        }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 8.5in; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #4f46e5; margin-bottom: 10px; }
+        h2 { color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 5px; margin-top: 30px; }
+        h3 { color: #6366f1; margin-top: 20px; }
+        .instructions { background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .calculator-section { background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+        .upfront-section { border-left: 5px solid #60a5fa; background-color: #eff6ff; }
+        .monthly-section { border-left: 5px solid #6366f1; background-color: #eef2ff; }
+        .annual-section { border-left: 5px solid #8b5cf6; background-color: #f5f3ff; }
+        .occasional-section { border-left: 5px solid #ec4899; background-color: #fdf2f8; }
+        .summary-section { border-left: 5px solid #10b981; background-color: #ecfdf5; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th { background-color: #e0e7ff; padding: 10px; text-align: left; border: 1px solid #a5b4fc; }
+        td { padding: 10px; border: 1px solid #a5b4fc; vertical-align: top; }
+        .input-box { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; box-sizing: border-box; font-size: 1em; }
+        .subtotal { background-color: #f3f4f6; font-weight: bold; }
+        .total { background-color: #e0e7ff; font-weight: bold; }
+        .notes { font-style: italic; color: #6b7280; font-size: 0.9em; }
+        .tip-box { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; margin: 15px 0; }
+        footer { margin-top: 40px; text-align: center; font-size: 0.8em; color: #6b7280; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Costos de Propiedad de Vivienda</h1>
+        <p>Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta calculadora le ayudará a entender y estimar el costo real de ser propietario de vivienda más allá del pago de la hipoteca. Ingrese su información en cada sección para calcular costos iniciales, gastos mensuales, gastos anuales y costos ocasionales asociados con ser propietario de una casa.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haga clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="calculator-section upfront-section">
+        <h2>Sección 1: Costos Iniciales</h2>
+        <p>Estos son costos únicos que se pagan al comprar una casa.</p>
+
+        <table>
+            <tr>
+                <th width="60%">Elemento de Costo</th>
+                <th width="40%">Monto</th>
+            </tr>
+            <tr><td>Enganche (típicamente 3-20% del precio de compra)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Tarifa de Originación del Préstamo (típicamente 0.5-1% del monto del préstamo)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Tarifa de Solicitud</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Tarifa de Informe de Crédito</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Avalúo de la Casa</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Inspección de la Casa</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Búsqueda de Título y Seguro</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Honorarios de Abogado</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Tarifas de Registro e Impuestos de Transferencia</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Tarifas de Custodia/Agente de Cierre</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Prima Inicial de Seguro Hipotecario (si aplica)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Costos de Mudanza</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Renovaciones/Reparaciones Iniciales</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Muebles/Electrodomésticos Iniciales</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="subtotal"><td>Total de Costos Iniciales</td><td>$<input type="text" class="input-box"></td></tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Los costos totales de cierre típicamente oscilan entre 2-5% del precio de compra de la casa. Para una casa de $300,000, espere $6,000-$15,000 en costos de cierre además de su enganche.</p>
+        </div>
+    </div>
+
+    <div class="calculator-section monthly-section">
+        <h2>Sección 2: Gastos Mensuales</h2>
+        <p>Estos son costos mensuales recurrentes asociados con la propiedad de vivienda.</p>
+
+        <table>
+            <tr>
+                <th width="60%">Elemento de Costo</th>
+                <th width="40%">Monto Mensual</th>
+            </tr>
+            <tr><td>Pago de Principal e Intereses de Hipoteca</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Impuestos sobre la Propiedad (monto anual ÷ 12)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Seguro de Propietario (monto anual ÷ 12)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Seguro Hipotecario Privado (PMI, si aplica)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Cuotas de Asociación de Propietarios (HOA)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Servicios Públicos - Electricidad</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Servicios Públicos - Gas/Combustible</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Servicios Públicos - Agua/Alcantarillado</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Servicios Públicos - Recolección de Basura</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Internet/Cable</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Cuidado del Césped/Jardinería</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Control de Plagas</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Sistema de Seguridad</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Otros Costos Mensuales</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="subtotal"><td>Total de Gastos Mensuales</td><td>$<input type="text" class="input-box"></td></tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Recuerde que su pago "PITI" (Principal, Intereses, Impuestos, Seguro) es la forma estándar en que los prestamistas miden la asequibilidad, pero el costo mensual real de ser propietario incluye muchos gastos adicionales.</p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="calculator-section annual-section">
+        <h2>Sección 3: Gastos Anuales</h2>
+        <p>Estos son costos que típicamente ocurren anualmente pero no son parte de los gastos mensuales.</p>
+
+        <table>
+            <tr>
+                <th width="60%">Elemento de Costo</th>
+                <th width="40%">Monto Anual</th>
+            </tr>
+            <tr><td>Mantenimiento/Afinación de HVAC</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Limpieza de Chimenea</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Limpieza de Canaletas</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Lavado a Presión</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Mantenimiento de Árboles/Arbustos</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Servicio de Fosa Séptica (si aplica)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Otro Mantenimiento Anual</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="subtotal"><td>Total de Gastos Anuales</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Equivalente Mensual (Total Anual ÷ 12)</td><td>$<input type="text" class="input-box"></td></tr>
+        </table>
+    </div>
+
+    <div class="calculator-section occasional-section">
+        <h2>Sección 4: Gastos Ocasionales y Reparaciones Mayores</h2>
+        <p>Estos son gastos significativos que ocurren periódicamente a lo largo de la propiedad de vivienda.</p>
+
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Costo Estimado</th>
+                <th>Frecuencia Esperada</th>
+                <th>Reserva Anual*</th>
+            </tr>
+            <tr><td>Reemplazo de Techo</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Pintura Exterior</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reemplazo de Horno/HVAC</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reemplazo de Calentador de Agua</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reemplazo de Electrodomésticos</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reemplazo de Pisos</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reemplazo de Ventanas</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reparaciones de Plomería</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reparaciones Eléctricas</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Mantenimiento de Terraza/Patio</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Repavimentación de Entrada</td><td>$<input type="text" class="input-box"></td><td><input type="text" class="input-box"> años</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="subtotal"><td colspan="3">Total de Reserva Anual para Reemplazos y Reparaciones</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td colspan="3">Equivalente Mensual (Reserva Anual ÷ 12)</td><td>$<input type="text" class="input-box"></td></tr>
+        </table>
+
+        <p class="notes">*Reserva Anual = Costo Estimado ÷ Frecuencia Esperada (en años)</p>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Una regla general común es ahorrar 1-4% del valor de su casa anualmente para mantenimiento y reparaciones. Para una casa de $300,000, eso es $3,000-$12,000 por año o $250-$1,000 por mes.</p>
+        </div>
+    </div>
+
+    <div class="calculator-section summary-section">
+        <h2>Sección 5: Costo Total de Propiedad de Vivienda</h2>
+        <p>Este resumen combina todos los gastos para mostrar su costo real de ser propietario.</p>
+
+        <table>
+            <tr>
+                <th width="60%">Categoría de Gasto</th>
+                <th width="40%">Monto</th>
+            </tr>
+            <tr><td>Total de Gastos Mensuales (de Sección 2)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Equivalente Mensual de Gastos Anuales (de Sección 3)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Reserva Mensual para Reparaciones Mayores (de Sección 4)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="total"><td>Costo Mensual Total de Propiedad de Vivienda</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Costo Anual Total de Propiedad de Vivienda (Total Mensual × 12)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Costos Iniciales (de Sección 1)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr class="total"><td>Costo Total del Primer Año de Propiedad (Costo Anual + Costos Iniciales)</td><td>$<input type="text" class="input-box"></td></tr>
+        </table>
+
+        <h3>Análisis de Asequibilidad</h3>
+        <table>
+            <tr><td width="60%">Ingreso Bruto Mensual del Hogar</td><td width="40%">$<input type="text" class="input-box"></td></tr>
+            <tr><td>Relación de Vivienda Tradicional (Costo Mensual Total ÷ Ingreso Bruto Mensual)</td><td><input type="text" class="input-box">%</td></tr>
+            <tr><td>Máximo Recomendado: 28-33%</td><td></td></tr>
+            <tr><td>Ingreso Neto Mensual del Hogar (Después de Impuestos)</td><td>$<input type="text" class="input-box"></td></tr>
+            <tr><td>Relación de Vivienda Práctica (Costo Mensual Total ÷ Ingreso Neto Mensual)</td><td><input type="text" class="input-box">%</td></tr>
+            <tr><td>Máximo Recomendado: 40-45%</td><td></td></tr>
+        </table>
+
+        <h3>Notas y Puntos Clave</h3>
+        <textarea class="input-box" style="width: 100%; height: 100px;"></textarea>
+    </div>
+
+    <div class="tip-box">
+        <h3>Entendiendo Sus Resultados</h3>
+        <p>Use esta calculadora para comparar el costo real de ser propietario con alquilar o para asegurar que esté financieramente preparado para todos los aspectos de ser propietario. Recuerde que ser propietario involucra muchos gastos más allá del pago de la hipoteca que los inquilinos no enfrentan directamente.</p>
+        <p>Si sus relaciones de vivienda exceden los máximos recomendados, considere:</p>
+        <ul>
+            <li>Buscar una casa menos costosa</li>
+            <li>Ahorrar para un enganche más grande para reducir costos mensuales de hipoteca</li>
+            <li>Aumentar sus ingresos antes de comprar</li>
+            <li>Reducir otras deudas para mejorar su posición financiera general</li>
+            <li>Continuar alquilando hasta que su situación financiera mejore</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </footer>
+</body>
+</html>

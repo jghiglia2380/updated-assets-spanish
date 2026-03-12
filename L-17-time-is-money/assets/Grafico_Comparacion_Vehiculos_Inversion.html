@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico de Comparacion de Vehiculos de Inversion - Capitulo 5.4</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .note {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-left: 4px solid #4f46e5;
+            margin: 20px 0;
+        }
+
+        .risk-low {
+            background-color: #dcfce7;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .risk-medium {
+            background-color: #fef3c7;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .risk-high {
+            background-color: #fee2e2;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .time-horizon {
+            font-weight: bold;
+            background-color: #e0f2fe;
+        }
+
+        .print-button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Grafico de Comparacion de Vehiculos de Inversion</h1>
+        <p>Capitulo 5.4: El Tiempo es Dinero - Desarrollando una Estrategia de Ahorro e Inversion</p>
+    </div>
+
+    <div class="no-print">
+        <p>Este grafico proporciona una comparacion completa de varios vehiculos de inversion, organizados por horizonte temporal. Utilice esta referencia para comprender las caracteristicas de diferentes opciones de inversion y cuales podrian ser mas apropiadas para sus metas financieras.</p>
+        <button class="print-button" onclick="window.print()">Imprimir/Guardar como PDF</button>
+    </div>
+
+    <div class="note">
+        <p><strong>Importante:</strong> Este grafico de comparacion es solo para fines educativos y no constituye asesoramiento de inversion. Los niveles de riesgo, rendimientos y caracteristicas son pautas generales y pueden variar segun productos especificos y condiciones del mercado. Siempre investigue las inversiones a fondo o consulte con un profesional financiero antes de invertir.</p>
+    </div>
+
+    <h2>Vehiculos de Inversion a Corto Plazo (1-3 anos)</h2>
+
+    <p>Estos vehiculos de inversion son apropiados para metas financieras con horizontes temporales cortos donde la preservacion del capital y la liquidez son preocupaciones principales.</p>
+
+    <table>
+        <tr>
+            <th>Vehiculo de Inversion</th>
+            <th>Nivel de Riesgo</th>
+            <th>Rango de Rendimiento Tipico</th>
+            <th>Liquidez</th>
+            <th>Caracteristicas Clave</th>
+            <th>Mejor Para</th>
+        </tr>
+        <tr>
+            <td>Cuenta de Ahorros de Alto Rendimiento</td>
+            <td class="risk-low">Muy Bajo</td>
+            <td>1-2%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Asegurada por FDIC (hasta $250,000)</li>
+                    <li>Facil acceso a los fondos</li>
+                    <li>Las tasas de interes pueden cambiar</li>
+                </ul>
+            </td>
+            <td>Fondos de emergencia, metas de ahorro a corto plazo, reservas de efectivo</td>
+        </tr>
+        <tr>
+            <td>Cuenta del Mercado Monetario</td>
+            <td class="risk-low">Muy Bajo</td>
+            <td>1-2%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Asegurada por FDIC (hasta $250,000)</li>
+                    <li>Puede ofrecer privilegios de emision de cheques</li>
+                    <li>Tipicamente requiere saldo minimo</li>
+                </ul>
+            </td>
+            <td>Fondos de emergencia, ahorros a corto plazo, cuentas de transacciones</td>
+        </tr>
+        <tr>
+            <td>Certificados de Deposito (CDs)<br>(Corto plazo, 3-12 meses)</td>
+            <td class="risk-low">Muy Bajo</td>
+            <td>1-3%</td>
+            <td>Baja</td>
+            <td>
+                <ul>
+                    <li>Asegurado por FDIC (hasta $250,000)</li>
+                    <li>Tasa de interes fija</li>
+                    <li>Penalizaciones por retiro anticipado</li>
+                </ul>
+            </td>
+            <td>Gastos conocidos proximos, rendimientos ligeramente mas altos que los ahorros</td>
+        </tr>
+        <tr>
+            <td>Letras del Tesoro (T-Bills)</td>
+            <td class="risk-low">Muy Bajo</td>
+            <td>1-3%</td>
+            <td>Media</td>
+            <td>
+                <ul>
+                    <li>Respaldado por la plena fe y credito del gobierno de EE.UU.</li>
+                    <li>Vencimientos de 4 semanas a 52 semanas</li>
+                    <li>Exento de impuestos estatales y locales</li>
+                </ul>
+            </td>
+            <td>Inversiones a corto plazo extremadamente seguras, gestion de efectivo</td>
+        </tr>
+        <tr>
+            <td>Fondos de Bonos a Corto Plazo</td>
+            <td class="risk-low">Bajo</td>
+            <td>2-4%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Invierte en bonos con vencimientos de 1-3 anos</li>
+                    <li>Algo de riesgo de tasa de interes</li>
+                    <li>No asegurado por FDIC</li>
+                </ul>
+            </td>
+            <td>Rendimientos ligeramente mas altos que el efectivo con riesgo modesto</td>
+        </tr>
+    </table>
+
+    <h2>Vehiculos de Inversion a Mediano Plazo (3-10 anos)</h2>
+
+    <p>Estos vehiculos de inversion son apropiados para metas financieras con horizontes temporales medianos donde equilibrar el crecimiento y el riesgo se vuelve mas importante.</p>
+
+    <table>
+        <tr>
+            <th>Vehiculo de Inversion</th>
+            <th>Nivel de Riesgo</th>
+            <th>Rango de Rendimiento Tipico</th>
+            <th>Liquidez</th>
+            <th>Caracteristicas Clave</th>
+            <th>Mejor Para</th>
+        </tr>
+        <tr>
+            <td>Fondos de Bonos a Mediano Plazo</td>
+            <td class="risk-medium">Bajo-Medio</td>
+            <td>3-5%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Invierte en bonos con vencimientos de 3-10 anos</li>
+                    <li>Riesgo moderado de tasa de interes</li>
+                    <li>Mayor rendimiento que los bonos a corto plazo</li>
+                </ul>
+            </td>
+            <td>Metas a mediano plazo con necesidades moderadas de ingresos</td>
+        </tr>
+        <tr>
+            <td>Fondos de Bonos Corporativos</td>
+            <td class="risk-medium">Medio</td>
+            <td>3-6%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Invierte en bonos emitidos por corporaciones</li>
+                    <li>Mayores rendimientos pero mayor riesgo que los bonos gubernamentales</li>
+                    <li>El riesgo crediticio varia segun la calificacion del bono</li>
+                </ul>
+            </td>
+            <td>Ingresos a mediano plazo con aceptacion de riesgo moderado</td>
+        </tr>
+        <tr>
+            <td>Fondos Mutuos Balanceados</td>
+            <td class="risk-medium">Medio</td>
+            <td>4-7%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Mezcla de acciones, bonos y a veces efectivo</li>
+                    <li>Tipicamente 60% bonos/40% acciones o 60% acciones/40% bonos</li>
+                    <li>Gestion profesional</li>
+                </ul>
+            </td>
+            <td>Metas a mediano plazo con necesidades moderadas de crecimiento e ingresos</td>
+        </tr>
+        <tr>
+            <td>CDs a Largo Plazo (3-5 anos)</td>
+            <td class="risk-low">Bajo</td>
+            <td>2-4%</td>
+            <td>Baja</td>
+            <td>
+                <ul>
+                    <li>Asegurado por FDIC (hasta $250,000)</li>
+                    <li>Tasas mas altas que los CDs a corto plazo</li>
+                    <li>Penalizaciones significativas por retiro anticipado</li>
+                </ul>
+            </td>
+            <td>Gastos conocidos varios anos en el futuro</td>
+        </tr>
+        <tr>
+            <td>Fondos de Asignacion Conservadora</td>
+            <td class="risk-medium">Medio</td>
+            <td>3-6%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Tipicamente 30% acciones, 70% bonos y efectivo</li>
+                    <li>Busca crecimiento e ingresos modestos</li>
+                    <li>Menos volatil que los fondos con muchas acciones</li>
+                </ul>
+            </td>
+            <td>Metas a mediano plazo con menor tolerancia al riesgo</td>
+        </tr>
+    </table>
+
+    <h2>Vehiculos de Inversion a Largo Plazo (10+ anos)</h2>
+
+    <p>Estos vehiculos de inversion son apropiados para metas financieras con horizontes temporales largos donde el crecimiento y superar la inflacion son preocupaciones principales.</p>
+
+    <table>
+        <tr>
+            <th>Vehiculo de Inversion</th>
+            <th>Nivel de Riesgo</th>
+            <th>Rango de Rendimiento Tipico</th>
+            <th>Liquidez</th>
+            <th>Caracteristicas Clave</th>
+            <th>Mejor Para</th>
+        </tr>
+        <tr>
+            <td>Fondos Mutuos de Acciones</td>
+            <td class="risk-high">Alto</td>
+            <td>7-10%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Gestion profesional</li>
+                    <li>Diversificacion entre multiples acciones</li>
+                    <li>Varias estrategias (crecimiento, valor, ingresos)</li>
+                </ul>
+            </td>
+            <td>Crecimiento a largo plazo, jubilacion, ahorros para educacion</td>
+        </tr>
+        <tr>
+            <td>Fondos Indexados</td>
+            <td class="risk-high">Medio-Alto</td>
+            <td>7-9%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Replica pasivamente un indice de mercado (S&P 500, etc.)</li>
+                    <li>Comisiones mas bajas que los fondos gestionados activamente</li>
+                    <li>Amplia exposicion al mercado</li>
+                </ul>
+            </td>
+            <td>Crecimiento a largo plazo con menores costos de gestion</td>
+        </tr>
+        <tr>
+            <td>Fondos Cotizados en Bolsa (ETFs)</td>
+            <td class="risk-high">Varia</td>
+            <td>Varia segun el tipo</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Se negocia como acciones durante todo el dia</li>
+                    <li>A menudo ratios de gastos mas bajos que los fondos mutuos</li>
+                    <li>Disponible para varias clases de activos</li>
+                </ul>
+            </td>
+            <td>Crecimiento a largo plazo, asignacion tactica de activos</td>
+        </tr>
+        <tr>
+            <td>Acciones/Fondos de Crecimiento</td>
+            <td class="risk-high">Alto</td>
+            <td>8-12%</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Enfoque en empresas que se espera crezcan mas rapido que el promedio</li>
+                    <li>Mayor volatilidad</li>
+                    <li>Usualmente dividendos minimos o nulos</li>
+                </ul>
+            </td>
+            <td>Crecimiento agresivo a largo plazo, tipicamente para jubilacion</td>
+        </tr>
+        <tr>
+            <td>Fondos de Fecha Objetivo</td>
+            <td class="risk-medium">Varia segun la fecha objetivo</td>
+            <td>Varia segun la fecha</td>
+            <td>Alta</td>
+            <td>
+                <ul>
+                    <li>Ajusta automaticamente la asignacion de activos a medida que se acerca la fecha objetivo</li>
+                    <li>Se vuelve mas conservador con el tiempo</li>
+                    <li>Solucion integral para la jubilacion</li>
+                </ul>
+            </td>
+            <td>Ahorros para jubilacion con rebalanceo automatico</td>
+        </tr>
+        <tr>
+            <td>Fideicomisos de Inversion en Bienes Raices (REITs)</td>
+            <td class="risk-high">Medio-Alto</td>
+            <td>5-8%</td>
+            <td>Media</td>
+            <td>
+                <ul>
+                    <li>Invierten en bienes raices que generan ingresos</li>
+                    <li>Requerido distribuir el 90% del ingreso imponible a los accionistas</li>
+                    <li>Proporciona exposicion a bienes raices sin propiedad directa</li>
+                </ul>
+            </td>
+            <td>Ingresos, crecimiento y diversificacion en un portafolio a largo plazo</td>
+        </tr>
+    </table>
+
+    <h2>Comprendiendo la Relacion Riesgo-Rendimiento</h2>
+
+    <p>Existe una relacion fundamental entre el riesgo y el rendimiento potencial en las inversiones. Generalmente, las inversiones con mayores rendimientos potenciales conllevan mayor riesgo de perdida. Comprender esta relacion es esencial para crear estrategias apropiadas basadas en su horizonte temporal y tolerancia al riesgo.</p>
+
+    <table>
+        <tr>
+            <th>Categoria de Riesgo</th>
+            <th>Rendimiento Potencial</th>
+            <th>Potencial de Perdida</th>
+            <th>Coincidencia de Horizonte Temporal</th>
+            <th>Ejemplos</th>
+        </tr>
+        <tr>
+            <td class="risk-low">Bajo Riesgo</td>
+            <td>Bajos rendimientos, a menudo solo manteniendose al ritmo o ligeramente por encima de la inflacion</td>
+            <td>Riesgo minimo de perdida de capital</td>
+            <td>Corto plazo (1-3 anos)</td>
+            <td>CDs, ahorros de alto rendimiento, cuentas del mercado monetario, letras del tesoro</td>
+        </tr>
+        <tr>
+            <td class="risk-medium">Riesgo Medio</td>
+            <td>Rendimientos moderados, generalmente superando la inflacion</td>
+            <td>Algo de potencial de perdida temporal, pero menos volatilidad que las inversiones de alto riesgo</td>
+            <td>Mediano plazo (3-10 anos)</td>
+            <td>Fondos de bonos, fondos balanceados, fondos de asignacion conservadora</td>
+        </tr>
+        <tr>
+            <td class="risk-high">Alto Riesgo</td>
+            <td>Mayor potencial de rendimientos, superando significativamente la inflacion durante periodos largos</td>
+            <td>Riesgo sustancial de perdida a corto plazo, pero historicamente rendimientos positivos durante periodos largos</td>
+            <td>Largo plazo (10+ anos)</td>
+            <td>Acciones, fondos mutuos de renta variable, fondos de crecimiento, REITs</td>
+        </tr>
+    </table>
+
+    <h2>Estrategias de Diversificacion</h2>
+
+    <p>La diversificacion es la practica de distribuir las inversiones entre diferentes clases de activos, sectores y regiones geograficas para reducir el riesgo general. A continuacion se presentan algunas estrategias comunes de diversificacion basadas en perfiles de riesgo:</p>
+
+    <table>
+        <tr>
+            <th>Perfil de Riesgo</th>
+            <th>Asignacion Sugerida</th>
+            <th>Justificacion</th>
+        </tr>
+        <tr>
+            <td>Conservador</td>
+            <td>
+                <ul>
+                    <li>50-60% Bonos</li>
+                    <li>20-30% Acciones</li>
+                    <li>10-20% Efectivo/Corto plazo</li>
+                    <li>0-10% Inversiones alternativas</li>
+                </ul>
+            </td>
+            <td>Enfoque en la preservacion del capital con algo de potencial de crecimiento. Apropiado para horizontes temporales mas cortos o baja tolerancia al riesgo.</td>
+        </tr>
+        <tr>
+            <td>Moderado</td>
+            <td>
+                <ul>
+                    <li>40-50% Acciones</li>
+                    <li>40-50% Bonos</li>
+                    <li>5-10% Efectivo/Corto plazo</li>
+                    <li>0-10% Inversiones alternativas</li>
+                </ul>
+            </td>
+            <td>Equilibrio entre crecimiento e ingresos. Adecuado para horizontes temporales medianos (5-10 anos) o tolerancia moderada al riesgo.</td>
+        </tr>
+        <tr>
+            <td>Agresivo</td>
+            <td>
+                <ul>
+                    <li>70-80% Acciones</li>
+                    <li>10-20% Bonos</li>
+                    <li>0-5% Efectivo/Corto plazo</li>
+                    <li>5-15% Inversiones alternativas</li>
+                </ul>
+            </td>
+            <td>Enfoque en el maximo crecimiento. Apropiado para horizontes temporales largos (10+ anos) y alta tolerancia al riesgo.</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <p><strong>Principios Clave de Diversificacion:</strong></p>
+        <ul>
+            <li>Diversificar entre clases de activos (acciones, bonos, efectivo, alternativas)</li>
+            <li>Diversificar dentro de las clases de activos (diferentes sectores, industrias, tamanos de empresa)</li>
+            <li>Considerar la diversificacion geografica (nacional e internacional)</li>
+            <li>Ajustar la asignacion basandose en el horizonte temporal y las metas</li>
+            <li>Rebalancear periodicamente para mantener la asignacion objetivo</li>
+        </ul>
+    </div>
+
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Imprimir/Guardar como PDF</button>
+    </div>
+</body>
+</html>

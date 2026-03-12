@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco de Decisión de Inversión - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #f9fafb; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; text-align: center; }
+        .header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 0.9rem; }
+        .content { padding: 24px; }
+        .section { margin-bottom: 32px; }
+        .section h2 { font-size: 1.15rem; margin-bottom: 16px; color: #1f2937; }
+        .assessment-question { background: #f9fafb; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .assessment-question p { font-weight: 500; margin-bottom: 12px; font-size: 0.9rem; }
+        .option { display: flex; align-items: center; padding: 8px 12px; margin-bottom: 8px; border: 2px solid #e5e7eb; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; }
+        .option:hover, .option.selected { border-color: #6366f1; background: #f5f3ff; }
+        .option input { margin-right: 10px; }
+        .decision-tree { background: #eff6ff; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+        .step { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #bfdbfe; }
+        .step:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .step-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .step-number { width: 28px; height: 28px; border-radius: 50%; background: #6366f1; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+        .step-title { font-weight: 600; font-size: 0.95rem; }
+        .step-options { margin-left: 40px; }
+        .step-option { font-size: 0.85rem; padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
+        .arrow { color: #6366f1; font-weight: bold; }
+        .result-box { background: #f0fdf4; border: 2px solid #86efac; border-radius: 8px; padding: 20px; margin-top: 24px; }
+        .result-box h3 { color: #166534; margin-bottom: 16px; font-size: 1rem; }
+        .result-input { margin-bottom: 16px; }
+        .result-input label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; }
+        .result-input input, .result-input textarea { width: 100%; padding: 10px; border: 1px solid #86efac; border-radius: 6px; font-size: 0.85rem; font-family: inherit; }
+        .result-input textarea { resize: vertical; min-height: 60px; }
+        .allocation-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+        .alloc-input { text-align: center; }
+        .alloc-input label { display: block; font-size: 0.75rem; color: #6b7280; margin-bottom: 4px; }
+        .alloc-input input { width: 60px; padding: 6px; border: 1px solid #86efac; border-radius: 4px; font-size: 0.9rem; text-align: center; }
+        .profile-summary { background: #fef3c7; border-radius: 8px; padding: 16px; margin-top: 20px; }
+        .profile-summary h4 { color: #92400e; margin-bottom: 12px; font-size: 0.95rem; }
+        .profile-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #fcd34d; font-size: 0.85rem; }
+        .profile-item:last-child { border-bottom: none; }
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: 500; cursor: pointer; border: none; font-size: 0.9rem; background: #6366f1; color: white; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } .btn { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Marco de Decisión de Inversión</h1>
+            <p>Actividad 5: Desarrolle su marco personal de inversión</p>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>Parte A: Perfil Personal de Inversión</h2>
+                <div class="assessment-question">
+                    <p>1. Mi objetivo principal de inversión es:</p>
+                    <label class="option" onclick="selectOption(this, 'q1')"><input type="radio" name="q1" value="long"> Construcción de riqueza a largo plazo (jubilación)</label>
+                    <label class="option" onclick="selectOption(this, 'q1')"><input type="radio" name="q1" value="medium"> Meta a mediano plazo (casa, educación)</label>
+                    <label class="option" onclick="selectOption(this, 'q1')"><input type="radio" name="q1" value="short"> Ahorros a corto plazo (auto, fondo de emergencia)</label>
+                </div>
+                <div class="assessment-question">
+                    <p>2. Mi horizonte de inversión es:</p>
+                    <label class="option" onclick="selectOption(this, 'q2')"><input type="radio" name="q2" value="20plus"> Más de 20 años</label>
+                    <label class="option" onclick="selectOption(this, 'q2')"><input type="radio" name="q2" value="10-20"> 10-20 años</label>
+                    <label class="option" onclick="selectOption(this, 'q2')"><input type="radio" name="q2" value="5-10"> 5-10 años</label>
+                    <label class="option" onclick="selectOption(this, 'q2')"><input type="radio" name="q2" value="less5"> Menos de 5 años</label>
+                </div>
+                <div class="assessment-question">
+                    <p>3. Si mis inversiones perdieran 20% en un año, yo:</p>
+                    <label class="option" onclick="selectOption(this, 'q3')"><input type="radio" name="q3" value="high"> Mantendría la calma y seguiría invirtiendo (alta tolerancia)</label>
+                    <label class="option" onclick="selectOption(this, 'q3')"><input type="radio" name="q3" value="moderate"> Me sentiría nervioso pero probablemente mantendría invertido (tolerancia moderada)</label>
+                    <label class="option" onclick="selectOption(this, 'q3')"><input type="radio" name="q3" value="low"> Probablemente vendería para evitar más pérdidas (baja tolerancia)</label>
+                </div>
+                <div class="assessment-question">
+                    <p>4. Mi estabilidad financiera actual:</p>
+                    <label class="option" onclick="selectOption(this, 'q4')"><input type="radio" name="q4" value="stable"> Ingresos estables, fondo de emergencia establecido, deuda mínima</label>
+                    <label class="option" onclick="selectOption(this, 'q4')"><input type="radio" name="q4" value="building"> Ingresos estables pero construyendo fondo de emergencia</label>
+                    <label class="option" onclick="selectOption(this, 'q4')"><input type="radio" name="q4" value="uncertain"> Ingresos inciertos o deuda significativa que atender</label>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Parte B: Aplicación del Árbol de Decisión</h2>
+                <div class="decision-tree">
+                    <div class="step"><div class="step-header"><div class="step-number">1</div><div class="step-title">¿Tiene un fondo de emergencia (3-6 meses de gastos)?</div></div><div class="step-options"><div class="step-option"><span class="arrow">NO</span><span>Prioridad es construir ahorros en efectivo antes de invertir</span></div><div class="step-option"><span class="arrow">SÍ</span><span>Proceder al Paso 2</span></div></div></div>
+                    <div class="step"><div class="step-header"><div class="step-number">2</div><div class="step-title">¿Cuál es su horizonte de tiempo principal?</div></div><div class="step-options"><div class="step-option"><span class="arrow">&lt;5 años</span><span>Asignación conservadora (enfoque en bonos/efectivo)</span></div><div class="step-option"><span class="arrow">5-15 años</span><span>Asignación moderada (balance acciones/bonos)</span></div><div class="step-option"><span class="arrow">&gt;15 años</span><span>Asignación de crecimiento (enfoque en acciones)</span></div></div></div>
+                    <div class="step"><div class="step-header"><div class="step-number">3</div><div class="step-title">¿Cuál es su tolerancia al riesgo?</div></div><div class="step-options"><div class="step-option"><span class="arrow">Alta</span><span>Puede aumentar asignación en acciones 10-20%</span></div><div class="step-option"><span class="arrow">Moderada</span><span>Mantener asignación recomendada</span></div><div class="step-option"><span class="arrow">Baja</span><span>Disminuir asignación en acciones 10-20%</span></div></div></div>
+                    <div class="step"><div class="step-header"><div class="step-number">4</div><div class="step-title">¿Cuál es su nivel de experiencia en inversión?</div></div><div class="step-options"><div class="step-option"><span class="arrow">Principiante</span><span>Comenzar con fondos índice/ETFs amplios</span></div><div class="step-option"><span class="arrow">Intermedio</span><span>Puede agregar fondos sectoriales o algunas acciones individuales</span></div><div class="step-option"><span class="arrow">Avanzado</span><span>Cómodo con estrategias más complejas</span></div></div></div>
+                </div>
+            </div>
+            <div class="result-box">
+                <h3>Su Recomendación de Inversión</h3>
+                <div class="result-input"><label>Asignación General Recomendada:</label><div class="allocation-display"><div class="alloc-input"><label>Acciones %</label><input type="number" placeholder="%" min="0" max="100"></div><div class="alloc-input"><label>Bonos %</label><input type="number" placeholder="%" min="0" max="100"></div><div class="alloc-input"><label>Efectivo %</label><input type="number" placeholder="%" min="0" max="100"></div></div></div>
+                <div class="result-input"><label>Tipos de Inversión Específicos para Comenzar:</label><textarea placeholder="ej., ETF de mercado total (VTI), ETF de bonos totales (BND), Ahorros de alto rendimiento"></textarea></div>
+                <div class="result-input"><label>Monto de Inversión Mensual que Se Ajusta a Su Presupuesto:</label><input type="text" placeholder="$"></div>
+                <div class="result-input"><label>Primer Paso a Tomar Esta Semana:</label><textarea placeholder="ej., Investigar corredoras de bajo costo, Abrir una Roth IRA, Configurar transferencias automáticas"></textarea></div>
+            </div>
+            <div class="profile-summary">
+                <h4>Resumen del Perfil</h4>
+                <div class="profile-item"><span>Objetivo Principal:</span><span id="summary-goal">--</span></div>
+                <div class="profile-item"><span>Horizonte de Tiempo:</span><span id="summary-horizon">--</span></div>
+                <div class="profile-item"><span>Tolerancia al Riesgo:</span><span id="summary-risk">--</span></div>
+                <div class="profile-item"><span>Estabilidad Financiera:</span><span id="summary-stability">--</span></div>
+            </div>
+            <button class="btn" onclick="window.print()" style="margin-top: 20px;">Imprimir Marco</button>
+        </div>
+    </div>
+    <script>
+        const summaryMap = { q1: { long: 'Largo plazo (Jubilación)', medium: 'Mediano plazo (5-10 años)', short: 'Corto plazo (<5 años)' }, q2: { '20plus': '20+ años', '10-20': '10-20 años', '5-10': '5-10 años', 'less5': 'Menos de 5 años' }, q3: { high: 'Alta', moderate: 'Moderada', low: 'Baja' }, q4: { stable: 'Estable', building: 'Construyendo', uncertain: 'Necesita trabajo' } };
+        function selectOption(element, questionName) {
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            const value = element.querySelector('input').value;
+            if (questionName === 'q1') document.getElementById('summary-goal').textContent = summaryMap.q1[value];
+            else if (questionName === 'q2') document.getElementById('summary-horizon').textContent = summaryMap.q2[value];
+            else if (questionName === 'q3') document.getElementById('summary-risk').textContent = summaryMap.q3[value];
+            else if (questionName === 'q4') document.getElementById('summary-stability').textContent = summaryMap.q4[value];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Análisis de Obstáculos - Capítulo 1.4: Establecimiento de Metas Financieras</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Specific styles for this worksheet */
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin: 15px 0;
+        }
+
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+
+        .example-box {
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .goal-section {
+            background-color: #fafafa;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        input[type="text"], textarea, select {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            table { page-break-inside: avoid; }
+            .obstacle-table { page-break-inside: avoid; }
+            input, textarea, select {
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abra esta página en Chrome, Edge o Firefox. Haga clic en Imprimir (Ctrl+P o Cmd+P),
+        luego seleccione "Guardar como PDF" como destino. Haga clic en "Guardar" y elija dónde guardar el archivo en su computadora.</p>
+    </div>
+
+    <div class="header">
+        <h1>Hoja de Análisis de Obstáculos</h1>
+        <p><strong>Capítulo 1.4:</strong> Establecimiento de Metas Financieras</p>
+    </div>
+
+    <div class="intro">
+        <p>Esta hoja de trabajo le ayudará a identificar obstáculos potenciales para sus metas financieras y desarrollar estrategias específicas para superarlos. Anticipar desafíos aumenta su probabilidad de éxito al prepararlo para navegar dificultades antes de que surjan.</p>
+    </div>
+
+    <div class="info-box">
+        <h3>¿Por Qué Analizar Obstáculos?</h3>
+        <p>Incluso las metas financieras mejor diseñadas enfrentan desafíos. Las investigaciones muestran que las personas que identifican proactivamente obstáculos potenciales y crean estrategias específicas para abordarlos tienen significativamente más probabilidades de lograr sus metas. Esta práctica, llamada "planificación de intenciones de implementación" o "planificación si-entonces", prepara su mente para reconocer y responder a los desafíos de manera efectiva.</p>
+    </div>
+
+    <div class="goal-section">
+        <h2>Resumen de Metas</h2>
+        <div>
+            <label class="input-label">Meta a Corto Plazo:</label>
+            <input type="text" placeholder="Ingrese aquí su meta SMART a corto plazo">
+        </div>
+        <div style="margin-top: 15px;">
+            <label class="input-label">Meta a Largo Plazo:</label>
+            <input type="text" placeholder="Ingrese aquí su meta SMART a largo plazo">
+        </div>
+    </div>
+
+    <h2>Obstáculos de Meta a Corto Plazo</h2>
+
+    <div class="obstacle-table">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40%">Obstáculo Potencial</th>
+                    <th style="width: 15%">Tipo</th>
+                    <th style="width: 15%">Nivel de Impacto</th>
+                    <th style="width: 30%">Estrategia para Superar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 1">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 2">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 3">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 4">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h3>Obstáculos Comunes de Metas a Corto Plazo</h3>
+        <ul>
+            <li><strong>Internos:</strong> Olvidar ahorrar, gastos impulsivos, procrastinación, falta de disciplina</li>
+            <li><strong>Externos:</strong> Gastos inesperados, presión de compañeros, ventas/descuentos, ingresos limitados</li>
+        </ul>
+    </div>
+
+    <h2>Obstáculos de Meta a Largo Plazo</h2>
+
+    <div class="obstacle-table">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40%">Obstáculo Potencial</th>
+                    <th style="width: 15%">Tipo</th>
+                    <th style="width: 15%">Nivel de Impacto</th>
+                    <th style="width: 30%">Estrategia para Superar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 1">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 2">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 3">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Describa obstáculo potencial 4">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione tipo</option>
+                            <option value="internal">Interno</option>
+                            <option value="external">Externo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">Seleccione nivel</option>
+                            <option value="low">Bajo</option>
+                            <option value="medium">Medio</option>
+                            <option value="high">Alto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea placeholder="¿Cómo superará este obstáculo?"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h3>Obstáculos Comunes de Metas a Largo Plazo</h3>
+        <ul>
+            <li><strong>Internos:</strong> Perder motivación, cambiar prioridades, olvidar la meta, falta de persistencia</li>
+            <li><strong>Externos:</strong> Cambios importantes de vida, cambios económicos, interrupciones de ingresos, necesidades financieras competitivas</li>
+        </ul>
+    </div>
+
+    <h2>Planificación de Resiliencia</h2>
+
+    <div class="info-box">
+        <p>La planificación de resiliencia le ayuda a prepararse para situaciones donde ocurren múltiples obstáculos simultáneamente o cuando se retrasa en su cronograma de metas. Tener estrategias de respaldo aumenta su capacidad para adaptarse y mantener el progreso a pesar de los desafíos.</p>
+    </div>
+
+    <div class="goal-section">
+        <div>
+            <label class="input-label">¿Qué hará si encuentra múltiples obstáculos a la vez?</label>
+            <textarea placeholder="Describa su plan de respaldo o estrategias de emergencia"></textarea>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <label class="input-label">Si se retrasa en su cronograma, ¿cómo se ajustará?</label>
+            <textarea placeholder="Describa sus estrategias de ajuste"></textarea>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <label class="input-label">¿A quién puede recurrir para apoyo si está luchando con su meta?</label>
+            <textarea placeholder="Enumere personas o recursos que pueden ayudar"></textarea>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <h3>Consejos para Estrategias Efectivas</h3>
+        <ul>
+            <li><strong>Sea específico:</strong> "Si tengo la tentación de gastar mis ahorros en zapatos, entonces esperaré 48 horas antes de decidir" es mejor que "Intentaré no gastar impulsivamente."</li>
+            <li><strong>Use automatización:</strong> Las transferencias automáticas pueden evitar desafíos de fuerza de voluntad</li>
+            <li><strong>Cree barreras físicas:</strong> Eliminar aplicaciones de compras o tomar una ruta diferente a casa puede ayudar a evitar la tentación</li>
+            <li><strong>Aproveche la responsabilidad social:</strong> Comparta sus metas con amigos solidarios que le ayudarán a mantenerse en el camino</li>
+            <li><strong>Enfóquese en metas de proceso:</strong> "Revisaré mi presupuesto todos los domingos" en lugar de solo metas de resultado</li>
+        </ul>
+    </div>
+
+    <h2>Ejemplos de Estrategias</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Obstáculo</th>
+                <th>Estrategia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Olvidar ahorrar dinero cada mes</td>
+                <td>Configurar transferencias automáticas a una cuenta de ahorros el día de pago para que nunca vea el dinero en mi cuenta corriente</td>
+            </tr>
+            <tr>
+                <td>Gastos impulsivos al comprar con amigos</td>
+                <td>Llevar solo efectivo con un límite de gasto predeterminado; dejar las tarjetas de crédito en casa</td>
+            </tr>
+            <tr>
+                <td>Reparación inesperada del auto que agota el fondo de emergencia</td>
+                <td>Tomar 5 horas de trabajo extra durante el próximo mes para reconstruir el fondo de emergencia antes de reanudar las contribuciones a la meta</td>
+            </tr>
+            <tr>
+                <td>Perder motivación para metas a largo plazo</td>
+                <td>Crear un tablero de visión con recordatorios visuales; programar revisiones mensuales del progreso y beneficios</td>
+            </tr>
+            <tr>
+                <td>Presión de compañeros para gastar dinero socialmente</td>
+                <td>Investigar y sugerir actividades sociales gratuitas/de bajo costo; ser honesto sobre las metas de ahorro; comer antes de salir</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.4: Establecimiento de Metas Financieras</p>
+    </div>
+</body>
+</html>

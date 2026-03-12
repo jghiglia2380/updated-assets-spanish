@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñador de Sistema de Seguimiento Financiero</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #1f2937; }
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .method-card {
+            padding: 20px;
+            background: #f9fafb;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .method-card:hover { border-color: #6366f1; }
+        .method-card.selected { border-color: #6366f1; background: #eef2ff; }
+        .method-icon { font-size: 2rem; margin-bottom: 10px; }
+        .method-name { font-weight: bold; color: #1f2937; }
+        .method-desc { font-size: 0.85rem; color: #6b7280; margin-top: 5px; }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        .feature-item input { margin-right: 10px; }
+        .feature-item label { font-size: 0.9rem; cursor: pointer; }
+        .frequency-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .freq-btn {
+            padding: 10px 20px;
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .freq-btn:hover { border-color: #6366f1; }
+        .freq-btn.selected { border-color: #6366f1; background: #eef2ff; }
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        .generate-btn:hover { background: #4f46e5; }
+        .results { display: none; }
+        .results.active { display: block; }
+        .system-preview {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #10b981;
+        }
+        .system-preview h3 { color: #065f46; margin-bottom: 15px; }
+        .preview-item {
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .preview-item strong { color: #374151; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .method-grid, .feature-list { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .generate-btn,
+            .no-print {
+                display: none !important;
+            }
+            .results {
+                display: block !important;
+            }
+            .method-card,
+            .system-preview {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diseñador de Sistema de Seguimiento Financiero</h1>
+            <p class="subtitle">Diseña tu sistema personalizado de mantenimiento de registros</p>
+        </header>
+
+        <div class="section">
+            <div class="section-title">Elige Tu Método Principal</div>
+            <div class="method-grid">
+                <div class="method-card" onclick="selectMethod('register', this)">
+                    <div class="method-icon">📒</div>
+                    <div class="method-name">Registro en Papel</div>
+                    <div class="method-desc">Libro de cheques tradicional</div>
+                </div>
+                <div class="method-card" onclick="selectMethod('spreadsheet', this)">
+                    <div class="method-icon">📊</div>
+                    <div class="method-name">Hoja de Cálculo</div>
+                    <div class="method-desc">Excel o Google Sheets</div>
+                </div>
+                <div class="method-card" onclick="selectMethod('app', this)">
+                    <div class="method-icon">📱</div>
+                    <div class="method-name">App Bancaria</div>
+                    <div class="method-desc">Seguimiento automatizado</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Selecciona Características a Rastrear</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <input type="checkbox" id="f1" checked>
+                    <label for="f1">Fecha de transacción</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f2" checked>
+                    <label for="f2">Descripción/beneficiario</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f3" checked>
+                    <label for="f3">Monto</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f4" checked>
+                    <label for="f4">Saldo actual</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f5">
+                    <label for="f5">Categoría/presupuesto</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f6">
+                    <label for="f6">Estado de conciliación</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f7">
+                    <label for="f7">Foto del recibo</label>
+                </div>
+                <div class="feature-item">
+                    <input type="checkbox" id="f8">
+                    <label for="f8">Marcador deducible de impuestos</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Frecuencia de Conciliación</div>
+            <div class="frequency-options">
+                <button class="freq-btn" onclick="selectFreq('daily', this)">Diaria</button>
+                <button class="freq-btn selected" onclick="selectFreq('weekly', this)">Semanal</button>
+                <button class="freq-btn" onclick="selectFreq('monthly', this)">Mensual</button>
+            </div>
+        </div>
+
+        <button class="generate-btn" onclick="generateSystem()">Generar Mi Sistema</button>
+
+        <div class="results" id="results">
+            <div class="system-preview">
+                <h3>Tu Sistema Personalizado de Seguimiento Financiero</h3>
+                <div id="systemDetails"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Mantenimiento de Registros Financieros</p>
+        </footer>
+    </div>
+
+    <script>
+        let selectedMethod = 'spreadsheet';
+        let selectedFreq = 'weekly';
+
+        function selectMethod(method, btn) {
+            selectedMethod = method;
+            document.querySelectorAll('.method-card').forEach(c => c.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function selectFreq(freq, btn) {
+            selectedFreq = freq;
+            document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function generateSystem() {
+            const features = [];
+            const featureLabels = {
+                'f1': 'Fecha de transacción',
+                'f2': 'Descripción/beneficiario',
+                'f3': 'Monto',
+                'f4': 'Saldo actual',
+                'f5': 'Categoría/presupuesto',
+                'f6': 'Estado de conciliación',
+                'f7': 'Foto del recibo',
+                'f8': 'Marcador deducible de impuestos'
+            };
+            for (let i = 1; i <= 8; i++) {
+                if (document.getElementById('f' + i).checked) {
+                    features.push(featureLabels['f' + i]);
+                }
+            }
+
+            let methodDetails = '';
+            if (selectedMethod === 'register') {
+                methodDetails = '<div class="preview-item"><strong>Método:</strong> Registro en Papel - Mejor para quienes prefieren seguimiento táctil y no necesitan cálculos automatizados. Guárdalo con tu chequera.</div>';
+            } else if (selectedMethod === 'spreadsheet') {
+                methodDetails = '<div class="preview-item"><strong>Método:</strong> Hoja de Cálculo - Excelente para personalización y cálculos automáticos. Usa fórmulas para el saldo actual. ¡Respalda regularmente!</div>';
+            } else {
+                methodDetails = '<div class="preview-item"><strong>Método:</strong> App Bancaria - Conveniente y automática, pero revisa regularmente para verificar precisión. Exporta datos periódicamente para registros.</div>';
+            }
+
+            let freqAdvice = '';
+            if (selectedFreq === 'daily') {
+                freqAdvice = 'La revisión diaria te mantiene al tanto de cada transacción. Ideal si tienes transacciones frecuentes o te preocupa el fraude.';
+            } else if (selectedFreq === 'weekly') {
+                freqAdvice = 'La revisión semanal equilibra vigilancia con conveniencia. Establece un día específico (como domingo por la noche) como tu tiempo de revisión financiera.';
+            } else {
+                freqAdvice = 'La revisión mensual se alinea con los estados de cuenta bancarios. Asegúrate de establecer alertas para actividad inusual entre revisiones.';
+            }
+
+            const freqNames = {
+                'daily': 'Diaria',
+                'weekly': 'Semanal',
+                'monthly': 'Mensual'
+            };
+
+            const details = document.getElementById('systemDetails');
+            details.innerHTML = `
+                ${methodDetails}
+                <div class="preview-item"><strong>Características a Rastrear:</strong> ${features.join(', ')}</div>
+                <div class="preview-item"><strong>Conciliación:</strong> ${freqNames[selectedFreq]} - ${freqAdvice}</div>
+                <div class="preview-item"><strong>Comenzando:</strong> Configura tu sistema esta semana, registra cada transacción por un mes, luego evalúa qué está funcionando.</div>
+            `;
+
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

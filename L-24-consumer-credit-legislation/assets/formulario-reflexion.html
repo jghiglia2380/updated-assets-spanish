@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reflexión - Leyes de Crédito al Consumidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .question-section {
+            margin-bottom: 30px;
+        }
+        .question-number {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 16px;
+            color: #2c3e50;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .char-counter {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .submit-button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .submit-button:hover {
+            background-color: #229954;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .submit-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Reflexión</h1>
+    <h2 style="text-align: center; color: #7f8c8d; margin-top: -20px; margin-bottom: 30px;">Legislación sobre Crédito al Consumidor</h2>
+
+    <div class="form-container">
+        <form id="reflectionForm">
+            <div class="question-section">
+                <span class="question-number">Pregunta 1</span>
+                <div class="question-text">
+                    ¿Por qué cree que son necesarias las leyes de crédito al consumidor? Considere qué podría suceder sin estas protecciones.
+                </div>
+                <textarea id="question1" name="question1" placeholder="Escriba su respuesta aquí..."></textarea>
+                <div class="char-counter" id="counter1">0 caracteres</div>
+            </div>
+
+            <div class="question-section">
+                <span class="question-number">Pregunta 2</span>
+                <div class="question-text">
+                    Si pudiera crear una nueva ley de crédito al consumidor, ¿qué problema abordaría y por qué? Sea específico sobre el problema y cómo su ley lo resolvería.
+                </div>
+                <textarea id="question2" name="question2" placeholder="Escriba su respuesta aquí..."></textarea>
+                <div class="char-counter" id="counter2">0 caracteres</div>
+            </div>
+
+            <button type="submit" class="submit-button">Guardar Respuestas</button>
+        </form>
+    </div>
+
+    <script>
+        // Character counters
+        function setupCounter(textareaId, counterId) {
+            const textarea = document.getElementById(textareaId);
+            const counter = document.getElementById(counterId);
+
+            textarea.addEventListener('input', function() {
+                const count = this.value.length;
+                counter.textContent = count + ' caracteres';
+            });
+        }
+
+        setupCounter('question1', 'counter1');
+        setupCounter('question2', 'counter2');
+
+        // Form submission
+        document.getElementById('reflectionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const answer1 = document.getElementById('question1').value.trim();
+            const answer2 = document.getElementById('question2').value.trim();
+
+            if (!answer1 || !answer2) {
+                alert('Por favor complete ambas preguntas antes de enviar.');
+                return;
+            }
+
+            // In a real application, this would send data to a server
+            console.log('Respuesta 1:', answer1);
+            console.log('Respuesta 2:', answer2);
+
+            alert('¡Sus respuestas han sido guardadas exitosamente!');
+        });
+
+        // Auto-save to localStorage
+        function autoSave() {
+            localStorage.setItem('reflection_q1', document.getElementById('question1').value);
+            localStorage.setItem('reflection_q2', document.getElementById('question2').value);
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            const saved1 = localStorage.getItem('reflection_q1');
+            const saved2 = localStorage.getItem('reflection_q2');
+
+            if (saved1) {
+                document.getElementById('question1').value = saved1;
+                document.getElementById('counter1').textContent = saved1.length + ' caracteres';
+            }
+
+            if (saved2) {
+                document.getElementById('question2').value = saved2;
+                document.getElementById('counter2').textContent = saved2.length + ' caracteres';
+            }
+        });
+
+        // Auto-save every 2 seconds
+        setInterval(autoSave, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estrategias de Protección contra Robo de Identidad - Capítulo 9.2</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+
+            .header {
+                margin-bottom: 0.5in;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            .strategy-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4338ca;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6366f1;
+            margin-top: 0;
+        }
+
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #4338ca;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .introduction {
+            margin-bottom: 30px;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .strategy-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .strategy-header {
+            background-color: #4338ca;
+            color: white;
+            padding: 12px 15px;
+        }
+
+        .strategy-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .strategy-body {
+            padding: 15px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 8px;
+        }
+
+        .easy {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .moderate {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .advanced {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .what {
+            margin-bottom: 12px;
+        }
+
+        .why {
+            margin-bottom: 12px;
+            background-color: #f3f4f6;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .how {
+            margin-top: 15px;
+        }
+
+        .how h4 {
+            color: #4338ca;
+            margin-bottom: 8px;
+        }
+
+        .how ol {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .how li {
+            margin-bottom: 8px;
+        }
+
+        .tip {
+            background-color: #e0f2fe;
+            padding: 10px;
+            border-left: 4px solid #0284c7;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .resources {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .resources h4 {
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .resources ul {
+            margin-top: 5px;
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .note-box {
+            background-color: #f3e8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .note-box h3 {
+            color: #7e22ce;
+            margin-top: 0;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #4338ca, transparent);
+            margin: 40px 0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Guía de Estrategias de Protección contra Robo de Identidad</h1>
+        <p class="subtitle">Enfoques Prácticos para Proteger Tu Información Personal</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresión:</strong> Para guardar este documento como PDF, haz clic en "Imprimir" y selecciona "Guardar como PDF" como destino. Para mejores resultados, usa tamaño de papel "Carta" con márgenes predeterminados.
+    </div>
+
+    <div class="introduction">
+        <p>Esta guía proporciona estrategias específicas y accionables para proteger tu información personal del robo de identidad. Cada estrategia incluye qué es, por qué importa y pasos detallados para su implementación. Elige las estrategias que mejor se adapten a tu situación personal para construir un plan de protección integral.</p>
+    </div>
+
+    <div class="note-box">
+        <h3>Usando Esta Guía</h3>
+        <p>Las estrategias están organizadas en tres categorías: protección digital, protección de documentos físicos y acciones de monitoreo. Cada estrategia está clasificada por dificultad de implementación:</p>
+        <ul>
+            <li><strong>Fácil:</strong> Simple de implementar con conocimiento técnico mínimo</li>
+            <li><strong>Moderada:</strong> Requiere algún conocimiento técnico o esfuerzo regular</li>
+            <li><strong>Avanzada:</strong> Involucra configuración más compleja o compromiso continuo</li>
+        </ul>
+        <p>Comienza con estrategias marcadas como "Fácil" y progresivamente añade más a medida que construyas tus hábitos de protección.</p>
+    </div>
+
+    <h2>Estrategias de Protección Digital</h2>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Usar Contraseñas Fuertes y Únicas <span class="difficulty easy">Fácil</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Crear contraseñas complejas y diferentes para cada una de tus cuentas para prevenir acceso no autorizado si una cuenta es comprometida.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Si usas la misma contraseña en múltiples cuentas, una violación de datos en un sitio web da a los ladrones acceso a todas tus cuentas con esa contraseña. Las contraseñas fuertes y únicas reducen significativamente este riesgo.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Crea contraseñas con al menos 12 caracteres, incluyendo mayúsculas y minúsculas, números y símbolos</li>
+                        <li>Evita usar información personal como nombres, fechas de nacimiento o palabras comunes</li>
+                        <li>Usa una contraseña diferente para cada cuenta, especialmente cuentas financieras y de correo electrónico</li>
+                        <li>Considera usar una frase de contraseña (una cadena de palabras aleatorias) para mejor seguridad y memorabilidad</li>
+                        <li>Usa un administrador de contraseñas para generar y almacenar contraseñas fuertes</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Comienza cambiando las contraseñas de tus cuentas más importantes: correo electrónico, cuentas financieras y redes sociales.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Guías de Contraseñas NIST: <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">pages.nist.gov/800-63-3</a></li>
+                        <li>Administradores de contraseñas: LastPass, Bitwarden, 1Password</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Habilitar Autenticación de Dos Factores <span class="difficulty easy">Fácil</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Agregar una segunda capa de seguridad que requiere no solo una contraseña sino también un código temporal o autenticación a través de un dispositivo separado.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Incluso si alguien obtiene tu contraseña, todavía no puede acceder a tu cuenta sin el segundo factor. Esto aumenta significativamente la seguridad, especialmente para cuentas importantes.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Identifica cuentas que ofrecen autenticación de dos factores (la mayoría de las principales plataformas de correo, banca y redes sociales lo ofrecen)</li>
+                        <li>Accede a la configuración de seguridad o privacidad en cada cuenta</li>
+                        <li>Busca "autenticación de dos factores", "2FA" o "autenticación multifactor"</li>
+                        <li>Elige tu segundo factor preferido: aplicación autenticadora (más seguro), mensaje de texto o correo electrónico</li>
+                        <li>Sigue las instrucciones de configuración para cada cuenta</li>
+                        <li>Almacena cualquier código de respaldo en un lugar seguro</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Las aplicaciones autenticadoras (como Google Authenticator o Authy) son más seguras que los mensajes de texto SMS, que pueden ser interceptados.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Directorio 2FA: <a href="https://twofactorauth.org">twofactorauth.org</a></li>
+                        <li>Aplicaciones autenticadoras: Google Authenticator, Microsoft Authenticator, Authy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Gestionar Configuración de Privacidad en Redes Sociales <span class="difficulty moderate">Moderada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Configurar tu configuración de privacidad en plataformas de redes sociales para limitar qué información personal es públicamente visible.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Los perfiles de redes sociales frecuentemente contienen información personal valiosa que los ladrones de identidad pueden usar para responder preguntas de seguridad, dirigir intentos de phishing o construir un perfil para robo de identidad sintética.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Revisa y ajusta la configuración de privacidad en todas las cuentas de redes sociales</li>
+                        <li>Limita la visibilidad de información personal (fecha de nacimiento, dirección, número de teléfono) solo a amigos o elimínala por completo</li>
+                        <li>Deshabilita el rastreo de ubicación y geoetiquetado en publicaciones</li>
+                        <li>Revisa y gestiona regularmente las listas de amigos/seguidores</li>
+                        <li>Verifica qué aplicaciones de terceros tienen acceso a tus cuentas de redes sociales y elimina conexiones innecesarias</li>
+                        <li>Sé selectivo sobre lo que compartes, evitando publicar documentos de identificación, planes de viaje o información financiera</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Usa las funciones "Ver como" de las plataformas de redes sociales para ver qué información es visible para el público.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Guía de Privacidad en Redes Sociales de la FTC: <a href="https://consumer.ftc.gov/articles/how-secure-your-social-media-accounts">consumer.ftc.gov</a></li>
+                        <li>Guías de privacidad específicas por plataforma (busca "[nombre de plataforma] guía de configuración de privacidad")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Usar Conexiones de Internet Seguras <span class="difficulty moderate">Moderada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Tomar precauciones al conectarse a internet, especialmente en redes WiFi públicas, para prevenir la interceptación de datos.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Las redes WiFi públicas son vulnerables a ataques de espionaje donde los criminales pueden interceptar datos transmitidos entre tu dispositivo y los sitios web, potencialmente capturando credenciales de inicio de sesión e información personal.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Evita usar WiFi público para transacciones sensibles (banca, compras, acceso a cuentas financieras)</li>
+                        <li>Usa una Red Privada Virtual (VPN) cuando te conectes a WiFi público</li>
+                        <li>Asegúrate de que los sitios web usen HTTPS (busca un ícono de candado en la barra de direcciones del navegador)</li>
+                        <li>Deshabilita las funciones de conexión automática para WiFi en tus dispositivos</li>
+                        <li>Usa tu conexión de datos móviles en lugar de WiFi público para transacciones sensibles</li>
+                        <li>Olvida las redes públicas después de usarlas</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Algunos servicios VPN ofrecen versiones gratuitas con datos limitados, que pueden ser suficientes para transacciones sensibles ocasionales en WiFi público.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Consejos de la FTC sobre WiFi público: <a href="https://consumer.ftc.gov/articles/how-safely-use-public-wi-fi-networks">consumer.ftc.gov</a></li>
+                        <li>Sitios de comparación de VPN: CNET, PCMag, Consumer Reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Reconocer y Evitar Intentos de Phishing <span class="difficulty moderate">Moderada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Desarrollar las habilidades para identificar y evitar comunicaciones fraudulentas que intentan robar información personal o credenciales de cuenta.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>El phishing es una de las formas más comunes en que los ladrones de identidad obtienen información personal, frecuentemente haciéndose pasar por empresas de confianza o creando una falsa sensación de urgencia que lleva a las víctimas a compartir datos sensibles.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Sé sospechoso de correos electrónicos o mensajes inesperados, especialmente aquellos que crean urgencia</li>
+                        <li>Verifica cuidadosamente las direcciones de correo del remitente buscando errores ortográficos sutiles (ej., amaz0n.com vs amazon.com)</li>
+                        <li>Pasa el cursor sobre los enlaces antes de hacer clic para previsualizar la URL de destino real</li>
+                        <li>No hagas clic en enlaces de mensajes sospechosos—en su lugar, navega directamente al sitio web de la empresa</li>
+                        <li>Desconfía de mensajes con saludos genéricos, mala gramática o errores ortográficos</li>
+                        <li>Nunca proporciones información sensible en respuesta a un correo o mensaje no solicitado</li>
+                        <li>Reporta intentos de phishing a la organización que está siendo suplantada y a <a href="mailto:phishing@uce.gov">phishing@uce.gov</a></li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Si no estás seguro sobre una comunicación, contacta a la empresa directamente usando información de contacto de su sitio web oficial, no del mensaje sospechoso.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Ejemplos de phishing: <a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams">consumer.ftc.gov</a></li>
+                        <li>Quiz de phishing: <a href="https://phishingquiz.withgoogle.com">phishingquiz.withgoogle.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Estrategias de Protección de Documentos Físicos</h2>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Triturar Documentos Sensibles <span class="difficulty easy">Fácil</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Destruir documentos que contienen información personal antes de desecharlos para prevenir el hurgar en la basura.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Los documentos desechados como estados bancarios, ofertas de tarjetas de crédito, facturas de servicios y estados médicos contienen información personal valiosa que los ladrones de identidad pueden usar para acceder a tus cuentas o abrir nuevas a tu nombre.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Compra una trituradora de corte cruzado o micro-corte (más segura que las trituradoras de corte en tiras)</li>
+                        <li>Tritura documentos que contengan:
+                            <ul>
+                                <li>Números de Seguro Social</li>
+                                <li>Números de cuenta</li>
+                                <li>Fechas de nacimiento</li>
+                                <li>Firmas</li>
+                                <li>Ofertas de crédito preaprobadas</li>
+                                <li>Estados médicos</li>
+                                <li>Recibos de nómina</li>
+                                <li>Documentos de impuestos</li>
+                                <li>Facturas de servicios</li>
+                                <li>Tarjetas de identificación expiradas</li>
+                            </ul>
+                        </li>
+                        <li>Para artículos que no pueden triturarse, como tarjetas de crédito, córtalas en múltiples piezas</li>
+                        <li>Considera eventos comunitarios de trituración si no tienes una trituradora</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Si no tienes una trituradora, muchas tiendas de suministros de oficina, centros de envío y bancos ofrecen servicios de trituración por una pequeña tarifa.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Asegurar Tu Correo <span class="difficulty easy">Fácil</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Tomar medidas para proteger el correo entrante y saliente del robo.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>El robo de correo es una fuente común de robo de identidad, ya que el correo frecuentemente contiene información sensible como estados bancarios, documentos de impuestos y ofertas de tarjetas de crédito. Los ladrones también pueden robar correo para obtener nuevas tarjetas de crédito o cheques enviados a ti.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Usa un buzón con candado o una ranura de correo que deposite el correo directamente en tu casa</li>
+                        <li>Recoge el correo prontamente después de la entrega</li>
+                        <li>Pon una retención en la entrega de correo cuando viajes (Servicio de Retención de Correo de USPS)</li>
+                        <li>Deposita el correo saliente con información sensible directamente en la oficina de correos o en un buzón de colección seguro</li>
+                        <li>Considera usar un apartado postal para recibir correo sensible</li>
+                        <li>Inscríbete en Informed Delivery de USPS para recibir correos diarios mostrando qué correo está programado para entrega</li>
+                        <li>Cambia a estados de cuenta electrónicos y pagos donde sea posible para reducir el correo sensible</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Si ves transacciones desconocidas en tus cuentas o dejas de recibir cierto correo regular, podría ser una señal de robo de correo. Reporta sospecha de robo de correo al Servicio de Inspección Postal de EE.UU. al 1-877-876-2455.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>USPS Informed Delivery: <a href="https://informeddelivery.usps.com">informeddelivery.usps.com</a></li>
+                        <li>Servicio de Retención de Correo de USPS: <a href="https://holdmail.usps.com">holdmail.usps.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Asegurar Documentos Físicos <span class="difficulty moderate">Moderada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Almacenar correctamente documentos importantes para prevenir acceso no autorizado y robo.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Los documentos físicos que contienen información sensible pueden ser robados durante robos a casa o por visitantes, contratistas o incluso miembros de la familia con acceso a tu casa. El almacenamiento adecuado previene esta fuente de robo de identidad.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Almacena documentos importantes en una caja fuerte a prueba de fuego con candado o archivador, incluyendo:
+                            <ul>
+                                <li>Tarjetas de Seguro Social</li>
+                                <li>Actas de nacimiento</li>
+                                <li>Pasaportes</li>
+                                <li>Declaraciones de impuestos</li>
+                                <li>Estados financieros</li>
+                                <li>Registros médicos</li>
+                                <li>Escrituras de propiedad</li>
+                                <li>Pólizas de seguro</li>
+                            </ul>
+                        </li>
+                        <li>Conserva solo lo que necesitas—destruye de forma segura documentos obsoletos</li>
+                        <li>Considera respaldo digital de documentos importantes, encriptados y protegidos con contraseña</li>
+                        <li>Para documentos extremadamente importantes como actas de nacimiento, considera una caja de seguridad bancaria</li>
+                        <li>Haz un inventario de qué documentos tienes y dónde están almacenados</li>
+                        <li>Limita quién tiene acceso a áreas donde se almacenan documentos sensibles</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Crea un calendario de retención de documentos—conserva registros de impuestos por 7 años, recibos de nómina hasta que recibas tu W-2, y recibos de compras mayores mientras poseas los artículos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Estrategias de Monitoreo</h2>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Monitorear Estados Financieros <span class="difficulty easy">Fácil</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Revisar regularmente estados de cuenta bancarios, estados de tarjetas de crédito y cuentas financieras para detectar rápidamente transacciones no autorizadas.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>La detección temprana de actividad fraudulenta limita el daño y simplifica el proceso de recuperación. La mayoría de las instituciones financieras limitan tu responsabilidad por transacciones no autorizadas si se reportan prontamente.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Revisa todos los estados de cuenta bancarios y de tarjetas de crédito tan pronto como lleguen</li>
+                        <li>Configura acceso a cuentas en línea para verificar transacciones más frecuentemente</li>
+                        <li>Habilita alertas de transacciones para todas las cuentas (notificaciones por correo o texto para compras grandes, transacciones en el extranjero, o cuando tu saldo caiga por debajo de cierta cantidad)</li>
+                        <li>Conserva recibos y compáralos con los cargos en los estados de cuenta</li>
+                        <li>Verifica los saldos de las cuentas semanalmente para detectar actividad no autorizada</li>
+                        <li>Reporta transacciones sospechosas inmediatamente</li>
+                        <li>Crea un calendario para revisión regular de cuentas (ej., cada domingo por la noche)</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Presta especial atención a cargos pequeños—los ladrones de identidad frecuentemente hacen pequeñas compras de prueba para verificar que una tarjeta robada funciona antes de hacer compras más grandes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Revisar Informes de Crédito Regularmente <span class="difficulty moderate">Moderada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Revisar tus informes de crédito de las tres principales agencias de crédito para detectar cuentas no autorizadas, consultas u otra actividad sospechosa.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Tu informe de crédito muestra todas las cuentas abiertas a tu nombre, por lo que puede revelar robo de identidad que podría no ser visible en los estados de cuenta de tus cuentas existentes, como nuevas cuentas abiertas por ladrones.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Solicita informes de crédito gratuitos de las tres principales agencias de crédito (Equifax, Experian y TransUnion) a través del sitio oficial AnnualCreditReport.com</li>
+                        <li>Verifica cada informe buscando:
+                            <ul>
+                                <li>Cuentas que no abriste</li>
+                                <li>Consultas de crédito que no autorizaste</li>
+                                <li>Direcciones donde nunca has vivido</li>
+                                <li>Empleadores para los que no has trabajado</li>
+                                <li>Información personal incorrecta</li>
+                                <li>Registros públicos que no reconoces</li>
+                            </ul>
+                        </li>
+                        <li>Escala tus solicitudes a lo largo del año (una agencia cada cuatro meses) para monitoreo más frecuente</li>
+                        <li>Crea un recordatorio en el calendario para cuándo solicitar cada informe</li>
+                        <li>Reporta cualquier discrepancia inmediatamente a la agencia de crédito y a los acreedores afectados</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Durante COVID-19, las agencias de crédito ofrecieron informes semanales gratuitos en línea en lugar de anuales. Verifica AnnualCreditReport.com para la disponibilidad más actual.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>AnnualCreditReport.com (sitio oficial): <a href="https://www.annualcreditreport.com">annualcreditreport.com</a></li>
+                        <li>Guía de informes de crédito de la FTC: <a href="https://consumer.ftc.gov/articles/free-credit-reports">consumer.ftc.gov</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <div class="strategy-header">
+                <h3 class="strategy-title">Considerar un Congelamiento de Crédito <span class="difficulty advanced">Avanzada</span></h3>
+            </div>
+            <div class="strategy-body">
+                <div class="what">
+                    <h4>Qué es:</h4>
+                    <p>Una medida de seguridad que restringe el acceso a tu informe de crédito, evitando que la mayoría de los prestamistas accedan a él sin tu permiso explícito.</p>
+                </div>
+
+                <div class="why">
+                    <h4>Por qué importa:</h4>
+                    <p>Dado que la mayoría de los acreedores necesitan verificar tu informe de crédito antes de aprobar nuevas cuentas, un congelamiento de crédito ayuda a prevenir que los ladrones de identidad abran nuevas cuentas a tu nombre, incluso si tienen tu información personal.</p>
+                </div>
+
+                <div class="how">
+                    <h4>Cómo implementar:</h4>
+                    <ol>
+                        <li>Contacta a cada una de las tres principales agencias de crédito por separado para colocar un congelamiento:
+                            <ul>
+                                <li>Equifax: 1-888-766-0008 o equifax.com/personal/credit-report-services</li>
+                                <li>Experian: 1-888-397-3742 o experian.com/freeze</li>
+                                <li>TransUnion: 1-888-909-8872 o transunion.com/credit-freeze</li>
+                            </ul>
+                        </li>
+                        <li>Prepárate para proporcionar tu nombre, dirección, fecha de nacimiento, número de Seguro Social y otra información personal</li>
+                        <li>Crea un PIN o contraseña para cada agencia para usar cuando quieras levantar el congelamiento</li>
+                        <li>Almacena estos PINs de forma segura</li>
+                        <li>Levanta temporalmente el congelamiento cuando solicites crédito o servicios que requieran una verificación de crédito</li>
+                        <li>Recuerda permitir varios días para que se levanten los congelamientos al planificar solicitudes de crédito</li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <p>Consejo: Los congelamientos de crédito ahora son gratuitos a nivel nacional. Considera también congelar los informes de crédito de tus hijos para protegerlos del robo de identidad infantil.</p>
+                </div>
+
+                <div class="resources">
+                    <h4>Recursos Recomendados:</h4>
+                    <ul>
+                        <li>Guía de la FTC sobre congelamientos de crédito: <a href="https://consumer.ftc.gov/articles/what-know-about-credit-freezes-and-fraud-alerts">consumer.ftc.gov</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="note-box">
+        <h3>Creando Tu Plan de Protección Personalizado</h3>
+        <p>Para desarrollar un plan efectivo de protección contra robo de identidad:</p>
+        <ol>
+            <li>Evalúa tus vulnerabilidades y hábitos actuales</li>
+            <li>Selecciona estrategias de cada categoría (digital, física, monitoreo)</li>
+            <li>Comienza con algunas estrategias fáciles e implementa gradualmente más</li>
+            <li>Crea un calendario para actividades de protección recurrentes</li>
+            <li>Revisa y actualiza tu plan de protección regularmente</li>
+        </ol>
+        <p>Recuerda que la implementación consistente de unas pocas estrategias es más efectiva que la implementación inconsistente de muchas estrategias.</p>
+    </div>
+
+    <div class="footer">
+        <p>Capítulo 9.2: Prevención y Recuperación del Robo de Identidad | PFL Academy</p>
+        <p>© 2025 PFL Academy. Solo para propósitos educativos. No es asesoría legal o financiera.</p>
+    </div>
+</body>
+</html>

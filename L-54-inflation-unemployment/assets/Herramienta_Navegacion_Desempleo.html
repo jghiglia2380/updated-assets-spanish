@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Navegacion del Desempleo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .type-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .type-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            border: 3px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .type-card:hover { border-color: #6366f1; }
+        .type-card.selected { border-color: #6366f1; background: #eef2ff; }
+        .type-icon { font-size: 2rem; margin-bottom: 10px; }
+        .type-name { font-weight: bold; color: #1f2937; margin-bottom: 5px; }
+        .type-desc { font-size: 0.85rem; color: #6b7280; }
+        .results { display: none; }
+        .results.active { display: block; }
+        .strategy-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .strategy-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        .strategy-list { margin-left: 20px; }
+        .strategy-list li { margin-bottom: 10px; color: #4b5563; }
+        .timeline-box {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .timeline-box strong { color: #92400e; }
+        .action-box {
+            background: #d1fae5;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+            margin-top: 20px;
+        }
+        .action-box h3 { color: #065f46; margin-bottom: 10px; }
+        .action-box p { color: #064e3b; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+        }
+        @media (max-width: 768px) {
+            .type-selector { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Herramienta de Navegacion del Desempleo</h1>
+            <p class="subtitle">Obtén estrategias basadas en tu tipo de desempleo</p>
+        </header>
+
+        <div class="type-selector">
+            <div class="type-card" onclick="selectType('frictional')">
+                <div class="type-icon">🔄</div>
+                <div class="type-name">Friccional</div>
+                <div class="type-desc">Entre empleos, buscando mejor ajuste</div>
+            </div>
+            <div class="type-card" onclick="selectType('structural')">
+                <div class="type-icon">🏭</div>
+                <div class="type-name">Estructural</div>
+                <div class="type-desc">Desajuste de habilidades, declive de industria</div>
+            </div>
+            <div class="type-card" onclick="selectType('cyclical')">
+                <div class="type-icon">📉</div>
+                <div class="type-name">Ciclico</div>
+                <div class="type-desc">Debido a recesion economica</div>
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            <div class="strategy-section">
+                <div class="strategy-title" id="strategyTitle">Estrategias</div>
+                <ul class="strategy-list" id="strategyList"></ul>
+                <div class="timeline-box" id="timeline"></div>
+            </div>
+
+            <div class="action-box">
+                <h3>Pasos de Accion Inmediata</h3>
+                <p id="actionSteps"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Inflacion y Desempleo</p>
+        </footer>
+    </div>
+
+    <script>
+        function selectType(type) {
+            document.querySelectorAll('.type-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            let title = '', strategies = [], timeline = '', actions = '';
+
+            if (type === 'frictional') {
+                title = 'Estrategias para Desempleo Friccional';
+                strategies = [
+                    'Optimiza tu curriculum para ATS (Sistemas de Seguimiento de Candidatos)',
+                    'Expande tu busqueda de empleo a multiples plataformas (LinkedIn, Indeed, especificas de la industria)',
+                    'Aprovecha tu red de contactos - el 70% de los empleos se encuentran a traves de conexiones',
+                    'Considera trabajo temporal o por contrato mientras buscas',
+                    'Preparate para entrevistas investigando las empresas a fondo',
+                    'Se flexible con la ubicacion si es posible',
+                    'Establece metas diarias de solicitudes (5-10 solicitudes por dia)'
+                ];
+                timeline = '<strong>Duracion Esperada:</strong> Tipicamente 1-3 meses. El desempleo friccional es normal y generalmente de corto plazo.';
+                actions = '1. Actualiza tu perfil de LinkedIn hoy. 2. Contacta a 5 excoleguaesta semana. 3. Configura alertas de empleo en 3 plataformas principales. 4. Programa al menos 2 entrevistas informativas.';
+            } else if (type === 'structural') {
+                title = 'Estrategias para Desempleo Estructural';
+                strategies = [
+                    'Identifica habilidades transferibles de tu carrera anterior',
+                    'Investiga industrias en crecimiento en tu area',
+                    'Inscribete en programas de recapacitacion (colegio comunitario, bootcamps, certificados)',
+                    'Considera reubicarte a areas con mas oportunidades de empleo',
+                    'Explora programas de asistencia gubernamental para recapacitacion',
+                    'Desarrolla habilidades en tecnologia - practicamente todas las industrias necesitan habilidades tecnologicas',
+                    'Haz networking en tu industria objetivo antes de terminar la capacitacion',
+                    'Considera puestos de nivel inicial en el nuevo campo para ganar experiencia'
+                ];
+                timeline = '<strong>Duracion Esperada:</strong> 6-18 meses dependiendo de la recapacitacion necesaria. Esta es una transicion significativa que requiere paciencia y planificacion.';
+                actions = '1. Investiga las 3 principales industrias en crecimiento en tu region. 2. Identifica un programa de certificacion o capacitacion para comenzar en 30 dias. 3. Conecta con 3 personas que trabajen en tu campo objetivo. 4. Solicita cualquier asistencia de recapacitacion disponible.';
+            } else if (type === 'cyclical') {
+                title = 'Estrategias para Desempleo Ciclico';
+                strategies = [
+                    'Solicita beneficios de desempleo inmediatamente',
+                    'Reduce gastos no esenciales para extender tus recursos',
+                    'Considera industrias contracliclicas (salud, educacion, gobierno)',
+                    'Toma trabajo temporal o gig para mantener ingresos',
+                    'Usa el tiempo libre para desarrollar habilidades que seran valoradas en la recuperacion',
+                    'Mantente conectado con tu industria - los despidos a menudo se revierten rapidamente',
+                    'Mantén tu red profesional activamente',
+                    'Considera iniciar un negocio secundario o trabajo freelance'
+                ];
+                timeline = '<strong>Duracion Esperada:</strong> Depende de la recuperacion economica, tipicamente 6-24 meses. La buena noticia es que tu industria probablemente se recuperara.';
+                actions = '1. Solicita beneficios de desempleo hoy. 2. Crea un presupuesto reducido para los proximos 6 meses. 3. Identifica 3 industrias contracliclicas en las que podrias trabajar. 4. Inscribete en un curso en linea para desarrollar habilidades durante el tiempo libre.';
+            }
+
+            document.getElementById('strategyTitle').textContent = title;
+            document.getElementById('strategyList').innerHTML = strategies.map(s => `<li>${s}</li>`).join('');
+            document.getElementById('timeline').innerHTML = timeline;
+            document.getElementById('actionSteps').textContent = actions;
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Impacto Comercial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .policy-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .policy-btn {
+            padding: 20px;
+            background: #f9fafb;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .policy-btn:hover { border-color: #6366f1; }
+        .policy-btn.selected { border-color: #6366f1; background: #eef2ff; }
+        .policy-icon { font-size: 2rem; margin-bottom: 8px; }
+        .policy-name { font-weight: bold; color: #1f2937; }
+        .policy-desc { font-size: 0.85rem; color: #6b7280; margin-top: 5px; }
+        .tariff-slider {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+        }
+        .tariff-slider.active { display: block; }
+        .slider-label { font-weight: 600; margin-bottom: 10px; }
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #6366f1;
+            cursor: pointer;
+        }
+        .tariff-value { text-align: center; font-size: 1.5rem; font-weight: bold; color: #6366f1; margin-top: 10px; }
+        .analyze-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        .analyze-btn:hover { background: #4f46e5; }
+        .results { display: none; }
+        .results.active { display: block; }
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .stakeholder-card {
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        .stakeholder-name { font-weight: bold; margin-bottom: 10px; }
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .impact-positive { color: #059669; }
+        .impact-negative { color: #dc2626; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .policy-selector, .stakeholder-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .analyze-btn,
+            .tariff-slider,
+            .no-print {
+                display: none !important;
+            }
+            .results {
+                display: block !important;
+            }
+            .stakeholder-card,
+            .policy-btn {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analizador de Impacto Comercial</h1>
+            <p class="subtitle">Analiza los efectos de las políticas comerciales en las partes interesadas</p>
+        </header>
+
+        <div class="policy-selector">
+            <div class="policy-btn" onclick="selectPolicy('free')">
+                <div class="policy-icon">🌍</div>
+                <div class="policy-name">Libre Comercio</div>
+                <div class="policy-desc">Sin aranceles ni barreras</div>
+            </div>
+            <div class="policy-btn" onclick="selectPolicy('tariff')">
+                <div class="policy-icon">🚧</div>
+                <div class="policy-name">Aranceles</div>
+                <div class="policy-desc">Impuesto sobre importaciones</div>
+            </div>
+            <div class="policy-btn" onclick="selectPolicy('quota')">
+                <div class="policy-icon">📦</div>
+                <div class="policy-name">Cuotas</div>
+                <div class="policy-desc">Límite de cantidades de importación</div>
+            </div>
+            <div class="policy-btn" onclick="selectPolicy('subsidy')">
+                <div class="policy-icon">💵</div>
+                <div class="policy-name">Subsidios</div>
+                <div class="policy-desc">Apoyo a productores nacionales</div>
+            </div>
+        </div>
+
+        <div class="tariff-slider" id="tariffSlider">
+            <div class="slider-label">Tasa Arancelaria</div>
+            <input type="range" min="0" max="50" value="25" id="tariffRate" oninput="updateTariff()">
+            <div class="tariff-value" id="tariffDisplay">25%</div>
+        </div>
+
+        <button class="analyze-btn" onclick="analyzeImpact()">Analizar Impacto</button>
+
+        <div class="results" id="results">
+            <div class="stakeholder-grid" id="stakeholderGrid"></div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Comercio Internacional</p>
+        </footer>
+    </div>
+
+    <script>
+        let selectedPolicy = null;
+
+        function selectPolicy(policy) {
+            selectedPolicy = policy;
+            document.querySelectorAll('.policy-btn').forEach(btn => btn.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            document.getElementById('tariffSlider').classList.toggle('active', policy === 'tariff');
+        }
+
+        function updateTariff() {
+            document.getElementById('tariffDisplay').textContent = document.getElementById('tariffRate').value + '%';
+        }
+
+        function analyzeImpact() {
+            if (!selectedPolicy) {
+                alert('Por favor selecciona una política comercial.');
+                return;
+            }
+
+            const grid = document.getElementById('stakeholderGrid');
+            let stakeholders = [];
+
+            if (selectedPolicy === 'free') {
+                stakeholders = [
+                    { name: '👨‍👩‍👧‍👦 Consumidores', impacts: [
+                        { text: 'Precios más bajos', positive: true },
+                        { text: 'Mayor variedad de productos', positive: true },
+                        { text: 'Mejor calidad por competencia', positive: true }
+                    ]},
+                    { name: '🏭 Productores Nacionales', impacts: [
+                        { text: 'Más competencia', positive: false },
+                        { text: 'Presión en precios/salarios', positive: false },
+                        { text: 'Acceso a mercados globales', positive: true }
+                    ]},
+                    { name: '👷 Trabajadores', impacts: [
+                        { text: 'Pérdida de empleos en algunas industrias', positive: false },
+                        { text: 'Ganancia de empleos en industrias de exportación', positive: true },
+                        { text: 'Presión salarial en sectores competidores de importación', positive: false }
+                    ]},
+                    { name: '🏛️ Gobierno', impacts: [
+                        { text: 'Sin ingresos por aranceles', positive: false },
+                        { text: 'Precios más bajos reducen inflación', positive: true },
+                        { text: 'Riesgo de disputas comerciales reducido', positive: true }
+                    ]}
+                ];
+            } else if (selectedPolicy === 'tariff') {
+                stakeholders = [
+                    { name: '👨‍👩‍👧‍👦 Consumidores', impacts: [
+                        { text: 'Precios más altos', positive: false },
+                        { text: 'Menos opciones de productos', positive: false },
+                        { text: 'Opciones de menor calidad', positive: false }
+                    ]},
+                    { name: '🏭 Productores Nacionales', impacts: [
+                        { text: 'Protegidos de la competencia', positive: true },
+                        { text: 'Pueden cobrar precios más altos', positive: true },
+                        { text: 'Posible represalia en exportaciones', positive: false }
+                    ]},
+                    { name: '👷 Trabajadores', impacts: [
+                        { text: 'Empleos protegidos en industrias competidoras de importación', positive: true },
+                        { text: 'Pérdida de empleos si socios comerciales toman represalias', positive: false },
+                        { text: 'Mayor costo de vida', positive: false }
+                    ]},
+                    { name: '🏛️ Gobierno', impacts: [
+                        { text: 'Ingresos por aranceles recaudados', positive: true },
+                        { text: 'Disputas comerciales probables', positive: false },
+                        { text: 'Presión inflacionaria', positive: false }
+                    ]}
+                ];
+            } else if (selectedPolicy === 'quota') {
+                stakeholders = [
+                    { name: '👨‍👩‍👧‍👦 Consumidores', impacts: [
+                        { text: 'Precios más altos', positive: false },
+                        { text: 'Escasez/faltantes', positive: false },
+                        { text: 'Opciones limitadas', positive: false }
+                    ]},
+                    { name: '🏭 Productores Nacionales', impacts: [
+                        { text: 'Cuota de mercado garantizada', positive: true },
+                        { text: 'Precios más altos posibles', positive: true },
+                        { text: 'Menos presión para innovar', positive: false }
+                    ]},
+                    { name: '👷 Trabajadores', impacts: [
+                        { text: 'Empleos protegidos', positive: true },
+                        { text: 'Mayores costos de consumo afectan salarios reales', positive: false },
+                        { text: 'Industria puede volverse menos competitiva a largo plazo', positive: false }
+                    ]},
+                    { name: '🏛️ Gobierno', impacts: [
+                        { text: 'Sin ingresos directos', positive: false },
+                        { text: 'Disputas comerciales probables', positive: false },
+                        { text: 'Difícil de administrar', positive: false }
+                    ]}
+                ];
+            } else if (selectedPolicy === 'subsidy') {
+                stakeholders = [
+                    { name: '👨‍👩‍👧‍👦 Consumidores', impacts: [
+                        { text: 'Precios nacionales más bajos', positive: true },
+                        { text: 'Apoyo a productores locales', positive: true },
+                        { text: 'Contribuyentes financian subsidios', positive: false }
+                    ]},
+                    { name: '🏭 Productores Nacionales', impacts: [
+                        { text: 'Apoyo financiero', positive: true },
+                        { text: 'Ventaja competitiva', positive: true },
+                        { text: 'Dependencia del gobierno', positive: false }
+                    ]},
+                    { name: '👷 Trabajadores', impacts: [
+                        { text: 'Empleos apoyados', positive: true },
+                        { text: 'Empleo estable', positive: true },
+                        { text: 'Pagan impuestos para subsidios', positive: false }
+                    ]},
+                    { name: '🏛️ Gobierno', impacts: [
+                        { text: 'Costo presupuestario', positive: false },
+                        { text: 'Disputas comerciales de socios', positive: false },
+                        { text: 'Puede dirigir industrias estratégicas', positive: true }
+                    ]}
+                ];
+            }
+
+            grid.innerHTML = stakeholders.map(s => `
+                <div class="stakeholder-card">
+                    <div class="stakeholder-name">${s.name}</div>
+                    ${s.impacts.map(i => `
+                        <div class="impact-item ${i.positive ? 'impact-positive' : 'impact-negative'}">
+                            ${i.positive ? '✓' : '✗'} ${i.text}
+                        </div>
+                    `).join('')}
+                </div>
+            `).join('');
+
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

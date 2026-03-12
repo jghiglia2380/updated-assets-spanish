@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Opciones Hipotecarias</title>
+    <style>
+        @media print { body { font-size: 12pt; color: #000; background-color: #fff; } .no-print { display: none; } table { page-break-inside: avoid; } .page-break { page-break-before: always; } @page { margin: 0.5in; } }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 8.5in; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #4f46e5; margin-bottom: 10px; }
+        h2 { color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 5px; margin-top: 30px; }
+        h3 { color: #6366f1; margin-top: 20px; }
+        .instructions { background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .mortgage-section { background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+        .conventional-section { border-left: 5px solid #6366f1; }
+        .fha-section { border-left: 5px solid #10b981; }
+        .va-section { border-left: 5px solid #f59e0b; }
+        .usda-section { border-left: 5px solid #ec4899; }
+        .comparison-section { border-left: 5px solid #3b82f6; }
+        .scenario-section { border-left: 5px solid #8b5cf6; background-color: #f5f3ff; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th { background-color: #e0e7ff; padding: 10px; text-align: left; border: 1px solid #a5b4fc; }
+        td { padding: 10px; border: 1px solid #a5b4fc; vertical-align: top; }
+        .input-field { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; box-sizing: border-box; font-size: 1em; }
+        .tip-box { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; margin: 15px 0; }
+        .note { font-style: italic; color: #6b7280; font-size: 0.9em; }
+        .calculator-box { background-color: #eef2ff; border-radius: 5px; padding: 15px; margin: 15px 0; }
+        footer { margin-top: 40px; text-align: center; font-size: 0.8em; color: #6b7280; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Análisis de Opciones Hipotecarias</h1>
+        <p>Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta hoja de trabajo le ayudará a analizar diferentes opciones hipotecarias para encontrar la mejor opción para su situación financiera. Trabaje cada sección para entender las características, requisitos y costos de varios tipos de hipoteca. Luego compare opciones para escenarios específicos y determine cuál podría ser la mejor para su situación.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haga clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="mortgage-section conventional-section">
+        <h2>Préstamos Convencionales</h2>
+        <h3>Características Principales</h3>
+        <ul>
+            <li>No respaldados por el gobierno federal</li>
+            <li>Ofrecidos por bancos, cooperativas de crédito y prestamistas hipotecarios</li>
+            <li>Pueden ser conformes (cumplen lineamientos de Fannie Mae/Freddie Mac) o no conformes (préstamos jumbo)</li>
+            <li>Opciones de tasa fija o ajustable</li>
+            <li>Varias opciones de plazo (15, 20, 30 años son los más comunes)</li>
+        </ul>
+
+        <h3>Requisitos de Elegibilidad</h3>
+        <table>
+            <tr><th width="40%">Requisito</th><th width="30%">Mínimo Típico</th><th width="30%">Óptimo</th></tr>
+            <tr><td>Puntaje de Crédito</td><td>620-640</td><td>740+</td></tr>
+            <tr><td>Enganche</td><td>3-5%</td><td>20%+</td></tr>
+            <tr><td>Relación Deuda-Ingreso (DTI)</td><td>43-45%</td><td>&lt;36%</td></tr>
+            <tr><td>Seguro Hipotecario</td><td>Requerido si enganche &lt;20%</td><td>Ninguno con 20%+ de enganche</td></tr>
+            <tr><td>Historial de Empleo</td><td>2+ años en el mismo campo</td><td>2+ años con el mismo empleador</td></tr>
+            <tr><td>Verificación de Ingresos</td><td>Talones de pago, W-2s, declaraciones de impuestos</td><td>Ingresos estables con tendencia ascendente</td></tr>
+        </table>
+
+        <h3>Ventajas</h3>
+        <ul>
+            <li>Sin prima inicial de seguro hipotecario (a diferencia de FHA)</li>
+            <li>PMI puede cancelarse una vez que alcance 20% de equidad</li>
+            <li>Más flexibilidad en tipos de propiedad</li>
+            <li>Generalmente menor costo total para prestatarios con excelente crédito y 20%+ de enganche</li>
+        </ul>
+
+        <h3>Desventajas</h3>
+        <ul>
+            <li>Requisitos de puntaje de crédito más altos que préstamos respaldados por el gobierno</li>
+            <li>Se necesita mayor enganche para mejores términos</li>
+            <li>Requisitos de calificación más estrictos</li>
+            <li>PMI puede ser costoso con enganche mínimo</li>
+        </ul>
+
+        <h3>Mejor Para</h3>
+        <ul>
+            <li>Prestatarios con crédito bueno a excelente (680+)</li>
+            <li>Aquellos que pueden pagar un enganche del 10-20%</li>
+            <li>Prestatarios que buscan menores costos totales durante la vida del préstamo</li>
+        </ul>
+    </div>
+
+    <div class="mortgage-section fha-section">
+        <h2>Préstamos FHA</h2>
+        <h3>Características Principales</h3>
+        <ul>
+            <li>Respaldados por la Administración Federal de Vivienda</li>
+            <li>Diseñados para ayudar a compradores primerizos y aquellos con fondos o crédito limitados</li>
+            <li>Disponibles de prestamistas aprobados por FHA</li>
+            <li>Opciones de tasa fija y ajustable</li>
+            <li>Principalmente solo para residencias principales</li>
+        </ul>
+
+        <h3>Requisitos de Elegibilidad</h3>
+        <table>
+            <tr><th width="40%">Requisito</th><th width="30%">Mínimo Típico</th><th width="30%">Óptimo</th></tr>
+            <tr><td>Puntaje de Crédito</td><td>500 (con 10% enganche)<br>580 (con 3.5% enganche)</td><td>620+</td></tr>
+            <tr><td>Enganche</td><td>3.5% (puntaje 580+)<br>10% (puntaje 500-579)</td><td>10%+</td></tr>
+            <tr><td>Relación Deuda-Ingreso (DTI)</td><td>43-50% (con factores compensatorios)</td><td>&lt;43%</td></tr>
+            <tr><td>Seguro Hipotecario</td><td>Prima inicial (1.75%) + prima anual (0.55-1.05%)</td><td>Requerido durante toda la vida del préstamo con &lt;10% enganche</td></tr>
+            <tr><td>Requisitos de Propiedad</td><td>Debe cumplir estándares de propiedad FHA</td><td>Condición lista para mudarse</td></tr>
+        </table>
+
+        <h3>Ventajas</h3>
+        <ul>
+            <li>Requisitos de puntaje de crédito más bajos que préstamos convencionales</li>
+            <li>Opciones de enganche más bajas (tan bajo como 3.5%)</li>
+            <li>Más flexible con problemas de crédito recientes</li>
+            <li>El vendedor puede contribuir hasta 6% hacia costos de cierre</li>
+        </ul>
+
+        <h3>Desventajas</h3>
+        <ul>
+            <li>Seguro hipotecario obligatorio para todos los préstamos</li>
+            <li>Prima de seguro hipotecario inicial (1.75% del monto del préstamo)</li>
+            <li>Seguro hipotecario típicamente requerido durante toda la vida del préstamo</li>
+            <li>La propiedad debe cumplir estándares FHA, que pueden ser estrictos</li>
+        </ul>
+
+        <h3>Mejor Para</h3>
+        <ul>
+            <li>Compradores primerizos con ahorros limitados</li>
+            <li>Prestatarios con puntajes de crédito más bajos (580-680)</li>
+            <li>Aquellos con relaciones deuda-ingreso más altas</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="mortgage-section va-section">
+        <h2>Préstamos VA</h2>
+        <h3>Características Principales</h3>
+        <ul>
+            <li>Respaldados por el Departamento de Asuntos de Veteranos</li>
+            <li>Disponibles para miembros del servicio elegibles, veteranos y cónyuges sobrevivientes</li>
+            <li>Ofrecidos a través de prestamistas aprobados por VA</li>
+            <li>No se requiere enganche en la mayoría de los casos</li>
+            <li>Sin seguro hipotecario privado</li>
+        </ul>
+
+        <h3>Requisitos de Elegibilidad</h3>
+        <table>
+            <tr><th width="40%">Requisito</th><th width="30%">Mínimo Típico</th><th width="30%">Detalles</th></tr>
+            <tr><td>Servicio Militar</td><td>Varía por período de servicio</td><td>Debe cumplir requisitos mínimos de servicio y tener Certificado de Elegibilidad (COE) válido</td></tr>
+            <tr><td>Puntaje de Crédito</td><td>580-620 (específico del prestamista)</td><td>Sin mínimo oficial de VA; los prestamistas establecen sus propios estándares</td></tr>
+            <tr><td>Enganche</td><td>0%</td><td>Financiamiento del 100% disponible</td></tr>
+            <tr><td>Relación Deuda-Ingreso (DTI)</td><td>41% estándar, puede ser mayor con factores compensatorios</td><td>Más flexible que préstamos convencionales</td></tr>
+            <tr><td>Tarifa de Financiamiento</td><td>1.25-3.3% del monto del préstamo</td><td>Varía según tipo de servicio, enganche y primer uso</td></tr>
+        </table>
+
+        <h3>Ventajas</h3>
+        <ul>
+            <li>No se requiere enganche</li>
+            <li>Sin seguro hipotecario mensual</li>
+            <li>Tasas de interés competitivas</li>
+            <li>Requisitos de crédito más flexibles</li>
+            <li>Sin penalidades por prepago</li>
+        </ul>
+
+        <h3>Desventajas</h3>
+        <ul>
+            <li>Tarifa de financiamiento única (que puede incluirse en el préstamo)</li>
+            <li>Limitado a veteranos elegibles, miembros del servicio y cónyuges</li>
+            <li>Requisito de residencia principal</li>
+            <li>La propiedad debe cumplir estándares VA</li>
+        </ul>
+
+        <h3>Mejor Para</h3>
+        <ul>
+            <li>Veteranos elegibles y miembros del servicio</li>
+            <li>Aquellos con ahorros limitados para enganche</li>
+            <li>Prestatarios que buscan evitar seguro hipotecario</li>
+        </ul>
+    </div>
+
+    <div class="mortgage-section usda-section">
+        <h2>Préstamos USDA</h2>
+        <h3>Características Principales</h3>
+        <ul>
+            <li>Respaldados por el Departamento de Agricultura de EE.UU.</li>
+            <li>Diseñados para prestatarios de ingresos bajos a moderados en áreas rurales y suburbanas elegibles</li>
+            <li>No se requiere enganche</li>
+            <li>Menores costos de seguro hipotecario que FHA</li>
+            <li>Plazos de tasa fija</li>
+        </ul>
+
+        <h3>Requisitos de Elegibilidad</h3>
+        <table>
+            <tr><th width="40%">Requisito</th><th width="30%">Mínimo Típico</th><th width="30%">Detalles</th></tr>
+            <tr><td>Ubicación de la Propiedad</td><td>Área elegible USDA</td><td>Debe estar en un área rural o suburbana designada</td></tr>
+            <tr><td>Límites de Ingresos</td><td>Varía por ubicación</td><td>Típicamente no puede exceder 115% del ingreso medio del área</td></tr>
+            <tr><td>Puntaje de Crédito</td><td>640 para procesamiento simplificado</td><td>Puede ser menor con suscripción manual</td></tr>
+            <tr><td>Enganche</td><td>0%</td><td>Financiamiento del 100% disponible</td></tr>
+            <tr><td>Seguro Hipotecario</td><td>1% tarifa de garantía inicial<br>0.35% tarifa anual</td><td>Menor que seguro hipotecario FHA</td></tr>
+        </table>
+
+        <h3>Ventajas</h3>
+        <ul>
+            <li>No se requiere enganche</li>
+            <li>Menores costos de seguro hipotecario que FHA</li>
+            <li>Tasas de interés competitivas</li>
+            <li>Puede financiar costos de cierre si la propiedad tasa por encima del precio de compra</li>
+        </ul>
+
+        <h3>Desventajas</h3>
+        <ul>
+            <li>Restricciones geográficas (solo elegible en ciertas áreas)</li>
+            <li>Límites de ingresos restringen hogares de mayores ingresos</li>
+            <li>Tarifa de garantía inicial y tarifa anual requeridas</li>
+            <li>Solo residencia principal</li>
+        </ul>
+
+        <h3>Mejor Para</h3>
+        <ul>
+            <li>Prestatarios de ingresos bajos a moderados</li>
+            <li>Aquellos que buscan comprar en áreas rurales o suburbanas elegibles</li>
+            <li>Compradores con ahorros limitados para enganche</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="mortgage-section comparison-section">
+        <h2>Resumen de Comparación de Tipos de Hipoteca</h2>
+
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Convencional</th>
+                <th>FHA</th>
+                <th>VA</th>
+                <th>USDA</th>
+            </tr>
+            <tr><td>Enganche Mínimo</td><td>3-5%</td><td>3.5% (crédito 580+)<br>10% (crédito 500-579)</td><td>0%</td><td>0%</td></tr>
+            <tr><td>Puntaje de Crédito Mínimo</td><td>620-640</td><td>500-580</td><td>580-620<br>(específico del prestamista)</td><td>640 (simplificado)<br>Menor posible</td></tr>
+            <tr><td>Seguro Hipotecario</td><td>PMI si enganche &lt;20%<br>Cancelable al 20% de equidad</td><td>1.75% inicial<br>0.55-1.05% anual<br>A menudo durante toda la vida del préstamo</td><td>Ninguno<br>(Tarifa de financiamiento en su lugar)</td><td>1% inicial<br>0.35% anual</td></tr>
+            <tr><td>DTI Máximo</td><td>43-45%</td><td>43-50%</td><td>41%+</td><td>41-46%</td></tr>
+            <tr><td>Requisitos Especiales</td><td>Ninguno</td><td>Propiedad debe cumplir estándares FHA</td><td>Servicio militar<br>Propiedad debe cumplir estándares VA</td><td>Límites de ingresos<br>Áreas rurales/suburbanas elegibles</td></tr>
+            <tr><td>Mejor Caso de Uso</td><td>Buen crédito, 10-20% enganche, ingresos estables</td><td>Desafíos de crédito, bajo enganche</td><td>Veteranos elegibles con ahorros limitados</td><td>Compradores de bajos ingresos en áreas rurales/suburbanas</td></tr>
+        </table>
+
+        <div class="tip-box">
+            <p><strong>Consejo:</strong> Al comparar opciones de préstamo, mire más allá de solo la tasa de interés. Considere requisitos de enganche, costos de seguro hipotecario y cuánto tiempo planea quedarse en la casa para determinar el costo real de cada opción.</p>
+        </div>
+    </div>
+
+    <div class="mortgage-section">
+        <h2>Calculadora de Costos Hipotecarios</h2>
+
+        <div class="calculator-box">
+            <h3>Detalles del Préstamo</h3>
+            <table>
+                <tr><td width="50%">Precio de Compra de Casa:</td><td width="50%">$<input type="text" class="input-field"></td></tr>
+                <tr><td>Porcentaje de Enganche:</td><td><input type="text" class="input-field">%</td></tr>
+                <tr><td>Monto de Enganche:</td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Monto del Préstamo:</td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Plazo del Préstamo (años):</td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>Tasa de Interés:</td><td><input type="text" class="input-field">%</td></tr>
+            </table>
+
+            <h3>Comparación de Costos</h3>
+            <table>
+                <tr>
+                    <th width="40%">Elemento de Costo</th>
+                    <th width="15%">Convencional</th>
+                    <th width="15%">FHA</th>
+                    <th width="15%">VA</th>
+                    <th width="15%">USDA</th>
+                </tr>
+                <tr><td>Enganche</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Principal e Interés Mensual</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Seguro Hipotecario Inicial/Tarifa de Financiamiento</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Seguro Hipotecario Mensual</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Pago Mensual Total (P&I + MI)</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Total Costos Iniciales</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Costo Total a 5 Años</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+                <tr><td>Costo Total de por Vida</td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td><td>$<input type="text" class="input-field"></td></tr>
+            </table>
+
+            <p class="note">Este es un cálculo simplificado. Para costos hipotecarios reales, consulte con un profesional hipotecario.</p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="mortgage-section scenario-section">
+        <h2>Análisis de Escenarios: ¿Cuál Hipoteca es Mejor?</h2>
+
+        <h3>Escenario 1: Comprador Primerizo con Ahorros Limitados</h3>
+        <div class="calculator-box">
+            <p><strong>Perfil del Comprador:</strong> Sara es una compradora primeriza con un puntaje de crédito de 650. Ha ahorrado $10,000 y quiere comprar una casa de $200,000. Tiene empleo estable pero ahorros limitados más allá de sus fondos para el enganche.</p>
+
+            <table>
+                <tr><th>Opción Hipotecaria</th><th>Ventajas para Este Escenario</th><th>Desventajas para Este Escenario</th><th>Calificación de Recomendación (1-5)</th></tr>
+                <tr><td>Convencional</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>FHA</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>VA (asumiendo elegibilidad)</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>USDA (asumiendo área elegible)</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+            </table>
+
+            <p><strong>Mejor Opción para Este Escenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Justificación:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+
+        <h3>Escenario 2: Veterano con Excelente Crédito</h3>
+        <div class="calculator-box">
+            <p><strong>Perfil del Comprador:</strong> Jaime es un veterano con 8 años de servicio. Tiene un puntaje de crédito de 750 y ha ahorrado $40,000 para un enganche. Busca comprar una casa de $300,000 en un área suburbana.</p>
+
+            <table>
+                <tr><th>Opción Hipotecaria</th><th>Ventajas para Este Escenario</th><th>Desventajas para Este Escenario</th><th>Calificación de Recomendación (1-5)</th></tr>
+                <tr><td>Convencional</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>FHA</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>VA</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>USDA (asumiendo área elegible)</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+            </table>
+
+            <p><strong>Mejor Opción para Este Escenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Justificación:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+
+        <h3>Escenario 3: Comprador con Desafíos de Crédito</h3>
+        <div class="calculator-box">
+            <p><strong>Perfil del Comprador:</strong> Miguel tiene un puntaje de crédito de 580 debido a desafíos financieros pasados. Ha ahorrado $15,000 y quiere comprar una casa de $180,000 en un área suburbana. Tiene ingresos estables pero historial de crédito limitado.</p>
+
+            <table>
+                <tr><th>Opción Hipotecaria</th><th>Ventajas para Este Escenario</th><th>Desventajas para Este Escenario</th><th>Calificación de Recomendación (1-5)</th></tr>
+                <tr><td>Convencional</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>FHA</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>VA (asumiendo elegibilidad)</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+                <tr><td>USDA (asumiendo área elegible)</td><td><textarea class="input-field" rows="3"></textarea></td><td><textarea class="input-field" rows="3"></textarea></td><td><input type="text" class="input-field"></td></tr>
+            </table>
+
+            <p><strong>Mejor Opción para Este Escenario:</strong> <input type="text" class="input-field"></p>
+            <p><strong>Justificación:</strong> <textarea class="input-field" rows="3"></textarea></p>
+        </div>
+    </div>
+
+    <div class="mortgage-section">
+        <h2>Análisis Personal de Hipoteca</h2>
+
+        <h3>Su Situación Actual</h3>
+        <table>
+            <tr><td width="50%">Puntaje de Crédito Actual:</td><td width="50%"><input type="text" class="input-field"></td></tr>
+            <tr><td>Enganche Disponible:</td><td>$<input type="text" class="input-field"></td></tr>
+            <tr><td>Rango de Precio Objetivo de Casa:</td><td>$<input type="text" class="input-field"></td></tr>
+            <tr><td>Ingreso Bruto Mensual:</td><td>$<input type="text" class="input-field"></td></tr>
+            <tr><td>Pagos de Deuda Mensual Actuales:</td><td>$<input type="text" class="input-field"></td></tr>
+            <tr><td>Elegible para Programas Especiales:</td><td>
+                <input type="checkbox"> Préstamo VA<br>
+                <input type="checkbox"> Área Elegible USDA<br>
+                <input type="checkbox"> Programas para Compradores Primerizos<br>
+                <input type="checkbox"> Otro: <input type="text" class="input-field" style="width: 70%;">
+            </td></tr>
+        </table>
+
+        <h3>Mi Mejor Opción Hipotecaria</h3>
+        <p>Basado en mi situación actual, creo que la mejor opción hipotecaria para mí sería:</p>
+        <p><input type="text" class="input-field" style="font-weight: bold;"></p>
+
+        <p><strong>Justificación:</strong></p>
+        <textarea class="input-field" rows="5" style="width: 100%;"></textarea>
+
+        <h3>Próximos Pasos para Prepararme</h3>
+        <p>Para prepararme para esta opción hipotecaria, necesito tomar los siguientes pasos:</p>
+        <ol>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+            <li><textarea class="input-field" rows="2"></textarea></li>
+        </ol>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </footer>
+</body>
+</html>

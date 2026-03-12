@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Costos de Vivienda - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #6366f1;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #6366f1;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background: #f9fafb;
+            width: 25%;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .cost-box {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .cost-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+
+        .cost-box ul {
+            margin-left: 16px;
+            margin-bottom: 8px;
+        }
+
+        .cost-box li {
+            margin-bottom: 3px;
+        }
+
+        .cost-box.rent {
+            border-left-color: #10b981;
+        }
+
+        .cost-box.rent h3 {
+            color: #10b981;
+        }
+
+        .cost-box.buy {
+            border-left-color: #3b82f6;
+        }
+
+        .cost-box.buy h3 {
+            color: #3b82f6;
+        }
+
+        .terms-section {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .terms-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #b45309;
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .term-item {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .term-item h4 {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #92400e;
+        }
+
+        .term-item p {
+            font-size: 10px;
+            color: #4b5563;
+        }
+
+        .formula-section {
+            background: #ecfdf5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 16px;
+        }
+
+        .formula-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+
+        .formula-box {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-family: monospace;
+            font-size: 11px;
+        }
+
+        .formula-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .formula-box .label {
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .checklist-section {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .checklist-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .checklist-column h4 {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .checklist-column ul {
+            list-style: none;
+            font-size: 10px;
+        }
+
+        .checklist-column li {
+            padding: 3px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .checklist-column li::before {
+            content: "[ ]";
+            font-family: monospace;
+            color: #6b7280;
+        }
+
+        .rule-section {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .rule-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 8px;
+        }
+
+        .rule-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .rule-item {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .rule-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 4px;
+        }
+
+        .rule-item p {
+            font-size: 10px;
+            color: #4b5563;
+        }
+
+        .key-takeaway {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .key-takeaway h3 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 6px;
+        }
+
+        .key-takeaway p {
+            font-size: 11px;
+        }
+
+        .print-btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .print-btn-container {
+                display: none;
+            }
+
+            .cost-box,
+            .terms-section,
+            .formula-section,
+            .checklist-section {
+                page-break-inside: avoid;
+            }
+
+            .comparison-table {
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column,
+            .terms-grid,
+            .checklist-grid,
+            .rule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Referencia de Costos de Vivienda</h1>
+        <p>Referencia rapida para comparar costos y decisiones de alquilar vs. comprar</p>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Categoria de Costo</th>
+                <th>Alquilar</th>
+                <th>Comprar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Costos Iniciales</td>
+                <td>Deposito de seguridad (1-2 meses de renta), primer/ultimo mes de renta, tarifa de aplicacion ($25-$75)</td>
+                <td>Enganche (3-20%), costos de cierre (2-5%), inspeccion ($300-$500), avaluo ($300-$600)</td>
+            </tr>
+            <tr>
+                <td>Pago Mensual</td>
+                <td>Monto de renta fijo (puede aumentar anualmente)</td>
+                <td>Pago de hipoteca (principal + interes), impuestos prediales, seguro, PMI (si aplica)</td>
+            </tr>
+            <tr>
+                <td>Mantenimiento</td>
+                <td>Responsabilidad del arrendador (usualmente)</td>
+                <td>Responsabilidad del propietario (presupuestar 1-3% del valor de la casa anualmente)</td>
+            </tr>
+            <tr>
+                <td>Servicios</td>
+                <td>Pueden estar incluidos; varia segun el contrato</td>
+                <td>Todos los servicios son responsabilidad del propietario</td>
+            </tr>
+            <tr>
+                <td>Seguro</td>
+                <td>Seguro de inquilino: $15-$30/mes</td>
+                <td>Seguro de propietario: $100-$300/mes (requerido por el prestamista)</td>
+            </tr>
+            <tr>
+                <td>Beneficios Fiscales</td>
+                <td>Ninguno</td>
+                <td>Deduccion de intereses hipotecarios, deduccion de impuestos prediales (si detalla)</td>
+            </tr>
+            <tr>
+                <td>Construccion de Patrimonio</td>
+                <td>Ninguno - los pagos construyen el patrimonio del arrendador</td>
+                <td>Construye patrimonio con el tiempo al pagar la hipoteca</td>
+            </tr>
+            <tr>
+                <td>Flexibilidad</td>
+                <td>Alta - puede mudarse cuando termine el contrato</td>
+                <td>Baja - vender toma tiempo y cuesta 6-10% del precio de venta</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="two-column">
+        <div class="cost-box rent">
+            <h3>COSTO TOTAL DE ALQUILAR</h3>
+            <ul>
+                <li>Pagos mensuales de renta</li>
+                <li>Seguro de inquilino</li>
+                <li>Servicios (si no estan incluidos)</li>
+                <li>Tarifas de estacionamiento (si aplica)</li>
+                <li>Depositos/tarifas por mascotas</li>
+                <li>Aumentos anuales de renta (promedio 3-5%)</li>
+            </ul>
+            <div style="background: #d1fae5; padding: 6px; border-radius: 4px; font-size: 10px;">
+                <strong>Ventajas:</strong> Menores costos iniciales, flexibilidad, gastos predecibles, sin carga de mantenimiento
+            </div>
+        </div>
+
+        <div class="cost-box buy">
+            <h3>COSTO TOTAL DE COMPRAR</h3>
+            <ul>
+                <li>Pago de hipoteca (PITI)</li>
+                <li>Cuotas de HOA (si aplica)</li>
+                <li>Mantenimiento y reparaciones</li>
+                <li>Servicios (todos)</li>
+                <li>Cuidado del jardin/paisajismo</li>
+                <li>Mejoras al hogar</li>
+            </ul>
+            <div style="background: #dbeafe; padding: 6px; border-radius: 4px; font-size: 10px;">
+                <strong>Ventajas:</strong> Construye patrimonio, beneficios fiscales, pagos estables (tasa fija), libertad de personalizacion
+            </div>
+        </div>
+    </div>
+
+    <div class="terms-section">
+        <h3>Terminos Clave Definidos</h3>
+        <div class="terms-grid">
+            <div class="term-item">
+                <h4>Deposito de Seguridad</h4>
+                <p>Monto reembolsable retenido por el arrendador para danos; tipicamente 1-2 meses de renta</p>
+            </div>
+            <div class="term-item">
+                <h4>Costos de Cierre</h4>
+                <p>Tarifas para finalizar la compra de vivienda: originacion del prestamo, seguro de titulo, honorarios de abogado (2-5% del prestamo)</p>
+            </div>
+            <div class="term-item">
+                <h4>PMI (Seguro Hipotecario Privado)</h4>
+                <p>Requerido cuando el enganche es menor al 20%; agrega 0.5-1% del prestamo anualmente</p>
+            </div>
+            <div class="term-item">
+                <h4>Cuenta de Deposito en Garantia</h4>
+                <p>Cuenta mantenida por el prestamista para pagar impuestos prediales y seguro; incluida en el pago mensual</p>
+            </div>
+            <div class="term-item">
+                <h4>DTI (Relacion Deuda-Ingreso)</h4>
+                <p>Pagos mensuales de deuda divididos por ingreso bruto; los prestamistas prefieren 36% o menos</p>
+            </div>
+            <div class="term-item">
+                <h4>PITI</h4>
+                <p>Principal, Interes, Impuestos, Seguro - los cuatro componentes de un pago de hipoteca</p>
+            </div>
+            <div class="term-item">
+                <h4>Patrimonio</h4>
+                <p>Valor de la casa menos saldo de hipoteca; su participacion de propiedad en la propiedad</p>
+            </div>
+            <div class="term-item">
+                <h4>Apreciacion</h4>
+                <p>Aumento en el valor de la casa con el tiempo; historicamente promedia 3-4% anualmente</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="formula-section">
+        <h3>Calculos Clave</h3>
+        <div class="formula-box">
+            <div class="label">Presupuesto Mensual de Vivienda (Regla del 28%)</div>
+            Ingreso Mensual Bruto x 0.28 = Pago Maximo de Vivienda<br>
+            Ejemplo: $5,000 x 0.28 = $1,400 max para vivienda
+        </div>
+        <div class="formula-box">
+            <div class="label">Relacion Deuda-Ingreso</div>
+            (Total de Pagos Mensuales de Deuda / Ingreso Mensual Bruto) x 100 = DTI%<br>
+            Ejemplo: ($1,800 / $5,000) x 100 = 36% DTI
+        </div>
+        <div class="formula-box">
+            <div class="label">Patrimonio de la Casa</div>
+            Valor Actual de la Casa - Saldo Restante de Hipoteca = Patrimonio<br>
+            Ejemplo: $350,000 - $280,000 = $70,000 patrimonio
+        </div>
+        <div class="formula-box">
+            <div class="label">Relacion Precio-Alquiler</div>
+            Precio de la Casa / Alquiler Anual = Relacion<br>
+            Menos de 15 = comprar favorecido | Mas de 20 = alquilar favorecido | 15-20 = depende de la situacion
+        </div>
+    </div>
+
+    <div class="rule-section">
+        <h3>Reglas de Asequibilidad de Vivienda</h3>
+        <div class="rule-grid">
+            <div class="rule-item">
+                <h4>28%</h4>
+                <p>Maximo del ingreso bruto para costos de vivienda (hipoteca/renta, impuestos, seguro)</p>
+            </div>
+            <div class="rule-item">
+                <h4>36%</h4>
+                <p>Maximo del ingreso bruto para deuda total (vivienda + auto + prestamos estudiantiles + tarjetas de credito)</p>
+            </div>
+            <div class="rule-item">
+                <h4>20%</h4>
+                <p>Enganche ideal para evitar PMI y obtener mejores tasas de interes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="checklist-section">
+        <h3>Lista de Verificacion de Factores de Decision</h3>
+        <div class="checklist-grid">
+            <div class="checklist-column">
+                <h4>Considere Alquilar Si:</h4>
+                <ul>
+                    <li>Planea mudarse dentro de 3-5 anos</li>
+                    <li>Situacion laboral es incierta</li>
+                    <li>Ahorros limitados para enganche</li>
+                    <li>Puntaje de credito necesita mejora</li>
+                    <li>No quiere responsabilidades de mantenimiento</li>
+                    <li>El mercado local favorece a inquilinos (alta relacion precio-alquiler)</li>
+                    <li>Prefiere flexibilidad y movilidad</li>
+                </ul>
+            </div>
+            <div class="checklist-column">
+                <h4>Considere Comprar Si:</h4>
+                <ul>
+                    <li>Planea quedarse 5+ anos</li>
+                    <li>Ingresos y empleo estables</li>
+                    <li>Tiene 10-20% de enganche ahorrado</li>
+                    <li>Buen puntaje de credito (680+)</li>
+                    <li>Listo para responsabilidades de propietario</li>
+                    <li>El mercado local favorece a compradores (baja relacion precio-alquiler)</li>
+                    <li>Quiere construir riqueza a largo plazo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="key-takeaway">
+        <h3>Conclusion Clave</h3>
+        <p>La decision de alquilar vs. comprar depende de sus circunstancias personales, condiciones del mercado local y metas financieras. Alquilar ofrece flexibilidad y menores costos iniciales pero no construye patrimonio. Comprar construye riqueza con el tiempo a traves del patrimonio y la apreciacion pero requiere una inversion inicial significativa y responsabilidades continuas. Calcule sus costos totales para ambas opciones sobre el horizonte de tiempo esperado para tomar la mejor decision para su situacion. Recuerde: la eleccion "correcta" varia segun el individuo - no hay una respuesta unica para todos.</p>
+    </div>
+
+    <div class="print-btn-container">
+        <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    </div>
+</body>
+</html>

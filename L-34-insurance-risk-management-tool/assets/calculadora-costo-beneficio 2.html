@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Análisis Costo-Beneficio de Seguros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .scenario {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        .calculation-row {
+            background-color: #e8f4f8;
+        }
+        .total-row {
+            background-color: #d1ecf1;
+            font-weight: bold;
+        }
+        .notes {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        @media print {
+            body { padding: 10px; }
+            .scenario { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Análisis Costo-Beneficio de Seguros</h1>
+
+    <div class="notes">
+        <h3>Instrucciones:</h3>
+        <p>Complete las tablas de cálculo para cada escenario. Use las fórmulas proporcionadas para determinar el costo total de cada opción bajo diferentes circunstancias. Luego, analice qué opción proporciona el mejor valor financiero.</p>
+    </div>
+
+    <h2>Escenario 1: Decisión sobre Deducible del Seguro de Propietario</h2>
+
+    <div class="scenario">
+        <p><strong>Situación:</strong> Está comprando seguro de propietario para una casa valorada en $250,000. Debe decidir el monto del deducible.</p>
+
+        <h3>Opciones de Póliza:</h3>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Prima Anual</th>
+                <th>Deducible</th>
+            </tr>
+            <tr>
+                <td>Opción A</td>
+                <td>$1,200</td>
+                <td>$500</td>
+            </tr>
+            <tr>
+                <td>Opción B</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+            </tr>
+            <tr>
+                <td>Opción C</td>
+                <td>$800</td>
+                <td>$2,500</td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            <strong>Fórmula:</strong> Costo Total = (Prima Anual × Años) + (Deducible × Número de Reclamos)
+        </div>
+
+        <h3>Análisis de Costos a 5 Años:</h3>
+        <table>
+            <tr>
+                <th rowspan="2">Opción</th>
+                <th colspan="3">Costo Total en 5 Años</th>
+            </tr>
+            <tr>
+                <th>Sin Reclamos</th>
+                <th>1 Reclamo de $10,000</th>
+                <th>2 Reclamos de $10,000</th>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción A ($500 deducible)</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción B ($1,000 deducible)</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción C ($2,500 deducible)</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>$_______</td>
+            </tr>
+            <tr class="total-row">
+                <td>Mejor Opción</td>
+                <td>_______</td>
+                <td>_______</td>
+                <td>_______</td>
+            </tr>
+        </table>
+
+        <h3>Análisis:</h3>
+        <p><strong>1. ¿Qué opción proporciona el mejor valor en cada escenario?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>2. ¿Qué factores no financieros podrían influir en esta decisión?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>3. ¿Cuál es su recomendación y por qué?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+    </div>
+
+    <h2>Escenario 2: Decisión de Cobertura de Seguro de Vida a Término</h2>
+
+    <div class="scenario">
+        <p><strong>Situación:</strong> Usted es un padre/madre de 35 años con dos hijos pequeños. Desea comprar seguro de vida a término.</p>
+
+        <h3>Opciones de Póliza:</h3>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Monto de Cobertura</th>
+                <th>Duración del Término</th>
+                <th>Prima Anual</th>
+            </tr>
+            <tr>
+                <td>Opción A</td>
+                <td>$500,000</td>
+                <td>20 años</td>
+                <td>$400</td>
+            </tr>
+            <tr>
+                <td>Opción B</td>
+                <td>$1,000,000</td>
+                <td>20 años</td>
+                <td>$700</td>
+            </tr>
+            <tr>
+                <td>Opción C</td>
+                <td>$500,000</td>
+                <td>30 años</td>
+                <td>$600</td>
+            </tr>
+            <tr>
+                <td>Opción D</td>
+                <td>$1,000,000</td>
+                <td>30 años</td>
+                <td>$1,050</td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            <strong>Fórmula:</strong> Costo Total de Primas = Prima Anual × Duración del Término
+        </div>
+
+        <h3>Análisis de Costos Totales:</h3>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Costo Total de Primas</th>
+                <th>Cobertura por Año de Prima</th>
+                <th>Protección al Finalizar Término</th>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción A</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>Edad: ___</td>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción B</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>Edad: ___</td>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción C</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>Edad: ___</td>
+            </tr>
+            <tr class="calculation-row">
+                <td>Opción D</td>
+                <td>$_______</td>
+                <td>$_______</td>
+                <td>Edad: ___</td>
+            </tr>
+        </table>
+
+        <h3>Evaluación de Protección por Etapa de Vida:</h3>
+        <table>
+            <tr>
+                <th>Etapa de Vida</th>
+                <th>Necesidades Financieras Típicas</th>
+                <th>Opciones que Cubren Esta Etapa</th>
+            </tr>
+            <tr>
+                <td>Hijos en edad escolar (0-10 años)</td>
+                <td>Alta: Crianza, educación, hipoteca</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Hijos adolescentes (10-18 años)</td>
+                <td>Alta: Universidad, gastos mayores</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Hijos adultos (18+ años)</td>
+                <td>Media: Posible ayuda, hipoteca</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Pre-jubilación (55+ años)</td>
+                <td>Baja-Media: Hipoteca restante</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+        <h3>Análisis:</h3>
+        <p><strong>1. Compare el costo total de primas con la protección proporcionada:</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>2. ¿Cómo se alinea cada opción con las necesidades financieras a través de las etapas de vida?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>3. Considerando tanto el costo como la protección, ¿cuál es su recomendación?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+
+        <p><strong>4. ¿Qué factores personales adicionales deberían influir en esta decisión?</strong></p>
+        <p>_________________________________________________________________</p>
+        <p>_________________________________________________________________</p>
+    </div>
+
+    <div class="notes">
+        <h3>Lecciones Clave del Análisis Costo-Beneficio:</h3>
+        <ul>
+            <li>La prima más baja no siempre proporciona el mejor valor</li>
+            <li>Los deducibles más altos reducen las primas pero aumentan el riesgo de costos de bolsillo</li>
+            <li>Las necesidades de cobertura cambian con las etapas de vida</li>
+            <li>El análisis costo-beneficio debe considerar tanto costos garantizados como riesgos potenciales</li>
+            <li>Las circunstancias personales y la tolerancia al riesgo son factores importantes</li>
+        </ul>
+    </div>
+</body>
+</html>

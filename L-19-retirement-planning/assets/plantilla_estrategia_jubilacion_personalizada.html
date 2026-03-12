@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Estrategia de Jubilacion Personalizada</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #3498db;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f2f6f9;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        .input-area {
+            border: 1px dashed #aaa;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+
+        .short-input {
+            min-height: 30px;
+        }
+
+        .input-line {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: #fffde7;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-line {
+            height: 4px;
+            background-color: #3498db;
+            position: relative;
+        }
+
+        .timeline-milestone {
+            position: relative;
+            margin: 20px 0;
+            padding-top: 15px;
+        }
+
+        .milestone-point {
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            top: -12px;
+        }
+
+        .risk-scale {
+            display: flex;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .risk-level {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .risk-low {
+            background-color: #d4efdf;
+        }
+
+        .risk-moderate {
+            background-color: #fff9c4;
+        }
+
+        .risk-high {
+            background-color: #f5b7b1;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Instrucciones de Impresion:</strong> Para guardar o imprimir este documento, use la funcion de impresion de su navegador (Ctrl+P o Cmd+P) y seleccione "Guardar como PDF" como destino.</p>
+    </div>
+
+    <h1>Estrategia de Jubilacion Personalizada</h1>
+
+    <div class="header-info">
+        <div>
+            <p><strong>Nombre:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            <p><strong>Edad Actual:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        </div>
+        <div>
+            <p><strong>Fecha de Preparacion:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            <p><strong>Fecha de Revision:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <p>Esta plantilla de estrategia de jubilacion le ayudara a crear un plan personalizado basado en sus metas, horizonte temporal y tolerancia al riesgo. Complete cada seccion para desarrollar un enfoque integral para la planificacion de la jubilacion.</p>
+    </div>
+
+    <div class="section no-break">
+        <h2>1. Metas y Vision de Jubilacion</h2>
+
+        <h3>Edad Objetivo de Jubilacion</h3>
+        <div class="input-area short-input"></div>
+
+        <h3>Anos Hasta la Jubilacion</h3>
+        <div class="input-area short-input"></div>
+
+        <h3>Estilo de Vida de Jubilacion Deseado</h3>
+        <p>Describa como quiere que sea su jubilacion. Considere vivienda, ubicacion, actividades, viajes, etc.</p>
+        <div class="input-area"></div>
+
+        <h3>Gastos Mensuales Estimados en la Jubilacion</h3>
+        <table>
+            <tr>
+                <th>Categoria de Gasto</th>
+                <th>Monto Mensual Estimado</th>
+                <th>Notas/Detalles</th>
+            </tr>
+            <tr>
+                <td>Vivienda</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Alimentacion</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Salud</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Transporte</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Entretenimiento/Viajes</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Otros</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td class="input-area short-input"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section no-break">
+        <h2>2. Estrategia de Ahorro</h2>
+
+        <h3>Meta Total de Ahorros para Jubilacion</h3>
+        <p>Basado en los resultados de su calculadora de jubilacion o la regla del 25x (gastos anuales x 25)</p>
+        <div class="input-area short-input"></div>
+
+        <h3>Ahorros Actuales para Jubilacion</h3>
+        <div class="input-area short-input"></div>
+
+        <h3>Ahorro Mensual Requerido</h3>
+        <p>Basado en los resultados de su calculadora de jubilacion</p>
+        <div class="input-area short-input"></div>
+
+        <h3>Tasa de Ahorro</h3>
+        <p>Porcentaje del ingreso dedicado a ahorros para jubilacion</p>
+        <div class="input-area short-input"></div>
+
+        <h3>Estrategias para Aumentar la Tasa de Ahorro con el Tiempo</h3>
+        <div class="input-area"></div>
+    </div>
+
+    <div class="section no-break">
+        <h2>3. Estrategia de Seleccion de Cuentas</h2>
+
+        <h3>Cuentas de Jubilacion Seleccionadas</h3>
+        <p>Priorice sus cuentas de jubilacion elegidas y porcentajes de asignacion</p>
+
+        <table>
+            <tr>
+                <th>Prioridad</th>
+                <th>Tipo de Cuenta</th>
+                <th>Asignacion %</th>
+                <th>Meta de Contribucion Anual</th>
+                <th>Justificacion</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section no-break">
+        <h2>4. Estrategia de Inversion</h2>
+
+        <h3>Evaluacion de Tolerancia al Riesgo</h3>
+        <p>Indique su nivel de tolerancia al riesgo:</p>
+
+        <div class="risk-scale">
+            <div class="risk-level risk-low">Bajo Riesgo<br>(Conservador)</div>
+            <div class="risk-level risk-moderate">Riesgo Moderado<br>(Equilibrado)</div>
+            <div class="risk-level risk-high">Alto Riesgo<br>(Agresivo)</div>
+        </div>
+
+        <h3>Estrategia de Asignacion de Activos</h3>
+        <p>Indique sus porcentajes objetivo de asignacion de activos:</p>
+
+        <table>
+            <tr>
+                <th>Clase de Activo</th>
+                <th>Asignacion %</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Acciones/Renta Variable</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Bonos/Renta Fija</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Efectivo/Mercado Monetario</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Otros (Bienes Raices, Alternativos, etc.)</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td>100%</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h3>Ajustes de Asignacion de Activos Basados en la Edad</h3>
+        <p>Como cambiara su asignacion de activos a medida que se acerque a la jubilacion?</p>
+        <div class="input-area"></div>
+    </div>
+
+    <div class="section no-break">
+        <h2>5. Cronograma de Jubilacion e Hitos</h2>
+
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-milestone">
+                <div class="milestone-point" style="left: 0%;"></div>
+                <p><strong>Edad Actual:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Hito:</strong> Comenzar planificacion de jubilacion</p>
+                <p><strong>Pasos de Accion:</strong></p>
+                <div class="input-area short-input"></div>
+            </div>
+
+            <div class="timeline-milestone">
+                <div class="milestone-point" style="left: 25%;"></div>
+                <p><strong>Edad:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Hito:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Pasos de Accion:</strong></p>
+                <div class="input-area short-input"></div>
+            </div>
+
+            <div class="timeline-milestone">
+                <div class="milestone-point" style="left: 50%;"></div>
+                <p><strong>Edad:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Hito:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Pasos de Accion:</strong></p>
+                <div class="input-area short-input"></div>
+            </div>
+
+            <div class="timeline-milestone">
+                <div class="milestone-point" style="left: 75%;"></div>
+                <p><strong>Edad:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Hito:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Pasos de Accion:</strong></p>
+                <div class="input-area short-input"></div>
+            </div>
+
+            <div class="timeline-milestone">
+                <div class="milestone-point" style="left: 100%;"></div>
+                <p><strong>Edad Objetivo de Jubilacion:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p><strong>Hito:</strong> Comenzar jubilacion</p>
+                <p><strong>Pasos de Accion:</strong></p>
+                <div class="input-area short-input"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section no-break">
+        <h2>6. Disparadores de Ajuste de Estrategia</h2>
+        <p>Identifique eventos o circunstancias que activarian una revision y posible ajuste de su estrategia de jubilacion:</p>
+
+        <table>
+            <tr>
+                <th>Evento Disparador</th>
+                <th>Ajustes Potenciales de Estrategia</th>
+            </tr>
+            <tr>
+                <td>Cambio importante de ingresos</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td>Matrimonio/divorcio</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td>Hijos</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td>Cambio de empleo/transicion de carrera</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td>Cambios importantes del mercado</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td>Cambios de salud</td>
+                <td class="input-area"></td>
+            </tr>
+            <tr>
+                <td class="input-area"></td>
+                <td class="input-area"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section no-break">
+        <h2>7. Fuentes Adicionales de Ingresos en la Jubilacion</h2>
+        <p>Identifique otras fuentes potenciales de ingresos de jubilacion ademas de sus ahorros:</p>
+
+        <table>
+            <tr>
+                <th>Fuente de Ingresos</th>
+                <th>Monto Mensual Estimado</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Seguro Social</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Pension(es)</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Trabajo a tiempo parcial</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Ingresos por alquiler</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Otros</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section no-break">
+        <h2>8. Brechas de Conocimiento y Plan de Aprendizaje</h2>
+        <p>Identifique areas donde necesita aprender mas para mejorar su planificacion de jubilacion:</p>
+        <div class="input-area"></div>
+
+        <h3>Recursos para Llenar las Brechas de Conocimiento</h3>
+        <div class="input-area"></div>
+    </div>
+
+    <div class="section no-break">
+        <h2>9. Resumen y Proximos Pasos</h2>
+
+        <h3>Resumen de Estrategia</h3>
+        <p>Resuma brevemente su estrategia general de jubilacion:</p>
+        <div class="input-area"></div>
+
+        <h3>Proximos Pasos Inmediatos (Proximos 3-6 Meses)</h3>
+        <table>
+            <tr>
+                <th>Accion</th>
+                <th>Fecha Objetivo</th>
+            </tr>
+            <tr>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footnote">
+        <p>Nota: Esta plantilla es solo para fines educativos y no constituye asesoramiento financiero. Para orientacion financiera especifica, consulte con un profesional financiero calificado.</p>
+        <p>PFL Academy - Capitulo 6.1: Planificacion para la Jubilacion</p>
+    </div>
+</body>
+</html>

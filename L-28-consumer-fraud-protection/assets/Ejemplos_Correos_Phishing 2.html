@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Correos Phishing - Capitulo 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .examples-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .phishing-example {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .email-field {
+            margin-bottom: 5px;
+        }
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 100px;
+        }
+        .warning-sign {
+            background-color: #fff8e6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 15px 0;
+        }
+        .explanation {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        .highlight {
+            background-color: #ffff9f;
+            padding: 2px 4px;
+        }
+        .email-body {
+            padding: 10px 0;
+        }
+        .fake-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .fake-link {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .note {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-left: 4px solid #27ae60;
+            margin: 20px 0;
+        }
+        .content-container {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .examples-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="examples-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Ejemplos de Correos Phishing</h1>
+        <p>Esta guia proporciona ejemplos de correos phishing comunes con analisis detallado de sus senales de advertencia. Use estos ejemplos para ayudar a identificar mensajes sospechosos en su propia bandeja de entrada.</p>
+
+        <div class="note">
+            <p><strong>Estudie estos ejemplos para familiarizarse con las tacticas de phishing.</strong> Los intentos reales de phishing pueden ser mas sofisticados que estos ejemplos, pero a menudo contendran senales de advertencia similares. Siempre verifique las comunicaciones inesperadas a traves de canales oficiales.</p>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo 1: Alerta de Cuenta Bancaria</h2>
+
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">De:</span>
+                            <span class="highlight">Bank-of-America-alerts@secure-banking-center.com</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Para:</span> Cliente Estimado
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Asunto:</span>
+                            <span class="highlight">URGENTE: Su Cuenta Ha Sido Temporalmente Limitada</span>
+                        </div>
+                    </div>
+
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/2b5797/ffffff?text=Logo+Bank+of+America" alt="Logo del Banco" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+
+                        <p>Estimado <span class="highlight">Cliente</span>,</p>
+
+                        <p><span class="highlight">Hemos detectado actividad inusual en su cuenta</span>. Por su seguridad, hemos <span class="highlight">limitado temporalmente el acceso</span> a su banca en linea.</p>
+
+                        <p><span class="highlight">Para restaurar el acceso completo a su cuenta, debe verificar su informacion inmediatamente</span> haciendo clic en el enlace a continuacion:</p>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">VERIFICAR CUENTA AHORA</a>
+                        </div>
+
+                        <p>Si no verifica su informacion dentro de <span class="highlight">24 horas</span>, el acceso a su cuenta permanecera limitado y puede resultar en suspension permanente.</p>
+
+                        <p>Gracias por su atencion inmediata a este asunto.</p>
+
+                        <p>Atentamente,<br>
+                        Equipo de Seguridad de Bank of America</p>
+
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            Este correo <span class="highlight">contiene informacion sensible</span>. Si no solicito una verificacion, por favor <span class="highlight">contactenos inmediatamente</span> al 1-800-555-0123 o responda a este correo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Analisis de Senales de Advertencia</h3>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #1: Direccion del Remitente Sospechosa</h4>
+                <p>El correo parece ser de "Bank-of-America-alerts@secure-banking-center.com" en lugar de un dominio oficial de bankofamerica.com. Los bancos legitimos siempre usan sus nombres de dominio oficiales en las direcciones de correo.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #2: Saludo Generico</h4>
+                <p>El correo usa "Estimado Cliente" en lugar de su nombre real. Las comunicaciones bancarias legitimas tipicamente se dirigen a usted por su nombre.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #3: Urgencia y Amenazas</h4>
+                <p>El correo crea una falsa sensacion de urgencia con "URGENTE" en el asunto y amenaza con suspension de cuenta si no actua dentro de 24 horas. Los estafadores usan la urgencia para presionarlo a actuar sin pensar.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #4: Solicitud de Informacion Personal</h4>
+                <p>El correo le pide "verificar su informacion" haciendo clic en un enlace, que probablemente llevaria a un sitio web falso disenado para robar sus credenciales de inicio de sesion.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #5: Enlace Sospechoso</h4>
+                <p>El boton "VERIFICAR CUENTA AHORA" enlazaria a un sitio web fraudulento, no al sitio oficial del banco. Siempre pase el cursor sobre los enlaces para ver el destino real antes de hacer clic.</p>
+            </div>
+
+            <div class="explanation">
+                <h4>Como Responder</h4>
+                <p>Si recibe un correo como este:</p>
+                <ol>
+                    <li>No haga clic en ningun enlace del correo</li>
+                    <li>No llame a ningun numero de telefono proporcionado en el correo</li>
+                    <li>Si le preocupa su cuenta, abra una nueva ventana del navegador y escriba directamente el sitio web oficial de su banco, o use su aplicacion movil oficial</li>
+                    <li>Reporte el intento de phishing a su banco a traves de sus canales oficiales</li>
+                    <li>Elimine el correo</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo 2: Restablecimiento de Contrasena de Cuenta</h2>
+
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">De:</span>
+                            <span class="highlight">secure-team@googledocs.serviceaccount.com</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Para:</span> [Su Correo]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Asunto:</span>
+                            <span class="highlight">Alerta de Seguridad: Su contrasena de cuenta Google necesita restablecerse</span>
+                        </div>
+                    </div>
+
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/4285F4/ffffff?text=Logo+Google" alt="Logo de Google" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+
+                        <p>Estimado Usuario,</p>
+
+                        <p><span class="highlight">Detectamos un intento de inicio de sesion desde un nuevo dispositivo</span> ubicado en <span class="highlight">Lagos, Nigeria</span>. Si no fue usted, su contrasena puede estar comprometida.</p>
+
+                        <p><span class="highlight">Fecha y Hora</span>: 17 de mayo de 2025, 2:34 AM EST</p>
+                        <p><span class="highlight">Dispositivo</span>: Android 12.0</p>
+                        <p><span class="highlight">Ubicacion</span>: Lagos, Nigeria</p>
+                        <p><span class="highlight">Direccion IP</span>: 197.255.XXX.XXX</p>
+
+                        <p>Para la seguridad de su cuenta, <span class="highlight">por favor restablezca su contrasena inmediatamente</span> haciendo clic en el enlace a continuacion:</p>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">Restablecer Contrasena</a>
+                        </div>
+
+                        <p><span class="highlight">El enlace de restablecimiento expirara en 1 hora</span> por razones de seguridad.</p>
+
+                        <p>Si cree que esto fue un error, simplemente <span class="highlight">haga clic <a href="#" class="fake-link">aqui</a></span> para confirmar que fue usted y actualizaremos nuestros registros.</p>
+
+                        <p>Gracias,<br>
+                        Equipo de Seguridad de Google</p>
+
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            Este correo fue enviado como parte de nuestro compromiso de mantener segura su cuenta de Google. <span class="highlight">Por favor no responda</span> ya que esta bandeja de entrada no es monitoreada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Analisis de Senales de Advertencia</h3>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #1: Direccion del Remitente Sospechosa</h4>
+                <p>El correo dice ser de Google pero usa "googledocs.serviceaccount.com" en lugar de un dominio oficial google.com. Esta es una clara senal de alerta.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #2: Saludo Generico</h4>
+                <p>El correo usa "Estimado Usuario" en lugar de su nombre, que Google tipicamente incluiria en comunicaciones de seguridad oficiales.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #3: Crea Urgencia</h4>
+                <p>El correo menciona que el enlace de restablecimiento expirara en 1 hora, creando presion para actuar rapidamente sin verificacion apropiada.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #4: Enlaces Sospechosos</h4>
+                <p>Tanto el boton "Restablecer Contrasena" como el enlace "haga clic aqui" probablemente dirigirian a un sitio web fraudulento disenado para capturar sus credenciales de Google.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #5: Desalienta Verificacion Alternativa</h4>
+                <p>La instruccion "Por favor no responda" intenta evitar que busque verificacion a traves de otros canales.</p>
+            </div>
+
+            <div class="explanation">
+                <h4>Como Responder</h4>
+                <p>Si recibe un correo como este:</p>
+                <ol>
+                    <li>No haga clic en ningun enlace del correo</li>
+                    <li>Acceda a su cuenta de Google directamente escribiendo accounts.google.com en su navegador</li>
+                    <li>Revise su configuracion de seguridad de cuenta para ver si realmente hubo intentos de inicio de sesion sospechosos</li>
+                    <li>Si le preocupa, cambie su contrasena directamente a traves del sitio web oficial de Google</li>
+                    <li>Considere habilitar la autenticacion de dos factores si no esta activa</li>
+                    <li>Reporte el intento de phishing a Google</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo 3: Notificacion de Entrega de Paquete</h2>
+
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">De:</span>
+                            <span class="highlight">delivery-notification@amaz0n-shipping.net</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Para:</span> [Su Correo]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Asunto:</span>
+                            <span class="highlight">ACCION REQUERIDA: Su entrega de paquete #39827465 esta pendiente</span>
+                        </div>
+                    </div>
+
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/232F3E/ffffff?text=Amazon+Delivery" alt="Amazon Delivery" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+
+                        <p>Hola,</p>
+
+                        <p>Nosotros <span class="highlight">intentamos entregar su paquete</span> hoy, pero <span class="highlight">necesitamos informacion adicional de entrega</span> para completar la entrega.</p>
+
+                        <p><span class="highlight">ID del Paquete</span>: #39827465<br>
+                        <span class="highlight">Estado</span>: Entrega Pendiente<br>
+                        <span class="highlight">Ultimo Intento</span>: 18 de mayo de 2025</p>
+
+                        <p><span class="highlight">Su paquete sera devuelto al remitente en 24 horas</span> si no recibimos la informacion requerida.</p>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">ACTUALIZAR INFO DE ENTREGA</a>
+                        </div>
+
+                        <p>Si no <span class="highlight">esperaba una entrega</span>, por favor <span class="highlight">ignore este mensaje</span>.</p>
+
+                        <p>Gracias,<br>
+                        Servicios de Entrega de Amazon</p>
+
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            <span class="highlight">Copyright 2025 Amazon Inc. Todos los derechos reservados.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Analisis de Senales de Advertencia</h3>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #1: Direccion del Remitente Sospechosa</h4>
+                <p>El correo proviene de "amaz0n-shipping.net" (note el uso de "0" en lugar de "o") en lugar de amazon.com, que es el dominio oficial de Amazon.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #2: Saludo Generico</h4>
+                <p>El correo usa "Hola" en lugar de su nombre, que Amazon tipicamente incluiria en comunicaciones oficiales.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #3: Crea Urgencia</h4>
+                <p>El correo afirma que su paquete sera devuelto al remitente dentro de 24 horas, creando una falsa sensacion de urgencia para actuar rapidamente.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #4: Informacion Vaga del Paquete</h4>
+                <p>El correo proporciona un ID de paquete generico sin detalles especificos sobre lo que ordeno, a diferencia de las notificaciones de envio legitimas de Amazon que incluyen informacion del producto.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #5: Solicitud de Informacion</h4>
+                <p>El correo le pide actualizar su informacion de entrega, que probablemente llevaria a un sitio web falso disenado para recopilar datos personales y financieros.</p>
+            </div>
+
+            <div class="explanation">
+                <h4>Como Responder</h4>
+                <p>Si recibe un correo como este:</p>
+                <ol>
+                    <li>No haga clic en ningun enlace del correo</li>
+                    <li>Inicie sesion en su cuenta de Amazon directamente escribiendo amazon.com en su navegador</li>
+                    <li>Revise sus pedidos para ver si tiene entregas pendientes</li>
+                    <li>Si espera un paquete, rastréelo a traves del historial de pedidos de su cuenta</li>
+                    <li>Reporte el intento de phishing al servicio al cliente de Amazon</li>
+                    <li>Elimine el correo</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo 4: Notificacion de Reembolso de Impuestos</h2>
+
+            <div class="phishing-example">
+                <div class="content-container">
+                    <div class="email-header">
+                        <div class="email-field">
+                            <span class="label">De:</span>
+                            <span class="highlight">irs-tax-refund@irs-govs.org</span>
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Para:</span> [Su Correo]
+                        </div>
+                        <div class="email-field">
+                            <span class="label">Asunto:</span>
+                            <span class="highlight">IRS: Tiene un reembolso de impuestos pendiente</span>
+                        </div>
+                    </div>
+
+                    <div class="email-body">
+                        <img src="https://via.placeholder.com/500x80/003366/ffffff?text=Internal+Revenue+Service" alt="Logo del IRS" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+
+                        <p>Estimado <span class="highlight">Contribuyente</span>,</p>
+
+                        <p>Despues de <span class="highlight">los ultimos calculos anuales de su actividad fiscal</span>, hemos <span class="highlight">determinado que usted es elegible para recibir un reembolso de impuestos de $783.80 USD</span>.</p>
+
+                        <p>Para <span class="highlight">recibir su reembolso</span>, debe <span class="highlight">enviar una solicitud de reembolso</span> y <span class="highlight">proporcionar verificacion adicional</span>.</p>
+
+                        <p>Por favor <span class="highlight">envie su solicitud de reembolso dentro de 7 dias</span> haciendo clic en el boton a continuacion:</p>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" class="fake-button">RECLAMAR SU REEMBOLSO AHORA</a>
+                        </div>
+
+                        <p>Por razones de seguridad, <span class="highlight">necesitaremos verificar su identidad</span> e <span class="highlight">informacion bancaria</span> antes de procesar su reembolso.</p>
+
+                        <p><span class="highlight">Su reembolso puede retrasarse si no verifica su informacion</span> dentro del plazo especificado.</p>
+
+                        <p>Atentamente,<br>
+                        Internal Revenue Service<br>
+                        Departamento de Reembolsos</p>
+
+                        <p style="font-size: 0.8em; color: #666; margin-top: 30px;">
+                            <span class="highlight">AVISO DE CONFIDENCIALIDAD: Este correo electronico y cualquier archivo adjunto son para uso exclusivo y confidencial del destinatario previsto</span>. Si usted no es el destinatario previsto, por favor no lea, distribuya o tome accion en base a este mensaje.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Analisis de Senales de Advertencia</h3>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #1: Direccion del Remitente Sospechosa</h4>
+                <p>El correo proviene de "irs-govs.org" en lugar de irs.gov, que es el dominio oficial del IRS. El IRS siempre usa el dominio .gov para comunicaciones oficiales.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #2: Saludo Generico</h4>
+                <p>El correo usa "Estimado Contribuyente" en lugar de su nombre, que es un rasgo comun de los correos de phishing.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #3: Solicita Informacion Bancaria</h4>
+                <p>El correo indica que necesita verificar su informacion bancaria. El IRS nunca solicita informacion financiera o personal por correo electronico.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #4: Crea Urgencia</h4>
+                <p>El correo afirma que debe enviar su solicitud de reembolso dentro de 7 dias, creando una falsa sensacion de urgencia.</p>
+            </div>
+
+            <div class="warning-sign">
+                <h4>Senal de Advertencia #5: Reembolso Inesperado</h4>
+                <p>Si no ha presentado impuestos recientemente o no espera un reembolso, una notificacion de reembolso inesperada es altamente sospechosa.</p>
+            </div>
+
+            <div class="explanation">
+                <h4>Como Responder</h4>
+                <p>Si recibe un correo como este:</p>
+                <ol>
+                    <li>Recuerde que el IRS no inicia contacto con los contribuyentes por correo electronico, mensaje de texto o redes sociales para solicitar informacion personal o financiera</li>
+                    <li>No haga clic en ningun enlace ni abra archivos adjuntos</li>
+                    <li>Si le preocupa el estado de su reembolso de impuestos, visite el sitio web oficial del IRS directamente en irs.gov</li>
+                    <li>Reenvie el correo a phishing@irs.gov y luego eliminelo</li>
+                    <li>Reporte el intento de phishing a la FTC en reportfraud.ftc.gov</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <h3>Recuerde: Las Organizaciones Oficiales No:</h3>
+            <ul>
+                <li>Envian correos desde nombres de dominio no oficiales</li>
+                <li>Crean falsas urgencias para presionarlo a actuar rapidamente</li>
+                <li>Piden su contrasena, PIN o numero completo de Seguro Social por correo electronico</li>
+                <li>Envian mensajes no personalizados con saludos genericos</li>
+                <li>Incluyen archivos adjuntos sospechosos o enlaces a sitios web externos</li>
+                <li>Amenazan con consecuencias negativas si no proporciona informacion</li>
+            </ul>
+            <p><strong>Cuando tenga dudas, vaya directamente al sitio web oficial escribiendo la direccion en su navegador, o llame a la organizacion usando un numero de telefono que sepa que es legitimo (de su tarjeta de credito, estado de cuenta o sitio web oficial).</strong></p>
+        </div>
+    </div>
+</body>
+</html>

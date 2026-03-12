@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Tipos de Inversión - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #1f2937; background: #f9fafb; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; text-align: center; }
+        .header h1 { font-size: 1.75rem; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 0.95rem; }
+        .content { padding: 24px; }
+        .tabs { display: flex; border-bottom: 2px solid #e5e7eb; margin-bottom: 24px; flex-wrap: wrap; }
+        .tab { padding: 12px 20px; cursor: pointer; border: none; background: none; font-size: 0.9rem; font-weight: 500; color: #6b7280; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab:hover { color: #6366f1; }
+        .tab.active { color: #6366f1; border-bottom-color: #6366f1; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .investment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .investment-card { border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.2s; }
+        .investment-card:hover { border-color: #6366f1; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15); }
+        .investment-card.selected { border-color: #6366f1; background: #f5f3ff; }
+        .investment-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: #1f2937; }
+        .investment-card p { font-size: 0.85rem; color: #6b7280; margin-bottom: 12px; }
+        .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.8rem; }
+        .stat-item { display: flex; justify-content: space-between; }
+        .stat-label { color: #6b7280; }
+        .stat-value { font-weight: 600; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.9rem; }
+        .comparison-table th, .comparison-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table th { background: #f3f4f6; font-weight: 600; }
+        .comparison-table tr:hover { background: #f9fafb; }
+        .rating { display: inline-flex; gap: 2px; }
+        .rating-dot { width: 8px; height: 8px; border-radius: 50%; background: #e5e7eb; }
+        .rating-dot.filled { background: #6366f1; }
+        .scenario-builder { background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.9rem; }
+        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; font-size: 0.9rem; }
+        .btn-primary { background: #6366f1; color: white; }
+        .btn-primary:hover { background: #4f46e5; }
+        .btn-secondary { background: #e5e7eb; color: #374151; }
+        .btn-secondary:hover { background: #d1d5db; }
+        .results-panel { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 20px; margin-top: 20px; }
+        .results-panel h3 { color: #166534; margin-bottom: 12px; }
+        .result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #bbf7d0; }
+        .result-item:last-child { border-bottom: none; }
+        .portfolio-allocation { margin-top: 24px; }
+        .allocation-bar { height: 40px; border-radius: 8px; overflow: hidden; display: flex; margin-bottom: 12px; }
+        .allocation-segment { display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; font-weight: 500; }
+        .allocation-segment.stocks { background: #6366f1; }
+        .allocation-segment.bonds { background: #10b981; }
+        .allocation-segment.cash { background: #f59e0b; }
+        .allocation-legend { display: flex; gap: 20px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+        .example-investments { background: #fef3c7; border-radius: 8px; padding: 16px; margin-top: 16px; }
+        .example-investments h4 { color: #92400e; margin-bottom: 8px; font-size: 0.9rem; }
+        .example-list { list-style: none; font-size: 0.85rem; }
+        .example-list li { padding: 4px 0; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } .tabs { display: none; } .tab-content { display: block !important; page-break-inside: avoid; } .btn { display: none; } }
+        @media (max-width: 768px) { .header h1 { font-size: 1.5rem; } .tabs { overflow-x: auto; } .tab { padding: 10px 14px; font-size: 0.85rem; white-space: nowrap; } .investment-grid { grid-template-columns: 1fr; } .comparison-table { font-size: 0.8rem; } .comparison-table th, .comparison-table td { padding: 8px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Analizador de Tipos de Inversión</h1>
+            <p>Explore, compare y construya portafolios con diferentes tipos de inversión</p>
+        </div>
+        <div class="content">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('explore')">Explorar Tipos</button>
+                <button class="tab" onclick="showTab('compare')">Comparar</button>
+                <button class="tab" onclick="showTab('scenario')">Constructor de Escenarios</button>
+                <button class="tab" onclick="showTab('portfolio')">Construir Portafolio</button>
+            </div>
+            <!-- Pestaña Explorar Tipos -->
+            <div id="explore" class="tab-content active">
+                <h2 style="margin-bottom: 16px; font-size: 1.25rem;">Resumen de Tipos de Inversión</h2>
+                <p style="margin-bottom: 20px; color: #6b7280;">Haga clic en cualquier tipo de inversión para conocer más sobre sus características.</p>
+                <div class="investment-grid">
+                    <div class="investment-card" onclick="selectInvestment(this, 'stocks')">
+                        <h3>Acciones</h3>
+                        <p>Participaciones de propiedad en empresas individuales. Mayor riesgo con potencial de mayores rendimientos.</p>
+                        <div class="card-stats">
+                            <div class="stat-item"><span class="stat-label">Riesgo:</span><span class="stat-value" style="color: #ef4444;">Alto</span></div>
+                            <div class="stat-item"><span class="stat-label">Rendimiento:</span><span class="stat-value" style="color: #10b981;">Alto</span></div>
+                            <div class="stat-item"><span class="stat-label">Liquidez:</span><span class="stat-value">Alta</span></div>
+                            <div class="stat-item"><span class="stat-label">Inv. Mín.:</span><span class="stat-value">Baja</span></div>
+                        </div>
+                    </div>
+                    <div class="investment-card" onclick="selectInvestment(this, 'bonds')">
+                        <h3>Bonos</h3>
+                        <p>Préstamos a empresas o gobiernos. Menor riesgo con pagos de ingresos constantes.</p>
+                        <div class="card-stats">
+                            <div class="stat-item"><span class="stat-label">Riesgo:</span><span class="stat-value" style="color: #10b981;">Bajo-Med</span></div>
+                            <div class="stat-item"><span class="stat-label">Rendimiento:</span><span class="stat-value" style="color: #f59e0b;">Bajo-Med</span></div>
+                            <div class="stat-item"><span class="stat-label">Liquidez:</span><span class="stat-value">Media</span></div>
+                            <div class="stat-item"><span class="stat-label">Inv. Mín.:</span><span class="stat-value">Media</span></div>
+                        </div>
+                    </div>
+                    <div class="investment-card" onclick="selectInvestment(this, 'mutualfunds')">
+                        <h3>Fondos Mutuos</h3>
+                        <p>Grupos de acciones y/o bonos administrados profesionalmente. Diversificación instantánea.</p>
+                        <div class="card-stats">
+                            <div class="stat-item"><span class="stat-label">Riesgo:</span><span class="stat-value" style="color: #f59e0b;">Varía</span></div>
+                            <div class="stat-item"><span class="stat-label">Rendimiento:</span><span class="stat-value" style="color: #f59e0b;">Varía</span></div>
+                            <div class="stat-item"><span class="stat-label">Liquidez:</span><span class="stat-value">Media</span></div>
+                            <div class="stat-item"><span class="stat-label">Inv. Mín.:</span><span class="stat-value">Med-Alta</span></div>
+                        </div>
+                    </div>
+                    <div class="investment-card" onclick="selectInvestment(this, 'etfs')">
+                        <h3>ETFs</h3>
+                        <p>Fondos cotizados en bolsa que se negocian como acciones. Bajo costo, alta flexibilidad.</p>
+                        <div class="card-stats">
+                            <div class="stat-item"><span class="stat-label">Riesgo:</span><span class="stat-value" style="color: #f59e0b;">Varía</span></div>
+                            <div class="stat-item"><span class="stat-label">Rendimiento:</span><span class="stat-value" style="color: #f59e0b;">Varía</span></div>
+                            <div class="stat-item"><span class="stat-label">Liquidez:</span><span class="stat-value">Alta</span></div>
+                            <div class="stat-item"><span class="stat-label">Inv. Mín.:</span><span class="stat-value">Baja</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="investment-details" style="display: none; background: #f5f3ff; border-radius: 8px; padding: 20px;">
+                    <h3 id="detail-title" style="margin-bottom: 12px;"></h3>
+                    <div id="detail-content"></div>
+                </div>
+            </div>
+            <!-- Pestaña Comparar -->
+            <div id="compare" class="tab-content">
+                <h2 style="margin-bottom: 16px; font-size: 1.25rem;">Comparación Lado a Lado</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr><th>Característica</th><th>Acciones</th><th>Bonos</th><th>Fondos Mutuos</th><th>ETFs</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Rendimiento Potencial</strong></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td></tr>
+                        <tr><td><strong>Nivel de Riesgo</strong></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td></tr>
+                        <tr><td><strong>Liquidez</strong></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></td></tr>
+                        <tr><td><strong>Complejidad</strong></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td><td><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></td></tr>
+                        <tr><td><strong>Inversión Mínima</strong></td><td>$1-$500+</td><td>$1,000+</td><td>$500-$3,000</td><td>$50-$300</td></tr>
+                        <tr><td><strong>Generación de Ingresos</strong></td><td>Dividendos (variable)</td><td>Intereses (fijo)</td><td>Distribuciones</td><td>Dividendos</td></tr>
+                        <tr><td><strong>Diversificación</strong></td><td>Ninguna (empresa única)</td><td>Ninguna (emisor único)</td><td>Alta (muchas posiciones)</td><td>Alta (muchas posiciones)</td></tr>
+                        <tr><td><strong>Ratio de Gastos</strong></td><td>Ninguno</td><td>Ninguno</td><td>0.5% - 1.5%</td><td>0.03% - 0.5%</td></tr>
+                        <tr><td><strong>Mejor Para</strong></td><td>Crecimiento a largo plazo</td><td>Ingresos y estabilidad</td><td>Inversión sin gestión</td><td>Diversificación bajo costo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Pestaña Constructor de Escenarios -->
+            <div id="scenario" class="tab-content">
+                <h2 style="margin-bottom: 16px; font-size: 1.25rem;">Constructor de Escenarios de Inversión</h2>
+                <p style="margin-bottom: 20px; color: #6b7280;">Ingrese sus parámetros de inversión para ver los resultados proyectados.</p>
+                <div class="scenario-builder">
+                    <div class="form-row">
+                        <div class="form-group"><label for="initial-amount">Inversión Inicial ($)</label><input type="number" id="initial-amount" value="10000" min="0"></div>
+                        <div class="form-group"><label for="monthly-contribution">Contribución Mensual ($)</label><input type="number" id="monthly-contribution" value="300" min="0"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="time-horizon">Horizonte de Tiempo (Años)</label><input type="number" id="time-horizon" value="20" min="1" max="50"></div>
+                        <div class="form-group"><label for="investment-type">Tipo de Inversión</label><select id="investment-type"><option value="aggressive">Agresivo (90% Acciones)</option><option value="growth" selected>Crecimiento (70% Acciones)</option><option value="balanced">Balanceado (50% Acciones)</option><option value="conservative">Conservador (30% Acciones)</option></select></div>
+                    </div>
+                    <button class="btn btn-primary" onclick="calculateScenario()">Calcular Proyección</button>
+                </div>
+                <div id="scenario-results" style="display: none;"></div>
+            </div>
+            <!-- Pestaña Construir Portafolio -->
+            <div id="portfolio" class="tab-content">
+                <h2 style="margin-bottom: 16px; font-size: 1.25rem;">Construya Su Portafolio</h2>
+                <p style="margin-bottom: 20px; color: #6b7280;">Ajuste los controles deslizantes para crear su asignación de activos ideal.</p>
+                <div class="scenario-builder">
+                    <div class="form-group"><label for="stocks-slider">Acciones: <span id="stocks-value">60</span>%</label><input type="range" id="stocks-slider" min="0" max="100" value="60" oninput="updateAllocation()"></div>
+                    <div class="form-group"><label for="bonds-slider">Bonos: <span id="bonds-value">30</span>%</label><input type="range" id="bonds-slider" min="0" max="100" value="30" oninput="updateAllocation()"></div>
+                    <div class="form-group"><label for="cash-slider">Efectivo: <span id="cash-value">10</span>%</label><input type="range" id="cash-slider" min="0" max="100" value="10" oninput="updateAllocation()"></div>
+                    <p id="allocation-warning" style="color: #ef4444; font-size: 0.85rem; margin-bottom: 12px; display: none;">La asignación total debe ser igual a 100%</p>
+                </div>
+                <div class="portfolio-allocation">
+                    <div class="allocation-bar" id="allocation-bar">
+                        <div class="allocation-segment stocks" style="width: 60%;">60%</div>
+                        <div class="allocation-segment bonds" style="width: 30%;">30%</div>
+                        <div class="allocation-segment cash" style="width: 10%;">10%</div>
+                    </div>
+                    <div class="allocation-legend">
+                        <div class="legend-item"><div class="legend-dot" style="background: #6366f1;"></div><span>Acciones</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background: #10b981;"></div><span>Bonos</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background: #f59e0b;"></div><span>Efectivo</span></div>
+                    </div>
+                </div>
+                <div id="portfolio-recommendation" class="example-investments" style="margin-top: 24px;">
+                    <h4>Inversiones Recomendadas para Esta Asignación</h4>
+                    <ul class="example-list" id="recommendation-list">
+                        <li><strong>Acciones (60%):</strong> VTI (ETF Total Stock Market), VOO (ETF S&P 500)</li>
+                        <li><strong>Bonos (30%):</strong> BND (ETF Total Bond Market), VGIT (Bonos del Tesoro)</li>
+                        <li><strong>Efectivo (10%):</strong> Cuenta de ahorros de alto rendimiento, Fondo de mercado monetario</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const investmentDetails = {
+            stocks: {
+                title: 'Acciones (Renta Variable)',
+                content: `<p><strong>Qué son:</strong> Participaciones de propiedad en una empresa. Cuando compra acciones, se convierte en propietario parcial de ese negocio.</p><p style="margin-top: 12px;"><strong>Cómo funcionan:</strong> Los precios de las acciones suben y bajan según el rendimiento de la empresa, las condiciones del mercado y el sentimiento de los inversionistas. Puede obtener ganancias a través de la apreciación del precio o los dividendos.</p><p style="margin-top: 12px;"><strong>Ejemplos:</strong> Apple (AAPL), Microsoft (MSFT), Amazon (AMZN)</p><p style="margin-top: 12px;"><strong>Mejor para:</strong> Inversionistas de crecimiento a largo plazo que pueden tolerar volatilidad a corto plazo para rendimientos potencialmente mayores.</p>`
+            },
+            bonds: {
+                title: 'Bonos (Renta Fija)',
+                content: `<p><strong>Qué son:</strong> Préstamos que usted hace a empresas o gobiernos. A cambio, le pagan intereses con el tiempo y devuelven su capital al vencimiento.</p><p style="margin-top: 12px;"><strong>Cómo funcionan:</strong> Recibe pagos de intereses regulares (cupón) y recupera su capital al vencimiento. Los precios de los bonos se mueven inversamente a las tasas de interés.</p><p style="margin-top: 12px;"><strong>Ejemplos:</strong> Bonos del Tesoro de EE.UU., Bonos Corporativos, Bonos Municipales</p><p style="margin-top: 12px;"><strong>Mejor para:</strong> Inversionistas que buscan ingresos constantes y menor volatilidad, especialmente aquellos más cercanos a necesitar su dinero.</p>`
+            },
+            mutualfunds: {
+                title: 'Fondos Mutuos',
+                content: `<p><strong>Qué son:</strong> Grupos de inversión administrados profesionalmente que combinan dinero de muchos inversionistas para comprar un portafolio diversificado de acciones, bonos u otros valores.</p><p style="margin-top: 12px;"><strong>Cómo funcionan:</strong> Un administrador de fondos toma las decisiones de inversión. Usted compra acciones al precio de fin de día (NAV). La mayoría requiere inversiones mínimas.</p><p style="margin-top: 12px;"><strong>Ejemplos:</strong> Fidelity 500 Index Fund (FXAIX), Vanguard Total Stock Market (VTSAX)</p><p style="margin-top: 12px;"><strong>Mejor para:</strong> Inversionistas que desean gestión profesional y diversificación instantánea con un enfoque sin intervención.</p>`
+            },
+            etfs: {
+                title: 'Fondos Cotizados en Bolsa (ETFs)',
+                content: `<p><strong>Qué son:</strong> Fondos que siguen un índice, sector o clase de activos y se negocian en bolsas como acciones. Combinan los beneficios de diversificación con flexibilidad de negociación.</p><p style="margin-top: 12px;"><strong>Cómo funcionan:</strong> Puede comprar y vender durante todo el día de negociación a precios de mercado. La mayoría sigue un índice pasivamente, manteniendo los costos muy bajos.</p><p style="margin-top: 12px;"><strong>Ejemplos:</strong> SPY (S&P 500), VTI (Total Stock Market), QQQ (Nasdaq 100)</p><p style="margin-top: 12px;"><strong>Mejor para:</strong> Inversionistas conscientes del costo que desean diversificación, flexibilidad y eficiencia fiscal.</p>`
+            }
+        };
+        function showTab(tabId) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+        function selectInvestment(card, type) {
+            document.querySelectorAll('.investment-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            const details = investmentDetails[type];
+            document.getElementById('detail-title').textContent = details.title;
+            document.getElementById('detail-content').innerHTML = details.content;
+            document.getElementById('investment-details').style.display = 'block';
+        }
+        function calculateScenario() {
+            const initial = parseFloat(document.getElementById('initial-amount').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthly-contribution').value) || 0;
+            const years = parseInt(document.getElementById('time-horizon').value) || 20;
+            const type = document.getElementById('investment-type').value;
+            const returns = {
+                aggressive: { avg: 0.09, best: 0.12, worst: 0.04 },
+                growth: { avg: 0.08, best: 0.10, worst: 0.05 },
+                balanced: { avg: 0.07, best: 0.09, worst: 0.05 },
+                conservative: { avg: 0.05, best: 0.07, worst: 0.03 }
+            };
+            const r = returns[type];
+            function calculate(rate) {
+                let total = initial;
+                for (let i = 0; i < years * 12; i++) { total = total * (1 + rate/12) + monthly; }
+                return total;
+            }
+            const avgResult = calculate(r.avg);
+            const bestResult = calculate(r.best);
+            const worstResult = calculate(r.worst);
+            const totalContributed = initial + (monthly * years * 12);
+            document.getElementById('scenario-results').innerHTML = `
+                <div class="results-panel">
+                    <h3>Resultados Proyectados Después de ${years} Años</h3>
+                    <div class="result-item"><span>Total Contribuido:</span><strong>$${totalContributed.toLocaleString('es-US', {maximumFractionDigits: 0})}</strong></div>
+                    <div class="result-item"><span>Valor Esperado (${(r.avg * 100).toFixed(0)}% rend. promedio):</span><strong style="color: #6366f1;">$${avgResult.toLocaleString('es-US', {maximumFractionDigits: 0})}</strong></div>
+                    <div class="result-item"><span>Mejor Caso (${(r.best * 100).toFixed(0)}% rendimiento):</span><strong style="color: #10b981;">$${bestResult.toLocaleString('es-US', {maximumFractionDigits: 0})}</strong></div>
+                    <div class="result-item"><span>Peor Caso (${(r.worst * 100).toFixed(0)}% rendimiento):</span><strong style="color: #f59e0b;">$${worstResult.toLocaleString('es-US', {maximumFractionDigits: 0})}</strong></div>
+                    <div class="result-item"><span>Crecimiento de Inversión:</span><strong>$${(avgResult - totalContributed).toLocaleString('es-US', {maximumFractionDigits: 0})}</strong></div>
+                </div>`;
+            document.getElementById('scenario-results').style.display = 'block';
+        }
+        function updateAllocation() {
+            const stocks = parseInt(document.getElementById('stocks-slider').value);
+            const bonds = parseInt(document.getElementById('bonds-slider').value);
+            const cash = parseInt(document.getElementById('cash-slider').value);
+            const total = stocks + bonds + cash;
+            document.getElementById('stocks-value').textContent = stocks;
+            document.getElementById('bonds-value').textContent = bonds;
+            document.getElementById('cash-value').textContent = cash;
+            const warning = document.getElementById('allocation-warning');
+            if (total !== 100) { warning.textContent = `Total: ${total}% (debe ser igual a 100%)`; warning.style.display = 'block'; }
+            else { warning.style.display = 'none'; }
+            const bar = document.getElementById('allocation-bar');
+            bar.innerHTML = '';
+            if (stocks > 0) { bar.innerHTML += `<div class="allocation-segment stocks" style="width: ${stocks}%;">${stocks > 10 ? stocks + '%' : ''}</div>`; }
+            if (bonds > 0) { bar.innerHTML += `<div class="allocation-segment bonds" style="width: ${bonds}%;">${bonds > 10 ? bonds + '%' : ''}</div>`; }
+            if (cash > 0) { bar.innerHTML += `<div class="allocation-segment cash" style="width: ${cash}%;">${cash > 10 ? cash + '%' : ''}</div>`; }
+            updateRecommendations(stocks, bonds, cash);
+        }
+        function updateRecommendations(stocks, bonds, cash) {
+            const list = document.getElementById('recommendation-list');
+            let html = '';
+            if (stocks > 0) {
+                html += `<li><strong>Acciones (${stocks}%):</strong> `;
+                if (stocks >= 50) { html += 'VTI (ETF Total Stock Market), VXUS (Acciones Internacionales)'; }
+                else { html += 'VOO (ETF S&P 500)'; }
+                html += '</li>';
+            }
+            if (bonds > 0) {
+                html += `<li><strong>Bonos (${bonds}%):</strong> `;
+                if (bonds >= 40) { html += 'BND (Total Bond Market), VGIT (Tesoro Intermedio)'; }
+                else { html += 'BND (ETF Total Bond Market)'; }
+                html += '</li>';
+            }
+            if (cash > 0) { html += `<li><strong>Efectivo (${cash}%):</strong> Cuenta de ahorros de alto rendimiento, Fondo de mercado monetario</li>`; }
+            list.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

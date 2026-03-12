@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Solicitudes de Préstamo | PFL Academy</title>
+    <style>
+        :root{--primary:#6366f1;--secondary:#8b5cf6}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:#1f2937;background:#f9fafb;padding:20px}.container{max-width:900px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:30px;text-align:center}h1{font-size:1.8rem;margin-bottom:8px}.main-content{padding:30px}.section{margin-bottom:35px}.section-title{font-size:1.3rem;font-weight:600;color:var(--primary);margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid var(--primary)}.question-block{background:#f9fafb;padding:20px;border-radius:8px;margin-bottom:20px}.question{font-weight:600;margin-bottom:12px}.answer-space{width:100%;min-height:80px;padding:12px;border:1px solid #d1d5db;border-radius:6px;font-family:inherit;font-size:1rem;resize:vertical}.answer-space:focus{outline:none;border-color:var(--primary)}table{width:100%;border-collapse:collapse;margin-top:15px}th,td{padding:12px;text-align:left;border:1px solid #d1d5db}th{background:var(--primary);color:#fff;font-weight:600}tr:nth-child(even){background:#f9fafb}@media print{body{background:#fff;padding:0}.container{box-shadow:none}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hoja de Trabajo de Solicitudes de Préstamo y Solvencia Crediticia</h1>
+            <p>Actividad de Práctica Guiada</p>
+        </header>
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Parte 1: Entendiendo la Solvencia Crediticia</h2>
+                <div class="question-block">
+                    <div class="question">1. ¿Cuáles son las "5 C del Crédito" que evalúan los prestamistas?</div>
+                    <textarea class="answer-space" placeholder="Enumera y explica brevemente cada una..."></textarea>
+                </div>
+                <div class="question-block">
+                    <div class="question">2. Explica cómo tu puntaje de crédito afecta la aprobación del préstamo y las tasas de interés:</div>
+                    <textarea class="answer-space"></textarea>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Parte 2: Documentación Requerida</h2>
+                <div class="question-block">
+                    <div class="question">3. Crea una lista de verificación de documentos necesarios para una solicitud de préstamo:</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de Documento</th>
+                                <th>Propósito</th>
+                                <th>¿Lo Tienes?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" style="width:100%;border:none;padding:5px" placeholder="Documento..."></td>
+                                <td><input type="text" style="width:100%;border:none;padding:5px" placeholder="Por qué se necesita..."></td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td><input type="text" style="width:100%;border:none;padding:5px"></td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Parte 3: Relación Deuda-Ingreso</h2>
+                <div class="question-block">
+                    <div class="question">4. Calcula tu relación deuda-ingreso:</div>
+                    <p style="margin:10px 0">Ingreso bruto mensual: $<input type="number" style="width:150px;padding:8px;border:1px solid #d1d5db;border-radius:4px"></p>
+                    <p style="margin:10px 0">Pagos mensuales de deuda: $<input type="number" style="width:150px;padding:8px;border:1px solid #d1d5db;border-radius:4px"></p>
+                    <p style="margin:10px 0">Relación DTI: <strong><span id="dtiResult">___%</span></strong></p>
+                    <textarea class="answer-space" placeholder="¿Qué significa esta relación para tu elegibilidad de préstamo?"></textarea>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Parte 4: Estrategia de Solicitud</h2>
+                <div class="question-block">
+                    <div class="question">5. ¿Qué pasos puedes tomar para mejorar tu solvencia crediticia antes de solicitar un préstamo?</div>
+                    <textarea class="answer-space" placeholder="Enumera acciones específicas..."></textarea>
+                </div>
+                <div class="question-block">
+                    <div class="question">6. ¿Por qué es importante comparar ofertas de préstamo de múltiples prestamistas?</div>
+                    <textarea class="answer-space"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('input[type="number"]').forEach(input=>{input.addEventListener('input',()=>{const income=parseFloat(document.querySelectorAll('input[type="number"]')[0].value)||0;const debt=parseFloat(document.querySelectorAll('input[type="number"]')[1].value)||0;if(income>0){const dti=((debt/income)*100).toFixed(1);document.getElementById('dtiResult').textContent=dti+'%'}})})
+    </script>
+</body>
+</html>

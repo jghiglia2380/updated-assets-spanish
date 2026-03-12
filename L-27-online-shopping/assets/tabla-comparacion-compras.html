@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Compras en Línea vs. En Tienda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #0891b2;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .instructions {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0891b2;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #0891b2;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .editable {
+            background-color: #fef3c7;
+            min-height: 60px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 50px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            resize: vertical;
+        }
+        .decision-section {
+            background-color: #dbeafe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .decision-section h2 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .header, th {
+                background-color: #0891b2 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Análisis de Compras en Línea vs. En Tienda</h1>
+        <p>L-27: Compras en Línea - Día 1</p>
+    </div>
+
+    <div class="instructions">
+        <h2>Instrucciones</h2>
+        <p><strong>Escenario:</strong> Está considerando comprar una computadora portátil nueva para la escuela. Use esta tabla para comparar las opciones de compra en línea versus en tienda física.</p>
+        <p>Complete la columna "Mi Preferencia" para cada factor basándose en el análisis de las dos opciones.</p>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Factor</th>
+                    <th>Opción en Línea</th>
+                    <th>Opción en Tienda</th>
+                    <th>Mi Preferencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Precio</strong></td>
+                    <td>$899 + $25 envío = $924<br>Código de descuento disponible: -$50</td>
+                    <td>$949<br>Sin costos adicionales<br>Promoción en tienda: -$30</td>
+                    <td class="editable"><textarea placeholder="¿Cuál opción ofrece mejor precio?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Conveniencia</strong></td>
+                    <td>Comprar desde casa<br>24/7 disponibilidad<br>Entrega en 3-5 días</td>
+                    <td>Requiere viaje a la tienda<br>Horario limitado<br>Disponible inmediatamente</td>
+                    <td class="editable"><textarea placeholder="¿Qué opción es más conveniente para usted?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Selección</strong></td>
+                    <td>Amplia variedad de modelos y marcas<br>Fácil comparar especificaciones</td>
+                    <td>Modelos limitados en inventario<br>Solo lo que está en exhibición</td>
+                    <td class="editable"><textarea placeholder="¿Dónde encuentra mejor selección?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Política de Devolución</strong></td>
+                    <td>30 días para devolver<br>Debe empaquetar y enviar<br>Puede haber cargo de reabastecimiento del 15%</td>
+                    <td>30 días para devolver<br>Devolver en tienda<br>Sin cargos de reabastecimiento</td>
+                    <td class="editable"><textarea placeholder="¿Qué política de devolución prefiere?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Disponibilidad Inmediata</strong></td>
+                    <td>Esperar 3-5 días de envío<br>Puede rastrear el paquete</td>
+                    <td>Llevar a casa hoy<br>Usar inmediatamente</td>
+                    <td class="editable"><textarea placeholder="¿Qué tan importante es la disponibilidad inmediata?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Servicio al Cliente</strong></td>
+                    <td>Chat en línea, email, teléfono<br>Soporte 24/7<br>Reseñas de clientes disponibles</td>
+                    <td>Ayuda en persona<br>Puede probar el producto<br>Hacer preguntas directamente</td>
+                    <td class="editable"><textarea placeholder="¿Qué tipo de servicio al cliente prefiere?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Seguridad</strong></td>
+                    <td>Requiere compartir información de tarjeta en línea<br>Riesgo de phishing/fraude<br>HTTPS y cifrado disponibles</td>
+                    <td>Transacción en persona<br>Ve quién procesa su pago<br>Recibo físico inmediato</td>
+                    <td class="editable"><textarea placeholder="¿Qué opción considera más segura?"></textarea></td>
+                </tr>
+                <tr>
+                    <td><strong>Cargos Adicionales</strong></td>
+                    <td>Envío: $25<br>Seguro opcional: $15<br>Impuesto: $72</td>
+                    <td>Sin envío<br>Sin cargos adicionales<br>Impuesto: $76</td>
+                    <td class="editable"><textarea placeholder="¿Qué opción tiene menos cargos ocultos?"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="decision-section">
+        <h2>Su Decisión Final</h2>
+
+        <div class="input-group">
+            <label>Basándose en su análisis, ¿dónde compraría la computadora portátil?</label>
+            <select id="decision">
+                <option value="">Seleccione una opción</option>
+                <option value="online">En línea</option>
+                <option value="store">En tienda física</option>
+                <option value="undecided">No estoy seguro/a</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Explique su razonamiento. ¿Qué factores fueron más importantes para su decisión?</label>
+            <textarea id="reasoning" placeholder="Escriba su explicación aquí..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>¿Qué medidas de seguridad tomaría si comprara en línea?</label>
+            <textarea id="security" placeholder="Ejemplo: Verificar que el sitio web use HTTPS, leer reseñas, usar una tarjeta de crédito en lugar de débito..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>¿Cambiaría su decisión para un producto diferente (por ejemplo, ropa o comestibles)? ¿Por qué?</label>
+            <textarea id="different" placeholder="Escriba su respuesta aquí..."></textarea>
+        </div>
+    </div>
+</body>
+</html>

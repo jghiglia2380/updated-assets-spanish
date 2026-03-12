@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoja de Referencia de Proveedores de Servicios Financieros | PFL Academy</title>
+<style>
+:root {
+    --primary: #6366f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1f2937;
+    background: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.print-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.print-btn:hover {
+    background: #4f46e5;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.section ul {
+    list-style-position: inside;
+    margin-left: 10px;
+}
+
+.section li {
+    margin-bottom: 6px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.highlight-box {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.key-points {
+    background: #eff6ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.key-points h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.key-points ul {
+    list-style-position: inside;
+}
+
+.key-points li {
+    margin-bottom: 6px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+}
+
+.comparison-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.questions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.question-item {
+    background: #f0f9ff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.question-item strong {
+    color: var(--primary);
+}
+
+@media print {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .print-btn {
+        display: none;
+    }
+
+    .grid {
+        gap: 10px;
+    }
+
+    .section {
+        break-inside: avoid;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .questions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Hoja de Referencia de Proveedores de Servicios Financieros</h1>
+        <p class="subtitle">Guía Rápida para Elegir y Trabajar con Instituciones Financieras</p>
+    </header>
+
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+    <div class="key-points">
+        <h3>Tipos de Proveedores de Servicios Financieros</h3>
+        <ul>
+            <li><strong>Bancos Tradicionales:</strong> Instituciones de servicio completo con sucursales físicas, cajeros automáticos y ofertas de productos completas. Asegurados por FDIC hasta $250,000.</li>
+            <li><strong>Cooperativas de Crédito:</strong> Cooperativas sin fines de lucro propiedad de los miembros que ofrecen tarifas más bajas y mejores tasas. Aseguradas por NCUA hasta $250,000.</li>
+            <li><strong>Bancos en Línea:</strong> Instituciones exclusivamente digitales con tasas de interés más altas y tarifas más bajas debido a costos operativos reducidos.</li>
+            <li><strong>Casas de Bolsa:</strong> Empresas enfocadas en inversiones que pueden ofrecer cuentas de administración de efectivo con características bancarias.</li>
+        </ul>
+    </div>
+
+    <div class="grid">
+        <div class="section">
+            <div class="section-title">Servicios Clave Ofrecidos</div>
+            <ul>
+                <li><strong>Cuentas corrientes</strong> - transacciones diarias</li>
+                <li><strong>Cuentas de ahorros</strong> - fondos de emergencia</li>
+                <li><strong>Certificados de Depósito (CD)</strong> - ahorros a plazo fijo</li>
+                <li><strong>Cuentas de mercado monetario</strong> - ahorros de mayor rendimiento</li>
+                <li><strong>Tarjetas de crédito</strong> - crédito revolvente</li>
+                <li><strong>Préstamos personales</strong> - préstamos fijos</li>
+                <li><strong>Préstamos para automóviles</strong> - financiamiento de vehículos</li>
+                <li><strong>Hipotecas</strong> - financiamiento de vivienda</li>
+                <li><strong>Servicios de inversión</strong> - construcción de patrimonio</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Tarifas a Tener en Cuenta</div>
+            <ul>
+                <li><strong>Tarifas de mantenimiento mensual</strong> - $5-15/mes</li>
+                <li><strong>Tarifas de cajero automático</strong> - $2-5 por transacción</li>
+                <li><strong>Tarifas por sobregiro</strong> - $25-35 por ocurrencia</li>
+                <li><strong>Tarifas de transferencia bancaria</strong> - $15-50</li>
+                <li><strong>Tarifas por transacciones en el extranjero</strong> - 1-3%</li>
+                <li><strong>Tarifas de cierre de cuenta</strong> - $25-50</li>
+                <li><strong>Tarifas por estados de cuenta en papel</strong> - $2-5/mes</li>
+                <li><strong>Tarifas por saldo mínimo</strong> - varía</li>
+                <li><strong>Tarifas por cheques devueltos</strong> - $25-40</li>
+            </ul>
+        </div>
+
+        <div class="section full-width">
+            <div class="section-title">Comparación de Proveedores de un Vistazo</div>
+            <table class="comparison-table">
+                <tr>
+                    <th>Característica</th>
+                    <th>Banco Tradicional</th>
+                    <th>Cooperativa de Crédito</th>
+                    <th>Banco en Línea</th>
+                </tr>
+                <tr>
+                    <td>Tasas de Interés (Ahorros)</td>
+                    <td>0.01-0.10%</td>
+                    <td>0.10-0.50%</td>
+                    <td>3.00-5.00%</td>
+                </tr>
+                <tr>
+                    <td>Tarifas Mensuales</td>
+                    <td>$5-15 (a menudo evitables)</td>
+                    <td>$0-5</td>
+                    <td>$0</td>
+                </tr>
+                <tr>
+                    <td>Acceso a Cajeros Automáticos</td>
+                    <td>Red extensa</td>
+                    <td>Redes compartidas</td>
+                    <td>Reembolso de cajeros</td>
+                </tr>
+                <tr>
+                    <td>Acceso a Sucursales</td>
+                    <td>Muchas ubicaciones</td>
+                    <td>Ubicaciones limitadas</td>
+                    <td>Ninguna</td>
+                </tr>
+                <tr>
+                    <td>Funciones Móviles</td>
+                    <td>Buenas</td>
+                    <td>Buenas</td>
+                    <td>Excelentes</td>
+                </tr>
+                <tr>
+                    <td>Tasas de Préstamos</td>
+                    <td>Más altas</td>
+                    <td>Más bajas</td>
+                    <td>Varía</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Cómo Elegir un Proveedor</div>
+            <ul>
+                <li>Identifique sus necesidades bancarias principales</li>
+                <li>Compare tarifas entre múltiples proveedores</li>
+                <li>Verifique las tasas de interés de las cuentas</li>
+                <li>Evalúe la conveniencia (sucursales, cajeros)</li>
+                <li>Revise las calificaciones y funciones de la aplicación móvil</li>
+                <li>Verifique la cobertura de seguro (FDIC/NCUA)</li>
+                <li>Lea las reseñas de servicio al cliente</li>
+                <li>Considere oportunidades de paquetes</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Señales de Alerta a Evitar</div>
+            <ul>
+                <li>Tarifas inusualmente altas u ocultas</li>
+                <li>Capacidades en línea/móviles deficientes</li>
+                <li>Reseñas consistentemente negativas</li>
+                <li>Falta de seguro FDIC/NCUA</li>
+                <li>Presión para abrir cuentas innecesarias</li>
+                <li>Divulgaciones de tarifas poco claras</li>
+                <li>Horarios de servicio al cliente limitados</li>
+                <li>Sin políticas de protección contra fraude</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section full-width" style="margin-bottom: 20px;">
+        <div class="section-title">Preguntas Esenciales para Hacer a los Proveedores</div>
+        <div class="questions-grid">
+            <div class="question-item">
+                <strong>Tarifas:</strong> "¿Qué tarifas están asociadas con esta cuenta y cómo puedo evitarlas?"
+            </div>
+            <div class="question-item">
+                <strong>Interés:</strong> "¿Cuál es el APY actual y con qué frecuencia cambia?"
+            </div>
+            <div class="question-item">
+                <strong>Acceso:</strong> "¿Cuántos cajeros automáticos gratuitos están disponibles y cuáles son las tarifas fuera de red?"
+            </div>
+            <div class="question-item">
+                <strong>Mínimos:</strong> "¿Cuáles son los requisitos de saldo mínimo para evitar tarifas?"
+            </div>
+            <div class="question-item">
+                <strong>Sobregiro:</strong> "¿Qué opciones de protección contra sobregiro ofrece y cuánto cuestan?"
+            </div>
+            <div class="question-item">
+                <strong>Seguridad:</strong> "¿Qué protección contra fraude y características de seguridad están incluidas?"
+            </div>
+            <div class="question-item">
+                <strong>Móvil:</strong> "¿Qué puedo hacer a través de su aplicación móvil? ¿Está disponible el depósito móvil?"
+            </div>
+            <div class="question-item">
+                <strong>Soporte:</strong> "¿Cuáles son sus horarios de servicio al cliente y opciones de contacto?"
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <strong>Recuerde:</strong> Puede usar múltiples proveedores de servicios financieros para satisfacer diferentes necesidades. Muchas personas tienen una cuenta corriente en un banco tradicional o cooperativa de crédito para transacciones diarias y una cuenta de ahorros de alto rendimiento en un banco en línea para fondos de emergencia. En {{STATE_NAME}}, compare las cooperativas de crédito locales y los bancos comunitarios junto con las opciones nacionales para obtener la mejor combinación de tasas y servicio.
+    </div>
+</div>
+</body>
+</html>

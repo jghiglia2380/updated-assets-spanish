@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Sesgos Conductuales | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.6; color: var(--text); background-color: var(--surface); padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background-color: var(--background); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 40px 30px; text-align: center; }
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .subtitle { font-size: 1rem; opacity: 0.95; }
+        .content { padding: 30px; }
+        .progress-bar { background: var(--surface); border-radius: 10px; height: 20px; margin-bottom: 30px; overflow: hidden; border: 1px solid var(--border); }
+        .progress-fill { background: linear-gradient(90deg, var(--primary), var(--secondary)); height: 100%; width: 0%; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; }
+        .bias-section { background: white; border: 2px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 25px; display: none; }
+        .bias-section.active { display: block; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; }
+        .bias-description { color: var(--text-light); margin-bottom: 20px; padding: 15px; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary); }
+        .scenario-box { background: #fffbeb; border: 2px solid var(--warning); border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .scenario-title { color: var(--warning); font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .question { font-weight: 600; color: var(--text); margin: 20px 0 15px; font-size: 1.1rem; }
+        .choices { display: flex; flex-direction: column; gap: 12px; }
+        .choice { background: var(--surface); border: 2px solid var(--border); border-radius: 8px; padding: 15px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: flex-start; gap: 12px; }
+        .choice:hover { border-color: var(--primary); background: white; transform: translateX(4px); }
+        .choice input[type="radio"] { margin-top: 4px; width: 20px; height: 20px; cursor: pointer; }
+        .choice-text { flex: 1; font-size: 1rem; }
+        .feedback { margin-top: 20px; padding: 20px; border-radius: 8px; display: none; }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #d1fae5; border: 2px solid var(--success); color: #065f46; }
+        .feedback.biased { background: #fee2e2; border: 2px solid var(--danger); color: #991b1b; }
+        .feedback-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; }
+        .button-group { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        .button { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        .button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .button.secondary { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .results-screen { display: none; text-align: center; padding: 40px 20px; }
+        .results-screen.show { display: block; }
+        .score-circle { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3); }
+        .score-number { font-size: 4rem; font-weight: 700; line-height: 1; }
+        .score-label { font-size: 1rem; opacity: 0.9; }
+        .bias-summary { background: var(--surface); border-radius: 12px; padding: 25px; margin-top: 30px; text-align: left; }
+        .bias-item { background: white; border-left: 4px solid var(--primary); padding: 15px; margin-bottom: 15px; border-radius: 4px; }
+        .bias-name { font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .bias-strategy { color: var(--text-light); font-size: 0.95rem; }
+        .icon { font-size: 1.2rem; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } .button-group, .choices { display: none; } .feedback, .results-screen { display: block !important; page-break-inside: avoid; } }
+        @media (max-width: 768px) { .content { padding: 20px; } h1 { font-size: 1.5rem; } .score-circle { width: 160px; height: 160px; } .score-number { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Verificador de Sesgos Conductuales</h1>
+            <div class="subtitle">Identifique y supere los sesgos comunes de inversión</div>
+        </header>
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress">0%</div>
+            </div>
+            <!-- Sesgo 1: Sesgo de Confirmación -->
+            <div class="bias-section active" data-bias="1">
+                <h2><span class="icon">🔍</span> Sesgo de Confirmación</h2>
+                <div class="bias-description">
+                    <strong>Definición:</strong> La tendencia a buscar, interpretar y recordar información que confirma sus creencias preexistentes mientras ignora la evidencia contradictoria.
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario</div>
+                    <p>Ha invertido en acciones de TechCorp porque cree que la inteligencia artificial es el futuro. La acción ha caído un 15% este mes. Lee varios artículos:</p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Artículo A: "La tecnología de IA de TechCorp enfrenta desafíos regulatorios"</li>
+                        <li>Artículo B: "Experto de la industria predice que el mercado de IA se triplicará en 5 años"</li>
+                        <li>Artículo C: "TechCorp pierde un cliente importante ante la competencia"</li>
+                    </ul>
+                </div>
+                <div class="question">¿En qué artículo es más probable que se enfoque?</div>
+                <div class="choices">
+                    <label class="choice">
+                        <input type="radio" name="q1" value="correct">
+                        <span class="choice-text">Leer todos los artículos por igual y reevaluar mi tesis de inversión basándome en información completa</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q1" value="biased">
+                        <span class="choice-text">Enfocarme en el Artículo B porque apoya mi creencia en el futuro de la IA</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q1" value="biased">
+                        <span class="choice-text">Descartar los Artículos A y C como ruido a corto plazo y mantener mi posición</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q1" value="biased">
+                        <span class="choice-text">Buscar más artículos que apoyen el crecimiento de la IA para reforzar mi decisión</span>
+                    </label>
+                </div>
+                <div class="feedback" id="feedback1">
+                    <div class="feedback-title"></div>
+                    <p></p>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="checkAnswer(1)">Verificar Respuesta</button>
+                    <button class="button secondary" onclick="nextBias(2)" id="next1" disabled>Siguiente Sesgo →</button>
+                </div>
+            </div>
+            <!-- Sesgo 2: Aversión a la Pérdida -->
+            <div class="bias-section" data-bias="2">
+                <h2><span class="icon">😰</span> Aversión a la Pérdida</h2>
+                <div class="bias-description">
+                    <strong>Definición:</strong> La tendencia a preferir evitar pérdidas sobre adquirir ganancias equivalentes. Las investigaciones muestran que las personas sienten el dolor de perder $100 aproximadamente el doble de intenso que el placer de ganar $100.
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario</div>
+                    <p>Compró acciones de RetailCo a $50 por acción. El precio ha caído a $35. Su investigación muestra que los fundamentos de la empresa se han deteriorado significativamente, y los analistas predicen más caídas. Sin embargo, vender ahora significa aceptar una pérdida de $15/acción.</p>
+                </div>
+                <div class="question">¿Cuál es la decisión más racional?</div>
+                <div class="choices">
+                    <label class="choice">
+                        <input type="radio" name="q2" value="correct">
+                        <span class="choice-text">Vender la acción basándose en el análisis actual, independientemente del precio de compra, para prevenir mayores pérdidas</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q2" value="biased">
+                        <span class="choice-text">Mantener la acción hasta que regrese a $50 para evitar realizar la pérdida</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q2" value="biased">
+                        <span class="choice-text">Comprar más acciones para "promediar a la baja" mi base de costo</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q2" value="biased">
+                        <span class="choice-text">Esperar y esperar que la situación mejore en lugar de aceptar la pérdida</span>
+                    </label>
+                </div>
+                <div class="feedback" id="feedback2">
+                    <div class="feedback-title"></div>
+                    <p></p>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="checkAnswer(2)">Verificar Respuesta</button>
+                    <button class="button secondary" onclick="nextBias(3)" id="next2" disabled>Siguiente Sesgo →</button>
+                </div>
+            </div>
+            <!-- Sesgo 3: Mentalidad de Rebaño -->
+            <div class="bias-section" data-bias="3">
+                <h2><span class="icon">🐑</span> Mentalidad de Rebaño</h2>
+                <div class="bias-description">
+                    <strong>Definición:</strong> La tendencia a seguir y copiar lo que otros están haciendo, especialmente durante tiempos de incertidumbre. Esto a menudo lleva a burbujas y caídas del mercado.
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario</div>
+                    <p>Todos en el trabajo están hablando de CriptoCoin, que ha aumentado un 300% en el último mes. Sus compañeros de trabajo están obteniendo ganancias significativas, y las redes sociales están llenas de historias de éxito. No entiende completamente las criptomonedas, pero se siente excluido.</p>
+                </div>
+                <div class="question">¿Qué enfoque muestra pensamiento independiente?</div>
+                <div class="choices">
+                    <label class="choice">
+                        <input type="radio" name="q3" value="correct">
+                        <span class="choice-text">Investigar criptomonedas a fondo, entender los riesgos, y solo invertir si se ajusta a mi estrategia y tolerancia al riesgo</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q3" value="biased">
+                        <span class="choice-text">Invertir rápidamente antes de que el precio suba aún más—todos no pueden estar equivocados</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q3" value="biased">
+                        <span class="choice-text">Poner una pequeña cantidad ahora y más después si otros siguen ganando dinero</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q3" value="biased">
+                        <span class="choice-text">Seguir lo que está haciendo la persona más exitosa en el trabajo</span>
+                    </label>
+                </div>
+                <div class="feedback" id="feedback3">
+                    <div class="feedback-title"></div>
+                    <p></p>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="checkAnswer(3)">Verificar Respuesta</button>
+                    <button class="button secondary" onclick="nextBias(4)" id="next3" disabled>Siguiente Sesgo →</button>
+                </div>
+            </div>
+            <!-- Sesgo 4: Sesgo de Exceso de Confianza -->
+            <div class="bias-section" data-bias="4">
+                <h2><span class="icon">💪</span> Sesgo de Exceso de Confianza</h2>
+                <div class="bias-description">
+                    <strong>Definición:</strong> La tendencia a sobreestimar su conocimiento, habilidades y la precisión de sus predicciones. Los estudios muestran que el 80% de los inversores creen que están por encima del promedio.
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario</div>
+                    <p>Después de seleccionar con éxito tres acciones ganadoras seguidas, se siente seguro de sus habilidades de inversión. Está considerando invertir una gran parte de su portafolio en una sola acción que ha investigado por unas horas, creyendo que ha encontrado un ganador garantizado.</p>
+                </div>
+                <div class="question">¿Qué demuestra humildad apropiada?</div>
+                <div class="choices">
+                    <label class="choice">
+                        <input type="radio" name="q4" value="correct">
+                        <span class="choice-text">Mantener diversificación, reconocer que el éxito pasado puede ser parcialmente suerte, y continuar con investigación sistemática</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q4" value="biased">
+                        <span class="choice-text">Aumentar el tamaño de las posiciones ya que mi habilidad para seleccionar acciones está probada</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q4" value="biased">
+                        <span class="choice-text">Pasar a inversiones más complejas como opciones ya que he dominado las acciones</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q4" value="biased">
+                        <span class="choice-text">Invertir fuertemente en esta oportunidad—sé reconocer un ganador cuando lo veo</span>
+                    </label>
+                </div>
+                <div class="feedback" id="feedback4">
+                    <div class="feedback-title"></div>
+                    <p></p>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="checkAnswer(4)">Verificar Respuesta</button>
+                    <button class="button secondary" onclick="nextBias(5)" id="next4" disabled>Siguiente Sesgo →</button>
+                </div>
+            </div>
+            <!-- Sesgo 5: Sesgo de Anclaje -->
+            <div class="bias-section" data-bias="5">
+                <h2><span class="icon">⚓</span> Sesgo de Anclaje</h2>
+                <div class="bias-description">
+                    <strong>Definición:</strong> La tendencia a depender demasiado de la primera información encontrada (el "ancla") al tomar decisiones, incluso si esa información es irrelevante.
+                </div>
+                <div class="scenario-box">
+                    <div class="scenario-title">Escenario</div>
+                    <p>Está considerando comprar acciones de MediaCo. Ve que cotizaba a $100 por acción el año pasado y ahora está en $60. Un amigo menciona que piensa que está "barata" comparada con el máximo de $100. El análisis actual muestra que el modelo de negocio de la empresa se está deteriorando.</p>
+                </div>
+                <div class="question">¿Cómo debería abordar esta decisión?</div>
+                <div class="choices">
+                    <label class="choice">
+                        <input type="radio" name="q5" value="correct">
+                        <span class="choice-text">Ignorar el precio histórico y evaluar la acción basándome en los fundamentos actuales y las perspectivas futuras</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q5" value="biased">
+                        <span class="choice-text">Es una ganga a $60 comparado con los $100 que solía valer</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q5" value="biased">
+                        <span class="choice-text">Esperar a que caiga más cerca de $50 (la mitad de $100) antes de comprar</span>
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="q5" value="biased">
+                        <span class="choice-text">Comprar ahora esperando que regrese a $100 eventualmente</span>
+                    </label>
+                </div>
+                <div class="feedback" id="feedback5">
+                    <div class="feedback-title"></div>
+                    <p></p>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="checkAnswer(5)">Verificar Respuesta</button>
+                    <button class="button secondary" onclick="showResults()" id="next5" disabled>Ver Resultados →</button>
+                </div>
+            </div>
+            <!-- Pantalla de Resultados -->
+            <div class="results-screen" id="results">
+                <h2>Su Evaluación de Sesgos Conductuales</h2>
+                <div class="score-circle">
+                    <div class="score-number" id="score">0</div>
+                    <div class="score-label">de 5</div>
+                </div>
+                <p id="score-message" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 20px;"></p>
+                <div class="bias-summary">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">Estrategias para Superar Estos Sesgos</h3>
+                    <div class="bias-item">
+                        <div class="bias-name">🔍 Sesgo de Confirmación</div>
+                        <div class="bias-strategy">Busque activamente información que contradiga sus creencias. Cree una lista de verificación de "abogado del diablo" antes de tomar decisiones.</div>
+                    </div>
+                    <div class="bias-item">
+                        <div class="bias-name">😰 Aversión a la Pérdida</div>
+                        <div class="bias-strategy">Use órdenes stop-loss. Tome decisiones basándose en perspectivas futuras, no en precios de compra pasados. Recuerde: los costos hundidos son irrelevantes.</div>
+                    </div>
+                    <div class="bias-item">
+                        <div class="bias-name">🐑 Mentalidad de Rebaño</div>
+                        <div class="bias-strategy">Desarrolle y siga un plan de inversión escrito. Pregúntese "¿Compraría esto si nadie más lo hiciera?" antes de seguir tendencias.</div>
+                    </div>
+                    <div class="bias-item">
+                        <div class="bias-name">💪 Sesgo de Exceso de Confianza</div>
+                        <div class="bias-strategy">Mantenga un diario de decisiones para revisar éxitos Y fracasos. Mantenga humildad y diversificación independientemente del rendimiento pasado.</div>
+                    </div>
+                    <div class="bias-item">
+                        <div class="bias-name">⚓ Sesgo de Anclaje</div>
+                        <div class="bias-strategy">Enfóquese en el valor intrínseco, no en precios históricos. Pregúntese "¿Cuánto vale esto hoy?" en lugar de "¿Cuánto valía antes?"</div>
+                    </div>
+                </div>
+                <div class="button-group" style="justify-content: center; margin-top: 30px;">
+                    <button class="button" onclick="restartAssessment()">Reiniciar Evaluación</button>
+                    <button class="button secondary" onclick="window.print()">Imprimir Resultados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentBias = 1;
+        let correctAnswers = 0;
+        const totalBiases = 5;
+        const answers = {};
+        const feedbackData = {
+            1: {
+                correct: { title: "✅ ¡Excelente! Está evitando el sesgo de confirmación.", text: "Al considerar toda la información por igual, está tomando decisiones objetivas en lugar de seleccionar datos que apoyen sus creencias existentes." },
+                biased: { title: "⚠️ Esto muestra sesgo de confirmación.", text: "Enfocarse solo en información que apoya sus creencias existentes le impide tomar decisiones de inversión objetivas. Siempre busque evidencia contradictoria." }
+            },
+            2: {
+                correct: { title: "✅ ¡Gran toma de decisiones!", text: "Se está enfocando en las perspectivas futuras en lugar de los precios pasados. Los costos hundidos (su precio de compra original) nunca deberían impulsar las decisiones actuales." },
+                biased: { title: "⚠️ Esto demuestra aversión a la pérdida.", text: "Mantener una inversión en declive solo para evitar realizar una pérdida a menudo lleva a mayores pérdidas. El precio de compra pasado es irrelevante para las decisiones actuales." }
+            },
+            3: {
+                correct: { title: "✅ ¡Fuerte pensamiento independiente!", text: "Está tomando decisiones basadas en su propia investigación y tolerancia al riesgo, no en el comportamiento de la multitud. Esto le protege de burbujas y caídas." },
+                biased: { title: "⚠️ Esto muestra mentalidad de rebaño.", text: "Seguir a la multitud sin análisis independiente a menudo lleva a comprar caro y vender barato. El rendimiento pasado no garantiza resultados futuros." }
+            },
+            4: {
+                correct: { title: "✅ ¡Excelente humildad y disciplina!", text: "Reconocer que el éxito puede involucrar suerte y mantener enfoques sistemáticos previene que el exceso de confianza destruya su portafolio." },
+                biased: { title: "⚠️ Esto demuestra exceso de confianza.", text: "El éxito pasado no garantiza resultados futuros. El exceso de confianza lleva a tomar riesgos excesivos y a menudo resulta en pérdidas significativas." }
+            },
+            5: {
+                correct: { title: "✅ ¡Perfecto! Está evitando el sesgo de anclaje.", text: "Los precios históricos son irrelevantes para el valor actual. Está enfocándose correctamente en los fundamentos y las perspectivas futuras." },
+                biased: { title: "⚠️ Esto muestra sesgo de anclaje.", text: "Usar precios históricos como punto de referencia puede llevar a malas decisiones. Una acción no está 'barata' solo porque estaba más alta antes—evalúe el valor actual." }
+            }
+        };
+        function updateProgress() {
+            const progress = ((currentBias - 1) / totalBiases) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            document.getElementById('progress').textContent = Math.round(progress) + '%';
+        }
+        function checkAnswer(biasNum) {
+            const selected = document.querySelector(`input[name="q${biasNum}"]:checked`);
+            if (!selected) { alert('Por favor seleccione una respuesta primero.'); return; }
+            const isCorrect = selected.value === 'correct';
+            answers[biasNum] = isCorrect;
+            if (isCorrect) correctAnswers++;
+            const feedback = document.getElementById(`feedback${biasNum}`);
+            const feedbackType = isCorrect ? 'correct' : 'biased';
+            const data = feedbackData[biasNum][feedbackType];
+            feedback.className = 'feedback show ' + feedbackType;
+            feedback.querySelector('.feedback-title').textContent = data.title;
+            feedback.querySelector('p').textContent = data.text;
+            document.querySelectorAll(`input[name="q${biasNum}"]`).forEach(input => { input.disabled = true; });
+            document.getElementById(`next${biasNum}`).disabled = false;
+            event.target.disabled = true;
+        }
+        function nextBias(nextNum) {
+            document.querySelectorAll('.bias-section').forEach(section => { section.classList.remove('active'); });
+            document.querySelector(`[data-bias="${nextNum}"]`).classList.add('active');
+            currentBias = nextNum;
+            updateProgress();
+            window.scrollTo(0, 0);
+        }
+        function showResults() {
+            document.querySelectorAll('.bias-section').forEach(section => { section.classList.remove('active'); });
+            document.getElementById('results').classList.add('show');
+            document.getElementById('score').textContent = correctAnswers;
+            updateProgress();
+            document.getElementById('progress').style.width = '100%';
+            document.getElementById('progress').textContent = '100%';
+            let message = '';
+            if (correctAnswers === 5) { message = '¡Excelente! Demuestra excelente conciencia de los sesgos conductuales.'; }
+            else if (correctAnswers >= 3) { message = '¡Buen trabajo! Reconoce la mayoría de los sesgos, pero hay espacio para mejorar.'; }
+            else { message = '¡Siga aprendiendo! Entender estos sesgos es el primer paso para superarlos.'; }
+            document.getElementById('score-message').textContent = message;
+            window.scrollTo(0, 0);
+        }
+        function restartAssessment() {
+            currentBias = 1; correctAnswers = 0;
+            Object.keys(answers).forEach(key => delete answers[key]);
+            document.querySelectorAll('.bias-section').forEach(section => { section.classList.remove('active'); });
+            document.querySelector('[data-bias="1"]').classList.add('active');
+            document.querySelectorAll('input[type="radio"]').forEach(input => { input.checked = false; input.disabled = false; });
+            document.querySelectorAll('.feedback').forEach(feedback => { feedback.classList.remove('show', 'correct', 'biased'); });
+            document.querySelectorAll('.button').forEach(button => {
+                if (button.textContent.includes('Siguiente') || button.textContent.includes('Ver Resultados')) { button.disabled = true; }
+                else if (button.textContent.includes('Verificar')) { button.disabled = false; }
+            });
+            document.getElementById('results').classList.remove('show');
+            updateProgress();
+            window.scrollTo(0, 0);
+        }
+        updateProgress();
+    </script>
+</body>
+</html>

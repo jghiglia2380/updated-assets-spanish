@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Evaluación de Propiedades</title>
+    <style>
+        @media print { body { font-size: 12pt; color: #000; background-color: #fff; } .no-print { display: none; } table { page-break-inside: avoid; } .page-break { page-break-before: always; } @page { margin: 0.5in; } }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 8.5in; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #4f46e5; margin-bottom: 10px; }
+        h2 { color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 5px; margin-top: 30px; }
+        h3 { color: #6366f1; margin-top: 20px; }
+        .instructions { background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .matrix-section { background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); border-left: 5px solid #6366f1; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th { background-color: #e0e7ff; padding: 10px; text-align: left; border: 1px solid #a5b4fc; }
+        td { padding: 10px; border: 1px solid #a5b4fc; vertical-align: top; }
+        .category-heading { background-color: #eef2ff; font-weight: bold; }
+        .property-column { width: 18%; }
+        .factor-column { width: 28%; }
+        .financial-section { border-left: 5px solid #60a5fa; }
+        .location-section { border-left: 5px solid #34d399; }
+        .property-section { border-left: 5px solid #f59e0b; }
+        .lifestyle-section { border-left: 5px solid #ec4899; }
+        .summary-section { border-left: 5px solid #8b5cf6; }
+        .rating-guide { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; margin: 15px 0; }
+        .notes { font-style: italic; color: #6b7280; font-size: 0.9em; }
+        .input-field { width: 100%; box-sizing: border-box; }
+        footer { margin-top: 40px; text-align: center; font-size: 0.8em; color: #6b7280; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Matriz de Evaluación de Propiedades</h1>
+        <p>Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta matriz de evaluación le ayudará a comparar sistemáticamente diferentes propiedades basándose en factores financieros, de ubicación, de propiedad y de estilo de vida. Para cada propiedad que esté considerando, asigne una calificación del 1-5 para cada factor, donde 1 es pobre/inaceptable y 5 es excelente/ideal. También puede ajustar el peso de cada factor para coincidir con sus prioridades personales.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haga clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="rating-guide">
+        <h3>Guía de Escala de Calificación</h3>
+        <ul>
+            <li><strong>5 - Excelente:</strong> Supera expectativas, situación ideal</li>
+            <li><strong>4 - Bueno:</strong> Sobre el promedio, cumple necesidades bien</li>
+            <li><strong>3 - Aceptable:</strong> Cumple requisitos mínimos, promedio</li>
+            <li><strong>2 - Regular:</strong> Bajo el promedio, tiene preocupaciones significativas</li>
+            <li><strong>1 - Pobre:</strong> No cumple necesidades, inaceptable</li>
+        </ul>
+        <p>Para <strong>Peso</strong>, asigne un número del 1-5 basado en qué tan importante es cada factor para usted personalmente:</p>
+        <ul>
+            <li><strong>5 - Crítico:</strong> Imprescindible, factor decisivo</li>
+            <li><strong>3 - Importante:</strong> Influye significativamente en la decisión</li>
+            <li><strong>1 - Menor:</strong> Agradable tener pero no esencial</li>
+        </ul>
+    </div>
+
+    <div class="matrix-section">
+        <h2>Información de la Propiedad</h2>
+        <table>
+            <tr>
+                <th class="factor-column">Detalle de Propiedad</th>
+                <th class="property-column">Propiedad A</th>
+                <th class="property-column">Propiedad B</th>
+                <th class="property-column">Propiedad C</th>
+                <th class="property-column">Propiedad D</th>
+            </tr>
+            <tr><td>Dirección</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Precio de Lista</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Metros Cuadrados</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Habitaciones/Baños</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Año de Construcción</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+        </table>
+    </div>
+
+    <div class="matrix-section financial-section">
+        <h2>Factores Financieros</h2>
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Peso<br>(1-5)</th>
+                <th class="property-column">Propiedad A<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad B<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad C<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad D<br>Calificación (1-5)</th>
+            </tr>
+            <tr><td>Precio de Compra/Asequibilidad</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Pago Mensual Estimado (PITI)</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Tasa de Impuesto sobre la Propiedad</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Cuotas de HOA (si aplica)</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Costos de Servicios Públicos Estimados</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Costos de Mantenimiento Esperados</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Reparaciones Inmediatas Necesarias</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Potencial de Apreciación</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Potencial de Reventa</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr class="category-heading"><td>Notas de Factores Financieros</td><td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td></tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="matrix-section location-section">
+        <h2>Factores de Ubicación</h2>
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Peso<br>(1-5)</th>
+                <th class="property-column">Propiedad A<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad B<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad C<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad D<br>Calificación (1-5)</th>
+            </tr>
+            <tr><td>Tiempo de Traslado al Trabajo/Escuela</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Calidad del Distrito Escolar</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Proximidad a Tiendas/Supermercados</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Acceso a Instalaciones de Salud</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Acceso a Transporte Público</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Parques e Instalaciones Recreativas</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Seguridad del Vecindario/Tasa de Crimen</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Carácter/Calidad del Vecindario</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Planes de Desarrollo Futuro</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr class="category-heading"><td>Notas de Factores de Ubicación</td><td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td></tr>
+        </table>
+    </div>
+
+    <div class="matrix-section property-section">
+        <h2>Factores de la Propiedad</h2>
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Peso<br>(1-5)</th>
+                <th class="property-column">Propiedad A<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad B<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad C<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad D<br>Calificación (1-5)</th>
+            </tr>
+            <tr><td>Tamaño Total/Metros Cuadrados</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Número de Habitaciones</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Número de Baños</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Calidad/Características de la Cocina</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Espacio de Almacenamiento</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Plano/Distribución</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Tamaño del Patio/Espacio Exterior</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Edad y Condición de Sistemas (HVAC, Plomería, Eléctrico)</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Condición y Edad del Techo</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Eficiencia Energética</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Garaje/Estacionamiento</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr class="category-heading"><td>Notas de Factores de Propiedad</td><td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td></tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="matrix-section lifestyle-section">
+        <h2>Factores de Estilo de Vida</h2>
+        <table>
+            <tr>
+                <th class="factor-column">Factor</th>
+                <th>Peso<br>(1-5)</th>
+                <th class="property-column">Propiedad A<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad B<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad C<br>Calificación (1-5)</th>
+                <th class="property-column">Propiedad D<br>Calificación (1-5)</th>
+            </tr>
+            <tr><td>Adecuación para Tamaño/Estructura Familiar</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Adecuado para Mascotas/Animales</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Potencial para Oficina en Casa/Espacio de Trabajo</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Espacio de Entretenimiento/Pasatiempos</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Requisitos de Mantenimiento (Patio, Piscina, etc.)</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Reglas y Restricciones de HOA</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Nivel de Ruido/Privacidad</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Potencial para Necesidades Futuras (Familia Creciendo, Envejecer en Casa)</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Acceso a Actividades/Intereses</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Factor "Wow" Personal/Atractivo Emocional</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr class="category-heading"><td>Notas de Factores de Estilo de Vida</td><td colspan="5"><textarea class="input-field" style="width: 100%; height: 60px;"></textarea></td></tr>
+        </table>
+    </div>
+
+    <div class="matrix-section summary-section">
+        <h2>Resumen de Evaluación</h2>
+
+        <h3>Cálculo de Puntuación Ponderada</h3>
+        <p class="notes">Para cada factor, multiplique su Peso (1-5) por su Calificación (1-5) para obtener una puntuación ponderada. Luego sume todas las puntuaciones ponderadas para cada propiedad y divida por la suma de todos los pesos para obtener una puntuación final de 5.</p>
+
+        <table>
+            <tr><th class="factor-column">Categoría</th><th class="property-column">Propiedad A</th><th class="property-column">Propiedad B</th><th class="property-column">Propiedad C</th><th class="property-column">Propiedad D</th></tr>
+            <tr><td>Puntuación de Factores Financieros</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Puntuación de Factores de Ubicación</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Puntuación de Factores de Propiedad</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td>Puntuación de Factores de Estilo de Vida</td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td><strong>PUNTUACIÓN PONDERADA GENERAL (de 5)</strong></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+            <tr><td><strong>CLASIFICACIÓN</strong></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td><td><input type="text" class="input-field"></td></tr>
+        </table>
+
+        <h3>Fortalezas y Debilidades de la Propiedad</h3>
+        <table>
+            <tr><th>Propiedad</th><th>3 Principales Fortalezas</th><th>3 Principales Debilidades</th></tr>
+            <tr><td>Propiedad A</td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td></tr>
+            <tr><td>Propiedad B</td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td></tr>
+            <tr><td>Propiedad C</td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td></tr>
+            <tr><td>Propiedad D</td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td><td><textarea class="input-field" style="width: 100%; height: 80px;"></textarea></td></tr>
+        </table>
+
+        <h3>Decisión Final y Justificación</h3>
+        <p>Después de evaluar todas las propiedades, mi primera opción es:</p>
+        <input type="text" class="input-field" style="font-weight: bold; font-size: 1.1em; margin-bottom: 15px;">
+        <p>Justificación de esta decisión:</p>
+        <textarea class="input-field" style="width: 100%; height: 100px;"></textarea>
+
+        <h3>Próximos Pasos</h3>
+        <textarea class="input-field" style="width: 100%; height: 100px;"></textarea>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.3: Entendiendo la Compra de Vivienda</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Análisis de Regulaciones - PFL Academy</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .regulation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .regulation-option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .regulation-option:hover {
+            border-color: #6366f1;
+            background: #eef2ff;
+        }
+
+        .regulation-option input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .regulation-option.selected {
+            border-color: #6366f1;
+            background: #eef2ff;
+        }
+
+        .analysis-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .analysis-card h4 {
+            color: #4f46e5;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .verdict-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .verdict-option {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .verdict-option:hover {
+            border-color: #6366f1;
+        }
+
+        .verdict-option input[type="radio"] {
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        .verdict-option.selected {
+            border-color: #6366f1;
+            background: #eef2ff;
+        }
+
+        .verdict-label {
+            flex: 1;
+        }
+
+        .verdict-label strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .verdict-label span {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .example-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .example-box h4 {
+            color: #92400e;
+            margin-bottom: 12px;
+        }
+
+        .example-box ul {
+            margin-left: 20px;
+            color: #92400e;
+        }
+
+        .example-box li {
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: #1e40af;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            .header {
+                padding: 16px;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .analysis-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Análisis de Regulaciones</h1>
+            <p>Analiza regulaciones específicas de {{STATE_NAME}} en detalle - Actividad 3 (10 minutos)</p>
+        </div>
+
+        <div class="content">
+            <!-- Regulation Selection -->
+            <div class="section">
+                <h2 class="section-title">Selecciona Una Regulación para Analizar</h2>
+                <div class="regulation-options">
+                    <label class="regulation-option">
+                        <input type="radio" name="regulation" value="licensing">
+                        Licencias Ocupacionales de {{STATE_NAME}}
+                    </label>
+                    <label class="regulation-option">
+                        <input type="radio" name="regulation" value="environmental">
+                        Regulaciones Ambientales de {{STATE_NAME}}
+                    </label>
+                    <label class="regulation-option">
+                        <input type="radio" name="regulation" value="rent_control">
+                        Control de Alquileres de {{STATE_NAME}} (si aplica)
+                    </label>
+                    <label class="regulation-option">
+                        <input type="radio" name="regulation" value="certificate_need">
+                        Leyes de Certificado de Necesidad de {{STATE_NAME}}
+                    </label>
+                    <label class="regulation-option">
+                        <input type="radio" name="regulation" value="zoning">
+                        Zonificación y Uso del Suelo de {{STATE_NAME}}
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="customRegulation">Tu regulación seleccionada (sé específico):</label>
+                    <input type="text" id="customRegulation" placeholder="ej., Licencias de cosmetología, pruebas de emisiones de vehículos, etc.">
+                </div>
+            </div>
+
+            <!-- Analysis Template -->
+            <div class="section">
+                <h2 class="section-title">Plantilla de Análisis</h2>
+
+                <div class="analysis-card">
+                    <h4>1. ¿Qué requiere la regulación?</h4>
+                    <textarea placeholder="Describe los requisitos específicos, tarifas, horas de capacitación, permisos necesarios, etc."></textarea>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>2. ¿Qué problema pretendía resolver?</h4>
+                    <textarea placeholder="¿Qué problema o preocupación llevó a la creación de esta regulación?"></textarea>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>3. ¿Resuelve ese problema?</h4>
+                    <div class="checkbox-group">
+                        <label><input type="radio" name="solves" value="yes"> Sí</label>
+                        <label><input type="radio" name="solves" value="partially"> Parcialmente</label>
+                        <label><input type="radio" name="solves" value="no"> No</label>
+                    </div>
+                    <div class="form-group" style="margin-top: 8px;">
+                        <label for="evidence">Evidencia:</label>
+                        <textarea id="evidence" placeholder="¿Qué evidencia apoya tu respuesta?"></textarea>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>4. ¿Cuáles son los costos?</h4>
+
+                    <div class="form-group">
+                        <label><strong>Para los consumidores:</strong></label>
+                        <textarea placeholder="¿Precios más altos? ¿Opciones limitadas? ¿Calidad reducida?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label><strong>Para las empresas:</strong></label>
+                        <textarea placeholder="¿Costos de cumplimiento? ¿Barreras de entrada? ¿Desventaja competitiva?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label><strong>Para la sociedad:</strong></label>
+                        <textarea placeholder="¿Pérdida de eficiencia? ¿Ineficiencia? ¿Consecuencias no previstas?"></textarea>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>5. ¿Quién se beneficia?</h4>
+                    <textarea placeholder="¿Qué grupos ganan con esta regulación? ¿Cómo se benefician?"></textarea>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>6. ¿Quién se perjudica?</h4>
+                    <textarea placeholder="¿Qué grupos se ven afectados negativamente? ¿Cómo se perjudican?"></textarea>
+                </div>
+
+                <div class="analysis-card">
+                    <h4>7. Tu veredicto</h4>
+                    <div class="verdict-options">
+                        <label class="verdict-option">
+                            <input type="radio" name="verdict" value="keep">
+                            <div class="verdict-label">
+                                <strong>Mantener como está</strong>
+                                <span>Los beneficios claramente superan los costos</span>
+                            </div>
+                        </label>
+                        <label class="verdict-option">
+                            <input type="radio" name="verdict" value="reform">
+                            <div class="verdict-label">
+                                <strong>Reformar</strong>
+                                <span>Buena intención pero necesita mejoras</span>
+                            </div>
+                        </label>
+                        <label class="verdict-option">
+                            <input type="radio" name="verdict" value="repeal">
+                            <div class="verdict-label">
+                                <strong>Derogar</strong>
+                                <span>Los costos superan los beneficios, eliminar</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 16px;">
+                        <label for="reforms">Si reformas, ¿qué cambios harías?</label>
+                        <input type="text" id="reforms" placeholder="Describe reformas específicas...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="verdictEvidence">Evidencia que apoya tu posición:</label>
+                        <textarea id="verdictEvidence" placeholder="¿Qué hechos, datos o razonamiento apoyan tu veredicto?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example -->
+            <div class="example-box">
+                <h4>Ejemplo: Licencias de Cosmetología en {{STATE_NAME}}</h4>
+                <ul>
+                    <li><strong>Requisitos:</strong> 1,500 horas de capacitación (9-12 meses), examen de licencia, tarifas: $5,000-15,000</li>
+                    <li><strong>Problema que resuelve:</strong> Asegurar que los estilistas conozcan saneamiento y seguridad, proteger a los consumidores de daños</li>
+                    <li><strong>¿Lo resuelve?</strong> Parcialmente - La seguridad básica podría enseñarse en 100 horas; 1,500 horas es más que la capacitación de paramédicos (150 hrs)</li>
+                    <li><strong>Costos:</strong> Precios más altos para consumidores; barrera de entrada para aspirantes a estilistas, especialmente de bajos ingresos</li>
+                    <li><strong>¿Quién se beneficia más?</strong> Estilistas licenciados existentes (competencia reducida)</li>
+                    <li><strong>Veredicto:</strong> Reformar - Reducir horas a un estándar de seguridad razonable (¿300 hrs?), eliminar requisitos innecesarios</li>
+                </ul>
+            </div>
+
+            <!-- Print Button -->
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="window.print()">Imprimir Hoja de Trabajo</button>
+                <button class="btn btn-secondary" onclick="resetForm()">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Regulation option selection
+        document.querySelectorAll('.regulation-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.regulation-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Verdict option selection
+        document.querySelectorAll('.verdict-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.verdict-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        function resetForm() {
+            document.querySelectorAll('input[type="text"], textarea').forEach(el => el.value = '');
+            document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+            document.querySelectorAll('.regulation-option, .verdict-option').forEach(el => el.classList.remove('selected'));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Factores del Puntaje Crediticio - Capítulo 7.3</title>
+    <style>
+        /* Estilos para impresión */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: #1E3A8A;
+            margin: 0;
+            font-size: 24pt;
+        }
+
+        h2 {
+            color: #1E3A8A;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h3 {
+            color: #2563EB;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .chart-container {
+            background-color: #F0F9FF;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 10px;
+        }
+
+        .color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .factor-description {
+            margin-bottom: 30px;
+        }
+
+        .response-area {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            min-height: 150px;
+        }
+
+        .print-button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #1E40AF;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #6B7280;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Trabajo de Factores del Puntaje Crediticio</h1>
+        <p>Capítulo 7.3: Comprendiendo los Puntajes de Crédito</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta hoja de trabajo está diseñada para ayudarle a comprender los cinco factores clave que influyen en su puntaje de crédito FICO y reflexionar sobre qué factores podrían ser más fáciles o más difíciles de manejar para usted.</p>
+        <ol>
+            <li>Revise el gráfico de componentes del puntaje de crédito y las descripciones a continuación</li>
+            <li>Reflexione sobre cada factor y considere cómo podría aplicarse a su situación financiera actual o futura</li>
+            <li>Responda las preguntas de reflexión en los espacios proporcionados</li>
+            <li>Use esta hoja de trabajo para informar el desarrollo de su estrategia de crédito en el Laboratorio de Aprendizaje</li>
+        </ol>
+    </div>
+
+    <h2>El Desglose del Puntaje FICO</h2>
+
+    <div class="chart-container">
+        <div style="position: relative; height: 300px; width: 300px; margin: 0 auto;">
+            <!-- Gráfico Circular SVG -->
+            <svg width="300" height="300" viewBox="0 0 300 300">
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#E5E7EB" stroke-width="100" stroke-dasharray="628" stroke-dashoffset="0"></circle>
+                <!-- Historial de Pagos 35% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#1E40AF" stroke-width="100" stroke-dasharray="220 408" stroke-dashoffset="0"></circle>
+                <!-- Utilización de Crédito 30% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#3B82F6" stroke-width="100" stroke-dasharray="188 440" stroke-dashoffset="-220"></circle>
+                <!-- Longitud del Historial 15% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#60A5FA" stroke-width="100" stroke-dasharray="94 534" stroke-dashoffset="-408"></circle>
+                <!-- Mezcla de Crédito 10% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#93C5FD" stroke-width="100" stroke-dasharray="63 565" stroke-dashoffset="-502"></circle>
+                <!-- Crédito Nuevo 10% -->
+                <circle cx="150" cy="150" r="100" fill="transparent" stroke="#BFDBFE" stroke-width="100" stroke-dasharray="63 565" stroke-dashoffset="-565"></circle>
+                <text x="150" y="150" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="bold">Componentes del Puntaje FICO</text>
+            </svg>
+        </div>
+
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #1E40AF;"></div>
+                <span>Historial de Pagos (35%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #3B82F6;"></div>
+                <span>Utilización de Crédito (30%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #60A5FA;"></div>
+                <span>Longitud del Historial (15%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #93C5FD;"></div>
+                <span>Mezcla de Crédito (10%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #BFDBFE;"></div>
+                <span>Crédito Nuevo (10%)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="factor-description">
+        <h3>Historial de Pagos (35%)</h3>
+        <p>Este es el factor más importante en su puntaje de crédito. Rastrea si paga sus facturas a tiempo, con qué frecuencia pierde pagos, cuántos días de retraso tienen sus pagos, y qué tan recientemente ocurrieron pagos atrasados. Incluso un solo pago perdido puede impactar significativamente su puntaje.</p>
+
+        <h3>Utilización de Crédito (30%)</h3>
+        <p>Este mide cuánto de su crédito disponible está usando. Se calcula tanto para cuentas individuales como en todas sus tarjetas de crédito. Por ejemplo, si tiene un límite de crédito de $1,000 y un saldo de $300, su utilización es 30%. Una utilización más baja (por debajo del 30%) es mejor para su puntaje.</p>
+
+        <h3>Longitud del Historial Crediticio (15%)</h3>
+        <p>Este considera cuánto tiempo han estado establecidas sus cuentas de crédito, incluyendo la edad de su cuenta más antigua, la edad de su cuenta más nueva, y la edad promedio de todas sus cuentas. Los historiales crediticios más largos se ven más favorablemente.</p>
+
+        <h3>Mezcla de Crédito (10%)</h3>
+        <p>Este examina la variedad de cuentas de crédito que tiene, como tarjetas de crédito, cuentas de tiendas, préstamos a plazos y préstamos hipotecarios. Tener una mezcla diversa de tipos de crédito puede impactar positivamente su puntaje, ya que muestra que puede manejar diferentes tipos de crédito.</p>
+
+        <h3>Crédito Nuevo (10%)</h3>
+        <p>Este considera cuántas cuentas nuevas ha abierto recientemente y cuántas consultas recientes aparecen en su reporte por solicitar crédito. Abrir varias cuentas en un período corto puede indicar mayor riesgo y bajar su puntaje temporalmente.</p>
+    </div>
+
+    <h2>Preguntas de Reflexión</h2>
+
+    <h3>1. Basándose en estos cinco factores, ¿cuál cree que sería el más fácil de controlar y mejorar para usted? ¿Por qué?</h3>
+    <div class="response-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>2. ¿Qué factor podría ser el más difícil de manejar para usted? ¿Por qué?</h3>
+    <div class="response-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>3. ¿Qué acciones específicas podría tomar para influir positivamente en cada uno de estos factores?</h3>
+    <div class="response-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>4. ¿Cómo podría necesitar cambiar su estrategia de manejo de crédito al pasar de la preparatoria a la universidad o al trabajo?</h3>
+    <div class="response-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <div class="no-print">
+        <button class="print-button" onclick="window.print();">Imprimir o Guardar como PDF</button>
+        <p><small>Haga clic en el botón de arriba para imprimir esta hoja de trabajo o guardarla como archivo PDF.</small></p>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 7.3: Comprendiendo los Puntajes de Crédito</p>
+    </footer>
+</body>
+</html>

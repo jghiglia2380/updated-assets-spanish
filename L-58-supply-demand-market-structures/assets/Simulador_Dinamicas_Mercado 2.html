@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Dinámicas de Mercado</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .scenario-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .section-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #1f2937; }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .scenario-btn {
+            padding: 12px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .scenario-btn:hover { border-color: #6366f1; }
+        .scenario-btn.selected { border-color: #6366f1; background: #eef2ff; }
+        .scenario-icon { margin-right: 8px; }
+        .equilibrium-display {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .eq-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        .eq-item h4 { font-size: 0.85rem; color: #6b7280; margin-bottom: 5px; }
+        .eq-value { font-size: 1.5rem; font-weight: bold; color: #1e40af; }
+        .change { font-size: 0.9rem; margin-top: 5px; }
+        .change.up { color: #dc2626; }
+        .change.down { color: #059669; }
+        .explanation {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+        .explanation h4 { color: #92400e; margin-bottom: 8px; }
+        .explanation p { color: #78350f; font-size: 0.95rem; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .scenario-grid, .eq-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .equilibrium-display,
+            .explanation {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador de Dinámicas de Mercado</h1>
+            <p class="subtitle">Observa cómo los eventos desplazan las curvas de oferta y demanda</p>
+        </header>
+
+        <div class="scenario-section">
+            <div class="section-title">Selecciona un Evento de Mercado</div>
+            <div class="scenario-grid">
+                <button class="scenario-btn" onclick="simulate('demand-up')">
+                    <span class="scenario-icon">📈</span>La Demanda Aumenta
+                </button>
+                <button class="scenario-btn" onclick="simulate('demand-down')">
+                    <span class="scenario-icon">📉</span>La Demanda Disminuye
+                </button>
+                <button class="scenario-btn" onclick="simulate('supply-up')">
+                    <span class="scenario-icon">🏭</span>La Oferta Aumenta
+                </button>
+                <button class="scenario-btn" onclick="simulate('supply-down')">
+                    <span class="scenario-icon">⚠️</span>La Oferta Disminuye
+                </button>
+                <button class="scenario-btn" onclick="simulate('both-up')">
+                    <span class="scenario-icon">🚀</span>Ambas Aumentan
+                </button>
+                <button class="scenario-btn" onclick="simulate('demand-up-supply-down')">
+                    <span class="scenario-icon">💥</span>Demanda↑ Oferta↓
+                </button>
+            </div>
+        </div>
+
+        <div class="equilibrium-display" id="results" style="display: none;">
+            <div class="section-title">Nuevo Equilibrio de Mercado</div>
+            <div class="eq-grid">
+                <div class="eq-item">
+                    <h4>Precio</h4>
+                    <div class="eq-value" id="price">$10</div>
+                    <div class="change" id="priceChange"></div>
+                </div>
+                <div class="eq-item">
+                    <h4>Cantidad</h4>
+                    <div class="eq-value" id="quantity">100</div>
+                    <div class="change" id="qtyChange"></div>
+                </div>
+                <div class="eq-item">
+                    <h4>Efecto en el Mercado</h4>
+                    <div class="eq-value" id="effect">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="explanation" style="display: none;">
+            <h4>Qué Está Sucediendo</h4>
+            <p id="explanationText"></p>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Oferta y Demanda</p>
+        </footer>
+    </div>
+
+    <script>
+        function simulate(event) {
+            document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('selected'));
+            event.target.closest('.scenario-btn').classList.add('selected');
+
+            let price = '$10', priceDir = '', quantity = '100 unidades', qtyDir = '', effect = '', explanation = '';
+
+            switch(event) {
+                case 'demand-up':
+                    price = '$12';
+                    priceDir = '↑ Más Alto';
+                    quantity = '120 unidades';
+                    qtyDir = '↑ Más Alta';
+                    effect = 'Expansión';
+                    explanation = 'Cuando la demanda aumenta (se desplaza a la derecha), los compradores están dispuestos a pagar más y comprar más a cada precio. Esto empuja el precio de equilibrio hacia arriba y la cantidad hacia arriba. Ejemplo: Una tendencia viral en redes sociales hace popular un producto.';
+                    break;
+                case 'demand-down':
+                    price = '$8';
+                    priceDir = '↓ Más Bajo';
+                    quantity = '80 unidades';
+                    qtyDir = '↓ Más Baja';
+                    effect = 'Contracción';
+                    explanation = 'Cuando la demanda disminuye (se desplaza a la izquierda), los compradores quieren menos a cada precio. Los vendedores deben bajar los precios para vender, y la cantidad total cae. Ejemplo: Una noticia negativa sobre un producto reduce el interés.';
+                    break;
+                case 'supply-up':
+                    price = '$8';
+                    priceDir = '↓ Más Bajo';
+                    quantity = '120 unidades';
+                    qtyDir = '↑ Más Alta';
+                    effect = 'Excedente';
+                    explanation = 'Cuando la oferta aumenta (se desplaza a la derecha), hay más producto disponible. Los precios bajan para limpiar el mercado, y la cantidad total sube. Ejemplo: Nueva tecnología hace la producción más barata.';
+                    break;
+                case 'supply-down':
+                    price = '$12';
+                    priceDir = '↑ Más Alto';
+                    quantity = '80 unidades';
+                    qtyDir = '↓ Más Baja';
+                    effect = 'Escasez';
+                    explanation = 'Cuando la oferta disminuye (se desplaza a la izquierda), hay menos producto disponible. Los precios suben debido a la escasez, y la cantidad total cae. Ejemplo: Un desastre natural interrumpe la producción.';
+                    break;
+                case 'both-up':
+                    price = '$10';
+                    priceDir = '→ Ambiguo';
+                    quantity = '150 unidades';
+                    qtyDir = '↑ Más Alta';
+                    effect = 'Crecimiento';
+                    explanation = 'Cuando ambas aumentan, la cantidad definitivamente sube pero el cambio de precio depende de los desplazamientos relativos. Si la demanda aumenta más, el precio sube. Si la oferta aumenta más, el precio baja. Ejemplo: Industria en crecimiento con nuevos productores entrando.';
+                    break;
+                case 'demand-up-supply-down':
+                    price = '$15';
+                    priceDir = '↑↑ Mucho Más Alto';
+                    quantity = '100 unidades';
+                    qtyDir = '→ Ambigua';
+                    effect = 'Pico de Precio';
+                    explanation = 'Esta combinación causa que los precios se disparen significativamente. El cambio de cantidad depende de los desplazamientos relativos. Este es el peor caso para los consumidores. Ejemplo: Producto popular durante crisis de cadena de suministro.';
+                    break;
+            }
+
+            document.getElementById('price').textContent = price;
+            document.getElementById('priceChange').textContent = priceDir;
+            document.getElementById('priceChange').className = 'change ' + (priceDir.includes('Alto') ? 'up' : priceDir.includes('Bajo') ? 'down' : '');
+            document.getElementById('quantity').textContent = quantity;
+            document.getElementById('qtyChange').textContent = qtyDir;
+            document.getElementById('qtyChange').className = 'change ' + (qtyDir.includes('Alta') ? 'up' : qtyDir.includes('Baja') ? 'down' : '');
+            document.getElementById('effect').textContent = effect;
+            document.getElementById('explanationText').textContent = explanation;
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('explanation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Estudio - Leyes de Crédito al Consumidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .instructions {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196f3;
+        }
+        .case-study {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+        .case-number {
+            background-color: #9b59b6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .case-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        .analysis-field {
+            margin: 20px 0;
+        }
+        .analysis-field label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .analysis-field textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .analysis-field textarea:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+        .complete-checkbox {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .complete-checkbox label {
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .complete-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Casos de Estudio: Aplicación de Leyes de Crédito al Consumidor</h1>
+
+    <div class="instructions">
+        <strong>Instrucciones:</strong> Para cada caso de estudio, identifique:
+        <ol>
+            <li>Qué ley(es) de crédito al consumidor podrían aplicar</li>
+            <li>Qué derechos tiene el consumidor en esta situación</li>
+            <li>Qué acciones debería tomar el consumidor</li>
+        </ol>
+    </div>
+
+    <div class="case-study">
+        <span class="case-number">Caso de Estudio 1</span>
+        <div class="case-content">
+            <strong>Pat y el Aumento Sorpresa en la Tasa de Interés</strong><br><br>
+            Pat recibe su estado de cuenta de tarjeta de crédito mensual y nota algo alarmante: su tasa de interés ha aumentado del 12% al 24%, y este nuevo interés se está aplicando a su saldo existente de $3,000. No recibió ninguna notificación previa sobre este aumento. Cuando llama a la compañía de tarjetas de crédito, le dicen que tienen derecho a cambiar las tasas en cualquier momento según los términos y condiciones.
+        </div>
+        <div class="analysis-field">
+            <label>Ley(es) Aplicable(s):</label>
+            <textarea id="case1-laws"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Derechos del Consumidor:</label>
+            <textarea id="case1-rights"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Acciones Recomendadas:</label>
+            <textarea id="case1-actions"></textarea>
+        </div>
+        <div class="complete-checkbox">
+            <input type="checkbox" id="complete1">
+            <label for="complete1">Marcar como completado</label>
+        </div>
+    </div>
+
+    <div class="case-study">
+        <span class="case-number">Caso de Estudio 2</span>
+        <div class="case-content">
+            <strong>María y la Negativa Misteriosa de Crédito</strong><br><br>
+            María solicita un préstamo personal de $10,000 para consolidar deudas. Tiene un puntaje de crédito de 720 y un ingreso estable de $55,000 al año. Le niegan el préstamo, pero no le dan una razón específica. Durante la solicitud, notó que el oficial de préstamos le hizo preguntas sobre su acento y de dónde era originalmente. María sospecha que fue discriminada por su origen étnico, pero no está segura de qué hacer al respecto.
+        </div>
+        <div class="analysis-field">
+            <label>Ley(es) Aplicable(s):</label>
+            <textarea id="case2-laws"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Derechos del Consumidor:</label>
+            <textarea id="case2-rights"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Acciones Recomendadas:</label>
+            <textarea id="case2-actions"></textarea>
+        </div>
+        <div class="complete-checkbox">
+            <input type="checkbox" id="complete2">
+            <label for="complete2">Marcar como completado</label>
+        </div>
+    </div>
+
+    <div class="case-study">
+        <span class="case-number">Caso de Estudio 3</span>
+        <div class="case-content">
+            <strong>David y el Error en el Informe de Crédito</strong><br><br>
+            David está solicitando una hipoteca para comprar su primera casa. Cuando revisa su informe de crédito, descubre que muestra una cuenta de tarjeta de crédito con un saldo de $8,000 que nunca abrió. También hay varios pagos atrasados reportados. David está seguro de que esto es un error o posible robo de identidad, pero el prestamista hipotecario le dice que no puede aprobar su préstamo con esta información negativa en su informe.
+        </div>
+        <div class="analysis-field">
+            <label>Ley(es) Aplicable(s):</label>
+            <textarea id="case3-laws"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Derechos del Consumidor:</label>
+            <textarea id="case3-rights"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Acciones Recomendadas:</label>
+            <textarea id="case3-actions"></textarea>
+        </div>
+        <div class="complete-checkbox">
+            <input type="checkbox" id="complete3">
+            <label for="complete3">Marcar como completado</label>
+        </div>
+    </div>
+
+    <div class="case-study">
+        <span class="case-number">Caso de Estudio 4</span>
+        <div class="case-content">
+            <strong>Sarah y el Cobrador Agresivo</strong><br><br>
+            Sarah tiene una deuda médica pendiente de $2,500. Una agencia de cobros ha comenzado a contactarla y sus métodos son extremadamente agresivos. La llaman al trabajo repetidamente, incluso después de que les pidió que no lo hicieran. También han llamado a las 7 AM y 10 PM. El cobrador le dijo que si no paga inmediatamente, irán a su casa y embargarán sus pertenencias. Sarah quiere pagar la deuda, pero el comportamiento del cobrador la tiene estresada y asustada.
+        </div>
+        <div class="analysis-field">
+            <label>Ley(es) Aplicable(s):</label>
+            <textarea id="case4-laws"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Derechos del Consumidor:</label>
+            <textarea id="case4-rights"></textarea>
+        </div>
+        <div class="analysis-field">
+            <label>Acciones Recomendadas:</label>
+            <textarea id="case4-actions"></textarea>
+        </div>
+        <div class="complete-checkbox">
+            <input type="checkbox" id="complete4">
+            <label for="complete4">Marcar como completado</label>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save functionality
+        const fields = [
+            'case1-laws', 'case1-rights', 'case1-actions',
+            'case2-laws', 'case2-rights', 'case2-actions',
+            'case3-laws', 'case3-rights', 'case3-actions',
+            'case4-laws', 'case4-rights', 'case4-actions'
+        ];
+
+        // Save to localStorage
+        function autoSave() {
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    localStorage.setItem(field, element.value);
+                }
+            });
+
+            // Save checkbox states
+            for (let i = 1; i <= 4; i++) {
+                const checkbox = document.getElementById('complete' + i);
+                if (checkbox) {
+                    localStorage.setItem('complete' + i, checkbox.checked);
+                }
+            }
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            fields.forEach(field => {
+                const saved = localStorage.getItem(field);
+                if (saved) {
+                    document.getElementById(field).value = saved;
+                }
+            });
+
+            // Load checkbox states
+            for (let i = 1; i <= 4; i++) {
+                const saved = localStorage.getItem('complete' + i);
+                if (saved === 'true') {
+                    document.getElementById('complete' + i).checked = true;
+                }
+            }
+        });
+
+        // Add event listeners for auto-save
+        fields.forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', autoSave);
+            }
+        });
+
+        // Add event listeners for checkboxes
+        for (let i = 1; i <= 4; i++) {
+            const checkbox = document.getElementById('complete' + i);
+            if (checkbox) {
+                checkbox.addEventListener('change', autoSave);
+            }
+        }
+    </script>
+</body>
+</html>

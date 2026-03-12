@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Calculadora de Costo de Intereses - Capítulo 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .formula {
+            background-color: #f0f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .example {
+            background-color: #f1f9e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .calculator-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Hoja de Trabajo de Calculadora de Costo de Intereses</h1>
+
+        <div class="note">
+            <p><strong>Instrucciones:</strong> Esta hoja de trabajo le ayudará a calcular y comprender el verdadero costo de pedir dinero prestado. Complete la información requerida para cada ejemplo de préstamo y siga las fórmulas para determinar los pagos mensuales y los costos totales de intereses.</p>
+        </div>
+
+        <div class="section">
+            <h2>Cálculo Básico de Intereses</h2>
+            <p>Para interés simple durante un año:</p>
+            <div class="formula">
+                Interés = Principal × Tasa de Interés
+            </div>
+
+            <h3>Problemas de Práctica</h3>
+            <table>
+                <tr>
+                    <th>Problema</th>
+                    <th>Principal</th>
+                    <th>Tasa de Interés</th>
+                    <th>Cálculo</th>
+                    <th>Monto de Interés</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>$1,000</td>
+                    <td>5%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$5,000</td>
+                    <td>7%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$10,000</td>
+                    <td>3.5%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+
+            <div class="example">
+                <h3>Ejemplo</h3>
+                <p>Si pide prestado $2,000 al 6% de interés simple por un año:</p>
+                <p>Interés = $2,000 × 0.06 = $120</p>
+                <p>Monto total a pagar = $2,000 + $120 = $2,120</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Calculadora de Préstamos a Plazos</h2>
+            <p>Para préstamos con pagos fijos durante un plazo específico (como préstamos de auto, hipotecas):</p>
+
+            <div class="formula">
+                Pago Mensual = P × r × (1 + r)^n / [(1 + r)^n - 1]
+            </div>
+            <p>Donde:</p>
+            <ul>
+                <li>P = Principal (monto del préstamo)</li>
+                <li>r = Tasa de interés mensual (tasa anual dividida por 12)</li>
+                <li>n = Número total de pagos (años × 12)</li>
+            </ul>
+
+            <h3>Análisis de Escenarios de Préstamos</h3>
+            <table>
+                <tr>
+                    <th>Escenario</th>
+                    <th>Monto del Préstamo</th>
+                    <th>Tasa de Interés Anual</th>
+                    <th>Plazo del Préstamo</th>
+                    <th>Pago Mensual</th>
+                    <th>Interés Total Pagado</th>
+                </tr>
+                <tr>
+                    <td>Préstamo Auto A</td>
+                    <td>$20,000</td>
+                    <td>4.5%</td>
+                    <td>5 años</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Préstamo Auto B</td>
+                    <td>$20,000</td>
+                    <td>4.5%</td>
+                    <td>3 años</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Préstamo Auto C</td>
+                    <td>$20,000</td>
+                    <td>7%</td>
+                    <td>5 años</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+
+            <p>Fórmula para el interés total pagado:</p>
+            <div class="formula">
+                Interés Total = (Pago Mensual × Número de Pagos) - Principal
+            </div>
+
+            <h3>Preguntas de Análisis</h3>
+            <ol>
+                <li>¿Cuánto más interés pagaría con el Préstamo Auto A comparado con el Préstamo Auto B?<br>
+                <div class="input-field"></div></li>
+                <li>¿Cuánto más sería su pago mensual con el Préstamo Auto B comparado con el Préstamo Auto A?<br>
+                <div class="input-field"></div></li>
+                <li>¿Cuál es la diferencia en interés total entre el Préstamo Auto A y el Préstamo Auto C?<br>
+                <div class="input-field"></div></li>
+                <li>¿Cuál sería su recomendación para alguien que busca minimizar los costos totales de préstamos?<br>
+                <div class="input-field" style="height: 50px;"></div></li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Calculadora de Intereses de Tarjeta de Crédito</h2>
+            <p>Para crédito revolvente con pagos mínimos:</p>
+
+            <div class="formula">
+                Pago Mínimo = Porcentaje del Saldo (típicamente 2-3%) o monto fijo (el que sea mayor)
+            </div>
+
+            <h3>Escenarios de Tarjeta de Crédito</h3>
+            <p>Calcule cuánto tiempo tomaría pagar estos saldos de tarjeta de crédito haciendo solo pagos mínimos (asuma 2% del saldo o $25, el que sea mayor):</p>
+
+            <table>
+                <tr>
+                    <th>Escenario</th>
+                    <th>Saldo Inicial</th>
+                    <th>TAE</th>
+                    <th>Pago Mínimo Inicial</th>
+                    <th>Tiempo para Pagar</th>
+                    <th>Interés Total Pagado</th>
+                </tr>
+                <tr>
+                    <td>Tarjeta de Crédito A</td>
+                    <td>$5,000</td>
+                    <td>18%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Tarjeta de Crédito B<br>(Pago fijo)</td>
+                    <td>$5,000</td>
+                    <td>18%</td>
+                    <td>$200/mes</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Tarjeta de Crédito C</td>
+                    <td>$5,000</td>
+                    <td>24%</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+
+            <h3>Preguntas de Análisis</h3>
+            <ol>
+                <li>¿Cuánto menos interés pagaría con la Tarjeta de Crédito B (pago fijo) comparado con la Tarjeta de Crédito A (pagos mínimos)?<br>
+                <div class="input-field"></div></li>
+                <li>¿Cuánto antes pagaría la Tarjeta de Crédito B comparado con la Tarjeta de Crédito A?<br>
+                <div class="input-field"></div></li>
+                <li>¿Cuál es el efecto de la tasa de interés más alta en la Tarjeta de Crédito C comparada con la Tarjeta de Crédito A?<br>
+                <div class="input-field"></div></li>
+                <li>¿Qué estrategias recomendaría a alguien con deuda de tarjeta de crédito?<br>
+                <div class="input-field" style="height: 50px;"></div></li>
+            </ol>
+
+            <div class="example">
+                <h3>Ejemplo de Cálculo de Tarjeta de Crédito</h3>
+                <p>Para un saldo de $1,000 al 18% TAE con 2% de pago mínimo:</p>
+                <ul>
+                    <li>Mes 1: Pago mínimo = $25 (mayor de 2% de $1,000 o $25)</li>
+                    <li>Interés del mes 1 = $1,000 × (18% ÷ 12) = $15</li>
+                    <li>Reducción del principal = $25 - $15 = $10</li>
+                    <li>Nuevo saldo = $1,000 - $10 = $990</li>
+                    <li>Mes 2: Pago mínimo = $25 (mayor de 2% de $990 o $25)</li>
+                    <li>Interés del mes 2 = $990 × (18% ÷ 12) = $14.85</li>
+                    <li>Y así sucesivamente...</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Comparación de Estrategias de Pago</h2>
+            <p>Compare diferentes estrategias de pago para un préstamo de $10,000 al 6% por 5 años:</p>
+
+            <table>
+                <tr>
+                    <th>Estrategia</th>
+                    <th>Mensual Estándar</th>
+                    <th>Pagos Quincenales</th>
+                    <th>Mensual + $100 Extra</th>
+                </tr>
+                <tr>
+                    <td>Pago Mensual</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Total de Pagos</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Tiempo para Pagar</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Interés Total</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Interés Ahorrado</td>
+                    <td>N/A</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Tiempo Ahorrado</td>
+                    <td>N/A</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+
+            <h3>Preguntas de Reflexión</h3>
+            <ol>
+                <li>¿Qué estrategia de pago elegiría y por qué?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+                <li>¿Cuáles son las compensaciones entre las diferentes estrategias?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+                <li>¿Cómo podría su elección de estrategia de pago depender de sus otras metas financieras?<br>
+                <div class="input-field" style="height: 40px;"></div></li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Aplicación en la Vida Real</h2>
+            <p>Piense en una compra importante que podría hacer en el futuro que requeriría pedir prestado (educación, auto, casa, etc.):</p>
+
+            <table>
+                <tr>
+                    <td><strong>Tipo de compra:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Costo estimado:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Monto del pago inicial:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Monto a pedir prestado:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Tasa de interés probable:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Plazo del préstamo (años):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Pago mensual estimado:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Interés total que pagaría:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Costo total (compra + interés):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Estrategia de pago que usaría:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Cómo me aseguraría de poder pagar esto:</strong></td>
+                    <td class="input-field" style="height: 40px;"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> Comprender el verdadero costo de pedir prestado le ayuda a tomar decisiones financieras informadas. Siempre calcule el costo total incluyendo intereses antes de endeudarse, y considere estrategias para minimizar estos costos.</p>
+        </div>
+    </div>
+</body>
+</html>

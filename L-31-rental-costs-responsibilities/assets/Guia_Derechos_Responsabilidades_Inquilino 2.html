@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Derechos y Responsabilidades del Inquilino</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                color: #000;
+                background: #fff;
+                margin: 0.5in;
+            }
+
+            .right-section, .responsibility-section, .scenario-section {
+                page-break-inside: avoid;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .right-section, .responsibility-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .right-title, .responsibility-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .right-title {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .responsibility-title {
+            background-color: #e67e22;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .scenario-section {
+            background-color: #eaf3fa;
+            border: 1px solid #bde0ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .scenario-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .note-box {
+            background-color: #fcf3cf;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tip-box {
+            background-color: #d5f5e3;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background-color: #fadbd8;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .resource-link {
+            background-color: #f4f6f6;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+
+        .answer-space {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+
+        .instruction {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        <div class="instruction">
+            <p><strong>Instrucciones para Maestros/Estudiantes:</strong> Esta guía proporciona una descripción general de los derechos y responsabilidades comunes del inquilino, junto con escenarios prácticos para aplicar este conocimiento. La hoja de trabajo incluye espacio para analizar escenarios inquilino-arrendador y desarrollar respuestas apropiadas. Para guardar o imprimir este recurso, haz clic en el botón "Imprimir / Guardar como PDF" arriba y selecciona "Guardar como PDF" en las opciones de impresión.</p>
+            <p><strong>Nota:</strong> Los derechos de los inquilinos varían según el estado y la localidad. Esta guía cubre protecciones comunes que existen en muchas jurisdicciones, pero las leyes específicas pueden variar. Siempre investiga las leyes aplicables a tu ubicación específica.</p>
+        </div>
+    </div>
+
+    <h1>Guía de Derechos y Responsabilidades del Inquilino</h1>
+
+    <p>Comprender tus derechos y responsabilidades como inquilino es esencial para una experiencia de alquiler exitosa. Esta guía describe las protecciones legales más comunes para inquilinos, tus responsabilidades clave bajo contratos de arrendamiento típicos y cómo manejar situaciones comunes de alquiler.</p>
+
+    <div class="note-box">
+        <p><strong>Nota Importante:</strong> Los derechos de los inquilinos varían significativamente según el estado, condado e incluso la ciudad. Aunque esta guía cubre derechos y responsabilidades comunes en muchas jurisdicciones, las protecciones y obligaciones específicas pueden diferir según tu ubicación. Siempre investiga las leyes específicas aplicables a tu área o consulta con una organización de derechos del inquilino o servicio de asistencia legal para información específica de tu ubicación.</p>
+    </div>
+
+    <h2>Derechos Comunes del Inquilino</h2>
+
+    <div class="right-section">
+        <div class="right-title">Derecho a Vivienda Habitable</div>
+        <p>Tu arrendador debe proporcionar vivienda que sea segura, limpia y estructuralmente sólida con sistemas esenciales funcionando.</p>
+        <p><strong>Esto incluye:</strong></p>
+        <ul>
+            <li>Techo y paredes exteriores resistentes a la intemperie</li>
+            <li>Sistema de plomería y alcantarillado funcionando</li>
+            <li>Agua caliente y fría corriente</li>
+            <li>Sistema de calefacción funcionando</li>
+            <li>Sistema eléctrico en buen estado</li>
+            <li>Áreas comunes limpias y sanitarias</li>
+            <li>Receptáculos de basura apropiados</li>
+            <li>Libre de infestación de insectos o roedores</li>
+            <li>Detectores de humo y monóxido de carbono funcionando (en la mayoría de jurisdicciones)</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Si los sistemas esenciales fallan (calefacción, plomería, electricidad) o si se desarrollan condiciones peligrosas (moho, infestación de plagas, problemas estructurales), notifica a tu arrendador por escrito inmediatamente. Documenta el problema con fotos y guarda copias de todas las comunicaciones.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-title">Derecho a la Privacidad</div>
+        <p>Tu arrendador no puede entrar a tu unidad de alquiler sin aviso previo apropiado excepto en emergencias genuinas.</p>
+        <p><strong>Los requisitos típicos incluyen:</strong></p>
+        <ul>
+            <li>Aviso por escrito de 24-48 horas antes de entrar (varía según el estado)</li>
+            <li>Entrada solo durante horas razonables (típicamente 9am-5pm en días laborales)</li>
+            <li>Entrada solo para propósitos legítimos (reparaciones, inspecciones, mostrar a posibles inquilinos)</li>
+            <li>Entrada inmediata permitida solo en emergencias genuinas (incendio, inundación, fuga de gas)</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Si tu arrendador entra repetidamente sin aviso apropiado, documenta cada ocurrencia. Envía un recordatorio por escrito sobre el requisito de aviso, citando tu contrato y la ley estatal. Si las violaciones continúan, contacta a una organización de derechos del inquilino.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-title">Derecho a Protecciones del Depósito de Seguridad</div>
+        <p>Tu depósito de seguridad está protegido por leyes específicas que rigen cómo se mantiene, usa y devuelve.</p>
+        <p><strong>Las protecciones comunes incluyen:</strong></p>
+        <ul>
+            <li>Límites en los montos del depósito (a menudo máximo de 1-2 meses de renta)</li>
+            <li>Requisitos de que los depósitos se mantengan en cuentas separadas</li>
+            <li>Límites de tiempo para la devolución del depósito después de desocupar (típicamente 14-30 días)</li>
+            <li>Derecho a un estado de cuenta detallado de cualquier deducción</li>
+            <li>Deducciones limitadas a renta no pagada y daños más allá del desgaste normal</li>
+            <li>Derecho a disputar deducciones indebidas</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Documenta la condición de la unidad cuando te mudes (fotos, video, inventario escrito). Solicita una inspección de salida. Si tu depósito no se devuelve dentro del plazo legal o tiene deducciones indebidas, envía una carta de demanda por escrito citando las leyes aplicables.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-title">Derecho a Vivienda Justa</div>
+        <p>Las leyes federales y estatales de vivienda justa te protegen de la discriminación basada en características protegidas.</p>
+        <p><strong>Las protecciones federales prohíben la discriminación basada en:</strong></p>
+        <ul>
+            <li>Raza o color</li>
+            <li>Origen nacional</li>
+            <li>Religión</li>
+            <li>Sexo (incluyendo identidad de género y orientación sexual en muchas jurisdicciones)</li>
+            <li>Estado familiar (presencia de niños menores de 18 años)</li>
+            <li>Discapacidad</li>
+        </ul>
+        <p><strong>Muchos estados y localidades añaden protecciones para:</strong></p>
+        <ul>
+            <li>Edad</li>
+            <li>Estado civil</li>
+            <li>Fuente de ingresos (ej., vales de vivienda)</li>
+            <li>Estatus de estudiante</li>
+            <li>Estatus militar/veterano</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Si crees que has experimentado discriminación en vivienda, documenta todas las interacciones, guarda todas las comunicaciones y contacta a tu agencia local de vivienda justa, HUD o una organización de defensa de vivienda justa.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-title">Derecho a Reparaciones</div>
+        <p>Tu arrendador debe mantener la propiedad en condición habitable y hacer reparaciones de manera oportuna.</p>
+        <p><strong>Esto típicamente incluye:</strong></p>
+        <ul>
+            <li>Responder a solicitudes de reparación dentro de un plazo razonable</li>
+            <li>Hacer las reparaciones necesarias para mantener la unidad habitable</li>
+            <li>Mantener las áreas comunes en condición segura y limpia</li>
+            <li>Abordar los peligros de seguridad y salud prontamente</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Siempre solicita reparaciones por escrito (correo electrónico, mensaje de texto o carta) y guarda copias. Si se ignoran reparaciones importantes, verifica las leyes de tu estado sobre remedios de "reparar y deducir" u opciones de retención de renta. En casos extremos, estos remedios pueden estar legalmente disponibles, pero típicamente requieren documentación y procedimiento estrictos.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="right-title">Derecho al Debido Proceso</div>
+        <p>Los arrendadores deben seguir procedimientos legales para desalojos y no pueden participar en desalojos de "autoayuda".</p>
+        <p><strong>Las acciones prohibidas de "autoayuda" incluyen:</strong></p>
+        <ul>
+            <li>Cambiar cerraduras sin orden judicial</li>
+            <li>Remover puertas o ventanas</li>
+            <li>Cortar servicios públicos</li>
+            <li>Remover pertenencias del inquilino</li>
+            <li>Intimidación física o amenazas</li>
+        </ul>
+        <p><strong>El proceso de desalojo apropiado típicamente incluye:</strong></p>
+        <ul>
+            <li>Aviso por escrito con período de tiempo específico</li>
+            <li>Presentación ante el tribunal si el inquilino no cumple con el aviso</li>
+            <li>Audiencia judicial donde el inquilino puede presentar defensas</li>
+            <li>Sentencia judicial si se otorga el desalojo</li>
+            <li>Ejecución solo por el alguacil o agente judicial (no el arrendador)</li>
+        </ul>
+        <div class="tip-box">
+            <p><strong>Cuándo Hacer Valer Este Derecho:</strong> Si tu arrendador intenta desalojarte sin proceso judicial, contacta a las autoridades locales, asistencia legal o una organización de derechos del inquilino inmediatamente. Documenta cualquier intento de desalojo ilegal.</p>
+        </div>
+    </div>
+
+    <h2>Responsabilidades del Inquilino</h2>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Pagar la Renta a Tiempo</div>
+        <p>Tu obligación principal es pagar la renta acordada cuando se debe.</p>
+        <p><strong>Esto incluye:</strong></p>
+        <ul>
+            <li>Saber exactamente cuándo se debe la renta cada mes</li>
+            <li>Entender los métodos de pago aceptables</li>
+            <li>Estar consciente de los períodos de gracia y cargos por retraso</li>
+            <li>Obtener comprobante de pago cuando sea posible</li>
+            <li>Comunicar proactivamente si surgen problemas de pago</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> La renta atrasada puede resultar en cargos por retraso, reportes negativos de crédito y posible desalojo si se retrasa significativamente. Múltiples pagos atrasados pueden afectar las opciones de renovación del contrato o futuras solicitudes de alquiler.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Mantener la Propiedad</div>
+        <p>Debes mantener la unidad de alquiler limpia, sanitaria y en buena condición.</p>
+        <p><strong>Esto típicamente incluye:</strong></p>
+        <ul>
+            <li>Disposición apropiada de basura y desechos</li>
+            <li>Limpieza regular para prevenir condiciones insalubres</li>
+            <li>Uso apropiado de accesorios de plomería (evitar obstrucciones por artículos inapropiados)</li>
+            <li>Uso apropiado de electrodomésticos y accesorios</li>
+            <li>Prevenir daños por negligencia o mal uso</li>
+            <li>Prevenir infestaciones de plagas mediante limpieza adecuada</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> No mantener la propiedad puede resultar en cargos de limpieza, deducciones por daños del depósito de seguridad, o incluso desalojo por violaciones del contrato en casos extremos.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Reportar Problemas Prontamente</div>
+        <p>Debes notificar a tu arrendador sobre problemas de mantenimiento, reparaciones necesarias o condiciones inseguras.</p>
+        <p><strong>Las mejores prácticas incluyen:</strong></p>
+        <ul>
+            <li>Reportar problemas por escrito (correo electrónico, mensaje de texto, formularios de solicitud de mantenimiento)</li>
+            <li>Documentar problemas con fotos o videos</li>
+            <li>Ser específico sobre el problema y su ubicación</li>
+            <li>Reportar problemas tan pronto como se descubran</li>
+            <li>Dar seguimiento si las reparaciones no se hacen en un plazo razonable</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> No reportar problemas prontamente puede llevar a daños aumentados de los que puedes ser responsable, problemas de habitabilidad y disputas sobre quién es responsable de los daños resultantes.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Cumplir con los Términos del Contrato</div>
+        <p>Debes adherirte a todos los términos y restricciones razonables en el contrato de arrendamiento.</p>
+        <p><strong>Los términos comunes del contrato incluyen:</strong></p>
+        <ul>
+            <li>Límites de ocupación (quién puede vivir en la unidad)</li>
+            <li>Restricciones o requisitos de mascotas</li>
+            <li>Limitaciones de ruido y horas de silencio</li>
+            <li>Políticas de fumar</li>
+            <li>Regulaciones de estacionamiento</li>
+            <li>Restricciones sobre alteraciones o decoración</li>
+            <li>Requisitos de seguro de inquilino</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> Las violaciones del contrato pueden resultar en multas, avisos de terminación del contrato, no renovación del contrato o procedimientos de desalojo dependiendo de la gravedad y frecuencia de las violaciones.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Respetar a los Vecinos</div>
+        <p>Debes ser considerado con los vecinos y evitar causar molestias.</p>
+        <p><strong>Esto incluye:</strong></p>
+        <ul>
+            <li>Controlar los niveles de ruido, especialmente durante las horas de la noche</li>
+            <li>Manejar apropiadamente el comportamiento de los invitados</li>
+            <li>Seguir las reglas de uso de áreas comunes</li>
+            <li>Almacenar y desechar basura y reciclaje apropiadamente</li>
+            <li>Ser consciente de olores de cocina, humo u otras posibles molestias</li>
+            <li>Respetar los espacios de estacionamiento y propiedad de otros</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> Las quejas de vecinos pueden llevar a advertencias de la administración, multas, violaciones del contrato o no renovación. Molestias serias o persistentes podrían resultar en terminación del contrato.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Dar Aviso Apropiado</div>
+        <p>Debes notificar a tu arrendador según los requisitos del contrato antes de mudarte.</p>
+        <p><strong>Los requisitos típicos de aviso incluyen:</strong></p>
+        <ul>
+            <li>Aviso por escrito (típicamente 30-60 días antes del fin del contrato)</li>
+            <li>Información específica sobre la fecha de desocupación</li>
+            <li>Seguir el formato y método de entrega apropiados</li>
+            <li>Comunicación clara sobre intenciones de renovación</li>
+            <li>Solicitar inspección final</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> El aviso inapropiado puede resultar en renovación automática, cargos adicionales de renta, pérdida del depósito de seguridad o referencias de alquiler negativas.</p>
+        </div>
+    </div>
+
+    <div class="responsibility-section">
+        <div class="responsibility-title">Permitir Acceso Razonable</div>
+        <p>Debes permitir la entrada del arrendador con aviso apropiado para propósitos legítimos.</p>
+        <p><strong>Esto típicamente incluye:</strong></p>
+        <ul>
+            <li>Permitir entrada para reparaciones y mantenimiento</li>
+            <li>Cooperar con citas de inspección</li>
+            <li>Acomodar visitas a posibles inquilinos (con aviso apropiado)</li>
+            <li>Proporcionar acceso durante emergencias</li>
+            <li>Trabajar con la administración para programar horarios convenientes cuando sea posible</li>
+        </ul>
+        <div class="warning-box">
+            <p><strong>Consecuencias Potenciales:</strong> Negar acceso injustificadamente puede considerarse una violación del contrato, puede prevenir reparaciones necesarias y podría potencialmente llevar a procedimientos de desalojo en casos extremos.</p>
+        </div>
+    </div>
+
+    <h2>Escenarios Comunes Inquilino-Arrendador</h2>
+
+    <div class="scenario-section">
+        <h3>Hoja de Trabajo de Análisis de Escenarios</h3>
+        <p>Para cada escenario a continuación, analiza la situación usando el marco de derechos y responsabilidades del inquilino. Identifica los derechos aplicables, las responsabilidades relevantes y las acciones apropiadas a tomar.</p>
+
+        <div class="scenario-title">Escenario 1: Solicitud de Mantenimiento</div>
+        <p>El lavabo de tu baño ha estado goteando por tres días. Has colocado un balde debajo para recoger el agua, pero el piso se está dañando. Lo reportaste a tu arrendador cuando comenzó, pero aún no lo han atendido.</p>
+
+        <p><strong>Derechos del Inquilino Aplicables:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Responsabilidades del Inquilino Relevantes:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Pasos de Acción Apropiados:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Documentación/Comunicación Necesaria:</strong></p>
+        <div class="answer-space"></div>
+
+        <div class="scenario-title">Escenario 2: Disputa del Depósito de Seguridad</div>
+        <p>Te mudaste de tu apartamento el mes pasado después de vivir allí por dos años. El arrendador está reteniendo $500 de tu depósito de seguridad de $1,000 por "limpieza general y desgaste normal" pero no ha proporcionado una lista detallada de daños o costos.</p>
+
+        <p><strong>Derechos del Inquilino Aplicables:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Responsabilidades del Inquilino Relevantes:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Pasos de Acción Apropiados:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Documentación/Comunicación Necesaria:</strong></p>
+        <div class="answer-space"></div>
+
+        <div class="scenario-title">Escenario 3: Problemas con el Compañero de Cuarto</div>
+        <p>Tu compañero de cuarto se mudó inesperadamente, dejándote responsable de su porción de la renta. Tu contrato hace a todos los inquilinos "conjunta y solidariamente responsables" del monto total de la renta.</p>
+
+        <p><strong>Derechos del Inquilino Aplicables:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Responsabilidades del Inquilino Relevantes:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Pasos de Acción Apropiados:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Documentación/Comunicación Necesaria:</strong></p>
+        <div class="answer-space"></div>
+
+        <div class="scenario-title">Escenario 4: Aumento de Renta Inesperado</div>
+        <p>Recibiste un aviso de que tu renta aumentará un 15% cuando tu contrato se renueve el próximo mes. Tu contrato no menciona nada sobre aumentos de renta, y este monto haría el apartamento inasequible para ti.</p>
+
+        <p><strong>Derechos del Inquilino Aplicables:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Responsabilidades del Inquilino Relevantes:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Pasos de Acción Apropiados:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Documentación/Comunicación Necesaria:</strong></p>
+        <div class="answer-space"></div>
+
+        <div class="scenario-title">Escenario 5: Preocupación de Privacidad</div>
+        <p>Llegaste a casa ayer y descubriste que tu arrendador había entrado a tu apartamento sin proporcionar aviso. Dijeron que necesitaban revisar los detectores de humo.</p>
+
+        <p><strong>Derechos del Inquilino Aplicables:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Responsabilidades del Inquilino Relevantes:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Pasos de Acción Apropiados:</strong></p>
+        <div class="answer-space"></div>
+
+        <p><strong>Documentación/Comunicación Necesaria:</strong></p>
+        <div class="answer-space"></div>
+    </div>
+
+    <h2>Recursos Clave para Inquilinos</h2>
+
+    <h3>Recursos Nacionales</h3>
+    <div class="resource-link">
+        <p><strong>HUD (Departamento de Vivienda y Desarrollo Urbano)</strong><br>
+        Sitio web: <a href="https://www.hud.gov/topics/rental_assistance/tenantrights">www.hud.gov/topics/rental_assistance/tenantrights</a><br>
+        Propósito: Agencia federal con información sobre derechos del inquilino y quejas de discriminación</p>
+    </div>
+
+    <div class="resource-link">
+        <p><strong>Legal Services Corporation</strong><br>
+        Sitio web: <a href="https://www.lsc.gov/find-legal-aid">www.lsc.gov/find-legal-aid</a><br>
+        Propósito: Encontrar asistencia legal gratuita en tu área para asuntos inquilino-arrendador</p>
+    </div>
+
+    <div class="resource-link">
+        <p><strong>National Housing Law Project</strong><br>
+        Sitio web: <a href="https://www.nhlp.org">www.nhlp.org</a><br>
+        Propósito: Centro de recursos para leyes y políticas de vivienda</p>
+    </div>
+
+    <h3>Recursos Estatales y Locales</h3>
+    <p>Investiga estos importantes recursos locales para tu área:</p>
+    <ul>
+        <li>Oficina del Fiscal General del Estado (división de protección al consumidor)</li>
+        <li>Departamento de vivienda estatal o local</li>
+        <li>Organizaciones locales de derechos del inquilino</li>
+        <li>Organizaciones de asistencia legal comunitaria</li>
+        <li>Servicios legales universitarios (si eres estudiante)</li>
+    </ul>
+
+    <footer>
+        <p>Capítulo 10.2: Comprendiendo los Costos y Responsabilidades de Alquilar | PFL Academy</p>
+        <p>Nota: Los derechos y responsabilidades del inquilino varían según la ubicación. Siempre investiga las leyes específicas aplicables a tu área.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Practica de Emprendimiento | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .scenario {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .scenario-number {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .answer-space {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 80px;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .hint-box {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .rating-item {
+            text-align: center;
+        }
+
+        .rating-item input {
+            display: block;
+            margin: 5px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            textarea {
+                border: none !important;
+                min-height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Practica de Emprendimiento</h1>
+        <p class="subtitle">Desarrolle y evalue sus ideas de negocio</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Autoevaluacion Emprendedora</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 1: Califique Sus Caracteristicas Emprendedoras</div>
+            <p>Califiquese del 1-5 en cada caracteristica (1 = necesita desarrollo, 5 = fuerte):</p>
+
+            <table>
+                <tr>
+                    <th>Caracteristica</th>
+                    <th>Calificacion (1-5)</th>
+                    <th>Evidencia/Ejemplo</th>
+                </tr>
+                <tr>
+                    <td>Reconocimiento de Oportunidades</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+                <tr>
+                    <td>Toma de Riesgos</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+                <tr>
+                    <td>Resiliencia</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+                <tr>
+                    <td>Adaptabilidad</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+                <tr>
+                    <td>Ingenio</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+                <tr>
+                    <td>Automotivacion</td>
+                    <td><input type="text" style="width: 50px; padding: 5px;"></td>
+                    <td><input type="text" style="width: 100%; padding: 5px;"></td>
+                </tr>
+            </table>
+
+            <div class="question">Cual caracteristica necesita desarrollar mas? Como trabajara en ella?</div>
+            <div class="answer-space">
+                <textarea placeholder="Identifique su area de crecimiento y plan de accion..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Generacion de Ideas</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 2: Encontrando Oportunidades de Negocio</div>
+
+            <div class="question">a) Liste TRES problemas que ha experimentado personalmente que necesitan mejores soluciones:</div>
+            <div class="answer-space">
+                <textarea placeholder="1.
+2.
+3. "></textarea>
+            </div>
+
+            <div class="question">b) Liste TRES habilidades o pasatiempos que tiene por los que otros podrian pagar:</div>
+            <div class="answer-space">
+                <textarea placeholder="1.
+2.
+3. "></textarea>
+            </div>
+
+            <div class="question">c) Basandose en sus respuestas, identifique UNA idea potencial de negocio paralelo:</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su idea de negocio..."></textarea>
+            </div>
+
+            <div class="hint-box">
+                <strong>Consejo:</strong> Las mejores ideas a menudo vienen de combinar un problema que ha notado con habilidades que ya tiene.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Evaluacion de Oportunidades</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 3: Evalue Su Idea de Negocio</div>
+            <p>Use este marco para evaluar su idea de la Parte 2:</p>
+
+            <div class="question">a) Validacion del Problema: Que problema especifico resuelve su idea? Que tan doloroso es este problema?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa el problema y su gravedad..."></textarea>
+            </div>
+
+            <div class="question">b) Mercado Objetivo: Quien tiene este problema? Estime el tamano del mercado.</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su cliente ideal y el tamano del mercado..."></textarea>
+            </div>
+
+            <div class="question">c) Competencia: Quien mas resuelve este problema? Cual es su enfoque unico?</div>
+            <div class="answer-space">
+                <textarea placeholder="Identifique competidores y su diferenciacion..."></textarea>
+            </div>
+
+            <div class="question">d) Viabilidad: Que habilidades, recursos y tiempo necesitaria?</div>
+            <div class="answer-space">
+                <textarea placeholder="Liste los requisitos y evalue si los tiene..."></textarea>
+            </div>
+
+            <div class="question">e) Rentabilidad: Cuanto cobraria? Cuales son sus costos? Hay margen de ganancia?</div>
+            <div class="answer-space">
+                <textarea placeholder="Muestre sus calculos de precios y costos..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: Planificacion Financiera</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 4: Calcule Su Punto de Equilibrio</div>
+            <p>Use su idea de negocio para calcular cuando seria rentable.</p>
+
+            <div class="question">a) Liste sus costos fijos mensuales (cosas que paga independientemente de las ventas):</div>
+            <div class="answer-space">
+                <textarea placeholder="Ejemplos: Suscripciones de software, hosting del sitio web, suministros...
+Total de costos fijos mensuales: $______"></textarea>
+            </div>
+
+            <div class="question">b) Liste sus costos variables por unidad (costos por cada venta):</div>
+            <div class="answer-space">
+                <textarea placeholder="Ejemplos: Materiales, envio, comisiones de transaccion...
+Costo variable por unidad: $______"></textarea>
+            </div>
+
+            <div class="question">c) Que precio cobrara por unidad/servicio?</div>
+            <div class="answer-space">
+                <textarea placeholder="Precio: $______"></textarea>
+            </div>
+
+            <div class="question">d) Calcule su punto de equilibrio:</div>
+            <div class="answer-space">
+                <textarea placeholder="Punto de Equilibrio = Costos Fijos / (Precio - Costo Variable)
+Punto de Equilibrio = $_____ / ($_____ - $_____) = _____ unidades/mes"></textarea>
+            </div>
+
+            <div class="hint-box">
+                <strong>Ejemplo:</strong> Si costos fijos = $200/mes, precio = $30, costo variable = $10<br>
+                Punto de equilibrio = $200 / ($30 - $10) = 10 unidades/mes
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 5: Desarrollo del MVP</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 5: Disene Su Producto Minimo Viable</div>
+
+            <div class="question">a) Cual es la caracteristica/servicio PRINCIPAL que resuelve el problema principal?</div>
+            <div class="answer-space">
+                <textarea placeholder="Enfoquese en el valor esencial que proporciona..."></textarea>
+            </div>
+
+            <div class="question">b) Que caracteristicas puede ELIMINAR o dejar para despues?</div>
+            <div class="answer-space">
+                <textarea placeholder="Liste las caracteristicas deseables que no son esenciales..."></textarea>
+            </div>
+
+            <div class="question">c) Como probara su MVP con clientes potenciales?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su enfoque de prueba..."></textarea>
+            </div>
+
+            <div class="question">d) Que retroalimentacion le dira si su idea esta funcionando?</div>
+            <div class="answer-space">
+                <textarea placeholder="Defina sus metricas de exito..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 6: Plan de Accion</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 6: Primeros Pasos para el Lanzamiento</div>
+
+            <div class="question">a) Liste CINCO acciones especificas que tomaria en la primera semana:</div>
+            <div class="answer-space">
+                <textarea placeholder="1.
+2.
+3.
+4.
+5. "></textarea>
+            </div>
+
+            <div class="question">b) Cuantas horas por semana puede dedicar de manera realista?</div>
+            <div class="answer-space">
+                <textarea placeholder="Considere sus otros compromisos..."></textarea>
+            </div>
+
+            <div class="question">c) Cual es el mayor obstaculo para comenzar? Como lo superara?</div>
+            <div class="answer-space">
+                <textarea placeholder="Identifique el desafio y su solucion..."></textarea>
+            </div>
+
+            <div class="question">d) Establezca una meta de 30 dias para su negocio paralelo:</div>
+            <div class="answer-space">
+                <textarea placeholder="Hagala especifica y medible..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Preguntas de Reflexion</div>
+
+        <div class="scenario">
+            <div class="question">1. Que fue lo que mas le emociono de desarrollar esta idea de negocio?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su reflexion..."></textarea>
+            </div>
+
+            <div class="question">2. Que preocupaciones tiene? Como podria abordarlas?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+
+            <div class="question">3. Perseguiria esto como un negocio paralelo? Por que si o por que no?</div>
+            <div class="answer-space">
+                <textarea placeholder="Explique su decision..."></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

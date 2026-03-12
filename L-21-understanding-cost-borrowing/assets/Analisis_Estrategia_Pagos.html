@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Análisis de Estrategia de Pagos - Capítulo 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .strategy-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .strategy-box h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .impact-high {
+            background-color: #e1f7e1;
+            border-left: 4px solid #2ecc71;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .impact-medium {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .impact-low {
+            background-color: #fae5d3;
+            border-left: 4px solid #e67e22;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .tool-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tool-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Herramienta de Análisis de Estrategia de Pagos</h1>
+
+        <div class="note">
+            <p><strong>Instrucciones:</strong> Esta herramienta le ayudará a analizar diferentes estrategias de pago para préstamos y su impacto en el costo total y el tiempo de pago. Complete la información del préstamo, luego analice cada estrategia para determinar qué enfoque se ajusta mejor a sus metas financieras.</p>
+        </div>
+
+        <div class="section">
+            <h2>Información del Préstamo</h2>
+            <table>
+                <tr>
+                    <td><strong>Tipo de Préstamo:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Monto del Principal:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Tasa de Interés (TAE):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Plazo Original del Préstamo:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Pago Mensual Estándar:</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td><strong>Interés Total (pago estándar):</strong></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Estrategia de Pago 1: Pagos Quincenales</h2>
+            <div class="strategy-box">
+                <h3>Descripción de la Estrategia</h3>
+                <p>En lugar de hacer un pago por mes (12 pagos por año), haga la mitad del pago mensual cada dos semanas (26 pagos por año). Esto resulta en un pago completo extra por año y puede reducir significativamente tanto el plazo del préstamo como el interés total pagado.</p>
+
+                <h3>Análisis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Monto del Pago Quincenal:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Tiempo de Pago:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Total Pagado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tiempo Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="impact-medium">
+                    <p><strong>Impacto en el Presupuesto:</strong> Requiere ajustarse a pagos quincenales en lugar de mensuales, lo que puede alinearse mejor con salarios quincenales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estrategia de Pago 2: Pago Mensual Extra</h2>
+            <div class="strategy-box">
+                <h3>Descripción de la Estrategia</h3>
+                <p>Agregue un monto fijo extra a su pago mensual regular. Este monto adicional va directamente a reducir el principal, lo que disminuye tanto el plazo del préstamo como el interés total pagado.</p>
+
+                <h3>Análisis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Monto del Pago Extra:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Pago Mensual Total:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Tiempo de Pago:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Total Pagado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tiempo Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="impact-high">
+                    <p><strong>Impacto en el Presupuesto:</strong> Requiere comprometerse a un pago mensual más alto, pero proporciona flexibilidad para volver a pagos mínimos si cambian las circunstancias financieras.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estrategia de Pago 3: Pago Global Anual</h2>
+            <div class="strategy-box">
+                <h3>Descripción de la Estrategia</h3>
+                <p>Haga pagos mensuales regulares más un pago global adicional cada año (quizás de una devolución de impuestos, bono u otro ingreso extraordinario). Este pago extra anual reduce el principal y acorta el plazo del préstamo.</p>
+
+                <h3>Análisis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Monto del Pago Global Anual:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Tiempo de Pago:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Total Pagado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tiempo Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="impact-low">
+                    <p><strong>Impacto en el Presupuesto:</strong> Impacto mínimo en el presupuesto mensual, pero requiere planificar el pago anual. Buena opción si recibe bonos anuales o devoluciones de impuestos de manera confiable.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estrategia de Pago 4: Refinanciamiento</h2>
+            <div class="strategy-box">
+                <h3>Descripción de la Estrategia</h3>
+                <p>Reemplace su préstamo actual con un nuevo préstamo que tenga una tasa de interés más baja. Esta estrategia puede reducir su pago mensual, el interés total, o ambos, pero puede extender el plazo del préstamo o tener costos asociados.</p>
+
+                <h3>Análisis</h3>
+                <table>
+                    <tr>
+                        <td><strong>Nueva Tasa de Interés:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Plazo del Préstamo:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuevo Pago Mensual:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Total Pagado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interés Ahorrado:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Costos de Refinanciamiento:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ahorros Netos:</strong></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="impact-medium">
+                    <p><strong>Impacto en el Presupuesto:</strong> Puede reducir los pagos mensuales, pero considere los costos de cierre y cargos. Más beneficioso cuando las tasas de interés han bajado significativamente desde su préstamo original.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Comparación de Estrategias</h2>
+            <p>Compare todas las estrategias para determinar cuál cumple mejor con sus metas financieras:</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Estrategia</th>
+                    <th>Interés Total Pagado</th>
+                    <th>Interés Ahorrado</th>
+                    <th>Tiempo Ahorrado</th>
+                    <th>Impacto en Presupuesto</th>
+                </tr>
+                <tr>
+                    <td>Pago Estándar</td>
+                    <td class="input-field"></td>
+                    <td>$0</td>
+                    <td>0 meses</td>
+                    <td>Ninguno</td>
+                </tr>
+                <tr>
+                    <td>Pagos Quincenales</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Medio</td>
+                </tr>
+                <tr>
+                    <td>Pago Mensual Extra</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Pago Global Anual</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Bajo</td>
+                </tr>
+                <tr>
+                    <td>Refinanciamiento</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td>Medio</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Análisis de Decisión</h2>
+            <p><strong>Su meta financiera principal para este préstamo:</strong></p>
+            <div class="input-field" style="height: 40px;"></div>
+
+            <p><strong>La estrategia que mejor se alinea con su meta es:</strong></p>
+            <div class="input-field" style="height: 40px;"></div>
+
+            <p><strong>Su razonamiento:</strong></p>
+            <div class="input-field" style="height: 60px;"></div>
+
+            <p><strong>Plan de implementación:</strong></p>
+            <div class="input-field" style="height: 60px;"></div>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> La mejor estrategia de pago depende de su situación financiera individual y metas. Considere factores como flujo de efectivo, otras prioridades financieras, tasas de interés y su plan general de manejo de deuda al elegir una estrategia.</p>
+        </div>
+    </div>
+</body>
+</html>

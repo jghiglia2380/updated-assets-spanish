@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Comparación de Tipos de Préstamos Estudiantiles - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .highlight {
+            background-color: #e5edff;
+        }
+
+        .feature-yes {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .feature-no {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .feature-maybe {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            tr {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Gráfico de Comparación de Tipos de Préstamos Estudiantiles</h1>
+            <div class="subtitle">Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles</div>
+        </div>
+
+        <div class="print-instructions">
+            <strong>Instrucciones para el Maestro:</strong> Para guardar como PDF, use la función de impresión de su navegador (Ctrl+P o ⌘+P) y seleccione "Guardar como PDF" como destino.
+        </div>
+
+        <h2>Préstamos Estudiantiles Federales vs. Privados</h2>
+
+        <table>
+            <tr>
+                <th class="highlight">Característica</th>
+                <th>Préstamos Estudiantiles Federales</th>
+                <th>Préstamos Estudiantiles Privados</th>
+            </tr>
+            <tr>
+                <td class="highlight">Prestamista</td>
+                <td>Departamento de Educación de EE.UU.</td>
+                <td>Bancos, cooperativas de crédito, prestamistas en línea, escuelas</td>
+            </tr>
+            <tr>
+                <td class="highlight">Verificación de Crédito Requerida</td>
+                <td><span class="feature-no">No</span> (excepto para préstamos PLUS)</td>
+                <td><span class="feature-yes">Sí</span> (puntaje e historial crediticio afectan aprobación y tasas)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Codeudor Requerido</td>
+                <td><span class="feature-no">No</span> (excepto para préstamos PLUS si el padre tiene crédito adverso)</td>
+                <td><span class="feature-yes">Generalmente sí</span> para estudiantes con historial crediticio limitado</td>
+            </tr>
+            <tr>
+                <td class="highlight">Tipo de Tasa de Interés</td>
+                <td>Fija (establecida por ley federal anualmente)</td>
+                <td>Fija o variable (determinada por el prestamista)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Tasas de Interés Actuales (2024-2025)</td>
+                <td>
+                    Pregrado: 5.50%<br>
+                    Posgrado/Profesional: 7.05%<br>
+                    Préstamos PLUS: 8.05%
+                </td>
+                <td>Variable: 4.00% - 14.99%<br>Fija: 5.25% - 16.99%<br>(dependiendo del puntaje crediticio y condiciones del mercado)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Subsidio de Interés Disponible</td>
+                <td><span class="feature-yes">Sí</span> (en Préstamos Directos Subsidiados para estudiantes de pregrado con necesidad financiera)</td>
+                <td><span class="feature-no">No</span></td>
+            </tr>
+            <tr>
+                <td class="highlight">Cargos del Préstamo</td>
+                <td>Aproximadamente 1.057% para Préstamos Directos<br>4.228% para Préstamos PLUS</td>
+                <td>Varía por prestamista (0-5% cargos de originación)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Inicio del Pago</td>
+                <td>6 meses después de graduación, dejar la escuela, o caer por debajo de inscripción de medio tiempo</td>
+                <td>Varía por prestamista (puede requerir pagos mientras estudias)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Planes de Pago</td>
+                <td>Múltiples opciones incluyendo:<br>
+                    - Estándar (10 años)<br>
+                    - Graduado<br>
+                    - Extendido (hasta 25 años)<br>
+                    - Planes Basados en Ingresos (IDR, PAYE, REPAYE, IBR)
+                </td>
+                <td>Opciones limitadas (típicamente plazos de 5-20 años)<br>
+                    Planes basados en ingresos raramente disponibles</td>
+            </tr>
+            <tr>
+                <td class="highlight">Opciones de Condonación de Préstamos</td>
+                <td><span class="feature-yes">Sí</span><br>
+                    - Condonación de Préstamos por Servicio Público (10 años)<br>
+                    - Condonación de Préstamos para Maestros<br>
+                    - Condonación por pago basado en ingresos (20-25 años)<br>
+                    - Cancelación por discapacidad
+                </td>
+                <td><span class="feature-no">No</span> (raramente disponible)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Aplazamiento/Indulgencia</td>
+                <td><span class="feature-yes">Sí</span> (múltiples opciones por dificultad económica, desempleo, etc.)</td>
+                <td><span class="feature-maybe">Limitado</span> (varía por prestamista, generalmente plazos más cortos)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Opciones de Consolidación</td>
+                <td><span class="feature-yes">Sí</span> (Préstamo Federal de Consolidación Directa)</td>
+                <td><span class="feature-maybe">Solo refinanciamiento</span> (requiere verificación de crédito)</td>
+            </tr>
+            <tr>
+                <td class="highlight">Cancelación por Muerte/Discapacidad</td>
+                <td><span class="feature-yes">Sí</span></td>
+                <td><span class="feature-no">Raro</span> (varía por prestamista)</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Nota:</strong> Las tasas de interés y términos de préstamos están sujetos a cambios. Las tasas de interés de préstamos estudiantiles federales se ajustan anualmente el 1 de julio y son fijas por la vida del préstamo. Las tasas de préstamos privados varían por prestamista, puntaje crediticio y condiciones del mercado.
+        </div>
+
+        <h2>Tipos de Préstamos Estudiantiles Federales</h2>
+
+        <table>
+            <tr>
+                <th class="highlight">Tipo de Préstamo</th>
+                <th>Elegibilidad</th>
+                <th>Características</th>
+                <th>Límites Anuales (2024-2025)</th>
+            </tr>
+            <tr>
+                <td class="highlight">Préstamos Directos Subsidiados</td>
+                <td>Estudiantes de pregrado con necesidad financiera demostrada</td>
+                <td>• El gobierno paga intereses mientras estudias, durante período de gracia y aplazamiento<br>
+                    • 5.50% tasa de interés fija<br>
+                    • 1.057% cargo del préstamo</td>
+                <td>$3,500 a $5,500 por año dependiendo del año escolar y estatus de dependencia</td>
+            </tr>
+            <tr>
+                <td class="highlight">Préstamos Directos No Subsidiados</td>
+                <td>Estudiantes de pregrado y posgrado (sin requisito de necesidad financiera)</td>
+                <td>• El estudiante es responsable de todos los intereses<br>
+                    • 5.50% tasa fija para pregrado<br>
+                    • 7.05% tasa fija para estudiantes de posgrado<br>
+                    • 1.057% cargo del préstamo</td>
+                <td>
+                    Pregrado dependiente: $5,500-$7,500 por año<br>
+                    Pregrado independiente: $9,500-$12,500 por año<br>
+                    Estudiantes de posgrado: $20,500 por año
+                </td>
+            </tr>
+            <tr>
+                <td class="highlight">Préstamos Directos PLUS<br>(PLUS para Padres y Posgrado)</td>
+                <td>• Padres de estudiantes de pregrado dependientes<br>
+                    • Estudiantes de posgrado/profesionales</td>
+                <td>• Verificación de crédito requerida<br>
+                    • 8.05% tasa de interés fija<br>
+                    • 4.228% cargo del préstamo</td>
+                <td>Hasta el costo total de asistencia menos cualquier otra ayuda financiera recibida</td>
+            </tr>
+            <tr>
+                <td class="highlight">Préstamos de Consolidación Directa</td>
+                <td>Prestatarios con préstamos estudiantiles federales elegibles</td>
+                <td>• Combina múltiples préstamos federales en uno<br>
+                    • Tasa de interés promedio ponderada redondeada al 1/8 de porcentaje más cercano<br>
+                    • Sin cargo del préstamo<br>
+                    • Puede extender el período de pago</td>
+                <td>Sin límite (puede consolidar todos los préstamos federales elegibles)</td>
+            </tr>
+        </table>
+
+        <h2>Comparación de Planes de Pago Basados en Ingresos (IDR)</h2>
+
+        <table>
+            <tr>
+                <th class="highlight">Nombre del Plan</th>
+                <th>Monto del Pago</th>
+                <th>Período de Pago</th>
+                <th>Características Principales</th>
+            </tr>
+            <tr>
+                <td class="highlight">Pago Basado en Ingresos (IBR)</td>
+                <td>10-15% del ingreso discrecional</td>
+                <td>20-25 años</td>
+                <td>• 15% para prestatarios anteriores<br>
+                    • 10% para nuevos prestatarios después del 1 de julio de 2014<br>
+                    • Debe demostrar dificultad financiera parcial</td>
+            </tr>
+            <tr>
+                <td class="highlight">Pague Según Gane (PAYE)</td>
+                <td>10% del ingreso discrecional</td>
+                <td>20 años</td>
+                <td>• Pago mensual nunca mayor que el plan estándar de 10 años<br>
+                    • Debe ser un nuevo prestatario a partir del 1 de octubre de 2007</td>
+            </tr>
+            <tr>
+                <td class="highlight">Pague Según Gane Revisado (REPAYE)</td>
+                <td>10% del ingreso discrecional</td>
+                <td>20 años (pregrado)<br>
+                    25 años (posgrado)</td>
+                <td>• Disponible para todos los prestatarios de Préstamos Directos<br>
+                    • Sin requisitos de elegibilidad de ingresos<br>
+                    • Beneficio de subsidio de interés del 50%</td>
+            </tr>
+            <tr>
+                <td class="highlight">Plan SAVE<br>(Ahorrando en una Educación Valiosa)</td>
+                <td>5-10% del ingreso discrecional</td>
+                <td>20-25 años</td>
+                <td>• Plan más nuevo (2023)<br>
+                    • Términos más generosos para prestatarios de pregrado<br>
+                    • Umbral de exención de ingresos más alto</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Ingreso Discrecional:</strong> Generalmente definido como la diferencia entre tu ingreso anual y el 150% de la guía de pobreza para el tamaño de tu familia y estado de residencia. El plan SAVE usa un umbral más alto del 225% de la guía de pobreza.
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

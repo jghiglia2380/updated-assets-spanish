@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Manejo de Deuda - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .debt-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+
+        .debt-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .debt-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .debt-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .debt-table input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .debt-table input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .total-row {
+            background: #f0fdf4;
+            font-weight: 600;
+        }
+
+        .total-row td {
+            border-bottom: 2px solid #10b981;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .strategy-option {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .strategy-option:hover {
+            border-color: #6366f1;
+        }
+
+        .strategy-option.selected {
+            border-color: #6366f1;
+            background: #f5f3ff;
+        }
+
+        .strategy-option h4 {
+            font-size: 14px;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+
+        .strategy-option p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .ratio-display {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .ratio-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .ratio-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        .ratio-status {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .ratio-status.good { color: #059669; }
+        .ratio-status.concern { color: #f59e0b; }
+        .ratio-status.danger { color: #dc2626; }
+
+        .timeline-section {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .timeline-section h4 {
+            font-size: 14px;
+            color: #6366f1;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        .timeline-month {
+            width: 80px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .timeline-input {
+            flex: 1;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+
+        .warning-box strong {
+            color: #b45309;
+        }
+
+        .tip-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+
+        .tip-box strong {
+            color: #3b82f6;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-top: 4px;
+        }
+
+        .reflection-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .reflection-section h3 {
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        .print-section {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section {
+                display: none;
+            }
+
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Estrategia de Manejo de Deuda</h1>
+            <p>Analice su situacion de deuda y desarrolle un plan de pago personalizado</p>
+        </div>
+
+        <div class="section">
+            <h2>Parte 1: Inventario de Deudas</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Enumere todas sus deudas para comprender su panorama financiero completo.</p>
+
+            <table class="debt-table">
+                <thead>
+                    <tr>
+                        <th>Acreedor/Tipo</th>
+                        <th>Saldo</th>
+                        <th>Tasa de Interes (APR)</th>
+                        <th>Pago Minimo</th>
+                        <th>Fecha de Vencimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="ej., Tarjeta de Credito A" id="debt1name"></td>
+                        <td><input type="number" placeholder="$0" id="debt1bal"></td>
+                        <td><input type="number" placeholder="%" id="debt1rate" step="0.1"></td>
+                        <td><input type="number" placeholder="$0" id="debt1min"></td>
+                        <td><input type="text" placeholder="Fecha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="ej., Tarjeta de Credito B" id="debt2name"></td>
+                        <td><input type="number" placeholder="$0" id="debt2bal"></td>
+                        <td><input type="number" placeholder="%" id="debt2rate" step="0.1"></td>
+                        <td><input type="number" placeholder="$0" id="debt2min"></td>
+                        <td><input type="text" placeholder="Fecha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="ej., Prestamo Personal" id="debt3name"></td>
+                        <td><input type="number" placeholder="$0" id="debt3bal"></td>
+                        <td><input type="number" placeholder="%" id="debt3rate" step="0.1"></td>
+                        <td><input type="number" placeholder="$0" id="debt3min"></td>
+                        <td><input type="text" placeholder="Fecha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="ej., Factura Medica" id="debt4name"></td>
+                        <td><input type="number" placeholder="$0" id="debt4bal"></td>
+                        <td><input type="number" placeholder="%" id="debt4rate" step="0.1"></td>
+                        <td><input type="number" placeholder="$0" id="debt4min"></td>
+                        <td><input type="text" placeholder="Fecha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="ej., Prestamo de Auto" id="debt5name"></td>
+                        <td><input type="number" placeholder="$0" id="debt5bal"></td>
+                        <td><input type="number" placeholder="%" id="debt5rate" step="0.1"></td>
+                        <td><input type="number" placeholder="$0" id="debt5min"></td>
+                        <td><input type="text" placeholder="Fecha"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong id="totalDebt">$0</strong></td>
+                        <td>-</td>
+                        <td><strong id="totalMin">$0</strong></td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="print-btn" onclick="calculateTotals()" style="width: auto; margin-bottom: 0;">Calcular Totales</button>
+        </div>
+
+        <div class="section">
+            <h2>Parte 2: Panorama Financiero</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Calcule su relacion deuda-ingreso para evaluar su situacion.</p>
+
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label>Ingreso Mensual Bruto</label>
+                        <input type="number" placeholder="$0" id="monthlyIncome">
+                    </div>
+                    <div class="input-group">
+                        <label>Pagos Mensuales Totales de Deuda</label>
+                        <input type="number" placeholder="$0" id="monthlyDebt">
+                    </div>
+                    <button class="print-btn" onclick="calculateDTI()" style="width: auto;">Calcular Relacion</button>
+                </div>
+                <div>
+                    <div class="ratio-display">
+                        <div class="ratio-label">Relacion Deuda-Ingreso</div>
+                        <div class="ratio-value" id="dtiValue">0%</div>
+                        <div class="ratio-status" id="dtiStatus">Ingrese su ingreso y pagos de deuda</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>Comprendiendo su Relacion:</strong><br>
+                Menos del 20% = Excelente | 20-35% = Bueno | 36-43% = Precaucion | Mas del 43% = Preocupacion
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 3: Seleccion de Estrategia</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Seleccione la estrategia de pago de deuda que mejor se adapte a su situacion.</p>
+
+            <div class="three-column">
+                <div class="strategy-option" onclick="selectStrategy(this, 'avalanche')">
+                    <h4>Avalancha de Deuda</h4>
+                    <p>Pague primero la tasa de interes mas alta. Ahorra la mayor cantidad de dinero con el tiempo.</p>
+                </div>
+                <div class="strategy-option" onclick="selectStrategy(this, 'snowball')">
+                    <h4>Bola de Nieve de Deuda</h4>
+                    <p>Pague primero el saldo mas pequeno. Genera impulso con victorias rapidas.</p>
+                </div>
+                <div class="strategy-option" onclick="selectStrategy(this, 'consolidation')">
+                    <h4>Consolidacion</h4>
+                    <p>Combine en un solo prestamo. Simplifica pagos, puede reducir la tasa.</p>
+                </div>
+            </div>
+
+            <div class="input-group" style="margin-top: 16px;">
+                <label>¿Por que eligio esta estrategia?</label>
+                <textarea placeholder="Explique su razonamiento basado en su situacion de deuda, metas financieras y preferencias personales..."></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 4: Priorizacion de Pago</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Ordene sus deudas de primera a ultima a pagar segun su estrategia elegida.</p>
+
+            <table class="debt-table">
+                <thead>
+                    <tr>
+                        <th>Prioridad</th>
+                        <th>Nombre de la Deuda</th>
+                        <th>Razon de Esta Posicion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: #6366f1;">1ra</td>
+                        <td><input type="text" placeholder="Deuda a pagar primero"></td>
+                        <td><input type="text" placeholder="¿Por que esta primero?"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: #6366f1;">2da</td>
+                        <td><input type="text" placeholder="Deuda a pagar segundo"></td>
+                        <td><input type="text" placeholder="¿Por que esta segundo?"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: #6366f1;">3ra</td>
+                        <td><input type="text" placeholder="Deuda a pagar tercero"></td>
+                        <td><input type="text" placeholder="¿Por que esta tercero?"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: #6366f1;">4ta</td>
+                        <td><input type="text" placeholder="Deuda a pagar cuarto"></td>
+                        <td><input type="text" placeholder="¿Por que esta cuarto?"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: #6366f1;">5ta</td>
+                        <td><input type="text" placeholder="Deuda a pagar ultimo"></td>
+                        <td><input type="text" placeholder="¿Por que esta ultimo?"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Parte 5: Asignacion de Presupuesto Mensual</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Planifique como asignara dinero para la deuda cada mes.</p>
+
+            <div class="two-column">
+                <div class="input-group">
+                    <label>Total disponible para pagos de deuda</label>
+                    <input type="number" placeholder="$0" id="debtBudget">
+                </div>
+                <div class="input-group">
+                    <label>Monto adicional a los pagos minimos</label>
+                    <input type="number" placeholder="$0" id="extraPayment">
+                </div>
+            </div>
+
+            <div class="timeline-section">
+                <h4>Plan de Asignacion de Pagos</h4>
+                <div class="timeline-item">
+                    <span class="timeline-month">Deuda #1:</span>
+                    <div class="timeline-input">
+                        <input type="text" placeholder="Minimo + extra = pago total">
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Deuda #2:</span>
+                    <div class="timeline-input">
+                        <input type="text" placeholder="Solo pago minimo">
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Deuda #3:</span>
+                    <div class="timeline-input">
+                        <input type="text" placeholder="Solo pago minimo">
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Deuda #4:</span>
+                    <div class="timeline-input">
+                        <input type="text" placeholder="Solo pago minimo">
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Deuda #5:</span>
+                    <div class="timeline-input">
+                        <input type="text" placeholder="Solo pago minimo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 6: Lista de Verificacion para Reconstruir el Credito</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Acciones para mejorar su credito mientras maneja la deuda.</p>
+
+            <div class="two-column">
+                <div>
+                    <h3>Acciones Inmediatas</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Configurar pago automatico para todas las cuentas</li>
+                        <li><input type="checkbox"> Solicitar informes de credito gratuitos</li>
+                        <li><input type="checkbox"> Disputar cualquier error en los informes</li>
+                        <li><input type="checkbox"> Calcular relacion de utilizacion de credito</li>
+                        <li><input type="checkbox"> Contactar acreedores sobre programas de dificultad</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Habitos Continuos</h3>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Pagar todas las facturas a tiempo</li>
+                        <li><input type="checkbox"> Mantener utilizacion de credito bajo el 30%</li>
+                        <li><input type="checkbox"> No cerrar cuentas antiguas</li>
+                        <li><input type="checkbox"> Limitar nuevas solicitudes de credito</li>
+                        <li><input type="checkbox"> Monitorear puntaje de credito mensualmente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 7: Cuando Buscar Ayuda Profesional</h2>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Marque las condiciones que aplican a su situacion.</p>
+
+            <ul class="checklist">
+                <li><input type="checkbox"> La deuda total excede el ingreso anual</li>
+                <li><input type="checkbox"> Solo puede pagar los pagos minimos</li>
+                <li><input type="checkbox"> Recibe llamadas o cartas de cobranza</li>
+                <li><input type="checkbox"> Esta considerando la bancarrota</li>
+                <li><input type="checkbox"> Enfrenta embargo de salario o demandas</li>
+                <li><input type="checkbox"> No hay un camino claro para pagar la deuda en 5 anos</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Si marco 2+ casillas:</strong> Considere contactar una agencia de consejeria de credito sin fines de lucro. Encuentre una en NFCC.org o llame al 211 para recursos locales.
+            </div>
+        </div>
+
+        <div class="section reflection-section">
+            <h3>Preguntas de Reflexion</h3>
+            <div class="input-group">
+                <label>1. ¿Que cambios en sus habitos de gasto podrian liberar mas dinero para pagos de deuda?</label>
+                <textarea placeholder="Identifique al menos 3 areas especificas donde podria reducir gastos..."></textarea>
+            </div>
+            <div class="input-group">
+                <label>2. ¿Cual es su fecha objetivo para estar libre de deudas, y que hitos celebrara en el camino?</label>
+                <textarea placeholder="Establezca fechas realistas e identifique marcadores de progreso..."></textarea>
+            </div>
+            <div class="input-group">
+                <label>3. ¿Como sera diferente su vida cuando este libre de deudas? ¿Que hara con el dinero que estaba pagando hacia la deuda?</label>
+                <textarea placeholder="Visualice su vida libre de deudas y planifique para futuras metas financieras..."></textarea>
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Imprimir Hoja de Trabajo</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotals() {
+            let totalDebt = 0;
+            let totalMin = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                const bal = parseFloat(document.getElementById(`debt${i}bal`).value) || 0;
+                const min = parseFloat(document.getElementById(`debt${i}min`).value) || 0;
+                totalDebt += bal;
+                totalMin += min;
+            }
+
+            document.getElementById('totalDebt').textContent = '$' + totalDebt.toLocaleString();
+            document.getElementById('totalMin').textContent = '$' + totalMin.toLocaleString();
+        }
+
+        function calculateDTI() {
+            const income = parseFloat(document.getElementById('monthlyIncome').value) || 1;
+            const debt = parseFloat(document.getElementById('monthlyDebt').value) || 0;
+
+            const dti = (debt / income * 100).toFixed(1);
+            document.getElementById('dtiValue').textContent = dti + '%';
+
+            const statusEl = document.getElementById('dtiStatus');
+            if (dti < 20) {
+                statusEl.textContent = 'Excelente - Baja carga de deuda';
+                statusEl.className = 'ratio-status good';
+            } else if (dti < 36) {
+                statusEl.textContent = 'Bueno - Nivel de deuda manejable';
+                statusEl.className = 'ratio-status good';
+            } else if (dti < 43) {
+                statusEl.textContent = 'Precaucion - Alta carga de deuda';
+                statusEl.className = 'ratio-status concern';
+            } else {
+                statusEl.textContent = 'Preocupacion - Busque ayuda si tiene dificultades';
+                statusEl.className = 'ratio-status danger';
+            }
+        }
+
+        function selectStrategy(element, strategy) {
+            document.querySelectorAll('.strategy-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        // Agregar event listeners para calculo automatico
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`debt${i}bal`).addEventListener('input', calculateTotals);
+            document.getElementById(`debt${i}min`).addEventListener('input', calculateTotals);
+        }
+    </script>
+</body>
+</html>

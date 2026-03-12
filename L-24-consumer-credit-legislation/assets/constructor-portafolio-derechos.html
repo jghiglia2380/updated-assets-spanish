@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Portafolio - Conozca sus Derechos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .portfolio-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .intro {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 4px solid #4caf50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fafafa;
+            border-radius: 8px;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: -25px -25px 20px -25px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .law-dropdown {
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .law-header {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .law-header:hover {
+            background-color: #2980b9;
+        }
+        .law-content {
+            display: none;
+            padding: 15px;
+            background-color: white;
+        }
+        .law-content.active {
+            display: block;
+        }
+        .law-content textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .text-field {
+            margin: 15px 0;
+        }
+        .text-field label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .text-field textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .text-field input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-save {
+            background-color: #27ae60;
+            color: white;
+        }
+        .btn-save:hover {
+            background-color: #229954;
+        }
+        .btn-preview {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-preview:hover {
+            background-color: #2980b9;
+        }
+        .btn-export {
+            background-color: #9b59b6;
+            color: white;
+        }
+        .btn-export:hover {
+            background-color: #8e44ad;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .arrow.rotated {
+            transform: rotate(180deg);
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .button-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Guía "Conozca Sus Derechos"</h1>
+    <div class="subtitle">Constructor de Portafolio de Protecciones de Crédito al Consumidor</div>
+
+    <div class="portfolio-container">
+        <div class="intro">
+            <strong>Objetivo:</strong> Crear una guía personal de referencia que resuma sus derechos como consumidor de crédito y los pasos a seguir si esos derechos son violados. Esta guía se agregará a su portafolio financiero personal.
+        </div>
+
+        <!-- Sección 1: Resumen de Protecciones Clave -->
+        <div class="section">
+            <div class="section-header">1. Resumen de Protecciones Clave</div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('tila')">
+                    Ley de Veracidad en los Préstamos (TILA)
+                    <span class="arrow" id="arrow-tila">▼</span>
+                </div>
+                <div class="law-content" id="content-tila">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="tila-protections" placeholder="Resuma las protecciones principales de TILA y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('fcra')">
+                    Ley de Informes de Crédito Justos (FCRA)
+                    <span class="arrow" id="arrow-fcra">▼</span>
+                </div>
+                <div class="law-content" id="content-fcra">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="fcra-protections" placeholder="Resuma las protecciones principales de FCRA y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('ecoa')">
+                    Ley de Igualdad de Oportunidades de Crédito (ECOA)
+                    <span class="arrow" id="arrow-ecoa">▼</span>
+                </div>
+                <div class="law-content" id="content-ecoa">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="ecoa-protections" placeholder="Resuma las protecciones principales de ECOA y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('fdcpa')">
+                    Ley de Prácticas Justas en el Cobro de Deudas (FDCPA)
+                    <span class="arrow" id="arrow-fdcpa">▼</span>
+                </div>
+                <div class="law-content" id="content-fdcpa">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="fdcpa-protections" placeholder="Resuma las protecciones principales de FDCPA y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('card')">
+                    Ley CARD de Crédito
+                    <span class="arrow" id="arrow-card">▼</span>
+                </div>
+                <div class="law-content" id="content-card">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="card-protections" placeholder="Resuma las protecciones principales de la Ley CARD y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+
+            <div class="law-dropdown">
+                <div class="law-header" onclick="toggleLaw('dodd')">
+                    Ley Dodd-Frank
+                    <span class="arrow" id="arrow-dodd">▼</span>
+                </div>
+                <div class="law-content" id="content-dodd">
+                    <label>Protecciones clave que proporciona esta ley:</label>
+                    <textarea id="dodd-protections" placeholder="Resuma las protecciones principales de Dodd-Frank y cómo lo benefician..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Pasos a Seguir Si Se Violan los Derechos -->
+        <div class="section">
+            <div class="section-header">2. Pasos a Seguir Si Sus Derechos Han Sido Violados</div>
+
+            <div class="text-field">
+                <label>Paso 1: Documentación inicial</label>
+                <textarea id="step1" placeholder="¿Qué documentos y evidencia debe recopilar?"></textarea>
+            </div>
+
+            <div class="text-field">
+                <label>Paso 2: Contacto con el prestamista o acreedor</label>
+                <textarea id="step2" placeholder="¿Cómo debe comunicarse con la empresa responsable?"></textarea>
+            </div>
+
+            <div class="text-field">
+                <label>Paso 3: Presentar una queja formal</label>
+                <textarea id="step3" placeholder="¿A qué agencias puede acudir y cómo presentar una queja?"></textarea>
+            </div>
+
+            <div class="text-field">
+                <label>Paso 4: Seguimiento y escalamiento</label>
+                <textarea id="step4" placeholder="¿Qué hacer si no obtiene una resolución satisfactoria?"></textarea>
+            </div>
+        </div>
+
+        <!-- Sección 3: Información de Contacto de Recursos -->
+        <div class="section">
+            <div class="section-header">3. Información de Contacto de Recursos Relevantes</div>
+
+            <div class="contact-grid">
+                <div class="text-field">
+                    <label>Consumer Financial Protection Bureau (CFPB)</label>
+                    <input type="text" id="cfpb-phone" placeholder="Teléfono">
+                </div>
+                <div class="text-field">
+                    <label>&nbsp;</label>
+                    <input type="text" id="cfpb-website" placeholder="Sitio web">
+                </div>
+
+                <div class="text-field">
+                    <label>Federal Trade Commission (FTC)</label>
+                    <input type="text" id="ftc-phone" placeholder="Teléfono">
+                </div>
+                <div class="text-field">
+                    <label>&nbsp;</label>
+                    <input type="text" id="ftc-website" placeholder="Sitio web">
+                </div>
+
+                <div class="text-field">
+                    <label>Oficina del Fiscal General del Estado</label>
+                    <input type="text" id="ag-phone" placeholder="Teléfono">
+                </div>
+                <div class="text-field">
+                    <label>&nbsp;</label>
+                    <input type="text" id="ag-website" placeholder="Sitio web">
+                </div>
+
+                <div class="text-field">
+                    <label>Recurso Local/Comunitario</label>
+                    <input type="text" id="local-name" placeholder="Nombre de la organización">
+                </div>
+                <div class="text-field">
+                    <label>&nbsp;</label>
+                    <input type="text" id="local-contact" placeholder="Información de contacto">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-save" onclick="savePortfolio()">Guardar Portafolio</button>
+            <button class="btn btn-preview" onclick="previewPortfolio()">Vista Previa</button>
+            <button class="btn btn-export" onclick="exportPortfolio()">Exportar PDF</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle law dropdown
+        function toggleLaw(lawId) {
+            const content = document.getElementById('content-' + lawId);
+            const arrow = document.getElementById('arrow-' + lawId);
+
+            content.classList.toggle('active');
+            arrow.classList.toggle('rotated');
+        }
+
+        // Auto-save functionality
+        const fields = [
+            'tila-protections', 'fcra-protections', 'ecoa-protections',
+            'fdcpa-protections', 'card-protections', 'dodd-protections',
+            'step1', 'step2', 'step3', 'step4',
+            'cfpb-phone', 'cfpb-website', 'ftc-phone', 'ftc-website',
+            'ag-phone', 'ag-website', 'local-name', 'local-contact'
+        ];
+
+        function autoSave() {
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    localStorage.setItem('portfolio_' + field, element.value);
+                }
+            });
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            fields.forEach(field => {
+                const saved = localStorage.getItem('portfolio_' + field);
+                if (saved) {
+                    const element = document.getElementById(field);
+                    if (element) {
+                        element.value = saved;
+                    }
+                }
+            });
+        });
+
+        // Add event listeners
+        fields.forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', autoSave);
+            }
+        });
+
+        function savePortfolio() {
+            autoSave();
+            alert('¡Su portafolio ha sido guardado exitosamente!');
+        }
+
+        function previewPortfolio() {
+            window.print();
+        }
+
+        function exportPortfolio() {
+            alert('En una aplicación completa, esto exportaría su portafolio como PDF.\n\nPor ahora, use la función "Vista Previa" y luego "Guardar como PDF" en las opciones de impresión de su navegador.');
+        }
+    </script>
+</body>
+</html>

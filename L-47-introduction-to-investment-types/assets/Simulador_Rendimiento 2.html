@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Rendimiento Acciones vs. Bonos - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #f9fafb; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; text-align: center; }
+        .header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 0.9rem; }
+        .content { padding: 24px; }
+        .section { margin-bottom: 32px; }
+        .section h2 { font-size: 1.15rem; margin-bottom: 16px; color: #1f2937; }
+        .scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .scenario-card { border: 2px solid #e5e7eb; border-radius: 8px; padding: 16px; cursor: pointer; transition: all 0.2s; }
+        .scenario-card:hover { border-color: #6366f1; }
+        .scenario-card.active { border-color: #6366f1; background: #f5f3ff; }
+        .scenario-card h3 { font-size: 0.95rem; margin-bottom: 8px; }
+        .scenario-card p { font-size: 0.8rem; color: #6b7280; }
+        .prediction-section { background: #f9fafb; border-radius: 8px; padding: 16px; margin-top: 16px; }
+        .prediction-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .prediction-label { font-weight: 500; font-size: 0.9rem; min-width: 120px; }
+        .prediction-buttons { display: flex; gap: 8px; }
+        .pred-btn { padding: 8px 16px; border: 2px solid #d1d5db; border-radius: 6px; background: white; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+        .pred-btn:hover { border-color: #6366f1; }
+        .pred-btn.selected { background: #6366f1; border-color: #6366f1; color: white; }
+        .result-display { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 16px; margin-top: 16px; display: none; }
+        .result-display.show { display: block; }
+        .result-display h4 { color: #166534; margin-bottom: 8px; }
+        .result-display p { font-size: 0.85rem; margin-bottom: 6px; }
+        .input-field { margin-top: 12px; }
+        .input-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; }
+        .input-field textarea { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.85rem; font-family: inherit; resize: vertical; min-height: 60px; }
+        .long-term-section { margin-top: 32px; padding-top: 24px; border-top: 2px solid #e5e7eb; }
+        .portfolio-comparison { background: #f9fafb; border-radius: 8px; padding: 20px; }
+        .portfolio-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .portfolio-item { text-align: center; }
+        .portfolio-item h4 { font-size: 0.85rem; margin-bottom: 8px; color: #6b7280; }
+        .portfolio-value { font-size: 1.5rem; font-weight: 700; color: #6366f1; }
+        .portfolio-bar { height: 120px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; margin-bottom: 16px; }
+        .bar { width: 60px; border-radius: 4px 4px 0 0; position: relative; }
+        .bar-stocks { background: #6366f1; }
+        .bar-bonds { background: #10b981; }
+        .bar-balanced { background: #f59e0b; }
+        .bar-label { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; white-space: nowrap; }
+        .record-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 16px; }
+        .record-table th, .record-table td { padding: 10px; text-align: left; border: 1px solid #e5e7eb; }
+        .record-table th { background: #f3f4f6; font-weight: 600; }
+        .record-table input { width: 100%; padding: 6px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.85rem; }
+        .reflection-box { background: #fef3c7; border-radius: 8px; padding: 16px; margin-top: 20px; }
+        .reflection-box h4 { color: #92400e; margin-bottom: 12px; font-size: 0.95rem; }
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: 500; cursor: pointer; border: none; font-size: 0.9rem; background: #6366f1; color: white; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } .btn { display: none; } }
+        @media (max-width: 768px) { .portfolio-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simulador de Rendimiento Acciones vs. Bonos</h1>
+            <p>Actividad 2: Entienda cómo se comportan las inversiones bajo diferentes condiciones económicas</p>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>Parte A: Análisis de Escenarios Económicos</h2>
+                <p style="margin-bottom: 16px; color: #6b7280; font-size: 0.9rem;">Haga clic en cada escenario para hacer su predicción, luego revele los datos históricos.</p>
+                <div class="scenario-grid">
+                    <div class="scenario-card" onclick="selectScenario(this, 1)"><h3>Escenario 1: Crecimiento Económico Fuerte</h3><p>Crecimiento del PIB +4%, empleo fuerte, gasto del consumidor en aumento</p></div>
+                    <div class="scenario-card" onclick="selectScenario(this, 2)"><h3>Escenario 2: Recesión</h3><p>Disminución del PIB -2%, desempleo en aumento, gasto reducido</p></div>
+                    <div class="scenario-card" onclick="selectScenario(this, 3)"><h3>Escenario 3: Alta Inflación</h3><p>Tasa de inflación anual del 5%, precios en aumento en toda la economía</p></div>
+                    <div class="scenario-card" onclick="selectScenario(this, 4)"><h3>Escenario 4: Tasas de Interés en Aumento</h3><p>La Reserva Federal aumenta tasas 2% para combatir inflación</p></div>
+                </div>
+                <div class="prediction-section" id="prediction-area" style="display: none;">
+                    <div class="prediction-row"><span class="prediction-label" id="scenario-label">Su Predicción:</span><div class="prediction-buttons"><button class="pred-btn" onclick="makePrediction('stocks')">Acciones</button><button class="pred-btn" onclick="makePrediction('bonds')">Bonos</button></div></div>
+                    <button class="btn" onclick="revealResult()">Revelar Datos Históricos</button>
+                    <div class="result-display" id="result-display"><h4 id="result-title">Resultado Histórico</h4><p id="result-text"></p></div>
+                    <div class="input-field"><label>Explicación (¿Por qué sucedió esto?):</label><textarea placeholder="Escriba su explicación..."></textarea></div>
+                </div>
+            </div>
+            <div class="long-term-section">
+                <h2>Parte B: Perspectiva a Largo Plazo (Comparación de 30 Años)</h2>
+                <p style="margin-bottom: 16px; color: #6b7280; font-size: 0.9rem;">$10,000 invertidos en 1993 hasta 2023</p>
+                <div class="portfolio-comparison">
+                    <div class="portfolio-bar"><div class="bar bar-stocks" style="height: 100%;"><span class="bar-label">Acciones</span></div><div class="bar bar-bonds" style="height: 35%;"><span class="bar-label">Bonos</span></div><div class="bar bar-balanced" style="height: 65%;"><span class="bar-label">60/40</span></div></div>
+                    <div class="portfolio-row"><div class="portfolio-item"><h4>100% Acciones (S&P 500)</h4><div class="portfolio-value">$178,000</div></div><div class="portfolio-item"><h4>100% Bonos (Tesoro)</h4><div class="portfolio-value">$42,000</div></div><div class="portfolio-item"><h4>60/40 Balanceado</h4><div class="portfolio-value">$98,000</div></div></div>
+                </div>
+                <table class="record-table">
+                    <thead><tr><th>Portafolio</th><th>Valor Final (30 años)</th><th>Peor Pérdida Anual</th><th>Año</th></tr></thead>
+                    <tbody>
+                        <tr><td>Portafolio Todo Acciones</td><td><input type="text" placeholder="$"></td><td><input type="text" placeholder="%"></td><td><input type="text" placeholder="Año"></td></tr>
+                        <tr><td>Portafolio Todo Bonos</td><td><input type="text" placeholder="$"></td><td><input type="text" placeholder="%"></td><td><input type="text" placeholder="Año"></td></tr>
+                        <tr><td>Portafolio Balanceado</td><td><input type="text" placeholder="$"></td><td><input type="text" placeholder="%"></td><td><input type="text" placeholder="Año"></td></tr>
+                    </tbody>
+                </table>
+                <div class="reflection-box"><h4>Reflexión</h4><p style="font-size: 0.85rem; margin-bottom: 12px;">¿Habría podido mantener sus inversiones durante las pérdidas del peor año? ¿Cómo esto informa su tolerancia al riesgo?</p><textarea style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; min-height: 80px; font-size: 0.85rem; font-family: inherit;" placeholder="Su reflexión..."></textarea></div>
+                <button class="btn" onclick="window.print()" style="margin-top: 16px;">Imprimir Hoja de Trabajo</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentScenario = null;
+        let currentPrediction = null;
+        const scenarioData = {
+            1: { label: 'Crecimiento Fuerte (+4% PIB)', winner: 'stocks', stockReturn: '+18% promedio', bondReturn: '+4% promedio', explanation: 'Durante crecimiento económico fuerte, las ganancias de las empresas aumentan, impulsando los precios de las acciones. Los bonos proporcionan rendimientos modestos con pagos fijos.' },
+            2: { label: 'Recesión (-2% PIB)', winner: 'bonds', stockReturn: '-25% promedio', bondReturn: '+8% promedio', explanation: 'Durante recesiones, los inversionistas huyen hacia la seguridad de los bonos. Los precios de las acciones caen cuando las ganancias de las empresas disminuyen.' },
+            3: { label: 'Alta Inflación (5%)', winner: 'stocks', stockReturn: '+3% rendimiento real', bondReturn: '-2% rendimiento real', explanation: 'Las acciones pueden ajustarse a la inflación cuando las empresas suben precios. Los bonos pierden valor porque sus pagos fijos compran menos.' },
+            4: { label: 'Tasas en Aumento (+2%)', winner: 'stocks', stockReturn: '+6% promedio', bondReturn: '-12% promedio', explanation: 'Cuando las tasas de interés suben, los precios de bonos existentes caen (relación inversa). Las acciones pueden recuperarse después de luchas iniciales.' }
+        };
+        function selectScenario(card, num) {
+            document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active'); currentScenario = num; currentPrediction = null;
+            document.getElementById('prediction-area').style.display = 'block';
+            document.getElementById('scenario-label').textContent = `Escenario ${num} - Su Predicción:`;
+            document.getElementById('result-display').classList.remove('show');
+            document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected'));
+        }
+        function makePrediction(choice) { currentPrediction = choice; document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected')); event.target.classList.add('selected'); }
+        function revealResult() {
+            if (!currentScenario) return;
+            const data = scenarioData[currentScenario];
+            let resultText = `<strong>Acciones:</strong> ${data.stockReturn}<br><strong>Bonos:</strong> ${data.bondReturn}<br><br><strong>Ganador:</strong> ${data.winner === 'stocks' ? 'Acciones' : 'Bonos'}<br><br><strong>Por qué:</strong> ${data.explanation}`;
+            if (currentPrediction) {
+                if (currentPrediction === data.winner) { resultText = `<span style="color: #059669; font-weight: bold;">¡Correcto!</span><br><br>` + resultText; }
+                else { resultText = `<span style="color: #dc2626; font-weight: bold;">No exactamente - ${data.winner === 'stocks' ? 'acciones' : 'bonos'} tuvieron mejor rendimiento</span><br><br>` + resultText; }
+            }
+            document.getElementById('result-title').textContent = `Resultado Histórico: ${data.label}`;
+            document.getElementById('result-text').innerHTML = resultText;
+            document.getElementById('result-display').classList.add('show');
+        }
+    </script>
+</body>
+</html>

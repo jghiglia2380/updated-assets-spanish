@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Comparación de Costos de Préstamos - Capítulo 7.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .worksheet-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .input-field {
+            background-color: #fff;
+            height: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .note {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .scenario {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .scenario h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .analysis {
+            background-color: #f1f9e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .worksheet-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Hoja de Trabajo de Comparación de Costos de Préstamos</h1>
+
+        <div class="note">
+            <p><strong>Instrucciones:</strong> Esta hoja de trabajo le guía a través de escenarios realistas de préstamos para ayudarle a comprender y calcular el verdadero costo de diferentes préstamos. Complete los cálculos para cada escenario y responda las preguntas de análisis para desarrollar sus habilidades de toma de decisiones sobre préstamos.</p>
+        </div>
+
+        <div class="section">
+            <h2>Escenario 1: Opciones de Préstamo de Auto</h2>
+
+            <div class="scenario">
+                <h3>Contexto del Escenario</h3>
+                <p>Jordan necesita un auto confiable para ir a su nuevo trabajo. Después de investigar, Jordan ha encontrado un auto usado por $15,000 y un auto nuevo por $25,000. Jordan tiene $3,000 ahorrados para el pago inicial y está considerando las siguientes opciones de préstamo:</p>
+
+                <table>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Préstamo Auto Usado</th>
+                        <th>Préstamo Auto Nuevo</th>
+                    </tr>
+                    <tr>
+                        <td>Precio del Vehículo</td>
+                        <td>$15,000</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Inicial</td>
+                        <td>$3,000</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>Monto del Préstamo</td>
+                        <td>$12,000</td>
+                        <td>$22,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tasa de Interés</td>
+                        <td>6.5%</td>
+                        <td>4.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Plazo del Préstamo</td>
+                        <td>4 años</td>
+                        <td>5 años</td>
+                    </tr>
+                </table>
+
+                <h3>Sus Cálculos</h3>
+                <table>
+                    <tr>
+                        <th>Cálculo</th>
+                        <th>Préstamo Auto Usado</th>
+                        <th>Préstamo Auto Nuevo</th>
+                    </tr>
+                    <tr>
+                        <td>Pago Mensual</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total de Todos los Pagos</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Interés Total Pagado</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Costo Total (Precio + Interés)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Estimado Mensual de Seguro</td>
+                        <td>$100</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Total Mensual (Pago + Seguro)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="analysis">
+                    <h3>Preguntas de Análisis</h3>
+                    <ol>
+                        <li>¿Qué opción tiene el pago mensual más alto? ¿Por cuánto?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Qué opción tiene el costo total más alto cuando se incluye el interés? ¿Por cuánto?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Cuánto más se gasta en seguro durante la vida del préstamo para el auto nuevo comparado con el usado?<br>
+                        <div class="input-field"></div></li>
+                        <li>Si Jordan espera quedarse con el auto por 7 años, ¿qué opción tiene más sentido financiero? ¿Por qué?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                        <li>¿Qué otros factores además del costo debería considerar Jordan al tomar esta decisión?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Escenario 2: Financiamiento Educativo</h2>
+
+            <div class="scenario">
+                <h3>Contexto del Escenario</h3>
+                <p>Taylor está planeando asistir a la universidad y necesita elegir entre diferentes opciones de préstamos estudiantiles para cubrir $20,000 en gastos. Estas son las opciones:</p>
+
+                <table>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Préstamo Federal Subsidiado</th>
+                        <th>Préstamo Federal No Subsidiado</th>
+                        <th>Préstamo Estudiantil Privado</th>
+                    </tr>
+                    <tr>
+                        <td>Monto del Préstamo</td>
+                        <td>$20,000</td>
+                        <td>$20,000</td>
+                        <td>$20,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tasa de Interés</td>
+                        <td>4.5%</td>
+                        <td>5.0%</td>
+                        <td>7.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Plazo del Préstamo</td>
+                        <td>10 años</td>
+                        <td>10 años</td>
+                        <td>10 años</td>
+                    </tr>
+                    <tr>
+                        <td>Interés Durante la Escuela</td>
+                        <td>El gobierno paga</td>
+                        <td>Se acumula (est. $3,000)</td>
+                        <td>Se acumula (est. $4,500)</td>
+                    </tr>
+                    <tr>
+                        <td>El Pago Comienza</td>
+                        <td>Después de graduarse</td>
+                        <td>Después de graduarse</td>
+                        <td>Después de graduarse</td>
+                    </tr>
+                </table>
+
+                <h3>Sus Cálculos</h3>
+                <table>
+                    <tr>
+                        <th>Cálculo</th>
+                        <th>Federal Subsidiado</th>
+                        <th>Federal No Subsidiado</th>
+                        <th>Préstamo Privado</th>
+                    </tr>
+                    <tr>
+                        <td>Principal al Inicio del Pago</td>
+                        <td>$20,000</td>
+                        <td>$23,000 (inc. interés acumulado)</td>
+                        <td>$24,500 (inc. interés acumulado)</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Mensual</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total de Todos los Pagos</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Interés Total Pagado</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Costo Total (Principal + Interés)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="analysis">
+                    <h3>Preguntas de Análisis</h3>
+                    <ol>
+                        <li>¿Cuánto más pagará Taylor en total por el préstamo privado comparado con el préstamo federal subsidiado?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Qué opción de préstamo proporciona el mejor valor? ¿Por qué?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Cuál es el impacto del interés que se acumula durante la escuela? ¿Cuánto agrega esto al costo total?<br>
+                        <div class="input-field"></div></li>
+                        <li>Si Taylor pudiera pagar el interés durante la escuela en el préstamo no subsidiado, ¿cómo afectaría esto al costo total?<br>
+                        <div class="input-field"></div></li>
+                        <li>Además de las tasas de interés, ¿qué otros factores debería considerar Taylor al elegir un préstamo estudiantil?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Escenario 3: Tarjeta de Crédito vs. Préstamo Personal</h2>
+
+            <div class="scenario">
+                <h3>Contexto del Escenario</h3>
+                <p>Alex necesita cubrir $5,000 en reparaciones de emergencia del hogar y está considerando dos opciones: usar una tarjeta de crédito existente o solicitar un préstamo personal. Estos son los detalles:</p>
+
+                <table>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Tarjeta de Crédito</th>
+                        <th>Préstamo Personal</th>
+                    </tr>
+                    <tr>
+                        <td>Monto</td>
+                        <td>$5,000</td>
+                        <td>$5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tasa de Interés</td>
+                        <td>18.99% TAE</td>
+                        <td>10.5% TAE</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Mínimo</td>
+                        <td>2% del saldo ($25 mín)</td>
+                        <td>Pago fijo</td>
+                    </tr>
+                    <tr>
+                        <td>Plazo</td>
+                        <td>Variable (con pagos mín.)</td>
+                        <td>3 años (36 meses)</td>
+                    </tr>
+                    <tr>
+                        <td>Cargos</td>
+                        <td>Ninguno (tarjeta existente)</td>
+                        <td>$150 cargo de originación</td>
+                    </tr>
+                </table>
+
+                <h3>Sus Cálculos</h3>
+                <table>
+                    <tr>
+                        <th>Cálculo</th>
+                        <th>Tarjeta de Crédito (pagos mín.)</th>
+                        <th>Tarjeta de Crédito ($200/mes)</th>
+                        <th>Préstamo Personal</th>
+                    </tr>
+                    <tr>
+                        <td>Pago Mensual</td>
+                        <td>Comienza en $100, disminuye</td>
+                        <td>$200 fijo</td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo para Pagar</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td>36 meses</td>
+                    </tr>
+                    <tr>
+                        <td>Total de Todos los Pagos</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Interés Total Pagado</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                    <tr>
+                        <td>Total de Cargos</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Costo Total (Monto + Interés + Cargos)</td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                        <td class="input-field"></td>
+                    </tr>
+                </table>
+
+                <div class="analysis">
+                    <h3>Preguntas de Análisis</h3>
+                    <ol>
+                        <li>¿Cuánto tiempo tomaría pagar la tarjeta de crédito haciendo solo pagos mínimos?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Cuánto puede ahorrar Alex pagando $200/mes en la tarjeta de crédito en lugar de hacer pagos mínimos?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Qué opción tiene el costo total más bajo cuando se incluyen cargos e intereses? ¿Por cuánto?<br>
+                        <div class="input-field"></div></li>
+                        <li>Si Alex necesita minimizar los pagos mensuales ahora mismo debido a restricciones de presupuesto, ¿qué opción es mejor?<br>
+                        <div class="input-field"></div></li>
+                        <li>¿Cuáles son los pros y contras de cada opción más allá del costo?<br>
+                        <div class="input-field" style="height: 40px;"></div></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Marco de Toma de Decisiones</h2>
+            <p>Basándose en su análisis de estos escenarios, desarrolle un marco para evaluar opciones de préstamos:</p>
+
+            <h3>Factores Clave a Considerar al Comparar Préstamos</h3>
+            <ol>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ol>
+
+            <h3>Mi Proceso Personal de Evaluación de Préstamos</h3>
+            <p>Al evaluar opciones de préstamos, seguiré estos pasos:</p>
+            <ol>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+                <li><div class="input-field"></div></li>
+            </ol>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> El verdadero costo de pedir prestado incluye más que solo el monto del principal. Siempre calcule el interés total pagado y considere todos los cargos y términos al comparar opciones de préstamos.</p>
+        </div>
+    </div>
+</body>
+</html>

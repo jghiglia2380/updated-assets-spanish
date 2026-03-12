@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Planificación Financiera - PFL Academy</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Headers */
+        h1 {
+            color: #4F46E5;
+            border-bottom: 2px solid #4F46E5;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #7C3AED;
+            margin-top: 25px;
+            border-left: 4px solid #7C3AED;
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: #6D28D9;
+            margin-top: 20px;
+        }
+
+        /* Content styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #D1D5DB;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #F3F4F6;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9FAFB;
+        }
+
+        .empty-cell {
+            background-color: #F3F4F6;
+        }
+
+        .worksheet {
+            background-color: #F9FAFB;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .worksheet-header {
+            background-color: #E0E7FF;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .worksheet-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4338CA;
+            margin: 0;
+        }
+
+        .note {
+            background-color: #ECFDF5;
+            border-left: 4px solid #10B981;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background-color: #FEF2F2;
+            border-left: 4px solid #EF4444;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        .formula {
+            background-color: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            border-radius: 5px;
+        }
+
+        .example {
+            background-color: #F0F9FF;
+            border-left: 4px solid #0EA5E9;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        /* Form elements */
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+        }
+
+        .calculation-field {
+            background-color: #F3F4F6;
+            color: #4B5563;
+            font-weight: bold;
+        }
+
+        /* Print-specific styling */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+
+            h1 {
+                font-size: 18pt;
+            }
+
+            h2 {
+                font-size: 16pt;
+            }
+
+            h3 {
+                font-size: 14pt;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+
+            input[type="text"], input[type="number"] {
+                border: 1px solid #D1D5DB;
+                padding: 4px;
+                font-size: 12pt;
+            }
+
+            .worksheet {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="background-color: #EEF2FF; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+        <strong>Nota para el Maestro:</strong> Este recurso está diseñado para imprimirse o guardarse como PDF para uso del estudiante. Para guardar como PDF, use la función de impresión de su navegador (Ctrl+P o Cmd+P) y seleccione "Guardar como PDF" como destino.
+    </div>
+
+    <h1>Kit de Planificación Financiera para Emprendedores</h1>
+    <p>Este kit proporciona recursos esenciales de planificación financiera para emprendedores, enfocándose en proyecciones financieras de inicio, planificación de gastos, pronóstico de ingresos, análisis del punto de equilibrio y estrategias de precios. Use estas hojas de trabajo para desarrollar una base financiera sólida para su emprendimiento.</p>
+
+    <div class="note">
+        <strong>Nota:</strong> Las hojas de trabajo en este documento están diseñadas para completarse digitalmente (antes de guardar como PDF) o a mano después de imprimir. Proporcionan un marco fundamental para la planificación financiera que puede personalizarse para su concepto de negocio específico.
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Calculadora de Costos de Inicio</h2>
+        </div>
+        <p>Use esta hoja de trabajo para identificar y estimar todos los costos iniciales requeridos para iniciar su negocio. Esto le ayudará a determinar cuánto financiamiento necesita antes de lanzar.</p>
+
+        <h3>Gastos Únicos de Inicio</h3>
+        <table>
+            <tr>
+                <th width="70%">Elemento de Gasto</th>
+                <th width="30%">Costo Estimado</th>
+            </tr>
+            <tr>
+                <td>Tarifas de registro/licencias comerciales</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Equipos y herramientas</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Inventario inicial</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Configuración/desarrollo de sitio web</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Diseño de logotipo y marca</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Servicios profesionales (configuración legal, contable)</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Materiales de marketing iniciales</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Depósitos y pagos iniciales</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Compras de software/aplicaciones</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Materiales educativos/capacitación</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL GASTOS ÚNICOS</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Gastos Operativos Iniciales (Primeros 3 Meses)</h3>
+        <table>
+            <tr>
+                <th width="50%">Gasto Mensual</th>
+                <th width="20%">Costo Mensual</th>
+                <th width="30%">Total 3 Meses</th>
+            </tr>
+            <tr>
+                <td>Alquiler/costos de espacio de trabajo</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Servicios públicos (electricidad, internet, teléfono)</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Inventario/materiales continuos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Suscripciones de software</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Marketing y publicidad</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Seguros</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Servicios profesionales (continuos)</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Transporte/envío</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Tarifas de procesamiento de pagos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Su salario/retiro personal</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>TOTAL GASTOS MENSUALES</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td class="empty-cell"></td>
+            </tr>
+            <tr>
+                <th>TOTAL GASTOS OPERATIVOS 3 MESES</th>
+                <td class="empty-cell"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Financiamiento Total Requerido para el Inicio</h3>
+        <table>
+            <tr>
+                <th width="70%">Categoría</th>
+                <th width="30%">Monto</th>
+            </tr>
+            <tr>
+                <td>Total Gastos Únicos</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Total Gastos Operativos 3 Meses</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Fondo de Emergencia (10-20% del total anterior)</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>FINANCIAMIENTO TOTAL REQUERIDO PARA EL INICIO</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>Consejo:</strong> Sea realista y exhaustivo al estimar los costos. Es mejor sobreestimar ligeramente que quedarse sin fondos inesperadamente. Investigue los costos reales para su industria y ubicación siempre que sea posible.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Hoja de Trabajo de Proyección de Ingresos</h2>
+        </div>
+        <p>Use esta hoja de trabajo para estimar los ingresos potenciales de su negocio. Comience con estimaciones conservadoras y luego cree escenarios para diferentes niveles de crecimiento.</p>
+
+        <h3>Estrategia de Precios de Producto/Servicio</h3>
+        <table>
+            <tr>
+                <th width="40%">Producto/Servicio</th>
+                <th width="20%">Costo de Proveer</th>
+                <th width="20%">Precio de Venta</th>
+                <th width="20%">Margen de Ganancia</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td><input type="text">%</td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            <strong>Cálculo del Margen de Ganancia:</strong> (Precio de Venta - Costo de Proveer) ÷ Precio de Venta × 100 = Margen de Ganancia %
+        </div>
+
+        <h3>Proyección de Ventas Mensuales (Primeros 6 Meses)</h3>
+        <table>
+            <tr>
+                <th>Producto/Servicio</th>
+                <th>Mes 1</th>
+                <th>Mes 2</th>
+                <th>Mes 3</th>
+                <th>Mes 4</th>
+                <th>Mes 5</th>
+                <th>Mes 6</th>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 1<br>Unidades Vendidas</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 1<br>Ingresos</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 2<br>Unidades Vendidas</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 2<br>Ingresos</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 3<br>Unidades Vendidas</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Producto/Servicio 3<br>Ingresos</td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>TOTAL INGRESOS MENSUALES</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Suposiciones y Factores de Crecimiento</h3>
+        <p>Documente las suposiciones clave detrás de sus proyecciones de ingresos:</p>
+        <table>
+            <tr>
+                <th width="30%">Factor</th>
+                <th width="70%">Suposiciones</th>
+            </tr>
+            <tr>
+                <td>Adquisición de Clientes</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Factores Estacionales</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Crecimiento del Mercado</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Respuesta Competitiva</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Otros Factores</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>Consejo:</strong> Comience con proyecciones conservadoras para el Mes 1, luego modele un crecimiento modesto cada mes. Base sus proyecciones iniciales en investigación de mercado y negocios comparables siempre que sea posible.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Hoja de Trabajo de Análisis del Punto de Equilibrio</h2>
+        </div>
+        <p>Use esta hoja de trabajo para determinar su punto de equilibrio—el nivel de ventas requerido para cubrir todos sus costos antes de generar ganancias.</p>
+
+        <h3>Costos Fijos Mensuales</h3>
+        <p>Estos costos permanecen relativamente constantes independientemente del volumen de ventas.</p>
+        <table>
+            <tr>
+                <th width="70%">Elemento de Costo Fijo</th>
+                <th width="30%">Monto Mensual</th>
+            </tr>
+            <tr>
+                <td>Alquiler/espacio de trabajo</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Seguros</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Servicios públicos (base)</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Pagos de préstamos/equipos</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Suscripciones/software</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Sitio web/alojamiento</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Teléfono/internet</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Costos básicos de marketing</td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL COSTOS FIJOS (CF)</th>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Costos Variables</h3>
+        <p>Estos costos cambian directamente con el volumen de ventas (por unidad vendida o servicio provisto).</p>
+        <table>
+            <tr>
+                <th>Producto/Servicio</th>
+                <th>Precio de Venta<br>(PV) por Unidad</th>
+                <th>Costo Variable<br>(CV) por Unidad</th>
+                <th>Margen de Contribución<br>(PV - CV) por Unidad</th>
+                <th>Porcentaje de Margen<br>de Contribución</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+            <tr>
+                <th>PROMEDIO PONDERADO</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text" class="calculation-field">%</td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            <strong>Margen de Contribución:</strong> Precio de Venta por Unidad - Costo Variable por Unidad<br>
+            <strong>Porcentaje de Margen de Contribución:</strong> (Margen de Contribución por Unidad ÷ Precio de Venta por Unidad) × 100
+        </div>
+
+        <h3>Cálculos del Punto de Equilibrio</h3>
+        <table>
+            <tr>
+                <th width="70%">Cálculo</th>
+                <th width="30%">Resultado</th>
+            </tr>
+            <tr>
+                <td>Ventas de Punto de Equilibrio (unidades) = Total Costos Fijos ÷ Margen de Contribución por Unidad</td>
+                <td><input type="text" class="calculation-field"> unidades</td>
+            </tr>
+            <tr>
+                <td>Ingresos de Punto de Equilibrio = Unidades de Punto de Equilibrio × Precio de Venta Promedio</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Ingresos de Punto de Equilibrio = Total Costos Fijos ÷ Porcentaje de Margen de Contribución</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Cronograma del Punto de Equilibrio</h3>
+        <p>Basado en sus proyecciones de ingresos mensuales, ¿cuándo alcanzará su punto de equilibrio?</p>
+        <table>
+            <tr>
+                <th>Mes</th>
+                <th>Ventas Proyectadas (Unidades)</th>
+                <th>Ingresos Proyectados</th>
+                <th>Costos Totales</th>
+                <th>Ganancia/Pérdida</th>
+                <th>Ganancia/Pérdida Acumulada</th>
+            </tr>
+            <tr>
+                <td>Mes 1</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Mes 2</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Mes 3</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Mes 4</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Mes 5</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Mes 6</td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <p><strong>Punto de Equilibrio Estimado:</strong> Mes <input type="text" style="width:50px"></p>
+
+        <div class="example">
+            <strong>Ejemplo de Punto de Equilibrio:</strong> Un diseñador gráfico independiente tiene $1,500 en costos fijos mensuales y un margen de contribución promedio del 80% en servicios de diseño con precio de $75/hora. El cálculo del punto de equilibrio sería: $1,500 ÷ 0.8 = $1,875 en ingresos mensuales, o 25 horas facturables ($1,875 ÷ $75).
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Hoja de Trabajo de Estrategia de Precios</h2>
+        </div>
+        <p>Use esta hoja de trabajo para desarrollar un enfoque estratégico de precios para sus productos o servicios que considere costos, competencia, percepción de valor y sus objetivos comerciales.</p>
+
+        <h3>Análisis de Precios Basado en Costos</h3>
+        <p>Calcule su precio mínimo basado en costos y margen de ganancia deseado.</p>
+        <table>
+            <tr>
+                <th>Producto/Servicio</th>
+                <th>Costos Directos</th>
+                <th>Asignación de Gastos Generales</th>
+                <th>Costo Total</th>
+                <th>Margen de Ganancia Objetivo</th>
+                <th>Precio Mínimo</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td><input type="text">%</td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <div class="formula">
+            <strong>Cálculo del Precio Mínimo:</strong> Costo Total ÷ (1 - Margen de Ganancia Objetivo como decimal)<br>
+            <strong>Ejemplo:</strong> Costo de $40 con margen objetivo del 30%: $40 ÷ (1 - 0.3) = $40 ÷ 0.7 = $57.14
+        </div>
+
+        <h3>Análisis de Precios Competitivos</h3>
+        <p>Investigue los precios de los competidores para entender el rango del mercado.</p>
+        <table>
+            <tr>
+                <th>Competidor</th>
+                <th>Producto/Servicio Similar</th>
+                <th>Su Precio</th>
+                <th>Comparación de Calidad</th>
+                <th>Comparación de Características</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menor que la nuestra</option>
+                        <option>Similar a la nuestra</option>
+                        <option>Mayor que la nuestra</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menos características</option>
+                        <option>Características similares</option>
+                        <option>Más características</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menor que la nuestra</option>
+                        <option>Similar a la nuestra</option>
+                        <option>Mayor que la nuestra</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menos características</option>
+                        <option>Características similares</option>
+                        <option>Más características</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menor que la nuestra</option>
+                        <option>Similar a la nuestra</option>
+                        <option>Mayor que la nuestra</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Menos características</option>
+                        <option>Características similares</option>
+                        <option>Más características</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <p><strong>Rango de Precios del Mercado:</strong> $<input type="text" style="width:60px"> a $<input type="text" style="width:60px"></p>
+
+        <h3>Factores de Precios Basados en Valor</h3>
+        <p>Identifique el valor único que su producto/servicio ofrece que puede justificar precios premium.</p>
+        <table>
+            <tr>
+                <th>Factor de Valor</th>
+                <th>Cómo Su Producto/Servicio Entrega Esto</th>
+                <th>Valor Estimado para el Cliente</th>
+            </tr>
+            <tr>
+                <td>Ahorro de tiempo</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Resolución de problemas</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Conveniencia</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Calidad/durabilidad</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Estatus/prestigio</td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td>$<input type="text"></td>
+            </tr>
+        </table>
+
+        <h3>Decisión de Estrategia de Precios</h3>
+        <table>
+            <tr>
+                <th>Producto/Servicio</th>
+                <th>Precio Basado en Costo</th>
+                <th>Rango del Mercado</th>
+                <th>Estimación Basada en Valor</th>
+                <th>Punto de Precio Estratégico</th>
+                <th>Estrategia de Precios</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"> - $<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Economía (por debajo del mercado)</option>
+                        <option>Igualar mercado (igualar competidores)</option>
+                        <option>Premium (por encima del mercado)</option>
+                        <option>Descremado (precio inicial alto)</option>
+                        <option>Penetración (precio inicial bajo)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"> - $<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Economía (por debajo del mercado)</option>
+                        <option>Igualar mercado (igualar competidores)</option>
+                        <option>Premium (por encima del mercado)</option>
+                        <option>Descremado (precio inicial alto)</option>
+                        <option>Penetración (precio inicial bajo)</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Opciones de Modelo de Precios</h3>
+        <p>Considere modelos de precios alternativos que podrían funcionar para su negocio:</p>
+        <table>
+            <tr>
+                <th>Modelo de Precios</th>
+                <th>Aplicabilidad a Su Negocio</th>
+                <th>Ventajas</th>
+                <th>Desventajas</th>
+            </tr>
+            <tr>
+                <td>Por Hora/Basado en Tiempo</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Muy aplicable</option>
+                        <option>Algo aplicable</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Basado en Proyecto/Paquete</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Muy aplicable</option>
+                        <option>Algo aplicable</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Suscripción/Recurrente</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Muy aplicable</option>
+                        <option>Algo aplicable</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Precios por Niveles</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Muy aplicable</option>
+                        <option>Algo aplicable</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Modelo Freemium</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Muy aplicable</option>
+                        <option>Algo aplicable</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+
+        <h3>Resumen Final de Estrategia de Precios</h3>
+        <textarea rows="5" style="width:100%" placeholder="Resuma su estrategia de precios, incluyendo sus puntos de precio elegidos, modelo de precios y justificación basada en los análisis anteriores."></textarea>
+
+        <div class="note">
+            <strong>Recuerde:</strong> Los precios no son permanentes—pueden y deben ajustarse a medida que aprende más sobre su mercado, costos y percepción de valor del cliente. Planee revisar su estrategia de precios después de sus primeros meses en el negocio.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="worksheet">
+        <div class="worksheet-header">
+            <h2 class="worksheet-title">Herramienta de Planificación de Flujo de Caja</h2>
+        </div>
+        <p>Use esta hoja de trabajo para proyectar y gestionar el flujo de caja de su negocio mes a mes. Esto le ayudará a anticipar y planificar posibles escaseces de efectivo antes de que se conviertan en problemas.</p>
+
+        <h3>Proyección de Flujo de Caja Mensual (Primeros 6 Meses)</h3>
+        <table>
+            <tr>
+                <th></th>
+                <th>Mes 1</th>
+                <th>Mes 2</th>
+                <th>Mes 3</th>
+                <th>Mes 4</th>
+                <th>Mes 5</th>
+                <th>Mes 6</th>
+            </tr>
+            <tr>
+                <th colspan="7">ENTRADAS DE EFECTIVO</th>
+            </tr>
+            <tr>
+                <td>Saldo de Efectivo Inicial</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <td>Ventas en Efectivo</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Cuentas por Cobrar Recaudadas</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otros Ingresos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL ENTRADAS DE EFECTIVO</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th colspan="7">SALIDAS DE EFECTIVO</th>
+            </tr>
+            <tr>
+                <td>Inventario/Materiales</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Alquiler/Espacio de Trabajo</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Servicios Públicos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Marketing/Publicidad</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Seguros</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Suscripciones/Software</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Transporte/Envío</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Servicios Profesionales</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Pagos de Préstamos/Equipos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Impuestos</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Retiro/Salario del Propietario</td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <td>Otro: <input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+                <td>$<input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL SALIDAS DE EFECTIVO</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>FLUJO DE CAJA NETO</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+            <tr>
+                <th>SALDO DE EFECTIVO FINAL</th>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+                <td>$<input type="text" class="calculation-field"></td>
+            </tr>
+        </table>
+
+        <h3>Evaluación de Riesgo de Flujo de Caja</h3>
+        <p>Identifique los meses con posibles escaseces de efectivo y desarrolle planes de contingencia:</p>
+        <table>
+            <tr>
+                <th>Mes</th>
+                <th>Estado de Efectivo</th>
+                <th>Plan de Contingencia (si es necesario)</th>
+            </tr>
+            <tr>
+                <td>Mes 1</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Mes 2</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Mes 3</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Mes 4</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Mes 5</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Mes 6</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Fuerte (>$1,000 de reserva)</option>
+                        <option>Adecuado ($500-1,000 de reserva)</option>
+                        <option>Ajustado ($0-500 de reserva)</option>
+                        <option>Escasez (saldo negativo)</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+
+        <h3>Estrategias de Mejora del Flujo de Caja</h3>
+        <p>Basándose en sus proyecciones de flujo de caja, ¿cuáles de estas estrategias serían más beneficiosas para su negocio?</p>
+        <table>
+            <tr>
+                <th>Estrategia</th>
+                <th>Aplicabilidad</th>
+                <th>Plan de Implementación</th>
+            </tr>
+            <tr>
+                <td>Ajustar términos de pago (requerir depósitos, acortar plazos de pago)</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Negociar términos con proveedores (extender plazos de pago)</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Implementar cantidades mínimas de pedido</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Crear ofertas o promociones estacionales</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Implementar modelos de suscripción o pago recurrente</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>Reducir gastos opcionales durante períodos de escasez</td>
+                <td>
+                    <select style="width:100%">
+                        <option>Seleccionar...</option>
+                        <option>Alto impacto potencial</option>
+                        <option>Impacto potencial medio</option>
+                        <option>Bajo impacto potencial</option>
+                        <option>No aplicable</option>
+                    </select>
+                </td>
+                <td><textarea rows="2" style="width:100%"></textarea></td>
+            </tr>
+        </table>
+
+        <div class="warning">
+            <strong>Importante:</strong> La gestión del flujo de caja es crítica para la supervivencia del negocio. Muchos negocios rentables fracasan debido a problemas de flujo de caja. Actualice esta proyección regularmente mientras opera su negocio, y mantenga una reserva de efectivo para gastos inesperados o retrasos en los ingresos.
+        </div>
+    </div>
+
+</body>
+</html>

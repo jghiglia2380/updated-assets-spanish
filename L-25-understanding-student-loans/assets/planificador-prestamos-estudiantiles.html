@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Préstamos Estudiantiles</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-bar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .step.active {
+            background-color: #667eea;
+            color: white;
+        }
+        .step.completed {
+            background-color: #27ae60;
+            color: white;
+        }
+        .step.inactive {
+            background-color: #ecf0f1;
+            color: #95a5a6;
+        }
+        .activity-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .activity-section.active {
+            display: block;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .slider-container {
+            margin: 20px 0;
+        }
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        .results-box {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .results-box.warning {
+            background-color: #fff9e6;
+            border-left-color: #f39c12;
+        }
+        .results-box.danger {
+            background-color: #ffebee;
+            border-left-color: #e74c3c;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: bold;
+        }
+        .result-value {
+            font-size: 18px;
+            color: #667eea;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #5568d3;
+        }
+        .btn-success {
+            background-color: #27ae60;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #229954;
+        }
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .resource-links {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .resource-links h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .resource-links ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .progress-steps {
+                flex-direction: column;
+            }
+            .step {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+        @media print {
+            body { background: white; }
+            .header { background: #667eea; -webkit-print-color-adjust: exact; }
+            .activity-section { box-shadow: none; page-break-inside: avoid; }
+            .progress-bar { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Planificador de Préstamos Estudiantiles</h1>
+        <p>Herramienta Integral de Investigación y Planificación</p>
+    </div>
+
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-steps">
+                <div class="step active" id="step1" onclick="goToSection(1)">
+                    1. Costos Educativos
+                </div>
+                <div class="step inactive" id="step2" onclick="goToSection(2)">
+                    2. Ingresos Profesionales
+                </div>
+                <div class="step inactive" id="step3" onclick="goToSection(3)">
+                    3. Simulador de Préstamos
+                </div>
+                <div class="step inactive" id="step4" onclick="goToSection(4)">
+                    4. Estrategia de Pago
+                </div>
+                <div class="step inactive" id="step5" onclick="goToSection(5)">
+                    5. Impacto Financiero
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Educational Costs Research -->
+        <div class="activity-section active" id="section1">
+            <h2 class="section-title">1. Investigación de Costos Educativos</h2>
+
+            <div class="info-box">
+                <strong>Objetivo:</strong> Investigar y comparar los costos de 2-3 instituciones o trayectorias educativas diferentes que le interesen.
+            </div>
+
+            <div class="resource-links">
+                <h4>Recursos Útiles:</h4>
+                <ul>
+                    <li>College Scorecard: <a href="https://collegescorecard.ed.gov/" target="_blank">collegescorecard.ed.gov</a></li>
+                    <li>FAFSA: <a href="https://studentaid.gov/h/apply-for-aid/fafsa" target="_blank">studentaid.gov</a></li>
+                    <li>Net Price Calculators en sitios web de universidades</li>
+                </ul>
+            </div>
+
+            <div id="institutionForms">
+                <!-- Institution 1 -->
+                <div style="border: 2px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                    <h3>Institución/Programa 1</h3>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Nombre de la Institución:</label>
+                            <input type="text" id="inst1_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Duración del Programa (años):</label>
+                            <input type="number" id="inst1_duration" min="1" max="10" value="4">
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Matrícula Anual:</label>
+                            <input type="number" id="inst1_tuition" placeholder="$">
+                        </div>
+                        <div class="form-group">
+                            <label>Cuotas Anuales:</label>
+                            <input type="number" id="inst1_fees" placeholder="$">
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Alojamiento y Comida (Anual):</label>
+                            <input type="number" id="inst1_housing" placeholder="$">
+                        </div>
+                        <div class="form-group">
+                            <label>Otros Gastos (Anual):</label>
+                            <input type="number" id="inst1_other" placeholder="$">
+                        </div>
+                    </div>
+                    <div class="results-box">
+                        <div class="result-item">
+                            <span class="result-label">Costo Total del Programa:</span>
+                            <span class="result-value" id="inst1_total">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Institution 2 -->
+                <div style="border: 2px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                    <h3>Institución/Programa 2</h3>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Nombre de la Institución:</label>
+                            <input type="text" id="inst2_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Duración del Programa (años):</label>
+                            <input type="number" id="inst2_duration" min="1" max="10" value="4">
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Matrícula Anual:</label>
+                            <input type="number" id="inst2_tuition" placeholder="$">
+                        </div>
+                        <div class="form-group">
+                            <label>Cuotas Anuales:</label>
+                            <input type="number" id="inst2_fees" placeholder="$">
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label>Alojamiento y Comida (Anual):</label>
+                            <input type="number" id="inst2_housing" placeholder="$">
+                        </div>
+                        <div class="form-group">
+                            <label>Otros Gastos (Anual):</label>
+                            <input type="number" id="inst2_other" placeholder="$">
+                        </div>
+                    </div>
+                    <div class="results-box">
+                        <div class="result-item">
+                            <span class="result-label">Costo Total del Programa:</span>
+                            <span class="result-value" id="inst2_total">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="nextSection()">Siguiente: Ingresos Profesionales →</button>
+            </div>
+        </div>
+
+        <!-- Section 2: Career Earnings Research -->
+        <div class="activity-section" id="section2">
+            <h2 class="section-title">2. Investigación de Ingresos Profesionales</h2>
+
+            <div class="info-box">
+                <strong>Objetivo:</strong> Investigar los ingresos potenciales para las carreras que le interesan seguir.
+            </div>
+
+            <div class="resource-links">
+                <h4>Recursos Útiles:</h4>
+                <ul>
+                    <li>Bureau of Labor Statistics: <a href="https://www.bls.gov/ooh/" target="_blank">bls.gov/ooh</a></li>
+                    <li>PayScale: <a href="https://www.payscale.com/" target="_blank">payscale.com</a></li>
+                    <li>Glassdoor: <a href="https://www.glassdoor.com/" target="_blank">glassdoor.com</a></li>
+                </ul>
+            </div>
+
+            <div class="two-column">
+                <div class="form-group">
+                    <label>Título Profesional:</label>
+                    <input type="text" id="career_title">
+                </div>
+                <div class="form-group">
+                    <label>Campo/Industria:</label>
+                    <input type="text" id="career_field">
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="form-group">
+                    <label>Salario Inicial Estimado:</label>
+                    <input type="number" id="salary_entry" placeholder="$">
+                </div>
+                <div class="form-group">
+                    <label>Salario de Mitad de Carrera:</label>
+                    <input type="number" id="salary_mid" placeholder="$">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Perspectivas Laborales:</label>
+                <textarea id="career_outlook" placeholder="Descripción de las perspectivas de crecimiento y demanda..."></textarea>
+            </div>
+
+            <div class="results-box">
+                <h4>Análisis de Ratio Deuda-Ingreso</h4>
+                <p>La regla general es que la deuda total de préstamos estudiantiles no debería exceder su salario inicial esperado.</p>
+                <div class="result-item">
+                    <span class="result-label">Salario Inicial:</span>
+                    <span class="result-value" id="salary_display">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Deuda Máxima Recomendada:</span>
+                    <span class="result-value" id="max_debt_display">$0</span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection()">← Anterior</button>
+                <button class="btn btn-primary" onclick="nextSection()">Siguiente: Simulador de Préstamos →</button>
+            </div>
+        </div>
+
+        <!-- Section 3: Loan Repayment Simulator -->
+        <div class="activity-section" id="section3">
+            <h2 class="section-title">3. Simulador de Pago de Préstamos</h2>
+
+            <div class="info-box">
+                <strong>Objetivo:</strong> Visualizar el impacto de diferentes variables de préstamos en el pago total.
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span><strong>Monto del Préstamo:</strong></span>
+                    <span id="loan_amount_display">$30,000</span>
+                </div>
+                <input type="range" min="5000" max="150000" value="30000" step="1000" class="slider" id="loan_amount">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span><strong>Tasa de Interés:</strong></span>
+                    <span id="interest_rate_display">5.0%</span>
+                </div>
+                <input type="range" min="2" max="12" value="5" step="0.1" class="slider" id="interest_rate">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span><strong>Período de Pago:</strong></span>
+                    <span id="repayment_years_display">10 años</span>
+                </div>
+                <input type="range" min="5" max="30" value="10" step="1" class="slider" id="repayment_years">
+            </div>
+
+            <div class="results-box" id="loan_results">
+                <h4>Resultados de la Simulación</h4>
+                <div class="result-item">
+                    <span class="result-label">Pago Mensual:</span>
+                    <span class="result-value" id="monthly_payment">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Total de Pagos:</span>
+                    <span class="result-value" id="total_payments">$0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Interés Total Pagado:</span>
+                    <span class="result-value" id="total_interest">$0</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Notas sobre este Escenario:</label>
+                <textarea id="scenario_notes" placeholder="Anote sus observaciones sobre este escenario de préstamo..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection()">← Anterior</button>
+                <button class="btn btn-primary" onclick="nextSection()">Siguiente: Estrategia de Pago →</button>
+            </div>
+        </div>
+
+        <!-- Section 4: Repayment Strategy Builder -->
+        <div class="activity-section" id="section4">
+            <h2 class="section-title">4. Constructor de Estrategia de Pago</h2>
+
+            <div class="info-box">
+                <strong>Objetivo:</strong> Crear una estrategia personalizada de pago de préstamos estudiantiles.
+            </div>
+
+            <div class="form-group">
+                <label>¿Qué tipo de préstamos planea utilizar?</label>
+                <select id="loan_type">
+                    <option value="">Seleccione...</option>
+                    <option value="federal">Solo Préstamos Federales</option>
+                    <option value="mixed">Combinación de Federales y Privados</option>
+                    <option value="private">Solo Préstamos Privados</option>
+                    <option value="none">No planeo usar préstamos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>¿Qué plan de pago considera más apropiado para su situación?</label>
+                <select id="repayment_plan">
+                    <option value="">Seleccione...</option>
+                    <option value="standard">Plan Estándar (10 años)</option>
+                    <option value="extended">Plan Extendido (25 años)</option>
+                    <option value="income">Plan Basado en Ingresos</option>
+                    <option value="graduated">Plan Graduado</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Estrategias para Minimizar la Deuda:</label>
+                <textarea id="minimize_debt" placeholder="Describa sus estrategias para minimizar la deuda (becas, trabajo de medio tiempo, universidad comunitaria, etc.)..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Estrategias para Maximizar el Pago:</label>
+                <textarea id="maximize_repayment" placeholder="Describa sus estrategias para pagar los préstamos más rápido (pagos adicionales, refinanciación, etc.)..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Plan de Presupuesto Post-Graduación:</label>
+                <textarea id="post_grad_budget" placeholder="¿Cómo se ajustarán los pagos de préstamos a su presupuesto después de la graduación?"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection()">← Anterior</button>
+                <button class="btn btn-primary" onclick="nextSection()">Siguiente: Impacto Financiero →</button>
+            </div>
+        </div>
+
+        <!-- Section 5: Financial Impact Calculator -->
+        <div class="activity-section" id="section5">
+            <h2 class="section-title">5. Calculadora de Impacto Financiero</h2>
+
+            <div class="info-box">
+                <strong>Objetivo:</strong> Comprender cómo los pagos de préstamos estudiantiles afectarán otros objetivos financieros.
+            </div>
+
+            <div class="form-group">
+                <label>Salario Mensual Estimado Después de Impuestos:</label>
+                <input type="number" id="monthly_income" placeholder="$">
+            </div>
+
+            <div class="form-group">
+                <label>Pago Mensual del Préstamo (de la simulación):</label>
+                <input type="number" id="monthly_loan_payment" placeholder="$">
+            </div>
+
+            <div class="results-box" id="impact_results">
+                <h4>Impacto en el Presupuesto</h4>
+                <div class="result-item">
+                    <span class="result-label">Porcentaje de Ingresos para Préstamos:</span>
+                    <span class="result-value" id="debt_income_ratio">0%</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Ingresos Disponibles Después del Préstamo:</span>
+                    <span class="result-value" id="remaining_income">$0</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>¿Cómo afectarán los pagos de préstamos a su capacidad de ahorrar para la jubilación?</label>
+                <textarea id="retirement_impact"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>¿Cómo afectarán los pagos de préstamos a su capacidad de comprar una casa?</label>
+                <textarea id="housing_impact"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>¿Qué otros objetivos financieros podrían verse afectados?</label>
+                <textarea id="other_goals_impact"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Reflexión Final: ¿Qué ha aprendido sobre los préstamos estudiantiles y cómo influirá esto en sus decisiones educativas?</label>
+                <textarea id="final_reflection" style="min-height: 120px;"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevSection()">← Anterior</button>
+                <button class="btn btn-success" onclick="savePortfolio()">Guardar Portafolio Completo</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 1;
+
+        // Navigation functions
+        function goToSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.activity-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+
+            // Show selected section
+            document.getElementById('section' + section).classList.add('active');
+            document.getElementById('step' + section).classList.add('active');
+
+            // Mark previous steps as completed
+            for (let i = 1; i < section; i++) {
+                document.getElementById('step' + i).classList.add('completed');
+                document.getElementById('step' + i).classList.remove('inactive');
+            }
+
+            // Mark future steps as inactive
+            for (let i = section + 1; i <= 5; i++) {
+                document.getElementById('step' + i).classList.add('inactive');
+                document.getElementById('step' + i).classList.remove('completed');
+            }
+
+            currentSection = section;
+            window.scrollTo(0, 0);
+        }
+
+        function nextSection() {
+            if (currentSection < 5) {
+                goToSection(currentSection + 1);
+            }
+        }
+
+        function prevSection() {
+            if (currentSection > 1) {
+                goToSection(currentSection - 1);
+            }
+        }
+
+        // Section 1: Calculate institution costs
+        function calculateInstitutionCost(inst) {
+            const tuition = parseFloat(document.getElementById(`inst${inst}_tuition`).value) || 0;
+            const fees = parseFloat(document.getElementById(`inst${inst}_fees`).value) || 0;
+            const housing = parseFloat(document.getElementById(`inst${inst}_housing`).value) || 0;
+            const other = parseFloat(document.getElementById(`inst${inst}_other`).value) || 0;
+            const duration = parseInt(document.getElementById(`inst${inst}_duration`).value) || 4;
+
+            const annualCost = tuition + fees + housing + other;
+            const totalCost = annualCost * duration;
+
+            document.getElementById(`inst${inst}_total`).textContent = '$' + totalCost.toLocaleString();
+        }
+
+        // Section 2: Update career earnings analysis
+        function updateCareerAnalysis() {
+            const salaryEntry = parseFloat(document.getElementById('salary_entry').value) || 0;
+
+            document.getElementById('salary_display').textContent = '$' + salaryEntry.toLocaleString();
+            document.getElementById('max_debt_display').textContent = '$' + salaryEntry.toLocaleString();
+        }
+
+        // Section 3: Calculate loan payments
+        function calculateLoanPayment() {
+            const principal = parseFloat(document.getElementById('loan_amount').value);
+            const annualRate = parseFloat(document.getElementById('interest_rate').value) / 100;
+            const years = parseInt(document.getElementById('repayment_years').value);
+
+            const monthlyRate = annualRate / 12;
+            const numPayments = years * 12;
+
+            const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+                                  (Math.pow(1 + monthlyRate, numPayments) - 1);
+
+            const totalPayments = monthlyPayment * numPayments;
+            const totalInterest = totalPayments - principal;
+
+            document.getElementById('monthly_payment').textContent = '$' + monthlyPayment.toFixed(2);
+            document.getElementById('total_payments').textContent = '$' + totalPayments.toFixed(2);
+            document.getElementById('total_interest').textContent = '$' + totalInterest.toFixed(2);
+
+            // Update result box color based on debt-to-income ratio
+            const resultBox = document.getElementById('loan_results');
+            const ratio = (monthlyPayment * 12) / (parseFloat(document.getElementById('salary_entry').value) || 50000);
+
+            resultBox.className = 'results-box';
+            if (ratio < 0.1) {
+                resultBox.classList.add('results-box');
+            } else if (ratio < 0.15) {
+                resultBox.classList.add('warning');
+            } else {
+                resultBox.classList.add('danger');
+            }
+        }
+
+        // Section 5: Calculate financial impact
+        function calculateImpact() {
+            const monthlyIncome = parseFloat(document.getElementById('monthly_income').value) || 0;
+            const loanPayment = parseFloat(document.getElementById('monthly_loan_payment').value) || 0;
+
+            const ratio = monthlyIncome > 0 ? (loanPayment / monthlyIncome * 100).toFixed(1) : 0;
+            const remaining = monthlyIncome - loanPayment;
+
+            document.getElementById('debt_income_ratio').textContent = ratio + '%';
+            document.getElementById('remaining_income').textContent = '$' + remaining.toFixed(2);
+
+            // Update result box color
+            const resultBox = document.getElementById('impact_results');
+            resultBox.className = 'results-box';
+            if (ratio < 10) {
+                resultBox.classList.add('results-box');
+            } else if (ratio < 15) {
+                resultBox.classList.add('warning');
+            } else {
+                resultBox.classList.add('danger');
+            }
+        }
+
+        // Slider updates
+        document.getElementById('loan_amount').addEventListener('input', function() {
+            document.getElementById('loan_amount_display').textContent = '$' + parseInt(this.value).toLocaleString();
+            calculateLoanPayment();
+        });
+
+        document.getElementById('interest_rate').addEventListener('input', function() {
+            document.getElementById('interest_rate_display').textContent = parseFloat(this.value).toFixed(1) + '%';
+            calculateLoanPayment();
+        });
+
+        document.getElementById('repayment_years').addEventListener('input', function() {
+            document.getElementById('repayment_years_display').textContent = this.value + ' años';
+            calculateLoanPayment();
+        });
+
+        // Institution cost calculations
+        ['inst1', 'inst2'].forEach(inst => {
+            ['tuition', 'fees', 'housing', 'other', 'duration'].forEach(field => {
+                document.getElementById(`${inst}_${field}`).addEventListener('input', () => {
+                    calculateInstitutionCost(inst.replace('inst', ''));
+                });
+            });
+        });
+
+        // Career earnings updates
+        ['salary_entry', 'salary_mid'].forEach(field => {
+            document.getElementById(field).addEventListener('input', updateCareerAnalysis);
+        });
+
+        // Impact calculations
+        ['monthly_income', 'monthly_loan_payment'].forEach(field => {
+            document.getElementById(field).addEventListener('input', calculateImpact);
+        });
+
+        // Auto-save functionality
+        const allFields = [
+            'inst1_name', 'inst1_duration', 'inst1_tuition', 'inst1_fees', 'inst1_housing', 'inst1_other',
+            'inst2_name', 'inst2_duration', 'inst2_tuition', 'inst2_fees', 'inst2_housing', 'inst2_other',
+            'career_title', 'career_field', 'salary_entry', 'salary_mid', 'career_outlook',
+            'loan_amount', 'interest_rate', 'repayment_years', 'scenario_notes',
+            'loan_type', 'repayment_plan', 'minimize_debt', 'maximize_repayment', 'post_grad_budget',
+            'monthly_income', 'monthly_loan_payment', 'retirement_impact', 'housing_impact', 'other_goals_impact', 'final_reflection'
+        ];
+
+        function autoSave() {
+            allFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    localStorage.setItem('loan_planner_' + field, element.value);
+                }
+            });
+        }
+
+        // Load saved data
+        window.addEventListener('load', function() {
+            allFields.forEach(field => {
+                const saved = localStorage.getItem('loan_planner_' + field);
+                if (saved) {
+                    const element = document.getElementById(field);
+                    if (element) {
+                        element.value = saved;
+                    }
+                }
+            });
+
+            // Trigger calculations
+            calculateInstitutionCost(1);
+            calculateInstitutionCost(2);
+            updateCareerAnalysis();
+            calculateLoanPayment();
+            calculateImpact();
+        });
+
+        // Add event listeners for auto-save
+        allFields.forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', autoSave);
+            }
+        });
+
+        function savePortfolio() {
+            autoSave();
+            alert('¡Su portafolio de planificación de préstamos estudiantiles ha sido guardado exitosamente!\n\nTodos sus datos han sido guardados localmente y puede revisarlos en cualquier momento.');
+        }
+
+        // Initialize calculations on page load
+        calculateLoanPayment();
+    </script>
+</body>
+</html>

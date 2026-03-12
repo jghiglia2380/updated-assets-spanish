@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Plan de Vivienda Personal</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .plan-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #6366f1;
+        }
+
+        .input-area {
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+
+        .timeline {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 0 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .short-term {
+            background-color: #4f46e5;
+        }
+
+        .medium-term {
+            background-color: #6366f1;
+        }
+
+        .long-term {
+            background-color: #818cf8;
+        }
+
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .note {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plan de Vivienda Personal</h1>
+        <p>Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta plantilla te ayudará a desarrollar un plan de vivienda personalizado basado en tus circunstancias actuales, metas futuras y situación financiera. Completa cada sección con el mayor detalle posible para crear una hoja de ruta para tus decisiones de vivienda.</p>
+        <p class="no-print">Para guardar este plan como PDF: Haz clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="plan-section">
+        <h2>1. Mi Perfil Actual de Vivienda</h2>
+
+        <h3>Situación Actual de Vivienda</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe tu arreglo de vivienda actual (ej., viviendo con familia, alquilando, etc.) y nivel de satisfacción.</p>
+
+        <h3>Recursos Financieros</h3>
+        <table>
+            <tr>
+                <td width="50%"><strong>Ingresos Mensuales (después de impuestos):</strong></td>
+                <td width="50%">$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Ahorros Actuales:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Pagos Mensuales de Deuda:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Rango Estimado de Puntaje de Crédito:</strong></td>
+                <td><input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+            <tr>
+                <td><strong>Costos Actuales de Vivienda:</strong></td>
+                <td>$<input type="text" class="input-area" style="min-height: auto;"></td>
+            </tr>
+        </table>
+
+        <h3>Estabilidad de Carrera/Ubicación</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe tus planes de carrera, potencial de reubicación y cuánto tiempo planeas quedarte en tu ubicación actual.</p>
+
+        <h3>Mis Principales Prioridades de Vivienda</h3>
+        <ol>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ol>
+    </div>
+
+    <div class="plan-section">
+        <h2>2. Mis Metas de Vivienda</h2>
+
+        <div class="timeline">
+            <div class="timeline-item short-term">CORTO PLAZO<br>(1-2 años)</div>
+            <div class="timeline-item medium-term">MEDIANO PLAZO<br>(3-5 años)</div>
+            <div class="timeline-item long-term">LARGO PLAZO<br>(6+ años)</div>
+        </div>
+
+        <h3>Metas de Vivienda a Corto Plazo (1-2 años)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe tus metas de vivienda para los próximos 1-2 años. Sé específico sobre ubicación, tipo de vivienda, costo, etc.</p>
+
+        <h3>Metas de Vivienda a Mediano Plazo (3-5 años)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe tus metas de vivienda para 3-5 años a partir de ahora. ¿Cómo podrían cambiar tus necesidades o preferencias?</p>
+
+        <h3>Metas de Vivienda a Largo Plazo (6+ años)</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe tus metas de vivienda para 6+ años a partir de ahora. Considera cambios importantes de vida y aspiraciones a largo plazo.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="plan-section">
+        <h2>3. Mi Plan de Acción de Vivienda</h2>
+
+        <h3>Pasos de Preparación Financiera</h3>
+        <ul class="checklist">
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ul>
+        <p class="note">Lista los pasos financieros específicos que tomarás para prepararte para tus metas de vivienda (ej., ahorrar para depósito de seguridad, mejorar puntaje de crédito, reducir deuda, etc.).</p>
+
+        <h3>Cronograma para Transiciones de Vivienda</h3>
+        <table>
+            <tr>
+                <th>Fecha Objetivo</th>
+                <th>Meta</th>
+                <th>Pasos de Acción Requeridos</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+
+        <h3>Investigación del Mercado de Vivienda Necesaria</h3>
+        <div class="input-area"></div>
+        <p class="note">Lista la información específica que necesitas investigar sobre mercados de vivienda, vecindarios, etc.</p>
+
+        <h3>Recursos a Consultar</h3>
+        <div class="input-area"></div>
+        <p class="note">Lista los recursos que planeas consultar (sitios web, profesionales, familiares, etc.).</p>
+    </div>
+
+    <div class="plan-section">
+        <h2>4. Desafíos Potenciales y Soluciones</h2>
+
+        <h3>Obstáculos Financieros</h3>
+        <table>
+            <tr>
+                <th>Obstáculo Potencial</th>
+                <th>Estrategia para Superar</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+
+        <h3>Desafíos de Condiciones del Mercado</h3>
+        <table>
+            <tr>
+                <th>Desafío Potencial</th>
+                <th>Estrategia para Abordar</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+
+        <h3>Desafíos de Circunstancias Personales</h3>
+        <table>
+            <tr>
+                <th>Desafío Potencial</th>
+                <th>Estrategia para Abordar</th>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+            <tr>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+                <td><div class="input-area" style="min-height: 40px;"></div></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="plan-section">
+        <h2>5. Mi Marco de Decisión de Vivienda</h2>
+
+        <h3>Cuándo Alquilar Tiene Sentido Para Mí</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe las circunstancias bajo las cuales alquilar sería tu mejor opción.</p>
+
+        <h3>Cuándo Comprar Tiene Sentido Para Mí</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe las circunstancias bajo las cuales comprar sería tu mejor opción.</p>
+
+        <h3>Cómo Sabré Que Es Hora de Hacer la Transición</h3>
+        <div class="input-area"></div>
+        <p class="note">Describe indicadores específicos que señalarían que es hora de pasar de alquilar a comprar (o viceversa).</p>
+    </div>
+
+    <div class="plan-section">
+        <h2>6. Reflexión</h2>
+
+        <h3>Basándome en mis circunstancias actuales y metas futuras, mi plan óptimo de vivienda es:</h3>
+        <div class="input-area" style="min-height: 150px;"></div>
+
+        <h3>Los próximos pasos más importantes que necesito tomar son:</h3>
+        <ol>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+            <li><div class="input-area" style="min-height: 40px;"></div></li>
+        </ol>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Estrategias de Ahorro en Seguros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .strategy-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        .savings-positive {
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+        .cost-increase {
+            background-color: #f8d7da;
+        }
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .notes-box {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+        @media print {
+            body { padding: 10px; }
+            .strategy-box { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Estrategias de Ahorro en Seguros</h1>
+
+    <div class="notes-box">
+        <h3>Instrucciones:</h3>
+        <p>Esta herramienta le ayudará a evaluar diferentes estrategias de ahorro en seguros y calcular su impacto potencial en sus costos anuales. Complete cada sección para desarrollar un plan personalizado de gestión de costos.</p>
+    </div>
+
+    <h2>Paso 1: Situación Actual de Seguros</h2>
+    <table>
+        <tr>
+            <th>Tipo de Seguro</th>
+            <th>Prima Anual Actual</th>
+            <th>Deducible</th>
+            <th>Gastos de Bolsillo del Año Pasado</th>
+        </tr>
+        <tr>
+            <td>Seguro de Salud</td>
+            <td>$</td>
+            <td>$</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>Seguro de Auto</td>
+            <td>$</td>
+            <td>$</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>Seguro de Vivienda/Inquilino</td>
+            <td>$</td>
+            <td>$</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>Seguro de Vida</td>
+            <td>$</td>
+            <td>N/A</td>
+            <td>$0</td>
+        </tr>
+        <tr>
+            <td>Otros Seguros</td>
+            <td>$</td>
+            <td>$</td>
+            <td>$</td>
+        </tr>
+        <tr class="savings-positive">
+            <td><strong>TOTAL ANUAL</strong></td>
+            <td><strong>$</strong></td>
+            <td></td>
+            <td><strong>$</strong></td>
+        </tr>
+    </table>
+
+    <h2>Estrategia 1: Aumentar Deducibles</h2>
+    <div class="strategy-box">
+        <h3>Análisis de Deducible de Seguro de Salud</h3>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Deducible</th>
+                <th>Prima Mensual</th>
+                <th>Prima Anual</th>
+                <th>Ahorro en Prima</th>
+            </tr>
+            <tr>
+                <td>Opción Actual</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>Deducible Más Alto</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr class="savings-positive">
+                <td colspan="4"><strong>Diferencia de Deducible</strong></td>
+                <td>$</td>
+            </tr>
+            <tr class="savings-positive">
+                <td colspan="4"><strong>Ahorro Neto (Ahorro Prima - Aumento Deducible)</strong></td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <h4>Evaluación de Factibilidad:</h4>
+        <ul class="checklist">
+            <li>Tengo suficientes ahorros de emergencia para cubrir el deducible más alto</li>
+            <li>Mi historial de salud sugiere uso médico bajo/moderado</li>
+            <li>Puedo absorber el costo potencial de un deducible más alto</li>
+            <li>Los ahorros en prima justifican el riesgo aumentado</li>
+        </ul>
+
+        <p><strong>Decisión:</strong> ☐ Implementar ☐ No implementar</p>
+        <p><strong>Ahorro Anual Estimado:</strong> $__________</p>
+    </div>
+
+    <div class="strategy-box">
+        <h3>Análisis de Deducible de Seguro de Auto</h3>
+        <table>
+            <tr>
+                <th>Opción</th>
+                <th>Deducible</th>
+                <th>Prima Anual</th>
+                <th>Ahorro Anual</th>
+            </tr>
+            <tr>
+                <td>Opción Actual</td>
+                <td>$</td>
+                <td>$</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>Deducible de $500</td>
+                <td>$500</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Deducible de $1,000</td>
+                <td>$1,000</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <p><strong>Decisión:</strong> ☐ Implementar ☐ No implementar</p>
+        <p><strong>Ahorro Anual Estimado:</strong> $__________</p>
+    </div>
+
+    <h2>Estrategia 2: Usar Cuenta de Ahorros para la Salud (HSA)</h2>
+    <div class="strategy-box">
+        <h3>Análisis de Beneficios Fiscales de HSA</h3>
+        <p><strong>Su Tramo Impositivo:</strong> _____% (Federal + Estatal)</p>
+        <p><strong>Contribución Anual Planeada a HSA:</strong> $__________</p>
+
+        <table>
+            <tr>
+                <th>Beneficio</th>
+                <th>Cálculo</th>
+                <th>Ahorro</th>
+            </tr>
+            <tr>
+                <td>Ahorro Fiscal por Contribución</td>
+                <td>Contribución × Tramo Impositivo</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Ahorro en Impuestos de Nómina (7.65%)</td>
+                <td>Contribución × 7.65%</td>
+                <td>$</td>
+            </tr>
+            <tr class="savings-positive">
+                <td><strong>Total de Ahorros Fiscales</strong></td>
+                <td></td>
+                <td><strong>$</strong></td>
+            </tr>
+        </table>
+
+        <h4>Requisitos para HSA:</h4>
+        <ul class="checklist">
+            <li>Estar inscrito en un Plan de Salud con Deducible Alto (HDHP)</li>
+            <li>No estar inscrito en Medicare</li>
+            <li>No ser reclamado como dependiente en la declaración de impuestos de otra persona</li>
+            <li>No tener otra cobertura de salud que no sea HDHP</li>
+        </ul>
+
+        <p><strong>Decisión:</strong> ☐ Implementar ☐ No implementar</p>
+        <p><strong>Ahorro Anual Estimado (Fiscal):</strong> $__________</p>
+    </div>
+
+    <h2>Estrategia 3: Combinar Múltiples Pólizas</h2>
+    <div class="strategy-box">
+        <h3>Análisis de Descuentos por Paquetes</h3>
+        <table>
+            <tr>
+                <th>Tipo de Seguro</th>
+                <th>Prima Actual</th>
+                <th>Prima con Descuento</th>
+                <th>Ahorro Anual</th>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Seguro de Vivienda/Inquilino</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Otros Seguros</td>
+                <td>$</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr class="savings-positive">
+                <td><strong>Total de Ahorros por Paquete</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>$</strong></td>
+            </tr>
+        </table>
+
+        <p><strong>Proveedor de Seguros Actual:</strong> ___________________</p>
+        <p><strong>Descuento por Paquete Ofrecido:</strong> _____% </p>
+        <p><strong>Decisión:</strong> ☐ Implementar ☐ No implementar</p>
+    </div>
+
+    <h2>Estrategia 4: Aprovechar Descuentos Disponibles</h2>
+    <div class="strategy-box">
+        <h3>Lista de Verificación de Descuentos</h3>
+
+        <h4>Seguro de Auto:</h4>
+        <table>
+            <tr>
+                <th>Descuento</th>
+                <th>Elegible</th>
+                <th>Ahorro Estimado</th>
+            </tr>
+            <tr>
+                <td>Buen Conductor (sin accidentes)</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Curso de Conducción Defensiva</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Dispositivo Telemático/Monitoreo</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Bajo Kilometraje</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Pago Automático/Póliza sin Papel</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <h4>Seguro de Vivienda:</h4>
+        <table>
+            <tr>
+                <th>Descuento</th>
+                <th>Elegible</th>
+                <th>Ahorro Estimado</th>
+            </tr>
+            <tr>
+                <td>Sistema de Seguridad</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Detector de Humo/Alarma Contra Incendios</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Sin Reclamaciones</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Mejoras en el Hogar</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <h4>Seguro de Salud:</h4>
+        <table>
+            <tr>
+                <th>Descuento</th>
+                <th>Elegible</th>
+                <th>Ahorro Estimado</th>
+            </tr>
+            <tr>
+                <td>Programa de Bienestar del Empleador</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>No Fumador</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Chequeos Preventivos Completados</td>
+                <td>☐ Sí ☐ No</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <p><strong>Total de Ahorros por Descuentos:</strong> $__________</p>
+    </div>
+
+    <h2>Resumen Total de Ahorros</h2>
+    <table>
+        <tr>
+            <th>Estrategia</th>
+            <th>Ahorro Anual Estimado</th>
+            <th>¿Implementar?</th>
+        </tr>
+        <tr>
+            <td>Aumentar Deducibles</td>
+            <td>$</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Usar HSA</td>
+            <td>$</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Combinar Pólizas</td>
+            <td>$</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Aprovechar Descuentos</td>
+            <td>$</td>
+            <td>☐</td>
+        </tr>
+        <tr class="savings-positive">
+            <td><strong>TOTAL DE AHORROS ANUALES</strong></td>
+            <td><strong>$</strong></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="notes-box">
+        <h3>Plan de Implementación</h3>
+        <p><strong>Acciones Inmediatas (0-30 días):</strong></p>
+        <ol>
+            <li>_________________________________________________</li>
+            <li>_________________________________________________</li>
+            <li>_________________________________________________</li>
+        </ol>
+
+        <p><strong>Acciones a Corto Plazo (1-3 meses):</strong></p>
+        <ol>
+            <li>_________________________________________________</li>
+            <li>_________________________________________________</li>
+            <li>_________________________________________________</li>
+        </ol>
+
+        <p><strong>Revisión Programada:</strong> ___________________</p>
+    </div>
+</body>
+</html>

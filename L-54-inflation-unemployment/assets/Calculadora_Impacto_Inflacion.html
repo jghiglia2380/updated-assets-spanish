@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Impacto de Inflacion | PFL Academy</title>
+    <!--
+    PURPOSE: Calculate inflation's effect on purchasing power and savings
+    USE: Chapter interactive activity (15-20 minutes)
+    -->
+<style>:root{--primary:#6366f1;--secondary:#8b5cf6;--success:#10b981;--danger:#ef4444;--text:#1f2937}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background-color:#f9fafb;padding:20px}.container{max-width:900px;margin:0 auto;background-color:white;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:30px;text-align:center}h1{font-size:2rem;font-weight:700;margin-bottom:10px}.content{padding:30px}.section{margin-bottom:30px}h2{font-size:1.5rem;color:var(--primary);margin-bottom:15px}.input-group{margin-bottom:20px}label{display:block;font-weight:600;margin-bottom:8px}input{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:6px;font-size:1rem}input:focus{outline:none;border-color:var(--primary)}.button{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:12px 30px;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;margin-top:20px}.button:hover{transform:translateY(-2px)}.results{background-color:#f0fdf4;border-left:4px solid var(--success);padding:20px;border-radius:8px;margin-top:20px;display:none}.results.show{display:block}.result-item{background-color:white;padding:15px;border-radius:6px;margin-bottom:12px}.result-label{font-size:0.9rem;color:#6b7280;margin-bottom:5px}.result-value{font-size:1.8rem;font-weight:700;color:var(--primary)}@media print{body{padding:0;background:white}.container{box-shadow:none}.button{display:none}.results{display:block!important}}@media(max-width:768px){h1{font-size:1.5rem}}</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Calculadora de Impacto de Inflacion</h1>
+<p style="font-size:1.1rem;opacity:0.95">Calcula como la inflacion afecta tu poder adquisitivo y ahorros</p>
+</header>
+
+<div class="content">
+<div class="section">
+<h2>Calcular Perdida de Poder Adquisitivo</h2>
+<div class="input-group">
+<label for="amount">Cantidad Actual:</label>
+<input type="number" id="amount" min="0" step="100" value="10000" placeholder="ej., 10000">
+</div>
+<div class="input-group">
+<label for="inflation">Tasa de Inflacion Anual (%):</label>
+<input type="number" id="inflation" min="0" max="20" step="0.1" value="3.5" placeholder="ej., 3.5">
+</div>
+<div class="input-group">
+<label for="years">Periodo de Tiempo (Anos):</label>
+<input type="number" id="years" min="1" max="50" value="10" placeholder="ej., 10">
+</div>
+<button class="button" onclick="calculate()">Calcular Impacto</button>
+
+<div class="results" id="results">
+<h3 style="font-size:1.3rem;font-weight:600;color:var(--success);margin-bottom:15px">Resultados:</h3>
+<div class="result-item">
+<div class="result-label">Poder Adquisitivo Futuro</div>
+<div class="result-value" id="futureValue">$0</div>
+</div>
+<div class="result-item">
+<div class="result-label">Poder Adquisitivo Perdido</div>
+<div class="result-value" style="color:var(--danger)" id="lostValue">$0</div>
+</div>
+<div class="result-item">
+<div class="result-label">Porcentaje de Disminucion</div>
+<div class="result-value" id="percentLoss">0%</div>
+</div>
+<div id="explanation" style="margin-top:20px;padding:15px;background-color:white;border-radius:6px"></div>
+</div>
+</div>
+
+<div class="section" style="margin-top:30px;background-color:#fef3c7;padding:20px;border-radius:8px">
+<h3 style="margin-bottom:10px">Estrategias de Proteccion</h3>
+<ul style="margin-left:20px">
+<li>Invierte en activos que crezcan mas rapido que la inflacion (acciones, bienes raices)</li>
+<li>Considera los Valores del Tesoro Protegidos contra la Inflacion (TIPS)</li>
+<li>Negocia aumentos que superen la inflacion (3-5% anualmente)</li>
+<li>Evita mantener grandes cantidades en ahorros de bajo interes</li>
+<li>Asegura deudas a tasa fija cuando la inflacion es alta</li>
+</ul>
+</div>
+
+<button class="button" onclick="window.print()">Imprimir Resultados</button>
+</div>
+</div>
+
+<script>
+function calculate(){const amount=parseFloat(document.getElementById('amount').value)||10000;const inflation=parseFloat(document.getElementById('inflation').value)/100||0.035;const years=parseInt(document.getElementById('years').value)||10;const futureValue=amount/Math.pow(1+inflation,years);const lostValue=amount-futureValue;const percentLoss=((lostValue/amount)*100);document.getElementById('futureValue').textContent='$'+Math.round(futureValue).toLocaleString();document.getElementById('lostValue').textContent='$'+Math.round(lostValue).toLocaleString();document.getElementById('percentLoss').textContent=percentLoss.toFixed(1)+'%';let explanation=`<strong>Que Significa Esto:</strong><br><br>En ${years} anos, tus $${amount.toLocaleString()} solo compraran lo que $${Math.round(futureValue).toLocaleString()} compran hoy. `;if(inflation>0.05){explanation+=`Con una inflacion del ${(inflation*100).toFixed(1)}%, los precios estan subiendo rapidamente. Tu dinero esta perdiendo valor rapidamente. Enfocate en inversiones que superen la inflacion.`}else if(inflation>0.03){explanation+=`Con una inflacion del ${(inflation*100).toFixed(1)}% (cerca del objetivo del 2-3% de la Fed), tu dinero pierde valor gradualmente. Invierte para mantener el poder adquisitivo.`}else{explanation+=`Con una inflacion del ${(inflation*100).toFixed(1)}% (baja), tu dinero es relativamente estable, pero aun asi invierte para crecer.`}explanation+=`<br><br><strong>Ejemplo:</strong> Si los viveres cuestan $${amount.toLocaleString()} hoy, costaran $${Math.round(amount*Math.pow(1+inflation,years)).toLocaleString()} en ${years} anos.`;document.getElementById('explanation').innerHTML=explanation;document.getElementById('results').classList.add('show');document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'})}
+</script>
+</body>
+</html>

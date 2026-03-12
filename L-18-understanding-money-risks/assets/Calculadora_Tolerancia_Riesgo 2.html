@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tolerancia al Riesgo - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #1f2937; background: #f9fafb; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 16px; }
+        .intro-section { background: white; border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .intro-section h3 { font-size: 18px; color: #6366f1; margin-bottom: 8px; }
+        .intro-section p { color: #4b5563; font-size: 14px; }
+        .question-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .question-number { display: inline-block; background: #6366f1; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 600; font-size: 14px; margin-right: 12px; }
+        .question-text { font-weight: 600; font-size: 16px; color: #1f2937; margin-bottom: 16px; display: inline; }
+        .options-container { margin-top: 16px; }
+        .option { display: block; padding: 12px 16px; margin-bottom: 8px; border: 2px solid #e5e7eb; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; font-size: 14px; }
+        .option:hover { border-color: #6366f1; background: #f5f3ff; }
+        .option.selected { border-color: #6366f1; background: #ede9fe; }
+        .option input { display: none; }
+        .tooltip { display: inline-block; margin-left: 8px; width: 18px; height: 18px; background: #e5e7eb; border-radius: 50%; text-align: center; line-height: 18px; font-size: 12px; color: #6b7280; cursor: help; position: relative; }
+        .tooltip:hover::after { content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #1f2937; color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; z-index: 100; margin-bottom: 8px; }
+        .progress-bar { background: #e5e7eb; border-radius: 8px; height: 8px; margin-bottom: 24px; overflow: hidden; }
+        .progress-fill { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); height: 100%; border-radius: 8px; transition: width 0.3s ease; }
+        .progress-text { text-align: center; font-size: 14px; color: #6b7280; margin-bottom: 8px; }
+        .calculate-btn { display: block; width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; margin-bottom: 24px; }
+        .calculate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4); }
+        .calculate-btn:disabled { background: #9ca3af; cursor: not-allowed; transform: none; box-shadow: none; }
+        .results-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); display: none; }
+        .results-section.visible { display: block; }
+        .results-section h3 { font-size: 20px; color: #6366f1; margin-bottom: 16px; text-align: center; }
+        .score-display { text-align: center; margin-bottom: 24px; }
+        .score-number { font-size: 48px; font-weight: 700; color: #6366f1; }
+        .score-label { font-size: 14px; color: #6b7280; }
+        .profile-card { padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+        .profile-card.conservative { background: #ecfdf5; border-left: 4px solid #10b981; }
+        .profile-card.moderate { background: #eff6ff; border-left: 4px solid #3b82f6; }
+        .profile-card.aggressive { background: #fef3c7; border-left: 4px solid #f59e0b; }
+        .profile-card h4 { font-size: 18px; margin-bottom: 8px; }
+        .profile-card.conservative h4 { color: #10b981; }
+        .profile-card.moderate h4 { color: #3b82f6; }
+        .profile-card.aggressive h4 { color: #f59e0b; }
+        .profile-card p { font-size: 14px; color: #4b5563; margin-bottom: 12px; }
+        .allocation-visual { display: flex; height: 24px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+        .allocation-stocks { background: #6366f1; }
+        .allocation-bonds { background: #3b82f6; }
+        .allocation-cash { background: #10b981; }
+        .allocation-legend { display: flex; justify-content: space-between; font-size: 12px; color: #6b7280; }
+        .legend-item { display: flex; align-items: center; }
+        .legend-color { width: 12px; height: 12px; border-radius: 3px; margin-right: 4px; }
+        .investment-types { margin-top: 16px; }
+        .investment-types h5 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #1f2937; }
+        .investment-types ul { margin-left: 20px; font-size: 13px; color: #4b5563; }
+        .investment-types li { margin-bottom: 4px; }
+        .considerations-box { background: #f9fafb; padding: 16px; border-radius: 8px; margin-top: 16px; }
+        .considerations-box h5 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #1f2937; }
+        .considerations-box ul { margin-left: 20px; font-size: 13px; color: #4b5563; }
+        .reflection-section { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .reflection-section h4 { font-size: 16px; color: #b45309; margin-bottom: 12px; }
+        .reflection-section textarea { width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-family: inherit; font-size: 14px; min-height: 100px; resize: vertical; }
+        .action-buttons { display: flex; gap: 12px; justify-content: center; }
+        .action-btn { padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
+        .print-btn { background: #6366f1; color: white; }
+        .print-btn:hover { background: #4f46e5; }
+        .reset-btn { background: #e5e7eb; color: #4b5563; }
+        .reset-btn:hover { background: #d1d5db; }
+        .footer { text-align: center; padding: 20px; color: #6b7280; font-size: 12px; }
+        @media print { body { padding: 10px; background: white; } .action-buttons, .calculate-btn { display: none; } .question-section, .results-section { box-shadow: none; break-inside: avoid; } .results-section { display: block !important; } }
+        @media (max-width: 768px) { .header h1 { font-size: 24px; } .action-buttons { flex-direction: column; } .action-btn { width: 100%; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Calculadora de Tolerancia al Riesgo</h1>
+            <p>Descubra su perfil personal de riesgo de inversion y estrategias apropiadas</p>
+        </div>
+
+        <div class="intro-section">
+            <h3>Comprendiendo Su Tolerancia al Riesgo</h3>
+            <p>La tolerancia al riesgo refleja su comodidad personal con las fluctuaciones del mercado y las posibles perdidas a cambio de mayores rendimientos potenciales. Este cuestionario le ayudara a identificar su perfil de riesgo basado en su situacion financiera, horizonte temporal y comodidad emocional con la incertidumbre. Responda cada pregunta honestamente para obtener la evaluacion mas precisa.</p>
+        </div>
+
+        <div class="progress-text">Pregunta <span id="currentQuestion">1</span> de 10</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+        </div>
+
+        <div class="question-section" id="q1">
+            <span class="question-number">1</span>
+            <span class="question-text">Cual es su horizonte temporal principal de inversion?</span>
+            <span class="tooltip" data-tip="El horizonte temporal es cuanto tiempo planea mantener su dinero invertido">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q1" value="1">Menos de 3 anos - Necesito el dinero pronto</label>
+                <label class="option"><input type="radio" name="q1" value="2">3-5 anos - Metas a mediano plazo</label>
+                <label class="option"><input type="radio" name="q1" value="3">6-10 anos - Planificacion a largo plazo</label>
+                <label class="option"><input type="radio" name="q1" value="4">Mas de 10 anos - Jubilacion o muy largo plazo</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q2">
+            <span class="question-number">2</span>
+            <span class="question-text">Como reaccionaria si su inversion bajara 20% en un mes?</span>
+            <span class="tooltip" data-tip="Su respuesta emocional a las perdidas afecta las decisiones de inversion">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q2" value="1">Vender todo inmediatamente - No puedo manejar este estres</label>
+                <label class="option"><input type="radio" name="q2" value="2">Vender algunas inversiones para reducir perdidas</label>
+                <label class="option"><input type="radio" name="q2" value="3">Mantenerme firme y esperar la recuperacion</label>
+                <label class="option"><input type="radio" name="q2" value="4">Comprar mas mientras los precios estan bajos - Es una oportunidad</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q3">
+            <span class="question-number">3</span>
+            <span class="question-text">Cual es su situacion actual de empleo e ingresos?</span>
+            <span class="tooltip" data-tip="Los ingresos estables le permiten asumir mas riesgo de inversion">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q3" value="1">Ingresos inestables o irregulares</label>
+                <label class="option"><input type="radio" name="q3" value="2">Ingresos estables pero con potencial de crecimiento limitado</label>
+                <label class="option"><input type="radio" name="q3" value="3">Ingresos estables con buen potencial de crecimiento</label>
+                <label class="option"><input type="radio" name="q3" value="4">Muy estable con multiples fuentes de ingresos</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q4">
+            <span class="question-number">4</span>
+            <span class="question-text">Tiene un fondo de emergencia que cubra 3-6 meses de gastos?</span>
+            <span class="tooltip" data-tip="Los ahorros de emergencia proporcionan una red de seguridad para asumir riesgo de inversion">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q4" value="1">No tengo fondo de emergencia</label>
+                <label class="option"><input type="radio" name="q4" value="2">Menos de 3 meses de gastos</label>
+                <label class="option"><input type="radio" name="q4" value="3">3-6 meses de gastos ahorrados</label>
+                <label class="option"><input type="radio" name="q4" value="4">Mas de 6 meses de gastos ahorrados</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q5">
+            <span class="question-number">5</span>
+            <span class="question-text">Que describe mejor su experiencia de inversion?</span>
+            <span class="tooltip" data-tip="La experiencia le ayuda a tomar mejores decisiones durante la volatilidad del mercado">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q5" value="1">Sin experiencia - Todo esto es nuevo para mi</label>
+                <label class="option"><input type="radio" name="q5" value="2">Limitada - Tengo una cuenta de ahorros o inversiones basicas</label>
+                <label class="option"><input type="radio" name="q5" value="3">Moderada - He invertido en acciones, bonos o fondos mutuos</label>
+                <label class="option"><input type="radio" name="q5" value="4">Extensa - Gestiono activamente un portafolio diversificado</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q6">
+            <span class="question-number">6</span>
+            <span class="question-text">Que porcentaje de sus ingresos mensuales puede invertir?</span>
+            <span class="tooltip" data-tip="Mayor capacidad de ahorro permite asumir mas riesgo">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q6" value="1">Menos del 5% - Tengo muchas obligaciones financieras</label>
+                <label class="option"><input type="radio" name="q6" value="2">5-10% - Puedo ahorrar una cantidad moderada</label>
+                <label class="option"><input type="radio" name="q6" value="3">10-20% - Tengo buena capacidad de ahorro</label>
+                <label class="option"><input type="radio" name="q6" value="4">Mas del 20% - Puedo ahorrar agresivamente</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q7">
+            <span class="question-number">7</span>
+            <span class="question-text">Que afirmacion describe mejor su meta de inversion?</span>
+            <span class="tooltip" data-tip="Sus metas determinan las estrategias de inversion apropiadas">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q7" value="1">Preservar mi dinero - No puedo permitirme perder nada</label>
+                <label class="option"><input type="radio" name="q7" value="2">Generar ingresos estables con riesgo minimo</label>
+                <label class="option"><input type="radio" name="q7" value="3">Hacer crecer mi dinero con el tiempo con riesgo moderado</label>
+                <label class="option"><input type="radio" name="q7" value="4">Maximizar el crecimiento aunque signifique riesgo significativo</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q8">
+            <span class="question-number">8</span>
+            <span class="question-text">Como se siente acerca de inversiones que no entiende completamente?</span>
+            <span class="tooltip" data-tip="Entender sus inversiones le ayuda a mantener la calma durante la volatilidad">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q8" value="1">Solo invierto en cosas que entiendo completamente</label>
+                <label class="option"><input type="radio" name="q8" value="2">Necesito entender lo basico antes de invertir</label>
+                <label class="option"><input type="radio" name="q8" value="3">Confio en los expertos e invertire en productos recomendados</label>
+                <label class="option"><input type="radio" name="q8" value="4">Me siento comodo con inversiones complejas si los rendimientos son altos</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q9">
+            <span class="question-number">9</span>
+            <span class="question-text">Que tan importante es tener acceso rapido a su dinero invertido?</span>
+            <span class="tooltip" data-tip="Las necesidades de liquidez afectan que inversiones son apropiadas">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q9" value="1">Muy importante - Podria necesitarlo en cualquier momento</label>
+                <label class="option"><input type="radio" name="q9" value="2">Algo importante - Podria necesitarlo dentro de un ano</label>
+                <label class="option"><input type="radio" name="q9" value="3">No muy importante - Puedo esperar unos anos</label>
+                <label class="option"><input type="radio" name="q9" value="4">No es importante - No necesitare este dinero por muchos anos</label>
+            </div>
+        </div>
+
+        <div class="question-section" id="q10">
+            <span class="question-number">10</span>
+            <span class="question-text">Considere este escenario: Puede elegir entre dos inversiones. Cual prefiere?</span>
+            <span class="tooltip" data-tip="Esto revela su preferencia de riesgo-rendimiento">?</span>
+            <div class="options-container">
+                <label class="option"><input type="radio" name="q10" value="1">Rendimiento garantizado del 3% cada ano</label>
+                <label class="option"><input type="radio" name="q10" value="2">50% de probabilidad de 6% de rendimiento, 50% de probabilidad de 1% de rendimiento</label>
+                <label class="option"><input type="radio" name="q10" value="3">50% de probabilidad de 12% de rendimiento, 50% de probabilidad de -2% de perdida</label>
+                <label class="option"><input type="radio" name="q10" value="4">50% de probabilidad de 25% de rendimiento, 50% de probabilidad de -10% de perdida</label>
+            </div>
+        </div>
+
+        <button class="calculate-btn" id="calculateBtn" onclick="calculateResults()" disabled>Calcular Mi Perfil de Riesgo</button>
+
+        <div class="results-section" id="resultsSection">
+            <h3>Su Perfil de Tolerancia al Riesgo</h3>
+            <div class="score-display">
+                <div class="score-number" id="scoreNumber">0</div>
+                <div class="score-label">de 40 puntos</div>
+            </div>
+            <div id="profileCard"></div>
+            <div class="reflection-section">
+                <h4>Reflexion: Comprendiendo Sus Resultados</h4>
+                <p style="font-size: 13px; margin-bottom: 12px; color: #4b5563;">Basado en su perfil de tolerancia al riesgo, describa como podria abordar la inversion para una meta especifica (como ahorrar para la universidad, un auto o la jubilacion). Que tipos de inversion se alinean con su perfil y por que?</p>
+                <textarea id="reflectionText" placeholder="Escriba su reflexion aqui..."></textarea>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn print-btn" onclick="window.print()">Imprimir Resultados</button>
+                <button class="action-btn reset-btn" onclick="resetQuiz()">Repetir Cuestionario</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy - Capitulo 5.5: Comprendiendo los Riesgos Monetarios</p>
+            <p>Esta calculadora es solo para fines educativos y no debe considerarse como asesoramiento financiero.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const container = this.closest('.options-container');
+                container.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const totalQuestions = 10;
+            let answeredQuestions = 0;
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (document.querySelector(`input[name="q${i}"]:checked`)) { answeredQuestions++; }
+            }
+            const progress = (answeredQuestions / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = Math.min(answeredQuestions + 1, totalQuestions);
+            document.getElementById('calculateBtn').disabled = answeredQuestions < totalQuestions;
+        }
+
+        function calculateResults() {
+            let totalScore = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) { totalScore += parseInt(selected.value); }
+            }
+            document.getElementById('scoreNumber').textContent = totalScore;
+            let profile;
+            if (totalScore <= 15) { profile = 'conservative'; }
+            else if (totalScore <= 28) { profile = 'moderate'; }
+            else { profile = 'aggressive'; }
+            displayProfile(profile, totalScore);
+            document.getElementById('resultsSection').classList.add('visible');
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayProfile(profile, score) {
+            const profiles = {
+                conservative: {
+                    title: 'Inversor Conservador',
+                    description: 'Usted prefiere la estabilidad y la preservacion del capital sobre altos rendimientos. Se siente incomodo con fluctuaciones significativas en el valor de su inversion y prioriza proteger su dinero.',
+                    allocation: { stocks: 20, bonds: 50, cash: 30 },
+                    investments: ['Cuentas de ahorro de alto rendimiento', 'Certificados de Deposito (CDs)', 'Fondos del mercado monetario', 'Bonos del Tesoro e I-bonds', 'Bonos corporativos de grado de inversion'],
+                    considerations: ['Enfocarse en construir el fondo de emergencia primero', 'Considerar el riesgo de inflacion en periodos largos', 'Puede necesitar aumentar la tolerancia al riesgo para metas a largo plazo', 'Bueno para metas a corto plazo (1-3 anos)']
+                },
+                moderate: {
+                    title: 'Inversor Moderado',
+                    description: 'Usted busca un equilibrio entre crecimiento y estabilidad. Puede tolerar algunas fluctuaciones por el potencial de mejores rendimientos, pero aun desea proteccion razonable contra perdidas.',
+                    allocation: { stocks: 50, bonds: 35, cash: 15 },
+                    investments: ['Fondos mutuos diversificados', 'Fondos de fecha objetivo para jubilacion', 'Fondos balanceados (acciones y bonos)', 'Acciones de primera clase con dividendos', 'Bonos de grado de inversion'],
+                    considerations: ['Ideal para metas a mediano y largo plazo (5-15 anos)', 'Rebalancear el portafolio periodicamente', 'Puede ajustar la asignacion a medida que se acercan las metas', 'Buena base para planificacion de jubilacion']
+                },
+                aggressive: {
+                    title: 'Inversor Agresivo',
+                    description: 'Usted se siente comodo con fluctuaciones significativas del mercado en busca de maximo crecimiento. Tiene un horizonte temporal largo y puede resistir perdidas sustanciales a corto plazo.',
+                    allocation: { stocks: 80, bonds: 15, cash: 5 },
+                    investments: ['Acciones de crecimiento y fondos de crecimiento', 'Acciones de pequena y mediana capitalizacion', 'Fondos internacionales y de mercados emergentes', 'ETFs especificos de sector', 'Fideicomisos de inversion en bienes raices (REITs)'],
+                    considerations: ['Mejor para metas a muy largo plazo (10+ anos)', 'Requiere disciplina durante las caidas del mercado', 'Aun debe mantener fondo de emergencia por separado', 'Considerar reducir gradualmente el riesgo a medida que se acercan las metas']
+                }
+            };
+
+            const p = profiles[profile];
+            let html = `
+                <div class="profile-card ${profile}">
+                    <h4>${p.title}</h4>
+                    <p>${p.description}</p>
+                    <h5 style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">Asignacion de Activos Sugerida</h5>
+                    <div class="allocation-visual">
+                        <div class="allocation-stocks" style="width: ${p.allocation.stocks}%"></div>
+                        <div class="allocation-bonds" style="width: ${p.allocation.bonds}%"></div>
+                        <div class="allocation-cash" style="width: ${p.allocation.cash}%"></div>
+                    </div>
+                    <div class="allocation-legend">
+                        <div class="legend-item"><div class="legend-color" style="background: #6366f1"></div>Acciones ${p.allocation.stocks}%</div>
+                        <div class="legend-item"><div class="legend-color" style="background: #3b82f6"></div>Bonos ${p.allocation.bonds}%</div>
+                        <div class="legend-item"><div class="legend-color" style="background: #10b981"></div>Efectivo ${p.allocation.cash}%</div>
+                    </div>
+                    <div class="investment-types">
+                        <h5>Tipos de Inversion Apropiados</h5>
+                        <ul>${p.investments.map(inv => `<li>${inv}</li>`).join('')}</ul>
+                    </div>
+                    <div class="considerations-box">
+                        <h5>Consideraciones Clave</h5>
+                        <ul>${p.considerations.map(con => `<li>${con}</li>`).join('')}</ul>
+                    </div>
+                </div>
+            `;
+            document.getElementById('profileCard').innerHTML = html;
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll('.option').forEach(opt => { opt.classList.remove('selected'); opt.querySelector('input').checked = false; });
+            document.getElementById('progressFill').style.width = '10%';
+            document.getElementById('currentQuestion').textContent = '1';
+            document.getElementById('calculateBtn').disabled = true;
+            document.getElementById('resultsSection').classList.remove('visible');
+            document.getElementById('reflectionText').value = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

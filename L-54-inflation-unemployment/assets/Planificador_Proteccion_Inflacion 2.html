@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Estrategia de Proteccion contra la Inflacion</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .section { margin-bottom: 25px; }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1f2937;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .strategy-card {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        .strategy-card h4 {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .checkbox-item input {
+            margin-right: 8px;
+            margin-top: 4px;
+        }
+        .checkbox-item label {
+            font-size: 0.9rem;
+            color: #4b5563;
+            cursor: pointer;
+        }
+        .priority-select {
+            margin-top: 10px;
+        }
+        .priority-select label {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        .priority-select select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .plan-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        .plan-btn:hover { background: #4f46e5; }
+        .results { display: none; }
+        .results.active { display: block; }
+        .plan-summary {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #10b981;
+        }
+        .plan-summary h3 {
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+        .plan-item {
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #10b981;
+        }
+        .plan-item strong {
+            color: #065f46;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+            .plan-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Planificador de Estrategia de Proteccion contra la Inflacion</h1>
+            <p class="subtitle">Planifica tu defensa contra el aumento de precios</p>
+        </header>
+
+        <div class="section">
+            <div class="section-title">Estrategias de Inversion</div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>Activos de Cobertura contra Inflacion</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="tips" value="TIPS (Valores del Tesoro Protegidos contra la Inflacion)">
+                        <label for="tips">Bonos TIPS</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="ibonds" value="I-Bonds (bonos de ahorro ajustados por inflacion)">
+                        <label for="ibonds">I-Bonds</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reits" value="Fideicomisos de inversion inmobiliaria (REITs)">
+                        <label for="reits">REITs</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="commodities" value="Fondos de materias primas o ETFs">
+                        <label for="commodities">Fondos de materias primas</label>
+                    </div>
+                    <div class="priority-select">
+                        <label>Prioridad:</label>
+                        <select id="investPriority">
+                            <option value="high">Alta</option>
+                            <option value="medium" selected>Media</option>
+                            <option value="low">Baja</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="strategy-card">
+                    <h4>Estrategias de Acciones</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="dividend" value="Acciones de crecimiento de dividendos">
+                        <label for="dividend">Acciones de crecimiento de dividendos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="value" value="Acciones de valor en sectores esenciales">
+                        <label for="value">Acciones de valor</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="international" value="Diversificacion internacional">
+                        <label for="international">Acciones internacionales</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Estrategias de Ingresos</div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>Negociacion Salarial</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="cola" value="Solicitar COLA (ajuste por costo de vida)">
+                        <label for="cola">Solicitar ajuste COLA</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="market" value="Investigar tasas salariales del mercado">
+                        <label for="market">Investigar tasas del mercado</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="skills" value="Desarrollar habilidades en demanda">
+                        <label for="skills">Desarrollar nuevas habilidades</label>
+                    </div>
+                    <div class="priority-select">
+                        <label>Prioridad:</label>
+                        <select id="incomePriority">
+                            <option value="high">Alta</option>
+                            <option value="medium" selected>Media</option>
+                            <option value="low">Baja</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="strategy-card">
+                    <h4>Ingresos Adicionales</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="side" value="Iniciar un trabajo secundario">
+                        <label for="side">Trabajo secundario</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="freelance" value="Trabajar como freelance en tu especialidad">
+                        <label for="freelance">Trabajo freelance</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="passive" value="Construir fuentes de ingresos pasivos">
+                        <label for="passive">Ingresos pasivos</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Ajustes de Gastos</div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>Compras Inteligentes</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="bulk" value="Comprar al por mayor cuando los precios estan bajos">
+                        <label for="bulk">Comprar al por mayor</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="substitute" value="Sustituir por alternativas mas baratas">
+                        <label for="substitute">Encontrar sustitutos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="delay" value="Retrasar compras no esenciales">
+                        <label for="delay">Retrasar compras</label>
+                    </div>
+                    <div class="priority-select">
+                        <label>Prioridad:</label>
+                        <select id="spendPriority">
+                            <option value="high">Alta</option>
+                            <option value="medium" selected>Media</option>
+                            <option value="low">Baja</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="strategy-card">
+                    <h4>Costos Fijos</h4>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="lock" value="Asegurar tasas (hipoteca, seguro)">
+                        <label for="lock">Asegurar tasas</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="renegotiate" value="Renegociar contratos anualmente">
+                        <label for="renegotiate">Renegociar contratos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="energy" value="Reducir consumo de energia">
+                        <label for="energy">Reducir uso de energia</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="plan-btn" onclick="generatePlan()">Generar Mi Plan de Proteccion</button>
+
+        <div class="results" id="results">
+            <div class="plan-summary">
+                <h3>Tu Plan de Proteccion contra la Inflacion</h3>
+                <div id="planItems"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Inflacion y Desempleo</p>
+        </footer>
+    </div>
+
+    <script>
+        function generatePlan() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            const planItems = document.getElementById('planItems');
+            planItems.innerHTML = '';
+
+            if (checkboxes.length === 0) {
+                planItems.innerHTML = '<div class="plan-item">Por favor selecciona al menos una estrategia para generar tu plan.</div>';
+            } else {
+                const priorities = {
+                    invest: document.getElementById('investPriority').value,
+                    income: document.getElementById('incomePriority').value,
+                    spend: document.getElementById('spendPriority').value
+                };
+
+                const highPriority = [];
+                const mediumPriority = [];
+                const lowPriority = [];
+
+                checkboxes.forEach(cb => {
+                    const item = cb.value;
+                    const id = cb.id;
+
+                    let priority = 'medium';
+                    if (['tips', 'ibonds', 'reits', 'commodities', 'dividend', 'value', 'international'].includes(id)) {
+                        priority = priorities.invest;
+                    } else if (['cola', 'market', 'skills', 'side', 'freelance', 'passive'].includes(id)) {
+                        priority = priorities.income;
+                    } else {
+                        priority = priorities.spend;
+                    }
+
+                    if (priority === 'high') highPriority.push(item);
+                    else if (priority === 'medium') mediumPriority.push(item);
+                    else lowPriority.push(item);
+                });
+
+                if (highPriority.length > 0) {
+                    planItems.innerHTML += '<div class="plan-item"><strong>🔴 Alta Prioridad (Comenzar Ahora):</strong><br>' + highPriority.join('<br>') + '</div>';
+                }
+                if (mediumPriority.length > 0) {
+                    planItems.innerHTML += '<div class="plan-item"><strong>🟡 Prioridad Media (Este Trimestre):</strong><br>' + mediumPriority.join('<br>') + '</div>';
+                }
+                if (lowPriority.length > 0) {
+                    planItems.innerHTML += '<div class="plan-item"><strong>🟢 Baja Prioridad (Este Ano):</strong><br>' + lowPriority.join('<br>') + '</div>';
+                }
+            }
+
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

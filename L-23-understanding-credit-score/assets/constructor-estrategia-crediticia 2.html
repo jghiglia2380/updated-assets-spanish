@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Estrategia de Crédito Personal - Capítulo 7.3</title>
+    <style>
+        /* Estilos para impresión */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1E3A8A;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: #1E3A8A;
+            margin: 0;
+            font-size: 24pt;
+        }
+
+        h2 {
+            color: #1E3A8A;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h3 {
+            color: #2563EB;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #F3F4F6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background-color: #E0E7FF;
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid #BFDBFE;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .factor-cell {
+            background-color: #F0F9FF;
+            font-weight: bold;
+        }
+
+        .strategy-cell {
+            min-height: 80px;
+        }
+
+        .reflection-area {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            min-height: 120px;
+        }
+
+        .print-button {
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #1E40AF;
+        }
+
+        .timeline-header {
+            background-color: #60A5FA;
+            color: white;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #6B7280;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Constructor de Estrategia de Crédito Personal</h1>
+        <p>Capítulo 7.3: Comprendiendo los Puntajes de Crédito</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta hoja de trabajo le ayudará a desarrollar una estrategia personal para construir y mantener buen crédito. Para cada factor del puntaje de crédito, identifique acciones específicas que puede tomar en diferentes períodos de tiempo para influir positivamente en su puntaje.</p>
+        <ol>
+            <li>Revise los cinco factores del puntaje FICO y su importancia relativa</li>
+            <li>Considere su situación financiera personal y metas</li>
+            <li>Para cada factor, identifique acciones específicas que puede tomar a corto, mediano y largo plazo</li>
+            <li>Complete la sección de reflexión para resumir su estrategia general</li>
+        </ol>
+    </div>
+
+    <h2>Su Estrategia Personal de Crédito</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Factor de Crédito</th>
+                <th class="timeline-header">Corto Plazo (1-6 meses)</th>
+                <th class="timeline-header">Mediano Plazo (6-24 meses)</th>
+                <th class="timeline-header">Largo Plazo (2-5 años)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="factor-cell">Historial de Pagos (35%)</td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Utilización de Crédito (30%)</td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Longitud del Historial Crediticio (15%)</td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Mezcla de Crédito (10%)</td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Crédito Nuevo (10%)</td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+                <td class="strategy-cell"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Ejemplos de Estrategias (Para Referencia)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Factor de Crédito</th>
+                <th>Estrategias de Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="factor-cell">Historial de Pagos (35%)</td>
+                <td>
+                    <ul>
+                        <li>Configure pagos automáticos para todas las facturas</li>
+                        <li>Cree recordatorios de calendario para fechas de vencimiento</li>
+                        <li>Pague las facturas tan pronto como lleguen en lugar de esperar hasta la fecha de vencimiento</li>
+                        <li>Contacte a los acreedores inmediatamente si va a retrasarse con un pago</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Utilización de Crédito (30%)</td>
+                <td>
+                    <ul>
+                        <li>Mantenga los saldos de tarjetas de crédito por debajo del 30% de su límite</li>
+                        <li>Haga múltiples pagos durante el mes</li>
+                        <li>Solicite aumentos de límite de crédito (sin consultas fuertes)</li>
+                        <li>Pague los saldos en su totalidad cada mes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Longitud del Historial Crediticio (15%)</td>
+                <td>
+                    <ul>
+                        <li>Mantenga las cuentas más antiguas abiertas, incluso si se usan raramente</li>
+                        <li>Conviértase en usuario autorizado en una cuenta establecida de un padre</li>
+                        <li>Abra una tarjeta de crédito asegurada para comenzar a construir historial</li>
+                        <li>Mantenga cuentas a largo plazo en lugar de abrir/cerrar frecuentemente</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Mezcla de Crédito (10%)</td>
+                <td>
+                    <ul>
+                        <li>Comience con una tarjeta de crédito asegurada</li>
+                        <li>Considere un pequeño préstamo a plazos cuando sea apropiado</li>
+                        <li>Agregue una tarjeta de tienda cuando esté listo para más cuentas</li>
+                        <li>Solo agregue nuevos tipos de crédito cuando pueda manejarlos responsablemente</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="factor-cell">Crédito Nuevo (10%)</td>
+                <td>
+                    <ul>
+                        <li>Limite las solicitudes de crédito a una cada 6 meses</li>
+                        <li>Investigue y solicite solo tarjetas para las que es probable que califique</li>
+                        <li>Evite múltiples solicitudes cuando compare tasas (use la ventana de 14 días)</li>
+                        <li>Enfóquese en construir historial con cuentas existentes en lugar de abrir nuevas</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Reflexión sobre la Estrategia</h2>
+
+    <h3>1. ¿En qué factor de crédito se está enfocando más en su estrategia? ¿Por qué?</h3>
+    <div class="reflection-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>2. ¿Qué obstáculos potenciales podrían dificultar la implementación de su estrategia?</h3>
+    <div class="reflection-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>3. ¿Cómo se responsabilizará de su estrategia de crédito?</h3>
+    <div class="reflection-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <h3>4. ¿Cómo podría necesitar adaptar su estrategia de crédito a medida que cambien las circunstancias de su vida?</h3>
+    <div class="reflection-area">
+        <!-- Espacio para respuesta escrita a mano o tecleada -->
+    </div>
+
+    <div class="no-print">
+        <button class="print-button" onclick="window.print();">Imprimir o Guardar como PDF</button>
+        <p><small>Haga clic en el botón de arriba para imprimir esta hoja de trabajo o guardarla como archivo PDF.</small></p>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 7.3: Comprendiendo los Puntajes de Crédito</p>
+    </footer>
+</body>
+</html>

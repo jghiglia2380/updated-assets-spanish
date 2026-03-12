@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Declaración de Política de Inversión</title>
+    <!--
+    PURPOSE: Create personalized investment plan with allocations, rebalancing rules, and triggers
+    USE: Activity 5 - Personal Investment Policy Statement (10 minutes)
+    -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --surface: #f9fafb;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .ips-section {
+            background: var(--surface);
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .section-title {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 6px 6px 0 0;
+            font-weight: bold;
+        }
+        .form-grid {
+            display: grid;
+            gap: 15px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .form-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-item label {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .form-item input,
+        .form-item select,
+        .form-item textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .form-item textarea {
+            min-height: 60px;
+        }
+        .allocation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .allocation-table th {
+            background: var(--secondary);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        .allocation-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+        }
+        .allocation-table input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .total-row {
+            background: #eef2ff;
+            font-weight: bold;
+        }
+        .checkbox-group {
+            display: grid;
+            gap: 8px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+        .checkbox-item input {
+            width: auto;
+        }
+        .trigger-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            margin: 8px 0;
+        }
+        .trigger-row span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .signature-box {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .signature-line {
+            border-bottom: 2px solid var(--text);
+            margin: 30px 0 5px 0;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #4f46e5;
+        }
+        .btn-print {
+            background: var(--success);
+        }
+        @media print {
+            .btn { display: none; }
+            body { font-size: 11pt; }
+            .ips-section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📑 Declaración de Política de Inversión</h1>
+
+    <p>Crea tu Declaración de Política de Inversión (DPI) personal - un documento escrito que guía tus decisiones de inversión y te ayuda a mantener la disciplina durante la volatilidad del mercado.</p>
+
+    <!-- Section 1: Investor Profile -->
+    <div class="ips-section">
+        <div class="section-title">Sección 1: Perfil del Inversionista</div>
+        <div class="form-grid">
+            <div class="form-row">
+                <div class="form-item">
+                    <label>Nombre:</label>
+                    <input type="text" placeholder="Tu nombre">
+                </div>
+                <div class="form-item">
+                    <label>Fecha:</label>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <label>Edad Actual:</label>
+                    <input type="number" placeholder="Edad">
+                </div>
+                <div class="form-item">
+                    <label>Edad Objetivo de Jubilación:</label>
+                    <input type="number" placeholder="Edad">
+                </div>
+            </div>
+            <div class="form-item">
+                <label>Horizonte Temporal de Inversión:</label>
+                <select>
+                    <option value="">Seleccionar...</option>
+                    <option>Menos de 5 años</option>
+                    <option>5-10 años</option>
+                    <option>10-20 años</option>
+                    <option>20+ años</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>Tolerancia al Riesgo:</label>
+                <select>
+                    <option value="">Seleccionar...</option>
+                    <option>Conservador - Priorizar preservación de capital</option>
+                    <option>Moderado - Equilibrar crecimiento y estabilidad</option>
+                    <option>Agresivo - Maximizar crecimiento a largo plazo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Investment Objectives -->
+    <div class="ips-section">
+        <div class="section-title">Sección 2: Objetivos de Inversión</div>
+        <div class="form-grid">
+            <div class="form-item">
+                <label>Objetivo Principal de Inversión:</label>
+                <select>
+                    <option value="">Seleccionar...</option>
+                    <option>Ahorros para jubilación</option>
+                    <option>Fondo de emergencia</option>
+                    <option>Financiamiento educativo</option>
+                    <option>Compra de vivienda</option>
+                    <option>Creación de patrimonio</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>Rendimiento Objetivo (Anual):</label>
+                <select>
+                    <option value="">Seleccionar...</option>
+                    <option>4-5% (Conservador)</option>
+                    <option>6-7% (Moderado)</option>
+                    <option>8-10% (Agresivo)</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>Pérdida Máxima Aceptable en Un Año:</label>
+                <select>
+                    <option value="">Seleccionar...</option>
+                    <option>Hasta 10%</option>
+                    <option>Hasta 20%</option>
+                    <option>Hasta 30%</option>
+                    <option>Hasta 40%</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Target Asset Allocation -->
+    <div class="ips-section">
+        <div class="section-title">Sección 3: Asignación Objetivo de Activos</div>
+        <table class="allocation-table">
+            <thead>
+                <tr>
+                    <th>Clase de Activo</th>
+                    <th>Objetivo %</th>
+                    <th>Mín %</th>
+                    <th>Máx %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acciones EE.UU. (Gran Cap)</td>
+                    <td><input type="number" value="35" oninput="updateTotal()"></td>
+                    <td><input type="number" value="25"></td>
+                    <td><input type="number" value="45"></td>
+                </tr>
+                <tr>
+                    <td>Acciones EE.UU. (Pequeña/Mediana Cap)</td>
+                    <td><input type="number" value="10" oninput="updateTotal()"></td>
+                    <td><input type="number" value="5"></td>
+                    <td><input type="number" value="15"></td>
+                </tr>
+                <tr>
+                    <td>Acciones Internacionales</td>
+                    <td><input type="number" value="20" oninput="updateTotal()"></td>
+                    <td><input type="number" value="10"></td>
+                    <td><input type="number" value="30"></td>
+                </tr>
+                <tr>
+                    <td>Bonos</td>
+                    <td><input type="number" value="25" oninput="updateTotal()"></td>
+                    <td><input type="number" value="15"></td>
+                    <td><input type="number" value="35"></td>
+                </tr>
+                <tr>
+                    <td>Bienes Raíces (REITs)</td>
+                    <td><input type="number" value="5" oninput="updateTotal()"></td>
+                    <td><input type="number" value="0"></td>
+                    <td><input type="number" value="10"></td>
+                </tr>
+                <tr>
+                    <td>Efectivo</td>
+                    <td><input type="number" value="5" oninput="updateTotal()"></td>
+                    <td><input type="number" value="2"></td>
+                    <td><input type="number" value="10"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total</td>
+                    <td id="total-alloc">100%</td>
+                    <td colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 4: Rebalancing Rules -->
+    <div class="ips-section">
+        <div class="section-title">Sección 4: Reglas de Rebalanceo</div>
+        <div class="form-grid">
+            <div class="form-item">
+                <label>Frecuencia de Rebalanceo:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="radio" name="rebal-freq" value="quarterly">
+                        Trimestral
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="radio" name="rebal-freq" value="semi" checked>
+                        Semestral
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="radio" name="rebal-freq" value="annual">
+                        Anual
+                    </label>
+                </div>
+            </div>
+            <div class="form-item">
+                <label>Disparadores de Umbral (rebalancear cuando la asignación se desvíe por):</label>
+                <select>
+                    <option>±5% del objetivo</option>
+                    <option>±10% del objetivo</option>
+                    <option>±15% del objetivo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Decision Triggers -->
+    <div class="ips-section">
+        <div class="section-title">Sección 5: Salvaguardas Conductuales</div>
+        <p>Comprométete previamente con estas reglas para evitar decisiones emocionales:</p>
+
+        <div class="trigger-row">
+            <span>SI el mercado cae 20%</span>
+            <span>→</span>
+            <select>
+                <option>Mantener el curso - no vender</option>
+                <option>Rebalancear para comprar más acciones</option>
+                <option>Revisar pero probablemente mantener</option>
+            </select>
+        </div>
+
+        <div class="trigger-row">
+            <span>SI un "tip caliente" parece tentador</span>
+            <span>→</span>
+            <select>
+                <option>Ignorar - seguir mi plan</option>
+                <option>Investigar por 1 semana antes de decidir</option>
+                <option>Limitar a 5% "dinero para diversión"</option>
+            </select>
+        </div>
+
+        <div class="trigger-row">
+            <span>SI necesito dinero urgentemente</span>
+            <span>→</span>
+            <select>
+                <option>Usar fondo de emergencia primero</option>
+                <option>Vender bonos antes que acciones</option>
+                <option>Considerar un préstamo en su lugar</option>
+            </select>
+        </div>
+
+        <div class="form-item" style="margin-top: 15px;">
+            <label>Mi lista personal de "nunca hacer":</label>
+            <textarea placeholder="ej., Nunca invertir en algo que no entienda, nunca poner más del 10% en una acción, nunca revisar el portafolio diariamente..."></textarea>
+        </div>
+    </div>
+
+    <!-- Section 6: Review Schedule -->
+    <div class="ips-section">
+        <div class="section-title">Sección 6: Calendario de Revisión</div>
+        <div class="form-grid">
+            <div class="form-item">
+                <label>Revisaré esta DPI:</label>
+                <select>
+                    <option>Anualmente en mi cumpleaños</option>
+                    <option>Anualmente el 1 de enero</option>
+                    <option>Después de eventos importantes de vida</option>
+                    <option>Cada 2 años</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>Eventos de vida que activan revisión:</label>
+                <textarea placeholder="ej., Matrimonio, nuevo trabajo, herencia, tener hijos..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signature -->
+    <div class="signature-box">
+        <h3>Compromiso</h3>
+        <p>Me comprometo a seguir esta Declaración de Política de Inversión y no haré cambios basados en movimientos de mercado a corto plazo o emociones.</p>
+        <div class="signature-line"></div>
+        <small>Firma</small>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <div style="flex: 1;">
+                <div class="signature-line"></div>
+                <small>Fecha</small>
+            </div>
+            <div style="width: 50px;"></div>
+            <div style="flex: 1;">
+                <div class="signature-line"></div>
+                <small>Fecha de Próxima Revisión</small>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir Mi DPI</button>
+
+    <script>
+        function updateTotal() {
+            const inputs = document.querySelectorAll('.allocation-table tbody tr:not(.total-row) td:nth-child(2) input');
+            let total = 0;
+            inputs.forEach(input => {
+                total += parseInt(input.value) || 0;
+            });
+            const totalEl = document.getElementById('total-alloc');
+            totalEl.textContent = total + '%';
+            totalEl.style.color = total === 100 ? 'inherit' : '#ef4444';
+        }
+    </script>
+</body>
+</html>

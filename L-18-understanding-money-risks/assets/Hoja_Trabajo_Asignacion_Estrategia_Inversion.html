@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Asignacion de Estrategia de Inversion</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        h1 { color: #1a3a6d; text-align: center; border-bottom: 2px solid #1a3a6d; padding-bottom: 10px; }
+        h2 { color: #1a3a6d; margin-top: 30px; }
+        h3 { color: #2c5890; }
+        .header-info { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .box { border: 1px solid #ccc; padding: 15px; margin: 15px 0; border-radius: 5px; background-color: #f9f9f9; }
+        .chart { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .chart th, .chart td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .chart th { background-color: #f2f2f2; }
+        .chart tr:nth-child(even) { background-color: #f9f9f9; }
+        .scenario { border: 1px solid #1a3a6d; padding: 15px; margin: 20px 0; background-color: #f0f7ff; border-radius: 5px; }
+        .instructions { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .allocation-chart { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .allocation-chart th, .allocation-chart td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        .allocation-chart th { background-color: #1a3a6d; color: white; }
+        .textarea { width: 100%; height: 80px; border: 1px solid #ccc; padding: 8px; margin-bottom: 15px; border-radius: 4px; }
+        .scenario-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .scenario-table th, .scenario-table td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        .scenario-table th { background-color: #2c5890; color: white; }
+        .allocation-slider { width: 80%; margin-top: 10px; }
+        .slider-container { display: flex; align-items: center; margin-bottom: 10px; }
+        .slider-label { width: 150px; display: inline-block; }
+        .slider-value { width: 50px; display: inline-block; text-align: right; margin-left: 10px; }
+        .allocation-container { border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px; background-color: #f8f9fa; }
+        @media print { body { font-size: 12pt; } h1 { font-size: 18pt; } h2 { font-size: 16pt; } .no-print { display: none; } .page-break { page-break-before: always; } }
+    </style>
+</head>
+<body>
+    <div class="no-print instructions">
+        <p><strong>Instrucciones para Profesores/Estudiantes:</strong> Esta hoja de trabajo esta disenada para completarse digitalmente o imprimirse para respuestas escritas a mano. Para guardar como PDF, use la funcion de impresion de su navegador y seleccione "Guardar como PDF" como destino.</p>
+    </div>
+
+    <h1>Hoja de Trabajo de Asignacion de Estrategia de Inversion</h1>
+
+    <div class="header-info">
+        <div><p><strong>Nombre del Estudiante:</strong> ______________________________</p></div>
+        <div><p><strong>Fecha:</strong> ______________________________</p></div>
+    </div>
+
+    <div class="box">
+        <h2>Introduccion</h2>
+        <p>Esta hoja de trabajo le ayudara a crear asignaciones de inversion para diferentes horizontes temporales y probarlas contra varios escenarios economicos. Aprendera como diferentes estrategias de inversion funcionan bajo diferentes condiciones y como alinear sus estrategias con su tolerancia al riesgo y metas financieras.</p>
+    </div>
+
+    <h2>Parte I: Su Perfil de Tolerancia al Riesgo</h2>
+
+    <p>Basado en su Evaluacion de Tolerancia al Riesgo del Dia 1:</p>
+
+    <table class="chart">
+        <tr><th>Mi Perfil de Tolerancia al Riesgo</th><td style="height: 30px;"></td></tr>
+        <tr><th>Mi Puntuacion de Tolerancia al Riesgo</th><td style="height: 30px;"></td></tr>
+    </table>
+
+    <div class="box">
+        <h3>Recordatorio de Perfiles de Riesgo</h3>
+        <ul>
+            <li><strong>Conservador (5-10 puntos):</strong> Prefiere estabilidad y preservacion del capital con fluctuaciones minimas</li>
+            <li><strong>Moderado (11-15 puntos):</strong> Busca equilibrio entre crecimiento y estabilidad, puede tolerar algunas fluctuaciones</li>
+            <li><strong>Agresivo (16-20 puntos):</strong> Prioriza el maximo crecimiento y puede tolerar fluctuaciones significativas</li>
+        </ul>
+    </div>
+
+    <h2>Parte II: Creando Asignaciones de Inversion para Diferentes Horizontes Temporales</h2>
+
+    <p>Para cada horizonte temporal a continuacion, cree una estrategia de asignacion de inversion que se alinee con sus metas y tolerancia al riesgo.</p>
+
+    <div class="allocation-container">
+        <h3>Meta a Corto Plazo (1-3 anos)</h3>
+        <p><strong>Ejemplos de metas:</strong> Fondo de emergencia, vacaciones, compra de auto, gastos de educacion</p>
+
+        <p><strong>Mi meta especifica a corto plazo:</strong> ____________________________________</p>
+        <p><strong>Monto objetivo:</strong> $____________________</p>
+        <p><strong>Plazo:</strong> ____________________</p>
+
+        <h4>Estrategia de Asignacion</h4>
+        <div class="slider-container">
+            <span class="slider-label">Efectivo y Equivalentes:</span>
+            <input type="range" min="0" max="100" value="70" class="allocation-slider">
+            <span class="slider-value">70%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Bonos:</span>
+            <input type="range" min="0" max="100" value="20" class="allocation-slider">
+            <span class="slider-value">20%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Acciones:</span>
+            <input type="range" min="0" max="100" value="10" class="allocation-slider">
+            <span class="slider-value">10%</span>
+        </div>
+
+        <h4>Tipos de Inversion Especificos (marque todos los que apliquen)</h4>
+        <div style="columns: 2;">
+            <div><input type="checkbox"> Cuentas de ahorro de alto rendimiento</div>
+            <div><input type="checkbox"> Certificados de deposito (CDs)</div>
+            <div><input type="checkbox"> Cuentas del mercado monetario</div>
+            <div><input type="checkbox"> Letras del Tesoro</div>
+            <div><input type="checkbox"> Fondos de bonos a corto plazo</div>
+            <div><input type="checkbox"> Bonos del gobierno</div>
+            <div><input type="checkbox"> Bonos corporativos</div>
+            <div><input type="checkbox"> Acciones de primera clase con dividendos</div>
+            <div><input type="checkbox"> Fondos indexados</div>
+            <div><input type="checkbox"> Otro: _______________</div>
+        </div>
+
+        <h4>Justificacion de la Asignacion a Corto Plazo</h4>
+        <p>Explique por que esta asignacion es apropiada para su meta a corto plazo y tolerancia al riesgo:</p>
+        <textarea class="textarea"></textarea>
+    </div>
+
+    <div class="allocation-container">
+        <h3>Meta a Mediano Plazo (5-10 anos)</h3>
+        <p><strong>Ejemplos de metas:</strong> Enganche de casa, iniciar un negocio, evento importante de la vida</p>
+
+        <p><strong>Mi meta especifica a mediano plazo:</strong> ____________________________________</p>
+        <p><strong>Monto objetivo:</strong> $____________________</p>
+        <p><strong>Plazo:</strong> ____________________</p>
+
+        <h4>Estrategia de Asignacion</h4>
+        <div class="slider-container">
+            <span class="slider-label">Efectivo y Equivalentes:</span>
+            <input type="range" min="0" max="100" value="35" class="allocation-slider">
+            <span class="slider-value">35%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Bonos:</span>
+            <input type="range" min="0" max="100" value="35" class="allocation-slider">
+            <span class="slider-value">35%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Acciones:</span>
+            <input type="range" min="0" max="100" value="30" class="allocation-slider">
+            <span class="slider-value">30%</span>
+        </div>
+
+        <h4>Tipos de Inversion Especificos (marque todos los que apliquen)</h4>
+        <div style="columns: 2;">
+            <div><input type="checkbox"> Cuentas de ahorro de alto rendimiento</div>
+            <div><input type="checkbox"> Certificados de deposito (CDs)</div>
+            <div><input type="checkbox"> Bonos del Tesoro</div>
+            <div><input type="checkbox"> Bonos corporativos</div>
+            <div><input type="checkbox"> Bonos municipales</div>
+            <div><input type="checkbox"> Fondos de bonos</div>
+            <div><input type="checkbox"> Acciones de primera clase</div>
+            <div><input type="checkbox"> Acciones con dividendos</div>
+            <div><input type="checkbox"> Fondos indexados</div>
+            <div><input type="checkbox"> Fondos mutuos balanceados</div>
+            <div><input type="checkbox"> REITs (Fideicomisos de Inversion en Bienes Raices)</div>
+            <div><input type="checkbox"> Otro: _______________</div>
+        </div>
+
+        <h4>Justificacion de la Asignacion a Mediano Plazo</h4>
+        <p>Explique por que esta asignacion es apropiada para su meta a mediano plazo y tolerancia al riesgo:</p>
+        <textarea class="textarea"></textarea>
+    </div>
+
+    <div class="allocation-container">
+        <h3>Meta a Largo Plazo (30+ anos)</h3>
+        <p><strong>Ejemplos de metas:</strong> Jubilacion, construccion de patrimonio a largo plazo</p>
+
+        <p><strong>Mi meta especifica a largo plazo:</strong> ____________________________________</p>
+        <p><strong>Monto objetivo:</strong> $____________________</p>
+        <p><strong>Plazo:</strong> ____________________</p>
+
+        <h4>Estrategia de Asignacion</h4>
+        <div class="slider-container">
+            <span class="slider-label">Efectivo y Equivalentes:</span>
+            <input type="range" min="0" max="100" value="10" class="allocation-slider">
+            <span class="slider-value">10%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Bonos:</span>
+            <input type="range" min="0" max="100" value="20" class="allocation-slider">
+            <span class="slider-value">20%</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Acciones:</span>
+            <input type="range" min="0" max="100" value="70" class="allocation-slider">
+            <span class="slider-value">70%</span>
+        </div>
+
+        <h4>Tipos de Inversion Especificos (marque todos los que apliquen)</h4>
+        <div style="columns: 2;">
+            <div><input type="checkbox"> Fondos del mercado monetario</div>
+            <div><input type="checkbox"> Bonos del gobierno</div>
+            <div><input type="checkbox"> Bonos corporativos</div>
+            <div><input type="checkbox"> Fondos de bonos</div>
+            <div><input type="checkbox"> Acciones de primera clase</div>
+            <div><input type="checkbox"> Acciones de crecimiento</div>
+            <div><input type="checkbox"> Acciones con dividendos</div>
+            <div><input type="checkbox"> Fondos indexados</div>
+            <div><input type="checkbox"> Fondos mutuos</div>
+            <div><input type="checkbox"> Fondos cotizados en bolsa (ETFs)</div>
+            <div><input type="checkbox"> Acciones internacionales</div>
+            <div><input type="checkbox"> Acciones de pequena capitalizacion</div>
+            <div><input type="checkbox"> REITs (Fideicomisos de Inversion en Bienes Raices)</div>
+            <div><input type="checkbox"> Otro: _______________</div>
+        </div>
+
+        <h4>Justificacion de la Asignacion a Largo Plazo</h4>
+        <p>Explique por que esta asignacion es apropiada para su meta a largo plazo y tolerancia al riesgo:</p>
+        <textarea class="textarea"></textarea>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte III: Probando Asignaciones Contra Escenarios Economicos</h2>
+
+    <p>Ahora, pruebe como sus estrategias de asignacion podrian funcionar bajo diferentes condiciones economicas. Para cada escenario, califique el rendimiento probable de sus asignaciones en una escala de 1-5 (1 = mal rendimiento, 5 = excelente rendimiento).</p>
+
+    <div class="scenario">
+        <h3>Escenario 1: Fuerte Crecimiento Economico</h3>
+        <p><strong>Descripcion:</strong> La economia esta expandiendose rapidamente, el desempleo es bajo, la confianza del consumidor es alta y las ganancias corporativas son fuertes. Las tasas de interes pueden estar subiendo gradualmente.</p>
+        <p><strong>Impacto Tipico:</strong> Generalmente positivo para acciones (especialmente acciones de crecimiento), neutral a ligeramente negativo para bonos debido a posibles aumentos de tasas de interes, y negativo para efectivo en relacion con otros activos.</p>
+
+        <h4>Como funcionarian sus asignaciones?</h4>
+        <table class="scenario-table">
+            <tr><th>Estrategia de Asignacion</th><th>Rendimiento Esperado (1-5)</th><th>Razonamiento</th></tr>
+            <tr><td>Meta a Corto Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Mediano Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Largo Plazo</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="scenario">
+        <h3>Escenario 2: Recesion</h3>
+        <p><strong>Descripcion:</strong> Contraccion economica, aumento del desempleo, disminucion del gasto del consumidor y caida de las ganancias corporativas. Los bancos centrales pueden bajar las tasas de interes para estimular la economia.</p>
+        <p><strong>Impacto Tipico:</strong> Generalmente negativo para acciones, mixto para bonos (los bonos gubernamentales de alta calidad tipicamente funcionan bien, pero los bonos corporativos pueden tener dificultades), y estable para efectivo (que se vuelve relativamente mas valioso durante las caidas del mercado).</p>
+
+        <h4>Como funcionarian sus asignaciones?</h4>
+        <table class="scenario-table">
+            <tr><th>Estrategia de Asignacion</th><th>Rendimiento Esperado (1-5)</th><th>Razonamiento</th></tr>
+            <tr><td>Meta a Corto Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Mediano Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Largo Plazo</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="scenario">
+        <h3>Escenario 3: Alta Inflacion</h3>
+        <p><strong>Descripcion:</strong> Precios subiendo rapidamente en toda la economia, erosionando el poder adquisitivo. Los bancos centrales pueden aumentar significativamente las tasas de interes para combatir la inflacion.</p>
+        <p><strong>Impacto Tipico:</strong> Generalmente negativo para bonos (especialmente los de largo plazo), mixto para acciones (ciertos sectores pueden funcionar bien), y negativo para efectivo y equivalentes de efectivo ya que el poder adquisitivo se erosiona.</p>
+
+        <h4>Como funcionarian sus asignaciones?</h4>
+        <table class="scenario-table">
+            <tr><th>Estrategia de Asignacion</th><th>Rendimiento Esperado (1-5)</th><th>Razonamiento</th></tr>
+            <tr><td>Meta a Corto Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Mediano Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Largo Plazo</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="scenario">
+        <h3>Escenario 4: Volatilidad del Mercado</h3>
+        <p><strong>Descripcion:</strong> Oscilaciones frecuentes y significativas en los valores del mercado, potencialmente provocadas por eventos geopoliticos, cambios de politica o incertidumbre del mercado. La direccion economica general podria no estar clara.</p>
+        <p><strong>Impacto Tipico:</strong> Desafiante para la mayoria de los activos, con portafolios diversificados tipicamente resistiendo mejor la volatilidad que los concentrados. Los activos de baja correlacion se vuelven particularmente valiosos.</p>
+
+        <h4>Como funcionarian sus asignaciones?</h4>
+        <table class="scenario-table">
+            <tr><th>Estrategia de Asignacion</th><th>Rendimiento Esperado (1-5)</th><th>Razonamiento</th></tr>
+            <tr><td>Meta a Corto Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Mediano Plazo</td><td></td><td></td></tr>
+            <tr><td>Meta a Largo Plazo</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <h2>Parte IV: Ajustes a la Estrategia de Asignacion</h2>
+
+    <p>Basado en su analisis de como funcionarian sus asignaciones bajo diferentes escenarios economicos, haria algun ajuste a sus estrategias de asignacion originales?</p>
+
+    <div class="box">
+        <h3>Ajustes a la Asignacion de Meta a Corto Plazo</h3>
+        <textarea class="textarea"></textarea>
+
+        <h3>Ajustes a la Asignacion de Meta a Mediano Plazo</h3>
+        <textarea class="textarea"></textarea>
+
+        <h3>Ajustes a la Asignacion de Meta a Largo Plazo</h3>
+        <textarea class="textarea"></textarea>
+    </div>
+
+    <h2>Parte V: Reflexion</h2>
+
+    <div class="box">
+        <h3>Horizonte Temporal y Riesgo</h3>
+        <p>Como afecta su horizonte temporal (cuando necesitara el dinero) el nivel de riesgo apropiado para cada meta?</p>
+        <textarea class="textarea"></textarea>
+
+        <h3>Valor de la Diversificacion</h3>
+        <p>Despues de probar sus asignaciones contra diferentes escenarios economicos, que ha aprendido sobre el valor de la diversificacion?</p>
+        <textarea class="textarea"></textarea>
+
+        <h3>Tolerancia al Riesgo vs. Horizonte Temporal</h3>
+        <p>En que situaciones podria su tolerancia personal al riesgo entrar en conflicto con lo que es teoricamente apropiado para su horizonte temporal? Como resolveria este conflicto?</p>
+        <textarea class="textarea"></textarea>
+    </div>
+
+    <div class="box">
+        <h3>Puntos Clave</h3>
+        <ul>
+            <li>Diferentes horizontes temporales requieren diferentes estrategias de inversion, independientemente de su tolerancia personal al riesgo</li>
+            <li>La diversificacion ayuda a gestionar el riesgo en varias condiciones economicas</li>
+            <li>Cuanto mas largo sea su horizonte temporal, mas volatilidad del mercado tipicamente puede soportar</li>
+            <li>La revision y ajuste regular de su estrategia de inversion es esencial a medida que cambian las condiciones economicas y las circunstancias personales</li>
+            <li>No existe una asignacion perfecta que funcione bien en todos los escenarios economicos</li>
+        </ul>
+    </div>
+</body>
+</html>

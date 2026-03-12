@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Planificacion de Jubilacion</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f2f6f9;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        .calculation-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .input-area {
+            border: 1px dashed #aaa;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background-color: #fffde7;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Instrucciones de Impresion:</strong> Para guardar o imprimir este documento, use la funcion de impresion de su navegador (Ctrl+P o Cmd+P) y seleccione "Guardar como PDF" como destino.</p>
+    </div>
+
+    <h1>Hoja de Trabajo de Planificacion de Jubilacion</h1>
+
+    <div class="info-box">
+        <p><strong>Instrucciones para el Estudiante:</strong> Revise las diferentes opciones de jubilacion a continuacion, comprenda sus caracteristicas y complete la reflexion y el calculo al final de la hoja de trabajo.</p>
+    </div>
+
+    <h2>Parte 1: Comparacion de Opciones de Jubilacion</h2>
+
+    <table>
+        <tr>
+            <th>Opcion de Jubilacion</th>
+            <th>Beneficios</th>
+            <th>Riesgos Potenciales</th>
+            <th>Implicaciones Fiscales</th>
+            <th>Uso Ideal</th>
+            <th>Limites de Contribucion (2023)</th>
+        </tr>
+        <tr>
+            <td><strong>Seguro Social</strong></td>
+            <td>
+                <ul>
+                    <li>Ingreso garantizado de por vida</li>
+                    <li>Ajustado por inflacion</li>
+                    <li>Proporciona beneficios por discapacidad y sobrevivientes</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>No es suficiente para financiar completamente la jubilacion</li>
+                    <li>Niveles futuros de beneficios inciertos</li>
+                    <li>Potencial de beneficios reducidos si se toma anticipadamente</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Hasta el 85% de los beneficios pueden ser gravables dependiendo del ingreso</li>
+                    <li>Financiado a traves de impuestos sobre la nomina</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Ingreso base de jubilacion</li>
+                    <li>Complemento a otros ahorros de jubilacion</li>
+                </ul>
+            </td>
+            <td>N/A - Beneficios basados en ganancias de por vida</td>
+        </tr>
+        <tr>
+            <td><strong>401(k)/403(b)</strong></td>
+            <td>
+                <ul>
+                    <li>El empleador puede igualar contribuciones</li>
+                    <li>Altos limites de contribucion</li>
+                    <li>Crecimiento con impuestos diferidos</li>
+                    <li>Deducciones automaticas de nomina</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Riesgo de inversion</li>
+                    <li>Opciones de inversion limitadas</li>
+                    <li>Penalidades por retiro anticipado</li>
+                    <li>Distribuciones Minimas Requeridas (RMDs)</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Las contribuciones reducen el ingreso gravable</li>
+                    <li>Las ganancias crecen con impuestos diferidos</li>
+                    <li>Los retiros se gravan como ingreso ordinario</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Vehiculo principal de ahorro para jubilacion</li>
+                    <li>Cuando el empleador ofrece igualacion</li>
+                    <li>Cuando la deduccion fiscal actual es valiosa</li>
+                </ul>
+            </td>
+            <td>$22,500 ($30,000 si tiene 50 o mas)</td>
+        </tr>
+        <tr>
+            <td><strong>IRA Tradicional</strong></td>
+            <td>
+                <ul>
+                    <li>Amplia gama de opciones de inversion</li>
+                    <li>Crecimiento con impuestos diferidos</li>
+                    <li>Posible deduccion fiscal por contribuciones</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Riesgo de inversion</li>
+                    <li>Penalidades por retiro anticipado</li>
+                    <li>Distribuciones Minimas Requeridas (RMDs)</li>
+                    <li>Limites de ingresos para deducibilidad</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Las contribuciones pueden ser deducibles de impuestos</li>
+                    <li>Las ganancias crecen con impuestos diferidos</li>
+                    <li>Los retiros se gravan como ingreso ordinario</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Complemento a planes del empleador</li>
+                    <li>Cuando la deduccion fiscal actual es valiosa</li>
+                    <li>Cuando espera una tasa fiscal mas baja en jubilacion</li>
+                </ul>
+            </td>
+            <td>$6,500 ($7,500 si tiene 50 o mas)</td>
+        </tr>
+        <tr>
+            <td><strong>Roth IRA</strong></td>
+            <td>
+                <ul>
+                    <li>Crecimiento y retiros libres de impuestos</li>
+                    <li>Sin Distribuciones Minimas Requeridas</li>
+                    <li>Amplia gama de opciones de inversion</li>
+                    <li>Flexibilidad para retiro anticipado de contribuciones</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Riesgo de inversion</li>
+                    <li>Limites de ingresos para contribuciones</li>
+                    <li>Sin beneficios fiscales inmediatos</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Contribuciones hechas con dolares despues de impuestos</li>
+                    <li>Retiros calificados son libres de impuestos</li>
+                    <li>Sin deduccion fiscal por contribuciones</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Cuando espera una tasa fiscal mas alta en jubilacion</li>
+                    <li>Ahorradores jovenes con decadas de crecimiento libre de impuestos</li>
+                    <li>Planificacion de legado</li>
+                </ul>
+            </td>
+            <td>$6,500 ($7,500 si tiene 50 o mas)</td>
+        </tr>
+        <tr>
+            <td><strong>Anualidades</strong></td>
+            <td>
+                <ul>
+                    <li>Ingreso garantizado de por vida</li>
+                    <li>Crecimiento con impuestos diferidos</li>
+                    <li>Sin limites de contribucion</li>
+                    <li>Beneficios por fallecimiento para herederos</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Altas comisiones</li>
+                    <li>Terminos y condiciones complejos</li>
+                    <li>Cargos por rescate para retiros anticipados</li>
+                    <li>Liquidez limitada</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Las ganancias crecen con impuestos diferidos</li>
+                    <li>Los retiros de ganancias se gravan como ingreso ordinario</li>
+                    <li>Posibles penalidades fiscales por retiros anticipados</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Convertir ahorros en ingreso garantizado</li>
+                    <li>Seguro de longevidad</li>
+                    <li>Despues de maximizar otras cuentas de jubilacion</li>
+                </ul>
+            </td>
+            <td>Sin limites legales (producto de seguro)</td>
+        </tr>
+    </table>
+
+    <h2>Parte 2: Comparacion de Rendimientos Esperados y Riesgo</h2>
+
+    <table>
+        <tr>
+            <th>Opcion de Jubilacion</th>
+            <th>Rango de Rendimiento Anual Tipico</th>
+            <th>Nivel de Riesgo</th>
+            <th>Notas</th>
+        </tr>
+        <tr>
+            <td><strong>Seguro Social</strong></td>
+            <td>Solo Ajuste por Costo de Vida (COLA)</td>
+            <td>Bajo (garantizado por el gobierno)</td>
+            <td>No es una inversion; el beneficio depende del historial laboral y la edad de reclamacion</td>
+        </tr>
+        <tr>
+            <td><strong>401(k)/403(b)</strong></td>
+            <td>Varia segun las inversiones elegidas (tipicamente 5-8% promedio)</td>
+            <td>Varia segun la asignacion de inversiones</td>
+            <td>La igualacion del empleador proporciona un "rendimiento" inmediato - a menudo 50-100% en contribuciones igualadas</td>
+        </tr>
+        <tr>
+            <td><strong>IRA Tradicional</strong></td>
+            <td>Varia segun las inversiones elegidas (tipicamente 5-8% promedio)</td>
+            <td>Varia segun la asignacion de inversiones</td>
+            <td>Mayor flexibilidad de inversion que la mayoria de los planes 401(k)</td>
+        </tr>
+        <tr>
+            <td><strong>Roth IRA</strong></td>
+            <td>Varia segun las inversiones elegidas (tipicamente 5-8% promedio)</td>
+            <td>Varia segun la asignacion de inversiones</td>
+            <td>El crecimiento libre de impuestos puede mejorar significativamente los rendimientos efectivos</td>
+        </tr>
+        <tr>
+            <td><strong>Anualidades Fijas</strong></td>
+            <td>1-4%</td>
+            <td>Bajo</td>
+            <td>Garantizado por la compania de seguros</td>
+        </tr>
+        <tr>
+            <td><strong>Anualidades Variables</strong></td>
+            <td>Varia segun las inversiones elegidas (tipicamente 3-7% promedio)</td>
+            <td>Medio a Alto</td>
+            <td>Los rendimientos se reducen por comisiones mas altas comparadas con los fondos mutuos</td>
+        </tr>
+    </table>
+
+    <div class="section">
+        <h2>Parte 3: Reflexion y Calculo</h2>
+
+        <h3>La Regla 50/30/20 para el Presupuesto</h3>
+        <p>La regla 50/30/20 sugiere asignar su ingreso despues de impuestos de la siguiente manera:</p>
+        <ul>
+            <li><strong>50%</strong> para necesidades (vivienda, alimentacion, servicios, etc.)</li>
+            <li><strong>30%</strong> para deseos (entretenimiento, viajes, etc.)</li>
+            <li><strong>20%</strong> para ahorros y pago de deudas (incluyendo jubilacion)</li>
+        </ul>
+
+        <div class="calculation-box">
+            <h3>Desafio de Calculo:</h3>
+            <p>Usando la regla 50/30/20, si desea maximizar las contribuciones a un 401(k) ($22,500), un IRA Tradicional ($6,500) y un Roth IRA ($6,500), cuanto tendria que ganar anualmente para asignar estas inversiones manteniendolas en el 20% de su ingreso total?</p>
+
+            <p><strong>Paso 1:</strong> Calcule la contribucion maxima total a las cuentas de jubilacion.</p>
+            <div class="input-area"></div>
+
+            <p><strong>Paso 2:</strong> Aplique la regla 50/30/20. Si la contribucion total representa el 20% del ingreso anual, cual tendria que ser el ingreso anual?</p>
+            <div class="input-area"></div>
+
+            <p><strong>Paso 3:</strong> Proporcione su respuesta y explique su calculo.</p>
+            <div class="input-area"></div>
+        </div>
+
+        <h3>Preguntas de Reflexion</h3>
+        <p>Despues de revisar las opciones de jubilacion, responda las siguientes preguntas:</p>
+
+        <p><strong>1. Basandose en su comprension actual y planes futuros, que cuentas de jubilacion cree que serian mas apropiadas para usted? Por que?</strong></p>
+        <div class="input-area"></div>
+
+        <p><strong>2. Como podria cambiar su estrategia de jubilacion en diferentes etapas de su vida?</strong></p>
+        <div class="input-area"></div>
+
+        <p><strong>3. Que porcentaje de su ingreso cree que es realista ahorrar para la jubilacion cuando comience a trabajar? Como podria cambiar esto con el tiempo?</strong></p>
+        <div class="input-area"></div>
+    </div>
+
+    <div class="footnote">
+        <p>Nota: Esta hoja de trabajo es solo para fines educativos y no constituye asesoramiento financiero. Para orientacion financiera especifica, consulte con un profesional financiero calificado.</p>
+        <p>PFL Academy - Capitulo 6.1: Planificacion para la Jubilacion</p>
+    </div>
+</body>
+</html>

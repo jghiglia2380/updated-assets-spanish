@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Carreras del Mercado Laboral | PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6366f1;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #6366f1;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #6b7280;
+        }
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6366f1;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 15px;
+        }
+        .career-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 2px solid #e5e7eb;
+        }
+        .career-number {
+            background-color: #6366f1;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            margin-top: 5px;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            color: #374151;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        .select-field {
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            width: 100%;
+        }
+        .scenario-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+        }
+        .scenario-title {
+            font-weight: 600;
+            color: #8b5cf6;
+            margin-bottom: 10px;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .impact-box {
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .impact-increase {
+            background-color: #dcfce7;
+            border: 1px solid #86efac;
+        }
+        .impact-decrease {
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
+        .analysis-box {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .salary-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .salary-input {
+            width: 120px;
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            text-align: right;
+        }
+        .arrow {
+            color: #6366f1;
+            font-size: 1.5rem;
+        }
+        .outlook-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .outlook-strong {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .outlook-moderate {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .outlook-weak {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .strategy-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 0 6px 6px 0;
+            margin: 15px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            background-color: #6366f1;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+        }
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .note {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 11px;
+            }
+            .section {
+                break-inside: avoid;
+            }
+            .btn {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analizador de Carreras del Mercado Laboral de {{STATE_NAME}}</h1>
+        <p class="subtitle">Usa la oferta y demanda para tomar decisiones profesionales más inteligentes</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte A: Analizar Campos Profesionales en {{STATE_NAME}}</div>
+        <p style="margin-bottom: 15px;">Elige 3 campos profesionales que te interesen. Investiga y analiza su dinámica de oferta/demanda.</p>
+
+        <!-- Carrera 1 -->
+        <div class="career-card">
+            <h4><span class="career-number">1</span>Campo Profesional</h4>
+            <div class="input-group">
+                <input type="text" class="input-field" id="career1" placeholder="ej., Ingeniero de Software, Enfermero/a, Electricista">
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Factores de Demanda</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Industria tecnológica creciendo, necesidades de salud aumentando"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Factores de Oferta</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Muchos graduados, programas de formación limitados"></textarea>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Perspectiva del Mercado</label>
+                    <select class="select-field">
+                        <option value="">Seleccionar perspectiva...</option>
+                        <option value="strong">Demanda > Oferta (Salarios subiendo)</option>
+                        <option value="balanced">Equilibrado</option>
+                        <option value="weak">Oferta > Demanda (Salarios estancados)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Salario Inicial en {{STATE_NAME}}</label>
+                    <input type="text" class="input-field" placeholder="ej., $55,000">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Proyección Salarial a 10 Años</label>
+                <input type="text" class="input-field" placeholder="ej., $95,000">
+            </div>
+        </div>
+
+        <!-- Carrera 2 -->
+        <div class="career-card">
+            <h4><span class="career-number">2</span>Campo Profesional</h4>
+            <div class="input-group">
+                <input type="text" class="input-field" id="career2" placeholder="ej., Ingeniero de Software, Enfermero/a, Electricista">
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Factores de Demanda</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Industria tecnológica creciendo, necesidades de salud aumentando"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Factores de Oferta</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Muchos graduados, programas de formación limitados"></textarea>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Perspectiva del Mercado</label>
+                    <select class="select-field">
+                        <option value="">Seleccionar perspectiva...</option>
+                        <option value="strong">Demanda > Oferta (Salarios subiendo)</option>
+                        <option value="balanced">Equilibrado</option>
+                        <option value="weak">Oferta > Demanda (Salarios estancados)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Salario Inicial en {{STATE_NAME}}</label>
+                    <input type="text" class="input-field" placeholder="ej., $55,000">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Proyección Salarial a 10 Años</label>
+                <input type="text" class="input-field" placeholder="ej., $95,000">
+            </div>
+        </div>
+
+        <!-- Carrera 3 -->
+        <div class="career-card">
+            <h4><span class="career-number">3</span>Campo Profesional</h4>
+            <div class="input-group">
+                <input type="text" class="input-field" id="career3" placeholder="ej., Ingeniero de Software, Enfermero/a, Electricista">
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Factores de Demanda</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Industria tecnológica creciendo, necesidades de salud aumentando"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Factores de Oferta</label>
+                    <textarea class="input-field" rows="2" placeholder="ej., Muchos graduados, programas de formación limitados"></textarea>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Perspectiva del Mercado</label>
+                    <select class="select-field">
+                        <option value="">Seleccionar perspectiva...</option>
+                        <option value="strong">Demanda > Oferta (Salarios subiendo)</option>
+                        <option value="balanced">Equilibrado</option>
+                        <option value="weak">Oferta > Demanda (Salarios estancados)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Salario Inicial en {{STATE_NAME}}</label>
+                    <input type="text" class="input-field" placeholder="ej., $55,000">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Proyección Salarial a 10 Años</label>
+                <input type="text" class="input-field" placeholder="ej., $95,000">
+            </div>
+        </div>
+
+        <!-- Preguntas de Análisis -->
+        <div class="analysis-box">
+            <h4 style="margin-bottom: 15px;">Preguntas de Análisis</h4>
+
+            <div class="input-group">
+                <label>1. ¿Cuál carrera tiene la demanda más fuerte en relación con la oferta?</label>
+                <input type="text" class="input-field" placeholder="Nombre de la carrera">
+                <textarea class="input-field" rows="2" style="margin-top: 10px;" placeholder="Evidencia para esta conclusión..."></textarea>
+                <input type="text" class="input-field" style="margin-top: 10px;" placeholder="Trayectoria salarial esperada (subiendo/estable/bajando)">
+            </div>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label>2. ¿Cuál carrera tiene la posición de mercado más débil?</label>
+                <input type="text" class="input-field" placeholder="Nombre de la carrera">
+                <textarea class="input-field" rows="2" style="margin-top: 10px;" placeholder="Factores de riesgo..."></textarea>
+                <textarea class="input-field" rows="2" style="margin-top: 10px;" placeholder="¿La perseguirías de todos modos? ¿Por qué sí/no?"></textarea>
+            </div>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label>3. ¿Cómo puedes aumentar tu valor en el mercado laboral?</label>
+                <p style="font-size: 0.9rem; color: #6b7280; margin: 5px 0;">
+                    <strong>Reducir la oferta de "ti":</strong> Desarrollar habilidades raras, especialización<br>
+                    <strong>Aumentar la demanda de "ti":</strong> Trabajar en industrias en crecimiento, hacer networking, construir reputación
+                </p>
+                <textarea class="input-field" rows="3" placeholder="Tu estrategia específica para aumentar tu valor de mercado..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte B: Cambios en el Mercado Laboral - Análisis de Escenarios</div>
+
+        <!-- Escenario 1: Revolución de IA -->
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 1: Revolución de la IA</div>
+            <p style="margin-bottom: 15px;">La inteligencia artificial se vuelve altamente capaz, afectando muchos empleos.</p>
+
+            <div class="impact-grid">
+                <div class="impact-box impact-decrease">
+                    <strong>La demanda DISMINUYE para:</strong>
+                    <ul style="margin: 8px 0 0 20px; font-size: 0.9rem;">
+                        <li>Tareas rutinarias</li>
+                        <li>Entrada de datos</li>
+                        <li>Análisis básico</li>
+                        <li>Servicio al cliente</li>
+                    </ul>
+                </div>
+                <div class="impact-box impact-increase">
+                    <strong>La demanda AUMENTA para:</strong>
+                    <ul style="margin: 8px 0 0 20px; font-size: 0.9rem;">
+                        <li>Desarrollo de IA</li>
+                        <li>Trabajo creativo</li>
+                        <li>Conexión humana</li>
+                        <li>Oficios especializados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>En {{STATE_NAME}}, ¿cuáles carreras son resistentes a la IA?</label>
+                <textarea class="input-field" rows="2" placeholder="Considera empleos que requieren juicio humano, creatividad, habilidad física, inteligencia emocional..."></textarea>
+            </div>
+        </div>
+
+        <!-- Escenario 2: Auge Económico -->
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 2: Auge Económico en {{STATE_NAME}}</div>
+            <p style="margin-bottom: 15px;">La economía de {{STATE_NAME}} crece rápidamente con nuevas industrias y afluencia de población.</p>
+
+            <div class="strategy-box">
+                <strong>Tu Oportunidad:</strong>
+                <ul style="margin: 8px 0 0 20px;">
+                    <li>Negociar salarios más altos (la demanda de trabajadores es fuerte)</li>
+                    <li>Cambiar de empleo más fácilmente (empleadores compitiendo por talento)</li>
+                    <li>Considerar emprendimiento (mercado en crecimiento crea oportunidades)</li>
+                </ul>
+            </div>
+
+            <div class="input-group">
+                <label>¿Cómo aprovecharías este escenario?</label>
+                <textarea class="input-field" rows="2" placeholder="Tu estrategia..."></textarea>
+            </div>
+        </div>
+
+        <!-- Escenario 3: Trabajo Remoto -->
+        <div class="scenario-box">
+            <div class="scenario-title">Escenario 3: Expansión del Trabajo Remoto</div>
+            <p style="margin-bottom: 15px;">Más empleos se vuelven compatibles con el trabajo remoto.</p>
+
+            <div class="impact-grid">
+                <div class="impact-box" style="background-color: #fef3c7; border: 1px solid #fcd34d;">
+                    <strong>Desafíos:</strong>
+                    <ul style="margin: 8px 0 0 20px; font-size: 0.9rem;">
+                        <li>Competir nacional/globalmente</li>
+                        <li>Presión salarial en áreas de alto costo</li>
+                        <li>Más competencia</li>
+                    </ul>
+                </div>
+                <div class="impact-box" style="background-color: #dbeafe; border: 1px solid #93c5fd;">
+                    <strong>Oportunidades:</strong>
+                    <ul style="margin: 8px 0 0 20px; font-size: 0.9rem;">
+                        <li>Acceder a empleos en cualquier lugar</li>
+                        <li>Vivir en áreas de bajo costo</li>
+                        <li>Más flexibilidad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Tu Estrategia:</label>
+                <textarea class="input-field" rows="2" placeholder="¿Cómo te posicionarás para las oportunidades de trabajo remoto?"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Reflexión: Impacto en la Planificación Profesional</div>
+
+        <div class="input-group">
+            <label>¿Cómo cambian estos escenarios tu planificación profesional?</label>
+            <textarea class="input-field" rows="3" placeholder="Reflexiona sobre lo que has aprendido sobre la oferta y demanda del mercado laboral..."></textarea>
+        </div>
+
+        <div class="input-group" style="margin-top: 15px;">
+            <label>¿Qué habilidades deberías priorizar desarrollar?</label>
+            <textarea class="input-field" rows="3" placeholder="Lista habilidades específicas que tienen alta demanda y baja oferta..."></textarea>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Conclusión Clave:</strong> Las elecciones de carrera deben considerar el crecimiento de la demanda y las restricciones de oferta. Posiciónate donde la demanda supere la oferta para maximizar tu potencial de ingresos y seguridad laboral.
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+        <button class="btn btn-secondary" onclick="resetForm()">Reiniciar Formulario</button>
+    </div>
+
+    <script>
+        function resetForm() {
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.tagName === 'SELECT') {
+                    el.selectedIndex = 0;
+                } else {
+                    el.value = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

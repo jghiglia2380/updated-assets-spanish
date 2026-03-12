@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo: Calculadora del Costo Real del Alquiler</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                line-height: 1.3;
+                color: #000;
+                background: #fff;
+                margin: 0.5in;
+            }
+
+            .scenario {
+                page-break-inside: avoid;
+            }
+
+            .calculator-section {
+                page-break-inside: avoid;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .scenario {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .scenario-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .calculator-section {
+            background-color: #eaf3fa;
+            border: 1px solid #bde0ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 8px 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .calculation-input {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #d5f5e3;
+        }
+
+        .scenario-details {
+            margin-bottom: 20px;
+        }
+
+        .scenario-details ul {
+            padding-left: 20px;
+        }
+
+        .analysis-question {
+            font-weight: bold;
+            color: #2980b9;
+            margin-top: 15px;
+        }
+
+        .answer-space {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 50px;
+            margin: 10px 0;
+        }
+
+        .instruction {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .formula-guide {
+            background-color: #fcf3cf;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button class="print-button" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        <div class="instruction">
+            <p><strong>Instrucciones para Maestros/Estudiantes:</strong> Esta hoja de trabajo ayuda a calcular los costos reales del alquiler en diferentes escenarios. Para cada escenario, completa los cálculos de costos iniciales, costos mensuales, costos anuales e impacto del escenario. Para guardar o imprimir este recurso, haz clic en el botón "Imprimir / Guardar como PDF" arriba y selecciona "Guardar como PDF" en las opciones de impresión.</p>
+        </div>
+    </div>
+
+    <h1>Hoja de Trabajo: Calculadora del Costo Real del Alquiler</h1>
+
+    <p>Esta hoja de trabajo te ayudará a comprender el panorama financiero completo del alquiler calculando los costos iniciales, gastos mensuales, totales anuales y el impacto de escenarios comunes como terminar un contrato anticipadamente o que un compañero de cuarto se mude.</p>
+
+    <div class="formula-guide">
+        <h3>Guía de Fórmulas de Cálculo</h3>
+        <ul>
+            <li><strong>Costos Iniciales Totales</strong> = Depósito de Seguridad + Primer Mes de Renta + Último Mes de Renta (si se requiere) + Tarifa de Solicitud + Depósito de Mascota + Otras Tarifas de Mudanza</li>
+            <li><strong>Costos Mensuales Totales</strong> = Renta + Servicios + Estacionamiento + Seguro de Inquilino + Otras Tarifas Mensuales</li>
+            <li><strong>Costo Anual de Vivienda</strong> = (Costos Mensuales × 12) + Costos Únicos que ocurren en un año</li>
+            <li><strong>Ingreso Requerido</strong> = (Costos Mensuales × 12) ÷ 0.3 (usando la regla del 30%)</li>
+            <li><strong>Ingreso Mensual Necesario</strong> = Ingreso Anual Requerido ÷ 12</li>
+        </ul>
+    </div>
+
+    <div class="scenario">
+        <div class="scenario-title">Escenario 1: Apartamento Estudio en el Centro</div>
+
+        <div class="scenario-details">
+            <ul>
+                <li>Renta mensual: $950</li>
+                <li>Depósito de seguridad: Un mes de renta</li>
+                <li>Tarifa de solicitud: $50</li>
+                <li>Servicios incluidos: Agua y basura</li>
+                <li>Servicios adicionales: Electricidad ($60/mes), Internet ($55/mes)</li>
+                <li>Estacionamiento: Solo estacionamiento en la calle (gratis)</li>
+                <li>Lavandería: Operada con monedas en el edificio ($30/mes)</li>
+                <li>Plazo del contrato: 12 meses con aviso de 60 días</li>
+                <li>Tarifa de terminación anticipada: Dos meses de renta</li>
+                <li>Historial de aumento anual de renta: 3%</li>
+            </ul>
+        </div>
+
+        <div class="calculator-section">
+            <h3>Cálculo de Costos Iniciales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto ($)</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Depósito de Seguridad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Un mes de renta</td>
+                </tr>
+                <tr>
+                    <td>Primer Mes de Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Renta mensual regular</td>
+                </tr>
+                <tr>
+                    <td>Último Mes de Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Si se requiere (N/A para este escenario)</td>
+                </tr>
+                <tr>
+                    <td>Tarifa de Solicitud</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Tarifa única</td>
+                </tr>
+                <tr>
+                    <td>Depósitos/Instalación de Servicios</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimado para electricidad e instalación de internet</td>
+                </tr>
+                <tr>
+                    <td>Costos de Mudanza</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimado para renta de camión, cajas, etc.</td>
+                </tr>
+                <tr>
+                    <td>Compras Esenciales</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Muebles, artículos de cocina, etc.</td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS INICIALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Suma de todos los costos iniciales</td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costos Mensuales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto ($)</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Renta mensual base</td>
+                </tr>
+                <tr>
+                    <td>Electricidad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costo mensual promedio</td>
+                </tr>
+                <tr>
+                    <td>Agua/Alcantarillado</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Incluido en la renta</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Tarifa mensual de servicio</td>
+                </tr>
+                <tr>
+                    <td>Estacionamiento</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estacionamiento gratis en la calle</td>
+                </tr>
+                <tr>
+                    <td>Lavandería</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costo mensual estimado</td>
+                </tr>
+                <tr>
+                    <td>Seguro de Inquilino</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimar si no está incluido</td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS MENSUALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Suma de todos los costos mensuales</td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costo Anual</h3>
+            <table>
+                <tr>
+                    <th>Cálculo</th>
+                    <th>Monto ($)</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Costos Mensuales × 12</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costos recurrentes anuales</td>
+                </tr>
+                <tr>
+                    <td>Costos Anuales Únicos</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Mantenimiento, tarifas, etc.</td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS ANUALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Suma de todos los costos anuales</td>
+                </tr>
+                <tr>
+                    <td>Ingreso Anual Requerido (regla del 30%)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costos anuales ÷ 0.3</td>
+                </tr>
+                <tr>
+                    <td>Ingreso Mensual Requerido</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Ingreso anual ÷ 12</td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Impacto del Escenario</h3>
+            <table>
+                <tr>
+                    <th>Escenario</th>
+                    <th>Impacto Financiero ($)</th>
+                    <th>Método de Cálculo</th>
+                </tr>
+                <tr>
+                    <td>Terminar Contrato Anticipadamente (a los 6 meses)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Tarifa de terminación anticipada (2 meses de renta)</td>
+                </tr>
+                <tr>
+                    <td>Aumento de Renta del 3% al Renovar</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Nueva renta mensual y diferencia anual</td>
+                </tr>
+                <tr>
+                    <td>Problema de Mantenimiento Inesperado</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Estimar costo de una reparación inesperada</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <div class="scenario-title">Escenario 2: Apartamento Suburbano de 2 Habitaciones con Compañero de Cuarto</div>
+
+        <div class="scenario-details">
+            <ul>
+                <li>Renta mensual: $1,400 ($700 por persona)</li>
+                <li>Depósito de seguridad: $1,400</li>
+                <li>Tarifa de solicitud: $35 por persona</li>
+                <li>Depósito de mascota: $300 (no reembolsable)</li>
+                <li>Servicios incluidos: Ninguno</li>
+                <li>Servicios adicionales: Electricidad ($90/mes), Agua ($40/mes), Gas ($50/mes), Internet ($60/mes)</li>
+                <li>Estacionamiento: Un espacio asignado incluido, segundo espacio $50/mes</li>
+                <li>Lavandería: En la unidad</li>
+                <li>Plazo del contrato: 12 meses con aviso de 30 días</li>
+                <li>Tarifa de terminación anticipada: Tres meses de renta</li>
+                <li>Historial de aumento anual de renta: 2%</li>
+            </ul>
+        </div>
+
+        <div class="calculator-section">
+            <h3>Cálculo de Costos Iniciales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Depósito de Seguridad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Primer Mes de Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Tarifa de Solicitud</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Depósito de Mascota</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Depósitos/Instalación de Servicios</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costos de Mudanza</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS INICIALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costos Mensuales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Electricidad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Agua</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Gas</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Estacionamiento (2do espacio)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Seguro de Inquilino</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS MENSUALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costo Anual</h3>
+            <table>
+                <tr>
+                    <th>Cálculo</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Costos Mensuales × 12</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costos Anuales Únicos</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS ANUALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Ingreso Anual Requerido (regla del 30%)</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Ingreso Mensual Requerido</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Impacto del Escenario</h3>
+            <table>
+                <tr>
+                    <th>Escenario</th>
+                    <th>Impacto Financiero ($)</th>
+                    <th>Método de Cálculo</th>
+                </tr>
+                <tr>
+                    <td>Compañero de Cuarto se Muda (sin reemplazo)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costos mensuales adicionales × meses restantes</td>
+                </tr>
+                <tr>
+                    <td>Terminar Contrato Anticipadamente (a los 4 meses)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Tarifa de terminación anticipada (3 meses de renta)</td>
+                </tr>
+                <tr>
+                    <td>Aumento de Renta del 2% al Renovar</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Nueva renta mensual y diferencia anual</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <div class="scenario-title">Escenario 3: Vivienda Compartida de 3 Habitaciones Cerca del Campus</div>
+
+        <div class="scenario-details">
+            <ul>
+                <li>Renta mensual: $2,100 ($700 por persona para 3 personas)</li>
+                <li>Depósito de seguridad: $700 por persona</li>
+                <li>Tarifa de solicitud: $25 por persona</li>
+                <li>Servicios incluidos: Internet y basura</li>
+                <li>Servicios adicionales: Electricidad ($120/mes), Agua ($60/mes)</li>
+                <li>Estacionamiento: $75 por espacio por mes</li>
+                <li>Lavandería: En la unidad</li>
+                <li>Plazo del contrato: 9 meses (año académico)</li>
+                <li>Subarrendamiento de verano permitido con aprobación del arrendador</li>
+                <li>Tarifa de terminación anticipada: Responsable de la renta hasta encontrar reemplazo</li>
+                <li>Historial de aumento anual de renta: 4%</li>
+            </ul>
+        </div>
+
+        <div class="calculator-section">
+            <h3>Cálculo de Costos Iniciales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Depósito de Seguridad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Primer Mes de Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Tarifa de Solicitud</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Depósitos/Instalación de Servicios</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Depósito de Estacionamiento (si aplica)</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costos de Mudanza</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS INICIALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costos Mensuales</h3>
+            <table>
+                <tr>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Renta</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Electricidad</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Agua</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Estacionamiento</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Seguro de Inquilino</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS MENSUALES TOTALES</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Costo del Año Académico (9 meses)</h3>
+            <table>
+                <tr>
+                    <th>Cálculo</th>
+                    <th>Monto Total ($)</th>
+                    <th>Tu Parte ($)</th>
+                </tr>
+                <tr>
+                    <td>Costos Mensuales × 9</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costos Iniciales</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr class="total-row">
+                    <td>COSTOS TOTALES DEL AÑO ACADÉMICO</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costo de Vivienda de Verano (3 meses)</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+                <tr>
+                    <td>Costo Total Anual de Vivienda</td>
+                    <td>N/A</td>
+                    <td><input type="text" class="calculation-input"></td>
+                </tr>
+            </table>
+
+            <h3>Cálculo de Impacto del Escenario</h3>
+            <table>
+                <tr>
+                    <th>Escenario</th>
+                    <th>Impacto Financiero ($)</th>
+                    <th>Método de Cálculo</th>
+                </tr>
+                <tr>
+                    <td>Compañero de Cuarto se Va a Mitad del Semestre</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costos adicionales hasta encontrar reemplazo</td>
+                </tr>
+                <tr>
+                    <td>No Poder Subarrendar en Verano</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Costo de la renta durante los meses de verano</td>
+                </tr>
+                <tr>
+                    <td>Aumento de Renta del 4% el Próximo Año</td>
+                    <td><input type="text" class="calculation-input"></td>
+                    <td>Nueva renta mensual y diferencia anual</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="analysis-section">
+        <h3>Comparación y Análisis de Escenarios</h3>
+
+        <div class="analysis-question">1. ¿Qué escenario tiene los costos iniciales más altos? ¿Los costos mensuales más bajos?</div>
+        <div class="answer-space"></div>
+
+        <div class="analysis-question">2. ¿Cómo afecta tener compañeros de cuarto a la asequibilidad general?</div>
+        <div class="answer-space"></div>
+
+        <div class="analysis-question">3. ¿Qué escenario sería más riesgoso financieramente si tus circunstancias cambiaran?</div>
+        <div class="answer-space"></div>
+
+        <div class="analysis-question">4. ¿Cuánto dinero debería tener ahorrado alguien antes de mudarse a cada opción?</div>
+        <div class="answer-space"></div>
+
+        <div class="analysis-question">5. ¿Qué costos ocultos o inesperados podrían no estar reflejados en estos escenarios?</div>
+        <div class="answer-space"></div>
+
+        <div class="analysis-question">6. Para tu situación actual (o situación futura esperada), ¿qué escenario sería más apropiado y por qué?</div>
+        <div class="answer-space"></div>
+    </div>
+
+    <footer>
+        <p>Capítulo 10.2: Comprendiendo los Costos y Responsabilidades de Alquilar | PFL Academy</p>
+    </footer>
+</body>
+</html>

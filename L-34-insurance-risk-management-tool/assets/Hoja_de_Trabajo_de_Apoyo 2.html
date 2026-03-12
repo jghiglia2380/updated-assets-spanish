@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Practica de Tipos de Seguros | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .scenario {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .scenario-number {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .answer-space {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 80px;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .hint-box {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .calculation-box {
+            background-color: #e0f2fe;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            textarea {
+                border: none !important;
+                min-height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Capitulo 34: El Seguro como Herramienta de Gestion de Riesgos</h1>
+        <p class="subtitle">Practique relacionando tipos de seguros con necesidades y calculando costos</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Relacionando Seguros con Situaciones</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 1: Identifique el Tipo de Seguro</div>
+            <p>Para cada situacion, seleccione el tipo de seguro mas apropiado:</p>
+
+            <table>
+                <tr>
+                    <th>Situacion</th>
+                    <th>Tipo de Seguro</th>
+                </tr>
+                <tr>
+                    <td>Acaba de comprar su primera casa</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tiene un auto de 30 anos que no vale mucho</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tiene 30 anos con conyuge y dos hijos pequenos</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Alquila un apartamento y tiene $15,000 en pertenencias</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Es trabajador independiente y depende de sus ingresos</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Necesita cirugia y atencion hospitalaria</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="hint-box">
+                <strong>Opciones:</strong> Salud, Auto (Solo responsabilidad), Auto (Comprensivo), Propietario, Inquilino, Vida, Discapacidad
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Calculos de Seguro de Salud</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 1: Comprendiendo el Coseguro</div>
+            <p>Sarah tiene seguro de salud con: $2,000 de deducible, coseguro 80/20, y $6,000 de maximo de gastos de bolsillo. Necesita una cirugia que cuesta $15,000.</p>
+
+            <div class="question">a) Calcule los costos de bolsillo de Sarah:</div>
+            <div class="calculation-box">
+                <table>
+                    <tr>
+                        <td>Factura Total:</td>
+                        <td>$15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Sarah paga deducible:</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>Restante despues del deducible:</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <td>20% de coseguro de Sarah:</td>
+                        <td>$_______</td>
+                    </tr>
+                    <tr>
+                        <th>Total de Bolsillo de Sarah:</th>
+                        <th>$_______</th>
+                    </tr>
+                    <tr>
+                        <th>El Seguro Paga:</th>
+                        <th>$_______</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="question">b) Si los costos totales de Sarah llegaran a $8,000, ¿cuanto pagaria realmente? ¿Por que?</div>
+            <div class="answer-space">
+                <textarea placeholder="Explique como funciona el maximo de gastos de bolsillo..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Cobertura de Seguro de Auto</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 2: Seleccion de Cobertura</div>
+            <p>Marcus esta comprando seguro de auto para su auto nuevo valorado en $25,000. Explique que tipos de cobertura necesita:</p>
+
+            <table>
+                <tr>
+                    <th>Tipo de Cobertura</th>
+                    <th>¿Necesario? (S/N)</th>
+                    <th>¿Por que?</th>
+                </tr>
+                <tr>
+                    <td>Responsabilidad</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Colision</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Comprensivo</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Motorista sin Seguro</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="question">Si Marcus tuviera un auto de 15 anos valorado en $3,000, ¿cambiarian sus recomendaciones? ¿Por que?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: Analisis de Seguro de Vida</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 3: Decision de Seguro de Vida</div>
+            <p>Compare estas opciones de seguro de vida para un padre de 35 anos con hijos pequenos:</p>
+
+            <table>
+                <tr>
+                    <th>Caracteristica</th>
+                    <th>Termino de 20 Anos</th>
+                    <th>Vida Entera</th>
+                </tr>
+                <tr>
+                    <td>Beneficio por Muerte</td>
+                    <td>$500,000</td>
+                    <td>$500,000</td>
+                </tr>
+                <tr>
+                    <td>Prima Mensual</td>
+                    <td>$35</td>
+                    <td>$450</td>
+                </tr>
+                <tr>
+                    <td>Duracion de Cobertura</td>
+                    <td>20 anos</td>
+                    <td>De por vida</td>
+                </tr>
+                <tr>
+                    <td>Valor en Efectivo</td>
+                    <td>Ninguno</td>
+                    <td>Se acumula con el tiempo</td>
+                </tr>
+            </table>
+
+            <div class="question">a) ¿Cual es la prima total pagada en 20 anos para cada opcion?</div>
+            <div class="answer-space">
+                <textarea placeholder="Termino: &#10;&#10;Vida Entera:"></textarea>
+            </div>
+
+            <div class="question">b) ¿Cual recomendaria para esta persona y por que?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su recomendacion y razonamiento..."></textarea>
+            </div>
+
+            <div class="hint-box">
+                <strong>Considere:</strong> El proposito principal del seguro de vida para padres es reemplazar ingresos durante los anos en que sus hijos son dependientes.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 5: Evaluacion de Necesidades de Seguros</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 4: Analisis por Etapa de Vida</div>
+            <p>Para cada etapa de vida, identifique los tipos de seguro mas importantes y explique por que:</p>
+
+            <div class="question">a) Graduado universitario de 22 anos, soltero, alquilando apartamento:</div>
+            <div class="answer-space">
+                <textarea placeholder="Tipos de seguro importantes:&#10;&#10;Por que:"></textarea>
+            </div>
+
+            <div class="question">b) Padre casado de 35 anos con hipoteca y dos hijos:</div>
+            <div class="answer-space">
+                <textarea placeholder="Tipos de seguro importantes:&#10;&#10;Por que:"></textarea>
+            </div>
+
+            <div class="question">c) Persona de 60 anos con hijos independientes acercandose a la jubilacion:</div>
+            <div class="answer-space">
+                <textarea placeholder="Tipos de seguro importantes:&#10;&#10;Por que:"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 6: Analisis de Costo-Beneficio</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 5: ¿Vale la Pena el Seguro?</div>
+            <p>Evalue si el seguro tiene sentido en cada situacion:</p>
+
+            <div class="question">a) Garantia extendida ($150) en una consola de videojuegos de $400:</div>
+            <div class="answer-space">
+                <textarea placeholder="¿Vale la pena? ¿Por que si o por que no?"></textarea>
+            </div>
+
+            <div class="question">b) Seguro de inquilino ($20/mes) para $10,000 en pertenencias:</div>
+            <div class="answer-space">
+                <textarea placeholder="¿Vale la pena? ¿Por que si o por que no?"></textarea>
+            </div>
+
+            <div class="question">c) Seguro de discapacidad (cuesta 1-3% del ingreso) para un trabajador independiente:</div>
+            <div class="answer-space">
+                <textarea placeholder="¿Vale la pena? ¿Por que si o por que no?"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 7: Reflexion</div>
+
+        <div class="scenario">
+            <div class="question">1. ¿Que factores debe considerar al elegir un monto de deducible?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+
+            <div class="question">2. ¿Por que es importante revisar su cobertura de seguro regularmente?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+
+            <div class="question">3. ¿Como afecta su situacion de vida actual sus necesidades de seguro?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

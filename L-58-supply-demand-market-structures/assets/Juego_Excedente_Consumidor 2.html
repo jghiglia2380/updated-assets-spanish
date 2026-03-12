@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Maximización del Excedente del Consumidor</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .score-display {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .score { font-size: 2rem; font-weight: bold; color: #6366f1; }
+        .scenario-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .scenario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .scenario-title { font-weight: bold; font-size: 1.1rem; }
+        .round-badge {
+            background: #6366f1;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .scenario-text { margin-bottom: 15px; color: #4b5563; }
+        .price-info {
+            background: #e0e7ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .action-btn {
+            padding: 12px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .action-btn:hover { border-color: #6366f1; }
+        .action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .action-btn.correct { background: #d1fae5; border-color: #10b981; }
+        .action-btn.incorrect { background: #fee2e2; border-color: #ef4444; }
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #d1fae5; color: #065f46; }
+        .feedback.incorrect { background: #fee2e2; color: #991b1b; }
+        .next-btn {
+            width: 100%;
+            padding: 12px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            display: none;
+        }
+        .next-btn.show { display: block; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .action-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .next-btn,
+            .no-print {
+                display: none !important;
+            }
+            .scenario-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Juego del Excedente del Consumidor</h1>
+            <p class="subtitle">Maximiza el valor que capturas de tus compras</p>
+        </header>
+
+        <div class="score-display">
+            Excedente Total Capturado: <span class="score" id="totalScore">$0</span>
+        </div>
+
+        <div class="scenario-card" id="scenario">
+            <div class="scenario-header">
+                <span class="scenario-title" id="scenarioTitle">Cargando...</span>
+                <span class="round-badge" id="roundBadge">Ronda 1/4</span>
+            </div>
+            <p class="scenario-text" id="scenarioText"></p>
+            <div class="price-info" id="priceInfo"></div>
+            <div class="action-grid" id="actionGrid"></div>
+            <div class="feedback" id="feedback"></div>
+            <button class="next-btn" id="nextBtn" onclick="nextScenario()">Siguiente Escenario</button>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Excedente del Consumidor</p>
+        </footer>
+    </div>
+
+    <script>
+        const scenarios = [
+            {
+                title: 'Compra de Laptop',
+                text: 'Valoras una laptop nueva en $1,200 (lo que vale para ti). Best Buy la tiene a $999. Encuentras el mismo modelo en Amazon por $899.',
+                priceInfo: 'Tu Valor: $1,200 | Best Buy: $999 | Amazon: $899',
+                actions: [
+                    { text: 'Comprar en Best Buy ($999)', surplus: 201, correct: false },
+                    { text: 'Comprar en Amazon ($899)', surplus: 301, correct: true },
+                    { text: 'Esperar una oferta', surplus: 0, correct: false },
+                    { text: 'Comprar una laptop más barata', surplus: 0, correct: false }
+                ],
+                feedback: '¡Compra en Amazon! Excedente del consumidor = $1,200 - $899 = $301. Siempre captura la máxima diferencia entre tu valor y el precio más bajo disponible.'
+            },
+            {
+                title: 'Boletos de Concierto',
+                text: 'Pagarías hasta $150 por boletos de Taylor Swift. El valor nominal es $100 pero está agotado. Los revendedores cobran $200+.',
+                priceInfo: 'Tu Valor: $150 | Valor Nominal: $100 | Reventa: $200+',
+                actions: [
+                    { text: 'Comprar reventa a $200', surplus: -50, correct: false },
+                    { text: 'No comprar (excedente negativo)', surplus: 0, correct: true },
+                    { text: 'Seguir buscando valor nominal', surplus: 50, correct: false },
+                    { text: 'Pedir al revendedor $175', surplus: -25, correct: false }
+                ],
+                feedback: '¡No compres! A $200+, tendrías excedente negativo (pagando más que tu valor). Un consumidor racional nunca compra cuando el precio excede el valor.'
+            },
+            {
+                title: 'Cafetera',
+                text: 'Valoras una cafetera de calidad en $80. Target la tiene por $70. Encuentras un cupón de 20% de descuento.',
+                priceInfo: 'Tu Valor: $80 | Precio Target: $70 | Con Cupón: $56',
+                actions: [
+                    { text: 'Comprar a $70 (excedente: $10)', surplus: 10, correct: false },
+                    { text: 'Usar cupón ($56) (excedente: $24)', surplus: 24, correct: true },
+                    { text: 'Esperar al Black Friday', surplus: 0, correct: false },
+                    { text: 'Comprar un modelo más barato', surplus: 0, correct: false }
+                ],
+                feedback: '¡Usa el cupón! Excedente del consumidor = $80 - $56 = $24. Los cupones, ofertas y descuentos aumentan directamente tu excedente.'
+            },
+            {
+                title: 'Negociación de Auto Usado',
+                text: 'Valoras un auto usado en $15,000. El concesionario pide $14,500. Sabes que autos comparables se venden por $13,500.',
+                priceInfo: 'Tu Valor: $15,000 | Pedido: $14,500 | Mercado: $13,500',
+                actions: [
+                    { text: 'Pagar precio pedido ($14,500)', surplus: 500, correct: false },
+                    { text: 'Ofrecer $13,000, acordar $13,500', surplus: 1500, correct: true },
+                    { text: 'Ofertar muy bajo a $12,000', surplus: 0, correct: false },
+                    { text: 'Retirarse', surplus: 0, correct: false }
+                ],
+                feedback: '¡Negocia al valor de mercado! Excedente = $15,000 - $13,500 = $1,500. Investiga precios comparables antes de cualquier negociación.'
+            }
+        ];
+
+        let currentRound = 0;
+        let totalScore = 0;
+
+        function loadScenario() {
+            const s = scenarios[currentRound];
+            document.getElementById('scenarioTitle').textContent = s.title;
+            document.getElementById('roundBadge').textContent = `Ronda ${currentRound + 1}/${scenarios.length}`;
+            document.getElementById('scenarioText').textContent = s.text;
+            document.getElementById('priceInfo').textContent = s.priceInfo;
+
+            const grid = document.getElementById('actionGrid');
+            grid.innerHTML = s.actions.map((a, i) => `
+                <button class="action-btn" onclick="selectAction(${i})">${a.text}</button>
+            `).join('');
+
+            document.getElementById('feedback').className = 'feedback';
+            document.getElementById('nextBtn').className = 'next-btn';
+        }
+
+        function selectAction(index) {
+            const s = scenarios[currentRound];
+            const action = s.actions[index];
+            const buttons = document.querySelectorAll('.action-btn');
+
+            buttons.forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === index) {
+                    btn.classList.add(action.correct ? 'correct' : 'incorrect');
+                }
+                if (s.actions[i].correct) {
+                    btn.classList.add('correct');
+                }
+            });
+
+            const surplus = action.surplus;
+            if (surplus > 0) {
+                totalScore += surplus;
+                document.getElementById('totalScore').textContent = '$' + totalScore;
+            }
+
+            const feedback = document.getElementById('feedback');
+            feedback.className = 'feedback show ' + (action.correct ? 'correct' : 'incorrect');
+            feedback.textContent = (action.correct ? '✓ ¡Correcto! ' : '✗ No óptimo. ') + s.feedback;
+
+            if (currentRound < scenarios.length - 1) {
+                document.getElementById('nextBtn').className = 'next-btn show';
+            } else {
+                document.getElementById('nextBtn').className = 'next-btn show';
+                document.getElementById('nextBtn').textContent = 'Ver Puntuación Final';
+            }
+        }
+
+        function nextScenario() {
+            currentRound++;
+            if (currentRound < scenarios.length) {
+                loadScenario();
+            } else {
+                document.getElementById('scenario').innerHTML = `
+                    <div style="text-align: center; padding: 30px;">
+                        <h2 style="color: #6366f1; margin-bottom: 15px;">¡Juego Completado!</h2>
+                        <p style="font-size: 2rem; font-weight: bold; color: #059669;">Excedente Total: $${totalScore}</p>
+                        <p style="color: #6b7280; margin-top: 15px;">Máximo posible: $1,850</p>
+                    </div>
+                `;
+            }
+        }
+
+        loadScenario();
+    </script>
+</body>
+</html>

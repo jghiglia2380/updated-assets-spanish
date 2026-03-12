@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-72: Comprendiendo el Seguro de Salud - Paquete de Actividades del Estudiante</title>
+    <style>
+        @media print {
+            @page {
+                margin: 0.75in;
+            }
+            body {
+                font-size: 11pt;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1a237e;
+            font-size: 24pt;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 3px solid #1a237e;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #3949ab;
+            font-size: 18pt;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3949ab;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #5c6bc0;
+            font-size: 14pt;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        h4 {
+            color: #333;
+            font-size: 12pt;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .header-box {
+            border: 2px solid #1a237e;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #e8eaf6;
+        }
+
+        .instruction-box {
+            border: 2px solid #7986cb;
+            padding: 10px;
+            margin: 15px 0;
+            background-color: #f5f5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e8eaf6;
+            font-weight: bold;
+        }
+
+        .worksheet-line {
+            border-bottom: 1px solid #999;
+            min-height: 30px;
+            margin: 10px 0;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #333;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        .station-box {
+            border: 3px solid #3949ab;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .profile-box {
+            border: 2px solid #9fa8da;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title Page -->
+    <div class="header-box">
+        <h1>L-72: Comprendiendo el Seguro de Salud</h1>
+        <h2 style="text-align: center; border: none; margin-top: 10px;">Día 2 Laboratorio de Aprendizaje - Paquete de Actividades del Estudiante</h2>
+        <p style="text-align: center; font-size: 12pt; margin: 10px 0;">
+            <strong>Nombre:</strong> _______________________________________________
+            <strong>Fecha:</strong> ___________________
+        </p>
+    </div>
+
+    <!-- Station 1 -->
+    <div class="station-box no-break">
+        <h2>Estación 1: Calculadora de Costos de Plan de Salud</h2>
+
+        <div class="instruction-box">
+            <strong>Propósito:</strong> Descubrir que el plan de prima más barata no siempre es el plan más barato en general.
+        </div>
+
+        <h3>Los Tres Planes:</h3>
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Plan A (Oro PPO)</th>
+                <th>Plan B (Plata PPO)</th>
+                <th>Plan C (Bronce HDHP)</th>
+            </tr>
+            <tr>
+                <td>Prima (mensual/anual)</td>
+                <td>$280/mes<br>($3,360/año)</td>
+                <td>$160/mes<br>($1,920/año)</td>
+                <td>$80/mes<br>($960/año)</td>
+            </tr>
+            <tr>
+                <td>Deducible</td>
+                <td>$500</td>
+                <td>$1,500</td>
+                <td>$3,000</td>
+            </tr>
+            <tr>
+                <td>Copago</td>
+                <td>$20</td>
+                <td>$35</td>
+                <td>Ninguno (paga costo completo hasta deducible)</td>
+            </tr>
+            <tr>
+                <td>Coaseguro (después del deducible)</td>
+                <td>10%</td>
+                <td>20%</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td>Máximo de Gastos de Bolsillo</td>
+                <td>$2,000</td>
+                <td>$4,000</td>
+                <td>$6,000</td>
+            </tr>
+        </table>
+
+        <h3>Los Tres Escenarios:</h3>
+        <ul>
+            <li><strong>Escenario A — Año Saludable:</strong> Un examen físico anual (preventivo, cubierto al 100%), una visita de atención urgente con radiografía (factura total de $350)</li>
+            <li><strong>Escenario B — Año Moderado:</strong> Cuatro visitas de atención primaria ($600), una visita a especialista ($250), una resonancia magnética ($3,500), recetas ($480). Facturas totales: $4,830</li>
+            <li><strong>Escenario C — Año de Necesidades Altas:</strong> Apendicectomía de emergencia con estadía de 2 días en hospital ($22,000), atención de seguimiento y medicamentos ($1,500). Facturas totales: $23,500</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Station 1 Calculation Grid -->
+    <h2>Estación 1: Cuadrícula de Cálculo</h2>
+    <table>
+        <tr>
+            <th>Escenario</th>
+            <th>Costo Total Plan A</th>
+            <th>Costo Total Plan B</th>
+            <th>Costo Total Plan C</th>
+            <th>Ganador</th>
+        </tr>
+        <tr>
+            <td>Año Saludable (A)</td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+        </tr>
+        <tr>
+            <td>Año Moderado (B)</td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+        </tr>
+        <tr>
+            <td>Año de Necesidades Altas (C)</td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+            <td><div class="worksheet-line"></div></td>
+        </tr>
+    </table>
+
+    <h3>Preguntas de Reflexión:</h3>
+    <p><strong>1. ¿Qué plan tenía la prima más barata? ¿Ganó en algún escenario?</strong></p>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+
+    <p><strong>2. ¿Bajo qué circunstancias elegirías el Plan C sobre el Plan A?</strong></p>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+
+    <p><strong>3. Escribe un resumen de 2 oraciones: "El Plan C es el más barato si... pero el Plan A es el más barato si..."</strong></p>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+
+    <div class="page-break"></div>
+
+    <!-- Station 2 -->
+    <div class="station-box">
+        <h2>Estación 2: Navegador del Mercado ACA</h2>
+
+        <div class="instruction-box">
+            <strong>Propósito:</strong> Aprender que ingresos más bajos = subsidios más grandes, y entender el sistema de niveles metálicos.
+        </div>
+
+        <h3>Información Clave:</h3>
+        <ul>
+            <li><strong>Nivel Federal de Pobreza 2025 (FPL):</strong> $15,060 para adulto soltero; $20,440 para hogar de 2 personas; $30,900 para familia de 4</li>
+            <li><strong>Elegibilidad para subsidio:</strong> Ingresos entre 100-400% FPL</li>
+            <li><strong>Elegibilidad para Medicaid:</strong> En estados de expansión, adultos hasta 138% FPL pueden calificar</li>
+            <li><strong>Niveles Metálicos:</strong> Bronce (~60% cobertura), Plata (~70%), Oro (~80%), Platino (~90%)</li>
+        </ul>
+    </div>
+
+    <div class="profile-box no-break">
+        <h3>Persona 1: Alex</h3>
+        <p>Adulto soltero, edad 24 | Ingresos: $20,000/año | Sin cobertura del empleador | Generalmente saludable, ve al médico 2-3 veces/año</p>
+
+        <p><strong>¿A qué porcentaje de FPL está Alex?</strong> _______________________________</p>
+        <p><strong>¿Alex califica para subsidios de mercado?</strong> _______________________________</p>
+        <p><strong>En un estado de expansión de Medicaid, ¿Alex calificaría para Medicaid?</strong> _______________________________</p>
+        <p><strong>Nivel metálico recomendado y por qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="profile-box no-break">
+        <h3>Persona 2: Jordan</h3>
+        <p>Adulto soltero, edad 29 | Ingresos: $35,000/año | El empleador ofrece cobertura pero la parte del empleado es $420/mes (14% de ingresos) | Tiene asma, necesita recetas regulares</p>
+
+        <p><strong>¿A qué porcentaje de FPL está Jordan?</strong> _______________________________</p>
+        <p><strong>¿La cobertura del empleador cuenta como "asequible" bajo reglas ACA? (Pista: umbral es 9.5% de ingresos)</strong> _______________________________</p>
+        <p><strong>¿Puede Jordan usar el mercado en su lugar?</strong> _______________________________</p>
+        <p><strong>Nivel metálico recomendado y por qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="profile-box no-break">
+        <h3>Persona 3: Taylor (familia de 3)</h3>
+        <p>Dos adultos + un niño, edades 31, 33, 4 | Ingresos del hogar combinados: $55,000/año | Sin cobertura del empleador | El niño no tiene problemas de salud continuos; adultos generalmente saludables</p>
+
+        <p><strong>¿A qué porcentaje de FPL está esta familia?</strong> _______________________________</p>
+        <p><strong>¿Califican para subsidios de mercado?</strong> _______________________________</p>
+        <p><strong>¿Su hijo calificaría para CHIP? (CHIP típicamente cubre niños en hogares hasta 200-300% FPL)</strong> _______________________________</p>
+        <p><strong>Nivel metálico recomendado y por qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="profile-box no-break">
+        <h3>Persona 4: Casey</h3>
+        <p>Adulto soltero, edad 27 | Ingresos: $65,000/año | El empleador ofrece cobertura asequible ($180/mes para empleado, $450/mes para familia) | Actualmente saludable, sin dependientes</p>
+
+        <p><strong>¿A qué porcentaje de FPL está Casey?</strong> _______________________________</p>
+        <p><strong>¿Casey califica para subsidios de mercado?</strong> _______________________________</p>
+        <p><strong>¿Debería Casey tomar cobertura del empleador o comprar en el mercado?</strong> _______________________________</p>
+        <p><strong>Si usa plan del empleador, nivel recomendado y por qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Station 3 -->
+    <div class="station-box">
+        <h2>Estación 3: Herramienta de Decisión HSA vs. FSA vs. Ninguna</h2>
+
+        <div class="instruction-box">
+            <strong>Propósito:</strong> Entender cuándo la combinación HDHP/HSA tiene sentido matemático.
+        </div>
+
+        <h3>Antecedentes:</h3>
+        <ul>
+            <li><strong>HSA:</strong> Solo disponible con HDHP. Triple ventaja fiscal. Los fondos se transfieren indefinidamente. Límite 2025: $4,300 individual.</li>
+            <li><strong>FSA:</strong> Disponible con cualquier plan no-HDHP. Contribuciones antes de impuestos pero úsalas-o-piérdelas anualmente. Límite 2025: $3,200.</li>
+        </ul>
+    </div>
+
+    <div class="profile-box no-break">
+        <h3>Perfil A: Riley, Edad 24</h3>
+        <p>Ingresos: $38,000/año (categoría fiscal 22%) | Estado de salud: Generalmente saludable, visitas al médico 2 veces/año, sin medicamentos regulares | Ahorros: $2,000 fondo de emergencia</p>
+        <p><strong>El empleador ofrece:</strong> HDHP: Prima $90/mes, deducible $2,500, elegible para HSA | PPO: Prima $190/mes, deducible $750, elegible para FSA</p>
+
+        <p><strong>1. Calcula diferencia de prima anual:</strong> _______________________________</p>
+        <p><strong>2. Estima costos probables de gastos de bolsillo (2 visitas @ $150 cada una):</strong> _______________________________</p>
+        <p><strong>3. Si Riley maximiza contribución HSA ($4,300), ahorros fiscales al 22%:</strong> _______________________________</p>
+        <p><strong>4. Costo anual total bajo HDHP (primas + gastos de bolsillo - ahorros fiscales):</strong> _______________________________</p>
+        <p><strong>5. Costo anual total bajo PPO (primas + gastos de bolsillo):</strong> _______________________________</p>
+        <p><strong>6. Recomendación y Por Qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="profile-box no-break">
+        <h3>Perfil B: Morgan, Edad 28</h3>
+        <p>Ingresos: $52,000/año (categoría fiscal 22%) | Estado de salud: Diabetes tipo 1, ve al endocrinólogo trimestralmente | Medicamentos: Insulina y suministros de pruebas ($400/mes = $4,800/año)</p>
+        <p><strong>El empleador ofrece:</strong> HDHP: Prima $90/mes, deducible $2,500, elegible para HSA | PPO: Prima $190/mes, deducible $750, copagos $30 para médico/$10 para genéricos</p>
+
+        <p><strong>1. Bajo HDHP: ¿Morgan alcanza deducible de $2,500 después de cuántos meses de costos de insulina?</strong> _______________________________</p>
+        <p><strong>2. Prima anual: HDHP vs. PPO:</strong> _______________________________</p>
+        <p><strong>3. Gastos de bolsillo estimados bajo HDHP:</strong> _______________________________</p>
+        <p><strong>4. Gastos de bolsillo estimados bajo PPO:</strong> _______________________________</p>
+        <p><strong>5. Recomendación y Por Qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="profile-box no-break">
+        <h3>Perfil C: Drew, Edad 31</h3>
+        <p>Ingresos: $45,000/año (categoría fiscal 22%) | Estado de salud: Embarazada, se espera primer hijo en 6 meses | Actualmente en PPO, próximamente inscripción abierta</p>
+        <p><strong>El empleador ofrece:</strong> HDHP: Prima $90/mes, deducible $2,500, elegible para HSA | PPO: Prima $190/mes, deducible $750, máximo de gastos de bolsillo $3,000</p>
+
+        <p><strong>1. El embarazo y parto típicamente cuestan $10,000-$15,000 antes del seguro. Bajo HDHP: ¿Qué sucede?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>2. Bajo PPO: ¿Qué sucede?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>3. ¿Qué plan resulta en menor costo anual total para un año de uso médico alto?</strong> _______________________________</p>
+        <p><strong>4. Recomendación y Por Qué:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Station 4 -->
+    <div class="station-box">
+        <h2>Estación 4: Lista de Verificación de Período Especial de Inscripción y Eventos de Vida</h2>
+
+        <div class="instruction-box">
+            <strong>Propósito:</strong> Entender que las decisiones de cobertura no son anuales—eventos de vida importantes crean nuevas ventanas de inscripción, y perder esas ventanas tiene consecuencias reales.
+        </div>
+    </div>
+
+    <h3>Tabla de Eventos de Vida:</h3>
+    <table>
+        <tr>
+            <th>Evento de Vida</th>
+            <th>¿Desencadena SEP?<br>(Sí/No)</th>
+            <th>Duración de Ventana</th>
+        </tr>
+        <tr>
+            <td>Cumplir 26 años y perder cobertura de padres</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Casarse</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tener o adoptar un hijo</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Mudarse a un nuevo estado</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Perder un trabajo y cobertura del empleador</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Obtener un aumento</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Comenzar un nuevo trabajo que ofrece cobertura</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Dejar voluntariamente la cobertura</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="no-break">
+        <h3>Recorrido del Escenario 1: Sofía Cumple 26</h3>
+        <p>Sofía cumple 26 el 15 de abril. No se da cuenta de que esto es un evento calificante. Queda sin seguro desde el 15 de abril en adelante. El 10 de junio se rompe la muñeca patinando y va a emergencias.</p>
+
+        <p><strong>1. ¿Cuándo se abrió la ventana SEP de Sofía?</strong> _______________________________</p>
+        <p><strong>2. ¿Cuándo se cerró?</strong> _______________________________</p>
+        <p><strong>3. El 10 de junio, ¿Sofía todavía está dentro de su ventana SEP?</strong> _______________________________</p>
+        <p><strong>4. ¿Cuánto costaría típicamente una visita a emergencias sin seguro con radiografías y yeso?</strong> _______________________________</p>
+
+        <p><strong>5. Si no está dentro de la ventana SEP, ¿cuáles son las opciones de Sofía? (Marca todas las que apliquen)</strong></p>
+        <p><span class="checkbox"></span> Inscribirse en cobertura de mercado inmediatamente</p>
+        <p><span class="checkbox"></span> Esperar hasta la próxima inscripción abierta (noviembre)</p>
+        <p><span class="checkbox"></span> Solicitar Medicaid de emergencia (depende del estado y los ingresos)</p>
+        <p><span class="checkbox"></span> Negociar un plan de pago con el hospital por la factura sin seguro</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="no-break">
+        <h3>Recorrido del Escenario 2: Derek Pierde Su Trabajo</h3>
+        <p>Derek pierde su trabajo el 1 de marzo. Su cobertura del empleador termina el 31 de marzo. Ganaba $48,000/año antes de perder el trabajo.</p>
+
+        <p><strong>1. Derek tiene 60 días desde el 31 de marzo para inscribirse en nueva cobertura. ¿Cuál es su fecha límite?</strong> _______________________________</p>
+
+        <p><strong>2. El antiguo empleador de Derek ofrece COBRA a $580/mes. ¿Por qué tan alto?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>3. Derek verifica healthcare.gov. Sus ingresos para el resto del año serán ~$0 (desempleado). ¿Califica para Medicaid?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>4. ¿Qué opción debería elegir Derek?</strong></p>
+        <p><span class="checkbox"></span> COBRA a $580/mes</p>
+        <p><span class="checkbox"></span> Plan Plata de mercado con subsidio (estimado $50-$150/mes dependiendo del subsidio)</p>
+        <p><span class="checkbox"></span> Medicaid si es elegible (sin prima)</p>
+        <p><span class="checkbox"></span> Quedarse sin seguro hasta que encuentre un nuevo trabajo</p>
+
+        <p><strong>5. ¿Qué sucede si Derek pierde completamente su ventana de 60 días?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="no-break">
+        <h3>Entregable del Portafolio: Mi Cronograma de Cobertura</h3>
+        <p>Enumera 3 eventos de vida de esta estación que probablemente se apliquen a ti en los próximos 10 años. Para cada evento, escribe qué necesitarás hacer cuando suceda.</p>
+
+        <p><strong>Evento de Vida 1:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>Evento de Vida 2:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+
+        <p><strong>Evento de Vida 3:</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Final Reflection -->
+    <div class="station-box">
+        <h2>Reflexión Final</h2>
+        <p><strong>¿Qué es una cosa que aprendiste hoy que crees que la mayoría de los adultos de tu edad no saben sobre el seguro de salud? ¿Por qué existe esa brecha?</strong></p>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+        <div class="worksheet-line"></div>
+    </div>
+
+</body>
+</html>

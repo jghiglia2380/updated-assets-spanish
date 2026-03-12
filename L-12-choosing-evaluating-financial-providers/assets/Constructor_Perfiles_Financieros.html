@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Perfiles Financieros - L-12: Elegir y Evaluar Proveedores</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        .profile-card {
+            border: 2px solid #4f46e5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fafafa;
+        }
+        .profile-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .profile-description {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #374151;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .dropdown {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .checkbox-group {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .checkbox-item {
+            margin: 8px 0;
+        }
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            .profile-card { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Constructor de Perfiles Financieros</h1>
+        <p><strong>Capítulo L-12:</strong> Día 2 - Laboratorio de Aprendizaje</p>
+        <p><strong>Nombre:</strong> __________________________ <strong>Fecha:</strong> ______________</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones:</strong> Cree perfiles financieros para tres etapas diferentes de la vida. Para cada perfil, identifique objetivos financieros, necesidades bancarias, prioridades de inversión y preferencias de servicio. Luego, recomiende qué tipo de proveedor de servicios financieros sería más apropiado.
+    </div>
+
+    <div class="profile-card">
+        <div class="profile-title">Perfil 1: Adulto Joven (18-25 años)</div>
+        <div class="profile-description">
+            <p><strong>Situación Típica:</strong> Estudiante universitario o recién graduado, comenzando su primer trabajo, ingreso limitado pero estable, enfocándose en construir crédito y ahorrar para compras importantes.</p>
+        </div>
+
+        <div class="field-label">Objetivos Financieros Principales:</div>
+        <select class="dropdown">
+            <option value="">Seleccione el objetivo principal...</option>
+            <option value="construir-credito">Construir historial crediticio</option>
+            <option value="ahorrar-emergencias">Ahorrar para fondo de emergencia</option>
+            <option value="pagar-deudas">Pagar deudas estudiantiles</option>
+            <option value="primera-compra">Ahorrar para primera compra grande</option>
+        </select>
+
+        <div class="field-label">Necesidades Bancarias Principales (seleccione todas las que apliquen):</div>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="young-checking"> <label for="young-checking">Cuenta corriente sin tarifas</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="young-savings"> <label for="young-savings">Cuenta de ahorros con buen APY</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="young-mobile"> <label for="young-mobile">Excelente banca móvil</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="young-atm"> <label for="young-atm">Acceso amplio a cajeros automáticos</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="young-credit"> <label for="young-credit">Tarjeta de crédito para estudiantes</label>
+            </div>
+        </div>
+
+        <div class="field-label">Prioridad de Inversión (1 = Baja, 5 = Alta):</div>
+        <p>Jubilación: <input type="range" min="1" max="5" value="2" style="width: 200px;"> <span id="young-retirement">2</span></p>
+        <p>Ahorros a Corto Plazo: <input type="range" min="1" max="5" value="4" style="width: 200px;"> <span id="young-short">4</span></p>
+
+        <div class="field-label">Preferencias de Servicio:</div>
+        <select class="dropdown">
+            <option value="">Seleccione preferencia...</option>
+            <option value="digital">Principalmente digital/en línea</option>
+            <option value="mixto">Combinación de digital y presencial</option>
+            <option value="presencial">Preferencia por servicio en persona</option>
+        </select>
+
+        <div class="field-label">Tipo de Proveedor Recomendado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione tipo de proveedor...</option>
+            <option value="banco-online">Banco en Línea</option>
+            <option value="cooperativa">Cooperativa de Crédito</option>
+            <option value="banco-tradicional">Banco Tradicional</option>
+            <option value="banco-digital">Banco Digital/Fintech</option>
+        </select>
+
+        <div class="field-label">Justificación de la Recomendación:</div>
+        <textarea class="input-field" placeholder="Explique por qué este tipo de proveedor es el más apropiado para un adulto joven..."></textarea>
+    </div>
+
+    <div class="profile-card">
+        <div class="profile-title">Perfil 2: Profesional de Mediana Carrera (35-50 años)</div>
+        <div class="profile-description">
+            <p><strong>Situación Típica:</strong> Carrera establecida, ingreso estable o creciente, posiblemente con familia, enfocándose en planificación a largo plazo y construcción de patrimonio.</p>
+        </div>
+
+        <div class="field-label">Objetivos Financieros Principales:</div>
+        <select class="dropdown">
+            <option value="">Seleccione el objetivo principal...</option>
+            <option value="ahorro-jubilacion">Maximizar ahorros para jubilación</option>
+            <option value="educacion-hijos">Ahorrar para educación de hijos</option>
+            <option value="inversion-inmuebles">Invertir en bienes raíces</option>
+            <option value="diversificar-inversiones">Diversificar portafolio de inversiones</option>
+        </select>
+
+        <div class="field-label">Necesidades Bancarias Principales (seleccione todas las que apliquen):</div>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="mid-premium"> <label for="mid-premium">Cuentas premium con beneficios</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="mid-investment"> <label for="mid-investment">Acceso a productos de inversión</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="mid-planning"> <label for="mid-planning">Asesoría de planificación financiera</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="mid-mortgage"> <label for="mid-mortgage">Servicios hipotecarios</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="mid-business"> <label for="mid-business">Servicios empresariales (si aplica)</label>
+            </div>
+        </div>
+
+        <div class="field-label">Prioridad de Inversión (1 = Baja, 5 = Alta):</div>
+        <p>Jubilación: <input type="range" min="1" max="5" value="5" style="width: 200px;"> <span id="mid-retirement">5</span></p>
+        <p>Educación: <input type="range" min="1" max="5" value="4" style="width: 200px;"> <span id="mid-education">4</span></p>
+
+        <div class="field-label">Preferencias de Servicio:</div>
+        <select class="dropdown">
+            <option value="">Seleccione preferencia...</option>
+            <option value="digital">Principalmente digital/en línea</option>
+            <option value="mixto">Combinación de digital y presencial</option>
+            <option value="presencial">Preferencia por servicio en persona</option>
+        </select>
+
+        <div class="field-label">Tipo de Proveedor Recomendado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione tipo de proveedor...</option>
+            <option value="banco-completo">Banco de Servicio Completo</option>
+            <option value="firma-inversion">Firma de Inversión</option>
+            <option value="multiple">Múltiples Proveedores Especializados</option>
+            <option value="cooperativa-grande">Cooperativa de Crédito Grande</option>
+        </select>
+
+        <div class="field-label">Justificación de la Recomendación:</div>
+        <textarea class="input-field" placeholder="Explique por qué este tipo de proveedor es el más apropiado para un profesional de mediana carrera..."></textarea>
+    </div>
+
+    <div class="profile-card">
+        <div class="profile-title">Perfil 3: Cerca de la Jubilación (55-65 años)</div>
+        <div class="profile-description">
+            <p><strong>Situación Típica:</strong> Preparándose para la jubilación, enfocándose en preservar patrimonio, maximizar ingresos de jubilación y planificación patrimonial.</p>
+        </div>
+
+        <div class="field-label">Objetivos Financieros Principales:</div>
+        <select class="dropdown">
+            <option value="">Seleccione el objetivo principal...</option>
+            <option value="maximizar-jubilacion">Maximizar fondos de jubilación</option>
+            <option value="preservar-patrimonio">Preservar y proteger patrimonio</option>
+            <option value="generar-ingresos">Generar ingresos estables</option>
+            <option value="planificacion-patrimonial">Planificación patrimonial y sucesión</option>
+        </select>
+
+        <div class="field-label">Necesidades Bancarias Principales (seleccione todas las que apliquen):</div>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="retire-wealth"> <label for="retire-wealth">Gestión de patrimonio</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="retire-conservative"> <label for="retire-conservative">Inversiones conservadoras</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="retire-estate"> <label for="retire-estate">Planificación patrimonial</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="retire-income"> <label for="retire-income">Productos de ingresos garantizados</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="retire-advisor"> <label for="retire-advisor">Asesor financiero personal</label>
+            </div>
+        </div>
+
+        <div class="field-label">Prioridad de Inversión (1 = Baja, 5 = Alta):</div>
+        <p>Crecimiento: <input type="range" min="1" max="5" value="2" style="width: 200px;"> <span id="retire-growth">2</span></p>
+        <p>Preservación: <input type="range" min="1" max="5" value="5" style="width: 200px;"> <span id="retire-preservation">5</span></p>
+
+        <div class="field-label">Preferencias de Servicio:</div>
+        <select class="dropdown">
+            <option value="">Seleccione preferencia...</option>
+            <option value="digital">Principalmente digital/en línea</option>
+            <option value="mixto">Combinación de digital y presencial</option>
+            <option value="presencial">Preferencia por servicio en persona</option>
+        </select>
+
+        <div class="field-label">Tipo de Proveedor Recomendado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione tipo de proveedor...</option>
+            <option value="gestion-patrimonio">Firma de Gestión de Patrimonio</option>
+            <option value="banco-privado">Banca Privada</option>
+            <option value="asesor-financiero">Asesor Financiero Certificado</option>
+            <option value="multiple-especializado">Múltiples Proveedores Especializados</option>
+        </select>
+
+        <div class="field-label">Justificación de la Recomendación:</div>
+        <textarea class="input-field" placeholder="Explique por qué este tipo de proveedor es el más apropiado para alguien cerca de la jubilación..."></textarea>
+    </div>
+
+    <div class="footer">
+        <p><strong>Reflexión:</strong> ¿Cómo cambian las necesidades de servicios financieros a través de diferentes etapas de la vida?</p>
+        <textarea class="input-field" placeholder="Escriba su reflexión aquí..."></textarea>
+        <p style="margin-top: 20px;">© 2025 PFL Academy - Todos los derechos reservados</p>
+    </div>
+</body>
+</html>

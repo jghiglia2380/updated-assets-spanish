@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolutor de Escenarios del Mundo Real</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .scenario-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .scenario-btn {
+            padding: 15px;
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .scenario-btn:hover { border-color: #6366f1; }
+        .scenario-btn.selected { border-color: #6366f1; background: #eef2ff; }
+        .scenario-icon { font-size: 1.5rem; margin-bottom: 5px; }
+        .scenario-name { font-weight: 600; font-size: 0.9rem; }
+        .scenario-display { display: none; }
+        .scenario-display.active { display: block; }
+        .problem-box {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f59e0b;
+        }
+        .problem-box h3 { color: #92400e; margin-bottom: 10px; }
+        .solution-section { margin-bottom: 20px; }
+        .section-title { font-size: 1rem; font-weight: bold; margin-bottom: 10px; color: #374151; }
+        .step-list {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .step-text { font-size: 0.95rem; color: #4b5563; }
+        .tip-box {
+            background: #d1fae5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .tip-box strong { color: #065f46; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .scenario-selector { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .scenario-display {
+                display: block !important;
+            }
+            .problem-box,
+            .step-list,
+            .tip-box {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resolutor de Escenarios del Mundo Real</h1>
+            <p class="subtitle">Aplica habilidades de mantenimiento de registros a desafíos financieros comunes</p>
+        </header>
+
+        <div class="scenario-selector">
+            <div class="scenario-btn" onclick="showScenario('overdraft')">
+                <div class="scenario-icon">💳</div>
+                <div class="scenario-name">Crisis de Sobregiro</div>
+            </div>
+            <div class="scenario-btn" onclick="showScenario('dispute')">
+                <div class="scenario-icon">❓</div>
+                <div class="scenario-name">Cargo Disputado</div>
+            </div>
+            <div class="scenario-btn" onclick="showScenario('taxes')">
+                <div class="scenario-icon">📋</div>
+                <div class="scenario-name">Preparación de Impuestos</div>
+            </div>
+        </div>
+
+        <div class="scenario-display" id="overdraft">
+            <div class="problem-box">
+                <h3>El Problema</h3>
+                <p>Recibes una alerta de que tu cuenta está en -$45. Pensabas que tenías $200. Dos cargos pendientes más de $30 cada uno podrían generar cargos adicionales por sobregiro de $35 cada uno.</p>
+            </div>
+            <div class="solution-section">
+                <div class="section-title">Pasos de Resolución</div>
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text"><strong>Transfiere fondos inmediatamente</strong> desde ahorros u otra cuenta para cubrir el saldo negativo y los cargos pendientes.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text"><strong>Revisa transacciones recientes</strong> para encontrar qué causó la discrepancia. Busca pagos automáticos olvidados o cargos duplicados.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text"><strong>Llama a tu banco</strong> para solicitar la reversión del cargo por sobregiro. Las solicitudes por primera vez generalmente se conceden como cortesía.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-text"><strong>Configura alertas de saldo bajo</strong> a $100 y $50 para prevenir sorpresas futuras.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-text"><strong>Considera protección contra sobregiro</strong> vinculada a cuenta de ahorros (generalmente cargo menor que los cargos por sobregiro).</div>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <strong>Consejo de Prevención:</strong> Mantén un colchón de $100+ en la cuenta de cheques y concilia tu cuenta semanalmente para detectar problemas antes de que se vuelvan costosos.
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario-display" id="dispute">
+            <div class="problem-box">
+                <h3>El Problema</h3>
+                <p>Notas un cargo de $127.50 de "AMZN MKTPLACE" que no reconoces. Compras en Amazon ocasionalmente pero no recuerdas esta compra.</p>
+            </div>
+            <div class="solution-section">
+                <div class="section-title">Pasos de Resolución</div>
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text"><strong>Revisa tu historial de pedidos de Amazon</strong> primero - muchas personas olvidan pequeños pedidos o renovaciones de suscripciones.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text"><strong>Verifica si familiares</strong> tienen acceso a tu cuenta de Amazon o método de pago.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text"><strong>Busca confirmación por email</strong> de Amazon por este monto y fecha.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-text"><strong>Si no lo reconoces, contacta a Amazon</strong> primero - ellos pueden identificar o reembolsar el cargo más rápido que tu banco.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-text"><strong>Presenta una disputa con tu banco</strong> si Amazon no puede resolverlo. Tienes 60 días para la mayoría de las disputas.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">6</div>
+                        <div class="step-text"><strong>Cambia tu contraseña de Amazon</strong> y habilita autenticación de 2 factores si se confirma fraude.</div>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <strong>Consejo de Prevención:</strong> Configura notificaciones de compra para que te avisen inmediatamente cuando ocurran cargos. Revisa estados de cuenta dentro de una semana de recibirlos.
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario-display" id="taxes">
+            <div class="problem-box">
+                <h3>El Problema</h3>
+                <p>Es temporada de impuestos y necesitas encontrar documentación para donaciones caritativas, gastos de negocio y costos médicos del año pasado. No organizaste mientras avanzabas.</p>
+            </div>
+            <div class="solution-section">
+                <div class="section-title">Pasos de Resolución</div>
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text"><strong>Descarga todos los estados de cuenta bancarios y de tarjeta de crédito</strong> del año fiscal. La mayoría están disponibles en línea por 12-24 meses.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text"><strong>Busca en tu email los recibos</strong> usando palabras clave como "recibo", "donación", "confirmación de pedido".</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text"><strong>Contacta a organizaciones benéficas</strong> para cartas de reconocimiento de donación - están obligadas a proporcionarlas.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-text"><strong>Solicita resúmenes de fin de año</strong> de proveedores de salud, farmacias y seguro médico.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-text"><strong>Crea categorías</strong> en una hoja de cálculo e ingresa cada gasto deducible con fecha, monto y fuente.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">6</div>
+                        <div class="step-text"><strong>Establece un sistema para el próximo año</strong> - carpeta para recibos, entrada regular de datos, o usa una app de seguimiento de gastos.</div>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <strong>Consejo de Prevención:</strong> Crea una carpeta de "Documentos de Impuestos" al inicio de cada año. Agrega recibos inmediatamente. Dedica 10 minutos mensuales organizando - ahorra horas en tiempo de impuestos.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Mantenimiento de Registros Financieros</p>
+        </footer>
+    </div>
+
+    <script>
+        function showScenario(id) {
+            document.querySelectorAll('.scenario-btn').forEach(btn => btn.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            document.querySelectorAll('.scenario-display').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>

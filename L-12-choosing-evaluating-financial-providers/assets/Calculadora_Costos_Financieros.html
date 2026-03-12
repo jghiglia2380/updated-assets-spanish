@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos Financieros - L-12</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 30px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        .calculator-section {
+            border: 2px solid #4f46e5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #fafafa;
+        }
+        .input-row {
+            margin: 15px 0;
+        }
+        .input-label {
+            font-weight: bold;
+            color: #374151;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .results-box {
+            background-color: #e6f3ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .result-item {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .result-label {
+            font-weight: bold;
+            color: #374151;
+        }
+        .result-value {
+            color: #4f46e5;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th {
+            background-color: #4f46e5;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Calculadora de Costos Financieros</h1>
+        <p><strong>Capítulo L-12:</strong> Impacto a Largo Plazo de Tarifas y Tasas</p>
+        <p><strong>Nombre:</strong> __________________________ <strong>Fecha:</strong> ______________</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones:</strong> Use estas calculadoras para comparar el impacto a largo plazo de diferentes tarifas y tasas de interés. Complete los cálculos manualmente y registre sus resultados. Estas herramientas le ayudarán a entender cómo pequeñas diferencias en costos pueden tener un impacto significativo con el tiempo.
+    </div>
+
+    <div class="calculator-section">
+        <h2>Calculadora 1: Comparación de Cuentas de Ahorro</h2>
+        <p>Compare cómo crecen sus ahorros con diferentes tasas de APY (Rendimiento Porcentual Anual).</p>
+
+        <div class="tips-box">
+            <strong>Fórmula:</strong> Valor Futuro = Depósito Inicial × (1 + APY)^Años
+        </div>
+
+        <h3>Proveedor A</h3>
+        <div class="input-row">
+            <label class="input-label">Depósito Inicial ($):</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 1000">
+        </div>
+        <div class="input-row">
+            <label class="input-label">APY (%):</label>
+            <input type="number" class="input-field" step="0.01" placeholder="Ejemplo: 1.5">
+        </div>
+        <div class="input-row">
+            <label class="input-label">Número de Años:</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 5">
+        </div>
+        <div class="results-box">
+            <div class="result-item">
+                <span class="result-label">Valor Final:</span> <span class="result-value">$_____________</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Interés Ganado:</span> <span class="result-value">$_____________</span>
+            </div>
+        </div>
+
+        <h3>Proveedor B</h3>
+        <div class="input-row">
+            <label class="input-label">Depósito Inicial ($):</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 1000">
+        </div>
+        <div class="input-row">
+            <label class="input-label">APY (%):</label>
+            <input type="number" class="input-field" step="0.01" placeholder="Ejemplo: 0.5">
+        </div>
+        <div class="input-row">
+            <label class="input-label">Número de Años:</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 5">
+        </div>
+        <div class="results-box">
+            <div class="result-item">
+                <span class="result-label">Valor Final:</span> <span class="result-value">$_____________</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Interés Ganado:</span> <span class="result-value">$_____________</span>
+            </div>
+        </div>
+
+        <div class="results-box" style="background-color: #f0fdf4; border-color: #22c55e;">
+            <div class="result-item">
+                <span class="result-label">Diferencia en Interés Ganado:</span> <span class="result-value">$_____________</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="calculator-section">
+        <h2>Calculadora 2: Impacto de Tarifas en Ahorros</h2>
+        <p>Vea cómo las tarifas mensuales erosionan sus ahorros con el tiempo.</p>
+
+        <div class="tips-box">
+            <strong>Cálculo:</strong> Total de Tarifas = Tarifa Mensual × 12 meses × Número de Años
+        </div>
+
+        <h3>Escenario de Comparación</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Tarifa Mensual</th>
+                    <th>Años</th>
+                    <th>Total Tarifas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Banco Tradicional</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" placeholder="$12"></td>
+                    <td><input type="number" style="width: 60px; padding: 5px;" placeholder="10"></td>
+                    <td>$_____________</td>
+                </tr>
+                <tr>
+                    <td>Cooperativa de Crédito</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" placeholder="$5"></td>
+                    <td><input type="number" style="width: 60px; padding: 5px;" placeholder="10"></td>
+                    <td>$_____________</td>
+                </tr>
+                <tr>
+                    <td>Banco en Línea</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" placeholder="$0"></td>
+                    <td><input type="number" style="width: 60px; padding: 5px;" placeholder="10"></td>
+                    <td>$_____________</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="results-box">
+            <div class="result-item">
+                <span class="result-label">Ahorro Total al Elegir la Opción Más Económica:</span>
+                <span class="result-value">$_____________</span>
+            </div>
+        </div>
+
+        <h3>Análisis Adicional: Costo de Oportunidad</h3>
+        <p>Si invirtiera las tarifas ahorradas al 5% APY durante el mismo período:</p>
+        <div class="input-row">
+            <label class="input-label">Tarifas Ahorradas Anuales ($):</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 144">
+        </div>
+        <div class="input-row">
+            <label class="input-label">Número de Años:</label>
+            <input type="number" class="input-field" placeholder="Ejemplo: 10">
+        </div>
+        <div class="input-row">
+            <label class="input-label">Tasa de Rendimiento Asumida (%):</label>
+            <input type="number" class="input-field" step="0.1" placeholder="Ejemplo: 5">
+        </div>
+        <div class="results-box" style="background-color: #f0fdf4; border-color: #22c55e;">
+            <div class="result-item">
+                <span class="result-label">Valor Potencial si se Hubiera Invertido:</span>
+                <span class="result-value">$_____________</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="calculator-section">
+        <h2>Calculadora 3: Comparación de Préstamos</h2>
+        <p>Compare el interés total pagado en préstamos con diferentes tasas.</p>
+
+        <div class="tips-box">
+            <strong>Fórmula Simplificada:</strong> Interés Total ≈ (Monto del Préstamo × Tasa × Años) / 2<br>
+            <em>Nota: Esta es una aproximación. Los cálculos reales son más complejos.</em>
+        </div>
+
+        <h3>Préstamo para Auto: $15,000 a 5 años</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Tasa de Interés (%)</th>
+                    <th>Interés Total Aproximado</th>
+                    <th>Pago Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Banco Actual</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" step="0.1" placeholder="4.5"></td>
+                    <td>$_____________</td>
+                    <td>$_____________</td>
+                </tr>
+                <tr>
+                    <td>Cooperativa de Crédito</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" step="0.1" placeholder="3.2"></td>
+                    <td>$_____________</td>
+                    <td>$_____________</td>
+                </tr>
+                <tr>
+                    <td>Prestamista en Línea</td>
+                    <td><input type="number" style="width: 80px; padding: 5px;" step="0.1" placeholder="3.9"></td>
+                    <td>$_____________</td>
+                    <td>$_____________</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="results-box" style="background-color: #f0fdf4; border-color: #22c55e;">
+            <div class="result-item">
+                <span class="result-label">Ahorro al Elegir la Tasa Más Baja:</span>
+                <span class="result-value">$_____________</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Resumen de Hallazgos</h2>
+    <div class="calculator-section" style="background-color: #fefce8;">
+        <p><strong>Pregunta de Reflexión 1:</strong> ¿Cuál fue el hallazgo más sorprendente de sus cálculos?</p>
+        <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;"></textarea>
+
+        <p style="margin-top: 20px;"><strong>Pregunta de Reflexión 2:</strong> ¿Cómo cambiará este análisis sus decisiones futuras sobre proveedores de servicios financieros?</p>
+        <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;"></textarea>
+
+        <p style="margin-top: 20px;"><strong>Pregunta de Reflexión 3:</strong> ¿Qué factor es más importante para usted: tarifas bajas, tasas de interés altas en ahorros, o tasas de interés bajas en préstamos? ¿Por qué?</p>
+        <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;"></textarea>
+    </div>
+
+    <div class="footer">
+        <p><strong>Nota:</strong> Estos cálculos son aproximaciones para propósitos educativos. Los cálculos financieros reales pueden ser más complejos e incluir factores adicionales.</p>
+        <p>© 2025 PFL Academy - Todos los derechos reservados</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Decisiones de Inversión</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .scenario { background: #f9fafb; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .scenario-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .scenario-badge { background: var(--primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .context { background: #e0e7ff; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .options { display: grid; gap: 10px; margin: 15px 0; }
+        .option-btn { padding: 12px; background: white; border: 2px solid #d1d5db; border-radius: 5px; cursor: pointer; text-align: left; }
+        .option-btn:hover { border-color: var(--primary); background: #f0f7ff; }
+        .option-btn.selected { border-color: var(--primary); background: #e0e7ff; }
+        .outcome { padding: 15px; border-radius: 5px; margin: 15px 0; display: none; }
+        .outcome.good { background: #d1fae5; border: 1px solid var(--success); }
+        .outcome.bad { background: #fee2e2; border: 1px solid var(--danger); }
+        .outcome.neutral { background: #fef3c7; border: 1px solid var(--warning); }
+        .bias-tag { display: inline-block; background: var(--warning); color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin: 2px; }
+        .final-results { background: #e0e7ff; padding: 15px; border-radius: 5px; margin: 15px 0; display: none; }
+        .score-display { text-align: center; padding: 20px; }
+        .score-value { font-size: 48px; font-weight: bold; color: var(--primary); }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        @media print {
+            body { padding: 10px; }
+            button { display: none; }
+            .scenario, .outcome { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulador de Decisiones de Inversión</h1>
+    <p>Navegue escenarios desafiantes y vea cómo los sesgos afectan sus decisiones</p>
+    <div id="scenarios-container"></div>
+    <div style="text-align: center; margin: 20px 0;">
+        <button onclick="startSimulation()">Iniciar Simulación</button>
+        <button onclick="showFinalResults()">Mostrar Análisis Final</button>
+    </div>
+    <div class="final-results" id="final-results">
+        <h2 style="margin-top: 0;">Resultados de la Simulación</h2>
+        <div class="score-display">
+            <div>Su Puntuación</div>
+            <div class="score-value" id="total-score">0/3</div>
+        </div>
+        <div id="lessons"></div>
+    </div>
+    <script>
+        const scenarios = [
+            { id: 1, title: "La Caída del Mercado", badge: "Prueba de Aversión a la Pérdida", context: "El mercado ha caído un 30% en un mes. Su portafolio ha bajado $15,000. Los titulares gritan sobre recesión. Todos parecen estar vendiendo.", portfolio: "$50,000 → $35,000", options: [
+                { text: "Vender todo y pasar a efectivo hasta que las cosas se calmen", biases: ["Aversión a la Pérdida", "Sesgo de Recencia"], outcome: "bad", result: "6 meses después, el mercado se recuperó un 40%. Sus $35,000 en efectivo siguen siendo $35,000, mientras que quedarse invertido le habría dado $49,000. Vender en pánico bloqueó sus pérdidas.", score: 0 },
+                { text: "Mantener sus posiciones actuales y seguir su plan", biases: [], outcome: "good", result: "6 meses después, el mercado se recuperó un 40%. Sus $35,000 crecieron a $49,000. Al mantener la disciplina, recuperó la mayoría de sus pérdidas.", score: 1 },
+                { text: "Comprar más acciones mientras están baratas (rebalancear)", biases: [], outcome: "good", result: "6 meses después, el mercado se recuperó un 40%. Al comprar más en el punto bajo, su portafolio creció a $56,000 - ¡superando su balance original!", score: 1 }
+            ]},
+            { id: 2, title: "La Acción Caliente", badge: "Prueba de Mentalidad de Rebaño", context: "TechHype Inc. ha triplicado en el último mes. Está en todas las redes sociales. Sus compañeros de trabajo presumen de sus ganancias. El FOMO es real.", portfolio: "Considerando: inversión de $5,000", options: [
+                { text: "Comprar ahora antes de perder la oportunidad completamente", biases: ["Mentalidad de Rebaño", "FOMO"], outcome: "bad", result: "TechHype estaba en una burbuja especulativa. Se desplomó un 60% en los siguientes 3 meses. Sus $5,000 ahora valen $2,000. El bombo no estaba basado en fundamentos.", score: 0 },
+                { text: "Investigar los estados financieros de la empresa antes de decidir", biases: [], outcome: "good", result: "Su investigación reveló que la acción cotizaba a 100x ventas sin beneficios. Evitó la caída del 60% e invirtió en una alternativa fundamentalmente sólida.", score: 1 },
+                { text: "Comprar una pequeña cantidad para no perderse completamente", biases: ["Mentalidad de Rebaño"], outcome: "neutral", result: "Invirtió $1,000 y perdió $600 en la caída. Daño limitado, pero aún así tomó una decisión emocional sin análisis adecuado.", score: 0 }
+            ]},
+            { id: 3, title: "La Trampa de Confirmación", badge: "Prueba de Sesgo de Confirmación", context: "Compró EcoGreen a $50, confiado en su análisis. Ahora está en $35. Encuentra un artículo diciendo que está subvaluada, pero también ve reportes sobre amenazas competitivas serias.", portfolio: "$5,000 → $3,500", options: [
+                { text: "El artículo alcista confirma su tesis - mantener o comprar más", biases: ["Sesgo de Confirmación", "Anclaje"], outcome: "bad", result: "Las amenazas competitivas eran reales. EcoGreen continuó cayendo a $20 mientras los competidores tomaban cuota de mercado. Debería haber pesado toda la evidencia por igual.", score: 0 },
+                { text: "Analizar a fondo tanto los casos alcistas como bajistas", biases: [], outcome: "good", result: "Su análisis equilibrado reveló que las amenazas competitivas eran serias. Vendió a $35 y evitó la caída adicional a $20, preservando $1,500.", score: 1 },
+                { text: "La pérdida demuestra que estaba equivocado - vender todo", biases: ["Aversión a la Pérdida"], outcome: "neutral", result: "A veces vender es correcto, pero su decisión se basó en emoción, no en análisis. Desarrolle un enfoque sistemático para evaluar cuándo vender.", score: 0 }
+            ]}
+        ];
+        let decisions = {};
+        function startSimulation() {
+            const container = document.getElementById('scenarios-container');
+            container.innerHTML = ''; decisions = {};
+            document.getElementById('final-results').style.display = 'none';
+            scenarios.forEach(scenario => {
+                const div = document.createElement('div');
+                div.className = 'scenario'; div.id = `scenario-${scenario.id}`;
+                div.innerHTML = `
+                    <div class="scenario-header">
+                        <h2 style="margin: 0;">Escenario ${scenario.id}: ${scenario.title}</h2>
+                        <span class="scenario-badge">${scenario.badge}</span>
+                    </div>
+                    <div class="context">
+                        <strong>Situación:</strong> ${scenario.context}<br>
+                        <strong>Su Portafolio:</strong> ${scenario.portfolio}
+                    </div>
+                    <p><strong>¿Qué hace?</strong></p>
+                    <div class="options" id="options-${scenario.id}">
+                        ${scenario.options.map((opt, i) => `<div class="option-btn" onclick="selectDecision(${scenario.id}, ${i}, this)">${opt.text}</div>`).join('')}
+                    </div>
+                    <div class="outcome" id="outcome-${scenario.id}"></div>
+                `;
+                container.appendChild(div);
+            });
+        }
+        function selectDecision(scenarioId, optionIndex, element) {
+            const scenario = scenarios.find(s => s.id === scenarioId);
+            const option = scenario.options[optionIndex];
+            decisions[scenarioId] = { optionIndex, option };
+            const options = document.querySelectorAll(`#options-${scenarioId} .option-btn`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            const outcomeDiv = document.getElementById(`outcome-${scenarioId}`);
+            outcomeDiv.className = `outcome ${option.outcome}`;
+            outcomeDiv.innerHTML = `
+                <strong>${option.outcome === 'good' ? '✓ Buena Decisión' : option.outcome === 'bad' ? '✗ Mala Decisión' : '⚠ Resultado Mixto'}</strong><br>
+                ${option.result}
+                ${option.biases.length > 0 ? '<br><br><strong>Sesgos en juego:</strong> ' + option.biases.map(b => `<span class="bias-tag">${b}</span>`).join(' ') : ''}
+            `;
+            outcomeDiv.style.display = 'block';
+        }
+        function showFinalResults() {
+            if (Object.keys(decisions).length < scenarios.length) { alert('Por favor tome decisiones para todos los escenarios primero.'); return; }
+            let totalScore = 0; let lessons = [];
+            Object.entries(decisions).forEach(([scenarioId, decision]) => {
+                totalScore += decision.option.score;
+                if (decision.option.biases.length > 0) { lessons.push(`<li><strong>Escenario ${scenarioId}:</strong> Cuidado con ${decision.option.biases.join(' y ')}</li>`); }
+            });
+            document.getElementById('total-score').textContent = `${totalScore}/3`;
+            document.getElementById('lessons').innerHTML = lessons.length > 0 ? `<h3>Lecciones Clave:</h3><ul>${lessons.join('')}</ul>` : '<p style="color: var(--success); font-weight: bold;">¡Excelente! Evitó las principales trampas conductuales en todos los escenarios.</p>';
+            document.getElementById('final-results').style.display = 'block';
+        }
+        startSimulation();
+    </script>
+</body>
+</html>

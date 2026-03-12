@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor de Reglas Contra Sesgos</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .section { background: #f9fafb; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .rule-builder { background: #e0e7ff; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .rule-item { background: white; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .rule-label { font-weight: bold; margin-bottom: 5px; font-size: 13px; }
+        .rule-hint { font-size: 11px; color: #6b7280; margin-bottom: 5px; }
+        textarea { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; min-height: 60px; box-sizing: border-box; font-size: 13px; }
+        .bias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 10px 0; }
+        .bias-card { background: white; padding: 10px; border-radius: 4px; border: 2px solid #d1d5db; cursor: pointer; }
+        .bias-card:hover { border-color: var(--primary); }
+        .bias-card.selected { border-color: var(--primary); background: #f0f7ff; }
+        .bias-name { font-weight: bold; font-size: 13px; }
+        .bias-desc { font-size: 11px; color: #6b7280; }
+        .final-rules { background: #d1fae5; padding: 15px; border-radius: 5px; margin: 15px 0; border: 2px solid var(--success); display: none; }
+        .rule-display { background: white; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .rule-category { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        @media print { body { font-size: 11pt; } button { display: none; } .final-rules { display: block !important; } }
+    </style>
+</head>
+<body>
+    <h1>Constructor de Reglas Contra Sesgos</h1>
+    <p>Cree reglas personales para contrarrestar sus sesgos conductuales</p>
+    <div class="section">
+        <h2 style="margin-top: 0;">Paso 1: Seleccione Sus Principales Sesgos a Contrarrestar</h2>
+        <p style="font-size: 12px;">Elija 2-3 sesgos que desea abordar:</p>
+        <div class="bias-grid">
+            <div class="bias-card" onclick="toggleBias('loss_aversion', this)">
+                <div class="bias-name">Aversión a la Pérdida</div>
+                <div class="bias-desc">Sentir las pérdidas más fuertemente que las ganancias</div>
+            </div>
+            <div class="bias-card" onclick="toggleBias('overconfidence', this)">
+                <div class="bias-name">Exceso de Confianza</div>
+                <div class="bias-desc">Sobreestimar sus habilidades</div>
+            </div>
+            <div class="bias-card" onclick="toggleBias('confirmation', this)">
+                <div class="bias-name">Sesgo de Confirmación</div>
+                <div class="bias-desc">Buscar información que confirma</div>
+            </div>
+            <div class="bias-card" onclick="toggleBias('herd', this)">
+                <div class="bias-name">Mentalidad de Rebaño</div>
+                <div class="bias-desc">Seguir a la multitud</div>
+            </div>
+            <div class="bias-card" onclick="toggleBias('recency', this)">
+                <div class="bias-name">Sesgo de Recencia</div>
+                <div class="bias-desc">Sobrevalorar eventos recientes</div>
+            </div>
+            <div class="bias-card" onclick="toggleBias('anchoring', this)">
+                <div class="bias-name">Anclaje</div>
+                <div class="bias-desc">Fijarse en números específicos</div>
+            </div>
+        </div>
+    </div>
+    <div class="rule-builder">
+        <h2 style="margin-top: 0;">Paso 2: Construya Sus Reglas Contra Sesgos</h2>
+        <div class="rule-item">
+            <div class="rule-label">Reglas de Compra</div>
+            <div class="rule-hint">¿Qué criterios deben cumplirse antes de comprar una inversión?</div>
+            <textarea id="buyRules" placeholder="Ejemplo: Solo compraré después de esperar 48 horas y completar un análisis escrito de pros Y contras..."></textarea>
+        </div>
+        <div class="rule-item">
+            <div class="rule-label">Reglas de Venta</div>
+            <div class="rule-hint">¿Cuándo venderá? ¿Qué disparadores son aceptables?</div>
+            <textarea id="sellRules" placeholder="Ejemplo: Venderé cuando mi tesis se rompa, no cuando el precio baje. Revisaré argumentos bajistas antes de vender en pánico..."></textarea>
+        </div>
+        <div class="rule-item">
+            <div class="rule-label">Reglas de Gestión de Portafolio</div>
+            <div class="rule-hint">¿Cómo mantendrá la disciplina con el tiempo?</div>
+            <textarea id="portfolioRules" placeholder="Ejemplo: Rebalancearé trimestralmente independientemente de las condiciones del mercado. No revisaré mi portafolio más de una vez por semana..."></textarea>
+        </div>
+        <div class="rule-item">
+            <div class="rule-label">Reglas de Control Emocional</div>
+            <div class="rule-hint">¿Cómo manejará la volatilidad del mercado y el FOMO?</div>
+            <textarea id="emotionalRules" placeholder="Ejemplo: Durante una caída, esperaré 7 días antes de hacer cualquier cambio. No compraré acciones 'calientes' discutidas en redes sociales..."></textarea>
+        </div>
+        <div class="rule-item">
+            <div class="rule-label">Reglas de Tamaño de Posición</div>
+            <div class="rule-hint">¿Cómo prevendrá la sobreconcentración?</div>
+            <textarea id="sizingRules" placeholder="Ejemplo: Ninguna acción individual excederá el 5% de mi portafolio. Diversificaré en al menos 3 clases de activos..."></textarea>
+        </div>
+    </div>
+    <div class="section">
+        <h2 style="margin-top: 0;">Paso 3: Sistema de Responsabilidad</h2>
+        <div class="rule-item">
+            <div class="rule-label">¿Cómo hará cumplir estas reglas?</div>
+            <textarea id="accountability" placeholder="Ejemplo: Revisaré este documento antes de cualquier operación. Mantendré un diario de trading y revisaré decisiones mensualmente..."></textarea>
+        </div>
+    </div>
+    <div style="text-align: center; margin: 20px 0;">
+        <button onclick="generateRules()">Generar Mi Documento de Reglas</button>
+    </div>
+    <div class="final-rules" id="final-rules">
+        <h2 style="margin-top: 0;">Mis Reglas Personales Contra Sesgos</h2>
+        <p style="font-size: 12px; color: #6b7280;">Fecha de Creación: <span id="date"></span></p>
+        <div id="selected-biases"></div>
+        <div class="rule-display"><div class="rule-category">Reglas de Compra</div><div id="display-buy"></div></div>
+        <div class="rule-display"><div class="rule-category">Reglas de Venta</div><div id="display-sell"></div></div>
+        <div class="rule-display"><div class="rule-category">Gestión de Portafolio</div><div id="display-portfolio"></div></div>
+        <div class="rule-display"><div class="rule-category">Control Emocional</div><div id="display-emotional"></div></div>
+        <div class="rule-display"><div class="rule-category">Tamaño de Posición</div><div id="display-sizing"></div></div>
+        <div class="rule-display"><div class="rule-category">Responsabilidad</div><div id="display-accountability"></div></div>
+        <p style="font-size: 12px; margin-top: 15px; padding: 10px; background: #fef3c7; border-radius: 4px;">
+            <strong>Compromiso:</strong> Me comprometo a seguir estas reglas para todas las decisiones de inversión. Revisaré este documento antes de cualquier operación y lo actualizaré a medida que aprenda más sobre mis tendencias conductuales.
+        </p>
+    </div>
+    <script>
+        let selectedBiases = [];
+        function toggleBias(bias, element) {
+            const index = selectedBiases.indexOf(bias);
+            if (index > -1) { selectedBiases.splice(index, 1); element.classList.remove('selected'); }
+            else { selectedBiases.push(bias); element.classList.add('selected'); }
+        }
+        function generateRules() {
+            const biasNames = { loss_aversion: 'Aversión a la Pérdida', overconfidence: 'Exceso de Confianza', confirmation: 'Sesgo de Confirmación', herd: 'Mentalidad de Rebaño', recency: 'Sesgo de Recencia', anchoring: 'Anclaje' };
+            if (selectedBiases.length > 0) {
+                document.getElementById('selected-biases').innerHTML = `<p><strong>Sesgos que Estoy Abordando:</strong> ${selectedBiases.map(b => biasNames[b]).join(', ')}</p>`;
+            }
+            document.getElementById('date').textContent = new Date().toLocaleDateString();
+            document.getElementById('display-buy').textContent = document.getElementById('buyRules').value || 'No especificado';
+            document.getElementById('display-sell').textContent = document.getElementById('sellRules').value || 'No especificado';
+            document.getElementById('display-portfolio').textContent = document.getElementById('portfolioRules').value || 'No especificado';
+            document.getElementById('display-emotional').textContent = document.getElementById('emotionalRules').value || 'No especificado';
+            document.getElementById('display-sizing').textContent = document.getElementById('sizingRules').value || 'No especificado';
+            document.getElementById('display-accountability').textContent = document.getElementById('accountability').value || 'No especificado';
+            document.getElementById('final-rules').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

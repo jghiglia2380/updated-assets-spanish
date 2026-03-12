@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Inversiones Eficientes Fiscalmente | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--surface);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--background);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .subtitle { font-size: 1rem; opacity: 0.95; }
+
+        .content { padding: 30px; }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: var(--surface);
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover { color: var(--primary); }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+
+        label { font-weight: 600; color: var(--text); font-size: 0.95rem; }
+
+        input[type="number"], select {
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .results-panel {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            display: none;
+        }
+
+        .results-panel.show { display: block; }
+
+        .result-card {
+            background: var(--surface);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .result-label { font-size: 0.9rem; color: var(--text-light); margin-bottom: 5px; }
+        .result-value { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .comparison-card h3 { color: var(--primary); margin-bottom: 15px; }
+        .big-number { font-size: 2rem; font-weight: 700; margin: 10px 0; }
+        .savings { color: var(--success); }
+        .cost { color: var(--danger); }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--surface); font-weight: 600; color: var(--primary); }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+            .tabs, .button { display: none; }
+            .tab-content, .results-panel { display: block !important; }
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { font-size: 1.5rem; }
+            .input-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Planificador de Inversiones Eficientes Fiscalmente</h1>
+            <div class="subtitle">Optimiza tu estrategia de inversión para minimizar impuestos</div>
+        </header>
+
+        <div class="content">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('calculator')">Calculadora de Impuestos</button>
+                <button class="tab" onclick="showTab('accounts')">Comparación de Cuentas</button>
+                <button class="tab" onclick="showTab('strategies')">Estrategias Fiscales</button>
+            </div>
+
+            <!-- Pestaña Calculadora -->
+            <div class="tab-content active" id="calculator">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">Calculadora de Impuesto sobre Ganancias de Capital</h2>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="income">Ingresos Anuales ($)</label>
+                        <input type="number" id="income" value="60000" min="0" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label for="gain">Ganancias de Capital ($)</label>
+                        <input type="number" id="gain" value="5000" min="0" step="100">
+                    </div>
+                    <div class="input-group">
+                        <label for="holding-period">Período de Tenencia</label>
+                        <select id="holding-period">
+                            <option value="short">Corto plazo (≤1 año)</option>
+                            <option value="long">Largo plazo (>1 año)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="filing-status">Estado Civil</label>
+                        <select id="filing-status">
+                            <option value="single">Soltero</option>
+                            <option value="married">Casado Conjunto</option>
+                            <option value="head">Cabeza de Familia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="button" onclick="calculateTax()">Calcular Impacto Fiscal</button>
+
+                <div class="results-panel" id="tax-results">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Resultados del Análisis Fiscal</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h3>Impuesto Corto Plazo</h3>
+                            <div class="big-number cost" id="short-tax">$0</div>
+                            <div class="result-label">Gravado como ingreso ordinario</div>
+                        </div>
+                        <div class="comparison-card">
+                            <h3>Impuesto Largo Plazo</h3>
+                            <div class="big-number savings" id="long-tax">$0</div>
+                            <div class="result-label">Tasa preferencial</div>
+                        </div>
+                        <div class="comparison-card">
+                            <h3>Ahorro Fiscal</h3>
+                            <div class="big-number savings" id="tax-savings">$0</div>
+                            <div class="result-label">Por mantener >1 año</div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <strong>💡 Información:</strong> <span id="insight"></span>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Tasa Fiscal Efectiva</div>
+                        <div class="result-value" id="effective-rate">0%</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Producto Después de Impuestos</div>
+                        <div class="result-value" id="after-tax">$0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pestaña Cuentas -->
+            <div class="tab-content" id="accounts">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">Comparación de Cuentas con Ventajas Fiscales</h2>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="contribution">Contribución Anual ($)</label>
+                        <input type="number" id="contribution" value="6000" min="0" step="500">
+                    </div>
+                    <div class="input-group">
+                        <label for="years">Período (Años)</label>
+                        <input type="number" id="years" value="30" min="1" max="50">
+                    </div>
+                    <div class="input-group">
+                        <label for="return-rate">Rendimiento Anual (%)</label>
+                        <input type="number" id="return-rate" value="7" min="0" max="15" step="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="tax-bracket">Tramo Fiscal (%)</label>
+                        <input type="number" id="tax-bracket" value="22" min="0" max="37" step="1">
+                    </div>
+                </div>
+                <button class="button" onclick="compareAccounts()">Comparar Cuentas</button>
+                <div class="results-panel" id="account-results">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Resultados</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Tipo de Cuenta</th><th>Tratamiento</th><th>Valor Final</th><th>Ahorro</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Gravable</strong></td><td>Impuestos anuales</td><td id="taxable-value">$0</td><td>Base</td></tr>
+                            <tr><td><strong>Tradicional</strong></td><td>Diferido</td><td id="traditional-value">$0</td><td id="traditional-savings" style="color: var(--success);">$0</td></tr>
+                            <tr><td><strong>Roth</strong></td><td>Libre de impuestos</td><td id="roth-value">$0</td><td id="roth-savings" style="color: var(--success);">$0</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="info-box"><strong>📊 Análisis:</strong> <span id="account-insight"></span></div>
+                </div>
+            </div>
+
+            <!-- Pestaña Estrategias -->
+            <div class="tab-content" id="strategies">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">Estrategias de Inversión Eficientes Fiscalmente</h2>
+
+                <div class="result-card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">🎯 Ubicación de Activos</h3>
+                    <table>
+                        <thead><tr><th>Cuenta</th><th>Mejores Activos</th><th>Por Qué</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Gravable</strong></td><td>Fondos indexados, bonos municipales</td><td>Tasas preferenciales</td></tr>
+                            <tr><td><strong>Diferida</strong></td><td>Bonos, REITs, fondos activos</td><td>Protección de impuestos actuales</td></tr>
+                            <tr><td><strong>Roth</strong></td><td>Alto crecimiento</td><td>Cero impuestos futuros</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result-card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">📉 Cosecha de Pérdidas</h3>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Compensar ganancias dólar por dólar</li>
+                        <li>Hasta $3,000 de ingreso ordinario</li>
+                        <li>Cuidado: Regla de venta de lavado (30 días)</li>
+                    </ul>
+                </div>
+
+                <div class="result-card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">⏰ Tasas Largo Plazo 2024</h3>
+                    <table>
+                        <thead><tr><th>Estado</th><th>0%</th><th>15%</th><th>20%</th></tr></thead>
+                        <tbody>
+                            <tr><td>Soltero</td><td>≤$44,625</td><td>$44,626-$492,300</td><td>$492,301+</td></tr>
+                            <tr><td>Casado</td><td>≤$89,250</td><td>$89,251-$553,850</td><td>$553,851+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result-card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">🏦 Tu Estado: {{STATE_NAME}}</h3>
+                    <div class="info-box">
+                        <ul style="margin: 5px 0 0 20px;">
+                            <li>Tasa Impuesto Renta: {{STATE_INCOME_TAX_RATE}}%</li>
+                            <li>Ganancias Capital: {{STATE_CAPITAL_GAINS_TAX}}%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const gain = parseFloat(document.getElementById('gain').value);
+            const holdingPeriod = document.getElementById('holding-period').value;
+            const filingStatus = document.getElementById('filing-status').value;
+
+            const brackets = {
+                single: [{limit: 11000, rate: 0.10}, {limit: 44725, rate: 0.12}, {limit: 95375, rate: 0.22}, {limit: 182100, rate: 0.24}, {limit: 231250, rate: 0.32}, {limit: 578125, rate: 0.35}, {limit: Infinity, rate: 0.37}],
+                married: [{limit: 22000, rate: 0.10}, {limit: 89075, rate: 0.12}, {limit: 190750, rate: 0.22}, {limit: 364200, rate: 0.24}, {limit: 462500, rate: 0.32}, {limit: 693750, rate: 0.35}, {limit: Infinity, rate: 0.37}]
+            };
+
+            const statusKey = filingStatus === 'single' ? 'single' : 'married';
+            let marginalRate = 0;
+            for (let bracket of brackets[statusKey]) {
+                if (income <= bracket.limit) { marginalRate = bracket.rate; break; }
+            }
+
+            const shortTermTax = gain * marginalRate;
+            let longTermRate = 0;
+            if (filingStatus === 'single') {
+                if (income <= 44625) longTermRate = 0;
+                else if (income <= 492300) longTermRate = 0.15;
+                else longTermRate = 0.20;
+            } else {
+                if (income <= 89250) longTermRate = 0;
+                else if (income <= 553850) longTermRate = 0.15;
+                else longTermRate = 0.20;
+            }
+
+            const longTermTax = gain * longTermRate;
+            const taxSavings = shortTermTax - longTermTax;
+
+            document.getElementById('short-tax').textContent = '$' + shortTermTax.toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('long-tax').textContent = '$' + longTermTax.toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('tax-savings').textContent = '$' + taxSavings.toLocaleString('es-ES', {maximumFractionDigits: 0});
+
+            const currentTax = holdingPeriod === 'short' ? shortTermTax : longTermTax;
+            document.getElementById('effective-rate').textContent = (currentTax / gain * 100).toFixed(1) + '%';
+            document.getElementById('after-tax').textContent = '$' + (gain - currentTax).toLocaleString('es-ES', {maximumFractionDigits: 0});
+
+            document.getElementById('insight').textContent = holdingPeriod === 'short'
+                ? `Manteniendo >1 año ahorrarías $${taxSavings.toLocaleString('es-ES', {maximumFractionDigits: 0})}`
+                : `¡Excelente! Ahorras $${taxSavings.toLocaleString('es-ES', {maximumFractionDigits: 0})} con largo plazo`;
+
+            document.getElementById('tax-results').classList.add('show');
+        }
+
+        function compareAccounts() {
+            const contribution = parseFloat(document.getElementById('contribution').value);
+            const years = parseInt(document.getElementById('years').value);
+            const returnRate = parseFloat(document.getElementById('return-rate').value) / 100;
+            const taxRate = parseFloat(document.getElementById('tax-bracket').value) / 100;
+
+            const taxDrag = 1 - (taxRate * 0.3);
+            const taxableValue = contribution * (Math.pow(1 + (returnRate * taxDrag), years) - 1) / (returnRate * taxDrag);
+            const traditionalGross = contribution * (Math.pow(1 + returnRate, years) - 1) / returnRate;
+            const traditionalValue = traditionalGross * (1 - taxRate);
+            const rothContribution = contribution * (1 - taxRate);
+            const rothValue = rothContribution * (Math.pow(1 + returnRate, years) - 1) / returnRate;
+
+            document.getElementById('taxable-value').textContent = '$' + taxableValue.toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('traditional-value').textContent = '$' + traditionalValue.toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('roth-value').textContent = '$' + rothValue.toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('traditional-savings').textContent = '+$' + (traditionalValue - taxableValue).toLocaleString('es-ES', {maximumFractionDigits: 0});
+            document.getElementById('roth-savings').textContent = '+$' + (rothValue - taxableValue).toLocaleString('es-ES', {maximumFractionDigits: 0});
+
+            document.getElementById('account-insight').textContent = `En ${years} años, cuentas con ventajas fiscales superan significativamente a las gravables.`;
+            document.getElementById('account-results').classList.add('show');
+        }
+    </script>
+</body>
+</html>

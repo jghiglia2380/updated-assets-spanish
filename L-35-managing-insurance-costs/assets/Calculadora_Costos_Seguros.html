@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Calculadora de Costos de Seguros - Capítulo 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .calculation-step {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .calculation-table td:first-child {
+            width: 50%;
+        }
+
+        .calculation-table td:last-child {
+            width: 50%;
+        }
+
+        .calculation-step {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .calculation-step h3 {
+            margin-top: 0;
+        }
+
+        .example {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        .scenario {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .conclusion {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Hoja de Trabajo de Calculadora de Costos de Seguros</h1>
+        <p>Capítulo 11.3: Gestión de Costos de Seguros</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <h1>Hoja de Trabajo de Calculadora de Costos de Seguros</h1>
+    <p><strong>Capítulo 11.3: Gestión de Costos de Seguros</strong></p>
+
+    <h2>Entendiendo los Componentes de los Costos de Seguros</h2>
+    <p>Esta hoja de trabajo te ayudará a calcular los costos de seguros basándote en diferentes escenarios. Analizarás cómo varios componentes de seguros (deducibles, copagos, coaseguros y máximos de gastos de bolsillo) afectan los costos totales.</p>
+
+    <div class="example">
+        <h3>Revisión de Términos Clave</h3>
+        <ul>
+            <li><strong>Prima:</strong> Pago regular para mantener la cobertura del seguro (no incluido en los cálculos de gastos de bolsillo)</li>
+            <li><strong>Deducible:</strong> Monto que debes pagar antes de que el seguro comience a pagar</li>
+            <li><strong>Copago:</strong> Monto fijo que pagas por servicios específicos</li>
+            <li><strong>Coaseguro:</strong> Porcentaje de los costos que pagas después de cumplir tu deducible</li>
+            <li><strong>Máximo de Gastos de Bolsillo:</strong> Monto máximo que pagarás durante un período de póliza</li>
+        </ul>
+    </div>
+
+    <h2>Escenario Principal: Cálculo de Factura Médica</h2>
+
+    <div class="scenario">
+        <h3>Detalles del Escenario</h3>
+        <p>Tienes un plan de seguro de salud con los siguientes componentes:</p>
+        <ul>
+            <li>Prima Anual: $2,400 ($200 por mes)</li>
+            <li>Deducible Anual: $500</li>
+            <li>Coaseguro: 20% después del deducible</li>
+            <li>Tope de Coaseguro: $2,000</li>
+            <li>Máximo de Gastos de Bolsillo Anual: $4,000</li>
+        </ul>
+        <p>Situación: Recibes una factura médica de $8,000. Calcula tu costo total de bolsillo.</p>
+    </div>
+
+    <h3>Cálculo Paso a Paso</h3>
+
+    <div class="calculation-step">
+        <h3>Paso 1: Aplicar el Deducible</h3>
+        <p>Primero, debes pagar tu deducible antes de que el seguro comience a pagar.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Monto del deducible:</td>
+                <td class="input-field">$500</td>
+            </tr>
+            <tr>
+                <td>Factura restante después del deducible:</td>
+                <td class="input-field">$8,000 - $500 = $7,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Paso 2: Calcular el Monto del Coaseguro</h3>
+        <p>Luego, calcula tu coaseguro (20%) sobre el monto restante después del deducible.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Porcentaje de coaseguro:</td>
+                <td class="input-field">20%</td>
+            </tr>
+            <tr>
+                <td>Monto del coaseguro (20% de $7,500):</td>
+                <td class="input-field">$7,500 × 0.20 = $1,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Paso 3: Verificar el Tope del Coaseguro</h3>
+        <p>Determina si tu monto de coaseguro excede el tope del coaseguro. Si es así, solo pagas hasta el tope.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Tope del coaseguro:</td>
+                <td class="input-field">$2,000</td>
+            </tr>
+            <tr>
+                <td>¿Tu monto de coaseguro ($1,500) es mayor que el tope ($2,000)?</td>
+                <td class="input-field">No, el coaseguro está por debajo del tope</td>
+            </tr>
+            <tr>
+                <td>Pago real del coaseguro:</td>
+                <td class="input-field">$1,500</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Paso 4: Calcular el Costo Total de Bolsillo</h3>
+        <p>Suma el deducible y el coaseguro para encontrar tu costo total de bolsillo.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Deducible:</td>
+                <td class="input-field">$500</td>
+            </tr>
+            <tr>
+                <td>Pago del coaseguro:</td>
+                <td class="input-field">$1,500</td>
+            </tr>
+            <tr>
+                <td>Costo total de bolsillo:</td>
+                <td class="input-field">$500 + $1,500 = $2,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Paso 5: Verificar el Máximo de Gastos de Bolsillo</h3>
+        <p>Verifica si tu costo total de bolsillo excede el máximo anual de gastos de bolsillo.</p>
+        <table class="calculation-table">
+            <tr>
+                <td>Máximo anual de gastos de bolsillo:</td>
+                <td class="input-field">$4,000</td>
+            </tr>
+            <tr>
+                <td>¿Tu costo total de bolsillo ($2,000) es mayor que el máximo ($4,000)?</td>
+                <td class="input-field">No, está por debajo del máximo</td>
+            </tr>
+            <tr>
+                <td>Costo final de bolsillo:</td>
+                <td class="input-field">$2,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="conclusion">
+        <h3>Conclusión</h3>
+        <p>Para esta factura médica de $8,000, tu costo total de bolsillo es de $2,000:</p>
+        <ul>
+            <li>$500 de deducible</li>
+            <li>$1,500 de coaseguro (20% del resto de $7,500)</li>
+        </ul>
+        <p>La compañía de seguros pagaría los $6,000 restantes.</p>
+        <p><strong>Nota:</strong> Esto no incluye los costos de las primas, que serían $2,400 adicionales anuales.</p>
+    </div>
+
+    <h2>Escenarios Adicionales para Calcular</h2>
+
+    <div class="scenario">
+        <h3>Escenario 1: Factura Médica Más Alta</h3>
+        <p>Mismo plan de seguro, pero ahora tu factura médica es de $15,000. Calcula tu costo de bolsillo.</p>
+
+        <div class="calculation-step">
+            <h3>Tu Cálculo</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Paso 1: Aplicar deducible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 2: Calcular monto del coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 3: Verificar tope del coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 4: Calcular costo total de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 5: Verificar máximo de gastos de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo final de bolsillo:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <h3>Escenario 2: Plan con Deducible Más Alto</h3>
+        <p>Tienes un plan de seguro diferente con:</p>
+        <ul>
+            <li>Prima Anual: $1,800 ($150 por mes)</li>
+            <li>Deducible Anual: $1,500</li>
+            <li>Coaseguro: 20% después del deducible</li>
+            <li>Tope de Coaseguro: $2,000</li>
+            <li>Máximo de Gastos de Bolsillo Anual: $4,000</li>
+        </ul>
+        <p>Recibes una factura médica de $8,000. Calcula tu costo de bolsillo.</p>
+
+        <div class="calculation-step">
+            <h3>Tu Cálculo</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Paso 1: Aplicar deducible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 2: Calcular monto del coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 3: Verificar tope del coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 4: Calcular costo total de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Paso 5: Verificar máximo de gastos de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo final de bolsillo:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <h3>Escenario 3: Múltiples Facturas Médicas en Un Año</h3>
+        <p>Usando tu plan de seguro original:</p>
+        <ul>
+            <li>Prima Anual: $2,400 ($200 por mes)</li>
+            <li>Deducible Anual: $500</li>
+            <li>Coaseguro: 20% después del deducible</li>
+            <li>Tope de Coaseguro: $2,000</li>
+            <li>Máximo de Gastos de Bolsillo Anual: $4,000</li>
+        </ul>
+        <p>Tienes tres facturas médicas en un año: $1,200, $5,000 y $10,000. Calcula tu costo total de bolsillo.</p>
+
+        <div class="calculation-step">
+            <h3>Tu Cálculo</h3>
+            <table class="calculation-table">
+                <tr>
+                    <td>Factura #1 ($1,200) - Aplicar deducible</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #1 - Calcular coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #1 - Total de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #2 ($5,000) - Deducible restante</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #2 - Calcular coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #2 - Total de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Factura #3 ($10,000) - Calcular coaseguro</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Verificar tope de coaseguro y máximo de gastos de bolsillo</td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo total anual de bolsillo:</td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Preguntas de Reflexión</h2>
+
+    <div class="calculation-step">
+        <h3>Pregunta 1</h3>
+        <p>¿Cómo afecta un deducible más alto tus costos de bolsillo? ¿Cuáles son las compensaciones entre primas y deducibles?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Pregunta 2</h3>
+        <p>¿En qué situaciones tendría sentido financiero elegir un plan con prima más alta pero deducible y coaseguro más bajos?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="calculation-step">
+        <h3>Pregunta 3</h3>
+        <p>¿Cómo te protege financieramente un máximo de gastos de bolsillo? ¿Por qué es esta una característica importante a considerar al seleccionar un seguro?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Capítulo 11.3: Gestión de Costos de Seguros | Hoja de Trabajo de Calculadora de Costos de Seguros</p>
+        <p>Página 1 de 1</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+</body>
+</html>

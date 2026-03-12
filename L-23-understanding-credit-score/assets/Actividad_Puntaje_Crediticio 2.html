@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Puntaje de Credito - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .score-display {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .score-gauge {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto 16px;
+        }
+
+        .score-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .score-number.excellent { color: #10b981; }
+        .score-number.good { color: #3b82f6; }
+        .score-number.fair { color: #f59e0b; }
+        .score-number.poor { color: #ef4444; }
+
+        .score-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .score-range {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .score-bar {
+            height: 12px;
+            background: linear-gradient(to right, #ef4444 0%, #f59e0b 40%, #3b82f6 70%, #10b981 100%);
+            border-radius: 6px;
+            margin-top: 16px;
+            position: relative;
+        }
+
+        .score-indicator {
+            position: absolute;
+            top: -4px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #1f2937;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            transition: left 0.5s ease;
+        }
+
+        .factors-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .factors-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .factor-bars {
+            display: grid;
+            gap: 16px;
+        }
+
+        .factor-item {
+            display: grid;
+            grid-template-columns: 180px 1fr 60px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .factor-name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .factor-bar-container {
+            height: 24px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .factor-bar {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+
+        .factor-bar.payment { background: linear-gradient(90deg, #10b981, #059669); }
+        .factor-bar.utilization { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+        .factor-bar.history { background: linear-gradient(90deg, #8b5cf6, #7c3aed); }
+        .factor-bar.mix { background: linear-gradient(90deg, #f59e0b, #d97706); }
+        .factor-bar.new-credit { background: linear-gradient(90deg, #ec4899, #db2777); }
+
+        .factor-weight {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        .actions-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .actions-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .action-btn {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .action-btn:hover {
+            border-color: #6366f1;
+            background: #f5f3ff;
+        }
+
+        .action-btn.positive {
+            border-left: 4px solid #10b981;
+        }
+
+        .action-btn.negative {
+            border-left: 4px solid #ef4444;
+        }
+
+        .action-btn.neutral {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .action-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .action-desc {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .history-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-action {
+            flex: 1;
+        }
+
+        .history-impact {
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .history-impact.positive {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .history-impact.negative {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .analysis-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .question-box {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .question-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-box label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .question-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .impact-explanation {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .impact-explanation h4 {
+            font-size: 14px;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .impact-explanation p {
+            font-size: 13px;
+            color: #1e3a8a;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2937;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .btn-container,
+            .actions-section {
+                display: none;
+            }
+
+            .score-display,
+            .factors-section,
+            .history-section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .factor-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simulador de Puntaje de Credito</h1>
+            <p>Aprenda como sus acciones financieras impactan su puntaje de credito</p>
+        </div>
+
+        <div class="score-display">
+            <div class="score-number" id="creditScore">680</div>
+            <div class="score-label" id="scoreLabel">Bueno</div>
+            <div class="score-range">Rango de Puntaje: 300 - 850</div>
+            <div class="score-bar">
+                <div class="score-indicator" id="scoreIndicator" style="left: 69%;"></div>
+            </div>
+        </div>
+
+        <div class="factors-section">
+            <h3>Factores del Puntaje de Credito</h3>
+            <div class="factor-bars">
+                <div class="factor-item">
+                    <span class="factor-name tooltip" data-tip="Su historial de pagos a tiempo">Historial de Pagos</span>
+                    <div class="factor-bar-container">
+                        <div class="factor-bar payment" id="paymentBar" style="width: 75%;"></div>
+                    </div>
+                    <span class="factor-weight">35%</span>
+                </div>
+                <div class="factor-item">
+                    <span class="factor-name tooltip" data-tip="Porcentaje del credito disponible que esta usando">Utilizacion de Credito</span>
+                    <div class="factor-bar-container">
+                        <div class="factor-bar utilization" id="utilizationBar" style="width: 60%;"></div>
+                    </div>
+                    <span class="factor-weight">30%</span>
+                </div>
+                <div class="factor-item">
+                    <span class="factor-name tooltip" data-tip="Cuanto tiempo ha tenido cuentas de credito">Duracion del Historial</span>
+                    <div class="factor-bar-container">
+                        <div class="factor-bar history" id="historyBar" style="width: 50%;"></div>
+                    </div>
+                    <span class="factor-weight">15%</span>
+                </div>
+                <div class="factor-item">
+                    <span class="factor-name tooltip" data-tip="Variedad de tipos de credito que tiene">Mezcla de Credito</span>
+                    <div class="factor-bar-container">
+                        <div class="factor-bar mix" id="mixBar" style="width: 40%;"></div>
+                    </div>
+                    <span class="factor-weight">10%</span>
+                </div>
+                <div class="factor-item">
+                    <span class="factor-name tooltip" data-tip="Solicitudes de credito recientes">Credito Nuevo</span>
+                    <div class="factor-bar-container">
+                        <div class="factor-bar new-credit" id="newCreditBar" style="width: 70%;"></div>
+                    </div>
+                    <span class="factor-weight">10%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <h3>Simule Acciones Financieras</h3>
+            <p style="font-size: 13px; color: #6b7280; margin-bottom: 16px;">Haga clic en las acciones a continuacion para ver como afectan su puntaje de credito:</p>
+            <div class="actions-grid">
+                <button class="action-btn positive" onclick="applyAction('payOnTime')">
+                    <div class="action-title">Pagar Facturas a Tiempo</div>
+                    <div class="action-desc">Hacer todos los pagos en sus fechas de vencimiento</div>
+                </button>
+                <button class="action-btn negative" onclick="applyAction('missPayment')">
+                    <div class="action-title">Perder un Pago</div>
+                    <div class="action-desc">El pago tiene mas de 30 dias de retraso</div>
+                </button>
+                <button class="action-btn positive" onclick="applyAction('payDownDebt')">
+                    <div class="action-title">Pagar la Tarjeta de Credito</div>
+                    <div class="action-desc">Reducir el saldo para bajar la utilizacion</div>
+                </button>
+                <button class="action-btn negative" onclick="applyAction('maxOutCard')">
+                    <div class="action-title">Maximizar la Tarjeta de Credito</div>
+                    <div class="action-desc">Usar mas del 90% del credito disponible</div>
+                </button>
+                <button class="action-btn neutral" onclick="applyAction('applyNewCredit')">
+                    <div class="action-title">Solicitar Nuevo Credito</div>
+                    <div class="action-desc">Consulta dura en su reporte</div>
+                </button>
+                <button class="action-btn negative" onclick="applyAction('closeOldAccount')">
+                    <div class="action-title">Cerrar la Cuenta Mas Antigua</div>
+                    <div class="action-desc">Reduce la duracion del historial de credito</div>
+                </button>
+                <button class="action-btn positive" onclick="applyAction('becomeAuthorizedUser')">
+                    <div class="action-title">Convertirse en Usuario Autorizado</div>
+                    <div class="action-desc">Agregado a la tarjeta de credito de un padre con buen credito</div>
+                </button>
+                <button class="action-btn negative" onclick="applyAction('collection')">
+                    <div class="action-title">Cuenta Enviada a Cobranza</div>
+                    <div class="action-desc">Deuda impaga vendida a cobrador</div>
+                </button>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3>Historial de Acciones</h3>
+            <div class="history-list" id="historyList">
+                <div class="history-item" style="color: #6b7280; font-style: italic;">
+                    Aun no se han tomado acciones. Haga clic en las acciones arriba para ver su impacto.
+                </div>
+            </div>
+        </div>
+
+        <div id="impactExplanation" class="impact-explanation" style="display: none;">
+            <h4 id="explanationTitle">Explicacion del Impacto</h4>
+            <p id="explanationText"></p>
+        </div>
+
+        <div class="analysis-section">
+            <h3>Preguntas de Reflexion</h3>
+
+            <div class="question-box">
+                <label>1. Basado en su simulacion, que factor tiene el mayor impacto en los puntajes de credito? Por que cree que es asi?</label>
+                <textarea placeholder="El historial de pagos tiene el mayor impacto porque..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <label>2. Jason solicito tres tarjetas de credito en un mes, pensando que podria comparar ofertas. Que le paso a su puntaje y por que?</label>
+                <textarea placeholder="El puntaje de Jason bajo porque..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <label>3. Sofia cerro su tarjeta de credito mas antigua para simplificar sus finanzas. Como afecto esto su puntaje?</label>
+                <textarea placeholder="Cerrar la cuenta mas antigua afecto su puntaje al..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <label>4. Que tres acciones tomaria para construir o mejorar su puntaje de credito? Por que eligio estas?</label>
+                <textarea placeholder="Yo: 1) ... 2) ... 3) ... porque..."></textarea>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="resetSimulation()">Reiniciar Simulacion</button>
+            <button class="btn btn-secondary" onclick="window.print()">Imprimir Resultados</button>
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy - Capitulo 23: Entendiendo los Puntajes de Credito</p>
+        </div>
+    </div>
+
+    <script>
+        let currentScore = 680;
+        let actionHistory = [];
+
+        const factorScores = {
+            payment: 75,
+            utilization: 60,
+            history: 50,
+            mix: 40,
+            newCredit: 70
+        };
+
+        const actions = {
+            payOnTime: {
+                name: 'Pago facturas a tiempo',
+                impact: 15,
+                type: 'positive',
+                factor: 'payment',
+                factorChange: 10,
+                explanation: 'El historial de pagos es el 35% de su puntaje - el factor mas grande. Los pagos a tiempo demuestran confiabilidad a los prestamistas. Solo un pago a tiempo ayuda, pero los pagos consistentes a tiempo durante meses y anos tienen el efecto positivo mas fuerte.'
+            },
+            missPayment: {
+                name: 'Perdio un pago',
+                impact: -50,
+                type: 'negative',
+                factor: 'payment',
+                factorChange: -25,
+                explanation: 'Un pago atrasado (30+ dias) puede bajar su puntaje entre 50-100 puntos! Los pagos atrasados permanecen en su reporte de credito por 7 anos. Cuanto mas reciente sea el pago atrasado, mas dano causa. Multiples pagos atrasados son aun mas daninos.'
+            },
+            payDownDebt: {
+                name: 'Pago la tarjeta de credito',
+                impact: 20,
+                type: 'positive',
+                factor: 'utilization',
+                factorChange: 15,
+                explanation: 'La utilizacion de credito (30% del puntaje) mide cuanto de su credito disponible usa. Mantener la utilizacion por debajo del 30% es bueno; por debajo del 10% es excelente. Pagar los saldos es una de las formas mas rapidas de mejorar su puntaje.'
+            },
+            maxOutCard: {
+                name: 'Maximizo la tarjeta de credito',
+                impact: -40,
+                type: 'negative',
+                factor: 'utilization',
+                factorChange: -30,
+                explanation: 'Alta utilizacion (90%+) senala estres financiero a los prestamistas. Incluso si paga en su totalidad cada mes, un saldo alto cuando se reporta se ve mal. Solicite un limite de credito mas alto o pague antes de la fecha del estado de cuenta para bajar la utilizacion.'
+            },
+            applyNewCredit: {
+                name: 'Solicito nuevo credito',
+                impact: -10,
+                type: 'negative',
+                factor: 'newCredit',
+                factorChange: -15,
+                explanation: 'Cada solicitud de credito crea una "consulta dura" que puede bajar su puntaje entre 5-10 puntos. Multiples solicitudes en poco tiempo parecen riesgosas. Sin embargo, buscar tasas para hipotecas o prestamos de auto dentro de 14-45 dias cuenta como una sola consulta.'
+            },
+            closeOldAccount: {
+                name: 'Cerro la cuenta mas antigua',
+                impact: -30,
+                type: 'negative',
+                factor: 'history',
+                factorChange: -20,
+                explanation: 'Cerrar su cuenta mas antigua acorta su historial de credito (15% del puntaje) y aumenta su ratio de utilizacion (menos credito disponible). Mantenga las cuentas antiguas abiertas, incluso si raramente las usa. Uselas ocasionalmente para prevenir el cierre.'
+            },
+            becomeAuthorizedUser: {
+                name: 'Se convirtio en usuario autorizado',
+                impact: 25,
+                type: 'positive',
+                factor: 'history',
+                factorChange: 15,
+                explanation: 'Ser agregado a la tarjeta de credito de alguien como usuario autorizado puede agregar su historial de pagos positivo a su reporte. Esta es una gran manera para que los jovenes empiecen a construir credito. Elija a alguien con excelentes habitos de credito!'
+            },
+            collection: {
+                name: 'Cuenta enviada a cobranza',
+                impact: -100,
+                type: 'negative',
+                factor: 'payment',
+                factorChange: -40,
+                explanation: 'Las cobranzas son extremadamente daninas y pueden bajar su puntaje mas de 100 puntos. Permanecen en su reporte por 7 anos. Incluso las cobranzas pagadas danan su puntaje (aunque algunos modelos de puntaje mas nuevos ignoran las cobranzas pagadas). Evite esto a toda costa!'
+            }
+        };
+
+        function applyAction(actionKey) {
+            const action = actions[actionKey];
+
+            // Update score
+            currentScore = Math.max(300, Math.min(850, currentScore + action.impact));
+
+            // Update factor
+            factorScores[action.factor] = Math.max(0, Math.min(100,
+                factorScores[action.factor] + action.factorChange));
+
+            // Add to history
+            actionHistory.unshift({
+                name: action.name,
+                impact: action.impact,
+                type: action.type
+            });
+
+            // Update displays
+            updateScoreDisplay();
+            updateFactorBars();
+            updateHistory();
+            showExplanation(action);
+        }
+
+        function updateScoreDisplay() {
+            const scoreElement = document.getElementById('creditScore');
+            const labelElement = document.getElementById('scoreLabel');
+            const indicatorElement = document.getElementById('scoreIndicator');
+
+            scoreElement.textContent = currentScore;
+
+            // Update label and color
+            let label, colorClass;
+            if (currentScore >= 750) {
+                label = 'Excelente';
+                colorClass = 'excellent';
+            } else if (currentScore >= 700) {
+                label = 'Bueno';
+                colorClass = 'good';
+            } else if (currentScore >= 650) {
+                label = 'Regular';
+                colorClass = 'fair';
+            } else {
+                label = 'Malo';
+                colorClass = 'poor';
+            }
+
+            labelElement.textContent = label;
+            scoreElement.className = 'score-number ' + colorClass;
+
+            // Update indicator position (300-850 range)
+            const percentage = ((currentScore - 300) / 550) * 100;
+            indicatorElement.style.left = percentage + '%';
+        }
+
+        function updateFactorBars() {
+            document.getElementById('paymentBar').style.width = factorScores.payment + '%';
+            document.getElementById('utilizationBar').style.width = factorScores.utilization + '%';
+            document.getElementById('historyBar').style.width = factorScores.history + '%';
+            document.getElementById('mixBar').style.width = factorScores.mix + '%';
+            document.getElementById('newCreditBar').style.width = factorScores.newCredit + '%';
+        }
+
+        function updateHistory() {
+            const historyList = document.getElementById('historyList');
+
+            if (actionHistory.length === 0) {
+                historyList.innerHTML = '<div class="history-item" style="color: #6b7280; font-style: italic;">Aun no se han tomado acciones.</div>';
+                return;
+            }
+
+            historyList.innerHTML = actionHistory.map(item => `
+                <div class="history-item">
+                    <span class="history-action">${item.name}</span>
+                    <span class="history-impact ${item.type}">
+                        ${item.impact > 0 ? '+' : ''}${item.impact} puntos
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function showExplanation(action) {
+            const explanationDiv = document.getElementById('impactExplanation');
+            const titleElement = document.getElementById('explanationTitle');
+            const textElement = document.getElementById('explanationText');
+
+            titleElement.textContent = action.name + ' - Impacto: ' + (action.impact > 0 ? '+' : '') + action.impact + ' puntos';
+            textElement.textContent = action.explanation;
+            explanationDiv.style.display = 'block';
+            explanationDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetSimulation() {
+            currentScore = 680;
+            actionHistory = [];
+            factorScores.payment = 75;
+            factorScores.utilization = 60;
+            factorScores.history = 50;
+            factorScores.mix = 40;
+            factorScores.newCredit = 70;
+
+            updateScoreDisplay();
+            updateFactorBars();
+            updateHistory();
+            document.getElementById('impactExplanation').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

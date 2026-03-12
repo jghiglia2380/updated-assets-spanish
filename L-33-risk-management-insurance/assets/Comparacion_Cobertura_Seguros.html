@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Comparación de Cobertura de Seguros</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1, h2, h3 { color: #333; }
+        h1 { text-align: center; border-bottom: 2px solid #4F46E5; padding-bottom: 10px; margin-bottom: 20px; }
+        .header { margin-bottom: 30px; }
+        .header h1 { margin-bottom: 5px; }
+        .header p { text-align: center; font-style: italic; margin-top: 0; }
+        .instructions { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; margin-bottom: 20px; }
+        .scenario { background-color: #f3e8ff; border-left: 4px solid #8b5cf6; padding: 15px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .coverage-comparison { width: 100%; }
+        .coverage-comparison th { background-color: #e6f3ff; text-align: center; }
+        .writing-area { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; min-height: 80px; }
+        .calculation-area { background-color: #f9fafb; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; }
+        .calculation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .calculation-box { border: 1px solid #ddd; padding: 10px; }
+        .footer { margin-top: 40px; font-size: 12px; text-align: center; color: #666; border-top: 1px solid #ddd; padding-top: 10px; }
+        @media print { body { padding: 0; font-size: 12pt; } .no-print { display: none; } .page-break { page-break-before: always; } h1 { font-size: 18pt; } h2 { font-size: 16pt; } h3 { font-size: 14pt; } .instructions, .scenario { border-left: 2px solid; padding: 10px; } table { page-break-inside: avoid; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Comparación de Cobertura de Seguros</h1>
+            <p>Capítulo 11.1: Entendiendo y Gestionando el Riesgo</p>
+        </div>
+
+        <div class="instructions">
+            <h3>Instrucciones para Usar Esta Hoja de Trabajo</h3>
+            <p>Esta hoja de trabajo le ayudará a analizar opciones de seguros y determinar la cobertura más apropiada basándose en situaciones específicas. Siga estos pasos:</p>
+            <ol>
+                <li>Lea cuidadosamente cada escenario para entender la situación de la persona</li>
+                <li>Compare las opciones de cobertura disponibles usando las tablas de comparación</li>
+                <li>Considere tanto las necesidades de protección como las restricciones de costo</li>
+                <li>Haga una recomendación y justifique su decisión</li>
+                <li>Calcule el impacto financiero de diferentes opciones de cobertura</li>
+            </ol>
+            <p><strong>Para guardar como PDF:</strong> Use Archivo → Imprimir, luego seleccione "Guardar como PDF" como destino.</p>
+        </div>
+
+        <h2>Parte 1: Análisis de Seguro de Auto</h2>
+
+        <div class="scenario">
+            <h3>Perfil del Conductor: Jordán</h3>
+            <p><strong>Situación:</strong> Jordán es un estudiante universitario de 19 años con un historial de conducción limpio. Conduce un sedán de 5 años valorado en $12,000 y lo usa diariamente para ir a la universidad (15 millas de ida), viajar a un trabajo de medio tiempo varias veces por semana, y viajes ocasionales de fin de semana para visitar a la familia.</p>
+            <p><strong>Situación financiera:</strong></p>
+            <ul>
+                <li>$2,000 en ahorros de emergencia</li>
+                <li>Ingresos de trabajo de medio tiempo de aproximadamente $1,000/mes</li>
+                <li>Los padres pueden asistir financieramente si es necesario, pero Jordán es responsable de todos los costos del auto</li>
+            </ul>
+            <p><strong>Preocupación reciente:</strong> Recientemente tuvo un choque menor (no fue su culpa) y está preocupado por proteger su vehículo y finanzas en caso de un accidente.</p>
+        </div>
+
+        <h3>Opciones de Seguro Disponibles:</h3>
+
+        <table class="coverage-comparison">
+            <tr>
+                <th>Características de Cobertura</th>
+                <th>Opción A: Cobertura Básica</th>
+                <th>Opción B: Cobertura Estándar</th>
+                <th>Opción C: Cobertura Premium</th>
+            </tr>
+            <tr><td>Responsabilidad por Lesiones Corporales</td><td>$25,000 por persona/$50,000 por accidente</td><td>$100,000 por persona/$300,000 por accidente</td><td>$250,000 por persona/$500,000 por accidente</td></tr>
+            <tr><td>Responsabilidad por Daños a la Propiedad</td><td>$25,000</td><td>$50,000</td><td>$100,000</td></tr>
+            <tr><td>Cobertura de Colisión</td><td>No incluida</td><td>Deducible de $1,000</td><td>Deducible de $500</td></tr>
+            <tr><td>Cobertura Comprensiva</td><td>No incluida</td><td>Deducible de $1,000</td><td>Deducible de $500</td></tr>
+            <tr><td>Motorista Sin Seguro</td><td>No incluida</td><td>Incluida</td><td>Incluida</td></tr>
+            <tr><td>Asistencia en Carretera</td><td>No incluida</td><td>No incluida</td><td>Incluida</td></tr>
+            <tr><td>Reembolso de Auto de Alquiler</td><td>No incluida</td><td>No incluida</td><td>Incluida (hasta $30/día)</td></tr>
+            <tr><td><strong>Prima Mensual</strong></td><td><strong>$75</strong></td><td><strong>$125</strong></td><td><strong>$175</strong></td></tr>
+            <tr><td><strong>Prima Anual</strong></td><td><strong>$900</strong></td><td><strong>$1,500</strong></td><td><strong>$2,100</strong></td></tr>
+        </table>
+
+        <h3>Preguntas de Análisis:</h3>
+
+        <div class="writing-area">
+            <p><strong>1. ¿Qué opción de seguro recomendaría para Jordán? ¿Por qué?</strong></p>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>2. ¿Qué riesgos específicos enfrentaría Jordán con cada opción en caso de accidente?</strong></p>
+        </div>
+
+        <div class="calculation-area">
+            <h3>Análisis de Impacto Financiero</h3>
+            <p>Calcule el impacto financiero en Jordán en estos escenarios:</p>
+
+            <div class="calculation-grid">
+                <div class="calculation-box">
+                    <p><strong>Escenario 1: Jordán causa un accidente con $8,000 en daños a su auto y $30,000 en daños a otro vehículo</strong></p>
+                    <p>Costo para Jordán con Opción A: $</p>
+                    <p>Costo para Jordán con Opción B: $</p>
+                    <p>Costo para Jordán con Opción C: $</p>
+                </div>
+
+                <div class="calculation-box">
+                    <p><strong>Escenario 2: El auto de Jordán estacionado es dañado por un conductor que se da a la fuga, causando $4,500 en daños</strong></p>
+                    <p>Costo para Jordán con Opción A: $</p>
+                    <p>Costo para Jordán con Opción B: $</p>
+                    <p>Costo para Jordán con Opción C: $</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>3. ¿Cómo podría cambiar su recomendación si la situación financiera de Jordán fuera diferente? Considere tanto más como menos seguridad financiera.</strong></p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>Parte 2: Análisis de Seguro de Inquilinos</h2>
+
+        <div class="scenario">
+            <h3>Perfil del Inquilino: Taylor</h3>
+            <p><strong>Situación:</strong> Taylor es una diseñadora gráfica remota de 25 años que comparte un apartamento de dos habitaciones en una zona suburbana. Su apartamento contiene:</p>
+            <ul>
+                <li>Muebles con valor aproximado de $4,000</li>
+                <li>Electrónicos con valor de $3,500 (incluyendo una laptop de trabajo de $2,000)</li>
+                <li>Ropa con valor de $2,500</li>
+                <li>Bicicleta con valor de $800</li>
+            </ul>
+            <p><strong>Situación financiera:</strong></p>
+            <ul>
+                <li>Ingresos anuales de $48,000 por trabajo remoto de diseño gráfico</li>
+                <li>$5,000 en ahorros de emergencia</li>
+                <li>Planea comprar equipo de cámara costoso pronto para un negocio secundario en crecimiento</li>
+            </ul>
+            <p><strong>Situación:</strong> Vive en un área con crimen de propiedad ocasional, y su edificio de apartamentos tuvo un pequeño incendio de cocina el año pasado en otra unidad. Está preocupada por proteger su equipo de trabajo ya que sus ingresos dependen de él.</p>
+        </div>
+
+        <h3>Opciones de Seguro Disponibles:</h3>
+
+        <table class="coverage-comparison">
+            <tr>
+                <th>Características de Cobertura</th>
+                <th>Opción A: Cobertura Básica</th>
+                <th>Opción B: Cobertura Estándar</th>
+                <th>Opción C: Cobertura Premium</th>
+            </tr>
+            <tr><td>Propiedad Personal</td><td>$10,000</td><td>$30,000</td><td>$50,000</td></tr>
+            <tr><td>Responsabilidad</td><td>$100,000</td><td>$300,000</td><td>$500,000</td></tr>
+            <tr><td>Gastos de Vivienda Adicionales</td><td>$1,000</td><td>$5,000</td><td>$10,000</td></tr>
+            <tr><td>Cobertura de Electrónicos</td><td>Estándar (sub-límite de $1,500)</td><td>Mejorada (sub-límite de $3,000)</td><td>Premium (cobertura completa)</td></tr>
+            <tr><td>Daño por Agua</td><td>Cobertura limitada</td><td>Cobertura estándar</td><td>Cobertura mejorada</td></tr>
+            <tr><td>Protección contra Robo de Identidad</td><td>No incluida</td><td>Básica (límite $1,000)</td><td>Mejorada (límite $5,000)</td></tr>
+            <tr><td>Deducible</td><td>$500</td><td>$250</td><td>$250</td></tr>
+            <tr><td><strong>Prima Mensual</strong></td><td><strong>$15</strong></td><td><strong>$25</strong></td><td><strong>$35</strong></td></tr>
+            <tr><td><strong>Prima Anual</strong></td><td><strong>$180</strong></td><td><strong>$300</strong></td><td><strong>$420</strong></td></tr>
+        </table>
+
+        <h3>Preguntas de Análisis:</h3>
+
+        <div class="writing-area">
+            <p><strong>1. ¿Qué opción de seguro de inquilinos recomendaría para Taylor? ¿Por qué?</strong></p>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>2. ¿Qué riesgos específicos enfrenta Taylor como trabajadora remota con electrónicos valiosos?</strong></p>
+        </div>
+
+        <div class="calculation-area">
+            <h3>Análisis de Impacto Financiero</h3>
+            <p>Calcule el impacto financiero en Taylor en estos escenarios:</p>
+
+            <div class="calculation-grid">
+                <div class="calculation-box">
+                    <p><strong>Escenario 1: Un incendio en el apartamento de Taylor daña sus muebles ($2,000), electrónicos ($3,500), y hace el apartamento inhabitable por 2 semanas (costo de hotel: $1,400)</strong></p>
+                    <p>Costo para Taylor con Opción A: $</p>
+                    <p>Costo para Taylor con Opción B: $</p>
+                    <p>Costo para Taylor con Opción C: $</p>
+                </div>
+
+                <div class="calculation-box">
+                    <p><strong>Escenario 2: La laptop de Taylor ($2,000) es robada mientras trabaja en una cafetería</strong></p>
+                    <p>Costo para Taylor con Opción A: $</p>
+                    <p>Costo para Taylor con Opción B: $</p>
+                    <p>Costo para Taylor con Opción C: $</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>3. ¿Cómo cambiaría su recomendación si Taylor adquiere equipo de cámara costoso de $3,000 para su negocio secundario?</strong></p>
+        </div>
+
+        <h2>Parte 3: Análisis Costo-Beneficio</h2>
+
+        <div class="writing-area">
+            <p><strong>1. ¿Cuál es la relación entre primas más altas y deducibles más bajos? ¿Cuándo vale la pena pagar primas más altas?</strong></p>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>2. ¿Cómo afecta el valor de los artículos asegurados o la responsabilidad potencial al nivel apropiado de cobertura?</strong></p>
+        </div>
+
+        <div class="writing-area">
+            <p><strong>3. ¿Cómo impacta la situación financiera de una persona (ahorros, ingresos, etc.) sus opciones apropiadas de seguro?</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 11.1: Entendiendo y Gestionando el Riesgo</p>
+            <p>© 2025 PFL Academy. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

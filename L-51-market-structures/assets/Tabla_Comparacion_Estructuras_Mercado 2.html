@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Comparación de Estructuras de Mercado - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .consumer-friendly {
+            background-color: #d1fae5;
+        }
+
+        .neutral {
+            background-color: #fef3c7;
+        }
+
+        .seller-friendly {
+            background-color: #fee2e2;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 14px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+            vertical-align: top;
+            font-size: 0.85rem;
+        }
+
+        tr:hover td {
+            background-color: #f9fafb;
+        }
+
+        .row-header {
+            background-color: #f8fafc;
+            font-weight: 600;
+            text-align: left !important;
+            color: #374151;
+        }
+
+        .consumer-cell {
+            background-color: #d1fae5 !important;
+        }
+
+        .neutral-cell {
+            background-color: #fef3c7 !important;
+        }
+
+        .seller-cell {
+            background-color: #fee2e2 !important;
+        }
+
+        .examples-cell {
+            text-align: left !important;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .sub-text {
+            display: block;
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .takeaway-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .takeaway-box h3 {
+            color: #1d4ed8;
+            margin-bottom: 12px;
+        }
+
+        .takeaway-box ul {
+            margin-left: 20px;
+        }
+
+        .takeaway-box li {
+            margin-bottom: 8px;
+        }
+
+        .application-box {
+            background: #fff7ed;
+            border: 2px solid #fed7aa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .application-box h3 {
+            color: #ea580c;
+            margin-bottom: 12px;
+        }
+
+        .application-box ul {
+            margin-left: 20px;
+        }
+
+        .application-box li {
+            margin-bottom: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            background: #f8fafc;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            th {
+                background: #6366f1 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .consumer-cell, .neutral-cell, .seller-cell {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .table-container {
+                overflow: visible;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .legend {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tabla de Comparación de Estructuras de Mercado</h1>
+            <p>Comparación lado a lado de las cuatro estructuras de mercado</p>
+        </div>
+
+        <div class="content">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color consumer-friendly"></div>
+                    <span>Favorable al Consumidor</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color neutral"></div>
+                    <span>Neutral</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color seller-friendly"></div>
+                    <span>Favorable al Vendedor</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Competencia Perfecta</th>
+                            <th>Competencia Monopolística</th>
+                            <th>Oligopolio</th>
+                            <th>Monopolio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="row-header">Número de Vendedores</td>
+                            <td class="consumer-cell">Muchos<span class="sub-text">(Cientos/Miles)</span></td>
+                            <td class="consumer-cell">Muchos<span class="sub-text">(Docenas/Cientos)</span></td>
+                            <td class="neutral-cell">Pocos<span class="sub-text">(2-10 actores principales)</span></td>
+                            <td class="seller-cell">Uno<span class="sub-text">(Vendedor único)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Tipo de Producto</td>
+                            <td class="consumer-cell">Idéntico<span class="sub-text">(Estandarizado)</span></td>
+                            <td class="neutral-cell">Diferenciado<span class="sub-text">(Ligeramente diferente)</span></td>
+                            <td class="neutral-cell">Similar o Diferente<span class="sub-text">(Varía por mercado)</span></td>
+                            <td class="seller-cell">Único<span class="sub-text">(Sin sustitutos)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Barreras de Entrada</td>
+                            <td class="consumer-cell">Ninguna<span class="sub-text">(Fácil entrar/salir)</span></td>
+                            <td class="consumer-cell">Bajas<span class="sub-text">(Relativamente fácil)</span></td>
+                            <td class="seller-cell">Altas<span class="sub-text">(Difícil de entrar)</span></td>
+                            <td class="seller-cell">Extremas<span class="sub-text">(Imposible/ilegal)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Control de Precios</td>
+                            <td class="consumer-cell">Ninguno<span class="sub-text">(El mercado determina)</span></td>
+                            <td class="neutral-cell">Algo<span class="sub-text">(Limitado por competencia)</span></td>
+                            <td class="seller-cell">Significativo<span class="sub-text">(Precios coordinados)</span></td>
+                            <td class="seller-cell">Completo<span class="sub-text">(Fijador de precios)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Ganancia Económica (Largo Plazo)</td>
+                            <td class="consumer-cell">Cero<span class="sub-text">(Solo ganancia normal)</span></td>
+                            <td class="consumer-cell">Cero<span class="sub-text">(Solo ganancia normal)</span></td>
+                            <td class="seller-cell">Positiva<span class="sub-text">(Por encima de lo normal)</span></td>
+                            <td class="seller-cell">Alta Positiva<span class="sub-text">(Sustancial)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Excedente del Consumidor</td>
+                            <td class="consumer-cell">Máximo<span class="sub-text">(Precios = costos)</span></td>
+                            <td class="consumer-cell">Alto<span class="sub-text">(Competitivo)</span></td>
+                            <td class="neutral-cell">Moderado<span class="sub-text">(Algo de pérdida)</span></td>
+                            <td class="seller-cell">Mínimo<span class="sub-text">(Pérdida significativa)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Eficiencia</td>
+                            <td class="consumer-cell">Tanto Asignativa como Productiva</td>
+                            <td class="neutral-cell">Ninguna<span class="sub-text">(pero competitivo)</span></td>
+                            <td class="neutral-cell">Ninguna<span class="sub-text">(poder de mercado)</span></td>
+                            <td class="seller-cell">Ninguna<span class="sub-text">(ineficiente)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Publicidad</td>
+                            <td class="consumer-cell">Ninguna<span class="sub-text">(Productos idénticos)</span></td>
+                            <td class="neutral-cell">Significativa<span class="sub-text">(Construcción de marca)</span></td>
+                            <td class="neutral-cell">Moderada a Alta<span class="sub-text">(Competencia de marcas)</span></td>
+                            <td class="seller-cell">Mínima<span class="sub-text">(Sin competencia)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Poder de Negociación del Consumidor</td>
+                            <td class="consumer-cell">Muy Alto<span class="sub-text">(Fácil cambiar)</span></td>
+                            <td class="consumer-cell">Alto<span class="sub-text">(Muchas opciones)</span></td>
+                            <td class="neutral-cell">Limitado<span class="sub-text">(Pocas alternativas)</span></td>
+                            <td class="seller-cell">Ninguno<span class="sub-text">(Sin alternativas)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Ejemplos del Mundo Real</td>
+                            <td class="examples-cell">
+                                - Productos agrícolas<br>
+                                - Mercado de valores<br>
+                                - Cambio de divisas<br>
+                                - Mercados en línea
+                            </td>
+                            <td class="examples-cell">
+                                - Restaurantes<br>
+                                - Tiendas de ropa<br>
+                                - Salones de belleza<br>
+                                - Gasolineras<br>
+                                - Cafeterías
+                            </td>
+                            <td class="examples-cell">
+                                - Aerolíneas<br>
+                                - Compañías celulares<br>
+                                - Fabricantes de autos<br>
+                                - Servicios de streaming<br>
+                                - Refrescos
+                            </td>
+                            <td class="examples-cell">
+                                - Servicios públicos locales<br>
+                                - Medicamentos patentados<br>
+                                - Cable/internet (algunas áreas)<br>
+                                - Ligas deportivas profesionales
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">Estrategia del Consumidor</td>
+                            <td class="examples-cell">
+                                Compra solo por precio - los productos son idénticos. Usa apps de comparación.
+                            </td>
+                            <td class="examples-cell">
+                                Evalúa si la diferenciación vale el precio extra. Prueba alternativas.
+                            </td>
+                            <td class="examples-cell">
+                                Compara todos los jugadores. Negocia en renovación. Usa la competencia como palanca.
+                            </td>
+                            <td class="examples-cell">
+                                Minimiza consumo. Entiende los niveles de tarifas. Busca sustitutos a largo plazo.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="takeaway-box">
+                <h3>Puntos Clave para Consumidores</h3>
+                <ul>
+                    <li><strong>Competencia Perfecta:</strong> Mejor para consumidores - precios más bajos, mayor calidad, más opciones</li>
+                    <li><strong>Competencia Monopolística:</strong> Bueno para consumidores - variedad y competencia mantienen precios razonables</li>
+                    <li><strong>Oligopolio:</strong> Mixto - algo de competencia pero la coordinación puede elevar precios</li>
+                    <li><strong>Monopolio:</strong> Peor para consumidores - precios más altos, menor excedente del consumidor</li>
+                </ul>
+            </div>
+
+            <div class="application-box">
+                <h3>Aplicación a las Finanzas Personales</h3>
+                <ul>
+                    <li>Identifica dónde tienes poder de negociación y dónde no</li>
+                    <li>Sabe cuándo buscar extensamente vs. cuando todos los vendedores son similares</li>
+                    <li>Entiende por qué algunos productos son caros y otros son baratos</li>
+                    <li>Toma decisiones estratégicas sobre cuándo y dónde comprar</li>
+                    <li>Aboga por políticas que promuevan la competencia en mercados concentrados</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="window.print()">Imprimir Tabla</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            PFL Academy - L-51: Estructuras de Mercado y Elección del Consumidor
+        </div>
+    </div>
+</body>
+</html>

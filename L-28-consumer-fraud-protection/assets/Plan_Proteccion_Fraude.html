@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Proteccion contra Fraude - Capitulo 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .plan-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .strategy-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .input-field {
+            width: 100%;
+            min-height: 60px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        .input-field-sm {
+            min-height: 30px;
+        }
+        .note {
+            background-color: #fffae6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+        }
+        .priority-high {
+            background-color: #fcdddb;
+            border-left: 4px solid #e74c3c;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .priority-medium {
+            background-color: #fdedd0;
+            border-left: 4px solid #f39c12;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .priority-low {
+            background-color: #e9f7ef;
+            border-left: 4px solid #27ae60;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .checklist label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .centered {
+            text-align: center;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .plan-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="plan-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Plan Personal de Proteccion contra Fraude</h1>
+        <p>Este plan describe su estrategia personalizada para protegerse del fraude al consumidor y el robo de identidad.</p>
+
+        <div class="section">
+            <h2>Declaracion de Filosofia Personal sobre Fraude</h2>
+            <p>Escriba una breve declaracion sobre su enfoque hacia la proteccion contra fraude y por que es importante para usted personalmente:</p>
+            <div class="input-field"></div>
+        </div>
+
+        <div class="section">
+            <h2>Mi Perfil de Vulnerabilidad al Fraude</h2>
+            <p>Basandose en su Evaluacion de Vulnerabilidad al Fraude, identifique sus niveles de riesgo actuales en cada area:</p>
+
+            <table>
+                <tr>
+                    <th>Area de Riesgo</th>
+                    <th>Nivel de Riesgo Actual</th>
+                    <th>Notas sobre Vulnerabilidades Personales</th>
+                </tr>
+                <tr>
+                    <td>Seguridad de Cuentas</td>
+                    <td class="centered">
+                        <label><input type="radio" name="account"> Alto</label>
+                        <label><input type="radio" name="account"> Medio</label>
+                        <label><input type="radio" name="account"> Bajo</label>
+                    </td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Comportamiento en Linea</td>
+                    <td class="centered">
+                        <label><input type="radio" name="online"> Alto</label>
+                        <label><input type="radio" name="online"> Medio</label>
+                        <label><input type="radio" name="online"> Bajo</label>
+                    </td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Compartir Informacion</td>
+                    <td class="centered">
+                        <label><input type="radio" name="info"> Alto</label>
+                        <label><input type="radio" name="info"> Medio</label>
+                        <label><input type="radio" name="info"> Bajo</label>
+                    </td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Monitoreo y Mantenimiento</td>
+                    <td class="centered">
+                        <label><input type="radio" name="monitor"> Alto</label>
+                        <label><input type="radio" name="monitor"> Medio</label>
+                        <label><input type="radio" name="monitor"> Bajo</label>
+                    </td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Seguridad de Dispositivos</td>
+                    <td class="centered">
+                        <label><input type="radio" name="device"> Alto</label>
+                        <label><input type="radio" name="device"> Medio</label>
+                        <label><input type="radio" name="device"> Bajo</label>
+                    </td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+            </table>
+
+            <p><strong>Mi area de mayor riesgo es:</strong></p>
+            <div class="input-field-sm"></div>
+
+            <p><strong>Por que esta area me preocupa mas:</strong></p>
+            <div class="input-field-sm"></div>
+        </div>
+
+        <div class="section">
+            <h2>Plan de Accion Priorizado</h2>
+            <p>Desarrolle pasos de accion especificos para abordar sus vulnerabilidades, comenzando con las areas de alto riesgo:</p>
+
+            <h3>Acciones de Alta Prioridad (Completar en 1 semana)</h3>
+            <div class="priority-high">
+                <div class="input-field"></div>
+            </div>
+
+            <h3>Acciones de Prioridad Media (Completar en 1 mes)</h3>
+            <div class="priority-medium">
+                <div class="input-field"></div>
+            </div>
+
+            <h3>Acciones de Baja Prioridad (Completar en 3 meses)</h3>
+            <div class="priority-low">
+                <div class="input-field"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estrategia de Seguridad de Cuentas</h2>
+
+            <p><strong>Enfoque de Gestion de Contrasenas:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+
+            <p><strong>Plan de Autenticacion de Dos Factores:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+
+            <p><strong>Calendario de Revision de Cuentas:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sistema de Monitoreo y Alertas</h2>
+
+            <p><strong>Monitoreo de Cuentas Financieras:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+
+            <p><strong>Monitoreo de Informes de Credito:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+
+            <p><strong>Monitoreo de Robo de Identidad:</strong></p>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Protocolo de Compartir Informacion</h2>
+
+            <h3>Configuracion de Privacidad en Redes Sociales:</h3>
+            <table>
+                <tr>
+                    <th>Plataforma</th>
+                    <th>Configuracion de Privacidad a Revisar</th>
+                    <th>Informacion a Eliminar/Limitar</th>
+                </tr>
+                <tr>
+                    <td>Facebook</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Twitter/X</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>LinkedIn</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Otro:</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+            </table>
+
+            <h3>Estrategia de Gestion de Documentos:</h3>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Protocolo de Verificacion de Comunicaciones</h2>
+            <p>Desarrolle un protocolo personal para verificar la legitimidad de las comunicaciones que dicen ser de instituciones financieras, agencias gubernamentales u otras organizaciones:</p>
+
+            <div class="strategy-box">
+                <div class="input-field"></div>
+            </div>
+
+            <h3>Lista de Verificacion de Senales de Alerta</h3>
+            <p>Cree una lista de senales de alerta que activaran su protocolo de verificacion:</p>
+            <div class="strategy-box">
+                <div class="input-field"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Seguridad de Dispositivos y Redes</h2>
+
+            <h3>Inventario de Dispositivos</h3>
+            <p>Enumere todos los dispositivos que acceden a informacion sensible y su estado de seguridad:</p>
+            <table>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Medidas de Seguridad Implementadas</th>
+                    <th>Actualizaciones de Seguridad Necesarias</th>
+                </tr>
+                <tr>
+                    <td>Telefono Inteligente</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Computadora Personal</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Tableta</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Otro:</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+            </table>
+
+            <h3>Protocolo de WiFi Publico:</h3>
+            <div class="strategy-box">
+                <div class="input-field-sm"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Plan de Respuesta de Emergencia</h2>
+            <p>Describa los pasos que tomara si sospecha que ha sido victima de fraude:</p>
+
+            <table>
+                <tr>
+                    <th>Tipo de Fraude</th>
+                    <th>Acciones Inmediatas</th>
+                    <th>A Quien Contactar</th>
+                    <th>Documentacion a Reunir</th>
+                </tr>
+                <tr>
+                    <td>Fraude de Cuenta Financiera</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Robo de Identidad</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Hackeo de Correo/Cuenta</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Notificacion de Violacion de Datos</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+            </table>
+
+            <h3>Informacion de Contacto Importante</h3>
+            <table>
+                <tr>
+                    <td>Servicio al Cliente del Banco</td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Companias de Tarjetas de Credito</td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+                <tr>
+                    <td>Agencias de Credito</td>
+                    <td>
+                        Equifax: 1-888-836-6351<br>
+                        Experian: 1-888-397-3742<br>
+                        TransUnion: 1-800-680-7289
+                    </td>
+                </tr>
+                <tr>
+                    <td>Linea de Robo de Identidad de la FTC</td>
+                    <td>1-877-438-4338</td>
+                </tr>
+                <tr>
+                    <td>Policia Local (No Emergencias)</td>
+                    <td><div class="input-field-sm"></div></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Educacion y Concienciacion</h2>
+            <p>Como se mantendra informado sobre nuevas tendencias de fraude y estafas?</p>
+            <div class="strategy-box">
+                <div class="input-field"></div>
+            </div>
+
+            <p>Como ayudara a educar a amigos y familiares sobre prevencion de fraude?</p>
+            <div class="strategy-box">
+                <div class="input-field"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cronograma de Implementacion</h2>
+            <table>
+                <tr>
+                    <th>Plazo</th>
+                    <th>Acciones a Completar</th>
+                    <th>Fecha Completada</th>
+                </tr>
+                <tr>
+                    <td>Inmediato (24-48 horas)</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Esta Semana</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Este Mes</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dentro de 3 Meses</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Continuo</td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Calendario de Revision de Progreso</h2>
+            <p>Establezca fechas para revisar y actualizar su plan de proteccion contra fraude:</p>
+            <table>
+                <tr>
+                    <th>Fecha de Revision</th>
+                    <th>Areas de Enfoque</th>
+                    <th>Completado</th>
+                </tr>
+                <tr>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="input-field-sm"></div></td>
+                    <td><div class="input-field-sm"></div></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="note" style="margin-top: 30px;">
+            <p><strong>Recuerde:</strong> Este plan es un documento vivo que debe actualizarse regularmente a medida que evolucionen sus habitos digitales, las tecnologias disponibles y las amenazas de estafa. Configure un recordatorio para revisar su plan al menos trimestralmente.</p>
+        </div>
+    </div>
+</body>
+</html>

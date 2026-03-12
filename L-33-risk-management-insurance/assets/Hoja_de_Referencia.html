@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia de Conceptos Basicos de Seguros | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .concept-box {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .definition {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background-color: #e0f2fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .formula-box {
+            background-color: #fef3c7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .formula {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #f3f4f6;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .concept-box {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Capitulo 33: Gestion de Riesgos y Conceptos Basicos de Seguros</h1>
+        <p style="color: var(--text-light);">Comprendiendo el riesgo y como protegerse financieramente</p>
+    </header>
+
+    <div class="concept-box">
+        <div class="concept-title">TIPOS DE RIESGO</div>
+
+        <div class="grid">
+            <div>
+                <div class="label">Riesgo Personal</div>
+                <div style="font-size: 0.9rem;">Amenazas a la salud, vida o ingresos</div>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Ejemplos: Enfermedad, discapacidad, muerte</div>
+            </div>
+
+            <div>
+                <div class="label">Riesgo de Propiedad</div>
+                <div style="font-size: 0.9rem;">Dano, destruccion o robo de posesiones</div>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Ejemplos: Incendio, robo, accidentes de auto</div>
+            </div>
+
+            <div>
+                <div class="label">Riesgo de Responsabilidad</div>
+                <div style="font-size: 0.9rem;">Responsabilidad legal por danos a otros</div>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Ejemplos: Lesiones en accidente de auto, danos a propiedad</div>
+            </div>
+
+            <div>
+                <div class="label">Riesgo Financiero</div>
+                <div style="font-size: 0.9rem;">Posibles perdidas monetarias</div>
+                <div style="font-size: 0.85rem; color: var(--text-light);">Ejemplos: Perdidas de inversion, inflacion</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">CUATRO ESTRATEGIAS DE GESTION DE RIESGOS</div>
+
+        <table>
+            <tr>
+                <th>Estrategia</th>
+                <th>Descripcion</th>
+                <th>Cuando Usar</th>
+            </tr>
+            <tr>
+                <td><strong>Evitacion</strong></td>
+                <td>Eliminar el riesgo evitando la actividad</td>
+                <td>Perdida potencial severa, sin beneficio significativo</td>
+            </tr>
+            <tr>
+                <td><strong>Reduccion</strong></td>
+                <td>Tomar medidas para minimizar probabilidad o impacto</td>
+                <td>El riesgo puede manejarse con precauciones</td>
+            </tr>
+            <tr>
+                <td><strong>Aceptacion</strong></td>
+                <td>Reconocer el riesgo y prepararse para manejar perdidas</td>
+                <td>Perdida potencial pequena, costo de proteccion muy alto</td>
+            </tr>
+            <tr>
+                <td><strong>Transferencia</strong></td>
+                <td>Trasladar la responsabilidad financiera a otra parte</td>
+                <td>Perdidas significativas pero improbables (seguro)</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <strong>Ejemplo - Manejando el Riesgo de Andar en Bicicleta:</strong>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li><strong>Evitacion:</strong> No andar durante tormentas de hielo</li>
+                <li><strong>Reduccion:</strong> Usar casco, usar luces</li>
+                <li><strong>Aceptacion:</strong> Aceptar que pueden ocurrir rasponescapes menores</li>
+                <li><strong>Transferencia:</strong> Comprar seguro para lesiones mayores</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">TERMINOS CLAVE DE SEGUROS</div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Prima</div>
+            <div>Pago regular para mantener la cobertura del seguro (mensual, trimestral o anual)</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Deducible</div>
+            <div>Cantidad que paga de su bolsillo antes de que comience la cobertura del seguro</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Limite de Cobertura</div>
+            <div>Cantidad maxima que la poliza de seguro pagara por una perdida cubierta</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Reclamo</div>
+            <div>Solicitud formal a la compania de seguros para el pago de una perdida cubierta</div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <div class="label">Exclusion</div>
+            <div>Condiciones o circunstancias especificas NO cubiertas por la poliza</div>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">Mayor Deducible = Menor Prima</div>
+            <div style="font-size: 0.9rem; margin-top: 5px;">Paga mas de su bolsillo si algo sucede, pero menos cada mes</div>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">COMO FUNCIONA EL SEGURO</div>
+
+        <ol style="margin-left: 20px;">
+            <li><strong>Agrupacion de Riesgos:</strong> Muchas personas pagan primas a un fondo compartido</li>
+            <li><strong>Evaluacion de Riesgos:</strong> La compania de seguros evalua su nivel de riesgo</li>
+            <li><strong>Calculo de Primas:</strong> Su tarifa se basa en la probabilidad y costo potencial de reclamos</li>
+            <li><strong>Pago de Reclamos:</strong> El fondo paga las perdidas de los pocos que presentan reclamos</li>
+        </ol>
+
+        <div class="example-box">
+            <strong>Ejemplo:</strong> 1,000 propietarios pagan cada uno $1,000/ano en primas = fondo de $1,000,000. Si 10 viviendas tienen $50,000 en danos, el seguro lo cubre del fondo. La mayoria paga pero no reclama, lo que financia a quienes si lo hacen.
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="concept-box">
+            <div class="concept-title">Cuando el Seguro Tiene Sentido</div>
+            <ul style="margin-left: 20px;">
+                <li>Eventos de alto impacto y baja probabilidad</li>
+                <li>Legalmente requerido (responsabilidad de auto)</li>
+                <li>Proteger activos esenciales</li>
+                <li>La perdida seria financieramente devastadora</li>
+                <li>La tranquilidad tiene valor</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <div class="concept-title">Cuando Otras Estrategias Son Mejores</div>
+            <ul style="margin-left: 20px;">
+                <li>Perdidas pequenas y manejables</li>
+                <li>El costo del seguro excede el riesgo</li>
+                <li>El riesgo puede reducirse efectivamente</li>
+                <li>El riesgo puede evitarse sin dificultad</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">TOLERANCIA AL RIESGO</div>
+
+        <div class="definition">Su disposicion y capacidad personal para soportar perdidas potenciales</div>
+
+        <div class="label" style="margin-top: 10px;">Factores que Afectan la Tolerancia al Riesgo:</div>
+        <ul style="margin-left: 20px;">
+            <li><strong>Temperamento personal:</strong> Comodidad natural con la incertidumbre</li>
+            <li><strong>Situacion financiera:</strong> Ingresos estables y ahorros aumentan la tolerancia</li>
+            <li><strong>Conocimiento:</strong> La familiaridad aumenta la comodidad con riesgos relacionados</li>
+            <li><strong>Horizonte temporal:</strong> Plazos mas largos permiten mayor tolerancia al riesgo</li>
+            <li><strong>Impacto potencial:</strong> Consecuencias severas reducen la tolerancia</li>
+        </ul>
+
+        <div style="margin-top: 15px; padding: 10px; background-color: #f0fdf4; border-radius: 4px;">
+            <strong>Nota:</strong> Su tolerancia al riesgo puede variar en diferentes areas de la vida (riesgos financieros vs. fisicos). Elija estrategias de gestion de riesgos que se alineen con su nivel de comodidad.
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">RESUMEN DE TIPOS COMUNES DE SEGUROS</div>
+
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Protege Contra</th>
+            </tr>
+            <tr>
+                <td>Seguro de Salud</td>
+                <td>Gastos medicos por enfermedad/lesion</td>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td>Danos al vehiculo, responsabilidad por accidentes</td>
+            </tr>
+            <tr>
+                <td>Seguro de Propietario/Inquilino</td>
+                <td>Danos a propiedad/robo, responsabilidad</td>
+            </tr>
+            <tr>
+                <td>Seguro de Vida</td>
+                <td>Perdida financiera para dependientes despues de la muerte</td>
+            </tr>
+            <tr>
+                <td>Seguro de Discapacidad</td>
+                <td>Perdida de ingresos por incapacidad para trabajar</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background-color: #f0f9ff; border-radius: 6px; border-left: 4px solid #3b82f6;">
+        <strong>Conclusion Clave:</strong> La gestion efectiva del riesgo no se trata de eliminar todo el riesgo - se trata de tomar decisiones conscientes sobre que riesgos asumir y como minimizar los impactos negativos potenciales. Use las cuatro estrategias apropiadamente segun el riesgo especifico y su situacion personal.
+    </div>
+</body>
+</html>

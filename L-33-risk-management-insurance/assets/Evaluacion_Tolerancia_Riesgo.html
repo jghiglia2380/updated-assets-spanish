@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Evaluación de Tolerancia al Riesgo</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1, h2, h3 { color: #333; }
+        h1 { text-align: center; border-bottom: 2px solid #4F46E5; padding-bottom: 10px; margin-bottom: 20px; }
+        .header { margin-bottom: 30px; }
+        .header h1 { margin-bottom: 5px; }
+        .header p { text-align: center; font-style: italic; margin-top: 0; }
+        .instructions { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; margin-bottom: 20px; }
+        .scenario { background-color: #f3e8ff; border-left: 4px solid #8b5cf6; padding: 15px; margin-bottom: 20px; }
+        .scenario h3 { margin-top: 0; color: #6d28d9; }
+        .options { margin-left: 20px; }
+        .option { margin-bottom: 10px; }
+        .results { background-color: #f9fafb; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px; }
+        .results h2 { margin-top: 0; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .tolerance-description { border-left: 4px solid #6d28d9; padding: 10px; margin-bottom: 10px; background-color: #f3e8ff; }
+        .writing-area { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; min-height: 80px; }
+        .chart { width: 100%; height: 300px; background-color: #f9fafb; border: 1px solid #ddd; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; font-style: italic; color: #666; }
+        .footer { margin-top: 40px; font-size: 12px; text-align: center; color: #666; border-top: 1px solid #ddd; padding-top: 10px; }
+        @media print { body { padding: 0; font-size: 12pt; } .no-print { display: none; } .page-break { page-break-before: always; } h1 { font-size: 18pt; } h2 { font-size: 16pt; } h3 { font-size: 14pt; } .instructions, .scenario { border-left: 2px solid; padding: 10px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Evaluación de Tolerancia al Riesgo</h1>
+            <p>Capítulo 11.1: Entendiendo y Gestionando el Riesgo</p>
+        </div>
+
+        <div class="instructions">
+            <h3>Instrucciones para Usar Esta Hoja de Trabajo</h3>
+            <p>Esta hoja de trabajo le ayudará a evaluar su tolerancia personal al riesgo a través de una serie de escenarios financieros. Siga estos pasos:</p>
+            <ol>
+                <li>Lea cada escenario cuidadosamente y considere cómo respondería genuinamente</li>
+                <li>Seleccione la opción que mejor refleje sus preferencias y nivel de comodidad</li>
+                <li>Califique sus respuestas usando el sistema de puntos proporcionado</li>
+                <li>Sume sus puntos para determinar su perfil general de tolerancia al riesgo</li>
+                <li>Complete las preguntas de reflexión para obtener conocimientos más profundos</li>
+            </ol>
+            <p>Recuerde, no hay respuestas "correctas" o "incorrectas" — esta evaluación trata sobre autoconciencia, no juicio.</p>
+            <p><strong>Para guardar como PDF:</strong> Use Archivo → Imprimir, luego seleccione "Guardar como PDF" como destino.</p>
+        </div>
+
+        <h2>Parte 1: Escenarios de Tolerancia al Riesgo</h2>
+
+        <div class="scenario">
+            <h3>Escenario 1: Dinero Inesperado</h3>
+            <p>Recibe $1,000 inesperadamente. ¿Qué haría con este dinero?</p>
+
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-a" value="1">
+                    <label for="s1-a">Ponerlo todo en una cuenta de ahorros segura (1 punto)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-b" value="2">
+                    <label for="s1-b">Poner la mitad en ahorros e invertir la mitad en un fondo mutuo de riesgo moderado (2 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-c" value="3">
+                    <label for="s1-c">Invertirlo todo en un portafolio diversificado de acciones (3 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario1" id="s1-d" value="4">
+                    <label for="s1-d">Invertirlo todo en una oportunidad de alto riesgo y alto potencial de retorno (4 puntos)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <h3>Escenario 2: Elección de Carrera</h3>
+            <p>Está eligiendo entre ofertas de trabajo. ¿Cuál preferiría?</p>
+
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-a" value="1">
+                    <label for="s2-a">Empresa estable, salario predecible, mínimas oportunidades de avance (1 punto)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-b" value="2">
+                    <label for="s2-b">Empresa establecida, potencial de crecimiento modesto, buenos beneficios (2 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-c" value="3">
+                    <label for="s2-c">Empresa en crecimiento, bonos basados en desempeño, buen potencial de avance (3 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario2" id="s2-d" value="4">
+                    <label for="s2-d">Startup con salario base bajo pero equidad significativa si tiene éxito (4 puntos)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <h3>Escenario 3: Fondo de Emergencia</h3>
+            <p>¿Cuánto mantendría idealmente en un fondo de emergencia?</p>
+
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-a" value="1">
+                    <label for="s3-a">12+ meses de gastos (1 punto)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-b" value="2">
+                    <label for="s3-b">6 meses de gastos (2 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-c" value="3">
+                    <label for="s3-c">3 meses de gastos (3 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario3" id="s3-d" value="4">
+                    <label for="s3-d">1 mes de gastos o menos (4 puntos)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <h3>Escenario 4: Pérdida de Inversión</h3>
+            <p>Si sus inversiones perdieran 20% de su valor en una caída del mercado, ¿qué haría?</p>
+
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-a" value="1">
+                    <label for="s4-a">Vender todo para prevenir más pérdidas (1 punto)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-b" value="2">
+                    <label for="s4-b">Vender algunas inversiones y mover a opciones más seguras (2 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-c" value="3">
+                    <label for="s4-c">Mantener firme y no hacer cambios (3 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario4" id="s4-d" value="4">
+                    <label for="s4-d">Comprar más mientras los precios están bajos (4 puntos)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <h3>Escenario 5: Planificación de Jubilación</h3>
+            <p>¿Qué enfoque de inversión para jubilación le atrae más?</p>
+
+            <div class="options">
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-a" value="1">
+                    <label for="s5-a">Mayormente renta fija, priorizando protección del capital (1 punto)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-b" value="2">
+                    <label for="s5-b">Portafolio balanceado con crecimiento moderado y seguridad moderada (2 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-c" value="3">
+                    <label for="s5-c">Portafolio orientado al crecimiento con algo de volatilidad (3 puntos)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="scenario5" id="s5-d" value="4">
+                    <label for="s5-d">Enfoque de crecimiento agresivo aceptando fluctuaciones significativas (4 puntos)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="results">
+            <h2>Parte 2: Calcule Su Puntaje de Tolerancia al Riesgo</h2>
+
+            <p>Sume los puntos de los cinco escenarios:</p>
+
+            <table>
+                <tr><td>Escenario 1: Dinero Inesperado</td><td>_____ puntos</td></tr>
+                <tr><td>Escenario 2: Elección de Carrera</td><td>_____ puntos</td></tr>
+                <tr><td>Escenario 3: Fondo de Emergencia</td><td>_____ puntos</td></tr>
+                <tr><td>Escenario 4: Pérdida de Inversión</td><td>_____ puntos</td></tr>
+                <tr><td>Escenario 5: Planificación de Jubilación</td><td>_____ puntos</td></tr>
+                <tr><td><strong>Puntaje Total</strong></td><td>_____ puntos</td></tr>
+            </table>
+
+            <h3>Interpretando Su Puntaje:</h3>
+
+            <div class="tolerance-description">
+                <p><strong>5-8 puntos: Tolerancia al Riesgo Conservadora</strong></p>
+                <p>Prefiere la seguridad y estabilidad sobre mayores retornos potenciales. Se siente incómodo con incertidumbre significativa y prioriza proteger sus activos. Es probable que se enfoque en preservar el capital y mantener un fondo de emergencia sustancial. Para inversiones, prefiere valores de renta fija y retornos garantizados sobre acciones u otros activos volátiles.</p>
+            </div>
+
+            <div class="tolerance-description">
+                <p><strong>9-13 puntos: Tolerancia al Riesgo Moderada</strong></p>
+                <p>Busca un balance entre seguridad y crecimiento. Está dispuesto a aceptar algunas fluctuaciones a cambio de mejores resultados a largo plazo, pero aún quiere limitar pérdidas significativas. Es probable que se sienta cómodo con un portafolio diversificado que incluya inversiones tanto orientadas al crecimiento como enfocadas en estabilidad. Entiende la importancia tanto del riesgo como de la protección.</p>
+            </div>
+
+            <div class="tolerance-description">
+                <p><strong>14-17 puntos: Tolerancia al Riesgo Por Encima del Promedio</strong></p>
+                <p>Se siente cómodo tomando riesgos calculados para lograr mejores retornos. Las fluctuaciones del mercado a corto plazo no le preocupan excesivamente, ya que se enfoca en el crecimiento a largo plazo. Es probable que esté dispuesto a mantener un enfoque de inversión orientado al crecimiento incluso durante caídas del mercado. Prioriza la oportunidad sobre la seguridad en muchos casos.</p>
+            </div>
+
+            <div class="tolerance-description">
+                <p><strong>18-20 puntos: Alta Tolerancia al Riesgo</strong></p>
+                <p>Se siente muy cómodo con el riesgo y la volatilidad en busca de mayores retornos. Ve las caídas del mercado como oportunidades potenciales más que amenazas. Prioriza el máximo potencial de crecimiento sobre la estabilidad o seguridad. Es probable que esté dispuesto a invertir fuertemente en acciones, startups u otras oportunidades de alto riesgo/alta recompensa.</p>
+            </div>
+        </div>
+
+        <div class="chart">
+            [Este espacio contendría una representación visual del espectro de tolerancia al riesgo]
+        </div>
+
+        <h2>Parte 3: Reflexión sobre Tolerancia al Riesgo</h2>
+
+        <p>Complete estas preguntas de reflexión para obtener conocimientos más profundos sobre su tolerancia al riesgo y sus implicaciones para sus decisiones financieras.</p>
+
+        <h3>1. ¿Qué tan precisamente refleja esta evaluación su tolerancia al riesgo? Explique por qué.</h3>
+        <div class="writing-area"></div>
+
+        <h3>2. ¿En qué áreas de su vida es más averso al riesgo, y dónde es más tolerante al riesgo?</h3>
+        <div class="writing-area"></div>
+
+        <h3>3. ¿Qué factores han moldeado su nivel actual de tolerancia al riesgo?</h3>
+        <div class="writing-area"></div>
+
+        <h3>4. ¿Cómo podría influir su tolerancia al riesgo en sus decisiones financieras en las siguientes áreas?</h3>
+
+        <p><strong>Opciones de seguro:</strong></p>
+        <div class="writing-area"></div>
+
+        <p><strong>Ahorro e inversión:</strong></p>
+        <div class="writing-area"></div>
+
+        <p><strong>Carrera y educación:</strong></p>
+        <div class="writing-area"></div>
+
+        <p><strong>Compras mayores (vivienda, vehículos, etc.):</strong></p>
+        <div class="writing-area"></div>
+
+        <h3>5. ¿Cómo podría cambiar su tolerancia al riesgo a medida que evolucionen sus circunstancias de vida?</h3>
+        <div class="writing-area"></div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 11.1: Entendiendo y Gestionando el Riesgo</p>
+            <p>© 2025 PFL Academy. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

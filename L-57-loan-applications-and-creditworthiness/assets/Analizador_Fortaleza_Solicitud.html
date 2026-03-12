@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Fortaleza de Solicitud - Las Cinco C</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .five-cs-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .c-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #6366f1;
+        }
+        .c-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .c-title { font-weight: bold; font-size: 1.1rem; color: #1f2937; }
+        .c-score { font-weight: bold; color: #6366f1; }
+        .c-description { font-size: 0.9rem; color: #6b7280; margin-bottom: 10px; }
+        .rating-options {
+            display: flex;
+            gap: 8px;
+        }
+        .rating-btn {
+            flex: 1;
+            padding: 8px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .rating-btn:hover { border-color: #6366f1; }
+        .rating-btn.selected { background: #6366f1; color: white; border-color: #6366f1; }
+        .analyze-btn {
+            width: 100%;
+            padding: 15px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .analyze-btn:hover { background: #4f46e5; }
+        .results { display: none; margin-top: 25px; }
+        .results.active { display: block; }
+        .total-score {
+            text-align: center;
+            padding: 20px;
+            background: #f0f9ff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .total-label { font-size: 1rem; color: #374151; }
+        .total-value { font-size: 2.5rem; font-weight: bold; color: #6366f1; }
+        .total-max { font-size: 1rem; color: #6b7280; }
+        .recommendation {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .recommendation.strong { background: #d1fae5; border: 2px solid #10b981; }
+        .recommendation.moderate { background: #fef3c7; border: 2px solid #f59e0b; }
+        .recommendation.weak { background: #fee2e2; border: 2px solid #ef4444; }
+        .recommendation h3 { margin-bottom: 10px; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .analyze-btn,
+            .no-print {
+                display: none !important;
+            }
+            .results {
+                display: block !important;
+            }
+            .c-card,
+            .recommendation {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analizador de Fortaleza de las Cinco C</h1>
+            <p class="subtitle">Evalúa un perfil de prestatario usando criterios de prestamistas</p>
+        </header>
+
+        <div class="five-cs-grid">
+            <div class="c-card">
+                <div class="c-header">
+                    <span class="c-title">1. Carácter</span>
+                    <span class="c-score" id="score1">0/5</span>
+                </div>
+                <div class="c-description">Historial crediticio, registro de pagos, confiabilidad</div>
+                <div class="rating-options">
+                    <button class="rating-btn" onclick="rate(1, 1, this)">Malo</button>
+                    <button class="rating-btn" onclick="rate(1, 2, this)">Regular</button>
+                    <button class="rating-btn" onclick="rate(1, 3, this)">Bueno</button>
+                    <button class="rating-btn" onclick="rate(1, 4, this)">Muy Bueno</button>
+                    <button class="rating-btn" onclick="rate(1, 5, this)">Excelente</button>
+                </div>
+            </div>
+
+            <div class="c-card">
+                <div class="c-header">
+                    <span class="c-title">2. Capacidad</span>
+                    <span class="c-score" id="score2">0/5</span>
+                </div>
+                <div class="c-description">Ingresos, estabilidad laboral, relación deuda-ingreso</div>
+                <div class="rating-options">
+                    <button class="rating-btn" onclick="rate(2, 1, this)">Malo</button>
+                    <button class="rating-btn" onclick="rate(2, 2, this)">Regular</button>
+                    <button class="rating-btn" onclick="rate(2, 3, this)">Bueno</button>
+                    <button class="rating-btn" onclick="rate(2, 4, this)">Muy Bueno</button>
+                    <button class="rating-btn" onclick="rate(2, 5, this)">Excelente</button>
+                </div>
+            </div>
+
+            <div class="c-card">
+                <div class="c-header">
+                    <span class="c-title">3. Capital</span>
+                    <span class="c-score" id="score3">0/5</span>
+                </div>
+                <div class="c-description">Pago inicial, ahorros, activos, patrimonio neto</div>
+                <div class="rating-options">
+                    <button class="rating-btn" onclick="rate(3, 1, this)">Malo</button>
+                    <button class="rating-btn" onclick="rate(3, 2, this)">Regular</button>
+                    <button class="rating-btn" onclick="rate(3, 3, this)">Bueno</button>
+                    <button class="rating-btn" onclick="rate(3, 4, this)">Muy Bueno</button>
+                    <button class="rating-btn" onclick="rate(3, 5, this)">Excelente</button>
+                </div>
+            </div>
+
+            <div class="c-card">
+                <div class="c-header">
+                    <span class="c-title">4. Colateral</span>
+                    <span class="c-score" id="score4">0/5</span>
+                </div>
+                <div class="c-description">Activos dados en garantía para asegurar el préstamo, relación préstamo-valor</div>
+                <div class="rating-options">
+                    <button class="rating-btn" onclick="rate(4, 1, this)">Malo</button>
+                    <button class="rating-btn" onclick="rate(4, 2, this)">Regular</button>
+                    <button class="rating-btn" onclick="rate(4, 3, this)">Bueno</button>
+                    <button class="rating-btn" onclick="rate(4, 4, this)">Muy Bueno</button>
+                    <button class="rating-btn" onclick="rate(4, 5, this)">Excelente</button>
+                </div>
+            </div>
+
+            <div class="c-card">
+                <div class="c-header">
+                    <span class="c-title">5. Condiciones</span>
+                    <span class="c-score" id="score5">0/5</span>
+                </div>
+                <div class="c-description">Propósito del préstamo, monto, condiciones económicas, tendencias de la industria</div>
+                <div class="rating-options">
+                    <button class="rating-btn" onclick="rate(5, 1, this)">Malo</button>
+                    <button class="rating-btn" onclick="rate(5, 2, this)">Regular</button>
+                    <button class="rating-btn" onclick="rate(5, 3, this)">Bueno</button>
+                    <button class="rating-btn" onclick="rate(5, 4, this)">Muy Bueno</button>
+                    <button class="rating-btn" onclick="rate(5, 5, this)">Excelente</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="analyze-btn" onclick="analyze()">Analizar Perfil</button>
+
+        <div class="results" id="results">
+            <div class="total-score">
+                <div class="total-label">Puntuación Total de las Cinco C</div>
+                <div class="total-value" id="totalScore">0</div>
+                <div class="total-max">de 25</div>
+            </div>
+            <div class="recommendation" id="recommendation">
+                <h3 id="recTitle"></h3>
+                <p id="recText"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Solicitudes de Préstamos</p>
+        </footer>
+    </div>
+
+    <script>
+        const scores = [0, 0, 0, 0, 0];
+
+        function rate(c, value, btn) {
+            scores[c - 1] = value;
+            const buttons = btn.parentElement.querySelectorAll('.rating-btn');
+            buttons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            document.getElementById('score' + c).textContent = value + '/5';
+        }
+
+        function analyze() {
+            const total = scores.reduce((a, b) => a + b, 0);
+            document.getElementById('totalScore').textContent = total;
+
+            const rec = document.getElementById('recommendation');
+            const title = document.getElementById('recTitle');
+            const text = document.getElementById('recText');
+
+            if (total >= 20) {
+                rec.className = 'recommendation strong';
+                title.textContent = 'Solicitud Fuerte';
+                text.textContent = 'Este perfil demuestra excelente solvencia crediticia en todas las Cinco C. Es probable que sea aprobado con términos favorables y tasas de interés competitivas.';
+            } else if (total >= 15) {
+                rec.className = 'recommendation moderate';
+                title.textContent = 'Solicitud Moderada';
+                text.textContent = 'Este perfil tiene fundamentos sólidos pero algunas áreas necesitan mejora. Puede ser aprobado pero con tasas más altas o requisitos adicionales.';
+            } else {
+                rec.className = 'recommendation weak';
+                title.textContent = 'Necesita Mejoras';
+                text.textContent = 'Este perfil tiene debilidades significativas. Concéntrate en mejorar las C con puntuación más baja antes de solicitar. Considera construir crédito, ahorrar para un pago inicial mayor o reducir deudas.';
+            }
+
+            document.getElementById('results').classList.add('active');
+        }
+    </script>
+</body>
+</html>

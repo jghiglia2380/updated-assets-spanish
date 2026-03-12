@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Simulación W-4 - Capítulo 1.3: Ingresos e Impuestos</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Worksheet specific styles */
+        .worksheet-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9fafb;
+        }
+
+        .form-section {
+            border: 1px solid #d1d5db;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .form-header {
+            background-color: #f3f4f6;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-field input[type="text"],
+        .form-field select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+
+        .explanation-box {
+            border: 1px solid #d1d5db;
+            min-height: 80px;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            background-color: #fafafa;
+        }
+
+        .scenario-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .impact-table td:first-child {
+            font-weight: bold;
+            width: 60%;
+        }
+
+        .checkbox-group {
+            margin: 5px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .worksheet-section { break-inside: avoid; }
+            .form-section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abra esta página en Chrome, Edge o Firefox. Haga clic en Imprimir (Ctrl+P o Cmd+P),
+        luego seleccione "Guardar como PDF" como destino. Haga clic en "Guardar" y elija dónde guardar el archivo en su computadora.</p>
+    </div>
+
+    <div class="header">
+        <h1>Hoja de Simulación W-4</h1>
+        <p><strong>Capítulo 1.3:</strong> Ingresos e Impuestos</p>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Comprender el Formulario W-4</h2>
+
+        <p>El formulario W-4, titulado oficialmente "Certificado de Retención del Empleado", se completa al comenzar un nuevo trabajo. Ayuda a su empleador a determinar cuánto impuesto federal sobre la renta retener de su cheque de pago. Hacer las elecciones apropiadas en su W-4 es importante para su planificación financiera, ya que afecta su salario neto durante todo el año y su situación tributaria al presentar su declaración anual.</p>
+
+        <div class="scenario-box">
+            <h3>Escenario: Jordan Rivers</h3>
+            <p>Jordan Rivers es un estudiante de secundaria que acaba de conseguir un trabajo de medio tiempo en una cafetería local. Jordan trabajará 15 horas por semana a $15 por hora. Jordan es soltero, no tiene dependientes y este es su único trabajo. Jordan quiere completar el formulario W-4 correctamente para asegurar la retención de impuestos apropiada.</p>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Simulación del Formulario W-4</h2>
+
+        <div class="form-section">
+            <div class="form-header">Certificado de Retención del Empleado (Formulario W-4)</div>
+
+            <div class="form-field">
+                <label>Paso 1: Información Personal</label>
+                <p>Nombre: Jordan Rivers</p>
+                <p>Dirección: 123 Main Street, Anytown, CA 12345</p>
+                <p>Número de Seguro Social: XXX-XX-1234</p>
+
+                <div class="form-field">
+                    <label>Estado Civil para Efectos de la Declaración (Seleccione uno):</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="single">
+                        <label for="single">Soltero o Casado que presenta una declaración por separado</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="head">
+                        <label for="head">Cabeza de familia</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="married">
+                        <label for="married">Casado que presenta una declaración conjunta</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="widow">
+                        <label for="widow">Viudo(a) calificado(a)</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Explicación para la selección del estado civil:</label>
+                    <div class="explanation-box"></div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Paso 2: Múltiples Trabajos o Cónyuge Trabaja</label>
+                <p>Complete este paso si usted (1) tiene más de un trabajo a la vez, o (2) está casado y presenta una declaración conjunta y su cónyuge también trabaja.</p>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="option-a">
+                    <label for="option-a">Usar el estimador en www.irs.gov/W4App</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="option-b">
+                    <label for="option-b">Usar la Hoja de Trabajo de Múltiples Trabajos en la página 3</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="option-c">
+                    <label for="option-c">Si hay solo dos trabajos en total, marque esta casilla</label>
+                </div>
+
+                <div class="form-field">
+                    <label>Explicación para la selección de múltiples trabajos:</label>
+                    <div class="explanation-box"></div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Paso 3: Reclamar Dependientes y Otros Créditos</label>
+                <p>Si su ingreso total será de $200,000 o menos ($400,000 o menos si está casado y presenta una declaración conjunta):</p>
+
+                <div class="form-field">
+                    <label>Multiplique el número de hijos calificados menores de 17 años por $2,000: $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>Multiplique el número de otros dependientes por $500: $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>Sume las cantidades e ingrese el total aquí: $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>Explicación para créditos de dependientes:</label>
+                    <div class="explanation-box"></div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Paso 4: Otros Ajustes (Opcional)</label>
+
+                <div class="form-field">
+                    <label>(a) Otros ingresos (no de trabajos): $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>(b) Deducciones: $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>(c) Retención adicional: $</label>
+                    <input type="text" placeholder="Ingrese la cantidad">
+                </div>
+
+                <div class="form-field">
+                    <label>Explicación para otros ajustes:</label>
+                    <div class="explanation-box"></div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Paso 5: Firme Aquí</label>
+                <p>Declaro que he examinado este certificado y, según mi mejor conocimiento y creencia, es verdadero, correcto y completo.</p>
+                <div class="form-field">
+                    <label>Firma:</label>
+                    <input type="text" placeholder="Firme aquí">
+                    <label>Fecha:</label>
+                    <input type="text" placeholder="DD/MM/AAAA">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Analizar el Impacto de la Retención</h2>
+
+        <p>Ahora que ha completado el formulario W-4 para Jordan, analicemos cómo sus elecciones impactarían el cheque de pago y la situación tributaria de Jordan.</p>
+
+        <div class="form-section">
+            <h3>Análisis del Impacto en el Cheque de Pago</h3>
+
+            <p>Basándose en las elecciones que hizo en el W-4 de Jordan, estime el impacto en el cheque de pago de Jordan:</p>
+
+            <table class="impact-table">
+                <tr>
+                    <td>Pago Bruto Semanal (15 horas × $15/hora)</td>
+                    <td>$225.00</td>
+                </tr>
+                <tr>
+                    <td>Retención Estimada de Impuesto Federal</td>
+                    <td>$______</td>
+                </tr>
+                <tr>
+                    <td>Impuestos FICA Estimados (7.65%)</td>
+                    <td>$17.21</td>
+                </tr>
+                <tr>
+                    <td>Pago Neto Semanal Estimado</td>
+                    <td>$______</td>
+                </tr>
+            </table>
+
+            <div class="form-field">
+                <label>¿Cómo afectarían sus elecciones de retención el presupuesto semanal de Jordan?</label>
+                <div class="explanation-box"></div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Impacto Tributario de Fin de Año</h3>
+
+            <p>Considere cómo las elecciones de retención afectarán la situación tributaria de fin de año de Jordan:</p>
+
+            <div class="form-field">
+                <label>Basándose en sus selecciones del W-4, ¿espera que Jordan:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="refund">
+                    <label for="refund">Reciba un reembolso de impuestos</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="owe">
+                    <label for="owe">Deba impuestos adicionales</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="break-even">
+                    <label for="break-even">Quede en equilibrio (sin reembolso o impuestos adicionales)</label>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Explique su razonamiento:</label>
+                <div class="explanation-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Escenarios de Ajuste del W-4</h2>
+
+        <p>Considere cómo los siguientes cambios de vida afectarían el formulario W-4 de Jordan y la retención requerida:</p>
+
+        <div class="form-field">
+            <label>Escenario 1: Jordan comienza un segundo trabajo de medio tiempo en una tienda minorista. ¿Cómo debería ajustarse el W-4?</label>
+            <div class="explanation-box"></div>
+        </div>
+
+        <div class="form-field">
+            <label>Escenario 2: Jordan se inscribe en la universidad y se vuelve elegible para créditos tributarios educativos. ¿Cómo debería ajustarse el W-4?</label>
+            <div class="explanation-box"></div>
+        </div>
+
+        <div class="form-field">
+            <label>Escenario 3: Jordan se casa. ¿Cómo debería ajustarse el W-4?</label>
+            <div class="explanation-box"></div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Preguntas de Reflexión</h2>
+
+        <div class="form-field">
+            <label>1. ¿Cómo ayuda completar correctamente un formulario W-4 con la planificación financiera durante todo el año?</label>
+            <div class="explanation-box"></div>
+        </div>
+
+        <div class="form-field">
+            <label>2. ¿Por qué es importante actualizar su W-4 cuando experimenta cambios de vida importantes?</label>
+            <div class="explanation-box"></div>
+        </div>
+
+        <div class="form-field">
+            <label>3. ¿Cuáles son las posibles consecuencias de tener muy poco impuesto retenido de su cheque de pago?</label>
+            <div class="explanation-box"></div>
+        </div>
+
+        <div class="form-field">
+            <label>4. ¿Cuáles son las posibles consecuencias de tener demasiado impuesto retenido de su cheque de pago?</label>
+            <div class="explanation-box"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.3: Ingresos e Impuestos</p>
+    </div>
+</body>
+</html>

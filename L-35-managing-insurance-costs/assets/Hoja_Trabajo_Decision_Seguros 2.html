@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Decisión de Seguros - Capítulo 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .decision-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .decision-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        .scenario-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            text-align: center;
+        }
+
+        .comparison-table th:first-child, .comparison-table td:first-child {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Hoja de Trabajo de Decisión de Seguros</h1>
+        <p>Capítulo 11.3: Gestión de Costos de Seguros</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <h1>Hoja de Trabajo de Decisión de Seguros</h1>
+    <p><strong>Capítulo 11.3: Gestión de Costos de Seguros</strong></p>
+
+    <h2>Marco de Decisión para Seleccionar Seguros</h2>
+    <p>Esta hoja de trabajo proporciona un enfoque sistemático para tomar decisiones de seguros analizando tus necesidades, comparando opciones y evaluando costos.</p>
+
+    <div class="info-box">
+        <h3>Cómo Usar Esta Hoja de Trabajo</h3>
+        <ol>
+            <li>Completa cada sección en orden</li>
+            <li>Sé específico sobre tu situación personal y necesidades</li>
+            <li>Usa números reales al comparar costos</li>
+            <li>Considera factores tanto financieros como no financieros</li>
+            <li>Revisa tus decisiones periódicamente a medida que cambien las circunstancias</li>
+        </ol>
+    </div>
+
+    <div class="decision-section">
+        <h3>Paso 1: Evaluación de Necesidades</h3>
+        <p>Comienza aclarando contra qué riesgos necesitas protegerte y qué cobertura es más importante para ti.</p>
+
+        <h4>Tipo de Seguro: <span class="input-field" style="display: inline-block; min-width: 200px;"></span></h4>
+
+        <table>
+            <tr>
+                <th>Preguntas Clave</th>
+                <th>Tu Respuesta</th>
+            </tr>
+            <tr>
+                <td>¿Contra qué riesgos específicos necesitas protegerte?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Qué activos o responsabilidades necesitan protección?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es tu situación financiera actual? (Fondo de emergencia, ingresos, ahorros)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es tu tolerancia al riesgo? (Baja, media, alta)</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Cuál es tu presupuesto mensual para seguros?</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>¿Qué necesidades especiales de cobertura tienes?</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Clasificación de Prioridades</h4>
+        <p>Clasifica los siguientes aspectos del seguro del 1 (más importante) al 5 (menos importante) para tu situación:</p>
+
+        <table>
+            <tr>
+                <td>Costos de prima mensual bajos</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Costos de bolsillo bajos al usar el seguro</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Cobertura integral con pocas exclusiones</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Calidad del servicio al cliente y manejo de reclamos</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Tamaño de red/acceso (para seguro de salud) o reputación de la compañía</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="decision-section">
+        <h3>Paso 2: Comparación de Planes</h3>
+        <p>Compara al menos tres opciones de seguro diferentes según tu evaluación de necesidades.</p>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Características</th>
+                <th>Opción 1</th>
+                <th>Opción 2</th>
+                <th>Opción 3</th>
+            </tr>
+            <tr>
+                <td>Proveedor/Compañía de Seguros</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Nombre del Plan/Póliza</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Prima Mensual</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Total de Prima Anual</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Deducible</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Copago/Coaseguro</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Máximo de Gastos de Bolsillo</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Límites de Cobertura</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Exclusiones Principales</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Características/Beneficios Especiales</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Cobertura de Red (si aplica)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Calificaciones/Reseñas de la Compañía</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="decision-section">
+        <h3>Paso 3: Análisis de Escenarios</h3>
+        <p>Calcula los costos potenciales bajo diferentes escenarios de uso para entender el impacto financiero de cada opción.</p>
+
+        <div class="scenario-box">
+            <h4>Escenario 1: Uso Mínimo</h4>
+            <p>Asume uso mínimo del seguro durante el año (por ejemplo, solo atención preventiva de rutina, sin reclamos).</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Categoría de Costo</th>
+                    <th>Opción 1</th>
+                    <th>Opción 2</th>
+                    <th>Opción 3</th>
+                </tr>
+                <tr>
+                    <td>Prima Anual</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costos Estimados de Bolsillo</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo Anual Total</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Escenario 2: Uso Moderado</h4>
+            <p>Asume uso moderado del seguro durante el año (por ejemplo, varias visitas al médico, procedimiento menor o reclamo pequeño).</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Categoría de Costo</th>
+                    <th>Opción 1</th>
+                    <th>Opción 2</th>
+                    <th>Opción 3</th>
+                </tr>
+                <tr>
+                    <td>Prima Anual</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costos Estimados de Bolsillo</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo Anual Total</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Escenario 3: Uso Intensivo</h4>
+            <p>Asume uso intensivo del seguro durante el año (por ejemplo, procedimiento mayor, hospitalización o reclamo significativo).</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Categoría de Costo</th>
+                    <th>Opción 1</th>
+                    <th>Opción 2</th>
+                    <th>Opción 3</th>
+                </tr>
+                <tr>
+                    <td>Prima Anual</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costos Estimados de Bolsillo</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+                <tr>
+                    <td>Costo Anual Total</td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                    <td class="input-field"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="scenario-box">
+            <h4>Resumen del Análisis de Escenarios</h4>
+            <p>Basándote en tu análisis de escenarios, ¿qué opción proporciona el mejor valor general considerando la probabilidad de cada escenario?</p>
+            <div class="input-field" style="min-height: 80px;"></div>
+        </div>
+    </div>
+
+    <div class="decision-section">
+        <h3>Paso 4: Consideraciones No Financieras</h3>
+        <p>Evalúa factores importantes más allá del costo que pueden influir en tu decisión.</p>
+
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Opción 1</th>
+                <th>Opción 2</th>
+                <th>Opción 3</th>
+            </tr>
+            <tr>
+                <td>Reputación/Confiabilidad de la Compañía</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Calidad del Servicio al Cliente</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Facilidad del Proceso de Reclamos</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Factores de Conveniencia</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Acceso a Proveedores Preferidos</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Características o Beneficios Especiales</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Evaluación General No Financiera</h4>
+        <p>Considerando los factores no financieros, ¿qué opción satisface mejor tus necesidades y preferencias?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="decision-section">
+        <h3>Paso 5: Decisión e Implementación</h3>
+        <p>Basándote en tu análisis, toma tu decisión final y describe los pasos de implementación.</p>
+
+        <h4>Decisión Final</h4>
+        <p>¿Qué opción has seleccionado y por qué? Incluye los factores clave que influyeron en tu decisión.</p>
+        <div class="input-field" style="min-height: 100px;"></div>
+
+        <h4>Plan de Implementación</h4>
+        <p>Enumera los pasos específicos que tomarás para implementar tu decisión:</p>
+        <ol>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ol>
+
+        <h4>Cronograma de Revisión</h4>
+        <p>¿Cuándo revisarás esta decisión para asegurarte de que aún satisface tus necesidades?</p>
+        <div class="input-field"></div>
+
+        <h4>Estrategias de Ahorro de Costos</h4>
+        <p>¿Qué estrategias específicas de ahorro de costos implementarás junto con tu plan de seguro elegido?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="tip-box">
+        <h3>Consejos para la Toma de Decisiones</h3>
+        <ul>
+            <li><strong>Sé realista sobre el uso:</strong> Considera tu historial pasado y necesidades futuras anticipadas al evaluar escenarios.</li>
+            <li><strong>Considera tu situación financiera:</strong> Tu fondo de emergencia y estabilidad financiera deben influir en tu elección de deducible.</li>
+            <li><strong>Considera las ventajas fiscales:</strong> Para seguro de salud, recuerda que la elegibilidad para HSA puede proporcionar beneficios fiscales con planes de deducible alto.</li>
+            <li><strong>Mira más allá del precio:</strong> La opción más barata puede no proporcionar el mejor valor o protección.</li>
+            <li><strong>Busca descuentos:</strong> Muchos aseguradores ofrecen múltiples descuentos que pueden reducir significativamente las primas.</li>
+            <li><strong>Lee la letra pequeña:</strong> Presta atención a las exclusiones, limitaciones y condiciones especiales.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Capítulo 11.3: Gestión de Costos de Seguros | Hoja de Trabajo de Decisión de Seguros</p>
+        <p>Página 1 de 1</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+</body>
+</html>

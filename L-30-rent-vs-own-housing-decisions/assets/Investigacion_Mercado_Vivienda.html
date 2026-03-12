@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Investigación del Mercado de Vivienda</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tip-box {
+            background-color: #f0fdf4;
+            border-left: 5px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background-color: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+
+        .resource-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #a5b4fc;
+        }
+
+        .data-table td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            min-height: 30px;
+        }
+
+        .input-cell {
+            min-height: 30px;
+            min-width: 100px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guía de Investigación del Mercado de Vivienda</h1>
+        <p>Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Acerca de Esta Guía</h3>
+        <p>Esta guía te ayudará a investigar y analizar los mercados de alquiler y vivienda en una ubicación donde podrías querer vivir. Recopilarás datos sobre opciones de alquiler y compra, compararás sus implicaciones financieras y desarrollarás una estrategia de vivienda personalizada según tus circunstancias y metas.</p>
+        <p class="no-print">Para guardar esta guía como PDF: Haz clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="section">
+        <h2>Descripción General del Proyecto</h2>
+
+        <h3>Descripción del Proyecto</h3>
+        <p>Para este proyecto de portafolio, investigarás los mercados de alquiler y vivienda en una ubicación donde podrías querer vivir en el futuro. Compararás las implicaciones financieras de alquilar versus comprar y desarrollarás una estrategia de vivienda personalizada basada en tus circunstancias y metas.</p>
+
+        <h3>Objetivos de Aprendizaje</h3>
+        <ul>
+            <li>Investigar y analizar datos reales del mercado de vivienda</li>
+            <li>Comparar las implicaciones financieras de alquilar versus comprar en una ubicación específica</li>
+            <li>Evaluar cómo los factores económicos locales afectan las decisiones de vivienda</li>
+            <li>Desarrollar una estrategia de vivienda personalizada basada en la investigación del mercado</li>
+            <li>Aplicar el pensamiento crítico a decisiones complejas de vivienda con múltiples variables</li>
+        </ul>
+
+        <h3>Componentes del Proyecto</h3>
+        <ol>
+            <li><strong>Selección de Ubicación:</strong> Elige una ciudad o área donde podrías vivir en el futuro</li>
+            <li><strong>Investigación del Mercado:</strong> Recopila datos sobre opciones de alquiler y compra</li>
+            <li><strong>Análisis Financiero:</strong> Compara los costos de alquilar vs. comprar</li>
+            <li><strong>Análisis de Tendencias del Mercado:</strong> Investiga los factores económicos locales que afectan el mercado de vivienda</li>
+            <li><strong>Estrategia Personal:</strong> Desarrolla una estrategia de vivienda para esta ubicación</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Paso 1: Selección de Ubicación</h2>
+
+        <h3>Elige una Ubicación</h3>
+        <p>Selecciona una ciudad, pueblo o área donde podrías querer vivir en el futuro. Esto podría ser:</p>
+        <ul>
+            <li>Una ubicación donde planeas asistir a la universidad</li>
+            <li>Una ciudad donde te gustaría trabajar después de graduarte</li>
+            <li>Un área donde estás considerando mudarte</li>
+            <li>Tu ubicación actual, si planeas quedarte allí</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Mi Ubicación Seleccionada</h4>
+            <p>Ciudad/Área: _______________________________________</p>
+            <p>Estado: __________________________________________</p>
+            <p>Vecindario(s) Específico(s) (si aplica): _______________________________________</p>
+            <p>Razón para seleccionar esta ubicación: _______________________________________</p>
+        </div>
+    </div>
+
+    <h2>Paso 2: Investigación del Mercado</h2>
+
+    <div class="section">
+        <h3>Investigación del Mercado de Alquiler</h3>
+
+        <div class="tip-box">
+            <h4>Consejos de Investigación</h4>
+            <p>Usa estos recursos para investigar opciones de alquiler:</p>
+            <ul>
+                <li>Apartments.com</li>
+                <li>Zillow.com (sección de Alquileres)</li>
+                <li>Realtor.com (sección de Alquileres)</li>
+                <li>Rent.com</li>
+                <li>Sitios web de empresas locales de administración de propiedades</li>
+                <li>Clasificados de periódicos locales</li>
+                <li>Grupos de vivienda en redes sociales del área</li>
+            </ul>
+        </div>
+
+        <h4>Recopilación de Datos de Alquiler</h4>
+        <p>Investiga y registra información de al menos 3 opciones de alquiler que cumplan con tus necesidades:</p>
+
+        <table class="data-table">
+            <tr>
+                <th>Tipo de Propiedad</th>
+                <th>Ubicación</th>
+                <th>Tamaño (pies²)</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Alquiler Mensual</th>
+                <th>¿Servicios Incluidos?</th>
+                <th>Otras Tarifas</th>
+                <th>Amenidades</th>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+        </table>
+
+        <h4>Costos Promedio de Alquiler</h4>
+        <p>Calcula lo siguiente basándote en tu investigación:</p>
+        <ul>
+            <li>Alquiler mensual promedio para propiedades que cumplen con tus necesidades: $___________</li>
+            <li>Monto típico del depósito de seguridad: $___________</li>
+            <li>Servicios mensuales estimados no incluidos en el alquiler: $___________</li>
+            <li>Seguro de inquilino mensual estimado: $___________</li>
+            <li>Porcentaje de aumento anual del alquiler en esta área (si está disponible): ___________</li>
+        </ul>
+
+        <h4>Requisitos de Alquiler</h4>
+        <p>Investiga los requisitos típicos de alquiler en esta ubicación:</p>
+        <ul>
+            <li>Puntaje de crédito mínimo típicamente requerido: ___________</li>
+            <li>Requisitos de ingresos (ej., 3x el alquiler mensual): ___________</li>
+            <li>Términos comunes del contrato (duración, opciones de renovación): ___________</li>
+            <li>Políticas y depósitos para mascotas: ___________</li>
+        </ul>
+
+        <div class="warning-box">
+            <h4>Nota</h4>
+            <p>Si tienes dificultades para encontrar información específica sobre los requisitos de alquiler, contacta a una empresa local de administración de propiedades para obtener información general.</p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section">
+        <h3>Investigación del Mercado de Compra de Vivienda</h3>
+
+        <div class="tip-box">
+            <h4>Consejos de Investigación</h4>
+            <p>Usa estos recursos para investigar opciones de compra de vivienda:</p>
+            <ul>
+                <li>Zillow.com</li>
+                <li>Realtor.com</li>
+                <li>Redfin.com</li>
+                <li>Sitios web de agencias inmobiliarias locales</li>
+                <li>Sitios web del tasador de propiedades del condado (para información de impuestos a la propiedad)</li>
+                <li>Secciones de bienes raíces de periódicos locales</li>
+                <li>HUD.gov (para programas de compradores primerizos)</li>
+            </ul>
+        </div>
+
+        <h4>Recopilación de Datos de Compra de Vivienda</h4>
+        <p>Investiga y registra información de al menos 3 propiedades en venta que cumplan con tus necesidades:</p>
+
+        <table class="data-table">
+            <tr>
+                <th>Tipo de Propiedad</th>
+                <th>Ubicación</th>
+                <th>Tamaño (pies²)</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+                <th>Precio de Lista</th>
+                <th>Año de Construcción</th>
+                <th>Cuotas de HOA</th>
+                <th>Características Especiales</th>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+            <tr>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+                <td class="input-cell"></td>
+            </tr>
+        </table>
+
+        <h4>Costos Promedio de Compra de Vivienda</h4>
+        <p>Calcula lo siguiente basándote en tu investigación:</p>
+        <ul>
+            <li>Precio promedio de viviendas que cumplen con tus necesidades: $___________</li>
+            <li>Tasa de impuesto a la propiedad en esta área: ___________</li>
+            <li>Impuestos anuales a la propiedad estimados: $___________</li>
+            <li>Seguro de propietario mensual estimado: $___________</li>
+            <li>Cuotas promedio de HOA (si aplica): $___________</li>
+            <li>Tasa histórica de apreciación en esta área (si está disponible): ___________</li>
+        </ul>
+
+        <h4>Información Hipotecaria</h4>
+        <p>Investiga la información hipotecaria actual:</p>
+        <ul>
+            <li>Tasa de interés promedio actual para una hipoteca fija a 30 años: ___________</li>
+            <li>Porcentaje típico de requisito de enganche: ___________</li>
+            <li>Monto de enganche necesario para la vivienda promedio: $___________</li>
+            <li>Porcentaje estimado de costos de cierre: ___________</li>
+            <li>Monto de costos de cierre para la vivienda promedio: $___________</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Programas para Compradores Primerizos</h4>
+            <p>Investiga cualquier programa de asistencia para compradores primerizos disponible en esta ubicación:</p>
+            <ul>
+                <li>Nombre del programa: _______________________________________</li>
+                <li>Beneficios ofrecidos: _______________________________________</li>
+                <li>Requisitos de elegibilidad: _______________________________________</li>
+            </ul>
+            <ul>
+                <li>Nombre del programa: _______________________________________</li>
+                <li>Beneficios ofrecidos: _______________________________________</li>
+                <li>Requisitos de elegibilidad: _______________________________________</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Paso 3: Análisis Financiero</h2>
+
+    <div class="section">
+        <h3>Cálculo de Comparación de Costos</h3>
+        <p>Usando los datos que has recopilado, calcula y compara los costos de alquilar versus comprar en tu ubicación elegida.</p>
+
+        <h4>Comparación de Pagos Mensuales</h4>
+        <table class="data-table">
+            <tr>
+                <th>Categoría de Costo</th>
+                <th>Alquilar</th>
+                <th>Comprar</th>
+            </tr>
+            <tr>
+                <td>Pago Base (Alquiler o Capital e Intereses de Hipoteca)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Impuestos a la Propiedad</td>
+                <td>N/A</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Seguro (Inquilino o Propietario)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Servicios (diferencia, si la hay)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Cuotas de HOA/Mantenimiento</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Costos de Mantenimiento Estimados</td>
+                <td>N/A</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td><strong>Costo Mensual Total</strong></td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <h4>Comparación de Costos a Largo Plazo</h4>
+        <table class="data-table">
+            <tr>
+                <th>Categoría de Costo</th>
+                <th>Alquilar (5 Años)</th>
+                <th>Comprar (5 Años)</th>
+            </tr>
+            <tr>
+                <td>Costos Iniciales (Depósito de Seguridad o Enganche + Cierre)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Pagos Mensuales (Total por 5 años)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Mantenimiento y Reparaciones (Total por 5 años)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Beneficios Fiscales (Deducción de Intereses Hipotecarios)</td>
+                <td>$0</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Apreciación de la Propiedad (o Aumentos de Alquiler)</td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>Patrimonio Acumulado (Pagos de Capital + Apreciación)</td>
+                <td>$0</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td><strong>Costo Neto Después de 5 Años</strong></td>
+                <td>$</td>
+                <td>$</td>
+            </tr>
+        </table>
+
+        <h4>Análisis de Punto de Equilibrio</h4>
+        <p>Basándote en tus cálculos, ¿en qué punto (aproximadamente cuántos años) comprar se vuelve más ventajoso financieramente que alquilar en esta ubicación?</p>
+        <p>Punto de Equilibrio Estimado: _______________________________________</p>
+
+        <div class="tip-box">
+            <h4>Ayuda para Cálculos</h4>
+            <p>Para cálculos de pagos hipotecarios, usa una calculadora de hipotecas en línea como:</p>
+            <ul>
+                <li>Calculadora de Hipotecas de Bankrate: <a href="https://www.bankrate.com/calculators/mortgages/mortgage-calculator.aspx" class="resource-link">bankrate.com/calculators/mortgages/mortgage-calculator.aspx</a></li>
+                <li>Calculadora de Hipotecas de NerdWallet: <a href="https://www.nerdwallet.com/mortgages/mortgage-calculator" class="resource-link">nerdwallet.com/mortgages/mortgage-calculator</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Paso 4: Análisis de Tendencias del Mercado</h2>
+
+    <div class="section">
+        <h3>Tendencias del Mercado de Vivienda Local</h3>
+        <p>Investiga y analiza las tendencias actuales en el mercado de vivienda de tu ubicación elegida:</p>
+
+        <h4>Tendencias del Mercado de Alquiler</h4>
+        <ul>
+            <li>Tasa de vacantes de alquiler: _______________________________________</li>
+            <li>Aumento promedio del alquiler en el último año: _______________________________________</li>
+            <li>Caracterización del mercado de alquiler (mercado de inquilinos, mercado de propietarios, equilibrado): _______________________________________</li>
+            <li>Nuevos desarrollos de alquiler en el área: _______________________________________</li>
+            <li>Pronóstico del mercado de alquiler para los próximos 1-3 años: _______________________________________</li>
+        </ul>
+
+        <h4>Tendencias del Mercado de Compra de Vivienda</h4>
+        <ul>
+            <li>Promedio de días en el mercado para viviendas: _______________________________________</li>
+            <li>Tendencias de precios en el último año: _______________________________________</li>
+            <li>Caracterización del mercado (mercado de compradores, mercado de vendedores, equilibrado): _______________________________________</li>
+            <li>Nuevos desarrollos de vivienda en el área: _______________________________________</li>
+            <li>Pronóstico de precios de vivienda para los próximos 1-3 años: _______________________________________</li>
+        </ul>
+
+        <h4>Factores Económicos Locales</h4>
+        <p>Investiga los factores económicos que podrían impactar el mercado de vivienda en esta ubicación:</p>
+        <ul>
+            <li>Principales empleadores e industrias: _______________________________________</li>
+            <li>Tendencias de crecimiento del empleo: _______________________________________</li>
+            <li>Tendencias de crecimiento poblacional: _______________________________________</li>
+            <li>Proyectos de infraestructura o desarrollo planificados: _______________________________________</li>
+            <li>Cualquier desafío económico local significativo: _______________________________________</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Recursos de Investigación</h4>
+            <p>Usa estos recursos para encontrar información sobre tendencias del mercado:</p>
+            <ul>
+                <li>Zillow Research: <a href="https://www.zillow.com/research/" class="resource-link">zillow.com/research</a></li>
+                <li>Tendencias del Mercado de Realtor.com: <a href="https://www.realtor.com/research" class="resource-link">realtor.com/research</a></li>
+                <li>Informes mensuales de la junta de bienes raíces local</li>
+                <li>Informes económicos de la cámara de comercio local</li>
+                <li>Sección de negocios del periódico local</li>
+                <li>Sitios web de desarrollo económico de la ciudad/condado</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Paso 5: Estrategia Personal de Vivienda</h2>
+
+    <div class="section">
+        <h3>Estrategia de Vivienda Personalizada</h3>
+        <p>Basándote en tu investigación y análisis, desarrolla una estrategia de vivienda personalizada para esta ubicación.</p>
+
+        <h4>Situación Financiera Personal Actual</h4>
+        <p>Describe brevemente tu situación financiera actual o futura esperada en relación con la vivienda en esta ubicación:</p>
+        <ul>
+            <li>Nivel de ingresos esperado: _______________________________________</li>
+            <li>Ahorros disponibles para vivienda: _______________________________________</li>
+            <li>Rango de puntaje de crédito esperado: _______________________________________</li>
+            <li>Obligaciones de deuda: _______________________________________</li>
+            <li>Metas financieras más allá de la vivienda: _______________________________________</li>
+        </ul>
+
+        <h4>Prioridades Personales de Vivienda</h4>
+        <p>Lista tus 3-5 principales prioridades de vivienda para esta ubicación:</p>
+        <ol>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+        </ol>
+
+        <h4>Recomendación y Justificación</h4>
+        <p>Basándote en tu investigación y análisis, ¿alquilar o comprar sería más ventajoso para ti en esta ubicación? Explica tu razonamiento, considerando tanto factores financieros como no financieros:</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+
+        <h4>Plan de Vivienda a Corto Plazo (1-2 años)</h4>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+
+        <h4>Plan de Vivienda a Mediano Plazo (3-5 años)</h4>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+        <p>_______________________________________</p>
+
+        <h4>Pasos de Preparación Financiera</h4>
+        <p>Lista los pasos financieros específicos que necesitarías tomar para prepararte para tu plan de vivienda en esta ubicación:</p>
+        <ol>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+            <li>_______________________________________</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Pautas de Entrega del Proyecto</h2>
+
+        <h3>Componentes del Informe Final</h3>
+        <p>Tu informe final de Análisis del Mercado de Vivienda debe incluir:</p>
+        <ol>
+            <li><strong>Introducción</strong>: Descripción de tu ubicación elegida y por qué la seleccionaste</li>
+            <li><strong>Investigación del Mercado</strong>: Resumen de tus hallazgos del mercado de alquiler y compra</li>
+            <li><strong>Análisis Financiero</strong>: Comparación detallada de costos entre alquilar y comprar</li>
+            <li><strong>Tendencias del Mercado</strong>: Análisis de las condiciones del mercado de vivienda local y factores económicos</li>
+            <li><strong>Estrategia Personal</strong>: Tu enfoque de vivienda recomendado con justificación</li>
+            <li><strong>Referencias</strong>: Fuentes utilizadas para tu investigación</li>
+            <li><strong>Apéndices</strong>: Tablas de datos, cálculos e información adicional</li>
+        </ol>
+
+        <h3>Formato</h3>
+        <ul>
+            <li>Análisis de 1-2 páginas sobre si alquilar o comprar sería más ventajoso</li>
+            <li>Tablas de datos y cálculos de apoyo</li>
+            <li>Explicación clara de tu razonamiento</li>
+            <li>Estrategia de vivienda personal con metas financieras específicas y cronograma</li>
+        </ul>
+
+        <h3>Criterios de Evaluación</h3>
+        <ul>
+            <li>Exhaustividad de la investigación del mercado para opciones de alquiler y compra</li>
+            <li>Precisión de los cálculos financieros comparando alquilar vs. comprar</li>
+            <li>Calidad del análisis sobre tendencias y condiciones del mercado local</li>
+            <li>Adecuación de las recomendaciones de vivienda basadas en circunstancias personales</li>
+            <li>Integración de conceptos del aprendizaje del Día 1 y Día 2</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </footer>
+</body>
+</html>

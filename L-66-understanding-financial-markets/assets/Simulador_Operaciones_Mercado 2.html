@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Operaciones de Mercado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px 8px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        .nav-tabs {
+            display: flex;
+            background: #ecf0f1;
+            overflow-x: auto;
+        }
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 20px;
+            border: none;
+            background: #ecf0f1;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button:hover {
+            background: #bdc3c7;
+        }
+        .tab-button.active {
+            background: white;
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .module-intro {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .quote-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .quote-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 4px;
+        }
+        .quote-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+        .quote-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .trade-form {
+            background: #f0f7ff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        .result-box {
+            background: #e8f5e9;
+            border: 2px solid #2ecc71;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        .result-box.show {
+            display: block;
+        }
+        .result-box.warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+        }
+        .result-box.error {
+            background: #ffebee;
+            border-color: #e74c3c;
+        }
+        .result-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .result-item strong {
+            color: #2c3e50;
+        }
+        .scenario-card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .scenario-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .scenario-card h3 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        .progress-bar {
+            background: #ecf0f1;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            height: 100%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .score-display {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .score-display h3 {
+            margin: 0 0 10px 0;
+        }
+        .score-value {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .help-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        @media print {
+            body { background: white; }
+            .nav-tabs, button, .btn-primary, .btn-secondary { display: none; }
+            .tab-content { display: block !important; }
+        }
+        @media (max-width: 768px) {
+            .nav-tabs { flex-wrap: wrap; }
+            .tab-button { min-width: 120px; font-size: 0.9em; }
+            .quote-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador de Operaciones de Mercado</h1>
+            <p class="subtitle">Practique operaciones con acciones usando diferentes tipos de órdenes - ¡sin riesgo financiero!</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="switchTab(0)">Módulo 1: Cotizaciones</button>
+            <button class="tab-button" onclick="switchTab(1)">Módulo 2: Órdenes de Mercado</button>
+            <button class="tab-button" onclick="switchTab(2)">Módulo 3: Órdenes Límite</button>
+            <button class="tab-button" onclick="switchTab(3)">Módulo 4: Escenarios</button>
+            <button class="tab-button" onclick="switchTab(4)">Módulo 5: Impacto de Costos</button>
+        </div>
+
+        <!-- Módulo 1: Entendiendo Cotizaciones -->
+        <div class="tab-content active">
+            <div class="module-intro">
+                <h2>Módulo 1: Entendiendo Cotizaciones de Acciones</h2>
+                <p>Aprenda a leer e interpretar cotizaciones de acciones correctamente. Esta es la base de todas las decisiones de trading.</p>
+            </div>
+
+            <div class="quote-display">
+                <h3>AAPL - Apple Inc.</h3>
+                <div class="quote-grid">
+                    <div class="quote-item">
+                        <div class="quote-label">Oferta (Bid)</div>
+                        <div class="quote-value">$173.45</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Demanda (Ask)</div>
+                        <div class="quote-value">$173.55</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Último</div>
+                        <div class="quote-value">$173.50</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Volumen</div>
+                        <div class="quote-value">52.0M</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="help-box">
+                <h3>Prueba: Evalúe Su Conocimiento</h3>
+                <p><strong>Pregunta 1:</strong> Si desea COMPRAR esta acción ahora mismo con una orden de mercado, ¿qué precio pagará?</p>
+                <button onclick="quizAnswer(1, 'bid')" class="btn-secondary">$173.45 (Oferta)</button>
+                <button onclick="quizAnswer(1, 'ask')" class="btn-primary">$173.55 (Demanda)</button>
+                <button onclick="quizAnswer(1, 'last')" class="btn-secondary">$173.50 (Último)</button>
+                <div id="quiz1-result" class="result-box"></div>
+
+                <p style="margin-top: 20px;"><strong>Pregunta 2:</strong> ¿Cuál es el diferencial para esta acción?</p>
+                <input type="number" id="spread-answer" step="0.01" placeholder="Ingrese el diferencial en dólares">
+                <button onclick="quizAnswer(2, 'check')" class="btn-primary">Verificar Respuesta</button>
+                <div id="quiz2-result" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Módulo 2: Práctica de Órdenes de Mercado -->
+        <div class="tab-content">
+            <div class="module-intro">
+                <h2>Módulo 2: Práctica de Órdenes de Mercado</h2>
+                <p>Ejecute órdenes de mercado y vea el impacto inmediato del diferencial oferta-demanda.</p>
+            </div>
+
+            <div class="trade-form">
+                <h3>Colocar una Orden de Mercado</h3>
+
+                <div class="form-group">
+                    <label for="security-select">Seleccionar Valor:</label>
+                    <select id="security-select" onchange="updateQuote()">
+                        <option value="AAPL">AAPL - Apple Inc.</option>
+                        <option value="MSFT">MSFT - Microsoft Corp.</option>
+                        <option value="SPY">SPY - ETF S&P 500</option>
+                    </select>
+                </div>
+
+                <div id="current-quote" class="quote-display">
+                    <!-- Poblado por JavaScript -->
+                </div>
+
+                <div class="form-group">
+                    <label for="shares">Número de Acciones:</label>
+                    <input type="number" id="shares" value="10" min="1">
+                </div>
+
+                <button onclick="executeMarketOrder('buy')" class="btn-primary">Comprar (Pagar Demanda)</button>
+                <button onclick="executeMarketOrder('sell')" class="btn-secondary">Vender (Recibir Oferta)</button>
+            </div>
+
+            <div id="market-result" class="result-box"></div>
+
+            <div class="help-box">
+                <h3>Lo Que Está Aprendiendo:</h3>
+                <ul>
+                    <li>Las órdenes de mercado se ejecutan inmediatamente al precio actual de oferta (venta) o demanda (compra)</li>
+                    <li>Siempre paga el diferencial cuando opera</li>
+                    <li>Cuanto mayor sea el diferencial, más costosa será la operación</li>
+                    <li>Las acciones de alto volumen tienen diferenciales más ajustados (menor costo)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Módulo 3: Práctica de Órdenes Límite -->
+        <div class="tab-content">
+            <div class="module-intro">
+                <h2>Módulo 3: Práctica de Órdenes Límite</h2>
+                <p>Practique usando órdenes límite para controlar el precio que paga o recibe.</p>
+            </div>
+
+            <div class="trade-form">
+                <h3>Colocar una Orden Límite</h3>
+
+                <div id="limit-quote" class="quote-display">
+                    <!-- Poblado por JavaScript -->
+                </div>
+
+                <div class="form-group">
+                    <label for="limit-shares">Número de Acciones:</label>
+                    <input type="number" id="limit-shares" value="10" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="limit-price">Precio Límite ($):</label>
+                    <input type="number" id="limit-price" step="0.01" value="173.00">
+                </div>
+
+                <button onclick="executeLimitOrder('buy')" class="btn-primary">Orden Límite de Compra</button>
+                <button onclick="executeLimitOrder('sell')" class="btn-secondary">Orden Límite de Venta</button>
+            </div>
+
+            <div id="limit-result" class="result-box"></div>
+
+            <div class="help-box">
+                <h3>Cómo Funcionan las Órdenes Límite:</h3>
+                <ul>
+                    <li><strong>Límite de Compra:</strong> Solo compra si el precio baja a su límite o menos</li>
+                    <li><strong>Límite de Venta:</strong> Solo vende si el precio sube a su límite o más</li>
+                    <li><strong>Beneficio:</strong> Controla su precio, potencialmente ahorra dinero</li>
+                    <li><strong>Riesgo:</strong> La orden puede nunca ejecutarse si el precio no alcanza su límite</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Módulo 4: Desafíos de Escenarios -->
+        <div class="tab-content">
+            <div class="module-intro">
+                <h2>Módulo 4: Escenarios del Mundo Real</h2>
+                <p>Aplique lo que ha aprendido a situaciones de trading realistas.</p>
+            </div>
+
+            <div class="score-display" id="score-display">
+                <h3>Su Puntuación</h3>
+                <div class="score-value" id="total-score">0</div>
+                <p>puntos</p>
+            </div>
+
+            <div class="scenario-card">
+                <h3>Escenario 1: Acción Líquida con Diferencial Ajustado</h3>
+                <p><strong>Situación:</strong> Desea comprar una acción tecnológica popular con alto volumen.</p>
+                <p><strong>Cotización:</strong> Oferta $150.00 | Demanda $150.02 | Diferencial 0.013%</p>
+                <p><strong>Pregunta:</strong> ¿Qué tipo de orden debería usar?</p>
+                <button onclick="scoreScenario(1, 'market')" class="btn-primary">Orden de Mercado</button>
+                <button onclick="scoreScenario(1, 'limit')" class="btn-secondary">Orden Límite</button>
+                <div id="scenario1-result" class="result-box"></div>
+            </div>
+
+            <div class="scenario-card">
+                <h3>Escenario 2: Acción Ilíquida con Diferencial Amplio</h3>
+                <p><strong>Situación:</strong> Una acción de pequeña capitalización con bajo volumen de operaciones.</p>
+                <p><strong>Cotización:</strong> Oferta $12.50 | Demanda $13.00 | Diferencial 3.85%</p>
+                <p><strong>Pregunta:</strong> ¿Qué tipo de orden debería usar?</p>
+                <button onclick="scoreScenario(2, 'market')" class="btn-secondary">Orden de Mercado</button>
+                <button onclick="scoreScenario(2, 'limit')" class="btn-primary">Orden Límite</button>
+                <div id="scenario2-result" class="result-box"></div>
+            </div>
+
+            <div class="scenario-card">
+                <h3>Escenario 3: Día de Mercado Volátil</h3>
+                <p><strong>Situación:</strong> Acaban de surgir noticias importantes, el precio de la acción salta rápidamente entre $80-$90.</p>
+                <p><strong>Cotización Actual:</strong> Oferta $84.50 | Demanda $85.50</p>
+                <p><strong>Pregunta:</strong> ¿Qué tipo de orden le protege de pagar de más?</p>
+                <button onclick="scoreScenario(3, 'market')" class="btn-secondary">Orden de Mercado</button>
+                <button onclick="scoreScenario(3, 'limit')" class="btn-primary">Orden Límite</button>
+                <div id="scenario3-result" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Módulo 5: Comparación de Costos -->
+        <div class="tab-content">
+            <div class="module-intro">
+                <h2>Módulo 5: Impacto de Costos a Largo Plazo</h2>
+                <p>Vea cómo la frecuencia de trading y los diferenciales impactan su patrimonio con el tiempo.</p>
+            </div>
+
+            <div class="trade-form">
+                <h3>Calcule Sus Costos de Trading</h3>
+
+                <div class="form-group">
+                    <label for="trades-per-year">Operaciones por Año:</label>
+                    <input type="number" id="trades-per-year" value="12" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="avg-spread">Diferencial Promedio por Operación ($):</label>
+                    <input type="number" id="avg-spread" value="0.10" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="shares-per-trade">Acciones Promedio por Operación:</label>
+                    <input type="number" id="shares-per-trade" value="100" min="1">
+                </div>
+
+                <button onclick="calculateLongTermCost()" class="btn-primary">Calcular Impacto</button>
+            </div>
+
+            <div id="cost-result" class="result-box"></div>
+
+            <h3>Comparación: Trading Activo vs. Pasivo</h3>
+            <table id="comparison-table">
+                <tr>
+                    <th>Estrategia</th>
+                    <th>Operaciones/Año</th>
+                    <th>Costo Anual por Diferencial</th>
+                    <th>Impacto a 10 Años</th>
+                    <th>Impacto a 30 Años</th>
+                </tr>
+                <tr>
+                    <td>Comprar y Mantener</td>
+                    <td>4</td>
+                    <td>$40</td>
+                    <td>$600</td>
+                    <td>$2,400</td>
+                </tr>
+                <tr>
+                    <td>Moderado</td>
+                    <td>12</td>
+                    <td>$120</td>
+                    <td>$1,800</td>
+                    <td>$7,200</td>
+                </tr>
+                <tr>
+                    <td>Activo</td>
+                    <td>100</td>
+                    <td>$1,000</td>
+                    <td>$15,000</td>
+                    <td>$60,000</td>
+                </tr>
+            </table>
+
+            <div class="help-box">
+                <h3>Punto Clave:</h3>
+                <p>El trading frecuente tiene un costo masivo debido a los diferenciales (y comisiones si aplican). Incluso diferenciales pequeños se acumulan con el tiempo. Una estrategia de comprar y mantener minimiza estos costos y permite que sus inversiones crezcan.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Simulador de Operaciones de Mercado</p>
+            <p>Solo para fines educativos - No es asesoramiento de inversión</p>
+            <p>El progreso se guarda en su navegador. No se recopilan datos personales.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Base de datos de valores
+        const securities = {
+            'AAPL': { name: 'Apple Inc.', bid: 173.45, ask: 173.55, last: 173.50, volume: '52.0M' },
+            'MSFT': { name: 'Microsoft Corp.', bid: 375.20, ask: 375.35, last: 375.28, volume: '23.0M' },
+            'SPY': { name: 'ETF S&P 500', bid: 450.10, ask: 450.12, last: 450.11, volume: '75.0M' }
+        };
+
+        let currentSecurity = 'AAPL';
+        let totalScore = 0;
+
+        // Cambio de pestañas
+        function switchTab(index) {
+            const buttons = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+
+            contents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
+        }
+
+        // Actualizar visualización de cotización
+        function updateQuote() {
+            currentSecurity = document.getElementById('security-select').value;
+            const sec = securities[currentSecurity];
+
+            const quoteHTML = `
+                <h3>${currentSecurity} - ${sec.name}</h3>
+                <div class="quote-grid">
+                    <div class="quote-item">
+                        <div class="quote-label">Oferta (Bid)</div>
+                        <div class="quote-value">$${sec.bid}</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Demanda (Ask)</div>
+                        <div class="quote-value">$${sec.ask}</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Último</div>
+                        <div class="quote-value">$${sec.last}</div>
+                    </div>
+                    <div class="quote-item">
+                        <div class="quote-label">Volumen</div>
+                        <div class="quote-value">${sec.volume}</div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('current-quote').innerHTML = quoteHTML;
+            document.getElementById('limit-quote').innerHTML = quoteHTML;
+        }
+
+        // Respuestas del quiz
+        function quizAnswer(question, answer) {
+            const result1 = document.getElementById('quiz1-result');
+            const result2 = document.getElementById('quiz2-result');
+
+            if (question === 1) {
+                if (answer === 'ask') {
+                    result1.className = 'result-box show';
+                    result1.innerHTML = '<strong>¡Correcto!</strong> Al comprar con una orden de mercado, paga el precio de demanda ($173.55).';
+                } else {
+                    result1.className = 'result-box show error';
+                    result1.innerHTML = '<strong>Incorrecto.</strong> Al comprar, paga el precio de DEMANDA, no el de oferta o último precio.';
+                }
+            } else if (question === 2) {
+                const userAnswer = parseFloat(document.getElementById('spread-answer').value);
+                const correctAnswer = 0.10;
+
+                if (Math.abs(userAnswer - correctAnswer) < 0.01) {
+                    result2.className = 'result-box show';
+                    result2.innerHTML = '<strong>¡Correcto!</strong> El diferencial es $0.10 (Demanda $173.55 - Oferta $173.45 = $0.10).';
+                } else {
+                    result2.className = 'result-box show warning';
+                    result2.innerHTML = `<strong>No exactamente.</strong> El diferencial es Demanda - Oferta = $173.55 - $173.45 = $0.10. Usted ingresó $${userAnswer.toFixed(2)}.`;
+                }
+            }
+        }
+
+        // Ejecutar orden de mercado
+        function executeMarketOrder(action) {
+            const shares = parseInt(document.getElementById('shares').value);
+            const sec = securities[currentSecurity];
+            const result = document.getElementById('market-result');
+
+            if (action === 'buy') {
+                const cost = shares * sec.ask;
+                const immediateValue = shares * sec.bid;
+                const spreadCost = shares * (sec.ask - sec.bid);
+
+                result.className = 'result-box show';
+                result.innerHTML = `
+                    <h3>Orden de Mercado Ejecutada</h3>
+                    <div class="result-item"><strong>Ejecutada a:</strong> $${sec.ask} (precio de demanda)</div>
+                    <div class="result-item"><strong>Costo total:</strong> $${cost.toFixed(2)}</div>
+                    <div class="result-item"><strong>Valor inmediato:</strong> $${immediateValue.toFixed(2)} (a precio de oferta)</div>
+                    <div class="result-item" style="color: #e74c3c;"><strong>Costo del diferencial:</strong> $${spreadCost.toFixed(2)}</div>
+                    <p style="margin-top: 15px;">Perdió inmediatamente $${spreadCost.toFixed(2)} por el diferencial, aunque el precio de la acción no cambió.</p>
+                `;
+            } else {
+                const revenue = shares * sec.bid;
+
+                result.className = 'result-box show';
+                result.innerHTML = `
+                    <h3>Orden de Mercado Ejecutada</h3>
+                    <div class="result-item"><strong>Ejecutada a:</strong> $${sec.bid} (precio de oferta)</div>
+                    <div class="result-item"><strong>Ingreso total:</strong> $${revenue.toFixed(2)}</div>
+                    <p style="margin-top: 15px;">Si hubiera comprado estas acciones con una orden de mercado e inmediatamente las vendiera, perdería el diferencial en ambas operaciones.</p>
+                `;
+            }
+        }
+
+        // Ejecutar orden límite
+        function executeLimitOrder(action) {
+            const shares = parseInt(document.getElementById('limit-shares').value);
+            const limitPrice = parseFloat(document.getElementById('limit-price').value);
+            const sec = securities[currentSecurity];
+            const result = document.getElementById('limit-result');
+
+            // Lógica de ejecución simplificada (70% de probabilidad si es razonable)
+            const executed = (action === 'buy' && limitPrice >= sec.ask * 0.99) ||
+                           (action === 'sell' && limitPrice <= sec.bid * 1.01);
+
+            if (executed) {
+                const cost = shares * limitPrice;
+                const marketCost = shares * sec.ask;
+                const savings = marketCost - cost;
+
+                result.className = 'result-box show';
+                result.innerHTML = `
+                    <h3>Orden Límite Ejecutada</h3>
+                    <div class="result-item"><strong>Ejecutada a:</strong> $${limitPrice.toFixed(2)}</div>
+                    <div class="result-item"><strong>Costo total:</strong> $${cost.toFixed(2)}</div>
+                    <div class="result-item"><strong>Orden de mercado hubiera costado:</strong> $${marketCost.toFixed(2)}</div>
+                    <div class="result-item" style="color: #2ecc71;"><strong>Usted ahorró:</strong> $${savings.toFixed(2)}</div>
+                `;
+            } else {
+                result.className = 'result-box show warning';
+                result.innerHTML = `
+                    <h3>Orden Límite No Ejecutada</h3>
+                    <p>Su precio límite de $${limitPrice.toFixed(2)} nunca fue alcanzado. El precio de ${action === 'buy' ? 'demanda' : 'oferta'} permaneció en $${action === 'buy' ? sec.ask : sec.bid}.</p>
+                    <p>Este es el compromiso con las órdenes límite: controla el precio pero arriesga perder la operación por completo.</p>
+                `;
+            }
+        }
+
+        // Puntuar escenarios
+        function scoreScenario(scenario, answer) {
+            const result = document.getElementById(`scenario${scenario}-result`);
+            let correct = false;
+            let explanation = '';
+
+            if (scenario === 1 && answer === 'market') {
+                correct = true;
+                explanation = '<strong>¡Correcto!</strong> Con un diferencial ajustado (0.013%), una orden de mercado es eficiente. El costo es mínimo.';
+            } else if (scenario === 2 && answer === 'limit') {
+                correct = true;
+                explanation = '<strong>¡Correcto!</strong> ¡Un diferencial de 3.85% es enorme! Use una orden límite para evitar pagar de más por cientos de dólares.';
+            } else if (scenario === 3 && answer === 'limit') {
+                correct = true;
+                explanation = '<strong>¡Correcto!</strong> En condiciones volátiles, las órdenes límite le protegen de ejecutar a un precio pico.';
+            } else {
+                explanation = '<strong>Intente de nuevo.</strong> Piense en el tamaño del diferencial y las condiciones del mercado.';
+            }
+
+            result.className = correct ? 'result-box show' : 'result-box show warning';
+            result.innerHTML = explanation;
+
+            if (correct) {
+                totalScore += 100;
+                document.getElementById('total-score').textContent = totalScore;
+            }
+        }
+
+        // Calcular costo a largo plazo
+        function calculateLongTermCost() {
+            const tradesPerYear = parseInt(document.getElementById('trades-per-year').value);
+            const avgSpread = parseFloat(document.getElementById('avg-spread').value);
+            const sharesPerTrade = parseInt(document.getElementById('shares-per-trade').value);
+
+            const costPerTrade = avgSpread * sharesPerTrade;
+            const annualCost = costPerTrade * tradesPerYear;
+            const tenYearCost = annualCost * 10;
+            const thirtyYearCost = annualCost * 30;
+
+            const result = document.getElementById('cost-result');
+            result.className = 'result-box show';
+            result.innerHTML = `
+                <h3>Su Análisis de Costos de Trading</h3>
+                <div class="result-item"><strong>Costo por operación:</strong> $${costPerTrade.toFixed(2)}</div>
+                <div class="result-item"><strong>Costo anual por diferencial:</strong> $${annualCost.toFixed(2)}</div>
+                <div class="result-item"><strong>Impacto a 10 años:</strong> $${tenYearCost.toFixed(2)}</div>
+                <div class="result-item"><strong>Impacto a 30 años:</strong> $${thirtyYearCost.toFixed(2)}</div>
+                <p style="margin-top: 15px;">¡Esto no incluye el costo de oportunidad! Si invirtiera este dinero en su lugar al 7% de rendimiento anual, crecería aún más.</p>
+            `;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateQuote();
+        });
+    </script>
+</body>
+</html>

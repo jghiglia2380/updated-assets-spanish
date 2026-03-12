@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Estudios de Caso de Robo de Identidad - Capítulo 9.2</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+
+            .header {
+                margin-bottom: 0.5in;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .print-instructions, .print-button {
+                display: none;
+            }
+
+            .analysis-form textarea {
+                height: auto;
+                min-height: 0.5in;
+                border: 1px solid #ccc;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4338ca;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6366f1;
+            margin-top: 0;
+        }
+
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .introduction {
+            margin-bottom: 30px;
+        }
+
+        .case-study {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .case-online {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+        }
+
+        .case-physical {
+            background-color: #f0fdfa;
+            border: 1px solid #99f6e4;
+        }
+
+        .case-combined {
+            background-color: #fef3c7;
+            border: 1px solid #fcd34d;
+        }
+
+        .case-medical {
+            background-color: #ffe4e6;
+            border: 1px solid #fda4af;
+        }
+
+        .case-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4338ca;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .case-description {
+            margin-bottom: 20px;
+        }
+
+        .analysis-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .additional-cases {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f3e8ff;
+            border: 1px solid #d8b4fe;
+            border-radius: 5px;
+        }
+
+        .tips-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #6366f1;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+
+        .print-button {
+            background-color: #4338ca;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #3730a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Trabajo de Estudios de Caso de Robo de Identidad</h1>
+        <p class="subtitle">Analizando Escenarios Reales de Robo de Identidad</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresión:</strong> Completa esta hoja de trabajo por completo, luego haz clic en el botón "Imprimir o Guardar como PDF" en la parte inferior de la página. Selecciona "Guardar como PDF" como destino para crear una copia digital de tu análisis completado.
+    </div>
+
+    <div class="introduction">
+        <p>Esta hoja de trabajo presenta cuatro escenarios reales de robo de identidad. Para cada caso, analiza qué sucedió, identifica las vulnerabilidades que fueron explotadas y determina qué se podría haber hecho para prevenir el robo. Usa estos análisis para fortalecer tus propias estrategias de protección de identidad.</p>
+    </div>
+
+    <div class="case-study case-online">
+        <h2 class="case-title">Estudio de Caso 1: Suplantación de Identidad en Redes Sociales</h2>
+
+        <div class="case-description">
+            <p><strong>Víctima:</strong> Taylor, estudiante universitario de 19 años</p>
+            <p><strong>Escenario:</strong> Taylor recibió un mensaje de un amigo en Instagram preguntando sobre fotos de un evento reciente. El amigo envió un enlace para ver las fotos, que requería que Taylor iniciara sesión con sus credenciales de Instagram. Taylor hizo clic en el enlace e ingresó su nombre de usuario y contraseña. En cuestión de horas, su cuenta fue tomada, su foto de perfil y nombre fueron cambiados, y el impostor comenzó a enviar mensajes de phishing similares a los contactos de Taylor. El impostor también obtuvo acceso al correo electrónico de Taylor porque usaba la misma contraseña para ambas cuentas. A través de la cuenta de correo electrónico, el ladrón accedió a la información bancaria en línea de Taylor e intentó transferir fondos.</p>
+            <p><strong>Impacto:</strong> Taylor perdió el control de sus cuentas de redes sociales y correo electrónico durante varios días, tuvo que pasar horas en pasos de recuperación de identidad, y tuvo que explicar a amigos y familiares que había sido hackeado. El banco de Taylor congeló la cuenta debido a actividad sospechosa antes de que se transfiriera dinero, pero Taylor tuvo que cerrar la cuenta comprometida y abrir una nueva.</p>
+        </div>
+
+        <div class="analysis-form">
+            <div class="form-group">
+                <label for="case1-vulnerabilities">¿Qué vulnerabilidades fueron explotadas en este caso?</label>
+                <textarea id="case1-vulnerabilities" name="case1-vulnerabilities"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case1-prevention">¿Qué medidas de prevención específicas podrían haber evitado este robo de identidad?</label>
+                <textarea id="case1-prevention" name="case1-prevention"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case1-response">¿Qué pasos debería tomar Taylor para recuperarse de este robo de identidad?</label>
+                <textarea id="case1-response" name="case1-response"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case1-personal">¿Cómo podrías aplicar las lecciones de este caso a tu propia seguridad digital?</label>
+                <textarea id="case1-personal" name="case1-personal"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="case-study case-physical">
+        <h2 class="case-title">Estudio de Caso 2: Robo de Correo y Toma de Cuenta</h2>
+
+        <div class="case-description">
+            <p><strong>Víctima:</strong> La familia Rodríguez</p>
+            <p><strong>Escenario:</strong> Mientras la familia Rodríguez estaba de vacaciones durante dos semanas, no pusieron una retención en su correo. Durante este tiempo, alguien robó correo de su buzón sin candado, incluyendo estados de cuenta bancarios, ofertas de tarjetas de crédito y facturas de servicios. Usando la información personal recopilada de estos documentos, el ladrón abrió varias tarjetas de crédito a nombre del Sr. Rodríguez. El ladrón también llamó a la compañía de tarjeta de crédito de la familia, usó la información personal para pasar las preguntas de seguridad, e hizo que enviaran una nueva tarjeta a una dirección diferente. La familia no descubrió el fraude hasta que regresaron a casa y el Sr. Rodríguez recibió una llamada de una compañía de tarjetas de crédito verificando una compra grande que él no había hecho.</p>
+            <p><strong>Impacto:</strong> Más de $12,000 en cargos fraudulentos en tres tarjetas de crédito, puntaje de crédito severamente dañado, y más de seis meses resolviendo el fraude y reparando el crédito. La familia también tuvo que colocar congelamientos de crédito, presentar reportes policiales y lidiar con agencias de cobranza por cuentas que nunca abrieron.</p>
+        </div>
+
+        <div class="analysis-form">
+            <div class="form-group">
+                <label for="case2-vulnerabilities">¿Qué vulnerabilidades fueron explotadas en este caso?</label>
+                <textarea id="case2-vulnerabilities" name="case2-vulnerabilities"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case2-prevention">¿Qué medidas de prevención específicas podrían haber evitado este robo de identidad?</label>
+                <textarea id="case2-prevention" name="case2-prevention"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case2-response">¿Qué pasos debería tomar la familia Rodríguez para recuperarse de este robo de identidad?</label>
+                <textarea id="case2-response" name="case2-response"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case2-personal">¿Cómo podrías aplicar las lecciones de este caso a tu propia seguridad de documentos físicos?</label>
+                <textarea id="case2-personal" name="case2-personal"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="case-study case-combined">
+        <h2 class="case-title">Estudio de Caso 3: Violación de Datos y Robo de Identidad Sintética</h2>
+
+        <div class="case-description">
+            <p><strong>Víctima:</strong> Marcus, joven profesional de 25 años</p>
+            <p><strong>Escenario:</strong> Marcus recibió una notificación de que su información había sido comprometida en una violación de datos en un importante minorista donde compraba frecuentemente. Los datos violados incluían su nombre, dirección, número de teléfono, correo electrónico y los últimos cuatro dígitos de su tarjeta de crédito. Estaba preocupado pero no tomó acción inmediata ya que el número completo de la tarjeta no fue expuesto. Seis meses después, Marcus solicitó una hipoteca y descubrió que había varios préstamos y tarjetas de crédito en su informe de crédito que él nunca había abierto. El ladrón de identidad había usado la información personal de Marcus combinada con un número de Seguro Social fabricado (una técnica llamada robo de identidad sintética) para crear una identidad híbrida. El ladrón había estado construyendo crédito con esta identidad sintética durante meses antes de agotar todas las cuentas.</p>
+            <p><strong>Impacto:</strong> La solicitud de hipoteca de Marcus fue denegada, su puntaje de crédito bajó más de 150 puntos, y tuvo que retrasar la compra de una casa por más de un año mientras trabajaba para limpiar su informe de crédito. El proceso involucró numerosas disputas con las agencias de crédito, presentación de reportes ante la FTC y la policía, y muchas horas documentando y dando seguimiento al fraude.</p>
+        </div>
+
+        <div class="analysis-form">
+            <div class="form-group">
+                <label for="case3-vulnerabilities">¿Qué vulnerabilidades fueron explotadas en este caso?</label>
+                <textarea id="case3-vulnerabilities" name="case3-vulnerabilities"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case3-prevention">¿Qué medidas de prevención específicas podrían haber evitado este robo de identidad?</label>
+                <textarea id="case3-prevention" name="case3-prevention"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case3-response">¿Qué pasos debería tomar Marcus para recuperarse de este robo de identidad?</label>
+                <textarea id="case3-response" name="case3-response"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case3-personal">¿Cómo podrías protegerte después de enterarte de que tu información fue parte de una violación de datos?</label>
+                <textarea id="case3-personal" name="case3-personal"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="case-study case-medical">
+        <h2 class="case-title">Estudio de Caso 4: Robo de Identidad Médica</h2>
+
+        <div class="case-description">
+            <p><strong>Víctima:</strong> Eleanor, jubilada de 67 años</p>
+            <p><strong>Escenario:</strong> Eleanor recibió una explicación de beneficios (EOB) de su compañía de seguro de salud por un procedimiento quirúrgico que nunca tuvo en un hospital en otro estado. Cuando llamó a su compañía de seguros para reportar el error, descubrió que alguien había usado su información del seguro para recibir más de $35,000 en atención médica durante los últimos tres meses. El ladrón de alguna manera había obtenido su número de identificación del seguro, nombre y fecha de nacimiento. Eleanor descubrió más tarde que un correo de phishing disfrazado como proveniente de su proveedor de seguros la había engañado para proporcionar sus datos del seguro seis meses antes. Ella pensó que estaba actualizando su información para el nuevo año de seguros.</p>
+            <p><strong>Impacto:</strong> Los beneficios del seguro de Eleanor estaban casi agotados para el año, y tuvo que pagar de su bolsillo por sus propias necesidades médicas hasta que el fraude pudiera resolverse. Más preocupante, sus registros médicos fueron contaminados con la información médica de otra persona, incluyendo diferente tipo de sangre y alergias, creando una situación potencialmente peligrosa para su atención médica futura. Tomó casi un año de trabajo con sus proveedores de salud y compañía de seguros para corregir sus registros y restaurar sus beneficios.</p>
+        </div>
+
+        <div class="analysis-form">
+            <div class="form-group">
+                <label for="case4-vulnerabilities">¿Qué vulnerabilidades fueron explotadas en este caso?</label>
+                <textarea id="case4-vulnerabilities" name="case4-vulnerabilities"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case4-prevention">¿Qué medidas de prevención específicas podrían haber evitado este robo de identidad?</label>
+                <textarea id="case4-prevention" name="case4-prevention"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case4-response">¿Qué pasos debería tomar Eleanor para recuperarse de este robo de identidad?</label>
+                <textarea id="case4-response" name="case4-response"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="case4-personal">¿Cómo podrías proteger tu información médica del robo de identidad?</label>
+                <textarea id="case4-personal" name="case4-personal"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="additional-cases">
+        <h2>Crea Tu Propio Estudio de Caso</h2>
+        <p>Investiga un caso real de robo de identidad de un artículo de noticias, podcast u otra fuente. Documenta el caso a continuación y analízalo usando el mismo marco.</p>
+
+        <div class="form-group">
+            <label for="custom-title">Título del Caso:</label>
+            <textarea id="custom-title" name="custom-title" style="min-height: 40px;"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="custom-scenario">Descripción del Escenario:</label>
+            <textarea id="custom-scenario" name="custom-scenario"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="custom-vulnerabilities">¿Qué vulnerabilidades fueron explotadas en este caso?</label>
+            <textarea id="custom-vulnerabilities" name="custom-vulnerabilities"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="custom-prevention">¿Qué medidas de prevención específicas podrían haber evitado este robo de identidad?</label>
+            <textarea id="custom-prevention" name="custom-prevention"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="custom-personal">¿Cómo podrías aplicar las lecciones de este caso a tu propia protección de identidad?</label>
+            <textarea id="custom-personal" name="custom-personal"></textarea>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <h3>Consejos para el Análisis de Estudios de Caso</h3>
+        <p>Al analizar casos de robo de identidad, considera estas preguntas:</p>
+        <ul>
+            <li>¿Qué piezas específicas de información personal fueron comprometidas?</li>
+            <li>¿Cuál fue el punto inicial de vulnerabilidad que el ladrón explotó?</li>
+            <li>¿Qué señales de advertencia aparecieron antes de que el robo fuera completamente descubierto?</li>
+            <li>¿Qué hizo que la recuperación fuera particularmente difícil o consumiera mucho tiempo?</li>
+            <li>¿Qué medidas de prevención específicas habrían sido más efectivas?</li>
+            <li>¿Cómo podría la víctima haber detectado el robo antes?</li>
+        </ul>
+    </div>
+
+    <button class="print-button" onclick="window.print();">Imprimir o Guardar como PDF</button>
+
+    <div class="footer">
+        <p>Capítulo 9.2: Prevención y Recuperación del Robo de Identidad | PFL Academy</p>
+        <p>© 2025 PFL Academy. Solo para propósitos educativos. No es asesoría legal o financiera.</p>
+    </div>
+</body>
+</html>

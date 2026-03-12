@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Práctica para Crear Currículum | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+        }
+
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .scenario {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .scenario-number {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .answer-space {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 80px;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .hint-box {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .example-box {
+            background-color: #e0f2fe;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .before, .after {
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .before {
+            background-color: #fee2e2;
+        }
+
+        .after {
+            background-color: #dcfce7;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+
+            textarea {
+                border: none !important;
+                min-height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Trabajo de Práctica para Crear Currículum</h1>
+        <p class="subtitle">Desarrolle contenido sólido para su currículum usando verbos de acción y logros cuantificables</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Transformando Puntos Débiles</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 1: Usando Verbos de Acción</div>
+            <p>Transforme estos puntos débiles del currículum en puntos fuertes usando verbos de acción.</p>
+
+            <div class="before-after">
+                <div class="before">
+                    <strong>Antes:</strong><br>
+                    "Responsable del servicio al cliente"
+                </div>
+                <div class="after">
+                    <strong>Después:</strong><br>
+                    <textarea style="width: 100%; min-height: 40px; border: none; background: transparent;" placeholder="Reescriba usando un verbo de acción..."></textarea>
+                </div>
+            </div>
+
+            <div class="before-after">
+                <div class="before">
+                    <strong>Antes:</strong><br>
+                    "Ayudé con redes sociales"
+                </div>
+                <div class="after">
+                    <strong>Después:</strong><br>
+                    <textarea style="width: 100%; min-height: 40px; border: none; background: transparent;" placeholder="Reescriba usando un verbo de acción..."></textarea>
+                </div>
+            </div>
+
+            <div class="before-after">
+                <div class="before">
+                    <strong>Antes:</strong><br>
+                    "Hice trabajo de entrada de datos"
+                </div>
+                <div class="after">
+                    <strong>Después:</strong><br>
+                    <textarea style="width: 100%; min-height: 40px; border: none; background: transparent;" placeholder="Reescriba usando un verbo de acción..."></textarea>
+                </div>
+            </div>
+
+            <div class="hint-box">
+                <strong>Verbos de Acción Fuertes:</strong> Gestioné, Creé, Desarrollé, Implementé, Analicé, Coordiné, Resolví, Capacité, Aumenté, Reduje, Generé, Diseñé
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Agregando Logros Cuantificables</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 2: Haciendo los Logros Específicos</div>
+            <p>Agregue números específicos, porcentajes o métricas a estos puntos.</p>
+
+            <div class="example-box">
+                <strong>Ejemplo:</strong><br>
+                Antes: "Aumenté las ventas"<br>
+                Después: "Aumenté las ventas mensuales en un 25% ($5,000) mediante técnicas de venta adicional dirigidas"
+            </div>
+
+            <div class="question">a) Transforme: "Mejoré la satisfacción del cliente"</div>
+            <div class="answer-space">
+                <textarea placeholder="Agregue métricas específicas..."></textarea>
+            </div>
+
+            <div class="question">b) Transforme: "Gestioné un equipo de empleados"</div>
+            <div class="answer-space">
+                <textarea placeholder="Agregue números específicos..."></textarea>
+            </div>
+
+            <div class="question">c) Transforme: "Reduje costos"</div>
+            <div class="answer-space">
+                <textarea placeholder="Agregue cantidades o porcentajes específicos..."></textarea>
+            </div>
+
+            <div class="question">d) Transforme: "Manejé consultas de clientes"</div>
+            <div class="answer-space">
+                <textarea placeholder="Agregue métricas de volumen o eficiencia..."></textarea>
+            </div>
+
+            <div class="hint-box">
+                <strong>Elementos Cuantificables:</strong> Cantidades en dólares, porcentajes, tiempo ahorrado, número de personas/clientes, volumen procesado, clasificaciones, premios
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Escribiendo Su Propio Contenido</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 3: Su Inventario de Experiencias</div>
+            <p>Enumere sus experiencias y transfórmelas en puntos fuertes para el currículum.</p>
+
+            <div class="question">a) Enumere TRES trabajos, posiciones de voluntariado o actividades en las que ha participado:</div>
+            <div class="answer-space">
+                <textarea placeholder="1. _____
+2. _____
+3. _____"></textarea>
+            </div>
+
+            <div class="question">b) Para su primera experiencia, escriba TRES puntos fuertes:</div>
+            <div class="answer-space">
+                <textarea placeholder="• [Verbo de acción] + [Tarea] + [Resultado/Impacto]
+•
+• "></textarea>
+            </div>
+
+            <div class="question">c) Para su segunda experiencia, escriba TRES puntos fuertes:</div>
+            <div class="answer-space">
+                <textarea placeholder="• [Verbo de acción] + [Tarea] + [Resultado/Impacto]
+•
+• "></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: Desarrollo del Resumen Profesional</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 4: Elaborando Su Resumen</div>
+            <p>Escriba un resumen profesional (2-4 oraciones) que destaque sus calificaciones principales.</p>
+
+            <div class="question">a) Enumere sus 3 PRINCIPALES habilidades o calificaciones:</div>
+            <div class="answer-space">
+                <textarea placeholder="1. _____
+2. _____
+3. _____"></textarea>
+            </div>
+
+            <div class="question">b) ¿Qué tipo de puesto o industria está buscando?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su puesto objetivo..."></textarea>
+            </div>
+
+            <div class="question">c) Escriba su resumen profesional:</div>
+            <div class="answer-space">
+                <textarea placeholder="[Frase descriptiva] estudiante/profesional de [campo] con [X] experiencia en [área relevante]. [Logro o habilidad clave]. Busca aprovechar [habilidades específicas] en un puesto de [rol/industria objetivo]."></textarea>
+            </div>
+
+            <div class="example-box">
+                <strong>Ejemplo:</strong> "Estudiante de contabilidad orientado al detalle con 2 años de experiencia en cuentas por cobrar e informes financieros. Competente en Excel, QuickBooks y análisis de datos con precisión comprobada en el procesamiento de más de 200 transacciones semanales. Busca aprovechar habilidades analíticas y atención al detalle en un puesto de contador de personal."
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 5: Marca Personal</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Ejercicio 5: Desarrollando Su Marca</div>
+
+            <div class="question">a) ¿Qué tres palabras describen mejor su yo profesional?</div>
+            <div class="answer-space">
+                <textarea placeholder="1. _____ 2. _____ 3. _____"></textarea>
+            </div>
+
+            <div class="question">b) ¿Qué le diferencia de otros en su campo?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su propuesta de valor única..."></textarea>
+            </div>
+
+            <div class="question">c) Escriba una declaración de marca personal (1-2 oraciones):</div>
+            <div class="answer-space">
+                <textarea placeholder="Ejemplo: 'Ayudo a pequeñas empresas a hacer crecer su presencia en línea a través de estrategias de redes sociales basadas en datos y contenido atractivo.'"></textarea>
+            </div>
+
+            <div class="question">d) ¿Cómo asegurará la consistencia en su currículum, LinkedIn y otros materiales profesionales?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su estrategia de consistencia de marca..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 6: Lista de Verificación del Currículum</div>
+
+        <div class="scenario">
+            <div class="scenario-number">Revisión Final</div>
+            <p>Use esta lista de verificación para revisar su currículum antes de enviarlo:</p>
+
+            <ul style="list-style: none; margin-left: 0;">
+                <li style="margin-bottom: 8px;"><input type="checkbox"> La información de contacto está completa y es profesional</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> La dirección de correo electrónico es profesional (no basada en apodos)</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> El resumen profesional está adaptado al puesto objetivo</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> Todos los puntos comienzan con verbos de acción</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> Los logros incluyen resultados cuantificables cuando es posible</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> La sección de educación incluye cursos/honores relevantes</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> La sección de habilidades refleja los requisitos del puesto</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> El formato es consistente en todo el documento</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> No hay errores de ortografía o gramática</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> El currículum cabe en una página (para nivel de entrada)</li>
+                <li style="margin-bottom: 8px;"><input type="checkbox"> El archivo tiene un nombre profesional (NombreApellido_Curriculum.pdf)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Preguntas de Reflexión</div>
+
+        <div class="scenario">
+            <div class="question">1. ¿Cuál fue la parte más difícil de escribir puntos fuertes?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su reflexión..."></textarea>
+            </div>
+
+            <div class="question">2. ¿Cómo rastreará sus logros en adelante para facilitar futuras actualizaciones del currículum?</div>
+            <div class="answer-space">
+                <textarea placeholder="Su respuesta..."></textarea>
+            </div>
+
+            <div class="question">3. ¿Qué aspecto de su marca personal quiere desarrollar más?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describa su plan de desarrollo..."></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

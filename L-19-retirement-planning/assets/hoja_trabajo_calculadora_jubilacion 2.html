@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Calculadora de Jubilacion</title>
+    <style>
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+                background-color: white;
+                color: black;
+            }
+            .print-instruction {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f2f6f9;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .print-instruction {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        .scenario-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .input-area {
+            border: 1px dashed #aaa;
+            padding: 10px;
+            min-height: 60px;
+            margin: 10px 0;
+        }
+
+        .short-input {
+            min-height: 30px;
+        }
+
+        .formula-box {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: "Courier New", monospace;
+        }
+
+        .highlight {
+            background-color: #fffde7;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instruction">
+        <p><strong>Instrucciones de Impresion:</strong> Para guardar o imprimir este documento, use la funcion de impresion de su navegador (Ctrl+P o Cmd+P) y seleccione "Guardar como PDF" como destino.</p>
+    </div>
+
+    <h1>Hoja de Trabajo de Calculadora de Jubilacion</h1>
+
+    <div class="info-box">
+        <p><strong>Instrucciones para el Estudiante:</strong> Esta hoja de trabajo le ayudara a entender como diferentes variables afectan los resultados de jubilacion. Explorara multiples escenarios, realizara calculos y analizara los resultados para comprender mejor los factores que influyen en la planificacion de la jubilacion.</p>
+    </div>
+
+    <h2>Parte 1: Entendiendo las Variables Clave de Jubilacion</h2>
+
+    <p>Antes de crear sus escenarios de jubilacion, revise estas variables clave que impactan los calculos de jubilacion:</p>
+
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripcion</th>
+            <th>Impacto en los Resultados de Jubilacion</th>
+        </tr>
+        <tr>
+            <td><strong>Edad Actual</strong></td>
+            <td>Su edad hoy</td>
+            <td>Determina el tiempo para que las inversiones crezcan; quienes comienzan jovenes se benefician mas del crecimiento compuesto</td>
+        </tr>
+        <tr>
+            <td><strong>Edad de Jubilacion</strong></td>
+            <td>Edad en que planea dejar de trabajar tiempo completo</td>
+            <td>Afecta tanto el periodo de contribucion como el periodo de retiro; jubilarse mas tarde significa mas tiempo para ahorrar y menos anos para financiar</td>
+        </tr>
+        <tr>
+            <td><strong>Esperanza de Vida</strong></td>
+            <td>Edad hasta la cual planea financieramente</td>
+            <td>Determina cuanto tiempo deben durar sus ahorros; planificar hasta los 90-95 anos se recomienda frecuentemente</td>
+        </tr>
+        <tr>
+            <td><strong>Ahorros Actuales</strong></td>
+            <td>Monto ya ahorrado para jubilacion</td>
+            <td>Punto de partida para crecimiento futuro; mas ahorros iniciales significa mas potencial de capitalizacion</td>
+        </tr>
+        <tr>
+            <td><strong>Contribucion Mensual</strong></td>
+            <td>Monto agregado a cuentas de jubilacion mensualmente</td>
+            <td>Impacta directamente la acumulacion; mayores contribuciones llevan a fondos de jubilacion mas grandes</td>
+        </tr>
+        <tr>
+            <td><strong>Tasa de Rendimiento</strong></td>
+            <td>Porcentaje de rendimiento anual esperado de la inversion</td>
+            <td>Impacta significativamente el crecimiento; rendimientos mas altos se capitalizan mas dramaticamente con el tiempo</td>
+        </tr>
+        <tr>
+            <td><strong>Tasa de Inflacion</strong></td>
+            <td>Aumento anual esperado en los precios</td>
+            <td>Reduce el poder adquisitivo; las necesidades de jubilacion deben considerar la inflacion</td>
+        </tr>
+    </table>
+
+    <div class="formula-box">
+        <p><strong>Formulas Comunes de Jubilacion:</strong></p>
+        <p>1. <strong>Regla del 72</strong> (tiempo aproximado para duplicar el dinero): 72 / Tasa de Rendimiento = Anos para Duplicar</p>
+        <p>2. <strong>Regla del 25X</strong> (meta de ahorros para jubilacion): Gastos Anuales x 25 = Meta de Ahorros para Jubilacion</p>
+        <p>3. <strong>Regla del 4%</strong> (retiro sostenible): Ahorros de Jubilacion x 0.04 = Monto de Retiro Anual</p>
+    </div>
+
+    <h2>Parte 2: Analisis de Multiples Escenarios</h2>
+
+    <p>Cree tres escenarios de jubilacion diferentes cambiando variables clave. Primero, complete el escenario base, luego cree dos variaciones.</p>
+
+    <div class="scenario-box no-break">
+        <h3>Escenario 1: Plan de Jubilacion Base</h3>
+
+        <div class="grid-2">
+            <div>
+                <p><strong>Variables de Entrada:</strong></p>
+                <p>Edad Actual: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Edad de Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Esperanza de Vida: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Actuales: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Contribucion Mensual: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Tasa de Rendimiento: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Tasa de Inflacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+
+            <div>
+                <p><strong>Resultados del Calculo:</strong></p>
+                <p>Anos Hasta la Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Anos en Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total de Contribuciones: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Proyectados para Jubilacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual (Regla del 4%): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual Ajustado por Inflacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scenario-box no-break">
+        <h3>Escenario 2: Jubilacion Anticipada</h3>
+        <p>Ajuste su edad de jubilacion para que sea 5 anos antes que su escenario base. Mantenga otras variables iguales o ajustelas segun sea necesario.</p>
+
+        <div class="grid-2">
+            <div>
+                <p><strong>Variables de Entrada:</strong></p>
+                <p>Edad Actual: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Edad de Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Esperanza de Vida: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Actuales: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Contribucion Mensual: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Tasa de Rendimiento: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Tasa de Inflacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+
+            <div>
+                <p><strong>Resultados del Calculo:</strong></p>
+                <p>Anos Hasta la Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Anos en Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total de Contribuciones: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Proyectados para Jubilacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual (Regla del 4%): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual Ajustado por Inflacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+
+        <p><strong>Para mantener el mismo ingreso de jubilacion, que contribucion mensual se necesitaria?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+
+    <div class="scenario-box no-break">
+        <h3>Escenario 3: Mayor Tasa de Rendimiento</h3>
+        <p>Ajuste su tasa de rendimiento para que sea 2% mas alta que su escenario base. Mantenga otras variables iguales a su escenario base.</p>
+
+        <div class="grid-2">
+            <div>
+                <p><strong>Variables de Entrada:</strong></p>
+                <p>Edad Actual: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Edad de Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Esperanza de Vida: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Actuales: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Contribucion Mensual: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Tasa de Rendimiento: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+                <p>Tasa de Inflacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>%</p>
+            </div>
+
+            <div>
+                <p><strong>Resultados del Calculo:</strong></p>
+                <p>Anos Hasta la Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Anos en Jubilacion: <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Total de Contribuciones: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ahorros Proyectados para Jubilacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual (Regla del 4%): $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                <p>Ingreso Mensual Ajustado por Inflacion: $<span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+            </div>
+        </div>
+
+        <p><strong>Cuanto ahorro adicional para jubilacion logra con la mayor tasa de rendimiento?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+
+    <h2>Parte 3: Impacto de Comenzar Temprano</h2>
+
+    <p>Este ejercicio demuestra el poderoso impacto de comenzar los ahorros para jubilacion temprano.</p>
+
+    <div class="scenario-box no-break">
+        <h3>Calculo del Costo de Esperar</h3>
+
+        <p>Compare dos ahorradores con edades de jubilacion y montos de contribucion identicos, pero diferentes edades de inicio:</p>
+
+        <table>
+            <tr>
+                <th></th>
+                <th>Inicio Temprano</th>
+                <th>Inicio Tardio</th>
+            </tr>
+            <tr>
+                <td>Edad de Inicio</td>
+                <td>20</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Edad de Jubilacion</td>
+                <td>65</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>Contribucion Mensual</td>
+                <td>$200</td>
+                <td>$200</td>
+            </tr>
+            <tr>
+                <td>Tasa de Rendimiento Anual</td>
+                <td>7%</td>
+                <td>7%</td>
+            </tr>
+            <tr>
+                <td>Anos Contribuyendo</td>
+                <td>45</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Monto Total Contribuido</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+            <tr>
+                <td>Saldo Final de la Cuenta al Jubilarse</td>
+                <td class="input-area short-input"></td>
+                <td class="input-area short-input"></td>
+            </tr>
+        </table>
+
+        <p><strong>Diferencia en el saldo final:</strong> <span class="input-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        <p><strong>Cuanto mas tendria que contribuir mensualmente el que comenzo tarde para alcanzar el mismo saldo que el que comenzo temprano?</strong></p>
+        <div class="input-area short-input"></div>
+    </div>
+
+    <h2>Parte 4: Analisis y Reflexion</h2>
+
+    <p><strong>1. Que variable tuvo el mayor impacto en sus resultados de jubilacion? Por que?</strong></p>
+    <div class="input-area"></div>
+
+    <p><strong>2. Que le sorprendio mas al comparar sus diferentes escenarios?</strong></p>
+    <div class="input-area"></div>
+
+    <p><strong>3. Como afecto el calculo del "costo de esperar" su perspectiva sobre la planificacion de jubilacion?</strong></p>
+    <div class="input-area"></div>
+
+    <p><strong>4. Basandose en estos calculos, que cambios podria hacer a su estrategia de jubilacion?</strong></p>
+    <div class="input-area"></div>
+
+    <div class="footnote">
+        <p>Nota: Esta hoja de trabajo es solo para fines educativos y no constituye asesoramiento financiero. Para orientacion financiera especifica, consulte con un profesional financiero calificado.</p>
+        <p>PFL Academy - Capitulo 6.1: Planificacion para la Jubilacion</p>
+    </div>
+</body>
+</html>

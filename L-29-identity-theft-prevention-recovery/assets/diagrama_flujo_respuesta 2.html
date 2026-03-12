@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo de Respuesta al Robo de Identidad - Capítulo 9.2</title>
+    <style>
+        @media print {
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.5in;
+                font-size: 12pt;
+            }
+
+            .header {
+                margin-bottom: 0.5in;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .print-instructions, .print-button {
+                display: none;
+            }
+
+            .flowchart {
+                max-width: 7.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4338ca;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6366f1;
+            margin-top: 0;
+        }
+
+        .print-instructions {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .introduction {
+            margin-bottom: 30px;
+        }
+
+        .flowchart-container {
+            max-width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .flow-box {
+            text-align: center;
+            border: 2px solid #4338ca;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 250px;
+            background-color: #f5f3ff;
+        }
+
+        .decision-box {
+            text-align: center;
+            border: 2px solid #7e22ce;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 250px;
+            background-color: #f3e8ff;
+            position: relative;
+        }
+
+        .action-box {
+            text-align: center;
+            border: 2px solid #0891b2;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 250px;
+            background-color: #ecfeff;
+        }
+
+        .alert-box {
+            text-align: center;
+            border: 2px solid #dc2626;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 250px;
+            background-color: #fee2e2;
+        }
+
+        .flow-arrow {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .flow-arrow::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #6b7280;
+            position: absolute;
+        }
+
+        .flow-label {
+            font-size: 0.9em;
+            padding: 5px 10px;
+            background-color: #f3f4f6;
+            border-radius: 5px;
+            color: #4b5563;
+            margin: 0 5px;
+        }
+
+        .flow-branch {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .branch-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .branch-connector {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 20px;
+            border-top: 2px solid #6b7280;
+        }
+
+        .branch-arrow {
+            width: 2px;
+            height: 30px;
+            background-color: #6b7280;
+            position: relative;
+        }
+
+        .branch-arrow::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #6b7280;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .notes-box {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .notes-box h3 {
+            color: #0369a1;
+            margin-top: 0;
+        }
+
+        .timeframe {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #0e7490;
+            margin-top: 5px;
+        }
+
+        .resources-box {
+            background-color: #f0fdfa;
+            border: 1px solid #99f6e4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .resources-box h3 {
+            color: #0f766e;
+            margin-top: 0;
+        }
+
+        .resource-item {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+
+        .print-button {
+            background-color: #4338ca;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #3730a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Diagrama de Flujo de Respuesta al Robo de Identidad</h1>
+        <p class="subtitle">Guía Paso a Paso para Responder al Robo de Identidad</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones de Impresión:</strong> Para guardar este documento como PDF, haz clic en el botón "Imprimir" a continuación y selecciona "Guardar como PDF" como destino. Para mejores resultados, usa tamaño de papel "Carta" con márgenes predeterminados.
+    </div>
+
+    <div class="introduction">
+        <p>Este diagrama de flujo proporciona un camino claro a seguir si descubres que eres víctima de robo de identidad. Los pasos están organizados por orden de prioridad para ayudarte a responder efectivamente y minimizar el daño. Sigue cada paso y consulta las notas detalladas para acciones específicas a tomar en cada etapa.</p>
+    </div>
+
+    <div class="flowchart-container">
+        <div class="flowchart">
+            <!-- Inicio -->
+            <div class="alert-box">
+                <strong>Robo de Identidad Detectado</strong>
+                <p class="timeframe">Acción Inmediata Requerida</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 1 -->
+            <div class="action-box">
+                <strong>Paso 1: Documenta Todo</strong>
+                <p>Registra detalles del fraude y toda la información relacionada</p>
+                <p class="timeframe">Día 1</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 2 -->
+            <div class="action-box">
+                <strong>Paso 2: Contacta a las Empresas Afectadas</strong>
+                <p>Llama a los departamentos de fraude para reportar el robo</p>
+                <p class="timeframe">Día 1</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 3 -->
+            <div class="action-box">
+                <strong>Paso 3: Coloca una Alerta de Fraude</strong>
+                <p>Contacta a una agencia de crédito para colocar alerta inicial de 1 año</p>
+                <p class="timeframe">Día 1</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 4 -->
+            <div class="action-box">
+                <strong>Paso 4: Reporta a la FTC</strong>
+                <p>Presenta un reporte en IdentityTheft.gov</p>
+                <p class="timeframe">Día 1-2</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Punto de Decisión 1 -->
+            <div class="decision-box">
+                <strong>¿Es necesario un reporte policial?</strong>
+                <p>(Actividad criminal o requerido por acreedores)</p>
+            </div>
+
+            <div class="flow-branch">
+                <div class="branch-connector"></div>
+
+                <div class="branch-item">
+                    <div class="flow-label">SÍ</div>
+                    <div class="branch-arrow"></div>
+                    <div class="action-box">
+                        <strong>Presenta Reporte Policial</strong>
+                        <p>Lleva reporte de FTC, ID, comprobante de domicilio y evidencia</p>
+                        <p class="timeframe">Día 2-3</p>
+                    </div>
+                </div>
+
+                <div class="branch-item">
+                    <div class="flow-label">NO</div>
+                    <div class="branch-arrow"></div>
+                    <div class="flow-box">
+                        <strong>Continúa al Siguiente Paso</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 5 -->
+            <div class="action-box">
+                <strong>Paso 5: Considera un Congelamiento de Crédito</strong>
+                <p>Contacta a las tres agencias de crédito</p>
+                <p class="timeframe">Día 2-3</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 6 -->
+            <div class="action-box">
+                <strong>Paso 6: Revisa los Informes de Crédito</strong>
+                <p>Solicita y revisa informes de las tres agencias</p>
+                <p class="timeframe">Día 3-7</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Punto de Decisión 2 -->
+            <div class="decision-box">
+                <strong>¿Los informes muestran fraude adicional?</strong>
+            </div>
+
+            <div class="flow-branch">
+                <div class="branch-connector"></div>
+
+                <div class="branch-item">
+                    <div class="flow-label">SÍ</div>
+                    <div class="branch-arrow"></div>
+                    <div class="action-box">
+                        <strong>Disputa los Artículos Fraudulentos</strong>
+                        <p>Contacta a agencias y acreedores para disputar cada artículo</p>
+                        <p class="timeframe">Semana 1-2</p>
+                    </div>
+                </div>
+
+                <div class="branch-item">
+                    <div class="flow-label">NO</div>
+                    <div class="branch-arrow"></div>
+                    <div class="flow-box">
+                        <strong>Continúa al Siguiente Paso</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 7 -->
+            <div class="action-box">
+                <strong>Paso 7: Reemplaza Documentos Comprometidos</strong>
+                <p>Reemplaza tarjetas de ID, números de cuenta, etc.</p>
+                <p class="timeframe">Semana 1-4</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 8 -->
+            <div class="action-box">
+                <strong>Paso 8: Configura Monitoreo Continuo</strong>
+                <p>Implementa monitoreo de crédito continuo</p>
+                <p class="timeframe">Semana 2-4</p>
+            </div>
+
+            <div class="flow-arrow"></div>
+
+            <!-- Paso 9 -->
+            <div class="flow-box">
+                <strong>Continuo: Rastrea el Progreso</strong>
+                <p>Monitorea cuentas, da seguimiento a disputas y mantén registros</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="notes-box">
+        <h3>Pasos de Acción Detallados</h3>
+
+        <strong>Paso 1: Documenta Todo</strong>
+        <ul>
+            <li>Crea una carpeta o cuaderno dedicado para toda la información relacionada con el robo de identidad</li>
+            <li>Escribe cuándo descubriste el robo y qué encontraste</li>
+            <li>Guarda copias de todos los estados de cuenta que muestren transacciones fraudulentas</li>
+            <li>Mantén un registro de todas las conversaciones, incluyendo fechas, nombres y lo que se discutió</li>
+            <li>Guarda todos los correos electrónicos, cartas y otras comunicaciones</li>
+        </ul>
+
+        <strong>Paso 2: Contacta a las Empresas Afectadas</strong>
+        <ul>
+            <li>Llama al departamento de fraude, no al servicio al cliente general</li>
+            <li>Pídeles que cierren o congelen las cuentas afectadas</li>
+            <li>Cambia los inicios de sesión, contraseñas y PINs de todas las cuentas</li>
+            <li>Solicita que te envíen confirmación de los cierres de cuentas y eliminación de fraudes</li>
+            <li>Pregunta sobre sus procesos específicos para manejar el robo de identidad</li>
+        </ul>
+
+        <strong>Paso 3: Coloca una Alerta de Fraude</strong>
+        <ul>
+            <li>Contacta a una de las tres agencias de crédito (Equifax, Experian o TransUnion)</li>
+            <li>Solicita una alerta de fraude inicial de 1 año (gratuita)</li>
+            <li>La agencia que contactes informará a las otras dos</li>
+            <li>Las alertas de fraude hacen más difícil que los ladrones de identidad abran cuentas a tu nombre</li>
+            <li>Considera una alerta de fraude extendida (7 años) después de completar el reporte de la FTC</li>
+        </ul>
+
+        <strong>Paso 4: Reporta a la FTC</strong>
+        <ul>
+            <li>Ve a IdentityTheft.gov para presentar un Reporte de Robo de Identidad</li>
+            <li>Completa el cuestionario en línea con tanto detalle como sea posible</li>
+            <li>Imprime y guarda tu Reporte de Robo de Identidad de la FTC</li>
+            <li>Sigue el plan de recuperación personalizado proporcionado por la FTC</li>
+            <li>Usa las cartas y formularios prellenados proporcionados para comunicarte con las empresas</li>
+        </ul>
+
+        <strong>Paso 5: Considera un Congelamiento de Crédito</strong>
+        <ul>
+            <li>Contacta a las tres agencias de crédito individualmente para colocar congelamientos</li>
+            <li>Crea cuentas en el sitio web de cada agencia para gestionar tu congelamiento</li>
+            <li>Guarda tus PINs o contraseñas para cada agencia</li>
+            <li>Entiende que necesitarás levantar temporalmente el congelamiento cuando solicites crédito</li>
+            <li>Los congelamientos de crédito son gratuitos y duran hasta que los elimines</li>
+        </ul>
+
+        <strong>Paso 6: Revisa los Informes de Crédito</strong>
+        <ul>
+            <li>Solicita informes gratuitos de las tres agencias en AnnualCreditReport.com</li>
+            <li>Nota, puedes solicitar informes semanales gratuitos hasta nuevo aviso</li>
+            <li>Revisa cada informe cuidadosamente buscando cuentas o consultas que no reconozcas</li>
+            <li>Verifica que la información personal sea correcta (direcciones, empleadores, etc.)</li>
+            <li>Marca cada artículo cuestionable para disputar</li>
+        </ul>
+
+        <strong>Paso 7: Reemplaza Documentos Comprometidos</strong>
+        <ul>
+            <li>Licencia de conducir o ID estatal: Contacta al DMV de tu estado</li>
+            <li>Tarjeta de Seguro Social: Solicita en ssa.gov o en la oficina local del Seguro Social</li>
+            <li>Pasaporte: Reporta en travel.state.gov y solicita reemplazo</li>
+            <li>Tarjetas de crédito/débito: Contacta al emisor para reemplazo con nuevos números</li>
+            <li>Cuentas bancarias: Cierra las cuentas afectadas y abre nuevas con números diferentes</li>
+        </ul>
+
+        <strong>Paso 8: Configura Monitoreo Continuo</strong>
+        <ul>
+            <li>Considera un servicio de monitoreo de crédito</li>
+            <li>Configura alertas de cuenta para todas las cuentas financieras</li>
+            <li>Revisa los informes de crédito regularmente (al menos trimestralmente)</li>
+            <li>Considera un seguro contra robo de identidad</li>
+            <li>Actualiza contraseñas y preguntas de seguridad para todas las cuentas</li>
+        </ul>
+    </div>
+
+    <div class="resources-box">
+        <h3>Información de Contacto Importante</h3>
+
+        <div class="resource-item">
+            <strong>Comisión Federal de Comercio (FTC)</strong><br>
+            IdentityTheft.gov<br>
+            1-877-438-4338
+        </div>
+
+        <div class="resource-item">
+            <strong>Agencias de Crédito</strong><br>
+            Equifax: 1-800-685-1111 o equifax.com<br>
+            Experian: 1-888-397-3742 o experian.com<br>
+            TransUnion: 1-888-909-8872 o transunion.com
+        </div>
+
+        <div class="resource-item">
+            <strong>Cuentas Financieras</strong><br>
+            La información de contacto debe estar en tus estados de cuenta o en el reverso de tus tarjetas
+        </div>
+
+        <div class="resource-item">
+            <strong>Administración del Seguro Social</strong><br>
+            ssa.gov<br>
+            1-800-772-1213
+        </div>
+
+        <div class="resource-item">
+            <strong>Servicio de Inspección Postal de EE.UU.</strong><br>
+            (Para fraude de correo o robo de correo)<br>
+            uspis.gov<br>
+            1-877-876-2455
+        </div>
+
+        <div class="resource-item">
+            <strong>Servicio de Impuestos Internos</strong><br>
+            (Para robo de identidad relacionado con impuestos)<br>
+            irs.gov/identity-theft<br>
+            1-800-908-4490
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print();">Imprimir o Guardar como PDF</button>
+
+    <div class="footer">
+        <p>Capítulo 9.2: Prevención y Recuperación del Robo de Identidad | PFL Academy</p>
+        <p>© 2025 PFL Academy. Solo para propósitos educativos. No es asesoría legal o financiera.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Gobierno y Economía - PFL Academy</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
+            background-color: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.85rem;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            height: 100%;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #6366f1;
+        }
+
+        .definition-item {
+            margin-bottom: 10px;
+        }
+
+        .definition-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .term {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .definition {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-left: 12px;
+        }
+
+        .example {
+            font-size: 0.8rem;
+            color: #6366f1;
+            font-style: italic;
+            margin-left: 12px;
+        }
+
+        .tax-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .tax-table th,
+        .tax-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tax-table th {
+            background: #eef2ff;
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .intervention-list {
+            list-style: none;
+        }
+
+        .intervention-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+        }
+
+        .intervention-list li:last-child {
+            border-bottom: none;
+        }
+
+        .intervention-type {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .intervention-desc {
+            color: #6b7280;
+        }
+
+        .key-concept {
+            background: #eef2ff;
+            border-left: 3px solid #6366f1;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .key-concept:last-child {
+            margin-bottom: 0;
+        }
+
+        .key-concept strong {
+            color: #4f46e5;
+        }
+
+        .formula-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .formula-box code {
+            font-family: monospace;
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .quick-ref {
+            background: #d1fae5;
+            border-left: 3px solid #10b981;
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn:hover {
+            background: #d1d5db;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            .header {
+                padding: 12px;
+            }
+
+            .content {
+                padding: 12px;
+            }
+
+            .section-box {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Referencia de Gobierno y Economía</h1>
+            <p>Referencia rápida para fallas de mercado, tipos de intervención gubernamental y estructuras fiscales</p>
+        </div>
+
+        <div class="content">
+            <!-- Market Failures Section -->
+            <div class="section">
+                <div class="section-box">
+                    <h2 class="section-title">Fallas de Mercado</h2>
+
+                    <div class="definition-item">
+                        <div class="term">1. Bienes Públicos</div>
+                        <div class="definition">No excluibles y no rivales - el uso de una persona no reduce la disponibilidad</div>
+                        <div class="example">Ejemplos: Defensa nacional, alumbrado público, parques públicos</div>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="term">2. Externalidades</div>
+                        <div class="definition">Costos o beneficios que afectan a terceros no involucrados en la transacción</div>
+                        <div class="example">Negativas: Contaminación, ruido | Positivas: Educación, vacunas</div>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="term">3. Poder de Monopolio</div>
+                        <div class="definition">Un solo vendedor con poder de mercado para fijar precios por encima del nivel competitivo</div>
+                        <div class="example">Ejemplos: Servicios públicos, proveedores locales de cable</div>
+                    </div>
+
+                    <div class="definition-item">
+                        <div class="term">4. Asimetría de Información</div>
+                        <div class="definition">Una parte tiene más información que otra en una transacción</div>
+                        <div class="example">Ejemplos: Venta de autos usados, seguros, atención médica</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Grid -->
+            <div class="grid-2">
+                <!-- Government Interventions -->
+                <div class="section-box">
+                    <h2 class="section-title">Tipos de Intervención Gubernamental</h2>
+                    <ul class="intervention-list">
+                        <li>
+                            <span class="intervention-type">Impuestos</span><br>
+                            <span class="intervention-desc">Desalientan actividad, recaudan ingresos</span>
+                        </li>
+                        <li>
+                            <span class="intervention-type">Subsidios</span><br>
+                            <span class="intervention-desc">Fomentan actividad, reducen costos</span>
+                        </li>
+                        <li>
+                            <span class="intervention-type">Controles de Precios</span><br>
+                            <span class="intervention-desc">Establecen precios mín/máx (salario mínimo, control de alquileres)</span>
+                        </li>
+                        <li>
+                            <span class="intervention-type">Regulaciones</span><br>
+                            <span class="intervention-desc">Normas sobre cómo producir/vender</span>
+                        </li>
+                        <li>
+                            <span class="intervention-type">Provisión Pública</span><br>
+                            <span class="intervention-desc">El gobierno produce bienes directamente</span>
+                        </li>
+                        <li>
+                            <span class="intervention-type">Redistribución</span><br>
+                            <span class="intervention-desc">Transferencia de un grupo a otro</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tax Structures -->
+                <div class="section-box">
+                    <h2 class="section-title">Estructuras Fiscales</h2>
+                    <table class="tax-table">
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Progresivo</strong></td>
+                            <td>Mayor ingreso = mayor tasa (Impuesto federal sobre la renta)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proporcional</strong></td>
+                            <td>Misma tasa para todos (Impuesto fijo, Seguro Social)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regresivo</strong></td>
+                            <td>Menor ingreso = mayor tasa efectiva (Impuesto sobre ventas)</td>
+                        </tr>
+                    </table>
+
+                    <div class="formula-box" style="margin-top: 12px;">
+                        <strong>Impuestos Federales Clave:</strong><br>
+                        <code>Impuesto sobre la Renta</code> - Tramos progresivos (10-37%)<br>
+                        <code>Seguro Social</code> - 6.2% hasta el tope<br>
+                        <code>Medicare</code> - 1.45% sobre todos los ingresos
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Framework -->
+            <div class="section" style="margin-top: 16px;">
+                <div class="section-box">
+                    <h2 class="section-title">Marco de Análisis de Políticas</h2>
+                    <div class="grid-2" style="gap: 12px;">
+                        <div>
+                            <div class="key-concept">
+                                <strong>Paso 1:</strong> Identificar el problema/falla de mercado
+                            </div>
+                            <div class="key-concept">
+                                <strong>Paso 2:</strong> Listar beneficios (¿quién gana?, ¿cuánto?)
+                            </div>
+                            <div class="key-concept">
+                                <strong>Paso 3:</strong> Listar costos (¿quién paga?, ¿cuánto?)
+                            </div>
+                        </div>
+                        <div>
+                            <div class="key-concept">
+                                <strong>Paso 4:</strong> Considerar consecuencias no previstas
+                            </div>
+                            <div class="key-concept">
+                                <strong>Paso 5:</strong> Evaluar alternativas
+                            </div>
+                            <div class="key-concept">
+                                <strong>Paso 6:</strong> Hacer recomendación
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Formulas -->
+            <div class="section">
+                <div class="section-box">
+                    <h2 class="section-title">Cálculos Clave</h2>
+                    <div class="grid-2" style="gap: 12px;">
+                        <div class="formula-box">
+                            <strong>% de Carga Fiscal</strong><br>
+                            <code>(Total de Impuestos / Ingreso) x 100</code>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Estado de Contribuyente Neto</strong><br>
+                            <code>Valor de Servicios - Impuestos Pagados</code><br>
+                            Positivo = Receptor Neto<br>
+                            Negativo = Contribuyente Neto
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="section">
+                <div class="quick-ref">
+                    <strong>Recuerda:</strong> La intervención gubernamental tiene compensaciones. Considera eficiencia (valor económico total) vs. equidad (justicia en la distribución). La mayoría de las políticas tienen ganadores y perdedores - la clave es si los beneficios totales superan los costos totales y si la distribución es aceptable.
+                </div>
+            </div>
+
+            <!-- Print Button -->
+            <div class="btn-group">
+                <button class="btn" onclick="window.print()">Imprimir Hoja de Referencia</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de Estructuras de Mercado</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .comparison-table th {
+            background: #6366f1;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+        .comparison-table tr:nth-child(even) { background: #f9fafb; }
+        .structure-name { font-weight: bold; color: #6366f1; }
+        .rating {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .high { background: #fee2e2; color: #dc2626; }
+        .medium { background: #fef3c7; color: #92400e; }
+        .low { background: #d1fae5; color: #059669; }
+        .consumer-impact {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .section-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #1f2937; }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .impact-card {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .impact-card h4 { font-size: 0.85rem; margin-bottom: 5px; }
+        .impact-value { font-size: 1.3rem; font-weight: bold; }
+        .perfect { background: #d1fae5; color: #059669; }
+        .monopolistic { background: #dbeafe; color: #1d4ed8; }
+        .oligopoly { background: #fef3c7; color: #92400e; }
+        .monopoly { background: #fee2e2; color: #dc2626; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .comparison-table { font-size: 0.75rem; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .comparison-table,
+            .consumer-impact {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Comparación de Estructuras de Mercado</h1>
+            <p class="subtitle">Compara resultados entre diferentes tipos de mercado</p>
+        </header>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Competencia Perfecta</th>
+                    <th>Monopolística</th>
+                    <th>Oligopolio</th>
+                    <th>Monopolio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong># de Empresas</strong></td>
+                    <td>Muchas</td>
+                    <td>Muchas</td>
+                    <td>Pocas</td>
+                    <td>Una</td>
+                </tr>
+                <tr>
+                    <td><strong>Producto</strong></td>
+                    <td>Idéntico</td>
+                    <td>Diferenciado</td>
+                    <td>Similar o Diferente</td>
+                    <td>Único</td>
+                </tr>
+                <tr>
+                    <td><strong>Control de Precios</strong></td>
+                    <td><span class="rating low">Ninguno</span></td>
+                    <td><span class="rating low">Algo</span></td>
+                    <td><span class="rating medium">Moderado</span></td>
+                    <td><span class="rating high">Alto</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Barreras de Entrada</strong></td>
+                    <td><span class="rating low">Ninguna</span></td>
+                    <td><span class="rating low">Bajas</span></td>
+                    <td><span class="rating medium">Altas</span></td>
+                    <td><span class="rating high">Muy Altas</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Precio al Consumidor</strong></td>
+                    <td><span class="rating low">Más Bajo</span></td>
+                    <td><span class="rating low">Bajo-Medio</span></td>
+                    <td><span class="rating medium">Medio-Alto</span></td>
+                    <td><span class="rating high">Más Alto</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Ejemplos</strong></td>
+                    <td>Agricultura, Mercado de valores</td>
+                    <td>Restaurantes, Ropa</td>
+                    <td>Aerolíneas, Celulares</td>
+                    <td>Servicios públicos, Medicamentos patentados</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="consumer-impact">
+            <div class="section-title">Impacto al Consumidor: Precio por el Mismo Producto de $100</div>
+            <div class="impact-grid">
+                <div class="impact-card perfect">
+                    <h4>Perfecta</h4>
+                    <div class="impact-value">$100</div>
+                </div>
+                <div class="impact-card monopolistic">
+                    <h4>Monopolística</h4>
+                    <div class="impact-value">$110</div>
+                </div>
+                <div class="impact-card oligopoly">
+                    <h4>Oligopolio</h4>
+                    <div class="impact-value">$125</div>
+                </div>
+                <div class="impact-card monopoly">
+                    <h4>Monopolio</h4>
+                    <div class="impact-value">$150+</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #fef3c7; padding: 15px; border-radius: 10px; border-left: 4px solid #f59e0b;">
+            <strong>Estrategia del Consumidor:</strong> Busca mercados más cercanos a la competencia perfecta para mejores precios. En oligopolios y monopolios, los consumidores tienen menos poder. La regulación gubernamental frecuentemente existe para proteger a los consumidores en mercados de monopolio.
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Estructuras de Mercado</p>
+        </footer>
+    </div>
+</body>
+</html>

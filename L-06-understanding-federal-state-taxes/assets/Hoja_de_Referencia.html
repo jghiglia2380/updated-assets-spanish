@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia de Impuestos Federales y Estatales - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #6366f1;
+        }
+        .header h1 { font-size: 24px; color: #6366f1; margin-bottom: 4px; }
+        .header p { color: #6b7280; font-size: 12px; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 11px; }
+        .comparison-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td { padding: 8px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+        .comparison-table tr:hover { background-color: #f9fafb; }
+        .comparison-table td:first-child { font-weight: 600; background: #f9fafb; width: 20%; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .section-box {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #6366f1;
+        }
+        .section-box h3 { font-size: 14px; font-weight: 700; color: #6366f1; margin-bottom: 8px; }
+        .section-box ul { margin-left: 16px; }
+        .section-box li { margin-bottom: 3px; }
+        .brackets-section {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .brackets-section h3 { font-size: 14px; font-weight: 600; color: #3b82f6; margin-bottom: 8px; }
+        .bracket-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+        .bracket-table th { background: #3b82f6; color: white; padding: 6px; text-align: center; }
+        .bracket-table td { padding: 6px; border: 1px solid #e5e7eb; text-align: center; }
+        .state-section {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .state-section h3 { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 8px; }
+        .state-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .state-item { background: white; padding: 8px; border-radius: 4px; }
+        .state-item h4 { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+        .state-item p { font-size: 10px; color: #6b7280; }
+        .deductions-section {
+            background: #ecfdf5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 16px;
+        }
+        .deductions-section h3 { font-size: 14px; font-weight: 600; color: #059669; margin-bottom: 8px; }
+        .deductions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .deduction-box { background: white; padding: 8px; border-radius: 4px; }
+        .deduction-box h4 { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+        .deduction-box ul { margin-left: 12px; font-size: 10px; }
+        .key-takeaway {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+        }
+        .key-takeaway h3 { font-size: 12px; font-weight: 600; color: #059669; margin-bottom: 6px; }
+        @media print { body { padding: 10px; font-size: 10px; } }
+        @media (max-width: 768px) { .two-column, .state-grid, .deductions-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Referencia de Impuestos Federales y Estatales</h1>
+        <p>Entendiendo cómo funcionan los sistemas de impuestos federales y estatales</p>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Característica</th>
+                <th>Impuestos Federales</th>
+                <th>Impuestos Estatales</th>
+                <th>Impuestos Locales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Autoridad</td>
+                <td>IRS (Servicio de Impuestos Internos)</td>
+                <td>Departamentos de ingresos estatales</td>
+                <td>Gobiernos de ciudad/condado</td>
+            </tr>
+            <tr>
+                <td>Impuesto sobre la Renta</td>
+                <td>Progresivo (10-37%)</td>
+                <td>Varía: 0-13.3%</td>
+                <td>Algunas ciudades (NYC, Detroit)</td>
+            </tr>
+            <tr>
+                <td>Impuesto sobre Ventas</td>
+                <td>Ninguno</td>
+                <td>0-7.25%</td>
+                <td>Adicional 0-5%</td>
+            </tr>
+            <tr>
+                <td>Impuesto sobre la Propiedad</td>
+                <td>Ninguno</td>
+                <td>Tasas establecidas por el estado</td>
+                <td>Recaudador principal</td>
+            </tr>
+            <tr>
+                <td>Fecha Límite de Declaración</td>
+                <td>15 de abril</td>
+                <td>Usualmente 15 de abril</td>
+                <td>Varía</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="brackets-section">
+        <h3>Tramos de Impuesto Federal sobre la Renta 2024 (Solteros)</h3>
+        <table class="bracket-table">
+            <tr>
+                <th>Tasa</th>
+                <th>Rango de Ingresos</th>
+                <th>Cálculo del Impuesto</th>
+            </tr>
+            <tr>
+                <td>10%</td>
+                <td>$0 - $11,600</td>
+                <td>10% del ingreso gravable</td>
+            </tr>
+            <tr>
+                <td>12%</td>
+                <td>$11,601 - $47,150</td>
+                <td>$1,160 + 12% sobre $11,600</td>
+            </tr>
+            <tr>
+                <td>22%</td>
+                <td>$47,151 - $100,525</td>
+                <td>$5,426 + 22% sobre $47,150</td>
+            </tr>
+            <tr>
+                <td>24%</td>
+                <td>$100,526 - $191,950</td>
+                <td>$17,168 + 24% sobre $100,525</td>
+            </tr>
+            <tr>
+                <td>32%</td>
+                <td>$191,951 - $243,725</td>
+                <td>$39,110 + 32% sobre $191,950</td>
+            </tr>
+            <tr>
+                <td>35%</td>
+                <td>$243,726 - $609,350</td>
+                <td>$55,678 + 35% sobre $243,725</td>
+            </tr>
+            <tr>
+                <td>37%</td>
+                <td>$609,351+</td>
+                <td>$183,647 + 37% sobre $609,350</td>
+            </tr>
+        </table>
+        <p style="font-size: 10px; color: #6b7280; margin-top: 8px;">Nota: Estas son tasas marginales. Solo el ingreso en cada tramo es gravado a esa tasa.</p>
+    </div>
+
+    <div class="state-section">
+        <h3>Estructuras de Impuestos Estatales</h3>
+        <div class="state-grid">
+            <div class="state-item">
+                <h4>Sin Impuesto sobre la Renta (9 estados)</h4>
+                <p>AK, FL, NV, NH*, SD, TN*, TX, WA, WY<br>*Solo intereses/dividendos</p>
+            </div>
+            <div class="state-item">
+                <h4>Impuesto Fijo (11 estados)</h4>
+                <p>CO (4.4%), IL (4.95%), IN (3.15%), KY (4.5%), MA (5%), MI (4.25%), etc.</p>
+            </div>
+            <div class="state-item">
+                <h4>Tasas Más Altas</h4>
+                <p>CA (13.3%), HI (11%), NJ (10.75%), OR (9.9%), MN (9.85%)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="section-box">
+            <h3>Tipos de Impuestos</h3>
+            <ul>
+                <li><strong>Progresivo:</strong> La tasa aumenta con el ingreso (impuesto federal sobre la renta)</li>
+                <li><strong>Regresivo:</strong> Misma tasa para todos; impacta más a bajos ingresos (impuesto sobre ventas)</li>
+                <li><strong>Proporcional/Fijo:</strong> Mismo porcentaje para todos los niveles de ingreso</li>
+                <li><strong>Nómina:</strong> Seguro Social (6.2%), Medicare (1.45%)</li>
+                <li><strong>Especial:</strong> Bienes específicos (gasolina, tabaco, alcohol)</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Términos Fiscales Clave</h3>
+            <ul>
+                <li><strong>Ingreso Gravable:</strong> Ingreso bruto menos deducciones</li>
+                <li><strong>Tasa Marginal:</strong> Tasa sobre su último dólar ganado</li>
+                <li><strong>Tasa Efectiva:</strong> Impuesto total ÷ ingreso total</li>
+                <li><strong>Retención:</strong> Impuesto tomado de cada cheque de pago</li>
+                <li><strong>Obligación Tributaria:</strong> Cantidad total de impuestos adeudados</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="deductions-section">
+        <h3>Deducciones y Créditos</h3>
+        <div class="deductions-grid">
+            <div class="deduction-box">
+                <h4>Deducción Estándar (2024)</h4>
+                <ul>
+                    <li>Soltero: $14,600</li>
+                    <li>Casado Declarando Conjuntamente: $29,200</li>
+                    <li>Cabeza de Familia: $21,900</li>
+                    <li>65+ o Ciego: Adicional $1,550-$1,950</li>
+                </ul>
+            </div>
+            <div class="deduction-box">
+                <h4>Deducciones Comunes</h4>
+                <ul>
+                    <li>Intereses hipotecarios</li>
+                    <li>Impuestos estatales y locales (hasta $10,000)</li>
+                    <li>Contribuciones caritativas</li>
+                    <li>Gastos médicos (sobre 7.5% AGI)</li>
+                </ul>
+            </div>
+            <div class="deduction-box">
+                <h4>Créditos Fiscales (Dólar por Dólar)</h4>
+                <ul>
+                    <li>Crédito Tributario por Ingreso del Trabajo</li>
+                    <li>Crédito Tributario por Hijos ($2,000/hijo)</li>
+                    <li>Créditos educativos (AOTC, LLC)</li>
+                    <li>Crédito del Ahorrador para Jubilación</li>
+                </ul>
+            </div>
+            <div class="deduction-box">
+                <h4>Contribuciones Antes de Impuestos</h4>
+                <ul>
+                    <li>401(k): hasta $23,000</li>
+                    <li>IRA Tradicional: hasta $7,000</li>
+                    <li>HSA: $4,150 individual/$8,300 familiar</li>
+                    <li>FSA: hasta $3,200</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="key-takeaway">
+        <h3>Consejos de Planificación Fiscal</h3>
+        <p>
+            <strong>1. Conozca su tasa efectiva:</strong> Impuesto total pagado ÷ ingreso bruto (usualmente 15-25% para la mayoría de trabajadores)<br>
+            <strong>2. Maximice contribuciones antes de impuestos:</strong> 401(k), HSA, FSA reducen el ingreso gravable inmediatamente<br>
+            <strong>3. Entienda su estado:</strong> Estados con alto impuesto sobre la renta pueden tener impuestos más bajos sobre propiedad/ventas<br>
+            <strong>4. Rastree gastos deducibles:</strong> Detallar si las deducciones exceden la deducción estándar<br>
+            <strong>5. Ajuste su retención:</strong> Actualice W-4 si recibe grandes reembolsos o debe dinero
+        </p>
+    </div>
+</body>
+</html>

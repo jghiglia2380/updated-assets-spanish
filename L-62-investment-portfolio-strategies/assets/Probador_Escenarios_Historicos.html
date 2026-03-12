@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probador de Escenarios Históricos</title>
+    <!--
+    PURPOSE: Test portfolios through historical market events to understand resilience
+    USE: Activity 2 - Historical Scenario Testing (10 minutes)
+    -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --surface: #f9fafb;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .scenario-section {
+            background: var(--surface);
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .scenario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .scenario-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .scenario-date {
+            background: var(--danger);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        .scenario-description {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .impact-table th {
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .impact-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-align: center;
+        }
+        .impact-table tr:nth-child(even) {
+            background: white;
+        }
+        .negative {
+            color: var(--danger);
+            font-weight: bold;
+        }
+        .positive {
+            color: var(--success);
+            font-weight: bold;
+        }
+        .portfolio-input {
+            margin: 15px 0;
+        }
+        .portfolio-input label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        .input-item {
+            text-align: center;
+        }
+        .input-item input {
+            width: 60px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .input-item small {
+            display: block;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .result-box {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .result-value.loss {
+            color: var(--danger);
+        }
+        .result-value.gain {
+            color: var(--success);
+        }
+        .analysis-box {
+            margin: 15px 0;
+        }
+        .analysis-box label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .analysis-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            min-height: 60px;
+            font-family: inherit;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #4f46e5;
+        }
+        @media print {
+            body { font-size: 11pt; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📉 Probador de Escenarios Históricos</h1>
+
+    <p>Prueba tu asignación de portafolio contra crisis históricas del mercado. Ingresa los pesos de tu portafolio para ver cómo habría rendido durante cada evento.</p>
+
+    <!-- 2008 Financial Crisis -->
+    <div class="scenario-section">
+        <div class="scenario-header">
+            <span class="scenario-title">Crisis Financiera de 2008</span>
+            <span class="scenario-date">Oct 2007 - Mar 2009</span>
+        </div>
+
+        <div class="scenario-description">
+            <strong>Qué sucedió:</strong> La burbuja inmobiliaria estalló, quiebras de bancos importantes, congelamiento del crédito global. El S&P 500 cayó 57% de pico a valle. La peor recesión desde la Gran Depresión.
+        </div>
+
+        <table class="impact-table">
+            <thead>
+                <tr>
+                    <th>Clase de Activo</th>
+                    <th>Pérdida Pico a Valle</th>
+                    <th>Tiempo de Recuperación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acciones EE.UU.</td>
+                    <td class="negative">-57%</td>
+                    <td>4 años</td>
+                </tr>
+                <tr>
+                    <td>Acciones Int'l</td>
+                    <td class="negative">-62%</td>
+                    <td>5+ años</td>
+                </tr>
+                <tr>
+                    <td>Bonos</td>
+                    <td class="positive">+5%</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Bienes Raíces</td>
+                    <td class="negative">-68%</td>
+                    <td>6+ años</td>
+                </tr>
+                <tr>
+                    <td>Efectivo</td>
+                    <td class="positive">+2%</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="portfolio-input">
+            <label>Tu Asignación de Portafolio:</label>
+            <div class="input-grid">
+                <div class="input-item">
+                    <input type="number" id="crisis1-stocks" value="50" min="0" max="100">
+                    <small>Acciones EE.UU. %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis1-intl" value="15" min="0" max="100">
+                    <small>Int'l %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis1-bonds" value="20" min="0" max="100">
+                    <small>Bonos %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis1-real" value="10" min="0" max="100">
+                    <small>Bienes Raíces %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis1-cash" value="5" min="0" max="100">
+                    <small>Efectivo %</small>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="calculateCrisis(1)">Calcular Impacto en Portafolio</button>
+
+        <div class="result-box">
+            <div>Pérdida de Tu Portafolio:</div>
+            <div class="result-value loss" id="result1">-___%</div>
+            <div>sobre $100,000 = <strong id="dollar1">$___</strong></div>
+        </div>
+
+        <div class="analysis-box">
+            <label>¿Cómo afectaría este impacto a una persona de 25 años vs. una de 60 años?</label>
+            <textarea placeholder="Considera el tiempo de recuperación, el impacto emocional y las necesidades de ingresos..."></textarea>
+        </div>
+    </div>
+
+    <!-- 2020 COVID Crash -->
+    <div class="scenario-section">
+        <div class="scenario-header">
+            <span class="scenario-title">Caída por COVID-19 2020</span>
+            <span class="scenario-date">Feb - Mar 2020</span>
+        </div>
+
+        <div class="scenario-description">
+            <strong>Qué sucedió:</strong> La pandemia global desencadenó la caída de mercado más rápida de la historia. El S&P 500 cayó 34% en solo 23 días de negociación. El estímulo gubernamental sin precedentes llevó a una rápida recuperación.
+        </div>
+
+        <table class="impact-table">
+            <thead>
+                <tr>
+                    <th>Clase de Activo</th>
+                    <th>Pérdida Pico a Valle</th>
+                    <th>Tiempo de Recuperación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acciones EE.UU.</td>
+                    <td class="negative">-34%</td>
+                    <td>5 meses</td>
+                </tr>
+                <tr>
+                    <td>Acciones Int'l</td>
+                    <td class="negative">-33%</td>
+                    <td>8 meses</td>
+                </tr>
+                <tr>
+                    <td>Bonos</td>
+                    <td class="negative">-8%</td>
+                    <td>2 meses</td>
+                </tr>
+                <tr>
+                    <td>Bienes Raíces</td>
+                    <td class="negative">-40%</td>
+                    <td>12 meses</td>
+                </tr>
+                <tr>
+                    <td>Efectivo</td>
+                    <td class="positive">0%</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="portfolio-input">
+            <label>Tu Asignación de Portafolio:</label>
+            <div class="input-grid">
+                <div class="input-item">
+                    <input type="number" id="crisis2-stocks" value="50" min="0" max="100">
+                    <small>Acciones EE.UU. %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis2-intl" value="15" min="0" max="100">
+                    <small>Int'l %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis2-bonds" value="20" min="0" max="100">
+                    <small>Bonos %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis2-real" value="10" min="0" max="100">
+                    <small>Bienes Raíces %</small>
+                </div>
+                <div class="input-item">
+                    <input type="number" id="crisis2-cash" value="5" min="0" max="100">
+                    <small>Efectivo %</small>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="calculateCrisis(2)">Calcular Impacto en Portafolio</button>
+
+        <div class="result-box">
+            <div>Pérdida de Tu Portafolio:</div>
+            <div class="result-value loss" id="result2">-___%</div>
+            <div>sobre $100,000 = <strong id="dollar2">$___</strong></div>
+        </div>
+
+        <div class="analysis-box">
+            <label>¿Qué lecciones enseña la rápida recuperación sobre las ventas por pánico?</label>
+            <textarea placeholder="Considera qué pasó con quienes vendieron en el fondo vs. quienes mantuvieron..."></textarea>
+        </div>
+    </div>
+
+    <!-- 1970s Stagflation -->
+    <div class="scenario-section">
+        <div class="scenario-header">
+            <span class="scenario-title">Estanflación de los 1970s</span>
+            <span class="scenario-date">1973 - 1982</span>
+        </div>
+
+        <div class="scenario-description">
+            <strong>Qué sucedió:</strong> La crisis del petróleo, alta inflación (14%+), y crecimiento lento crearon "estanflación." Las acciones perdieron 50% de poder adquisitivo real durante la década. Los bonos sufrieron por las tasas en alza.
+        </div>
+
+        <table class="impact-table">
+            <thead>
+                <tr>
+                    <th>Clase de Activo</th>
+                    <th>Rendimiento Real (10 años)</th>
+                    <th>Lección Clave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acciones EE.UU.</td>
+                    <td class="negative">-45% real</td>
+                    <td>La inflación erosiona ganancias</td>
+                </tr>
+                <tr>
+                    <td>Bonos</td>
+                    <td class="negative">-40% real</td>
+                    <td>Tasas en alza perjudican bonos</td>
+                </tr>
+                <tr>
+                    <td>Bienes Raíces</td>
+                    <td class="positive">+80% real</td>
+                    <td>Activos tangibles protegen</td>
+                </tr>
+                <tr>
+                    <td>Efectivo</td>
+                    <td class="negative">-30% real</td>
+                    <td>La inflación destruye el efectivo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="analysis-box">
+            <label>¿Qué enseña este escenario sobre la diversificación entre tipos de activos?</label>
+            <textarea placeholder="Considera cómo diferentes activos rinden durante diferentes tipos de crisis..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        function calculateCrisis(crisisNum) {
+            const impacts = {
+                1: { stocks: -0.57, intl: -0.62, bonds: 0.05, real: -0.68, cash: 0.02 },
+                2: { stocks: -0.34, intl: -0.33, bonds: -0.08, real: -0.40, cash: 0 }
+            };
+
+            const stocks = parseInt(document.getElementById(`crisis${crisisNum}-stocks`).value) || 0;
+            const intl = parseInt(document.getElementById(`crisis${crisisNum}-intl`).value) || 0;
+            const bonds = parseInt(document.getElementById(`crisis${crisisNum}-bonds`).value) || 0;
+            const real = parseInt(document.getElementById(`crisis${crisisNum}-real`).value) || 0;
+            const cash = parseInt(document.getElementById(`crisis${crisisNum}-cash`).value) || 0;
+
+            const impact = impacts[crisisNum];
+            const totalLoss = (stocks * impact.stocks + intl * impact.intl + bonds * impact.bonds + real * impact.real + cash * impact.cash) / 100;
+
+            const percentLoss = (totalLoss * 100).toFixed(1);
+            const dollarLoss = (100000 * totalLoss).toFixed(0);
+
+            document.getElementById(`result${crisisNum}`).textContent = `${percentLoss}%`;
+            document.getElementById(`dollar${crisisNum}`).textContent = `$${(100000 + parseInt(dollarLoss)).toLocaleString()}`;
+        }
+    </script>
+</body>
+</html>

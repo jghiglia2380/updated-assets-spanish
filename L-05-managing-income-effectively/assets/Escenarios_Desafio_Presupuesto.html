@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escenarios Desafío de Presupuesto - Capítulo 1.5: Administrando Tu Ingreso Efectivamente</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Challenge-specific styles */
+        .scenario {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .emergency {
+            border-left: 5px solid #ef4444;
+        }
+
+        .income-reduction {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .opportunity {
+            border-left: 5px solid #10b981;
+        }
+
+        .debt-vs-savings {
+            border-left: 5px solid #6366f1;
+        }
+
+        .lifestyle {
+            border-left: 5px solid #8b5cf6;
+        }
+
+        .problem-statement {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .solution-space {
+            background-color: #fff;
+            border: 1px dashed #d1d5db;
+            border-radius: 5px;
+            padding: 15px;
+            min-height: 150px;
+        }
+
+        .strategy-table {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .strategy-table th {
+            background-color: #f0f7ff;
+        }
+
+        .strategy-table td {
+            height: 40px;
+        }
+
+        .step {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #4f46e5;
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .solution-space {
+                min-height: 200px;
+                border: 1px solid #eee;
+            }
+            .scenario {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abre esta página en Chrome, Edge o Firefox. Haz clic en Imprimir (Ctrl+P o Cmd+P),
+        luego selecciona "Guardar como PDF" como destino. Haz clic en "Guardar" y elige dónde guardar el archivo en tu computadora.</p>
+    </div>
+
+    <div class="header">
+        <h1>Escenarios Desafío de Presupuesto</h1>
+        <p><strong>Capítulo 1.5:</strong> Administrando Tu Ingreso Efectivamente</p>
+    </div>
+
+    <p>Esta hoja de trabajo presenta desafíos financieros comunes que requieren ajustes en el presupuesto. Para cada escenario, desarrolla estrategias específicas utilizando el marco 50/30/20 para abordar la situación mientras mantienes la estabilidad financiera.</p>
+
+    <div class="scenario emergency">
+        <h2>Desafío 1: Reparación de Auto de Emergencia</h2>
+
+        <div class="problem-statement">
+            <p><strong>Escenario:</strong> Tu auto necesita una reparación de $600 que no se puede posponer. Aún no tienes un fondo de emergencia, y tu presupuesto mensual siguiendo la regla 50/30/20 está basado en un ingreso mensual de $3,000.</p>
+
+            <p><strong>Consideraciones:</strong></p>
+            <ul>
+                <li>La reparación debe completarse dentro de la próxima semana</li>
+                <li>Necesitas tu auto para tu traslado diario al trabajo</li>
+                <li>Tus asignaciones presupuestarias actuales son:
+                    <ul>
+                        <li>Necesidades (50%): $1,500</li>
+                        <li>Deseos (30%): $900</li>
+                        <li>Ahorros (20%): $600</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Tu Estrategia de Solución:</h3>
+
+        <div class="solution-space">
+            <p>Escribe tu estrategia aquí, incluyendo ajustes presupuestarios específicos y cronograma:</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Categoría</th>
+                    <th>Cantidad Actual</th>
+                    <th>Cantidad Ajustada</th>
+                    <th>Diferencia</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Necesidades</td>
+                    <td>$1,500</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Deseos</td>
+                    <td>$900</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ahorros</td>
+                    <td>$600</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Estrategia de Prevención a Largo Plazo:</h3>
+        <p>¿Cómo ajustarías tu presupuesto en el futuro para prevenir que emergencias similares interrumpan tus finanzas?</p>
+        <div class="solution-space"></div>
+    </div>
+
+    <div class="scenario income-reduction">
+        <h2>Desafío 2: Reducción de Ingreso</h2>
+
+        <div class="problem-statement">
+            <p><strong>Escenario:</strong> Tus horas se reducen en un 20% durante los próximos dos meses, reduciendo tu ingreso mensual de $3,000 a $2,400. Necesitas ajustar tu presupuesto para esta reducción temporal de $600/mes mientras mantienes la estabilidad financiera.</p>
+
+            <p><strong>Consideraciones:</strong></p>
+            <ul>
+                <li>Tienes $1,000 en un fondo de emergencia</li>
+                <li>La mayoría de tus gastos fijos (alquiler, pago del auto) no pueden reducirse a corto plazo</li>
+                <li>Tienes $2,000 en deuda de tarjeta de crédito con un pago mínimo de $100/mes (actualmente parte de tu categoría de "necesidades")</li>
+                <li>Tus asignaciones presupuestarias actuales son:
+                    <ul>
+                        <li>Necesidades (50%): $1,500</li>
+                        <li>Deseos (30%): $900</li>
+                        <li>Ahorros (20%): $600</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Tu Estrategia de Solución:</h3>
+
+        <div class="solution-space">
+            <p>Escribe tu estrategia aquí, incluyendo ajustes presupuestarios específicos y cronograma:</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Categoría</th>
+                    <th>Cantidad Actual</th>
+                    <th>Cantidad Ajustada</th>
+                    <th>Reducción</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Necesidades</td>
+                    <td>$1,500</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Deseos</td>
+                    <td>$900</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ahorros</td>
+                    <td>$600</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Reducción Total</th>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Plan de Retorno a la Normalidad:</h3>
+        <p>¿Cómo ajustarás tu presupuesto cuando tu ingreso vuelva a la normalidad? ¿Harás cambios permanentes basados en esta experiencia?</p>
+        <div class="solution-space"></div>
+    </div>
+
+    <div class="scenario opportunity">
+        <h2>Desafío 3: Oportunidad Inesperada</h2>
+
+        <div class="problem-statement">
+            <p><strong>Escenario:</strong> Estás invitado a la boda de destino de un amigo que costará aproximadamente $1,200 asistir (viaje, alojamiento, regalo, atuendo). La boda es en seis meses, y te gustaría asistir sin interrumpir tus metas financieras.</p>
+
+            <p><strong>Consideraciones:</strong></p>
+            <ul>
+                <li>Necesitas ahorrar $1,200 en seis meses ($200/mes)</li>
+                <li>No quieres usar tarjetas de crédito para financiar este gasto</li>
+                <li>Actualmente estás construyendo un fondo de emergencia y progresando en otras metas financieras</li>
+                <li>Tus asignaciones presupuestarias actuales basadas en un ingreso mensual de $3,000 son:
+                    <ul>
+                        <li>Necesidades (50%): $1,500</li>
+                        <li>Deseos (30%): $900</li>
+                        <li>Ahorros (20%): $600 ($300 fondo de emergencia, $200 retiro, $100 fondo de vacaciones)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Tu Estrategia de Solución:</h3>
+
+        <div class="solution-space">
+            <p>Escribe tu estrategia aquí, incluyendo ajustes presupuestarios específicos y cronograma de ahorros:</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Mes</th>
+                    <th>Cantidad a Ahorrar</th>
+                    <th>Fuente de Fondos</th>
+                    <th>Categorías Presupuestarias Afectadas</th>
+                </tr>
+                <tr>
+                    <td>Mes 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>$1,200</th>
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Análisis de Impacto:</h3>
+        <p>¿Cómo afectará este plan tus otras metas financieras? ¿Qué compromisos estás haciendo?</p>
+        <div class="solution-space"></div>
+    </div>
+
+    <div class="scenario debt-vs-savings">
+        <h2>Desafío 4: Pago de Deudas vs. Fondo de Emergencia</h2>
+
+        <div class="problem-statement">
+            <p><strong>Escenario:</strong> Tienes $2,000 en deuda de tarjeta de crédito con una tasa de interés del 18% y aún no tienes un fondo de emergencia. Necesitas priorizar entre pagar la deuda y construir un fondo de emergencia.</p>
+
+            <p><strong>Consideraciones:</strong></p>
+            <ul>
+                <li>Tu ingreso mensual es $3,000 después de impuestos</li>
+                <li>El pago mínimo de la tarjeta de crédito es $100/mes</li>
+                <li>Los expertos financieros recomiendan tener de 3-6 meses de gastos ahorrados en un fondo de emergencia</li>
+                <li>Tus gastos básicos mensuales (necesidades) son aproximadamente $1,500</li>
+                <li>Tus asignaciones presupuestarias actuales son:
+                    <ul>
+                        <li>Necesidades (50%): $1,500 (incluye $100 de pago mínimo de tarjeta de crédito)</li>
+                        <li>Deseos (30%): $900</li>
+                        <li>Ahorros (20%): $600 (actualmente todo va a pagos de deuda más allá del mínimo)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Tu Estrategia de Solución:</h3>
+
+        <div class="solution-space">
+            <p>Escribe tu estrategia aquí, incluyendo cómo equilibrarás el pago de deuda y los ahorros para emergencias:</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Mes</th>
+                    <th>Al Fondo de Emergencia</th>
+                    <th>Al Pago de Deuda</th>
+                    <th>Deuda Restante</th>
+                    <th>Balance del Fondo de Emergencia</th>
+                </tr>
+                <tr>
+                    <td>Actual</td>
+                    <td>$0</td>
+                    <td>$700</td>
+                    <td>$2,000</td>
+                    <td>$0</td>
+                </tr>
+                <tr>
+                    <td>Mes 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Justificación:</h3>
+        <p>Explica tu razonamiento para este enfoque. ¿Por qué priorizaste de la manera en que lo hiciste?</p>
+        <div class="solution-space"></div>
+    </div>
+
+    <div class="scenario lifestyle">
+        <h2>Desafío 5: Cambio de Estilo de Vida Importante</h2>
+
+        <div class="problem-statement">
+            <p><strong>Escenario:</strong> Planeas mudarte de la casa de tus padres a tu propio apartamento en tres meses. Esto aumentará significativamente tus gastos mensuales.</p>
+
+            <p><strong>Consideraciones:</strong></p>
+            <ul>
+                <li>Tu ingreso mensual es $3,000 después de impuestos</li>
+                <li>Tus gastos actuales viviendo en casa son mínimos</li>
+                <li>Tus nuevos gastos mensuales incluirán:
+                    <ul>
+                        <li>Alquiler: $900</li>
+                        <li>Servicios Públicos: $200</li>
+                        <li>Comestibles: $300</li>
+                        <li>Transporte: $150</li>
+                        <li>Seguro de Inquilino: $20</li>
+                    </ul>
+                </li>
+                <li>Necesitarás aproximadamente $2,000 para depósito de seguridad, primer mes de alquiler y gastos de mudanza</li>
+                <li>Tu presupuesto actual viviendo en casa:
+                    <ul>
+                        <li>Necesidades (30%): $900</li>
+                        <li>Deseos (40%): $1,200</li>
+                        <li>Ahorros (30%): $900</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Estrategia de Preparación (Próximos 3 Meses):</h3>
+
+        <div class="solution-space">
+            <p>¿Cómo te prepararás financieramente para esta mudanza durante los próximos tres meses?</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Mes</th>
+                    <th>Meta de Ahorro</th>
+                    <th>Ajustes Presupuestarios</th>
+                    <th>Notas</th>
+                </tr>
+                <tr>
+                    <td>Mes 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mes 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Nuevo Plan de Presupuesto (Después de la Mudanza):</h3>
+
+        <div class="solution-space">
+            <p>Diseña tu nuevo presupuesto 50/30/20 para después de la mudanza:</p>
+
+            <table class="strategy-table">
+                <tr>
+                    <th>Categoría</th>
+                    <th>Actual (en casa)</th>
+                    <th>Nuevo (después de mudanza)</th>
+                    <th>Asignaciones Específicas</th>
+                </tr>
+                <tr>
+                    <td>Necesidades</td>
+                    <td>$900 (30%)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Deseos</td>
+                    <td>$1,200 (40%)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ahorros</td>
+                    <td>$900 (30%)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Reflexión: Estrategias Comunes en Todos los Desafíos</h2>
+    <p>Después de trabajar en estos escenarios, ¿qué estrategias o principios comunes encontraste más útiles? ¿Qué aprendiste sobre el manejo de desafíos financieros?</p>
+    <div class="solution-space"></div>
+
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.5: Administrando Tu Ingreso Efectivamente</p>
+    </div>
+</body>
+</html>

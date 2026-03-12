@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Analisis de Descripcion de Empleo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a86e8;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c5aa0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4a86e8;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f6fd;
+        }
+
+        .category {
+            width: 30%;
+            font-weight: bold;
+        }
+
+        .notes {
+            width: 70%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .highlight-box {
+            background-color: #e8f0fe;
+            border: 1px solid #4a86e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tips {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .tips h3 {
+            margin-top: 0;
+            color: #2c5aa0;
+        }
+
+        .tips ul {
+            margin-bottom: 0;
+        }
+
+        .compatibility-rating {
+            margin-top: 15px;
+        }
+
+        .compatibility-rating label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .print-button {
+            background-color: #4a86e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .print-button:hover {
+            background-color: #3a76d8;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            textarea {
+                border: none;
+                height: auto;
+                min-height: 60px;
+            }
+
+            .instructions {
+                border-left: 2px solid #4a86e8;
+                padding: 10px;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Analisis de Descripcion de Empleo</h1>
+        <p>Use esta hoja de trabajo para analizar descripciones de empleo e identificar requisitos clave, calificaciones y palabras clave para una personalizacion efectiva de la solicitud.</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Instrucciones:</h3>
+        <ol>
+            <li>Pegue la descripcion completa del trabajo en el area designada</li>
+            <li>Identifique y categorice los componentes clave incluyendo calificaciones requeridas, calificaciones preferidas, responsabilidades y palabras clave</li>
+            <li>Evalue su compatibilidad con el puesto basandose en su analisis</li>
+            <li>Identifique calificaciones especificas para destacar en sus materiales de solicitud</li>
+            <li>Complete la estrategia de personalizacion de solicitud para este puesto</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Informacion del Trabajo</h2>
+        <table>
+            <tr>
+                <td class="category">Titulo del Puesto:</td>
+                <td class="notes"><textarea placeholder="Ingrese el titulo exacto del trabajo como aparece listado"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Empresa:</td>
+                <td class="notes"><textarea placeholder="Ingrese el nombre de la empresa"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Ubicacion:</td>
+                <td class="notes"><textarea placeholder="Ingrese la ubicacion del trabajo (incluyendo opciones remotas)"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Fecha de Publicacion:</td>
+                <td class="notes"><textarea placeholder="Ingrese cuando se publico el trabajo"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Fecha Limite de Solicitud:</td>
+                <td class="notes"><textarea placeholder="Ingrese la fecha limite (si se proporciona)"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Salario/Beneficios:</td>
+                <td class="notes"><textarea placeholder="Ingrese cualquier informacion de compensacion proporcionada"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Descripcion Completa del Trabajo</h2>
+        <textarea style="height: 200px;" placeholder="Pegue la descripcion completa del trabajo aqui"></textarea>
+    </div>
+
+    <div class="section">
+        <h2>Calificaciones Requeridas</h2>
+        <p>Liste todos los requisitos declarados que parecen ser obligatorios para el puesto.</p>
+        <table>
+            <tr>
+                <th>Calificacion</th>
+                <th>La Cumplo?</th>
+                <th>Evidencia/Ejemplos</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion requerida 1"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion requerida 2"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion requerida 3"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion requerida 4"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion requerida 5"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Calificaciones Preferidas</h2>
+        <p>Liste las calificaciones que fortalecerian su solicitud pero no son absolutamente requeridas.</p>
+        <table>
+            <tr>
+                <th>Calificacion</th>
+                <th>La Cumplo?</th>
+                <th>Evidencia/Ejemplos</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion preferida 1"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion preferida 2"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Calificacion preferida 3"></textarea></td>
+                <td><select style="width: 100%">
+                    <option value="">Seleccionar</option>
+                    <option value="yes">Si</option>
+                    <option value="partial">Parcialmente</option>
+                    <option value="no">No</option>
+                </select></td>
+                <td><textarea placeholder="Evidencia de su experiencia o educacion"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Responsabilidades Clave</h2>
+        <p>Liste los deberes y responsabilidades principales del puesto.</p>
+        <table>
+            <tr>
+                <th>Responsabilidad</th>
+                <th>Experiencia Relevante</th>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsabilidad 1"></textarea></td>
+                <td><textarea placeholder="Su experiencia relevante con esta responsabilidad"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsabilidad 2"></textarea></td>
+                <td><textarea placeholder="Su experiencia relevante con esta responsabilidad"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsabilidad 3"></textarea></td>
+                <td><textarea placeholder="Su experiencia relevante con esta responsabilidad"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsabilidad 4"></textarea></td>
+                <td><textarea placeholder="Su experiencia relevante con esta responsabilidad"></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea placeholder="Responsabilidad 5"></textarea></td>
+                <td><textarea placeholder="Su experiencia relevante con esta responsabilidad"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Palabras Clave y Frases</h2>
+        <p>Identifique palabras clave y frases importantes que aparecen en la descripcion del trabajo. Estas deben incorporarse en sus materiales de solicitud.</p>
+        <table>
+            <tr>
+                <th>Categoria</th>
+                <th>Palabras Clave/Frases</th>
+            </tr>
+            <tr>
+                <td>Habilidades Tecnicas<br><small>(habilidades tecnicas)</small></td>
+                <td><textarea placeholder="Liste las habilidades tecnicas mencionadas (ej., lenguajes de programacion, software, metodologias)"></textarea></td>
+            </tr>
+            <tr>
+                <td>Habilidades Interpersonales<br><small>(habilidades blandas)</small></td>
+                <td><textarea placeholder="Liste las habilidades interpersonales mencionadas (ej., comunicacion, trabajo en equipo, liderazgo)"></textarea></td>
+            </tr>
+            <tr>
+                <td>Terminos Especificos de la Industria</td>
+                <td><textarea placeholder="Liste la jerga de la industria o terminologia especializada"></textarea></td>
+            </tr>
+            <tr>
+                <td>Credenciales y Calificaciones</td>
+                <td><textarea placeholder="Liste los titulos, certificaciones o credenciales especificas mencionadas"></textarea></td>
+            </tr>
+            <tr>
+                <td>Terminos Repetidos<br><small>(que aparecen multiples veces)</small></td>
+                <td><textarea placeholder="Liste los terminos que aparecen multiples veces a lo largo de la descripcion"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Cultura y Valores de la Empresa</h2>
+        <p>Identifique cualquier mencion de la cultura, valores o ambiente de trabajo de la empresa que deba informar su solicitud.</p>
+        <textarea style="height: 100px;" placeholder="Anote cualquier mencion de los valores, cultura o ambiente de trabajo de la empresa (ej., ritmo rapido, colaborativo, innovador)"></textarea>
+    </div>
+
+    <div class="section highlight-box">
+        <h2>Evaluacion General de Compatibilidad con el Puesto</h2>
+        <p>Basandose en su analisis, evalue su ajuste general para este puesto:</p>
+
+        <div class="compatibility-rating">
+            <label>Coincidencia de Calificaciones Requeridas:</label>
+            <select style="width: 50%">
+                <option value="">Seleccione nivel de compatibilidad</option>
+                <option value="excellent">Excelente (90-100%)</option>
+                <option value="strong">Fuerte (75-89%)</option>
+                <option value="moderate">Moderado (60-74%)</option>
+                <option value="limited">Limitado (menos del 60%)</option>
+            </select>
+        </div>
+
+        <div class="compatibility-rating">
+            <label>Coincidencia de Calificaciones Preferidas:</label>
+            <select style="width: 50%">
+                <option value="">Seleccione nivel de compatibilidad</option>
+                <option value="excellent">Excelente (90-100%)</option>
+                <option value="strong">Fuerte (75-89%)</option>
+                <option value="moderate">Moderado (60-74%)</option>
+                <option value="limited">Limitado (menos del 60%)</option>
+            </select>
+        </div>
+
+        <div class="compatibility-rating">
+            <label>Ajuste General al Puesto:</label>
+            <select style="width: 50%">
+                <option value="">Seleccione ajuste general</option>
+                <option value="excellent">Excelente - Solicitud de Alta Prioridad</option>
+                <option value="good">Bueno - Vale la Pena Aplicar</option>
+                <option value="fair">Regular - Considere Aplicar</option>
+                <option value="poor">Pobre - No Recomendado</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Estrategia de Personalizacion de Solicitud</h2>
+        <table>
+            <tr>
+                <td class="category">Principales Fortalezas a Destacar:</td>
+                <td class="notes"><textarea placeholder="Liste 3-5 de sus calificaciones mas fuertes que se alinean con este puesto"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Experiencia a Enfatizar:</td>
+                <td class="notes"><textarea placeholder="Anote experiencias especificas que deben destacarse prominentemente"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Brechas Potenciales a Abordar:</td>
+                <td class="notes"><textarea placeholder="Identifique cualquier brecha entre los requisitos y sus calificaciones, y estrategias para abordarlas"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Notas de Personalizacion del Curriculum:</td>
+                <td class="notes"><textarea placeholder="Cambios especificos a hacer en su curriculum para este puesto"></textarea></td>
+            </tr>
+            <tr>
+                <td class="category">Enfoque de la Carta de Presentacion:</td>
+                <td class="notes"><textarea placeholder="Puntos clave a enfatizar en su carta de presentacion"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tips">
+        <h3>Consejos de Analisis:</h3>
+        <ul>
+            <li><strong>Requerido vs. Preferido:</strong> Busque lenguaje como "debe tener", "requerido" o "esencial" vs. "preferido", "deseado" o "un plus".</li>
+            <li><strong>Evaluacion de Calificaciones:</strong> Sea honesto sobre sus calificaciones; esto le ayuda a prepararse para las entrevistas e identificar areas de crecimiento.</li>
+            <li><strong>Ajuste Cultural:</strong> Preste atencion al lenguaje sobre el estilo de trabajo, dinamicas del equipo y valores de la empresa.</li>
+            <li><strong>Decision de Solicitud:</strong> Considere aplicar si cumple con el 70-80% de las calificaciones requeridas, incluso si no cumple con todas las calificaciones preferidas.</li>
+            <li><strong>Personalizacion del Curriculum:</strong> Use este analisis para personalizar su curriculum, destacando las experiencias mas relevantes e incorporando terminos clave.</li>
+        </ul>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir/Guardar como PDF</button>
+</body>
+</html>

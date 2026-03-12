@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeador de Cadena de Suministro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2rem; color: #6366f1; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; }
+        .product-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .product-btn {
+            padding: 15px;
+            background: #f9fafb;
+            border: 3px solid #e5e7eb;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .product-btn:hover { border-color: #6366f1; }
+        .product-btn.selected { border-color: #6366f1; background: #eef2ff; }
+        .product-icon { font-size: 2rem; margin-bottom: 5px; }
+        .product-name { font-weight: 600; color: #1f2937; }
+        .chain-display { display: none; }
+        .chain-display.active { display: block; }
+        .chain-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .step-title { font-weight: bold; color: #1f2937; }
+        .step-location { font-size: 0.9rem; color: #6366f1; }
+        .step-detail { font-size: 0.85rem; color: #6b7280; margin-top: 5px; }
+        .vulnerability-section {
+            background: #fee2e2;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+        .vulnerability-section h3 { color: #dc2626; margin-bottom: 15px; }
+        .vulnerability-list { margin-left: 20px; color: #7f1d1d; }
+        .vulnerability-list li { margin-bottom: 8px; }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .product-selector { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .chain-display {
+                display: block !important;
+            }
+            .chain-step,
+            .vulnerability-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mapeador de Cadena de Suministro</h1>
+            <p class="subtitle">Rastrea productos a través de cadenas de suministro globales</p>
+        </header>
+
+        <div class="product-selector">
+            <div class="product-btn" onclick="selectProduct('smartphone')">
+                <div class="product-icon">📱</div>
+                <div class="product-name">Teléfono Inteligente</div>
+            </div>
+            <div class="product-btn" onclick="selectProduct('jeans')">
+                <div class="product-icon">👖</div>
+                <div class="product-name">Jeans</div>
+            </div>
+            <div class="product-btn" onclick="selectProduct('coffee')">
+                <div class="product-icon">☕</div>
+                <div class="product-name">Café</div>
+            </div>
+        </div>
+
+        <div class="chain-display" id="smartphone-chain">
+            <div class="chain-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Materias Primas</div>
+                    <div class="step-location">🇨🇩 Congo, 🇦🇺 Australia, 🇨🇱 Chile</div>
+                    <div class="step-detail">Cobalto, litio, cobre, elementos de tierras raras extraídos</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Fabricación de Componentes</div>
+                    <div class="step-location">🇯🇵 Japón, 🇰🇷 Corea del Sur, 🇹🇼 Taiwán</div>
+                    <div class="step-detail">Chips, pantallas, cámaras, baterías producidas</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Ensamblaje</div>
+                    <div class="step-location">🇨🇳 China, 🇻🇳 Vietnam, 🇮🇳 India</div>
+                    <div class="step-detail">Componentes ensamblados en teléfonos terminados</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Distribución</div>
+                    <div class="step-location">🇺🇸 Estados Unidos</div>
+                    <div class="step-detail">Enviados a centros de distribución, luego a tiendas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chain-display" id="jeans-chain">
+            <div class="chain-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Cultivo de Algodón</div>
+                    <div class="step-location">🇺🇸 EE.UU., 🇮🇳 India, 🇺🇿 Uzbekistán</div>
+                    <div class="step-detail">Algodón crudo cosechado de granjas</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Hilado y Tejido</div>
+                    <div class="step-location">🇨🇳 China, 🇵🇰 Pakistán</div>
+                    <div class="step-detail">Algodón hilado en hilo, tejido en tela de mezclilla</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Corte y Costura</div>
+                    <div class="step-location">🇧🇩 Bangladesh, 🇻🇳 Vietnam</div>
+                    <div class="step-detail">Tela cortada y cosida en jeans</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Venta Minorista</div>
+                    <div class="step-location">🇺🇸 Estados Unidos</div>
+                    <div class="step-detail">Enviados a tiendas y vendidos a consumidores</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chain-display" id="coffee-chain">
+            <div class="chain-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Cultivo y Cosecha</div>
+                    <div class="step-location">🇧🇷 Brasil, 🇨🇴 Colombia, 🇪🇹 Etiopía</div>
+                    <div class="step-detail">Cerezas de café cultivadas y recolectadas a mano</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Procesamiento</div>
+                    <div class="step-location">Países de origen</div>
+                    <div class="step-detail">Granos extraídos, secados, clasificados, graduados</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Tostado</div>
+                    <div class="step-location">🇺🇸 Estados Unidos, 🇩🇪 Alemania</div>
+                    <div class="step-detail">Granos verdes tostados y empacados</div>
+                </div>
+            </div>
+            <div class="chain-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Venta Minorista</div>
+                    <div class="step-location">Tiendas locales y cafés</div>
+                    <div class="step-detail">Vendido a consumidores para preparación casera o bebidas de café</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vulnerability-section" id="vulnerabilities" style="display: none;">
+            <h3>⚠️ Vulnerabilidades de la Cadena de Suministro</h3>
+            <ul class="vulnerability-list" id="vulnerability-list"></ul>
+        </div>
+
+        <footer>
+            <p><strong>PFL Academy</strong> | Comercio Internacional</p>
+        </footer>
+    </div>
+
+    <script>
+        function selectProduct(product) {
+            document.querySelectorAll('.product-btn').forEach(btn => btn.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            document.querySelectorAll('.chain-display').forEach(chain => chain.classList.remove('active'));
+            document.getElementById(product + '-chain').classList.add('active');
+
+            const vulnList = document.getElementById('vulnerability-list');
+            let vulnerabilities = [];
+
+            if (product === 'smartphone') {
+                vulnerabilities = [
+                    'Suministro de tierras raras concentrado en pocos países',
+                    'Escasez de chips puede detener producción por meses',
+                    'Retrasos de envío desde Asia aumentan costos',
+                    'Tensiones comerciales afectan disponibilidad de componentes',
+                    'Cierre de una sola fábrica puede afectar millones de unidades'
+                ];
+            } else if (product === 'jeans') {
+                vulnerabilities = [
+                    'Fallas en cosechas de algodón afectan disponibilidad',
+                    'Condiciones laborales en países de costura',
+                    'Escasez de contenedores de envío',
+                    'Fluctuaciones de divisas afectan costos',
+                    'Escasez de agua en regiones productoras de algodón'
+                ];
+            } else if (product === 'coffee') {
+                vulnerabilities = [
+                    'Cambio climático afectando rendimientos de cosechas',
+                    'Brotes de roya del café',
+                    'Inestabilidad política en regiones productoras',
+                    'Costos de envío para bienes perecederos',
+                    'Volatilidad del tipo de cambio'
+                ];
+            }
+
+            vulnList.innerHTML = vulnerabilities.map(v => `<li>${v}</li>`).join('');
+            document.getElementById('vulnerabilities').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

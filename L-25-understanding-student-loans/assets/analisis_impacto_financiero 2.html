@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Impacto Financiero de Préstamos Estudiantiles - PFL Academy</title>
+    <style>
+        /* Print-friendly styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4f46e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #4f46e5;
+            margin-top: 20px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .input-cell {
+            background-color: #f9fafb;
+            min-height: 1.5em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+
+        .notes {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tips {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .impact-section {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .impact-title {
+            color: #4f46e5;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+
+        .print-instructions {
+            text-align: center;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PFL Academy</div>
+            <h1>Análisis de Impacto Financiero de Préstamos Estudiantiles</h1>
+            <div class="subtitle">Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles</div>
+        </div>
+
+        <div class="print-instructions">
+            <strong>Instrucciones para el Maestro:</strong> Para guardar como PDF, use la función de impresión de su navegador (Ctrl+P o ⌘+P) y seleccione "Guardar como PDF" como destino.
+        </div>
+
+        <h2>Introducción</h2>
+        <p>
+            Esta hoja de trabajo te ayudará a analizar cómo los pagos de préstamos estudiantiles afectarán tus finanzas después de la graduación. Comprender el impacto más amplio de la deuda estudiantil en tus metas financieras futuras y opciones de estilo de vida es esencial para tomar decisiones informadas sobre préstamos hoy.
+        </p>
+
+        <div class="notes">
+            <strong>Nota:</strong> El análisis en esta hoja de trabajo usa estimaciones y proyecciones basadas en información actual. Los resultados reales pueden variar según cambios en tasas de interés, ingresos y otros factores financieros.
+        </div>
+
+        <div class="section">
+            <h2>Parte 1: Resumen de Préstamos Estudiantiles</h2>
+            <p>
+                Resume tu situación proyectada de préstamos estudiantiles basada en tus planes educativos y estrategia de pago.
+            </p>
+
+            <table>
+                <tr>
+                    <td width="60%">Costo Total de Educación:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Monto Cubierto por Fuentes que No Son Préstamos:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Deuda Total de Préstamos Estudiantiles al Graduarse:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Tasa de Interés Promedio (ponderada):</td>
+                    <td class="input-cell">%</td>
+                </tr>
+                <tr>
+                    <td>Plan de Pago Seleccionado:</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Plazo de Pago (años):</td>
+                    <td class="input-cell">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Pago Mensual Estimado:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Monto Total Pagado (incluyendo intereses):</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Total de Intereses Pagados:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Parte 2: Análisis de Presupuesto Post-Graduación</h2>
+            <p>
+                Analiza cómo tus pagos de préstamos estudiantiles encajarán en tu presupuesto mensual después de la graduación.
+            </p>
+
+            <h3>Ingresos y Gastos Esenciales</h3>
+            <table>
+                <tr>
+                    <td width="60%">Ingreso Bruto Mensual Esperado:</td>
+                    <td class="input-cell" width="40%">$</td>
+                </tr>
+                <tr>
+                    <td>Salario Neto Mensual Estimado:</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+
+            <h3>Gastos Mensuales</h3>
+            <table>
+                <tr>
+                    <th width="60%">Categoría de Gastos</th>
+                    <th width="40%">Monto</th>
+                </tr>
+                <tr>
+                    <td>Pago de Préstamo Estudiantil</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Vivienda (renta/hipoteca)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Servicios Públicos (electricidad, agua, internet, etc.)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Alimentación (comestibles y comer fuera)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Transporte (pago de auto, gasolina, seguro, transporte público)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Seguro de Salud y Gastos Médicos</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Teléfono Celular</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Otros Gastos Esenciales</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Ahorros (fondo de emergencia, jubilación, etc.)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td>Entretenimiento y Gastos Discrecionales</td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Total de Gastos Mensuales</strong></td>
+                    <td class="input-cell">$</td>
+                </tr>
+                <tr>
+                    <td><strong>Monto Restante</strong> (Salario Neto - Total de Gastos)</td>
+                    <td class="input-cell">$</td>
+                </tr>
+            </table>
+
+            <h3>Análisis de Presupuesto</h3>
+
+            <div class="impact-section">
+                <div class="impact-title">Relación Préstamo Estudiantil-Ingreso</div>
+                <p>
+                    Tu pago mensual de préstamo estudiantil ($<span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>) es <span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>% de tu salario neto mensual.
+                </p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 0%; background-color: #10b981;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="font-size: 12px;">0%</span>
+                    <span style="font-size: 12px;">5%</span>
+                    <span style="font-size: 12px;">10%</span>
+                    <span style="font-size: 12px;">15%</span>
+                    <span style="font-size: 12px;">20%</span>
+                    <span style="font-size: 12px;">25%</span>
+                    <span style="font-size: 12px;">30%</span>
+                </div>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- La calificación irá aquí (ej., "Bueno: Menos del 10% se considera manejable") -->
+                </p>
+            </div>
+
+            <div class="impact-section">
+                <div class="impact-title">Relación Total Deuda-Ingreso</div>
+                <p>
+                    Tus pagos totales mensuales de deuda (préstamos estudiantiles + pago de auto + etc.) de $<span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span> son <span class="input-cell" style="display: inline-block; min-width: 50px;">&nbsp;</span>% de tu salario neto mensual.
+                </p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 0%; background-color: #f59e0b;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="font-size: 12px;">0%</span>
+                    <span style="font-size: 12px;">10%</span>
+                    <span style="font-size: 12px;">20%</span>
+                    <span style="font-size: 12px;">30%</span>
+                    <span style="font-size: 12px;">40%</span>
+                    <span style="font-size: 12px;">50%</span>
+                </div>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- La calificación irá aquí (ej., "Precaución: Acercándose al umbral del 36% para deuda total") -->
+                </p>
+            </div>
+
+            <div class="notes">
+                <strong>Guías:</strong> Los expertos financieros típicamente recomiendan:
+                <ul>
+                    <li>Los pagos de préstamos estudiantiles deben ser menos del 10-15% de tu ingreso mensual</li>
+                    <li>Los pagos totales de deuda (incluyendo préstamos estudiantiles, préstamos de auto, etc.) deben ser menos del 36% del ingreso</li>
+                    <li>Los costos de vivienda deben ser menos del 30% del ingreso</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 3: Análisis de Impacto Financiero a Largo Plazo</h2>
+            <p>
+                Analiza cómo tus pagos de préstamos estudiantiles afectarán tu capacidad para alcanzar otras metas financieras después de la graduación.
+            </p>
+
+            <div class="impact-section">
+                <div class="impact-title">Desarrollo de Fondo de Emergencia</div>
+                <p>
+                    Un fondo de emergencia estándar debe cubrir 3-6 meses de gastos esenciales. Basado en tu presupuesto:
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Gastos Esenciales Mensuales:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Fondo de Emergencia Meta (3 meses de gastos):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Monto Mensual Disponible para Ahorros del Fondo de Emergencia:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo para Construir Fondo de Emergencia de 3 Meses:</td>
+                        <td class="input-cell">meses</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- El análisis del impacto del fondo de emergencia irá aquí -->
+                </p>
+            </div>
+
+            <div class="impact-section">
+                <div class="impact-title">Impacto en Ahorros para Jubilación</div>
+                <p>
+                    Analiza cómo tus pagos de préstamos estudiantiles afectan tu capacidad de ahorrar para la jubilación.
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Monto Mensual Disponible para Ahorros de Jubilación:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Ahorros de Jubilación Recomendados (15% del ingreso bruto):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Déficit de Ahorros de Jubilación Debido a Préstamos Estudiantiles:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p>
+                    Si invirtieras el monto de tu pago mensual de préstamo estudiantil en jubilación en lugar del mismo plazo que tu préstamo:
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Pago Mensual de Préstamo Estudiantil:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Plazo de Pago del Préstamo:</td>
+                        <td class="input-cell">años</td>
+                    </tr>
+                    <tr>
+                        <td>Balance Potencial de Jubilación Después del Mismo Período (7% de retorno anual):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- El análisis del impacto en jubilación irá aquí -->
+                </p>
+            </div>
+
+            <div class="impact-section">
+                <div class="impact-title">Impacto en Compra de Casa</div>
+                <p>
+                    Analiza cómo tu deuda de préstamos estudiantiles afecta tu capacidad para calificar para una hipoteca.
+                </p>
+                <table>
+                    <tr>
+                        <td width="60%">Ingreso Mensual:</td>
+                        <td class="input-cell" width="40%">$</td>
+                    </tr>
+                    <tr>
+                        <td>Pago de Préstamo Estudiantil:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Otros Pagos de Deuda Mensuales:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Máximo de Vivienda (28% del ingreso mensual):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Pago Máximo de Deuda Total (36% del ingreso mensual):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Monto Disponible para Pago de Hipoteca:</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                    <tr>
+                        <td>Monto Aproximado de Hipoteca (30 años fijo, 6.5% de interés):</td>
+                        <td class="input-cell">$</td>
+                    </tr>
+                </table>
+                <p class="input-cell" style="min-height: 40px; margin-top: 10px;">
+                    <!-- El análisis del impacto en compra de casa irá aquí -->
+                </p>
+            </div>
+
+            <div class="impact-section">
+                <div class="impact-title">Otras Metas Financieras</div>
+                <p>
+                    Considera cómo tus pagos de préstamos estudiantiles podrían impactar otras metas financieras:
+                </p>
+                <table>
+                    <tr>
+                        <td>Meta: Compra de Auto</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta: Viajes</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta: Educación Adicional</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta: Formar una Familia</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta: Iniciar un Negocio</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Meta: Otro _________________</td>
+                        <td class="input-cell">
+                            Impacto: <br>&nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tips">
+                <strong>Equilibrar Préstamos Estudiantiles con Otras Metas Financieras:</strong> Si bien los préstamos estudiantiles son una inversión en tu potencial de ingresos futuros, es importante equilibrarlos con otras metas financieras. Al pedir prestado para educación, considera cómo los pagos afectarán tu capacidad de ahorrar para la jubilación, comprar una casa y alcanzar otros hitos importantes.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 4: Estrategias para Mitigar el Impacto Financiero</h2>
+            <p>
+                Basándote en tu análisis, identifica estrategias para reducir el impacto financiero de tus préstamos estudiantiles en tus otras metas.
+            </p>
+
+            <h3>Ajustes de Presupuesto</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h3>Estrategias de Mejora de Ingresos</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h3>Optimización del Pago del Préstamo</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+
+            <h3>Ajustes Potenciales de Cronograma para Otras Metas</h3>
+            <div class="input-cell" style="min-height: 60px;">&nbsp;</div>
+        </div>
+
+        <h2>Resumen de Impacto Financiero</h2>
+        <p>
+            Resume las ideas clave de tu análisis de impacto financiero y cómo podría influir en tus decisiones de financiamiento educativo.
+        </p>
+
+        <div class="input-cell" style="min-height: 150px;">&nbsp;</div>
+
+        <div class="footer">
+            <p>PFL Academy | Capítulo 7.5: Comprendiendo los Préstamos Estudiantiles | © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos de Inicio y Proyecciones Financieras</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-style: italic;
+        }
+        .intro {
+            background-color: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+        h2 {
+            color: #8e44ad;
+            border-bottom: 2px solid #9b59b6;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table th, table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #9b59b6;
+            color: white;
+        }
+        .total-row {
+            background-color: #e8f4fd;
+            font-weight: bold;
+        }
+        .tips {
+            background-color: #fff9e6;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #f39c12;
+            font-size: 0.9em;
+        }
+        .calculation-box {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .warning {
+            background-color: #fadbd8;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #e74c3c;
+        }
+        @media print {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Costos de Inicio y Proyecciones Financieras</h1>
+    <p class="subtitle">Herramienta Completa para Planificación Financiera de Nuevos Negocios</p>
+
+    <div class="intro">
+        <h3>Información del Negocio</h3>
+        <p><strong>Nombre del Negocio:</strong> _______________________________________________</p>
+        <p><strong>Tipo de Negocio:</strong> _______________________________________________</p>
+        <p><strong>Fecha:</strong> _______________________________________________</p>
+    </div>
+
+    <h2>Parte 1: Costos de Inicio Únicos</h2>
+    <div class="section">
+        <div class="tips">
+            💡 Los costos de inicio son gastos únicos necesarios para lanzar su negocio. Sea lo más detallado posible para evitar sorpresas.
+        </div>
+
+        <h3>Equipamiento y Tecnología</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Cantidad</th>
+                    <th>Costo Unitario</th>
+                    <th>Costo Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Computadora/laptop</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Software/aplicaciones</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Equipamiento especializado</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Herramientas</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Otros equipos</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Subtotal Equipamiento</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Inventario y Suministros Iniciales</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Cantidad</th>
+                    <th>Costo Unitario</th>
+                    <th>Costo Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Productos para reventa</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Materias primas</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Materiales de embalaje</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Suministros de oficina</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Subtotal Inventario/Suministros</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Marketing y Marca Iniciales</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Diseño de logo</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Desarrollo de sitio web</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Tarjetas de presentación</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Materiales de marketing (volantes, etc.)</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Fotografía de productos</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Subtotal Marketing Inicial</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Legal y Profesional</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Registro de negocio</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Licencias y permisos</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Seguros</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Honorarios legales</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Honorarios contables</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Subtotal Legal/Profesional</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Otros Costos de Inicio</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Subtotal Otros Costos</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="calculation-box">
+            <h3 style="margin-top: 0;">TOTAL DE COSTOS DE INICIO</h3>
+            <table>
+                <tr>
+                    <td>Equipamiento y Tecnología</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Inventario y Suministros</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Marketing Inicial</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Legal y Profesional</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Otros Costos</td>
+                    <td>$</td>
+                </tr>
+                <tr style="background-color: #27ae60; color: white; font-weight: bold; font-size: 1.2em;">
+                    <td>TOTAL DE INVERSIÓN INICIAL</td>
+                    <td>$</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Parte 2: Gastos Operativos Mensuales</h2>
+    <div class="section">
+        <div class="tips">
+            💡 Los gastos operativos son costos recurrentes necesarios para mantener su negocio funcionando mes a mes.
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría de Gasto</th>
+                    <th>Costo Mensual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inventario/suministros recurrentes</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Alojamiento web/dominio</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Suscripciones de software</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Marketing y publicidad</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Tarifas de plataforma (Etsy, Amazon, etc.)</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Transporte/envío</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Servicios profesionales continuos</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Seguros</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Servicios públicos/internet</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Compensación por su tiempo (salario)</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Otros gastos mensuales</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL GASTOS MENSUALES</strong></td>
+                    <td><strong>$</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Parte 3: Proyecciones de Ingresos</h2>
+    <div class="section">
+        <div class="tips">
+            💡 Sea conservador en sus estimaciones. Es mejor subestimar los ingresos y sobreestimar los gastos que lo contrario.
+        </div>
+
+        <h3>Estrategia de Precios</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto/Servicio</th>
+                    <th>Precio por Unidad</th>
+                    <th>Costo por Unidad</th>
+                    <th>Ganancia por Unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Proyección de Ventas Mensuales</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mes</th>
+                    <th>Clientes/Unidades Vendidas</th>
+                    <th>Ingresos Brutos</th>
+                    <th>Gastos</th>
+                    <th>Ganancia Neta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mes 1</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Mes 2</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Mes 3</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Mes 4</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Mes 5</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Mes 6</td>
+                    <td></td>
+                    <td>$</td>
+                    <td>$</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL 6 MESES</strong></td>
+                    <td></td>
+                    <td><strong>$</strong></td>
+                    <td><strong>$</strong></td>
+                    <td><strong>$</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Parte 4: Análisis del Punto de Equilibrio</h2>
+    <div class="section">
+        <div class="calculation-box">
+            <h3 style="margin-top: 0;">Cálculo del Punto de Equilibrio</h3>
+
+            <p><strong>Gastos mensuales totales:</strong> $____________</p>
+            <p><strong>Ganancia promedio por venta:</strong> $____________</p>
+
+            <p style="font-size: 1.1em; margin: 20px 0; padding: 15px; background-color: white; border-radius: 5px;">
+                <strong>Ventas mensuales necesarias para punto de equilibrio =</strong><br>
+                Gastos mensuales ÷ Ganancia por venta = <span style="color: #27ae60; font-weight: bold;">____________ ventas</span>
+            </p>
+
+            <p><strong>Ventas diarias necesarias (30 días):</strong> ____________ ventas/día</p>
+            <p><strong>Ventas semanales necesarias:</strong> ____________ ventas/semana</p>
+        </div>
+
+        <div class="tips">
+            💡 <strong>Ejemplo:</strong> Si sus gastos mensuales son $1,500 y gana $50 por venta, necesita 30 ventas mensuales ($1,500 ÷ $50 = 30) para alcanzar el punto de equilibrio.
+        </div>
+    </div>
+
+    <h2>Parte 5: Plan de Financiamiento</h2>
+    <div class="section">
+        <h3>¿Cómo financiará los costos de inicio?</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fuente de Financiamiento</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ahorros personales</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Préstamo familiar</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Préstamo bancario</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Línea de crédito</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Inversores</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Crowdfunding</td>
+                    <td>$</td>
+                </tr>
+                <tr>
+                    <td>Otras fuentes</td>
+                    <td>$</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL FINANCIAMIENTO DISPONIBLE</strong></td>
+                    <td><strong>$</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            ⚠️ <strong>Importante:</strong> Asegúrese de que su financiamiento disponible cubra tanto los costos de inicio como al menos 3-6 meses de gastos operativos mientras construye su base de clientes.
+        </div>
+    </div>
+
+    <h2>Resumen Financiero</h2>
+    <div class="calculation-box">
+        <table>
+            <tr>
+                <td><strong>Total de costos de inicio:</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Gastos operativos mensuales:</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reserva de 3 meses (recomendado):</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+            <tr style="background-color: #e74c3c; color: white; font-size: 1.2em;">
+                <td><strong>CAPITAL TOTAL NECESARIO:</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td><strong>Financiamiento disponible:</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+            <tr style="font-size: 1.1em;">
+                <td><strong>Déficit/Superávit:</strong></td>
+                <td><strong>$</strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background-color: #e8f4fd; border-radius: 8px;">
+        <h3 style="margin-top: 0;">Consejos para la Gestión Financiera</h3>
+        <ul>
+            <li><strong>Comience pequeño:</strong> Minimice los costos iniciales siempre que sea posible</li>
+            <li><strong>Aproveche lo que tiene:</strong> Use equipos y recursos existentes antes de comprar nuevos</li>
+            <li><strong>Separe las finanzas:</strong> Mantenga cuentas bancarias y registros separados para su negocio</li>
+            <li><strong>Reserve para impuestos:</strong> Aparte 25-30% de las ganancias para obligaciones fiscales</li>
+            <li><strong>Registre todo:</strong> Mantenga recibos y documentación de todos los gastos empresariales</li>
+            <li><strong>Revise regularmente:</strong> Compare los resultados reales con las proyecciones y ajuste según sea necesario</li>
+            <li><strong>Reinvierta sabiamente:</strong> Equilibre el reinvertir ganancias con pagar obligaciones y alcanzar estabilidad</li>
+        </ul>
+    </div>
+</body>
+</html>

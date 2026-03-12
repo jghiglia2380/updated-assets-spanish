@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo: Calculadora de Costos de Vivienda</title>
+    <style>
+        /* Print-friendly styling */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #a5b4fc;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            vertical-align: top;
+        }
+
+        .input-box {
+            display: block;
+            width: 100%;
+            border: 1px solid #d1d5db;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        .calculator-section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .result-section {
+            background-color: #e0e7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .rent-section {
+            border-left: 5px solid #60a5fa;
+            background-color: #eff6ff;
+        }
+
+        .buy-section {
+            border-left: 5px solid #6366f1;
+            background-color: #eef2ff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background-color: #e0e7ff;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #a5b4fc;
+        }
+
+        .comparison-table td {
+            padding: 10px;
+            border: 1px solid #a5b4fc;
+            text-align: center;
+        }
+
+        .comparison-table tr.category {
+            background-color: #f3f4f6;
+            font-weight: bold;
+        }
+
+        .analysis-section {
+            background-color: #f0f9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 5px solid #0ea5e9;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Trabajo: Calculadora de Costos de Vivienda</h1>
+        <p>Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </header>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Esta hoja de trabajo te ayudará a calcular y comparar los costos reales de alquilar versus comprar una casa. Ingresa la información solicitada para ambas opciones, luego calcula y analiza los resultados para determinar qué opción podría ser financieramente más ventajosa en diferentes períodos de tiempo.</p>
+        <p class="no-print">Para guardar esta hoja de trabajo como PDF: Haz clic en Archivo → Imprimir → Cambiar destino a "Guardar como PDF" → Guardar</p>
+    </div>
+
+    <div class="calculator-section rent-section">
+        <h2>Datos de Costos de Alquiler</h2>
+
+        <table>
+            <tr>
+                <td width="60%"><strong>Alquiler Mensual:</strong> La cantidad que pagarías cada mes de renta</td>
+                <td width="40%">$<input type="text" class="input-box" placeholder="Ejemplo: 1,200"></td>
+            </tr>
+            <tr>
+                <td><strong>Aumento Anual Esperado del Alquiler:</strong> El porcentaje que probablemente aumentará tu renta cada año</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 3">%</td>
+            </tr>
+            <tr>
+                <td><strong>Depósito de Seguridad:</strong> Pago único típicamente igual a 1-2 meses de renta</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 1,200"></td>
+            </tr>
+            <tr>
+                <td><strong>Seguro de Inquilino:</strong> Costo mensual para proteger tus pertenencias</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 15">/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Servicios No Incluidos en el Alquiler:</strong> Costo mensual de servicios públicos que pagarías por separado</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 150">/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Tarifa de Solicitud:</strong> Tarifa única para solicitar el alquiler</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 50"></td>
+            </tr>
+            <tr>
+                <td><strong>Otras Tarifas de Alquiler:</strong> Cualquier tarifa adicional (depósitos de mascotas, tarifas de amenidades, etc.)</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 30">/mes</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculator-section buy-section">
+        <h2>Datos de Costos de Compra de Vivienda</h2>
+
+        <table>
+            <tr>
+                <td width="60%"><strong>Precio de Compra de la Vivienda:</strong> El precio de la casa que comprarías</td>
+                <td width="40%">$<input type="text" class="input-box" placeholder="Ejemplo: 250,000"></td>
+            </tr>
+            <tr>
+                <td><strong>Porcentaje de Enganche:</strong> El porcentaje del precio de compra que pagarías por adelantado</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 10">%</td>
+            </tr>
+            <tr>
+                <td><strong>Monto del Enganche:</strong> Calculado del precio de compra y porcentaje</td>
+                <td>$<input type="text" class="input-box" placeholder="Calcula esta cantidad"></td>
+            </tr>
+            <tr>
+                <td><strong>Tasa de Interés Hipotecario:</strong> La tasa de interés anual de tu préstamo hipotecario</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 4.5">%</td>
+            </tr>
+            <tr>
+                <td><strong>Plazo del Préstamo:</strong> La duración de tu hipoteca en años</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 30"> años</td>
+            </tr>
+            <tr>
+                <td><strong>Costos de Cierre:</strong> Típicamente 2-5% del precio de compra</td>
+                <td>$<input type="text" class="input-box" placeholder="Calcula esta cantidad"></td>
+            </tr>
+            <tr>
+                <td><strong>Tasa de Impuesto a la Propiedad:</strong> Porcentaje anual del valor de la vivienda</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 1.2">%</td>
+            </tr>
+            <tr>
+                <td><strong>Seguro de Propietario:</strong> Costo mensual para proteger tu casa y posesiones</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 100">/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Cuotas de HOA:</strong> Cuotas mensuales de la asociación de propietarios, si aplica</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 100">/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Servicios Mensuales Estimados:</strong> Costo total mensual de servicios públicos</td>
+                <td>$<input type="text" class="input-box" placeholder="Ejemplo: 200">/mes</td>
+            </tr>
+            <tr>
+                <td><strong>Costos de Mantenimiento Estimados:</strong> Porcentaje anual del valor de la vivienda</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 1">%</td>
+            </tr>
+            <tr>
+                <td><strong>Tasa de Apreciación Esperada de la Vivienda:</strong> Porcentaje anual de aumento en el valor de la vivienda</td>
+                <td><input type="text" class="input-box" placeholder="Ejemplo: 3">%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Cálculos de Pagos Mensuales</h2>
+
+    <div class="calculator-section rent-section">
+        <h3>Costos Mensuales de Alquiler</h3>
+
+        <table>
+            <tr>
+                <td width="60%">Alquiler Mensual:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Inquilino:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Servicios No Incluidos en el Alquiler:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Otras Tarifas Mensuales:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Costo Total Mensual de Alquiler:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculator-section buy-section">
+        <h3>Costos Mensuales de Propiedad</h3>
+
+        <table>
+            <tr>
+                <td width="60%">Pago de Capital e Intereses:</td>
+                <td width="40%">$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Impuestos a la Propiedad (mensual):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Propietario:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Cuotas de HOA:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Servicios:</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mantenimiento (promedio mensual):</td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td><strong>Costo Total Mensual de Propiedad:</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Comparación de Costos a Largo Plazo</h2>
+
+    <div class="calculator-section">
+        <h3>Comparación de Costos a 5 Años</h3>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Categoría de Costo</th>
+                <th>Alquilar</th>
+                <th>Comprar</th>
+                <th>Diferencia</th>
+            </tr>
+            <tr class="category">
+                <td>Costos Iniciales</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Depósito de Seguridad / Enganche</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Tarifas de Solicitud / Costos de Cierre</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Costos Continuos (5 años)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pagos Mensuales (incluyendo aumentos de renta)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Seguro</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mantenimiento/Reparaciones</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Impuestos a la Propiedad</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Costos/Valores de Salida</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Devolución del Depósito de Seguridad</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>N/A</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Patrimonio en la Vivienda (Capital + Apreciación)</td>
+                <td>N/A</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+            <tr class="category">
+                <td><strong>COSTO TOTAL NETO (5 años)</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="calculator-section">
+        <h3>Comparación de Costos a 10 Años</h3>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Categoría de Costo</th>
+                <th>Alquilar</th>
+                <th>Comprar</th>
+                <th>Diferencia</th>
+            </tr>
+            <tr class="category">
+                <td>Costos Iniciales</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Depósito de Seguridad / Enganche</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Tarifas de Solicitud / Costos de Cierre</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Costos Continuos (10 años)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pagos Mensuales (incluyendo aumentos de renta)</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Seguro</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Mantenimiento/Reparaciones</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr>
+                <td>Impuestos a la Propiedad</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+            <tr class="category">
+                <td>Costos/Valores de Salida</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Devolución del Depósito de Seguridad</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>N/A</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Patrimonio en la Vivienda (Capital + Apreciación)</td>
+                <td>N/A</td>
+                <td>$<input type="text" class="input-box"></td>
+                <td></td>
+            </tr>
+            <tr class="category">
+                <td><strong>COSTO TOTAL NETO (10 años)</strong></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+                <td>$<input type="text" class="input-box"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Preguntas de Análisis</h2>
+
+    <div class="analysis-section">
+        <ol>
+            <li><strong>Según tus cálculos, ¿qué opción (alquilar o comprar) parece más rentable en el período de 5 años?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>¿Qué opción parece más rentable en el período de 10 años?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>Aproximadamente, ¿en qué punto (cuántos años) comprar se vuelve más rentable que alquilar en tu escenario?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>¿Cómo afecta cambiar el porcentaje del enganche a la comparación? Intenta calcular con un enganche del 20%.</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>¿Cómo afecta cambiar la tasa de apreciación a la comparación? Intenta calcular con una tasa de apreciación del 1%.</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>¿Qué variable parece tener el mayor impacto en si alquilar o comprar es más rentable?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+
+            <li><strong>¿Qué factores no financieros también considerarías al tomar una decisión de vivienda?</strong></li>
+            <p class="input-box" style="min-height: 60px;"></p>
+        </ol>
+    </div>
+
+    <h2>Notas de Cálculo</h2>
+
+    <div class="calculator-section">
+        <h3>Fórmulas Útiles</h3>
+
+        <p><strong>Pago Mensual de Hipoteca (Capital e Intereses):</strong></p>
+        <p>Para una hipoteca a 30 años con pagos mensuales:</p>
+        <pre>Pago Mensual = P × [r(1+r)^n] ÷ [(1+r)^n - 1]</pre>
+        <p>Donde:</p>
+        <ul>
+            <li>P = Capital (monto del préstamo)</li>
+            <li>r = Tasa de interés mensual (tasa anual ÷ 12, expresada como decimal)</li>
+            <li>n = Número total de pagos (plazo en años × 12)</li>
+        </ul>
+
+        <p><strong>Ejemplo:</strong> Para un préstamo de $225,000 al 4.5% por 30 años:</p>
+        <ul>
+            <li>P = $225,000</li>
+            <li>r = 0.045 ÷ 12 = 0.00375</li>
+            <li>n = 30 × 12 = 360</li>
+            <li>Pago Mensual = $1,140.05</li>
+        </ul>
+
+        <p><strong>Impuesto a la Propiedad Mensual:</strong></p>
+        <pre>Impuesto a la Propiedad Mensual = (Valor de la Vivienda × Tasa de Impuesto Anual) ÷ 12</pre>
+
+        <p><strong>Alquiler Proyectado en Años Futuros (con aumentos anuales):</strong></p>
+        <pre>Alquiler Año N = Alquiler Inicial × (1 + Tasa de Aumento Anual)^(N-1)</pre>
+
+        <p><strong>Patrimonio en la Vivienda después de N años:</strong></p>
+        <pre>Patrimonio = Enganche + Capital Pagado + Apreciación</pre>
+
+        <p><strong>Valor Proyectado de la Vivienda después de N años (con apreciación):</strong></p>
+        <pre>Valor Año N = Valor Inicial × (1 + Tasa de Apreciación Anual)^N</pre>
+    </div>
+
+    <footer>
+        <p>PFL Academy - Capítulo 10.1: Alquilar vs. Comprar - Tomando Decisiones de Vivienda Informadas</p>
+    </footer>
+</body>
+</html>

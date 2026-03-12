@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo: Comprendiendo el Puntaje Crediticio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .chart-container {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .pie-chart {
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #10b981 0deg 126deg,
+                #3b82f6 126deg 234deg,
+                #f59e0b 234deg 288deg,
+                #8b5cf6 288deg 324deg,
+                #ef4444 324deg 360deg
+            );
+            position: relative;
+            margin: 20px auto;
+        }
+        .pie-chart::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .legend-text {
+            flex: 1;
+        }
+        .percentage {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        .component-description {
+            background: #eff6ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3b82f6;
+        }
+        .question-box {
+            background: #fef3c7;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #f59e0b;
+        }
+        .answer-area {
+            border: 1px solid #ddd;
+            padding: 15px;
+            min-height: 80px;
+            background: white;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .score-range {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .score-box {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .excellent { background: #d1fae5; color: #065f46; }
+        .good { background: #dbeafe; color: #1e40af; }
+        .fair { background: #fef3c7; color: #92400e; }
+        .poor { background: #fed7aa; color: #9a3412; }
+        .very-poor { background: #fee2e2; color: #991b1b; }
+        @media print {
+            body { background-color: white; }
+            .section { box-shadow: none; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Hoja de Trabajo: Comprendiendo el Puntaje Crediticio</h1>
+    </div>
+
+    <div class="section">
+        <h2>Parte 1: Componentes del Puntaje Crediticio FICO</h2>
+
+        <div class="chart-container">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Los 5 Factores del Puntaje FICO</h3>
+            <div class="pie-chart"></div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #10b981;"></div>
+                    <div class="legend-text">
+                        <div><strong>Historial de Pagos</strong></div>
+                        <div class="percentage">35%</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #3b82f6;"></div>
+                    <div class="legend-text">
+                        <div><strong>Utilización del Crédito</strong></div>
+                        <div class="percentage">30%</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f59e0b;"></div>
+                    <div class="legend-text">
+                        <div><strong>Duración del Historial</strong></div>
+                        <div class="percentage">15%</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #8b5cf6;"></div>
+                    <div class="legend-text">
+                        <div><strong>Mezcla de Créditos</strong></div>
+                        <div class="percentage">10%</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ef4444;"></div>
+                    <div class="legend-text">
+                        <div><strong>Crédito Nuevo</strong></div>
+                        <div class="percentage">10%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: #1e3a8a; margin-top: 30px;">Descripción de Cada Componente</h3>
+
+        <div class="component-description">
+            <strong>🟢 Historial de Pagos (35%)</strong>
+            <p>¿Paga sus cuentas a tiempo? Este es el factor más importante. Los pagos atrasados, cuentas enviadas a cobranza y bancarrotas impactan negativamente su puntaje.</p>
+        </div>
+
+        <div class="component-description">
+            <strong>🔵 Utilización del Crédito (30%)</strong>
+            <p>¿Cuánto de su crédito disponible está usando? Se recomienda mantener la utilización por debajo del 30%. Menor es mejor.</p>
+        </div>
+
+        <div class="component-description">
+            <strong>🟡 Duración del Historial Crediticio (15%)</strong>
+            <p>¿Cuánto tiempo ha tenido cuentas de crédito? Un historial más largo generalmente es mejor. Incluye la edad de su cuenta más antigua, más nueva y promedio.</p>
+        </div>
+
+        <div class="component-description">
+            <strong>🟣 Mezcla de Créditos (10%)</strong>
+            <p>¿Tiene diferentes tipos de crédito? Una combinación de tarjetas de crédito, préstamos para automóviles, hipotecas, etc., puede ser beneficiosa.</p>
+        </div>
+
+        <div class="component-description">
+            <strong>🔴 Crédito Nuevo (10%)</strong>
+            <p>¿Cuántas cuentas nuevas ha abierto recientemente? Abrir muchas cuentas nuevas en poco tiempo puede verse como riesgoso.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Parte 2: Rangos de Puntaje Crediticio</h2>
+
+        <div class="score-range">
+            <div class="score-box excellent">
+                <div>EXCELENTE</div>
+                <div style="font-size: 20px; margin-top: 5px;">800-850</div>
+            </div>
+            <div class="score-box good">
+                <div>BUENO</div>
+                <div style="font-size: 20px; margin-top: 5px;">740-799</div>
+            </div>
+            <div class="score-box fair">
+                <div>REGULAR</div>
+                <div style="font-size: 20px; margin-top: 5px;">670-739</div>
+            </div>
+            <div class="score-box poor">
+                <div>MALO</div>
+                <div style="font-size: 20px; margin-top: 5px;">580-669</div>
+            </div>
+            <div class="score-box very-poor">
+                <div>MUY MALO</div>
+                <div style="font-size: 20px; margin-top: 5px;">300-579</div>
+            </div>
+        </div>
+
+        <div style="background: #eff6ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">💡 ¿Por Qué Importa Su Puntaje?</h3>
+            <ul style="line-height: 1.8;">
+                <li><strong>Tasas de Interés:</strong> Un puntaje más alto = tasas más bajas en préstamos</li>
+                <li><strong>Aprobación de Préstamos:</strong> Mayor probabilidad de aprobación</li>
+                <li><strong>Alquiler de Vivienda:</strong> Los propietarios verifican puntajes crediticios</li>
+                <li><strong>Seguros:</strong> Puede afectar las primas de seguro</li>
+                <li><strong>Empleo:</strong> Algunos empleadores verifican el crédito</li>
+                <li><strong>Servicios Públicos:</strong> Puede evitar depósitos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Parte 3: Preguntas de Reflexión</h2>
+
+        <div class="question-box">
+            <strong>Pregunta 1:</strong> De los cinco factores que componen el puntaje FICO, ¿cuál cree que sería el más fácil de controlar como estudiante de secundaria o adulto joven? ¿Por qué?
+            <div class="answer-area">
+                <em style="color: #999;">Escriba su respuesta aquí...</em>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <strong>Pregunta 2:</strong> ¿Cuál factor cree que sería el más desafiante de manejar? ¿Qué estrategias podría usar para mejorarlo?
+            <div class="answer-area">
+                <em style="color: #999;">Escriba su respuesta aquí...</em>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <strong>Pregunta 3:</strong> Más allá de obtener aprobación para préstamos, ¿cómo podría un buen puntaje crediticio impactar otros aspectos de su vida?
+            <div class="answer-area">
+                <em style="color: #999;">Escriba su respuesta aquí...</em>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <strong>Pregunta 4:</strong> Si tuviera que dar un consejo a un amigo sobre cómo construir buen crédito desde una edad temprana, ¿cuáles serían sus tres recomendaciones principales?
+            <div class="answer-area" style="min-height: 100px;">
+                <em style="color: #999;">1. _______________<br><br>2. _______________<br><br>3. _______________</em>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+        <h2 style="color: #065f46;">✅ Consejos para Construir Buen Crédito</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ Pague a tiempo siempre</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Configure pagos automáticos</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ Mantenga utilización baja</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Use menos del 30% del crédito</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ No cierre cuentas antiguas</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">La antigüedad ayuda su puntaje</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ Limite solicitudes nuevas</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Demasiadas pueden bajar su puntaje</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ Revise su reporte</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Anualmente en AnnualCreditReport.com</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 5px;">
+                <strong>✓ Diversifique su crédito</strong>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Diferentes tipos de crédito ayudan</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding: 20px; color: #666; font-size: 14px;">
+        <p><strong>© PFL Academy - Educación Financiera Personal</strong></p>
+    </div>
+</body>
+</html>

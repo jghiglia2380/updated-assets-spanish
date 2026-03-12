@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Evaluacion de Tolerancia al Riesgo</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        h1 { color: #1a3a6d; text-align: center; border-bottom: 2px solid #1a3a6d; padding-bottom: 10px; }
+        h2 { color: #1a3a6d; margin-top: 30px; }
+        h3 { color: #2c5890; }
+        .header-info { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .box { border: 1px solid #ccc; padding: 15px; margin: 15px 0; border-radius: 5px; background-color: #f9f9f9; }
+        .question { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dotted #ccc; }
+        .options { margin-left: 20px; }
+        .option { margin-bottom: 8px; }
+        .chart { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .chart th, .chart td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .chart th { background-color: #f2f2f2; }
+        .chart tr:nth-child(even) { background-color: #f9f9f9; }
+        .reflection { border: 1px solid #1a3a6d; padding: 15px; margin: 20px 0; background-color: #f0f7ff; border-radius: 5px; }
+        .instructions { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .score-chart { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .score-chart th, .score-chart td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        .score-chart th { background-color: #1a3a6d; color: white; }
+        .score-chart tr:nth-child(1) td { background-color: #d1e7dd; }
+        .score-chart tr:nth-child(2) td { background-color: #fff3cd; }
+        .score-chart tr:nth-child(3) td { background-color: #f8d7da; }
+        @media print { body { font-size: 12pt; } h1 { font-size: 18pt; } h2 { font-size: 16pt; } .no-print { display: none; } .page-break { page-break-before: always; } }
+    </style>
+</head>
+<body>
+    <div class="no-print instructions">
+        <p><strong>Instrucciones para Profesores/Estudiantes:</strong> Esta hoja de trabajo esta disenada para completarse digitalmente o imprimirse para respuestas escritas a mano. Para guardar como PDF, use la funcion de impresion de su navegador y seleccione "Guardar como PDF" como destino.</p>
+    </div>
+
+    <h1>Hoja de Trabajo de Evaluacion de Tolerancia al Riesgo</h1>
+
+    <div class="header-info">
+        <div><p><strong>Nombre del Estudiante:</strong> ______________________________</p></div>
+        <div><p><strong>Fecha:</strong> ______________________________</p></div>
+    </div>
+
+    <div class="box">
+        <h2>Introduccion</h2>
+        <p>Esta hoja de trabajo le ayudara a evaluar su tolerancia personal al riesgo y comprender como podria afectar sus decisiones de ahorro e inversion. La tolerancia al riesgo se refiere a su nivel personal de comodidad con las posibles fluctuaciones en sus inversiones. Comprender su tolerancia al riesgo es crucial para tomar decisiones financieras que se alineen con sus metas y nivel de comodidad.</p>
+    </div>
+
+    <h2>Parte I: Evaluacion de Tolerancia al Riesgo</h2>
+    <p>Responda las siguientes preguntas honestamente basandose en como realmente reaccionaria en cada situacion. No hay respuestas correctas o incorrectas - el objetivo es comprender mejor su comodidad personal con el riesgo financiero.</p>
+
+    <div class="question">
+        <h3>Pregunta 1: Horizonte Temporal</h3>
+        <p>Cuando espera necesitar la mayor parte del dinero que esta ahorrando o invirtiendo?</p>
+        <div class="options">
+            <div class="option"><input type="radio" name="q1" id="q1a"> <label for="q1a">Dentro de los proximos 1-2 anos</label></div>
+            <div class="option"><input type="radio" name="q1" id="q1b"> <label for="q1b">Dentro de 3-5 anos</label></div>
+            <div class="option"><input type="radio" name="q1" id="q1c"> <label for="q1c">Dentro de 6-10 anos</label></div>
+            <div class="option"><input type="radio" name="q1" id="q1d"> <label for="q1d">Mas de 10 anos a partir de ahora</label></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Pregunta 2: Caidas del Mercado</h3>
+        <p>Si invirtio $10,000 y su valor bajo a $8,500 despues de un mes, que haria?</p>
+        <div class="options">
+            <div class="option"><input type="radio" name="q2" id="q2a"> <label for="q2a">Vender todo para prevenir mas perdidas</label></div>
+            <div class="option"><input type="radio" name="q2" id="q2b"> <label for="q2b">Vender algunas inversiones para reducir el riesgo</label></div>
+            <div class="option"><input type="radio" name="q2" id="q2c"> <label for="q2c">No hacer nada y esperar que el valor se recupere</label></div>
+            <div class="option"><input type="radio" name="q2" id="q2d"> <label for="q2d">Comprar mas inversiones mientras los precios estan mas bajos</label></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Pregunta 3: Expectativas de Rendimiento</h3>
+        <p>Que resultado de inversion preferiria?</p>
+        <div class="options">
+            <div class="option"><input type="radio" name="q3" id="q3a"> <label for="q3a">Un rendimiento anual garantizado del 3% sin posibilidad de perdida</label></div>
+            <div class="option"><input type="radio" name="q3" id="q3b"> <label for="q3b">Un rendimiento anual potencial del 6% con algo de riesgo de perdidas menores</label></div>
+            <div class="option"><input type="radio" name="q3" id="q3c"> <label for="q3c">Un rendimiento anual potencial del 9% con riesgo moderado de perdidas</label></div>
+            <div class="option"><input type="radio" name="q3" id="q3d"> <label for="q3d">Un rendimiento anual potencial del 12% con riesgo significativo de grandes perdidas</label></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Pregunta 4: Riesgo vs. Rendimiento</h3>
+        <p>Que afirmacion describe mejor su actitud hacia el riesgo de inversion?</p>
+        <div class="options">
+            <div class="option"><input type="radio" name="q4" id="q4a"> <label for="q4a">Me siento muy incomodo con cualquier perdida de inversion y prefiero la estabilidad</label></div>
+            <div class="option"><input type="radio" name="q4" id="q4b"> <label for="q4b">Estoy dispuesto a aceptar pequenas fluctuaciones para lograr rendimientos ligeramente mas altos</label></div>
+            <div class="option"><input type="radio" name="q4" id="q4c"> <label for="q4c">Puedo tolerar fluctuaciones moderadas por la perspectiva de mejores rendimientos</label></div>
+            <div class="option"><input type="radio" name="q4" id="q4d"> <label for="q4d">Me siento comodo con fluctuaciones significativas por la oportunidad de rendimientos maximos</label></div>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Pregunta 5: Metas Financieras</h3>
+        <p>Cual de estos describe mejor su meta financiera principal?</p>
+        <div class="options">
+            <div class="option"><input type="radio" name="q5" id="q5a"> <label for="q5a">Preservar mis ahorros y minimizar perdidas es mi maxima prioridad</label></div>
+            <div class="option"><input type="radio" name="q5" id="q5b"> <label for="q5b">Hacer crecer mis ahorros moderadamente mientras limito el riesgo es importante para mi</label></div>
+            <div class="option"><input type="radio" name="q5" id="q5c"> <label for="q5c">Lograr un fuerte crecimiento a lo largo del tiempo, aceptando algo de volatilidad del mercado</label></div>
+            <div class="option"><input type="radio" name="q5" id="q5d"> <label for="q5d">Maximizar el crecimiento a largo plazo, aceptando volatilidad significativa del mercado</label></div>
+        </div>
+    </div>
+
+    <h2>Parte II: Calculando Su Tolerancia al Riesgo</h2>
+    <p>Puntue sus respuestas segun el siguiente sistema de puntos:</p>
+    <ul>
+        <li>Por cada respuesta "a": 1 punto</li>
+        <li>Por cada respuesta "b": 2 puntos</li>
+        <li>Por cada respuesta "c": 3 puntos</li>
+        <li>Por cada respuesta "d": 4 puntos</li>
+    </ul>
+
+    <table class="chart">
+        <tr><th>Pregunta</th><th>Su Respuesta (a, b, c, o d)</th><th>Puntos</th></tr>
+        <tr><td>1. Horizonte Temporal</td><td></td><td></td></tr>
+        <tr><td>2. Caidas del Mercado</td><td></td><td></td></tr>
+        <tr><td>3. Expectativas de Rendimiento</td><td></td><td></td></tr>
+        <tr><td>4. Riesgo vs. Rendimiento</td><td></td><td></td></tr>
+        <tr><td>5. Metas Financieras</td><td></td><td></td></tr>
+        <tr><th>Puntuacion Total</th><td></td><td></td></tr>
+    </table>
+
+    <h3>Perfil de Tolerancia al Riesgo</h3>
+    <table class="score-chart">
+        <tr><th>Rango de Puntuacion</th><th>Perfil de Tolerancia al Riesgo</th><th>Descripcion</th></tr>
+        <tr><td>5-10</td><td>Conservador</td><td>Usted prefiere la estabilidad y se siente incomodo con fluctuaciones significativas. La preservacion del capital es su enfoque principal.</td></tr>
+        <tr><td>11-15</td><td>Moderado</td><td>Usted puede tolerar algunos altibajos por la posibilidad de mayores rendimientos. Busca equilibrio entre crecimiento y estabilidad.</td></tr>
+        <tr><td>16-20</td><td>Agresivo</td><td>Usted se siente comodo con fluctuaciones sustanciales por el potencial de rendimientos maximos. El crecimiento a largo plazo es su prioridad.</td></tr>
+    </table>
+
+    <div class="box">
+        <h3>Mi Perfil de Tolerancia al Riesgo</h3>
+        <p>Basado en mi puntuacion, mi perfil de tolerancia al riesgo es: ______________________________</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte III: Opciones de Inversion Basadas en Tolerancia al Riesgo</h2>
+
+    <table class="chart">
+        <tr><th>Perfil de Tolerancia al Riesgo</th><th>Asignacion Tipica de Inversion</th><th>Tipos de Inversion Adecuados</th></tr>
+        <tr>
+            <td>Conservador</td>
+            <td><ul><li>60-70% Efectivo y Equivalentes</li><li>20-30% Bonos</li><li>10-20% Acciones</li></ul></td>
+            <td><ul><li>Cuentas de ahorro de alto rendimiento</li><li>Certificados de deposito (CDs)</li><li>Cuentas del mercado monetario</li><li>Letras del tesoro</li><li>Bonos del gobierno</li><li>Acciones de primera clase con dividendos</li></ul></td>
+        </tr>
+        <tr>
+            <td>Moderado</td>
+            <td><ul><li>30-40% Efectivo y Equivalentes</li><li>30-40% Bonos</li><li>30-40% Acciones</li></ul></td>
+            <td><ul><li>Fondos mutuos balanceados</li><li>Fondos indexados</li><li>Bonos corporativos</li><li>Bonos municipales</li><li>Acciones de primera clase</li><li>Acciones con dividendos</li><li>Fideicomisos de inversion en bienes raices (REITs)</li></ul></td>
+        </tr>
+        <tr>
+            <td>Agresivo</td>
+            <td><ul><li>5-15% Efectivo y Equivalentes</li><li>15-25% Bonos</li><li>60-80% Acciones</li></ul></td>
+            <td><ul><li>Acciones de crecimiento</li><li>Acciones de pequena capitalizacion</li><li>Acciones internacionales</li><li>Fondos de mercados emergentes</li><li>Fondos especificos de sector</li><li>Bonos corporativos de alto rendimiento</li><li>Bienes raices</li></ul></td>
+        </tr>
+    </table>
+
+    <h2>Parte IV: Reflexion</h2>
+    <div class="reflection">
+        <h3>Basado en su evaluacion de tolerancia al riesgo, responda las siguientes preguntas:</h3>
+
+        <p><strong>1. Su perfil de tolerancia al riesgo (Conservador, Moderado o Agresivo) le sorprende? Por que o por que no?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+
+        <p><strong>2. Que opciones de inversion del grafico anterior parecen mas apropiadas para su nivel de tolerancia al riesgo? Por que?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+
+        <p><strong>3. Como podria cambiar su tolerancia al riesgo para diferentes metas financieras (por ejemplo, ahorros a corto plazo vs. jubilacion)?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+
+        <p><strong>4. Como le ayuda comprender su tolerancia al riesgo a tomar mejores decisiones financieras?</strong></p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+        <p>____________________________________________________________________________________________________________________</p>
+    </div>
+
+    <div class="box">
+        <h3>Puntos Clave</h3>
+        <p>Comprender su tolerancia al riesgo es esencial para tomar decisiones de inversion con las que pueda mantenerse firme durante las fluctuaciones del mercado. Recuerde:</p>
+        <ul>
+            <li>No existe una tolerancia al riesgo "correcta" o "incorrecta" - lo que importa es encontrar un enfoque que se alinee con sus metas y nivel de comodidad</li>
+            <li>La tolerancia al riesgo puede cambiar a lo largo de su vida segun la edad, metas, situacion financiera y experiencias</li>
+            <li>El horizonte temporal (cuando necesitara el dinero) debe impactar significativamente su enfoque de inversion</li>
+            <li>La diversificacion puede ayudar a gestionar el riesgo mientras persigue rendimientos apropiados</li>
+        </ul>
+    </div>
+</body>
+</html>

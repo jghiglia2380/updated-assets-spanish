@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Práctica de Oferta y Demanda | PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6366f1;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #6366f1;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #6b7280;
+        }
+        .section {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6366f1;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 15px;
+        }
+        .scenario {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .scenario-number {
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 8px;
+        }
+        .question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .answer-space {
+            margin-bottom: 15px;
+        }
+        .answer-space textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+        .answer-space textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+        .select-answer {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .select-answer label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .multiple-choice {
+            margin: 10px 0;
+        }
+        .multiple-choice label {
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        .multiple-choice input {
+            margin-right: 8px;
+        }
+        .fill-blank {
+            display: inline-block;
+            width: 150px;
+            border-bottom: 2px solid #6366f1;
+            text-align: center;
+            padding: 2px 5px;
+        }
+        .fill-blank input {
+            width: 100%;
+            border: none;
+            text-align: center;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+        }
+        .matching-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .matching-table th,
+        .matching-table td {
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        .matching-table th {
+            background-color: #f3f4f6;
+        }
+        .matching-input {
+            width: 40px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            background-color: #6366f1;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+        }
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 12px;
+            }
+            .section {
+                break-inside: avoid;
+            }
+            .btn {
+                display: none;
+            }
+            textarea {
+                border: 1px solid #ccc !important;
+                min-height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoja de Trabajo de Práctica de Oferta y Demanda</h1>
+        <p class="subtitle">Ejercicios de práctica para análisis de oferta/demanda y escenarios de mercado</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Análisis del Mercado de Vivienda</div>
+        <div class="scenario">
+            <div class="scenario-number">Escenario 1: Buscando Apartamento en {{STATE_NAME}}</div>
+            <p>En tu ciudad, los apartamentos de 1 habitación usualmente se alquilan por $1,200/mes. Recientemente, un empleador importante anunció que traerá 5,000 nuevos empleos al área.</p>
+
+            <div class="question">a) ¿Cómo afectará esto la demanda de apartamentos?</div>
+            <div class="answer-space">
+                <textarea placeholder="Explica el impacto en la demanda..."></textarea>
+            </div>
+
+            <div class="question">b) ¿Qué pasará probablemente con los precios de alquiler? ¿Por qué?</div>
+            <div class="answer-space">
+                <textarea placeholder="Predice los cambios de precio y explica tu razonamiento..."></textarea>
+            </div>
+
+            <div class="question">c) Como inquilino, ¿cómo deberías responder a esta noticia?</div>
+            <div class="answer-space">
+                <textarea placeholder="Describe tu estrategia..."></textarea>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 2: Decisión de Compra de Vivienda</div>
+            <p>{{STATE_NAME}} recientemente aprobó legislación que facilita la construcción de nuevas viviendas, y los costos de materiales de construcción han bajado 15%.</p>
+
+            <div class="question">a) ¿Qué pasará con la oferta de viviendas?</div>
+            <div class="select-answer">
+                <label><input type="radio" name="q2a" value="increase"> Aumentará</label>
+                <label><input type="radio" name="q2a" value="decrease"> Disminuirá</label>
+                <label><input type="radio" name="q2a" value="stable"> Se mantendrá igual</label>
+            </div>
+
+            <div class="question">b) ¿Qué pasará probablemente con los precios de viviendas?</div>
+            <div class="select-answer">
+                <label><input type="radio" name="q2b" value="rise"> Subirán</label>
+                <label><input type="radio" name="q2b" value="fall"> Bajarán</label>
+                <label><input type="radio" name="q2b" value="stable"> Se mantendrán iguales</label>
+            </div>
+
+            <div class="question">c) Si planeas comprar una casa en 2 años, ¿deberías actuar ahora o esperar? Explica.</div>
+            <div class="answer-space">
+                <textarea placeholder="Explica tu estrategia de momento..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Mercado Laboral</div>
+        <div class="scenario">
+            <div class="scenario-number">Escenario 3: Elección de Carrera</div>
+            <p>La demanda de desarrolladores de software está aumentando rápidamente debido al crecimiento de la IA, mientras que los bootcamps de programación están graduando miles de nuevos desarrolladores.</p>
+
+            <div class="question">a) ¿Qué pasa con los salarios de los desarrolladores de software?</div>
+            <div class="answer-space">
+                <textarea placeholder="Analiza las tendencias salariales considerando tanto demanda como oferta..."></textarea>
+            </div>
+
+            <div class="question">b) ¿Cómo puedes diferenciarte en este mercado?</div>
+            <div class="answer-space">
+                <textarea placeholder="Estrategias para destacar cuando la oferta es alta..."></textarea>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 4: Oficios Especializados</div>
+            <p>Muchos electricistas en {{STATE_NAME}} se están jubilando, y menos jóvenes están entrando a escuelas técnicas.</p>
+
+            <div class="question">a) ¿Qué está pasando con la oferta de electricistas?</div>
+            <div class="select-answer">
+                <label><input type="radio" name="q4a" value="increase"> Aumentando</label>
+                <label><input type="radio" name="q4a" value="decrease"> Disminuyendo</label>
+            </div>
+
+            <div class="question">b) ¿Qué significa esto para los salarios de electricistas?</div>
+            <div class="answer-space">
+                <textarea placeholder="Predice las tendencias salariales..."></textarea>
+            </div>
+
+            <div class="question">c) ¿Es esta una buena oportunidad de carrera? ¿Por qué sí o por qué no?</div>
+            <div class="answer-space">
+                <textarea placeholder="Evalúa la oportunidad de carrera..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Bienes de Consumo</div>
+        <div class="scenario">
+            <div class="scenario-number">Escenario 5: Precios de Gasolina</div>
+            <p>Los precios de la gasolina han subido de $3.00 a $4.50 por galón debido a la reducción en la producción de petróleo.</p>
+
+            <div class="question">a) Este es un ejemplo de una disminución en la <span class="fill-blank"><input type="text" placeholder="oferta/demanda"></span></div>
+
+            <div class="question" style="margin-top: 15px;">b) Lista 3 formas en que podrías responder a los precios más altos de gasolina:</div>
+            <div class="answer-space">
+                <textarea placeholder="1. &#10;2. &#10;3. "></textarea>
+            </div>
+
+            <div class="question">c) ¿La gasolina es elástica o inelástica a corto plazo? ¿Por qué?</div>
+            <div class="answer-space">
+                <textarea placeholder="Analiza la elasticidad..."></textarea>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-number">Escenario 6: Compras de Temporada</div>
+            <p>Necesitas comprar un abrigo de invierno para el próximo año.</p>
+
+            <div class="question">a) ¿Cuándo es más alta la demanda de abrigos de invierno?</div>
+            <div class="answer-space">
+                <textarea placeholder="Identifica el momento de máxima demanda..."></textarea>
+            </div>
+
+            <div class="question">b) ¿Cuándo sería el mejor momento para comprar y obtener el precio más bajo?</div>
+            <div class="answer-space">
+                <textarea placeholder="Momento óptimo de compra..."></textarea>
+            </div>
+
+            <div class="question">c) ¿Cuánto podrías ahorrar programando tu compra correctamente? (Estima el porcentaje)</div>
+            <div class="answer-space">
+                <textarea placeholder="Estima el ahorro..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: Emparejamiento - Identifica el Factor</div>
+        <p style="margin-bottom: 15px;">Empareja cada evento con si desplaza la DEMANDA o la OFERTA:</p>
+
+        <table class="matching-table">
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>¿Desplaza Demanda u Oferta?</th>
+                    <th>Dirección (Izquierda/Derecha)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nueva tecnología reduce costos de producción</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>La población en {{STATE_NAME}} crece 10%</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Un huracán destruye fábricas</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Los ingresos de los consumidores aumentan significativamente</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>El gobierno aumenta impuestos a la producción</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Un producto se vuelve tendencia en redes sociales</td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="demand">Demanda</option>
+                            <option value="supply">Oferta</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select style="padding: 5px; width: 100%;">
+                            <option value="">Seleccionar...</option>
+                            <option value="left">Izquierda (Disminuye)</option>
+                            <option value="right">Derecha (Aumenta)</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 5: Aplicación Personal</div>
+        <div class="scenario">
+            <div class="scenario-number">Tu Análisis Personal de Mercado</div>
+
+            <div class="question">Elige un producto o servicio que planeas comprar en los próximos 6 meses:</div>
+            <div class="answer-space">
+                <textarea placeholder="¿Qué comprarás?" style="min-height: 40px;"></textarea>
+            </div>
+
+            <div class="question">¿Qué factores de oferta y demanda afectan su precio?</div>
+            <div class="answer-space">
+                <textarea placeholder="Lista los factores relevantes de oferta y demanda..."></textarea>
+            </div>
+
+            <div class="question">¿Cuál es el mejor momento para hacer esta compra?</div>
+            <div class="answer-space">
+                <textarea placeholder="Momento óptimo basado en análisis de oferta/demanda..."></textarea>
+            </div>
+
+            <div class="question">¿Qué poder de negociación tienes?</div>
+            <div class="answer-space">
+                <textarea placeholder="Considera elasticidad, alternativas y condiciones de mercado..."></textarea>
+            </div>
+
+            <div class="question">¿Cuánto podrías ahorrar con buen momento y estrategia?</div>
+            <div class="answer-space">
+                <textarea placeholder="Estima tu ahorro potencial..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+        <button class="btn btn-secondary" onclick="resetForm()">Reiniciar Formulario</button>
+    </div>
+
+    <script>
+        function resetForm() {
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type === 'radio' || el.type === 'checkbox') {
+                    el.checked = false;
+                } else if (el.tagName === 'SELECT') {
+                    el.selectedIndex = 0;
+                } else {
+                    el.value = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

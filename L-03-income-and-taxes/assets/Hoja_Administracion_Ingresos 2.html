@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Administración de Ingresos | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--surface);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .state-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .worksheet-section {
+            background-color: var(--surface);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .calc-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .calc-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .calc-input {
+            position: relative;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px 10px 10px 25px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .dollar-sign {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .result-row {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .result-label {
+            color: var(--text);
+        }
+
+        .result-value {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .budget-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+        }
+
+        .budget-card h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .budget-percentage {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .budget-amount {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .budget-examples {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            margin-top: 30px;
+            text-align: center;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--surface);
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .actions {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .calc-row {
+                grid-template-columns: 1fr;
+            }
+            .budget-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Hoja de Administración de Ingresos</h1>
+            <p class="subtitle">Planifique el Uso de Su Ingreso Neto</p>
+            <div class="state-badge">📍 {{STATE_NAME}}</div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sección 1: Ingreso Bruto -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">1</span>
+                    Cálculo del Ingreso Bruto
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Salario por Hora (si es por hora)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="hourlyWage" min="0" step="0.01" value="18.50" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Horas por Semana</div>
+                    <div class="calc-input">
+                        <input type="number" id="hoursPerWeek" min="0" max="168" value="40" oninput="calculate()" style="padding-left: 10px;">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>O</strong> si tiene salario fijo:
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Salario Anual</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="annualSalary" min="0" value="0" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-row">
+                    <span class="result-label">Ingreso Bruto Anual:</span>
+                    <span class="result-value" id="grossAnnual">$0</span>
+                </div>
+            </div>
+
+            <!-- Sección 2: Deducciones -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">2</span>
+                    Desglose de Deducciones ({{STATE_NAME}})
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Impuesto Federal sobre la Renta (estimado)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="federalTax" readonly style="background-color: #f3f4f6;">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Impuesto Estatal de {{STATE_NAME}} ({{STATE_INCOME_TAX_RATE}}%)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="stateTax" readonly style="background-color: #f3f4f6;">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Seguro Social (6.2%)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="socialSecurity" readonly style="background-color: #f3f4f6;">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Medicare (1.45%)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="medicare" readonly style="background-color: #f3f4f6;">
+                    </div>
+                </div>
+
+                <div class="result-row">
+                    <span class="result-label">Total de Deducciones Anuales:</span>
+                    <span class="result-value" id="totalDeductions">$0</span>
+                </div>
+            </div>
+
+            <!-- Sección 3: Ingreso Neto -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">3</span>
+                    Resumen del Ingreso Neto
+                </div>
+
+                <div class="result-row">
+                    <span class="result-label">Ingreso Neto Anual:</span>
+                    <span class="result-value" id="netAnnual">$0</span>
+                </div>
+
+                <div class="result-row">
+                    <span class="result-label">Ingreso Neto Mensual:</span>
+                    <span class="result-value" id="netMonthly">$0</span>
+                </div>
+            </div>
+
+            <!-- Sección 4: Presupuesto 50/30/20 -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">4</span>
+                    Asignación de Presupuesto 50/30/20
+                </div>
+
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <h4>Necesidades</h4>
+                        <div class="budget-percentage">50%</div>
+                        <div class="budget-amount" id="needs">$0</div>
+                        <div class="budget-examples">
+                            • Alquiler/Hipoteca<br>
+                            • Servicios<br>
+                            • Comestibles<br>
+                            • Transporte<br>
+                            • Seguros
+                        </div>
+                    </div>
+
+                    <div class="budget-card">
+                        <h4>Deseos</h4>
+                        <div class="budget-percentage">30%</div>
+                        <div class="budget-amount" id="wants">$0</div>
+                        <div class="budget-examples">
+                            • Comer fuera<br>
+                            • Entretenimiento<br>
+                            • Compras<br>
+                            • Pasatiempos<br>
+                            • Suscripciones
+                        </div>
+                    </div>
+
+                    <div class="budget-card">
+                        <h4>Ahorros y Deudas</h4>
+                        <div class="budget-percentage">20%</div>
+                        <div class="budget-amount" id="savings">$0</div>
+                        <div class="budget-examples">
+                            • Fondo de emergencia<br>
+                            • Jubilación<br>
+                            • Pago de deudas<br>
+                            • Inversiones<br>
+                            • Metas futuras
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 5: Metas de Ahorro -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">5</span>
+                    Metas de Ahorro Mensuales
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Meta de Fondo de Emergencia (3-6 meses de gastos)</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="emergencyGoal" min="0" value="5000">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Contribución para Jubilación (% del bruto)</div>
+                    <div class="calc-input">
+                        <input type="number" id="retirementPct" min="0" max="100" value="10" style="padding-left: 10px;">
+                    </div>
+                </div>
+
+                <div class="calc-row">
+                    <div class="calc-label">Otra Meta de Ahorro</div>
+                    <div class="calc-input">
+                        <span class="dollar-sign">$</span>
+                        <input type="number" id="otherSavings" min="0" value="200">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 6: Planificación Fiscal -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">6</span>
+                    Consideraciones de Planificación Fiscal
+                </div>
+
+                <p style="margin-bottom: 15px;">¿Cómo puede reducir su carga fiscal? (Marque las estrategias que apliquen)</p>
+
+                <div style="display: grid; gap: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background-color: white; border-radius: 6px;">
+                        <input type="checkbox"> Contribuir a 401(k) o IRA (antes de impuestos)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background-color: white; border-radius: 6px;">
+                        <input type="checkbox"> Cuenta de Ahorros para la Salud (HSA)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background-color: white; border-radius: 6px;">
+                        <input type="checkbox"> Cuenta de Gastos Flexibles (FSA)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background-color: white; border-radius: 6px;">
+                        <input type="checkbox"> Deducción de intereses de préstamos estudiantiles
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background-color: white; border-radius: 6px;">
+                        <input type="checkbox"> Ajustar W-4 para optimizar retenciones
+                    </label>
+                </div>
+            </div>
+
+            <!-- Sección 7: Plan de Acción -->
+            <div class="worksheet-section">
+                <div class="section-title">
+                    <span class="section-number">7</span>
+                    Plan de Acción Personal
+                </div>
+
+                <p style="margin-bottom: 10px; font-weight: 600;">¿Cuáles son sus 3 principales prioridades de administración de ingresos?</p>
+                <textarea placeholder="1. &#10;2. &#10;3. "></textarea>
+
+                <p style="margin-top: 20px; margin-bottom: 10px; font-weight: 600;">¿Qué cambios hará en su W-4 o presupuesto?</p>
+                <textarea placeholder="Describa las acciones específicas que tomará..."></textarea>
+            </div>
+
+            <div class="actions">
+                <button class="btn-primary" onclick="window.print()">🖨️ Imprimir Hoja</button>
+                <button class="btn-secondary" onclick="resetWorksheet()">🔄 Reiniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STATE_INCOME_TAX_RATE = {{STATE_INCOME_TAX_RATE}} || 5.0;
+
+        function calculate() {
+            const hourlyWage = parseFloat(document.getElementById('hourlyWage').value) || 0;
+            const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value) || 0;
+            let annualSalary = parseFloat(document.getElementById('annualSalary').value) || 0;
+
+            // Calcular ingreso bruto
+            let grossAnnual;
+            if (annualSalary > 0) {
+                grossAnnual = annualSalary;
+            } else {
+                grossAnnual = hourlyWage * hoursPerWeek * 52;
+            }
+
+            // Calcular deducciones (simplificado)
+            const federalTaxRate = grossAnnual <= 47150 ? 0.12 : 0.22;
+            const federalTax = grossAnnual * federalTaxRate * 0.85;
+            const stateTax = grossAnnual * (STATE_INCOME_TAX_RATE / 100);
+            const socialSecurity = Math.min(grossAnnual, 168600) * 0.062;
+            const medicare = grossAnnual * 0.0145;
+
+            const totalDeductions = federalTax + stateTax + socialSecurity + medicare;
+            const netAnnual = grossAnnual - totalDeductions;
+            const netMonthly = netAnnual / 12;
+
+            // Actualizar pantalla
+            document.getElementById('grossAnnual').textContent = formatCurrency(grossAnnual);
+            document.getElementById('federalTax').value = federalTax.toFixed(0);
+            document.getElementById('stateTax').value = stateTax.toFixed(0);
+            document.getElementById('socialSecurity').value = socialSecurity.toFixed(0);
+            document.getElementById('medicare').value = medicare.toFixed(0);
+            document.getElementById('totalDeductions').textContent = formatCurrency(totalDeductions);
+            document.getElementById('netAnnual').textContent = formatCurrency(netAnnual);
+            document.getElementById('netMonthly').textContent = formatCurrency(netMonthly);
+
+            // Presupuesto 50/30/20
+            document.getElementById('needs').textContent = formatCurrency(netMonthly * 0.5);
+            document.getElementById('wants').textContent = formatCurrency(netMonthly * 0.3);
+            document.getElementById('savings').textContent = formatCurrency(netMonthly * 0.2);
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function resetWorksheet() {
+            document.getElementById('hourlyWage').value = 18.50;
+            document.getElementById('hoursPerWeek').value = 40;
+            document.getElementById('annualSalary').value = 0;
+            document.getElementById('emergencyGoal').value = 5000;
+            document.getElementById('retirementPct').value = 10;
+            document.getElementById('otherSavings').value = 200;
+            document.querySelectorAll('textarea').forEach(ta => ta.value = '');
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            calculate();
+        }
+
+        window.onload = calculate;
+    </script>
+</body>
+</html>

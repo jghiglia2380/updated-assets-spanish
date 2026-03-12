@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Referencia para Administrar Sus Ingresos - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #1f2937;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #6366f1;
+        }
+        .header h1 { font-size: 24px; color: #6366f1; margin-bottom: 4px; }
+        .header p { color: #6b7280; font-size: 12px; }
+        .main-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 11px; }
+        .main-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .main-table td { padding: 8px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+        .main-table tr:hover { background-color: #f9fafb; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .section-box {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #6366f1;
+        }
+        .section-box h3 { font-size: 14px; font-weight: 700; color: #6366f1; margin-bottom: 8px; }
+        .section-box ul { margin-left: 16px; }
+        .section-box li { margin-bottom: 3px; }
+        .budget-section {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .budget-section h3 { font-size: 14px; font-weight: 600; color: #3b82f6; margin-bottom: 8px; }
+        .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .budget-item { background: white; padding: 10px; border-radius: 4px; text-align: center; }
+        .budget-item h4 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .budget-item.needs h4 { color: #3b82f6; }
+        .budget-item.wants h4 { color: #8b5cf6; }
+        .budget-item.savings h4 { color: #10b981; }
+        .budget-item p { font-size: 10px; color: #6b7280; }
+        .paycheck-section {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #f59e0b;
+            margin-bottom: 16px;
+        }
+        .paycheck-section h3 { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 8px; }
+        .deduction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .deduction-item { background: white; padding: 8px; border-radius: 4px; }
+        .deduction-item h4 { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+        .deduction-item ul { margin-left: 12px; font-size: 10px; }
+        .automation-section {
+            background: #ecfdf5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 16px;
+        }
+        .automation-section h3 { font-size: 14px; font-weight: 600; color: #059669; margin-bottom: 8px; }
+        .key-takeaway {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+        }
+        .key-takeaway h3 { font-size: 12px; font-weight: 600; color: #059669; margin-bottom: 6px; }
+        @media print { body { padding: 10px; font-size: 10px; } }
+        @media (max-width: 768px) { .two-column, .budget-grid, .deduction-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hoja de Referencia para Administrar Sus Ingresos</h1>
+        <p>Estrategias esenciales para la administración efectiva de ingresos y presupuesto</p>
+    </div>
+
+    <div class="budget-section">
+        <h3>La Regla de Presupuesto 50/30/20</h3>
+        <div class="budget-grid">
+            <div class="budget-item needs">
+                <h4>50%</h4>
+                <p><strong>NECESIDADES</strong><br>Vivienda, servicios, comida, transporte, seguros, pagos mínimos de deuda</p>
+            </div>
+            <div class="budget-item wants">
+                <h4>30%</h4>
+                <p><strong>DESEOS</strong><br>Entretenimiento, restaurantes, pasatiempos, suscripciones, compras, viajes</p>
+            </div>
+            <div class="budget-item savings">
+                <h4>20%</h4>
+                <p><strong>AHORROS/DEUDA</strong><br>Fondo de emergencia, jubilación, inversiones, pagos extra de deuda</p>
+            </div>
+        </div>
+    </div>
+
+    <table class="main-table">
+        <thead>
+            <tr>
+                <th>Método de Presupuesto</th>
+                <th>Cómo Funciona</th>
+                <th>Mejor Para</th>
+                <th>Pros/Contras</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>50/30/20</strong></td>
+                <td>Divide los ingresos en tres categorías por porcentaje</td>
+                <td>Principiantes, ingresos estables</td>
+                <td>+ Simple | - Menos detallado</td>
+            </tr>
+            <tr>
+                <td><strong>Base Cero</strong></td>
+                <td>Cada dólar tiene un trabajo; ingresos - gastos = 0</td>
+                <td>Detallistas, ingresos variables</td>
+                <td>+ Control completo | - Requiere tiempo</td>
+            </tr>
+            <tr>
+                <td><strong>Sistema de Sobres</strong></td>
+                <td>Efectivo en sobres físicos/digitales para cada categoría</td>
+                <td>Gastadores excesivos, aprendices visuales</td>
+                <td>+ Previene gastar de más | - Menos flexible</td>
+            </tr>
+            <tr>
+                <td><strong>Páguese Primero</strong></td>
+                <td>Ahorre una cantidad fija inmediatamente, gaste el resto</td>
+                <td>Personas enfocadas en ahorros</td>
+                <td>+ Prioriza ahorros | - Puede ignorar deuda</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="paycheck-section">
+        <h3>Entendiendo Su Cheque de Pago</h3>
+        <div class="deduction-grid">
+            <div class="deduction-item">
+                <h4>Deducciones Obligatorias</h4>
+                <ul>
+                    <li><strong>Impuesto Federal sobre la Renta:</strong> Basado en W-4 e ingresos</li>
+                    <li><strong>Impuesto Estatal sobre la Renta:</strong> Varía por estado (0-13%)</li>
+                    <li><strong>Seguro Social:</strong> 6.2% hasta $168,600</li>
+                    <li><strong>Medicare:</strong> 1.45% (sin límite)</li>
+                </ul>
+            </div>
+            <div class="deduction-item">
+                <h4>Deducciones Voluntarias</h4>
+                <ul>
+                    <li><strong>401(k)/403(b):</strong> Ahorros para jubilación antes de impuestos</li>
+                    <li><strong>Seguro de Salud:</strong> Frecuentemente antes de impuestos</li>
+                    <li><strong>HSA/FSA:</strong> Ahorros de salud antes de impuestos</li>
+                    <li><strong>Seguro de Vida/Discapacidad:</strong> Cobertura opcional</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="section-box">
+            <h3>Ingreso Bruto vs. Neto</h3>
+            <ul>
+                <li><strong>Ingreso Bruto:</strong> Ganancias totales antes de deducciones</li>
+                <li><strong>Ingreso Neto:</strong> Pago neto después de todas las deducciones</li>
+                <li><strong>Diferencia típica:</strong> 25-35% menos que el bruto</li>
+                <li><strong>Siempre presupueste del ingreso neto</strong></li>
+            </ul>
+            <p style="margin-top: 8px; font-size: 10px; color: #6b7280;">
+                Ejemplo: $50,000 bruto ≈ $38,000 neto = $3,167/mes neto
+            </p>
+        </div>
+
+        <div class="section-box">
+            <h3>Prioridades del Fondo de Emergencia</h3>
+            <ul>
+                <li><strong>Inicial:</strong> $500-$1,000 (meta inmediata)</li>
+                <li><strong>Básico:</strong> 1 mes de gastos</li>
+                <li><strong>Estándar:</strong> 3 meses de gastos</li>
+                <li><strong>Completo:</strong> 6 meses de gastos</li>
+                <li><strong>Guardar en:</strong> Cuenta de ahorros de alto rendimiento</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="automation-section">
+        <h3>Estrategias de Automatización ("Páguese Primero")</h3>
+        <ul>
+            <li><strong>División de depósito directo:</strong> Divida automáticamente el cheque en múltiples cuentas</li>
+            <li><strong>Transferencias automáticas:</strong> Configure transferencias recurrentes el día de pago a ahorros</li>
+            <li><strong>Contribuciones al 401(k):</strong> Deducciones automáticas antes de impuestos</li>
+            <li><strong>Pago automático de facturas:</strong> Nunca pierda fechas de vencimiento, evite cargos por mora</li>
+            <li><strong>Ahorros de redondeo:</strong> Apps que redondean compras y ahorran la diferencia</li>
+        </ul>
+    </div>
+
+    <div class="key-takeaway">
+        <h3>Fórmulas y Puntos de Referencia Clave</h3>
+        <p>
+            <strong>Tasa de Ahorro:</strong> (Ahorros Mensuales ÷ Ingreso Bruto) × 100 | Meta: 15-20%<br>
+            <strong>Costo de Vivienda:</strong> ≤ 28% del ingreso bruto (o ≤ 30% del neto)<br>
+            <strong>Deuda-a-Ingreso:</strong> Pagos totales de deuda ÷ ingreso bruto | Meta: < 36%<br>
+            <strong>Patrimonio Neto:</strong> Activos - Pasivos | Seguir mensual/trimestralmente<br>
+            <strong>Regla del 72:</strong> 72 ÷ tasa de interés = años para duplicar el dinero
+        </p>
+    </div>
+</body>
+</html>

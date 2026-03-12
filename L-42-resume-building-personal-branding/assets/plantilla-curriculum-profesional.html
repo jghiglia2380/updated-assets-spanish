@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Currículum Profesional</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .page {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 0.75in;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #2c3e50; padding-bottom: 15px; }
+        .name { font-size: 28px; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+        .contact { font-size: 11px; color: #666; }
+        .contact span { margin: 0 8px; }
+        h2 { color: #2c3e50; font-size: 14px; text-transform: uppercase; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid #2c3e50; padding-bottom: 3px; }
+        .summary { font-size: 11px; margin-bottom: 15px; }
+        .entry { margin-bottom: 15px; }
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+        .title { font-weight: bold; font-size: 12px; }
+        .company { font-size: 11px; color: #555; }
+        .date { font-size: 10px; color: #888; font-style: italic; }
+        ul { margin-left: 20px; font-size: 11px; }
+        ul li { margin-bottom: 3px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; font-size: 11px; }
+        input[type="text"], textarea { width: 100%; padding: 5px; border: 1px solid #ddd; font-family: inherit; font-size: inherit; }
+        textarea { min-height: 60px; resize: vertical; }
+        .editable { border: 1px dashed #ccc; padding: 3px; min-height: 20px; }
+        .print-btn { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; display: block; margin: 20px auto; }
+        @media print { body { background: white; padding: 0; } .page { box-shadow: none; padding: 0; margin: 0; } .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="name" contenteditable="true">SU NOMBRE COMPLETO</div>
+            <div class="contact">
+                <span contenteditable="true">Ciudad, Estado</span> •
+                <span contenteditable="true">(123) 456-7890</span> •
+                <span contenteditable="true">email@ejemplo.com</span> •
+                <span contenteditable="true">linkedin.com/in/superfil</span>
+            </div>
+        </div>
+
+        <h2>Resumen Profesional</h2>
+        <div class="summary" contenteditable="true">
+            [Profesional orientado a resultados] con [X años] de experiencia en [su campo/industria]. Habilidades comprobadas en [habilidad clave 1], [habilidad clave 2] y [habilidad clave 3]. Busco aprovechar [sus fortalezas] en un rol de [puesto objetivo] para [valor que aportará].
+        </div>
+
+        <h2>Experiencia Profesional</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="title" contenteditable="true">Título del Puesto</div>
+                    <div class="company" contenteditable="true">Nombre de la Empresa, Ciudad, Estado</div>
+                </div>
+                <div class="date" contenteditable="true">Mes Año - Presente</div>
+            </div>
+            <ul contenteditable="true">
+                <li>[Verbo de acción] [qué hizo] [resultado cuantificable]. Ejemplo: Aumenté las ventas en un 35% en seis meses mediante implementación de nueva estrategia de marketing digital</li>
+                <li>[Verbo de acción] [responsabilidad] [impacto]. Ejemplo: Gestioné equipo de 8 personas, mejorando la productividad del departamento en 25%</li>
+                <li>[Logro específico con métricas]. Ejemplo: Reduje costos operativos en $50,000 anuales optimizando procesos de cadena de suministro</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="title" contenteditable="true">Título del Puesto Anterior</div>
+                    <div class="company" contenteditable="true">Nombre de la Empresa, Ciudad, Estado</div>
+                </div>
+                <div class="date" contenteditable="true">Mes Año - Mes Año</div>
+            </div>
+            <ul contenteditable="true">
+                <li>[Descripción de logro con verbo de acción y resultado cuantificable]</li>
+                <li>[Responsabilidad clave que demuestra habilidades relevantes]</li>
+                <li>[Otro logro específico con impacto medible]</li>
+            </ul>
+        </div>
+
+        <h2>Educación</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="title" contenteditable="true">Título/Grado, Especialización</div>
+                    <div class="company" contenteditable="true">Nombre de la Universidad, Ciudad, Estado</div>
+                </div>
+                <div class="date" contenteditable="true">Graduación: Mes Año</div>
+            </div>
+            <div style="font-size: 11px; margin-top: 5px;" contenteditable="true">
+                • GPA: 3.X/4.0 (si es 3.0 o superior)<br>
+                • Honores: [Becas, listas de decano, honores académicos]<br>
+                • Cursos Relevantes: [Cursos específicos relacionados con su carrera objetivo]
+            </div>
+        </div>
+
+        <h2>Habilidades</h2>
+        <div class="skills-grid">
+            <div>
+                <strong>Técnicas:</strong>
+                <div contenteditable="true">Microsoft Office Suite, Excel Avanzado, SQL, Python, Adobe Creative Suite</div>
+            </div>
+            <div>
+                <strong>Idiomas:</strong>
+                <div contenteditable="true">Español (Nativo), Inglés (Fluido)</div>
+            </div>
+            <div>
+                <strong>Blandas:</strong>
+                <div contenteditable="true">Liderazgo, Comunicación, Resolución de Problemas, Trabajo en Equipo</div>
+            </div>
+            <div>
+                <strong>Certificaciones:</strong>
+                <div contenteditable="true">PMP, Google Analytics, [Otras certificaciones]</div>
+            </div>
+        </div>
+
+        <h2>Experiencia Adicional (Opcional)</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="title" contenteditable="true">Voluntario/Líder de Proyecto</div>
+                    <div class="company" contenteditable="true">Organización, Ciudad</div>
+                </div>
+                <div class="date" contenteditable="true">Mes Año - Presente</div>
+            </div>
+            <ul contenteditable="true">
+                <li>[Contribución específica o logro en actividad voluntaria o extracurricular]</li>
+                <li>[Habilidades de liderazgo o técnicas demostradas]</li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <div style="max-width: 8.5in; margin: 20px auto; padding: 20px; background: #e8f4f8; border-radius: 5px; font-size: 12px;">
+        <h3 style="color: #2c3e50; margin-bottom: 10px;">Consejos para usar esta plantilla:</h3>
+        <ul style="margin-left: 20px;">
+            <li>Haga clic en cualquier texto para editarlo</li>
+            <li>Use verbos de acción fuertes al inicio de cada punto (Aumenté, Gestioné, Desarrollé, Implementé, etc.)</li>
+            <li>Incluya números y métricas específicas cuando sea posible</li>
+            <li>Mantenga el currículum en una página para posiciones de nivel inicial</li>
+            <li>Adapte el contenido para cada solicitud de empleo</li>
+            <li>Revise cuidadosamente la ortografía y gramática</li>
+            <li>Guarde como PDF antes de enviar para preservar el formato</li>
+        </ul>
+    </div>
+</body>
+</html>

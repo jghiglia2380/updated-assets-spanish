@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Probabilidad de Juegos de Azar - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-card h2 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .calculate-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .calculate-btn:hover {
+            background: #4f46e5;
+        }
+
+        .result-box {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .result-box.negative {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .result-box.negative .result-value {
+            color: #dc2626;
+        }
+
+        .result-details {
+            font-size: 13px;
+            color: #4b5563;
+            margin-top: 8px;
+        }
+
+        .explanation {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .explanation strong {
+            color: #3b82f6;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .warning-box strong {
+            color: #b45309;
+        }
+
+        .probability-visual {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .probability-bar {
+            flex: 1;
+            height: 24px;
+            background: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .probability-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+
+        .probability-label {
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .print-section {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section,
+            .calculate-btn {
+                display: none;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Calculadora de Probabilidad de Juegos de Azar</h1>
+            <p>Calcule el valor esperado y comprenda las matematicas de los juegos de azar</p>
+        </div>
+
+        <div class="calculator-grid">
+            <!-- Calculadora de Probabilidad Basica -->
+            <div class="calculator-card">
+                <h2>Calculadora de Probabilidad Basica</h2>
+                <div class="input-group">
+                    <label>Numero de Resultados Favorables</label>
+                    <input type="number" id="favorable" placeholder="ej., 1" min="0">
+                </div>
+                <div class="input-group">
+                    <label>Total de Resultados Posibles</label>
+                    <input type="number" id="total" placeholder="ej., 6" min="1">
+                </div>
+                <button class="calculate-btn" onclick="calculateProbability()">Calcular Probabilidad</button>
+
+                <div class="result-box" id="probResult" style="display: none;">
+                    <div class="result-label">Probabilidad</div>
+                    <div class="result-value" id="probValue">0%</div>
+                    <div class="probability-visual">
+                        <div class="probability-bar">
+                            <div class="probability-fill" id="probBar" style="width: 0%"></div>
+                        </div>
+                        <span class="probability-label" id="probOdds">1:1</span>
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <strong>Formula:</strong> Probabilidad = Resultados Favorables / Total de Resultados
+                </div>
+            </div>
+
+            <!-- Calculadora de Valor Esperado -->
+            <div class="calculator-card">
+                <h2>Calculadora de Valor Esperado</h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Probabilidad de Ganar (%)</label>
+                        <input type="number" id="winProb" placeholder="ej., 47.4" min="0" max="100" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Monto de Ganancia ($)</label>
+                        <input type="number" id="winAmount" placeholder="ej., 10" min="0" step="0.01">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Probabilidad de Perder (%)</label>
+                        <input type="number" id="loseProb" placeholder="ej., 52.6" min="0" max="100" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Monto de Perdida ($)</label>
+                        <input type="number" id="loseAmount" placeholder="ej., 10" min="0" step="0.01">
+                    </div>
+                </div>
+                <button class="calculate-btn" onclick="calculateEV()">Calcular Valor Esperado</button>
+
+                <div class="result-box" id="evResult" style="display: none;">
+                    <div class="result-label">Valor Esperado por Apuesta</div>
+                    <div class="result-value" id="evValue">$0.00</div>
+                    <div class="result-details" id="evDetails"></div>
+                </div>
+
+                <div class="explanation">
+                    <strong>Formula:</strong> VE = (Prob. Ganar x Monto Ganancia) - (Prob. Perder x Monto Perdida)
+                </div>
+            </div>
+
+            <!-- Calculadora de Perdida a Largo Plazo -->
+            <div class="calculator-card">
+                <h2>Calculadora de Perdida a Largo Plazo</h2>
+                <div class="input-group">
+                    <label>Monto de Apuesta ($)</label>
+                    <input type="number" id="betAmount" placeholder="ej., 10" min="0" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Ventaja de la Casa (%)</label>
+                    <input type="number" id="houseEdge" placeholder="ej., 5.26" min="0" max="100" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Numero de Apuestas</label>
+                    <input type="number" id="numBets" placeholder="ej., 100" min="1">
+                </div>
+                <button class="calculate-btn" onclick="calculateLongTerm()">Calcular Perdida Esperada</button>
+
+                <div class="result-box negative" id="lossResult" style="display: none;">
+                    <div class="result-label">Perdida Total Esperada</div>
+                    <div class="result-value" id="lossValue">$0.00</div>
+                    <div class="result-details" id="lossDetails"></div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Recuerde:</strong> Cuanto mas apueste, mas se acercaran sus resultados a la perdida esperada debido a la ventaja de la casa.
+                </div>
+            </div>
+
+            <!-- Valor Esperado de Loteria -->
+            <div class="calculator-card">
+                <h2>Valor Esperado de Loteria</h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Costo del Boleto ($)</label>
+                        <input type="number" id="ticketCost" placeholder="ej., 2" min="0" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label>Monto del Premio Mayor ($)</label>
+                        <input type="number" id="jackpot" placeholder="ej., 100000000" min="0">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Probabilidades de Ganar (1 en X)</label>
+                    <input type="number" id="lotteryOdds" placeholder="ej., 300000000" min="1">
+                </div>
+                <button class="calculate-btn" onclick="calculateLottery()">Calcular Valor Esperado</button>
+
+                <div class="result-box negative" id="lotteryResult" style="display: none;">
+                    <div class="result-label">Valor Esperado por Boleto</div>
+                    <div class="result-value" id="lotteryValue">$0.00</div>
+                    <div class="result-details" id="lotteryDetails"></div>
+                </div>
+            </div>
+
+            <!-- Tabla de Referencia de Ventaja de la Casa -->
+            <div class="calculator-card full-width">
+                <h2>Juegos de Azar Comunes - Referencia de Ventaja de la Casa</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Juego</th>
+                            <th>Ventaja de la Casa</th>
+                            <th>Perdida Esperada por $100 Apostados</th>
+                            <th>Probabilidad de Ganar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blackjack (estrategia basica)</td>
+                            <td>0.5%</td>
+                            <td>$0.50</td>
+                            <td>~49%</td>
+                        </tr>
+                        <tr>
+                            <td>Craps (linea de pase)</td>
+                            <td>1.4%</td>
+                            <td>$1.40</td>
+                            <td>~49%</td>
+                        </tr>
+                        <tr>
+                            <td>Baccarat</td>
+                            <td>1.06%</td>
+                            <td>$1.06</td>
+                            <td>~49%</td>
+                        </tr>
+                        <tr>
+                            <td>Ruleta Europea</td>
+                            <td>2.7%</td>
+                            <td>$2.70</td>
+                            <td>~48.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Ruleta Americana</td>
+                            <td>5.26%</td>
+                            <td>$5.26</td>
+                            <td>~47.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Maquinas Tragamonedas</td>
+                            <td>2-15%</td>
+                            <td>$2-$15</td>
+                            <td>Varia</td>
+                        </tr>
+                        <tr>
+                            <td>Keno</td>
+                            <td>25-30%</td>
+                            <td>$25-$30</td>
+                            <td>Muy Baja</td>
+                        </tr>
+                        <tr>
+                            <td>Loteria</td>
+                            <td>40-50%</td>
+                            <td>$40-$50</td>
+                            <td>Extremadamente Baja</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="explanation">
+                    <strong>Informacion Clave:</strong> Cuanto menor sea la ventaja de la casa, mejores seran sus probabilidades. Sin embargo, TODOS los juegos de azar favorecen a la casa a largo plazo.
+                </div>
+            </div>
+
+            <!-- Calculadora de Eventos Multiples -->
+            <div class="calculator-card full-width">
+                <h2>Calculadora de Eventos Independientes Multiples</h2>
+                <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Calcule la probabilidad de ganar multiples veces consecutivas (ej., lanzamientos de moneda, giros de ruleta).</p>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Probabilidad de Ganar Evento Individual (%)</label>
+                        <input type="number" id="singleProb" placeholder="ej., 50" min="0" max="100" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Numero de Victorias Consecutivas Necesarias</label>
+                        <input type="number" id="consecWins" placeholder="ej., 5" min="1">
+                    </div>
+                </div>
+                <button class="calculate-btn" onclick="calculateConsecutive()">Calcular Probabilidad</button>
+
+                <div class="result-box" id="consecResult" style="display: none;">
+                    <div class="result-label">Probabilidad de Victorias Consecutivas</div>
+                    <div class="result-value" id="consecValue">0%</div>
+                    <div class="result-details" id="consecDetails"></div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Advertencia sobre la Falacia del Jugador:</strong> Cada evento independiente (como un lanzamiento de moneda) NO se ve afectado por resultados anteriores. Si ha perdido 10 veces seguidas, su proxima apuesta todavia tiene la misma probabilidad de ganar.
+                </div>
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Imprimir Resultados de la Calculadora</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateProbability() {
+            const favorable = parseFloat(document.getElementById('favorable').value) || 0;
+            const total = parseFloat(document.getElementById('total').value) || 1;
+
+            const probability = favorable / total;
+            const percentage = (probability * 100).toFixed(2);
+            const unfavorable = total - favorable;
+
+            document.getElementById('probResult').style.display = 'block';
+            document.getElementById('probValue').textContent = percentage + '%';
+            document.getElementById('probBar').style.width = percentage + '%';
+            document.getElementById('probOdds').textContent = favorable + ':' + unfavorable;
+        }
+
+        function calculateEV() {
+            const winProb = parseFloat(document.getElementById('winProb').value) / 100 || 0;
+            const winAmount = parseFloat(document.getElementById('winAmount').value) || 0;
+            const loseProb = parseFloat(document.getElementById('loseProb').value) / 100 || 0;
+            const loseAmount = parseFloat(document.getElementById('loseAmount').value) || 0;
+
+            const ev = (winProb * winAmount) - (loseProb * loseAmount);
+
+            const resultBox = document.getElementById('evResult');
+            resultBox.style.display = 'block';
+            resultBox.className = ev >= 0 ? 'result-box' : 'result-box negative';
+
+            document.getElementById('evValue').textContent = (ev >= 0 ? '+$' : '-$') + Math.abs(ev).toFixed(2);
+            document.getElementById('evDetails').textContent =
+                `Puede esperar ${ev >= 0 ? 'ganar' : 'perder'} $${Math.abs(ev).toFixed(2)} en promedio por apuesta.`;
+        }
+
+        function calculateLongTerm() {
+            const betAmount = parseFloat(document.getElementById('betAmount').value) || 0;
+            const houseEdge = parseFloat(document.getElementById('houseEdge').value) / 100 || 0;
+            const numBets = parseFloat(document.getElementById('numBets').value) || 0;
+
+            const totalWagered = betAmount * numBets;
+            const expectedLoss = totalWagered * houseEdge;
+
+            document.getElementById('lossResult').style.display = 'block';
+            document.getElementById('lossValue').textContent = '-$' + expectedLoss.toFixed(2);
+            document.getElementById('lossDetails').textContent =
+                `Total apostado: $${totalWagered.toFixed(2)}. La casa se queda con el ${(houseEdge * 100).toFixed(2)}% con el tiempo.`;
+        }
+
+        function calculateLottery() {
+            const ticketCost = parseFloat(document.getElementById('ticketCost').value) || 0;
+            const jackpot = parseFloat(document.getElementById('jackpot').value) || 0;
+            const odds = parseFloat(document.getElementById('lotteryOdds').value) || 1;
+
+            const winProb = 1 / odds;
+            const loseProb = 1 - winProb;
+            const ev = (winProb * jackpot) - (loseProb * ticketCost);
+
+            document.getElementById('lotteryResult').style.display = 'block';
+            document.getElementById('lotteryResult').className = ev >= 0 ? 'result-box' : 'result-box negative';
+            document.getElementById('lotteryValue').textContent = (ev >= 0 ? '+$' : '-$') + Math.abs(ev).toFixed(2);
+            document.getElementById('lotteryDetails').textContent =
+                `Probabilidad de ganar: ${(winProb * 100).toFixed(10)}%. Por cada boleto comprado, puede esperar perder aproximadamente $${Math.abs(ev).toFixed(2)} en promedio.`;
+        }
+
+        function calculateConsecutive() {
+            const singleProb = parseFloat(document.getElementById('singleProb').value) / 100 || 0;
+            const consecWins = parseFloat(document.getElementById('consecWins').value) || 1;
+
+            const probability = Math.pow(singleProb, consecWins);
+            const percentage = (probability * 100).toFixed(4);
+            const ratio = Math.round(1 / probability);
+
+            document.getElementById('consecResult').style.display = 'block';
+            document.getElementById('consecValue').textContent = percentage + '%';
+            document.getElementById('consecDetails').textContent =
+                `Probabilidades: 1 en ${ratio.toLocaleString()}. Esto significa que necesitaria intentar aproximadamente ${ratio.toLocaleString()} veces para esperar un exito.`;
+        }
+    </script>
+</body>
+</html>

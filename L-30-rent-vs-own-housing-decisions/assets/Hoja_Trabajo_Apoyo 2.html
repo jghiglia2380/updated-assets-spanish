@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo de Costos de Vivienda - PFL Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h3 {
+            font-size: 18px;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+
+        .calculation-box {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .calculation-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-row label {
+            font-size: 13px;
+        }
+
+        .calc-row input {
+            width: 120px;
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            text-align: right;
+            font-size: 13px;
+        }
+
+        .calc-total {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .question-group {
+            margin-bottom: 16px;
+        }
+
+        .question-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .question-group textarea,
+        .question-group input,
+        .question-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .question-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .scenario-section {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .scenario-section h3 {
+            font-size: 16px;
+            color: #b45309;
+            margin-bottom: 12px;
+        }
+
+        .scenario-details {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .comparison-section {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .comparison-section h3 {
+            font-size: 16px;
+            color: #059669;
+            margin-bottom: 16px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .comparison-column {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .comparison-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .comparison-column.rent h4 {
+            color: #10b981;
+        }
+
+        .comparison-column.buy h4 {
+            color: #3b82f6;
+        }
+
+        .needs-assessment {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .needs-assessment h3 {
+            font-size: 16px;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .needs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .needs-item {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .needs-item label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .needs-item select,
+        .needs-item input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .reflection-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .reflection-section h3 {
+            font-size: 16px;
+            color: #059669;
+            margin-bottom: 16px;
+        }
+
+        .dti-calculator {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .dti-calculator h3 {
+            font-size: 16px;
+            color: #dc2626;
+            margin-bottom: 16px;
+        }
+
+        .dti-result {
+            background: white;
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .dti-result .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #dc2626;
+        }
+
+        .dti-result .label {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .print-section {
+            text-align: center;
+        }
+
+        .print-btn {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                background: white;
+            }
+
+            .print-section {
+                display: none;
+            }
+
+            .section,
+            .scenario-section,
+            .comparison-section,
+            .needs-assessment,
+            .reflection-section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column,
+            .comparison-grid,
+            .needs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoja de Trabajo de Costos de Vivienda</h1>
+            <p>Practique el calculo y comparacion de gastos de vivienda para una mejor toma de decisiones</p>
+        </div>
+
+        <div class="section">
+            <h3>Parte 1: Ejercicio de Calculo de Presupuesto</h3>
+            <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Calcule su pago maximo asequible de vivienda usando la regla 28/36.</p>
+
+            <div class="calculation-box">
+                <h4>Su Informacion de Ingresos</h4>
+                <div class="calc-row">
+                    <label>Ingreso Bruto Anual</label>
+                    <input type="text" id="annualIncome" placeholder="$0" oninput="calculateBudget()">
+                </div>
+                <div class="calc-row">
+                    <label>Ingreso Bruto Mensual (Anual / 12)</label>
+                    <input type="text" id="monthlyIncome" placeholder="$0" readonly>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="calculation-box">
+                    <h4>Regla del 28% - Costos de Vivienda</h4>
+                    <div class="calc-row">
+                        <label>Pago Maximo de Vivienda</label>
+                        <input type="text" id="maxHousing" placeholder="$0" readonly>
+                    </div>
+                    <p style="font-size: 11px; color: #6b7280; margin-top: 8px;">Incluye hipoteca/renta, impuestos prediales y seguro</p>
+                </div>
+
+                <div class="calculation-box">
+                    <h4>Regla del 36% - Deuda Total</h4>
+                    <div class="calc-row">
+                        <label>Pago Maximo de Deuda Total</label>
+                        <input type="text" id="maxDebt" placeholder="$0" readonly>
+                    </div>
+                    <p style="font-size: 11px; color: #6b7280; margin-top: 8px;">Incluye vivienda + auto + prestamos estudiantiles + tarjetas de credito</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="scenario-section">
+            <h3>Parte 2: Escenario de Comparacion de Costos</h3>
+            <div class="scenario-details">
+                <strong>Escenario:</strong> Alex esta decidiendo entre alquilar un apartamento por $1,500/mes o comprar un condominio por $275,000. Alex tiene $30,000 ahorrados y un ingreso familiar de $75,000/ano. Use la informacion a continuacion para calcular y comparar los costos mensuales totales.
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-column rent">
+                    <h4>ALQUILAR</h4>
+                    <div class="calc-row">
+                        <label>Renta Mensual</label>
+                        <input type="text" value="$1,500">
+                    </div>
+                    <div class="calc-row">
+                        <label>Seguro de Inquilino</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Servicios (est.)</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Estacionamiento</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-total">
+                        <span>Costo Mensual Total:</span>
+                        <span>$_______</span>
+                    </div>
+                </div>
+
+                <div class="comparison-column buy">
+                    <h4>COMPRAR</h4>
+                    <div class="calc-row">
+                        <label>Pago de Hipoteca (P&I)</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Impuestos Prediales</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Seguro de Propietario</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>PMI (si aplica)</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Cuotas de HOA</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Mantenimiento (1%/ano / 12)</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-row">
+                        <label>Servicios</label>
+                        <input type="text" placeholder="$">
+                    </div>
+                    <div class="calc-total">
+                        <span>Costo Mensual Total:</span>
+                        <span>$_______</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Parte 3: Preguntas de Analisis del Escenario</h3>
+
+            <div class="question-group">
+                <label>1. Basandose en sus calculos, cual opcion tiene el menor costo mensual? Por cuanto?</label>
+                <textarea placeholder="La opcion de alquilar/comprar cuesta $____ menos por mes porque..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>2. Que costos iniciales enfrentaria Alex por cada opcion?</label>
+                <div class="two-column">
+                    <div>
+                        <label style="font-weight: normal; font-size: 13px;">Costos iniciales de alquilar:</label>
+                        <textarea placeholder="Deposito de seguridad, primer/ultimo mes..."></textarea>
+                    </div>
+                    <div>
+                        <label style="font-weight: normal; font-size: 13px;">Costos iniciales de comprar:</label>
+                        <textarea placeholder="Enganche, costos de cierre..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <label>3. Necesitaria Alex PMI? Por que o por que no?</label>
+                <textarea placeholder="Calcule el porcentaje de enganche y explique..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>4. Calcule la relacion DTI de Alex para la opcion de compra. Es probable que un prestamista apruebe esta hipoteca?</label>
+                <textarea placeholder="Muestre su calculo: (deuda mensual / ingreso mensual) x 100 = ____%"></textarea>
+            </div>
+        </div>
+
+        <div class="dti-calculator">
+            <h3>Parte 4: Calculadora de DTI</h3>
+            <p style="font-size: 14px; color: #92400e; margin-bottom: 16px;">Calcule su propia relacion Deuda-Ingreso para entender su capacidad de endeudamiento.</p>
+
+            <div class="calculation-box" style="background: white;">
+                <h4>Pagos Mensuales de Deuda</h4>
+                <div class="calc-row">
+                    <label>Pago de Vivienda (hipoteca/renta)</label>
+                    <input type="number" id="dtiHousing" placeholder="0" oninput="calculateDTI()">
+                </div>
+                <div class="calc-row">
+                    <label>Pago de Auto</label>
+                    <input type="number" id="dtiCar" placeholder="0" oninput="calculateDTI()">
+                </div>
+                <div class="calc-row">
+                    <label>Prestamos Estudiantiles</label>
+                    <input type="number" id="dtiStudent" placeholder="0" oninput="calculateDTI()">
+                </div>
+                <div class="calc-row">
+                    <label>Pagos Minimos de Tarjetas de Credito</label>
+                    <input type="number" id="dtiCredit" placeholder="0" oninput="calculateDTI()">
+                </div>
+                <div class="calc-row">
+                    <label>Otra Deuda Mensual</label>
+                    <input type="number" id="dtiOther" placeholder="0" oninput="calculateDTI()">
+                </div>
+                <div class="calc-row">
+                    <label>Ingreso Mensual Bruto</label>
+                    <input type="number" id="dtiIncome" placeholder="0" oninput="calculateDTI()">
+                </div>
+            </div>
+
+            <div class="dti-result">
+                <div class="value" id="dtiResult">0%</div>
+                <div class="label">Relacion Deuda-Ingreso</div>
+                <p style="font-size: 12px; margin-top: 8px; color: #6b7280;">
+                    Menos de 36% = Bueno | 36-43% = Aceptable | Mas de 43% = Puede tener dificultad para calificar
+                </p>
+            </div>
+        </div>
+
+        <div class="needs-assessment">
+            <h3>Parte 5: Evaluacion de Necesidades Personales de Vivienda</h3>
+            <p style="font-size: 14px; color: #1e40af; margin-bottom: 16px;">Evalue su situacion actual para ayudar a determinar si alquilar o comprar es adecuado para usted.</p>
+
+            <div class="needs-grid">
+                <div class="needs-item">
+                    <label>Cuanto tiempo planea quedarse en esta ubicacion?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Menos de 2 anos</option>
+                        <option value="2">2-3 anos</option>
+                        <option value="3">3-5 anos</option>
+                        <option value="4">5-7 anos</option>
+                        <option value="5">7+ anos</option>
+                    </select>
+                </div>
+                <div class="needs-item">
+                    <label>Que tan estable es su trabajo/ingreso actual?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Muy incierto</option>
+                        <option value="2">Algo incierto</option>
+                        <option value="3">Moderadamente estable</option>
+                        <option value="4">Muy estable</option>
+                        <option value="5">Extremadamente estable</option>
+                    </select>
+                </div>
+                <div class="needs-item">
+                    <label>Cuanto tiene ahorrado para un enganche?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Menos del 3%</option>
+                        <option value="2">3-5%</option>
+                        <option value="3">5-10%</option>
+                        <option value="4">10-20%</option>
+                        <option value="5">20% o mas</option>
+                    </select>
+                </div>
+                <div class="needs-item">
+                    <label>Cual es su rango de puntaje de credito?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Menos de 580</option>
+                        <option value="2">580-619</option>
+                        <option value="3">620-679</option>
+                        <option value="4">680-739</option>
+                        <option value="5">740+</option>
+                    </select>
+                </div>
+                <div class="needs-item">
+                    <label>Que tan comodo se siente con el mantenimiento del hogar?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Nada</option>
+                        <option value="2">Un poco</option>
+                        <option value="3">Moderadamente</option>
+                        <option value="4">Muy</option>
+                        <option value="5">Extremadamente</option>
+                    </select>
+                </div>
+                <div class="needs-item">
+                    <label>Que tan importante es la flexibilidad para mudarse?</label>
+                    <select>
+                        <option value="">Seleccione...</option>
+                        <option value="5">Extremadamente importante</option>
+                        <option value="4">Muy importante</option>
+                        <option value="3">Moderadamente importante</option>
+                        <option value="2">Poco importante</option>
+                        <option value="1">No importante</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="reflection-section">
+            <h3>Parte 6: Reflexion y Decision</h3>
+
+            <div class="question-group">
+                <label>1. Basandose en su evaluacion de necesidades anterior, cual opcion (alquilar o comprar) parece mas adecuada para su situacion actual? Por que?</label>
+                <textarea placeholder="Considere sus respuestas anteriores y explique su razonamiento..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>2. Que factores tendrian que cambiar para que la otra opcion sea mas atractiva?</label>
+                <textarea placeholder="Enumere cambios especificos en circunstancias que cambiarian su decision..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>3. Mas alla de las consideraciones financieras, que factores de estilo de vida son importantes en su decision de vivienda?</label>
+                <textarea placeholder="Considere traslado, necesidades de espacio, mascotas, comunidad, escuelas, etc..."></textarea>
+            </div>
+
+            <div class="question-group">
+                <label>4. Cree un plan de accion de 3 anos para prepararse para su opcion de vivienda preferida.</label>
+                <textarea placeholder="Ano 1:
+Ano 2:
+Ano 3: "></textarea>
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateBudget() {
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value.replace(/[$,]/g, '')) || 0;
+            const monthlyIncome = annualIncome / 12;
+            const maxHousing = monthlyIncome * 0.28;
+            const maxDebt = monthlyIncome * 0.36;
+
+            document.getElementById('monthlyIncome').value = '$' + monthlyIncome.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('maxHousing').value = '$' + maxHousing.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('maxDebt').value = '$' + maxDebt.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function calculateDTI() {
+            const housing = parseFloat(document.getElementById('dtiHousing').value) || 0;
+            const car = parseFloat(document.getElementById('dtiCar').value) || 0;
+            const student = parseFloat(document.getElementById('dtiStudent').value) || 0;
+            const credit = parseFloat(document.getElementById('dtiCredit').value) || 0;
+            const other = parseFloat(document.getElementById('dtiOther').value) || 0;
+            const income = parseFloat(document.getElementById('dtiIncome').value) || 1;
+
+            const totalDebt = housing + car + student + credit + other;
+            const dti = (totalDebt / income) * 100;
+
+            const resultElement = document.getElementById('dtiResult');
+            resultElement.textContent = dti.toFixed(1) + '%';
+
+            // Color code the result
+            if (dti < 36) {
+                resultElement.style.color = '#10b981';
+            } else if (dti < 43) {
+                resultElement.style.color = '#f59e0b';
+            } else {
+                resultElement.style.color = '#ef4444';
+            }
+        }
+    </script>
+</body>
+</html>

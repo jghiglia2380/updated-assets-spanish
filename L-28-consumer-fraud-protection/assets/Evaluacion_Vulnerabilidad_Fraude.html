@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluacion de Vulnerabilidad al Fraude - Capitulo 9.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .assessment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question {
+            background-color: #f5f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .risk-profile {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .risk-category {
+            margin-bottom: 15px;
+        }
+        .risk-level {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .risk-high {
+            color: #e74c3c;
+        }
+        .risk-medium {
+            color: #f39c12;
+        }
+        .risk-low {
+            color: #27ae60;
+        }
+        .recommendation {
+            background-color: #ebf5eb;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #27ae60;
+        }
+        .action-plan-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .action-plan-table th, .action-plan-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .action-plan-table th {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #fffae6;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .assessment-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="assessment-container">
+        <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+            <button onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+
+        <h1>Evaluacion de Vulnerabilidad al Fraude</h1>
+        <p>Complete esta evaluacion para identificar sus factores de riesgo personales para diferentes tipos de fraude y desarrollar un plan de proteccion personalizado.</p>
+
+        <div class="section">
+            <h2>Parte 1: Evaluacion de Vulnerabilidad Personal</h2>
+            <p>Responda cada pregunta honestamente para evaluar su vulnerabilidad a diferentes tipos de fraude.</p>
+
+            <div class="question">
+                <h3>1. Gestion de Contrasenas</h3>
+                <p>Como gestiona sus contrasenas para diferentes cuentas?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q1a" name="q1">
+                        <label for="q1a">Uso la misma contrasena (o variaciones menores) para la mayoria o todas mis cuentas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1b" name="q1">
+                        <label for="q1b">Tengo algunas contrasenas diferentes que roto entre cuentas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1c" name="q1">
+                        <label for="q1c">Uso contrasenas unicas para cuentas financieras/importantes, pero puedo reutilizar contrasenas para sitios menos criticos</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1d" name="q1">
+                        <label for="q1d">Uso una contrasena diferente y fuerte para cada cuenta (o uso un administrador de contrasenas)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Autenticacion de Dos Factores</h3>
+                <p>Usa autenticacion de dos factores (2FA) para sus cuentas?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q2a" name="q2">
+                        <label for="q2a">No uso 2FA en ninguna cuenta</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2b" name="q2">
+                        <label for="q2b">Solo uso 2FA cuando el servicio lo requiere</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2c" name="q2">
+                        <label for="q2c">Uso 2FA en mis cuentas financieras pero no en otras cuentas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2d" name="q2">
+                        <label for="q2d">Uso 2FA en todas las cuentas que lo ofrecen</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. Habitos de Correo Electronico</h3>
+                <p>Como maneja tipicamente los correos de remitentes desconocidos o con contenido sospechoso?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q3a" name="q3">
+                        <label for="q3a">Abro correos y archivos adjuntos sin mucha preocupacion</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3b" name="q3">
+                        <label for="q3b">Soy cauteloso con los archivos adjuntos pero a menudo hago clic en enlaces de correos</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3c" name="q3">
+                        <label for="q3c">Evito hacer clic en enlaces o abrir archivos adjuntos de remitentes desconocidos</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3d" name="q3">
+                        <label for="q3d">Verifico el remitente y paso el cursor sobre los enlaces para verificar destinos antes de hacer clic, incluso de remitentes conocidos</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Privacidad en Redes Sociales</h3>
+                <p>Como gestiona la configuracion de privacidad de sus redes sociales y el intercambio de informacion?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q4a" name="q4">
+                        <label for="q4a">Mis perfiles son publicos y comparto detalles personales libremente (fecha de nacimiento, ubicacion, telefono, etc.)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4b" name="q4">
+                        <label for="q4b">Mis perfiles estan algo restringidos pero aun comparto hitos personales e informacion</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4c" name="q4">
+                        <label for="q4c">Tengo configuracion de privacidad habilitada pero acepto solicitudes de amistad/conexion de personas que no conozco bien</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4d" name="q4">
+                        <label for="q4d">Tengo configuracion de privacidad estricta, limito la informacion personal compartida y solo me conecto con personas que conozco</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. Monitoreo Financiero</h3>
+                <p>Con que frecuencia revisa sus estados financieros e informes de credito?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q5a" name="q5">
+                        <label for="q5a">Rara vez reviso mis estados financieros o informes de credito</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5b" name="q5">
+                        <label for="q5b">Ocasionalmente reviso mis estados bancarios pero rara vez reviso mi informe de credito</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5c" name="q5">
+                        <label for="q5c">Reviso regularmente mis estados bancarios y reviso mi informe de credito anualmente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5d" name="q5">
+                        <label for="q5d">Monitoreo mis cuentas financieras semanalmente y reviso mi informe de credito varias veces al ano</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>6. Uso de WiFi Publico</h3>
+                <p>Como usa las redes WiFi publicas?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q6a" name="q6">
+                        <label for="q6a">Accedo regularmente a cuentas financieras y hago compras en WiFi publico</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q6b" name="q6">
+                        <label for="q6b">A veces inicio sesion en cuentas sensibles en WiFi publico cuando es necesario</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q6c" name="q6">
+                        <label for="q6c">Uso WiFi publico pero evito acceder a cuentas financieras o ingresar informacion sensible</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q6d" name="q6">
+                        <label for="q6d">Uso una VPN cuando estoy en WiFi publico o evito el WiFi publico por completo para actividades sensibles</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>7. Seguridad del Telefono</h3>
+                <p>Como protege su telefono inteligente?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q7a" name="q7">
+                        <label for="q7a">No uso ningun codigo de acceso o seguridad biometrica en mi telefono</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q7b" name="q7">
+                        <label for="q7b">Uso un codigo de acceso simple (como 1234) o patron de bloqueo</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q7c" name="q7">
+                        <label for="q7c">Uso un codigo de acceso complejo o seguridad biometrica (huella digital/reconocimiento facial)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q7d" name="q7">
+                        <label for="q7d">Uso seguridad biometrica mas un codigo de acceso fuerte y mantengo mi telefono actualizado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>8. Respuesta a Contactos Inesperados</h3>
+                <p>Como responde tipicamente a llamadas, textos o correos inesperados que dicen ser de su banco, una agencia gubernamental o soporte tecnico?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q8a" name="q8">
+                        <label for="q8a">Usualmente respondo y proporciono la informacion solicitada si parecen legitimos</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q8b" name="q8">
+                        <label for="q8b">A veces respondo, especialmente si el asunto parece urgente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q8c" name="q8">
+                        <label for="q8c">Generalmente soy sospechoso pero podria responder si parece muy convincente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q8d" name="q8">
+                        <label for="q8d">Nunca respondo directamente - en su lugar, contacto a la organizacion a traves de canales oficiales que verifico independientemente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>9. Actualizaciones de Software</h3>
+                <p>Como maneja las actualizaciones de software en sus dispositivos?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q9a" name="q9">
+                        <label for="q9a">A menudo ignoro o retraso las actualizaciones indefinidamente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q9b" name="q9">
+                        <label for="q9b">Eventualmente actualizo cuando me lo recuerdan repetidamente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q9c" name="q9">
+                        <label for="q9c">Actualizo la mayoria del software regularmente pero puedo retrasar algunas actualizaciones</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q9d" name="q9">
+                        <label for="q9d">Instalo actualizaciones de seguridad rapidamente y tengo actualizaciones automaticas habilitadas cuando es posible</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>10. Proteccion de Informacion Personal</h3>
+                <p>Como maneja los documentos que contienen informacion personal sensible?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="q10a" name="q10">
+                        <label for="q10a">Los tiro sin pensarlo mucho</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q10b" name="q10">
+                        <label for="q10b">A veces los rompo antes de tirarlos</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q10c" name="q10">
+                        <label for="q10c">Trituro los documentos con informacion sensible</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q10d" name="q10">
+                        <label for="q10d">Trituro todos los documentos con informacion personal y purgo regularmente los registros digitales que no necesito</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 2: Analisis del Perfil de Vulnerabilidad</h2>
+            <p>Basandose en sus respuestas a las preguntas de evaluacion, analice su perfil de vulnerabilidad en las areas de riesgo clave a continuacion.</p>
+
+            <div class="risk-profile">
+                <div class="risk-category">
+                    <h3>Seguridad de Cuentas</h3>
+                    <span class="risk-level risk-high">Alto Riesgo</span>
+                    <span class="risk-level risk-medium">Riesgo Medio</span>
+                    <span class="risk-level risk-low">Bajo Riesgo</span>
+                    <p>Basado en su gestion de contrasenas y practicas de autenticacion de dos factores (Preguntas 1-2)</p>
+                </div>
+
+                <div class="risk-category">
+                    <h3>Comportamiento en Linea</h3>
+                    <span class="risk-level risk-high">Alto Riesgo</span>
+                    <span class="risk-level risk-medium">Riesgo Medio</span>
+                    <span class="risk-level risk-low">Bajo Riesgo</span>
+                    <p>Basado en sus habitos de correo electronico, uso de WiFi publico y respuesta a contactos inesperados (Preguntas 3, 6, 8)</p>
+                </div>
+
+                <div class="risk-category">
+                    <h3>Compartir Informacion</h3>
+                    <span class="risk-level risk-high">Alto Riesgo</span>
+                    <span class="risk-level risk-medium">Riesgo Medio</span>
+                    <span class="risk-level risk-low">Bajo Riesgo</span>
+                    <p>Basado en su privacidad en redes sociales y practicas de manejo de documentos (Preguntas 4, 10)</p>
+                </div>
+
+                <div class="risk-category">
+                    <h3>Monitoreo y Mantenimiento</h3>
+                    <span class="risk-level risk-high">Alto Riesgo</span>
+                    <span class="risk-level risk-medium">Riesgo Medio</span>
+                    <span class="risk-level risk-low">Bajo Riesgo</span>
+                    <p>Basado en su monitoreo financiero y practicas de actualizacion de software (Preguntas 5, 9)</p>
+                </div>
+
+                <div class="risk-category">
+                    <h3>Seguridad de Dispositivos</h3>
+                    <span class="risk-level risk-high">Alto Riesgo</span>
+                    <span class="risk-level risk-medium">Riesgo Medio</span>
+                    <span class="risk-level risk-low">Bajo Riesgo</span>
+                    <p>Basado en sus practicas de seguridad del telefono (Pregunta 7)</p>
+                </div>
+            </div>
+
+            <div class="note">
+                <p><strong>Instrucciones:</strong> Encierre en un circulo su nivel de riesgo para cada categoria basandose en sus respuestas de evaluacion. Enfoquese en abordar primero las areas de "Alto Riesgo" en su plan de accion.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 3: Recomendaciones de Proteccion Personalizadas</h2>
+
+            <h3>Recomendaciones de Seguridad de Cuentas</h3>
+            <div class="recommendation">
+                <p><strong>Para Alto Riesgo:</strong> Implemente un administrador de contrasenas para crear y almacenar contrasenas unicas y fuertes para todas las cuentas. Habilite la autenticacion de dos factores en todas las cuentas que lo ofrezcan, especialmente cuentas financieras y de correo electronico.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Riesgo Medio:</strong> Audite sus contrasenas existentes y actualice las que sean debiles o reutilizadas en multiples cuentas. Habilite la autenticacion de dos factores en sus cuentas mas sensibles.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Bajo Riesgo:</strong> Continue usando contrasenas unicas y 2FA. Considere usar llaves de seguridad de hardware para maxima proteccion en cuentas criticas.</p>
+            </div>
+
+            <h3>Recomendaciones de Comportamiento en Linea</h3>
+            <div class="recommendation">
+                <p><strong>Para Alto Riesgo:</strong> Adopte una politica estricta de nunca hacer clic en enlaces de correos no solicitados. Evite realizar transacciones sensibles en WiFi publico. Siempre verifique independientemente la identidad de cualquiera que lo contacte sobre asuntos financieros.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Riesgo Medio:</strong> Pase el cursor sobre los enlaces para verificar destinos antes de hacer clic. Use una VPN cuando este en WiFi publico. Desarrolle un proceso de verificacion para comunicaciones inesperadas.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Bajo Riesgo:</strong> Mantenga su enfoque cauteloso. Mantengase informado sobre nuevas tacticas de phishing. Considere usar herramientas de filtrado de correo electronico para proteccion adicional.</p>
+            </div>
+
+            <h3>Recomendaciones de Compartir Informacion</h3>
+            <div class="recommendation">
+                <p><strong>Para Alto Riesgo:</strong> Revise y restrinja la configuracion de privacidad de redes sociales. Limite la informacion personal compartida en linea. Comience a triturar documentos con informacion sensible. Sea selectivo con las solicitudes de amistad/conexion.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Riesgo Medio:</strong> Audite sus perfiles de redes sociales para eliminar detalles personales innecesarios. Establezca un sistema para almacenar o destruir de forma segura documentos sensibles.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Bajo Riesgo:</strong> Revise periodicamente su huella digital y continue minimizando el intercambio innecesario de informacion.</p>
+            </div>
+
+            <h3>Recomendaciones de Monitoreo y Mantenimiento</h3>
+            <div class="recommendation">
+                <p><strong>Para Alto Riesgo:</strong> Configure revisiones semanales de cuentas financieras. Revise su informe de credito de las tres agencias. Habilite actualizaciones automaticas de software en todos los dispositivos.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Riesgo Medio:</strong> Cree un calendario para monitoreo financiero regular. Configure recordatorios para revisar su informe de credito tres veces al ano. Priorice las actualizaciones de software relacionadas con seguridad.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Bajo Riesgo:</strong> Considere usar servicios de monitoreo de credito para alertas en tiempo real. Mantenga su calendario de monitoreo regular.</p>
+            </div>
+
+            <h3>Recomendaciones de Seguridad de Dispositivos</h3>
+            <div class="recommendation">
+                <p><strong>Para Alto Riesgo:</strong> Configure codigos de acceso fuertes y seguridad biometrica en todos los dispositivos. Habilite capacidades de borrado remoto. Instale y configure software de seguridad de buena reputacion.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Riesgo Medio:</strong> Fortalezca las medidas de seguridad existentes. Revise los permisos de aplicaciones en sus dispositivos. Habilite el bloqueo automatico de pantalla despues de cortos periodos de inactividad.</p>
+            </div>
+            <div class="recommendation">
+                <p><strong>Para Bajo Riesgo:</strong> Mantenga las practicas de seguridad actuales. Considere proteccion avanzada como seguridad a nivel de aplicacion o encriptacion para datos sensibles.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Parte 4: Plan de Accion Personal de Proteccion contra Fraude</h2>
+            <p>Basandose en su perfil de vulnerabilidad y las recomendaciones, cree su plan de accion personalizado a continuacion. Enfoquese primero en sus areas de mayor riesgo.</p>
+
+            <table class="action-plan-table">
+                <tr>
+                    <th>Area de Riesgo</th>
+                    <th>Nivel de Riesgo Actual</th>
+                    <th>Pasos de Accion</th>
+                    <th>Prioridad</th>
+                    <th>Fecha Objetivo</th>
+                </tr>
+                <tr>
+                    <td>Seguridad de Cuentas</td>
+                    <td>[A/M/B]</td>
+                    <td style="height: 60px;"></td>
+                    <td>[A/M/B]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Comportamiento en Linea</td>
+                    <td>[A/M/B]</td>
+                    <td style="height: 60px;"></td>
+                    <td>[A/M/B]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Compartir Informacion</td>
+                    <td>[A/M/B]</td>
+                    <td style="height: 60px;"></td>
+                    <td>[A/M/B]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Monitoreo y Mantenimiento</td>
+                    <td>[A/M/B]</td>
+                    <td style="height: 60px;"></td>
+                    <td>[A/M/B]</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Seguridad de Dispositivos</td>
+                    <td>[A/M/B]</td>
+                    <td style="height: 60px;"></td>
+                    <td>[A/M/B]</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <h3>Notas de Implementacion</h3>
+            <div style="min-height: 100px; border: 1px solid #ddd; padding: 10px; margin-top: 10px;"></div>
+
+            <h3>Plan de Revision de Progreso</h3>
+            <p>Cuando y como revisara su progreso en este plan de accion?</p>
+            <div style="min-height: 50px; border: 1px solid #ddd; padding: 10px; margin-top: 10px;"></div>
+        </div>
+
+        <div class="section">
+            <h2>Recursos Adicionales</h2>
+            <ul>
+                <li><a href="https://www.identitytheft.gov">IdentityTheft.gov</a> - Planes de recuperacion y consejos de prevencion de la FTC</li>
+                <li><a href="https://www.consumer.ftc.gov/features/feature-0014-identity-theft">Recursos de Robo de Identidad de la FTC</a> - Guia completa para prevenir el robo de identidad</li>
+                <li><a href="https://staysafeonline.org">Alianza Nacional de Ciberseguridad</a> - Consejos y recursos para seguridad en linea</li>
+                <li><a href="https://www.annualcreditreport.com">AnnualCreditReport.com</a> - Informes de credito gratuitos de las tres agencias</li>
+                <li><a href="https://www.consumer.ftc.gov/articles/0235-identity-theft-protection-services">Guia de la FTC sobre Servicios de Proteccion de Robo de Identidad</a> - Informacion sobre servicios de monitoreo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

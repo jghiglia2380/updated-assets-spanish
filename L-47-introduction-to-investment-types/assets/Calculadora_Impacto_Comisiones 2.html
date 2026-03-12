@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Impacto de Comisiones - PFL Academy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #f9fafb; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 24px; text-align: center; }
+        .header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 0.9rem; }
+        .content { padding: 24px; }
+        .section { margin-bottom: 32px; }
+        .section h2 { font-size: 1.15rem; margin-bottom: 16px; color: #1f2937; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
+        .comparison-table th, .comparison-table td { padding: 12px; text-align: left; border: 1px solid #e5e7eb; }
+        .comparison-table th { background: #f3f4f6; font-weight: 600; }
+        .comparison-table tr:hover { background: #f9fafb; }
+        .input-section { background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.85rem; }
+        .form-group input { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; }
+        .form-group input:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; font-size: 0.9rem; }
+        .btn-primary { background: #6366f1; color: white; }
+        .btn-primary:hover { background: #4f46e5; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+        .result-card { border-radius: 8px; padding: 20px; text-align: center; }
+        .result-card.low-cost { background: #f0fdf4; border: 2px solid #86efac; }
+        .result-card.average { background: #fef3c7; border: 2px solid #fcd34d; }
+        .result-card.high-cost { background: #fef2f2; border: 2px solid #fca5a5; }
+        .result-card h3 { font-size: 0.85rem; color: #6b7280; margin-bottom: 8px; }
+        .result-card .fee { font-size: 0.8rem; color: #9ca3af; margin-bottom: 8px; }
+        .result-card .value { font-size: 1.5rem; font-weight: 700; }
+        .result-card.low-cost .value { color: #059669; }
+        .result-card.average .value { color: #d97706; }
+        .result-card.high-cost .value { color: #dc2626; }
+        .chart-container { background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+        .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 200px; padding: 20px 0; }
+        .bar-wrapper { display: flex; flex-direction: column; align-items: center; width: 100px; }
+        .bar { width: 60px; border-radius: 4px 4px 0 0; transition: height 0.5s ease; position: relative; }
+        .bar-low { background: #10b981; }
+        .bar-avg { background: #f59e0b; }
+        .bar-high { background: #ef4444; }
+        .bar-label { margin-top: 8px; font-size: 0.75rem; text-align: center; color: #6b7280; }
+        .bar-value { font-size: 0.7rem; font-weight: 600; color: white; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); }
+        .fee-impact-box { background: #eff6ff; border-left: 4px solid #6366f1; padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; }
+        .fee-impact-box h4 { color: #4338ca; margin-bottom: 8px; font-size: 0.95rem; }
+        .fee-impact-box p { font-size: 0.85rem; margin-bottom: 4px; }
+        .fee-impact-box .highlight { font-weight: 700; color: #dc2626; }
+        .worksheet-section { margin-top: 24px; padding-top: 24px; border-top: 2px solid #e5e7eb; }
+        .worksheet-section h3 { font-size: 1rem; margin-bottom: 16px; }
+        .input-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .input-row label { flex: 1; font-size: 0.85rem; }
+        .input-row input { width: 150px; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.85rem; }
+        .challenge-box { background: #fef3c7; border-radius: 8px; padding: 16px; margin-top: 20px; }
+        .challenge-box h4 { color: #92400e; margin-bottom: 12px; font-size: 0.95rem; }
+        .challenge-box p { font-size: 0.85rem; margin-bottom: 8px; }
+        .challenge-box textarea { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.85rem; font-family: inherit; resize: vertical; min-height: 60px; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } .btn { display: none; } }
+        @media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } .bar-chart { height: 150px; } .form-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Calculadora de Impacto de Comisiones</h1>
+            <p>Actividad 3: Calcule el costo a largo plazo de las comisiones de inversión</p>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>Parte A: Comparación Directa</h2>
+                <p style="margin-bottom: 16px; color: #6b7280; font-size: 0.9rem;">Compare dos inversiones similares del S&P 500: un fondo mutuo vs. un ETF</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Fidelity 500 (FXAIX)<br><small>Fondo Mutuo</small></th>
+                            <th>SPDR S&P 500 (SPY)<br><small>ETF</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Ratio de Gastos</td><td>0.015%</td><td>0.0945%</td></tr>
+                        <tr><td>Inversión Mínima</td><td>$0</td><td>Precio de 1 acción (~$500)</td></tr>
+                        <tr><td>Horario de Negociación</td><td>Solo al final del día</td><td>Horario de mercado (9:30-4:00 ET)</td></tr>
+                        <tr><td>Manejo de Dividendos</td><td>Auto-reinvertidos</td><td>Efectivo o reinvertir</td></tr>
+                        <tr><td>Diferencial Compra-Venta</td><td>Ninguno</td><td>~$0.01 por acción</td></tr>
+                        <tr><td>Eficiencia Fiscal</td><td>Buena</td><td>Excelente</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section">
+                <h2>Parte B: Análisis de Costo a Largo Plazo</h2>
+                <div class="input-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="initial">Inversión Inicial ($)</label>
+                            <input type="number" id="initial" value="10000" min="0" oninput="calculateFeeImpact()">
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly">Aportaciones Mensuales ($)</label>
+                            <input type="number" id="monthly" value="300" min="0" oninput="calculateFeeImpact()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="years">Período de Tiempo (Años)</label>
+                            <input type="number" id="years" value="30" min="1" max="50" oninput="calculateFeeImpact()">
+                        </div>
+                        <div class="form-group">
+                            <label for="return-rate">Rendimiento Anual Promedio (%)</label>
+                            <input type="number" id="return-rate" value="8" min="0" max="20" step="0.5" oninput="calculateFeeImpact()">
+                        </div>
+                    </div>
+                </div>
+                <div class="results-grid">
+                    <div class="result-card low-cost">
+                        <h3>ETF Bajo Costo</h3>
+                        <div class="fee">0.03% ratio de gastos</div>
+                        <div class="value" id="low-cost-value">$0</div>
+                    </div>
+                    <div class="result-card average">
+                        <h3>Fondo Mutuo Promedio</h3>
+                        <div class="fee">0.75% ratio de gastos</div>
+                        <div class="value" id="avg-cost-value">$0</div>
+                    </div>
+                    <div class="result-card high-cost">
+                        <h3>Fondo Activo Alto Costo</h3>
+                        <div class="fee">1.25% ratio de gastos</div>
+                        <div class="value" id="high-cost-value">$0</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3 style="font-size: 1rem; margin-bottom: 16px;">Comparación Visual</h3>
+                    <div class="bar-chart">
+                        <div class="bar-wrapper">
+                            <div class="bar bar-low" id="bar-low" style="height: 100%;"><span class="bar-value" id="bar-low-label"></span></div>
+                            <div class="bar-label">ETF Bajo<br>Costo</div>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar bar-avg" id="bar-avg" style="height: 80%;"><span class="bar-value" id="bar-avg-label"></span></div>
+                            <div class="bar-label">Fondo<br>Promedio</div>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar bar-high" id="bar-high" style="height: 65%;"><span class="bar-value" id="bar-high-label"></span></div>
+                            <div class="bar-label">Fondo Alto<br>Costo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fee-impact-box">
+                    <h4>Resumen del Impacto de Comisiones</h4>
+                    <p>Diferencia entre ETF Bajo Costo y Fondo Promedio: <span class="highlight" id="diff-avg">$0</span></p>
+                    <p>Diferencia entre ETF Bajo Costo y Fondo Alto Costo: <span class="highlight" id="diff-high">$0</span></p>
+                    <p style="margin-top: 8px;">¡Esa diferencia de alto costo equivale a <span class="highlight" id="months-lost">0</span> meses de sus contribuciones de $<span id="monthly-display">300</span>!</p>
+                </div>
+            </div>
+            <div class="worksheet-section">
+                <h3>Registre Sus Cálculos</h3>
+                <div class="input-row"><label>Valor final ETF bajo costo:</label><input type="text" placeholder="$" id="record-low"></div>
+                <div class="input-row"><label>Valor final fondo mutuo promedio:</label><input type="text" placeholder="$" id="record-avg"></div>
+                <div class="input-row"><label>Valor final fondo activo alto costo:</label><input type="text" placeholder="$" id="record-high"></div>
+                <div class="input-row"><label>Impacto de comisiones (Bajo vs. Promedio):</label><input type="text" placeholder="$" id="record-diff-avg"></div>
+                <div class="input-row"><label>Impacto de comisiones (Bajo vs. Alto):</label><input type="text" placeholder="$" id="record-diff-high"></div>
+                <div class="challenge-box">
+                    <h4>Pregunta de Desafío</h4>
+                    <p>La diferencia entre el ETF de bajo costo y el fondo de alto costo representa cuántos años de su contribución mensual?</p>
+                    <p style="margin-bottom: 12px;"><strong>Cálculo:</strong> Diferencia / (Mensual x 12) = ___ años</p>
+                    <textarea placeholder="Muestre su cálculo y respuesta..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="window.print()" style="margin-top: 16px;">Imprimir Hoja de Trabajo</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculateFeeImpact() {
+            const initial = parseFloat(document.getElementById('initial').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 30;
+            const returnRate = parseFloat(document.getElementById('return-rate').value) / 100 || 0.08;
+            const fees = { low: 0.0003, avg: 0.0075, high: 0.0125 };
+            function calculateWithFee(feeRate) {
+                const netReturn = returnRate - feeRate;
+                let total = initial;
+                for (let i = 0; i < years * 12; i++) { total = total * (1 + netReturn/12) + monthly; }
+                return total;
+            }
+            const lowResult = calculateWithFee(fees.low);
+            const avgResult = calculateWithFee(fees.avg);
+            const highResult = calculateWithFee(fees.high);
+            const diffAvg = lowResult - avgResult;
+            const diffHigh = lowResult - highResult;
+            document.getElementById('low-cost-value').textContent = '$' + lowResult.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('avg-cost-value').textContent = '$' + avgResult.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('high-cost-value').textContent = '$' + highResult.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('diff-avg').textContent = '$' + diffAvg.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('diff-high').textContent = '$' + diffHigh.toLocaleString('en-US', {maximumFractionDigits: 0});
+            const monthsLost = monthly > 0 ? Math.round(diffHigh / monthly) : 0;
+            document.getElementById('months-lost').textContent = monthsLost;
+            document.getElementById('monthly-display').textContent = monthly;
+            const maxVal = lowResult;
+            document.getElementById('bar-low').style.height = '100%';
+            document.getElementById('bar-avg').style.height = (avgResult / maxVal) * 100 + '%';
+            document.getElementById('bar-high').style.height = (highResult / maxVal) * 100 + '%';
+            const formatShort = (val) => { if (val >= 1000000) return '$' + (val/1000000).toFixed(1) + 'M'; if (val >= 1000) return '$' + (val/1000).toFixed(0) + 'K'; return '$' + val.toFixed(0); };
+            document.getElementById('bar-low-label').textContent = formatShort(lowResult);
+            document.getElementById('bar-avg-label').textContent = formatShort(avgResult);
+            document.getElementById('bar-high-label').textContent = formatShort(highResult);
+        }
+        calculateFeeImpact();
+    </script>
+</body>
+</html>

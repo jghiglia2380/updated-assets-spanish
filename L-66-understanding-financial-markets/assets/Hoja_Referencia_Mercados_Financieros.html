@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia Rápida de Mercados Financieros | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--text);
+            background-color: var(--surface);
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--background);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 20px;
+            columns: 2;
+            column-gap: 25px;
+        }
+
+        .market-section {
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin: 8px 0 5px;
+            font-weight: 700;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: var(--text);
+            min-width: 100px;
+        }
+
+        .info-value {
+            color: var(--text-light);
+        }
+
+        ul {
+            margin: 5px 0 10px 15px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+
+        .key-term {
+            background: var(--surface);
+            border-left: 3px solid var(--primary);
+            padding: 8px;
+            margin: 8px 0;
+            break-inside: avoid;
+        }
+
+        .term-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .term-definition {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 3px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            break-inside: avoid;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid var(--border);
+            padding: 5px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid var(--primary);
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+            break-inside: avoid;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border: 1px solid #000;
+            }
+
+            @page {
+                margin: 0.5in;
+                size: letter;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                columns: 1;
+                padding: 15px;
+            }
+
+            body {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Referencia Rápida de Mercados Financieros</h1>
+            <div class="subtitle">Conceptos esenciales para entender cómo funcionan los mercados financieros</div>
+        </header>
+
+        <div class="content">
+            <!-- Mercado de Acciones -->
+            <div class="market-section">
+                <h2>📈 Mercado de Acciones (Mercado de Renta Variable)</h2>
+
+                <div class="info-row">
+                    <span class="info-label">Qué Es:</span>
+                    <span class="info-value">Mercado para comprar/vender acciones de propiedad de empresas</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tipo:</span>
+                    <span class="info-value">Renta Variable (Propiedad)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Principales Bolsas:</span>
+                    <span class="info-value">NYSE, NASDAQ</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Horario de Trading:</span>
+                    <span class="info-value">9:30 AM - 4:00 PM ET</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nivel de Riesgo:</span>
+                    <span class="info-value">Medio a Alto</span>
+                </div>
+
+                <h3>Participantes Clave:</h3>
+                <ul>
+                    <li><strong>Inversionistas Individuales:</strong> Compran/venden para riqueza personal</li>
+                    <li><strong>Inversionistas Institucionales:</strong> Fondos mutuos, fondos de pensiones</li>
+                    <li><strong>Creadores de Mercado:</strong> Proveen liquidez</li>
+                    <li><strong>Corredores:</strong> Facilitan operaciones</li>
+                </ul>
+
+                <h3>Rendimientos Clave:</h3>
+                <ul>
+                    <li><strong>Ganancias de Capital:</strong> Ganancia por vender a precio más alto</li>
+                    <li><strong>Dividendos:</strong> Distribuciones de ganancias de la empresa</li>
+                </ul>
+            </div>
+
+            <!-- Mercado de Bonos -->
+            <div class="market-section">
+                <h2>📊 Mercado de Bonos (Renta Fija)</h2>
+
+                <div class="info-row">
+                    <span class="info-label">Qué Es:</span>
+                    <span class="info-value">Mercado para comprar/vender títulos de deuda</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tipo:</span>
+                    <span class="info-value">Deuda (Renta Fija)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Trading:</span>
+                    <span class="info-value">Extrabursátil (OTC)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nivel de Riesgo:</span>
+                    <span class="info-value">Bajo a Medio</span>
+                </div>
+
+                <h3>Participantes Clave:</h3>
+                <ul>
+                    <li><strong>Emisores Gubernamentales:</strong> Tesoro, municipalidades</li>
+                    <li><strong>Emisores Corporativos:</strong> Empresas que levantan capital</li>
+                    <li><strong>Inversionistas en Bonos:</strong> Buscan ingresos estables</li>
+                    <li><strong>Distribuidores de Bonos:</strong> Facilitadores del mercado OTC</li>
+                </ul>
+
+                <h3>Tipos de Bonos:</h3>
+                <ul>
+                    <li><strong>Bonos del Tesoro:</strong> Gobierno de EE.UU. (riesgo más bajo)</li>
+                    <li><strong>Bonos Corporativos:</strong> Deuda empresarial (mayor rendimiento)</li>
+                    <li><strong>Bonos Municipales:</strong> Gobierno estatal/local</li>
+                </ul>
+
+                <h3>Términos Clave:</h3>
+                <ul>
+                    <li><strong>Valor Nominal:</strong> Monto reembolsado al vencimiento</li>
+                    <li><strong>Tasa de Cupón:</strong> Tasa de interés pagada</li>
+                    <li><strong>Fecha de Vencimiento:</strong> Cuando vence el bono</li>
+                </ul>
+            </div>
+
+            <!-- Mercado de Commodities -->
+            <div class="market-section">
+                <h2>🌾 Mercado de Commodities</h2>
+
+                <div class="info-row">
+                    <span class="info-label">Qué Es:</span>
+                    <span class="info-value">Mercado para bienes físicos y materias primas</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tipo:</span>
+                    <span class="info-value">Físico y Derivados</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Principales Bolsas:</span>
+                    <span class="info-value">CME, ICE, NYMEX</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nivel de Riesgo:</span>
+                    <span class="info-value">Alto (Volátil)</span>
+                </div>
+
+                <h3>Participantes Clave:</h3>
+                <ul>
+                    <li><strong>Productores:</strong> Agricultores, mineros, petroleras</li>
+                    <li><strong>Consumidores:</strong> Fabricantes, procesadores</li>
+                    <li><strong>Especuladores:</strong> Ganan de movimientos de precio</li>
+                    <li><strong>Coberturistas:</strong> Aseguran precios para gestión de riesgo</li>
+                </ul>
+
+                <h3>Categorías de Commodities:</h3>
+                <ul>
+                    <li><strong>Energía:</strong> Petróleo crudo, gas natural, gasolina</li>
+                    <li><strong>Metales:</strong> Oro, plata, cobre, platino</li>
+                    <li><strong>Agrícolas:</strong> Trigo, maíz, soja, café</li>
+                    <li><strong>Ganadería:</strong> Ganado vacuno, cerdos</li>
+                </ul>
+            </div>
+
+            <!-- Mercado Forex -->
+            <div class="market-section">
+                <h2>💱 Mercado Forex (Divisas)</h2>
+
+                <div class="info-row">
+                    <span class="info-label">Qué Es:</span>
+                    <span class="info-value">Mercado para operar con divisas</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tipo:</span>
+                    <span class="info-value">Cambio de Divisas</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Horario de Trading:</span>
+                    <span class="info-value">24 horas, 5 días/semana</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Volumen Diario:</span>
+                    <span class="info-value">$6.6 billones (el más grande del mundo)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Nivel de Riesgo:</span>
+                    <span class="info-value">Alto (Apalancamiento Disponible)</span>
+                </div>
+
+                <h3>Participantes Clave:</h3>
+                <ul>
+                    <li><strong>Bancos Centrales:</strong> Manejan divisas y política monetaria</li>
+                    <li><strong>Bancos Comerciales:</strong> Facilitan comercio internacional</li>
+                    <li><strong>Corporaciones:</strong> Conversión de divisas para operaciones</li>
+                    <li><strong>Traders Minoristas:</strong> Especulan sobre movimientos de divisas</li>
+                </ul>
+
+                <h3>Principales Pares de Divisas:</h3>
+                <ul>
+                    <li><strong>EUR/USD:</strong> Euro a Dólar Estadounidense</li>
+                    <li><strong>GBP/USD:</strong> Libra Esterlina a Dólar Estadounidense</li>
+                    <li><strong>USD/JPY:</strong> Dólar Estadounidense a Yen Japonés</li>
+                    <li><strong>USD/CHF:</strong> Dólar Estadounidense a Franco Suizo</li>
+                </ul>
+            </div>
+
+            <!-- Términos Clave -->
+            <div class="market-section">
+                <h2>🔑 Términos Esenciales</h2>
+
+                <div class="key-term">
+                    <div class="term-name">Capitalización de Mercado</div>
+                    <div class="term-definition">Valor total de las acciones en circulación de una empresa (Mercado de Acciones)</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Liquidez</div>
+                    <div class="term-definition">Qué tan fácilmente se puede comprar o vender un activo sin afectar el precio</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Volatilidad</div>
+                    <div class="term-definition">Grado de fluctuación de precio en un mercado o valor</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Rendimiento</div>
+                    <div class="term-definition">Retorno de ingreso sobre la inversión (dividendos, intereses)</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Mercado Alcista</div>
+                    <div class="term-definition">Período de precios en alza y optimismo</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Mercado Bajista</div>
+                    <div class="term-definition">Período de precios en baja y pesimismo</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Cobertura</div>
+                    <div class="term-definition">Estrategia para reducir exposición al riesgo mediante posiciones compensatorias</div>
+                </div>
+
+                <div class="key-term">
+                    <div class="term-name">Contrato de Futuros</div>
+                    <div class="term-definition">Acuerdo para comprar/vender activo en fecha y precio futuro predeterminado</div>
+                </div>
+            </div>
+
+            <!-- Comparación Rápida -->
+            <div class="market-section">
+                <h2>⚖️ Comparación Rápida</h2>
+
+                <table class="comparison-table">
+                    <tr>
+                        <th>Mercado</th>
+                        <th>Tipo de Activo</th>
+                        <th>Objetivo</th>
+                        <th>Riesgo</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Acciones</strong></td>
+                        <td>Renta Variable</td>
+                        <td>Crecimiento</td>
+                        <td>Medio-Alto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bonos</strong></td>
+                        <td>Deuda</td>
+                        <td>Ingresos</td>
+                        <td>Bajo-Medio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Commodities</strong></td>
+                        <td>Físico</td>
+                        <td>Cobertura/Espec.</td>
+                        <td>Alto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Forex</strong></td>
+                        <td>Divisas</td>
+                        <td>Cambio/Espec.</td>
+                        <td>Alto</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Consideraciones de Inversión -->
+            <div class="highlight-box">
+                <div class="highlight-title">💡 Consideraciones Clave de Inversión</div>
+                <ul style="margin: 5px 0 0 15px;">
+                    <li><strong>Diversificación:</strong> Distribuir inversiones en múltiples mercados</li>
+                    <li><strong>Horizonte de Tiempo:</strong> Alinear inversiones con tu plazo</li>
+                    <li><strong>Tolerancia al Riesgo:</strong> Alinear con tu nivel de comodidad</li>
+                    <li><strong>Metas Financieras:</strong> Crecimiento vs. ingresos vs. preservación</li>
+                    <li><strong>Comisiones y Costos:</strong> Costos de transacción impactan rendimientos</li>
+                    <li><strong>Necesidades de Liquidez:</strong> Qué tan rápido podrías necesitar acceso a fondos</li>
+                </ul>
+            </div>
+
+            <!-- Interconexiones del Mercado -->
+            <div class="highlight-box">
+                <div class="highlight-title">🔗 Cómo Están Conectados los Mercados</div>
+                <ul style="margin: 5px 0 0 15px;">
+                    <li>Precios de acciones afectan valores de bonos corporativos</li>
+                    <li>Cambios de divisas impactan precios de commodities</li>
+                    <li>Tasas de interés influyen en todos los mercados</li>
+                    <li>Indicadores económicos impulsan el sentimiento del mercado</li>
+                    <li>Eventos globales crean efectos en cadena en los mercados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

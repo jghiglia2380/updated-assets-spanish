@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Presupuesto de Seguros Personal - Capítulo 11.3</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .print-header {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            .budget-section {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .budget-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            background-color: #fff;
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        .info-box {
+            background-color: #f0f7fb;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        .print-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #f5f5f5;
+        }
+
+        .percentage-bar {
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin-top: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .percentage-fill {
+            height: 100%;
+            background-color: #3498db;
+            width: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header">
+        <h1>Planificador de Presupuesto de Seguros Personal</h1>
+        <p>Capítulo 11.3: Gestión de Costos de Seguros</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+
+    <h1>Planificador de Presupuesto de Seguros Personal</h1>
+    <p><strong>Capítulo 11.3: Gestión de Costos de Seguros</strong></p>
+
+    <h2>Introducción</h2>
+    <p>Este planificador te ayuda a crear un presupuesto integral de seguros, rastrear tus gastos actuales de seguros y desarrollar un plan para optimizar tus costos de seguros mientras mantienes una cobertura adecuada.</p>
+
+    <div class="info-box">
+        <h3>Cómo Usar Este Planificador</h3>
+        <ol>
+            <li>Completa cada sección, ingresando tus gastos actuales de seguros</li>
+            <li>Analiza tus gastos de seguros como porcentaje de tus ingresos</li>
+            <li>Establece presupuestos objetivo para cada tipo de seguro</li>
+            <li>Desarrolla estrategias específicas para optimizar costos</li>
+            <li>Crea un cronograma de implementación</li>
+        </ol>
+        <p>Un buen presupuesto de seguros equilibra la protección adecuada con la asequibilidad, típicamente apuntando al 10-15% de tu presupuesto mensual para todos los tipos de seguros combinados.</p>
+    </div>
+
+    <div class="budget-section">
+        <h3>Resumen Financiero Personal</h3>
+        <p>Antes de examinar los costos de seguros específicamente, establezcamos tu panorama financiero general:</p>
+
+        <table>
+            <tr>
+                <th>Datos Financieros</th>
+                <th>Monto Mensual</th>
+                <th>Monto Anual</th>
+            </tr>
+            <tr>
+                <td>Ingreso Bruto</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Ingreso Neto (Después de Deducciones)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Total de Gastos Mensuales (excluyendo seguros)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Gastos Actuales de Seguros (total)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Saldo del Fondo de Emergencia</td>
+                <td colspan="2" class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Seguros como Porcentaje de Ingresos</h4>
+        <p>Gastos actuales de seguros como porcentaje del ingreso neto: <span class="input-field" style="display:inline-block; min-width:100px;"></span>%</p>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: 0%;"></div>
+        </div>
+        <p><small>Rango recomendado: 10-15% del ingreso neto</small></p>
+    </div>
+
+    <div class="budget-section">
+        <h3>Desglose de Gastos Actuales de Seguros</h3>
+        <p>Documenta todas tus pólizas de seguro actuales y sus costos:</p>
+
+        <table>
+            <tr>
+                <th>Tipo de Seguro</th>
+                <th>Proveedor</th>
+                <th>Detalles de la Póliza</th>
+                <th>Prima Mensual</th>
+                <th>Prima Anual</th>
+                <th>Fecha de Renovación</th>
+            </tr>
+            <tr>
+                <td>Seguro de Salud</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Hogar/Inquilino</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Vida</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Incapacidad</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Otro Seguro (especificar)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Otro Seguro (especificar)</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="3"><strong>TOTALES</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h4>Distribución de Costos de Seguros</h4>
+        <p>Calcula qué porcentaje de tu presupuesto total de seguros va a cada tipo:</p>
+        <table>
+            <tr>
+                <th>Tipo de Seguro</th>
+                <th>Porcentaje del Presupuesto Total de Seguros</th>
+                <th>Rango Típico</th>
+            </tr>
+            <tr>
+                <td>Seguro de Salud</td>
+                <td class="input-field"></td>
+                <td>40-60%</td>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td class="input-field"></td>
+                <td>20-30%</td>
+            </tr>
+            <tr>
+                <td>Seguro de Hogar/Inquilino</td>
+                <td class="input-field"></td>
+                <td>15-25%</td>
+            </tr>
+            <tr>
+                <td>Seguro de Vida</td>
+                <td class="input-field"></td>
+                <td>5-15%</td>
+            </tr>
+            <tr>
+                <td>Seguro de Incapacidad</td>
+                <td class="input-field"></td>
+                <td>2-8%</td>
+            </tr>
+            <tr>
+                <td>Otro Seguro</td>
+                <td class="input-field"></td>
+                <td>0-10%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="budget-section">
+        <h3>Plan de Optimización del Presupuesto de Seguros</h3>
+        <p>Basándote en tus gastos actuales, desarrolla un plan para optimizar tu presupuesto de seguros:</p>
+
+        <h4>Presupuesto Objetivo</h4>
+        <table>
+            <tr>
+                <th>Tipo de Seguro</th>
+                <th>Prima Mensual Actual</th>
+                <th>Prima Mensual Objetivo</th>
+                <th>Ahorro Mensual Potencial</th>
+                <th>Ahorro Anual</th>
+            </tr>
+            <tr>
+                <td>Seguro de Salud</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Hogar/Inquilino</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Vida</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Incapacidad</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Otro Seguro</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr class="total-row">
+                <td><strong>TOTALES</strong></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <h4>Consejos para Establecer Objetivos Realistas</h4>
+            <ul>
+                <li><strong>Seguro de Salud:</strong> Considera HDHP con HSA si generalmente estás saludable</li>
+                <li><strong>Seguro de Auto:</strong> Revisa cobertura innecesaria y aumenta deducibles si tienes fondos de emergencia adecuados</li>
+                <li><strong>Hogar/Inquilino:</strong> Combina con seguro de auto y considera deducibles más altos</li>
+                <li><strong>Seguro de Vida:</strong> El seguro a término proporciona más cobertura por dólar que el seguro de vida entera</li>
+                <li><strong>General:</strong> Compara cotizaciones de 3-5 proveedores antes de la renovación, aprovecha todos los descuentos disponibles</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Estrategias Específicas de Ahorro de Costos</h3>
+        <p>Para cada tipo de seguro, identifica estrategias específicas para reducir costos mientras mantienes cobertura adecuada:</p>
+
+        <table>
+            <tr>
+                <th>Tipo de Seguro</th>
+                <th>Problemas/Oportunidades Actuales</th>
+                <th>Estrategias Específicas de Ahorro de Costos</th>
+                <th>Ahorro Potencial</th>
+            </tr>
+            <tr>
+                <td>Seguro de Salud</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Auto</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Hogar/Inquilino</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Vida</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Seguro de Incapacidad</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Estrategia General</td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Oportunidades de Combinación</h4>
+        <p>Identifica qué pólizas podrían combinarse para descuentos adicionales:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+
+        <h4>Optimización de Beneficios del Empleador</h4>
+        <p>¿Cómo puedes utilizar mejor los beneficios proporcionados por el empleador?</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+
+        <h4>Cuentas con Ventajas Fiscales</h4>
+        <p>Plan para utilizar HSA, FSA u otras opciones con ventajas fiscales:</p>
+        <div class="input-field" style="min-height: 60px;"></div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Cronograma de Implementación</h3>
+        <p>Crea un calendario para implementar tus estrategias de ahorro de costos:</p>
+
+        <table>
+            <tr>
+                <th>Fecha</th>
+                <th>Elemento de Acción</th>
+                <th>Tipo de Seguro</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+
+        <h4>Investigación y Preparación Necesaria</h4>
+        <p>¿Qué información necesitas reunir antes de implementar estos cambios?</p>
+        <div class="input-field" style="min-height: 80px;"></div>
+    </div>
+
+    <div class="budget-section">
+        <h3>Plan de Monitoreo y Evaluación</h3>
+        <p>¿Cómo rastrearás el progreso y sabrás si tus esfuerzos de optimización son exitosos?</p>
+
+        <h4>Métricas de Éxito</h4>
+        <ul>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+            <li class="input-field"></li>
+        </ul>
+
+        <h4>Calendario de Revisión Regular</h4>
+        <table>
+            <tr>
+                <th>Período de Revisión</th>
+                <th>Actividades</th>
+            </tr>
+            <tr>
+                <td>Mensual</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Trimestral</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Semestral</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Anual</td>
+                <td class="input-field"></td>
+            </tr>
+            <tr>
+                <td>Cambios de Vida<br>(Mudanza, nuevo trabajo, matrimonio, etc.)</td>
+                <td class="input-field"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="warning-box">
+        <h3>Consideraciones Importantes</h3>
+        <ul>
+            <li><strong>Calidad de Cobertura:</strong> La reducción de costos nunca debe comprometer la cobertura esencial</li>
+            <li><strong>Fondo de Emergencia:</strong> Deducibles más altos requieren ahorros de emergencia adecuados</li>
+            <li><strong>Cambios de Vida:</strong> Eventos importantes de la vida a menudo requieren ajustes en los seguros</li>
+            <li><strong>Renovaciones Automáticas:</strong> Nunca dejes que las pólizas se renueven automáticamente sin revisar los términos y comparar opciones</li>
+            <li><strong>Documentación:</strong> Mantén registros de todas las pólizas de seguros en un lugar seguro y accesible</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy | Capítulo 11.3: Gestión de Costos de Seguros | Planificador de Presupuesto de Seguros Personal</p>
+        <p>Página 1 de 1</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Costos a Largo Plazo</title>
+    <style>
+        :root { --primary: #6366f1; --secondary: #8b5cf6; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #1f2937; max-width: 900px; margin: 0 auto; padding: 15px; }
+        h1 { color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+        h2 { color: var(--secondary); font-size: 18px; margin-top: 20px; }
+        .inputs { background: #e0e7ff; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; }
+        input { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; box-sizing: border-box; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .result-card { background: #f9fafb; padding: 15px; border-radius: 5px; text-align: center; }
+        .result-card h3 { margin: 0 0 10px 0; font-size: 14px; color: var(--secondary); }
+        .result-value { font-size: 24px; font-weight: bold; color: var(--primary); }
+        .result-label { font-size: 11px; color: #6b7280; }
+        .fee-impact { background: white; padding: 10px; border-radius: 4px; margin-top: 10px; }
+        .impact-label { font-size: 12px; }
+        .impact-value { font-weight: bold; }
+        .negative { color: var(--danger); }
+        .chart-container { background: #f9fafb; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .bar-chart { display: flex; align-items: flex-end; justify-content: center; gap: 30px; height: 250px; padding: 20px 0; }
+        .bar-group { display: flex; flex-direction: column; align-items: center; }
+        .bar { width: 60px; border-radius: 4px 4px 0 0; transition: height 0.5s; }
+        .bar.low { background: var(--success); }
+        .bar.medium { background: var(--warning); }
+        .bar.high { background: var(--danger); }
+        .bar-label { margin-top: 10px; font-size: 12px; text-align: center; }
+        .bar-value { font-weight: bold; font-size: 11px; margin-bottom: 5px; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid #d1d5db; padding: 8px; text-align: center; }
+        .comparison-table th { background: var(--primary); color: white; }
+        .insight { background: #fef3c7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: var(--secondary); }
+        @media print {
+            body { padding: 10px; }
+            button { display: none; }
+            .result-card, .chart-container { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualizador de Costos a Largo Plazo</h1>
+    <p>Vea cómo las comisiones se acumulan durante 40 años e impactan su patrimonio</p>
+    <div class="inputs">
+        <h2 style="margin-top: 0;">Su Escenario de Inversión</h2>
+        <div class="input-grid">
+            <div class="input-group"><label>Monto Inicial ($)</label><input type="number" id="startAmount" value="10000" step="1000"></div>
+            <div class="input-group"><label>Contribución Mensual ($)</label><input type="number" id="monthlyContrib" value="500" step="50"></div>
+            <div class="input-group"><label>Período de Inversión (Años)</label><input type="number" id="years" value="40" min="1" max="50"></div>
+            <div class="input-group"><label>Rendimiento Anual Esperado (%)</label><input type="number" id="returnRate" value="7" step="0.5"></div>
+        </div>
+        <div style="text-align: center; margin-top: 15px;"><button onclick="calculate()">Calcular Impacto</button></div>
+    </div>
+    <h2>Valor del Portafolio por Nivel de Comisión</h2>
+    <div class="results-grid">
+        <div class="result-card"><h3>Bajo Costo (0.05%)</h3><div class="result-value" id="lowValue">$0</div><div class="result-label">Valor Final del Portafolio</div><div class="fee-impact"><div class="impact-label">Comisiones Totales Pagadas</div><div class="impact-value" id="lowFees">$0</div></div></div>
+        <div class="result-card"><h3>Costo Medio (0.50%)</h3><div class="result-value" id="medValue">$0</div><div class="result-label">Valor Final del Portafolio</div><div class="fee-impact"><div class="impact-label">Comisiones Totales Pagadas</div><div class="impact-value negative" id="medFees">$0</div></div></div>
+        <div class="result-card"><h3>Alto Costo (1.00%)</h3><div class="result-value" id="highValue">$0</div><div class="result-label">Valor Final del Portafolio</div><div class="fee-impact"><div class="impact-label">Comisiones Totales Pagadas</div><div class="impact-value negative" id="highFees">$0</div></div></div>
+    </div>
+    <div class="chart-container">
+        <h2 style="margin-top: 0;">Comparación Visual</h2>
+        <div class="bar-chart">
+            <div class="bar-group"><div class="bar-value" id="lowBarValue">$0</div><div class="bar low" id="lowBar"></div><div class="bar-label">Bajo Costo<br>0.05%</div></div>
+            <div class="bar-group"><div class="bar-value" id="medBarValue">$0</div><div class="bar medium" id="medBar"></div><div class="bar-label">Costo Medio<br>0.50%</div></div>
+            <div class="bar-group"><div class="bar-value" id="highBarValue">$0</div><div class="bar high" id="highBar"></div><div class="bar-label">Alto Costo<br>1.00%</div></div>
+        </div>
+    </div>
+    <h2>Resumen de Comparación de Costos</h2>
+    <table class="comparison-table">
+        <thead><tr><th>Nivel de Comisión</th><th>Comisión Anual</th><th>Comisiones Totales</th><th>Valor Final</th><th>Perdido en Comisiones</th></tr></thead>
+        <tbody>
+            <tr><td>Bajo Costo</td><td>0.05%</td><td id="lowFeesTable">$0</td><td id="lowValueTable">$0</td><td style="color: var(--success);">Línea Base</td></tr>
+            <tr><td>Costo Medio</td><td>0.50%</td><td id="medFeesTable">$0</td><td id="medValueTable">$0</td><td class="negative" id="medLost">$0</td></tr>
+            <tr><td>Alto Costo</td><td>1.00%</td><td id="highFeesTable">$0</td><td id="highValueTable">$0</td><td class="negative" id="highLost">$0</td></tr>
+        </tbody>
+    </table>
+    <div class="insight" id="insight"><h2 style="margin-top: 0;">Punto Clave</h2><p id="insightText"></p></div>
+    <script>
+        function calculate() {
+            const start = parseFloat(document.getElementById('startAmount').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthlyContrib').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 40;
+            const annualReturn = parseFloat(document.getElementById('returnRate').value) / 100 || 0.07;
+            const feeRates = [0.0005, 0.005, 0.01];
+            const results = [];
+            feeRates.forEach(fee => {
+                let balance = start; let totalFees = 0;
+                const monthlyReturn = annualReturn / 12;
+                const monthlyFee = fee / 12;
+                for (let month = 0; month < years * 12; month++) {
+                    balance += monthly; balance *= (1 + monthlyReturn);
+                    const feeAmount = balance * monthlyFee;
+                    totalFees += feeAmount; balance -= feeAmount;
+                }
+                results.push({ value: balance, fees: totalFees });
+            });
+            document.getElementById('lowValue').textContent = '$' + Math.round(results[0].value).toLocaleString();
+            document.getElementById('lowFees').textContent = '$' + Math.round(results[0].fees).toLocaleString();
+            document.getElementById('medValue').textContent = '$' + Math.round(results[1].value).toLocaleString();
+            document.getElementById('medFees').textContent = '$' + Math.round(results[1].fees).toLocaleString();
+            document.getElementById('highValue').textContent = '$' + Math.round(results[2].value).toLocaleString();
+            document.getElementById('highFees').textContent = '$' + Math.round(results[2].fees).toLocaleString();
+            const maxValue = results[0].value;
+            document.getElementById('lowBar').style.height = '200px';
+            document.getElementById('medBar').style.height = (results[1].value / maxValue * 200) + 'px';
+            document.getElementById('highBar').style.height = (results[2].value / maxValue * 200) + 'px';
+            document.getElementById('lowBarValue').textContent = '$' + Math.round(results[0].value / 1000) + 'K';
+            document.getElementById('medBarValue').textContent = '$' + Math.round(results[1].value / 1000) + 'K';
+            document.getElementById('highBarValue').textContent = '$' + Math.round(results[2].value / 1000) + 'K';
+            document.getElementById('lowFeesTable').textContent = '$' + Math.round(results[0].fees).toLocaleString();
+            document.getElementById('lowValueTable').textContent = '$' + Math.round(results[0].value).toLocaleString();
+            document.getElementById('medFeesTable').textContent = '$' + Math.round(results[1].fees).toLocaleString();
+            document.getElementById('medValueTable').textContent = '$' + Math.round(results[1].value).toLocaleString();
+            document.getElementById('medLost').textContent = '-$' + Math.round(results[0].value - results[1].value).toLocaleString();
+            document.getElementById('highFeesTable').textContent = '$' + Math.round(results[2].fees).toLocaleString();
+            document.getElementById('highValueTable').textContent = '$' + Math.round(results[2].value).toLocaleString();
+            document.getElementById('highLost').textContent = '-$' + Math.round(results[0].value - results[2].value).toLocaleString();
+            const lostToHighFees = results[0].value - results[2].value;
+            const percentLost = ((lostToHighFees / results[0].value) * 100).toFixed(1);
+            document.getElementById('insightText').innerHTML = `
+                Durante ${years} años, la diferencia entre un ratio de gastos de 0.05% y 1.00% es <strong>$${Math.round(lostToHighFees).toLocaleString()}</strong> -
+                ¡eso es el <strong>${percentLost}%</strong> de su patrimonio potencial! Por esto es tan importante elegir fondos indexados de bajo costo para inversores a largo plazo.
+            `;
+        }
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia de Escasez y Costo de Oportunidad | PFL Academy</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text);
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .concept-box {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .definition {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background-color: #e0f2fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .formula-box {
+            background-color: #fef3c7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .formula {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .concept-box {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Escasez, Costo de Oportunidad e Incentivos</h1>
+        <p style="color: var(--text-light);">Conceptos esenciales para tomar decisiones financieras inteligentes</p>
+    </header>
+
+    <div class="concept-box">
+        <div class="concept-title">ESCASEZ</div>
+        <div class="definition">Recursos limitados en relación con deseos y necesidades ilimitados</div>
+        <p>La escasez es el problema económico fundamental. Tenemos tiempo, dinero y recursos limitados, pero deseos ilimitados. Esto nos obliga a tomar decisiones.</p>
+
+        <div class="example-box">
+            <strong>Ejemplos de Finanzas Personales:</strong>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Tienes $500 pero quieres comprar un teléfono de $300, zapatos de $200 y ahorrar para la universidad</li>
+                <li>Tienes 24 horas al día pero quieres trabajar, estudiar, dormir y socializar</li>
+                <li>Ganas $2,000/mes pero tienes $2,500 en gastos y deseos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">COSTO DE OPORTUNIDAD</div>
+        <div class="definition">El valor de la siguiente mejor alternativa que renuncias al tomar una decisión</div>
+        <p>Cada decisión tiene un costo de oportunidad - lo que podrías haber hecho en su lugar. Las decisiones financieras inteligentes consideran tanto lo que ganas COMO lo que renuncias.</p>
+
+        <div class="formula-box">
+            <div class="formula">Costo de Oportunidad = Valor de la Mejor Alternativa Sacrificada</div>
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplos:</strong>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Ir a la universidad: Costo de oportunidad = 4 años de ingresos potenciales</li>
+                <li>Comprar un auto: Costo de oportunidad = rendimientos de inversión que podrías haber ganado</li>
+                <li>Trabajar el sábado: Costo de oportunidad = tiempo de estudio o descanso</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="concept-box">
+            <div class="concept-title">Tipos de Costos</div>
+
+            <div style="margin-bottom: 10px;">
+                <div class="label">Costos Explícitos</div>
+                <div>Pagos monetarios directos (fáciles de ver)</div>
+                <div style="font-size: 0.85rem; color: var(--text-light); margin-top: 3px;">Ejemplo: Matrícula, renta, pago del auto</div>
+            </div>
+
+            <div>
+                <div class="label">Costos Implícitos</div>
+                <div>Costos de oportunidad de recursos (más difíciles de ver)</div>
+                <div style="font-size: 0.85rem; color: var(--text-light); margin-top: 3px;">Ejemplo: Tiempo, ingresos no percibidos</div>
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <div class="concept-title">Marco de Decisión</div>
+
+            <ol style="margin-left: 20px;">
+                <li>Identificar todas las opciones</li>
+                <li>Determinar costos/beneficios de cada una</li>
+                <li>Identificar el costo de oportunidad</li>
+                <li>Elegir la opción con mayor beneficio neto</li>
+                <li>Aceptar la compensación</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">INCENTIVOS</div>
+        <div class="definition">Recompensas o penalizaciones que influyen en el comportamiento</div>
+        <p>Los incentivos moldean nuestras decisiones haciendo que algunas opciones sean más o menos atractivas.</p>
+
+        <div style="margin-top: 15px;">
+            <div class="label">Incentivos Positivos (Recompensas):</div>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Empleador igualando contribuciones al 401(k) → ahorra más para jubilación</li>
+                <li>Tarjetas de crédito con reembolso → usa la tarjeta para compras</li>
+                <li>Beca por alto GPA → estudia más duro</li>
+                <li>Descuentos para empleados → compra en tu lugar de trabajo</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <div class="label">Incentivos Negativos (Penalizaciones):</div>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Cargos por pago tardío → paga facturas a tiempo</li>
+                <li>Interés de tarjeta de crédito → evita mantener saldos</li>
+                <li>Multas por exceso de velocidad → conduce al límite</li>
+                <li>Cargos por sobregiro → monitorea el saldo bancario</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">Calculando el Costo de Oportunidad - Paso a Paso</div>
+
+        <div style="background-color: white; padding: 15px; border-radius: 4px; margin-top: 10px;">
+            <strong>Ejemplo: ¿Deberías trabajar o estudiar el sábado?</strong>
+
+            <div style="margin-top: 10px;">
+                <strong>Opción A: Trabajar</strong>
+                <ul style="margin-left: 20px;">
+                    <li>Ganancia: $120 (8 horas × $15/hora)</li>
+                    <li>Costo de oportunidad: Mejor calificación por estudiar</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <strong>Opción B: Estudiar</strong>
+                <ul style="margin-left: 20px;">
+                    <li>Ganancia: Mayor calificación en examen (potencialmente mejor GPA)</li>
+                    <li>Costo de oportunidad: $120 en ganancias</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 10px; padding: 10px; background-color: #f0fdf4; border-radius: 4px;">
+                <strong>Análisis:</strong> Si la mejor calificación te ayuda a obtener una beca o mejor trabajo, el valor a largo plazo puede exceder $120. Si necesitas dinero desesperadamente ahora, trabajar es mejor.
+            </div>
+        </div>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">Errores Comunes a Evitar</div>
+
+        <ul style="margin-left: 20px;">
+            <li><strong>Ignorar costos implícitos:</strong> Solo mirar el dinero gastado, no el tiempo o alternativas</li>
+            <li><strong>Falacia del costo hundido:</strong> Dejar que el gasto pasado influya en decisiones futuras</li>
+            <li><strong>No considerar todas las opciones:</strong> Solo comparar dos opciones cuando existen otras</li>
+            <li><strong>Pensamiento a corto plazo:</strong> Ignorar costos de oportunidad a largo plazo</li>
+            <li><strong>Decisiones emocionales:</strong> Dejar que los sentimientos anulen el análisis racional de costo-beneficio</li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <div class="concept-title">Aplicaciones del Mundo Real</div>
+
+        <div class="grid">
+            <div>
+                <div class="label">Educación:</div>
+                <div style="font-size: 0.9rem; margin-top: 5px;">
+                    El título universitario cuesta matrícula + 4 años de ingresos potenciales. El costo de oportunidad debe sopesarse contra mayores ingresos de por vida.
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Carrera:</div>
+                <div style="font-size: 0.9rem; margin-top: 5px;">
+                    Aceptar un trabajo significa renunciar a otros. Considera salario, crecimiento, ubicación y equilibrio vida-trabajo.
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Ahorros:</div>
+                <div style="font-size: 0.9rem; margin-top: 5px;">
+                    El dinero ahorrado no puede gastarse ahora. El costo de oportunidad es el consumo actual, el beneficio es la seguridad futura.
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Tiempo:</div>
+                <div style="font-size: 0.9rem; margin-top: 5px;">
+                    Cada hora gastada en una actividad no puede gastarse en otra. Prioriza según el valor.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background-color: #f0f9ff; border-radius: 6px; border-left: 4px solid #3b82f6;">
+        <strong>Conclusión Clave:</strong> Las decisiones financieras inteligentes requieren entender que cada elección tiene un costo de oportunidad. Siempre pregunta: "¿Qué estoy renunciando?" y "¿Lo que estoy obteniendo vale más que lo que estoy renunciando?"
+    </div>
+</body>
+</html>

@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Auditoría de Presencia Digital - Capítulo 15.2</title>
+    <style>
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+                background-color: #fff;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            .audit-section {
+                page-break-inside: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0d47a1;
+            border-bottom: 2px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #1565c0;
+            border-bottom: 1px solid #1565c0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #1976d2;
+            margin-top: 25px;
+        }
+
+        .print-instructions {
+            background-color: #fffaf0;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ed8936;
+            border-radius: 4px;
+        }
+
+        .intro-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+            border-radius: 4px;
+        }
+
+        .tip-box {
+            background-color: #e1f5fe;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #03a9f4;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+            border-radius: 4px;
+        }
+
+        .audit-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .audit-header {
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 15px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .audit-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .rating-option {
+            text-align: center;
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+        }
+
+        .notes-space {
+            border: 1px solid #e0e0e0;
+            min-height: 80px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .action-space {
+            border: 1px solid #e0e0e0;
+            min-height: 60px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #1565c0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .rating-scale {
+                flex-direction: column;
+            }
+
+            .rating-option {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h3>Instrucciones de Impresión</h3>
+        <p>Para guardar este documento como PDF o imprimir una copia física:</p>
+        <ol>
+            <li>Haga clic en el botón "Imprimir" a continuación o use la función de impresión de su navegador (Ctrl+P o Cmd+P)</li>
+            <li>En el cuadro de diálogo de impresión, seleccione "Guardar como PDF" como destino/impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir" para crear su PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    </div>
+
+    <h1>Herramienta de Auditoría de Presencia Digital</h1>
+
+    <div class="intro-box">
+        <p>Tu presencia en línea es una extensión de tu marca personal y a menudo la primera impresión que los empleadores tendrán de ti. Esta herramienta de auditoría te ayudará a evaluar tu presencia digital actual en diferentes plataformas, identificar áreas de mejora y crear un plan de acción para mejorar tu imagen profesional en línea.</p>
+        <p>Completa cada sección de manera exhaustiva y honesta para obtener una imagen precisa de tu presencia digital. Para las plataformas que actualmente no usas, puedes marcarlas como "No Aplica" o usar la auditoría para determinar si deberías establecer una presencia allí.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 1: Inventario de Presencia Digital</h2>
+    <p>Comienza creando un inventario completo de tu presencia en línea actual.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Inventario de Presencia Digital</h3>
+        </div>
+
+        <p>Lista todas las plataformas donde tienes un perfil o presencia pública o semi-pública:</p>
+
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>URL del Perfil</th>
+                <th>Última Actualización</th>
+                <th>Completitud del Perfil (1-5)</th>
+                <th>¿Usuario Activo? (S/N)</th>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sitio Web Personal/Portafolio</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GitHub</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Twitter/X</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Instagram</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Facebook</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Medium/Blog</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Plataforma Específica de la Industria</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Otro: ________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Otro: ________</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Puntos Adicionales de Presencia a Considerar:</strong></p>
+        <ul>
+            <li>Artículos publicados o contenido con tu nombre</li>
+            <li>Menciones tuyas en sitios web de organizaciones o escuelas</li>
+            <li>Perfiles en sitios de asociaciones profesionales</li>
+            <li>Apariciones en noticias o medios en línea</li>
+            <li>Participación en foros o secciones de comentarios</li>
+            <li>Reseñas o testimonios que has escrito</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <h3>Verificación en Motores de Búsqueda</h3>
+        <p>Antes de continuar con tu auditoría detallada, realiza estas búsquedas para entender tu huella digital actual:</p>
+        <ul>
+            <li><strong>Busca tu nombre completo:</strong> Usa múltiples motores de búsqueda (Google, Bing, DuckDuckGo) para ver qué aparece</li>
+            <li><strong>Busca tu nombre + términos clave:</strong> Prueba tu nombre más tu escuela, empleador, ciudad natal o industria</li>
+            <li><strong>Búsqueda de imágenes:</strong> Verifica qué imágenes están asociadas con tu nombre</li>
+            <li><strong>Búsqueda en redes sociales:</strong> Usa las funciones de búsqueda dentro de las plataformas principales</li>
+        </ul>
+        <p>Anota cualquier resultado que te preocupe o que no se alinee con tu imagen profesional deseada, así como cualquier resultado positivo que puedas aprovechar.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 2: Auditorías Específicas por Plataforma</h2>
+    <p>Ahora que tienes un inventario de tu presencia digital, realiza una auditoría detallada de cada plataforma donde tienes un perfil.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Auditoría del Perfil de LinkedIn</h3>
+        </div>
+
+        <p>Como la principal plataforma de redes profesionales, LinkedIn a menudo aparece prominentemente en los resultados de búsqueda y es revisado frecuentemente por posibles empleadores.</p>
+
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Foto de Perfil</strong><br>Apariencia profesional, rostro claro, vestimenta apropiada</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Imagen de Fondo</strong><br>Profesional, relevante para el campo, buena calidad</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Titular</strong><br>Claro, convincente, incluye términos clave</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Sección Acerca de</strong><br>Completa, atractiva, alineada con la marca personal</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Descripciones de Experiencia</strong><br>Detalladas, enfocadas en logros, usa métricas</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Información Educativa</strong><br>Completa, incluye detalles relevantes</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Sección de Habilidades</strong><br>Completa, validada, relevante para el campo</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Recomendaciones</strong><br>Calidad y cantidad de recomendaciones</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Sección Destacados</strong><br>Resalta el mejor trabajo, bien presentado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Actividad</strong><br>Regular, profesional, alineada con la marca</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Completitud General del Perfil</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Mejoras Prioritarias para LinkedIn:</strong></p>
+        <div class="notes-space"></div>
+
+        <p><strong>Pasos de Acción:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Auditoría de Sitio Web Personal/Portafolio</h3>
+        </div>
+
+        <p>Si tienes un sitio web personal o portafolio en línea, esta sección te ayudará a evaluar su efectividad. Si aún no tienes uno, usa esta sección para planificar su desarrollo.</p>
+
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Nombre de Dominio</strong><br>Profesional, memorable, apropiado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Diseño Visual</strong><br>Profesional, alineado con la marca personal, moderno</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Navegación/Usabilidad</strong><br>Intuitiva, fácil de usar, organización lógica</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Sección Acerca de/Biografía</strong><br>Clara, atractiva, alineada con la marca personal</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Muestras de Trabajo/Proyectos</strong><br>Calidad, relevancia, presentación</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Currículum/CV</strong><br>Actualizado, bien formateado, accesible</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Información de Contacto</strong><br>Accesible, profesional, segura</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Responsividad Móvil</strong><br>Se muestra correctamente en todos los dispositivos</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Frescura del Contenido</strong><br>Actualizado recientemente, información actual</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Elementos SEO</strong><br>Descubrible, buenas meta descripciones</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Calidad e Impacto General</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Mejoras Prioritarias para Sitio Web/Portafolio:</strong></p>
+        <div class="notes-space"></div>
+
+        <p><strong>Pasos de Acción:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Auditoría de GitHub/Portafolio Técnico</h3>
+        </div>
+
+        <p>Para roles técnicos, tu GitHub o repositorio de código similar es una parte importante de tu presencia profesional. Evalúa su efectividad a continuación.</p>
+
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Completitud del Perfil</strong><br>Biografía, foto, información de contacto</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Organización de Proyectos</strong><br>Estructura lógica de repositorios, repositorios fijados</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Archivos README</strong><br>Claros, detallados, bien formateados</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Calidad del Código</strong><br>Bien documentado, organizado, sigue mejores prácticas</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Gráfico de Contribuciones</strong><br>Actividad regular, cuadros verdes</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Diversidad de Proyectos</strong><br>Muestra variedad de habilidades y lenguajes</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Colaboración</strong><br>Pull requests, participación en issues, forks</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Impresión Profesional General</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Mejoras Prioritarias para Portafolio Técnico:</strong></p>
+        <div class="notes-space"></div>
+
+        <p><strong>Pasos de Acción:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Auditoría de Redes Sociales</h3>
+        </div>
+
+        <p>Evalúa tu presencia en las principales plataformas de redes sociales desde una perspectiva profesional. Recuerda que los posibles empleadores pueden ver estas cuentas incluso si no son plataformas principalmente profesionales.</p>
+
+        <h4>Twitter/X</h4>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Foto de Perfil y Encabezado</strong><br>Profesional, alineado con la marca</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Biografía</strong><br>Clara, profesional, incluye palabras clave relevantes</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Calidad del Contenido</strong><br>Profesional, reflexivo, valioso</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Engagement</strong><br>Interacciones profesionales, calidad de la red</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Posibles Señales de Alerta</strong><br>Contenido controversial, no profesional o divisivo</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h4>Instagram</h4>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Presentación del Perfil</strong><br>Profesional, identidad visual coherente</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Biografía e Información del Perfil</strong><br>Apropiada, alineada con la marca personal</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Apropiabilidad del Contenido</strong><br>Profesional, apropiado para la audiencia</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Posibles Señales de Alerta</strong><br>Fotos de fiestas, contenido no profesional, etc.</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h4>Facebook</h4>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Configuración de Privacidad</strong><br>Controles de privacidad apropiados establecidos</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Información Pública</strong><br>Profesional, apropiada para que los empleadores vean</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Contenido Etiquetado</strong><br>Contenido apropiado en el que estás etiquetado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Posibles Señales de Alerta</strong><br>Fotos inapropiadas, publicaciones controversiales, etc.</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h4>Otra Plataforma: ___________</h4>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Presentación del Perfil</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Calidad y Apropiabilidad del Contenido</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Engagement y Red</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Posibles Señales de Alerta</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Mejoras Prioritarias para Presencia en Redes Sociales:</strong></p>
+        <div class="notes-space"></div>
+
+        <p><strong>Pasos de Acción:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 3: Consistencia de Marca entre Plataformas</h2>
+    <p>Evalúa la consistencia de tu marca personal en todas las plataformas.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Auditoría de Consistencia de Marca</h3>
+        </div>
+
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Calificación (1-5)</th>
+                <th>Notas/Problemas</th>
+            </tr>
+            <tr>
+                <td><strong>Consistencia Visual</strong><br>Fotos de perfil similares, esquemas de colores, elementos de diseño</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Consistencia del Mensaje</strong><br>Descripciones profesionales similares, declaraciones personales</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Consistencia de Experiencia/Antecedentes</strong><br>Historial laboral consistente, detalles educativos</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Representación de Habilidades</strong><br>Representación consistente de habilidades en todas las plataformas</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Consistencia de Nombre/Usuario</strong><br>Nombres de usuario o handles similares en todas las plataformas</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Consistencia de Voz/Tono</strong><br>Estilo de comunicación similar en todas las plataformas</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Cohesión General de Marca</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Mejoras Prioritarias para Consistencia de Marca:</strong></p>
+        <div class="notes-space"></div>
+
+        <p><strong>Pasos de Acción:</strong></p>
+        <div class="action-space"></div>
+    </div>
+
+    <div class="warning-box">
+        <h3>Verificación de Limpieza Digital</h3>
+        <p>Basándote en tu auditoría, identifica cualquier contenido que deba ser eliminado o hecho privado:</p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Contenido a Eliminar/Ocultar</th>
+                <th>Acción Requerida</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>Prioriza eliminar o ajustar la configuración de privacidad para contenido que pueda impactar negativamente tu imagen profesional.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 4: Análisis de Brechas de Presencia Digital</h2>
+    <p>Identifica dónde tu presencia digital podría expandirse o mejorarse para apoyar mejor tus objetivos profesionales.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Análisis de Brechas de Presencia Digital</h3>
+        </div>
+
+        <p><strong>Plataformas Faltantes</strong></p>
+        <p>Identifica plataformas donde deberías establecer una presencia basándote en tu campo y objetivos profesionales:</p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Relevancia para Tu Campo (1-5)</th>
+                <th>Nivel de Prioridad (Alto/Medio/Bajo)</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Brechas de Contenido</strong></p>
+        <p>Identifica tipos de contenido que deberías desarrollar para fortalecer tu marca profesional:</p>
+        <table>
+            <tr>
+                <th>Tipo de Contenido</th>
+                <th>Propósito/Valor</th>
+                <th>Plataforma(s)</th>
+                <th>Nivel de Prioridad</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Oportunidades de Mejora de Perfil</strong></p>
+        <p>Lista mejoras específicas que fortalecerían tus perfiles existentes:</p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Mejora Necesaria</th>
+                <th>Nivel de Prioridad</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Parte 5: Plan de Mejora de Presencia Digital</h2>
+    <p>Basándote en los hallazgos de tu auditoría, crea un plan integral para mejorar tu presencia digital.</p>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Plan de Mejora de Presencia Digital</h3>
+        </div>
+
+        <p><strong>Acciones Inmediatas (Próximos 7 Días)</strong></p>
+        <table>
+            <tr>
+                <th>Elemento de Acción</th>
+                <th>Plataforma</th>
+                <th>Detalles</th>
+                <th>Fecha Objetivo</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Acciones a Corto Plazo (Próximos 30 Días)</strong></p>
+        <table>
+            <tr>
+                <th>Elemento de Acción</th>
+                <th>Plataforma</th>
+                <th>Detalles</th>
+                <th>Fecha Objetivo</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Acciones a Mediano Plazo (Próximos 2-3 Meses)</strong></p>
+        <table>
+            <tr>
+                <th>Elemento de Acción</th>
+                <th>Plataforma</th>
+                <th>Detalles</th>
+                <th>Fecha Objetivo</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Acciones a Largo Plazo (3+ Meses)</strong></p>
+        <table>
+            <tr>
+                <th>Elemento de Acción</th>
+                <th>Plataforma</th>
+                <th>Detalles</th>
+                <th>Fecha Objetivo</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="audit-section">
+        <div class="audit-header">
+            <h3 class="audit-title">Gestión Continua de Presencia Digital</h3>
+        </div>
+
+        <p>Crea un plan sostenible para mantener y hacer crecer tu presencia digital profesional con el tiempo.</p>
+
+        <p><strong>Programa de Mantenimiento Regular</strong></p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Tarea de Mantenimiento</th>
+                <th>Frecuencia</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Programa de Creación de Contenido</strong></p>
+        <table>
+            <tr>
+                <th>Tipo de Contenido</th>
+                <th>Plataforma(s)</th>
+                <th>Frecuencia</th>
+                <th>Temas/Temáticas</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Estrategia de Engagement</strong></p>
+        <table>
+            <tr>
+                <th>Plataforma</th>
+                <th>Actividades de Engagement</th>
+                <th>Frecuencia</th>
+                <th>Comunidades/Individuos Objetivo</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p><strong>Programa de Revisión de Presencia Digital</strong></p>
+        <p>Establece un programa para revisar y actualizar tu estrategia de presencia digital:</p>
+        <ul>
+            <li>Auditoría Completa de Presencia Digital: Cada _____ meses</li>
+            <li>Verificación de Alineación de Marca Personal: Cada _____ meses</li>
+            <li>Verificación de Alineación con Objetivos Profesionales: Cada _____ meses</li>
+            <li>Revisión de Limpieza Digital: Cada _____ meses</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <h3>Monitoreo de Presencia Digital</h3>
+        <p>Considera estas estrategias para el monitoreo continuo de tu presencia digital:</p>
+        <ul>
+            <li><strong>Configura Alertas de Google</strong> para tu nombre para ser notificado cuando te mencionen en línea</li>
+            <li><strong>Búscate regularmente</strong> en los principales motores de búsqueda (cada 2-3 meses)</li>
+            <li><strong>Activa las notificaciones</strong> para etiquetas y menciones en plataformas sociales</li>
+            <li><strong>Solicita retroalimentación</strong> de colegas de confianza sobre tu presencia digital</li>
+            <li><strong>Revisa la configuración de privacidad</strong> cada vez que las plataformas actualicen sus políticas</li>
+            <li><strong>Monitorea las cuentas</strong> por actividad inusual que pueda indicar problemas de seguridad</li>
+        </ul>
+        <p>El monitoreo proactivo te ayuda a mantener una presencia digital positiva y abordar problemas rápidamente.</p>
+    </div>
+
+    <div class="print-instructions no-print">
+        <h3>Instrucciones de Impresión</h3>
+        <p>Para guardar este documento como PDF o imprimir una copia física:</p>
+        <ol>
+            <li>Haga clic en el botón "Imprimir" a continuación o use la función de impresión de su navegador (Ctrl+P o Cmd+P)</li>
+            <li>En el cuadro de diálogo de impresión, seleccione "Guardar como PDF" como destino/impresora</li>
+            <li>Haga clic en "Guardar" o "Imprimir" para crear su PDF</li>
+        </ol>
+        <button class="btn" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    </div>
+</body>
+</html>

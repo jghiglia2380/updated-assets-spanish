@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Relación Riesgo-Rendimiento</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .worksheet {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin: 30px 0;
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            background: linear-gradient(to right,
+                rgba(46, 204, 113, 0.1) 0%,
+                rgba(241, 196, 15, 0.1) 50%,
+                rgba(231, 76, 60, 0.1) 100%);
+        }
+        .axis {
+            position: absolute;
+            background: #34495e;
+        }
+        .y-axis {
+            left: 50px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+        }
+        .x-axis {
+            left: 50px;
+            bottom: 50px;
+            height: 2px;
+            right: 20px;
+        }
+        .axis-label {
+            position: absolute;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        .y-label {
+            left: 5px;
+            top: 50%;
+            transform: rotate(-90deg) translateX(-50%);
+            transform-origin: 0 0;
+            white-space: nowrap;
+        }
+        .x-label {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .risk-label-low {
+            position: absolute;
+            bottom: 25px;
+            left: 60px;
+            font-size: 12px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .risk-label-high {
+            position: absolute;
+            bottom: 25px;
+            right: 30px;
+            font-size: 12px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .return-label-low {
+            position: absolute;
+            bottom: 60px;
+            left: 5px;
+            font-size: 12px;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        .return-label-high {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            font-size: 12px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        .investment-point {
+            position: absolute;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 11px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            min-width: 100px;
+            text-align: center;
+        }
+        .investment-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        .investment-note {
+            font-size: 9px;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+        /* Positioning for investment options */
+        .savings { bottom: 80px; left: 100px; border-color: #27ae60; }
+        .cds { bottom: 120px; left: 180px; border-color: #27ae60; }
+        .mmf { bottom: 160px; left: 260px; border-color: #f39c12; }
+        .govt-bonds { bottom: 200px; left: 340px; border-color: #f39c12; }
+        .corp-bonds { bottom: 260px; left: 420px; border-color: #e67e22; }
+        .mutual-funds { bottom: 320px; left: 500px; border-color: #e74c3c; }
+        .stocks { bottom: 380px; left: 580px; border-color: #c0392b; }
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .legend-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .legend-item {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #34495e;
+        }
+        .print-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .print-button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet">
+        <h1>La Relación Riesgo-Rendimiento</h1>
+        <p class="subtitle">Material Visual del Espectro Riesgo-Rendimiento</p>
+
+        <div class="chart-container">
+            <div class="axis y-axis"></div>
+            <div class="axis x-axis"></div>
+
+            <div class="axis-label y-label">RENDIMIENTOS POTENCIALES</div>
+            <div class="axis-label x-label">NIVEL DE RIESGO</div>
+
+            <div class="risk-label-low">Bajo Riesgo</div>
+            <div class="risk-label-high">Alto Riesgo</div>
+
+            <div class="return-label-low">Bajo<br>Rendimiento</div>
+            <div class="return-label-high">Alto<br>Rendimiento</div>
+
+            <div class="investment-point savings">
+                <div class="investment-title">Cuentas de Ahorro</div>
+                <div class="investment-note">FDIC asegurado<br>Alta liquidez</div>
+            </div>
+
+            <div class="investment-point cds">
+                <div class="investment-title">Certificados de Depósito</div>
+                <div class="investment-note">Tasa fija<br>Penalización retiro</div>
+            </div>
+
+            <div class="investment-point mmf">
+                <div class="investment-title">Fondos del Mercado Monetario</div>
+                <div class="investment-note">Deuda corto plazo<br>Alta calidad</div>
+            </div>
+
+            <div class="investment-point govt-bonds">
+                <div class="investment-title">Bonos Gubernamentales</div>
+                <div class="investment-note">Bajo riesgo<br>Ingresos estables</div>
+            </div>
+
+            <div class="investment-point corp-bonds">
+                <div class="investment-title">Bonos Corporativos</div>
+                <div class="investment-note">Riesgo moderado<br>Mejores tasas</div>
+            </div>
+
+            <div class="investment-point mutual-funds">
+                <div class="investment-title">Fondos Mutuos</div>
+                <div class="investment-note">Diversificados<br>Administrados</div>
+            </div>
+
+            <div class="investment-point stocks">
+                <div class="investment-title">Acciones Individuales</div>
+                <div class="investment-note">Mayor volatilidad<br>Alto potencial</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-title">Notas Clave:</div>
+            <div class="legend-item">• <strong>Verde:</strong> Opciones de bajo riesgo, ideales para objetivos a corto plazo y fondos de emergencia</div>
+            <div class="legend-item">• <strong>Amarillo:</strong> Opciones de riesgo moderado, adecuadas para objetivos a mediano plazo</div>
+            <div class="legend-item">• <strong>Rojo:</strong> Opciones de mayor riesgo, apropiadas para objetivos a largo plazo (10+ años)</div>
+            <div class="legend-item">• La relación entre riesgo y rendimiento es directa: mayor riesgo generalmente significa mayor rendimiento potencial</div>
+            <div class="legend-item">• La diversificación entre diferentes niveles de riesgo puede ayudar a equilibrar su portafolio</div>
+        </div>
+
+        <button class="print-button no-print" onclick="window.print()">Imprimir Material Visual</button>
+    </div>
+</body>
+</html>

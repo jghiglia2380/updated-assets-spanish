@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío de Presupuesto de Ingreso Neto - Capítulo 1.3: Ingresos e Impuestos</title>
+    <style>
+        /* Common styles for all resources */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        h3 { font-size: 18px; color: #4f46e5; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background-color: #f5f5f7; }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Worksheet specific styles */
+        .worksheet-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            background-color: #f9fafb;
+        }
+
+        .scenario-box {
+            background-color: #e6f3ff;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .scenario-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .budget-table input {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+
+        .notes-box {
+            border: 1px solid #d1d5db;
+            min-height: 80px;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        .budget-category {
+            font-weight: bold;
+        }
+
+        .budget-tip {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .reflection-question {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f3f4f6;
+            border-radius: 6px;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            a { text-decoration: none; color: #000; }
+            .no-print { display: none; }
+            .worksheet-section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <p><strong>Para guardar como PDF:</strong> Abra esta página en Chrome, Edge o Firefox. Haga clic en Imprimir (Ctrl+P o Cmd+P),
+        luego seleccione "Guardar como PDF" como destino. Haga clic en "Guardar" y elija dónde guardar el archivo en su computadora.</p>
+    </div>
+
+    <div class="header">
+        <h1>Desafío de Presupuesto de Ingreso Neto</h1>
+        <p><strong>Capítulo 1.3:</strong> Ingresos e Impuestos</p>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Comprender el Ingreso Neto para Presupuestar</h2>
+
+        <p>Crear un presupuesto basado en su ingreso neto (salario neto) en lugar del ingreso bruto es esencial para una planificación financiera realista. Esta hoja de trabajo le guía a través de la creación de presupuestos para diferentes escenarios, ayudándole a entender cómo asignar el ingreso neto de manera efectiva mientras equilibra necesidades, deseos y metas de ahorro.</p>
+
+        <div class="budget-tip">
+            <strong>Recordatorio Clave:</strong> El ingreso neto es lo que realmente recibe en su cheque de pago después de impuestos y otras deducciones. Siempre presupueste basándose en el ingreso neto, no en el ingreso bruto.
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Escenario 1: Primer Trabajo Después de la Escuela Secundaria</h2>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Su Situación:</div>
+            <p>Acaba de graduarse de la escuela secundaria y comenzó su primer trabajo de tiempo completo con un ingreso neto mensual de <strong>$2,200</strong>. Vive en casa con sus padres, quienes le cobran $400/mes por alquiler y servicios públicos. Es responsable de su propio transporte, teléfono, comida, entretenimiento y otros gastos. Quiere comenzar a ahorrar para su propio apartamento.</p>
+        </div>
+
+        <h3>Plan de Presupuesto Mensual</h3>
+
+        <table class="budget-table">
+            <tr>
+                <th>Categoría</th>
+                <th>Cantidad ($)</th>
+                <th>% del Ingreso Neto</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td class="budget-category">Vivienda/Servicios Públicos</td>
+                <td><input type="text" value="400"></td>
+                <td>18.2%</td>
+                <td>Pagado a los padres</td>
+            </tr>
+            <tr>
+                <td class="budget-category">Transporte</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Comida</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Teléfono/Internet</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Entretenimiento</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ropa</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros: Apartamento</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros: Emergencia</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Otros</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><input type="text" value="2200"></td>
+                <td>100%</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="reflection-question">
+            <p><strong>Reflexión:</strong> ¿Cómo priorizó sus gastos en este presupuesto? ¿Qué categorías fueron más importantes para usted y por qué?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Escenario 2: Inicio de Carrera con Préstamos Estudiantiles</h2>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Su Situación:</div>
+            <p>Se graduó de la universidad y comenzó un nuevo trabajo con un ingreso neto mensual de <strong>$3,500</strong>. Tiene $25,000 en préstamos estudiantiles con un pago mensual de $280. Alquila un apartamento por $1,100/mes (incluyendo servicios públicos) y tiene un pago de automóvil de $320/mes. Quiere comenzar a construir su fondo de emergencia y ahorrar para la jubilación.</p>
+        </div>
+
+        <h3>Plan de Presupuesto Mensual</h3>
+
+        <table class="budget-table">
+            <tr>
+                <th>Categoría</th>
+                <th>Cantidad ($)</th>
+                <th>% del Ingreso Neto</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td class="budget-category">Alquiler/Servicios Públicos</td>
+                <td><input type="text" value="1100"></td>
+                <td>31.4%</td>
+                <td>Gasto fijo</td>
+            </tr>
+            <tr>
+                <td class="budget-category">Pago de Automóvil</td>
+                <td><input type="text" value="320"></td>
+                <td>9.1%</td>
+                <td>Gasto fijo</td>
+            </tr>
+            <tr>
+                <td class="budget-category">Pago de Préstamo Estudiantil</td>
+                <td><input type="text" value="280"></td>
+                <td>8.0%</td>
+                <td>Gasto fijo</td>
+            </tr>
+            <tr>
+                <td class="budget-category">Seguro/Gasolina de Automóvil</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Comida</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Teléfono/Internet</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Entretenimiento</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Seguro Médico/Médico</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros para Jubilación</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Fondo de Emergencia</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Otros</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><input type="text" value="3500"></td>
+                <td>100%</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="reflection-question">
+            <p><strong>Reflexión:</strong> Este escenario tiene varios gastos fijos. ¿Cómo impacta eso su flexibilidad en otras categorías de gastos? ¿Qué estrategias podrían ayudarle a manejar estas limitaciones?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Escenario 3: Diseñe Su Propio Presupuesto</h2>
+
+        <div class="scenario-box">
+            <div class="scenario-title">Su Situación Ideal:</div>
+            <p>Cree un presupuesto realista basado en una carrera que le interese seguir. Investigue el salario inicial típico para esta carrera, estime las deducciones probables y luego cree un presupuesto mensual basado en ese ingreso neto. Asegúrese de incluir gastos realistas para su área geográfica.</p>
+
+            <p>Carrera Seleccionada: _________________________ Ingreso Neto Mensual: $____________</p>
+        </div>
+
+        <h3>Plan de Presupuesto Mensual</h3>
+
+        <table class="budget-table">
+            <tr>
+                <th>Categoría</th>
+                <th>Cantidad ($)</th>
+                <th>% del Ingreso Neto</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td class="budget-category">Vivienda/Servicios Públicos</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Transporte</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Comida</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Seguros</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Pagos de Deudas</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Entretenimiento</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros: Emergencia</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros: Jubilación</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Ahorros: Metas</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="budget-category">Otros</td>
+                <td><input type="text"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><input type="text"></td>
+                <td>100%</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="reflection-question">
+            <p><strong>Reflexión:</strong> ¿Cómo le ayuda crear un presupuesto basado en su carrera deseada a comprender las realidades financieras de esa elección? ¿Hubo algo que le sorprendió sobre los gastos o la asignación?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Pautas de Presupuesto</h2>
+
+        <p>Aunque la situación de cada persona es única, aquí hay algunas pautas generales para la asignación de presupuesto que muchos expertos financieros recomiendan:</p>
+
+        <h3>Regla 50/30/20</h3>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Porcentaje</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Necesidades</td>
+                <td>50%</td>
+                <td>Vivienda, comida, servicios públicos, transporte, pagos mínimos de deudas, seguros</td>
+            </tr>
+            <tr>
+                <td>Deseos</td>
+                <td>30%</td>
+                <td>Entretenimiento, salir a cenar, pasatiempos, suscripciones, viajes, compras no esenciales</td>
+            </tr>
+            <tr>
+                <td>Ahorros/Deudas</td>
+                <td>20%</td>
+                <td>Fondo de emergencia, jubilación, pagos adicionales de deudas, otras metas de ahorro</td>
+            </tr>
+        </table>
+
+        <h3>Otro Marco Común de Presupuestación</h3>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>% Recomendado</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Vivienda</td>
+                <td>25-35%</td>
+                <td>Alquiler/hipoteca, servicios públicos, impuestos a la propiedad, mantenimiento</td>
+            </tr>
+            <tr>
+                <td>Transporte</td>
+                <td>10-15%</td>
+                <td>Pago de automóvil, seguro, gasolina, mantenimiento, transporte público</td>
+            </tr>
+            <tr>
+                <td>Comida</td>
+                <td>10-15%</td>
+                <td>Comestibles y salir a cenar</td>
+            </tr>
+            <tr>
+                <td>Ahorros</td>
+                <td>10-20%</td>
+                <td>Fondo de emergencia, jubilación, otras metas</td>
+            </tr>
+            <tr>
+                <td>Servicios Públicos</td>
+                <td>5-10%</td>
+                <td>Electricidad, agua, gas, internet, teléfono</td>
+            </tr>
+            <tr>
+                <td>Entretenimiento</td>
+                <td>5-10%</td>
+                <td>Servicios de streaming, pasatiempos, eventos</td>
+            </tr>
+            <tr>
+                <td>Pago de Deudas</td>
+                <td>5-15%</td>
+                <td>Tarjetas de crédito, préstamos estudiantiles, préstamos personales (más allá de los pagos mínimos)</td>
+            </tr>
+            <tr>
+                <td>Seguros</td>
+                <td>5-10%</td>
+                <td>Salud, vida, discapacidad (no incluidos en deducciones de nómina)</td>
+            </tr>
+            <tr>
+                <td>Personal/Varios</td>
+                <td>5-10%</td>
+                <td>Ropa, cuidado personal, regalos</td>
+            </tr>
+        </table>
+
+        <div class="reflection-question">
+            <p><strong>Reflexión:</strong> ¿Cómo se comparan sus presupuestos con estas pautas? ¿Hay categorías donde consistentemente asignó más o menos? ¿Qué factores influyeron en esas decisiones?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+
+    <div class="worksheet-section">
+        <h2>Desafío de Ajuste de Presupuesto</h2>
+
+        <p>La vida a menudo presenta giros financieros inesperados. Considere cómo ajustaría uno de sus presupuestos si se enfrentara a estos escenarios:</p>
+
+        <div class="reflection-question">
+            <p><strong>Escenario A:</strong> Sus horas se reducen, disminuyendo su ingreso neto mensual en un 20%. ¿Qué categorías reduciría primero y en cuánto? ¿Qué estrategias usaría para adaptarse?</p>
+            <div class="notes-box"></div>
+        </div>
+
+        <div class="reflection-question">
+            <p><strong>Escenario B:</strong> Recibe un aumento de $200/mes (después de impuestos). ¿Cómo asignaría este ingreso adicional? Explique su razonamiento.</p>
+            <div class="notes-box"></div>
+        </div>
+
+        <div class="reflection-question">
+            <p><strong>Escenario C:</strong> Se enfrenta a un gasto médico inesperado de $1,000 no cubierto por el seguro. Si no tiene suficiente en ahorros, ¿cómo ajustaría su presupuesto para cubrir este gasto durante los próximos meses?</p>
+            <div class="notes-box"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>PFL Academy © 2025 | Capítulo 1.3: Ingresos e Impuestos</p>
+    </div>
+</body>
+</html>

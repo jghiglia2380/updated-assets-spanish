@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Proveedores de Servicios Financieros Personales - L-11</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #5849da;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .print-instructions {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        h1 { font-size: 24px; color: #5849da; }
+        h2 { font-size: 20px; color: #374151; margin-top: 25px; }
+        .plan-section {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 15px;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #374151;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+            margin-bottom: 10px;
+        }
+        .dropdown {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .timeline-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tips-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .print-instructions { display: none; }
+            .plan-section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Plan de Proveedores de Servicios Financieros Personales</h1>
+        <p><strong>Capítulo L-11:</strong> Día 2 - Actividad del Laboratorio de Aprendizaje</p>
+        <p><strong>Nombre:</strong> __________________________ <strong>Fecha:</strong> ______________</p>
+    </div>
+
+    <div class="print-instructions">
+        <strong>Instrucciones:</strong> Cree un plan personalizado que describa qué proveedores de servicios financieros utilizaría para diferentes aspectos de su vida financiera. Sea específico y justifique sus elecciones basándose en su investigación.
+    </div>
+
+    <div class="tips-box">
+        <strong>Consejos para Crear Su Plan:</strong>
+        <ul>
+            <li>Considere sus necesidades actuales y futuras</li>
+            <li>Piense en factores como comisiones, accesibilidad y servicios ofrecidos</li>
+            <li>Use la información de su Hoja de Investigación de Proveedores</li>
+            <li>Sea realista sobre sus circunstancias actuales</li>
+            <li>Recuerde que los planes pueden cambiar con el tiempo</li>
+        </ul>
+    </div>
+
+    <div class="plan-section">
+        <div class="section-title">1. Banca Cotidiana</div>
+        <p style="color: #666; font-size: 14px;">Para cuenta corriente, cuenta de ahorros, y transacciones diarias</p>
+
+        <div class="field-label">Tipo de Proveedor Seleccionado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione un tipo...</option>
+            <option value="banco">Banco</option>
+            <option value="cooperativa">Cooperativa de Crédito</option>
+            <option value="banco-digital">Banco Digital/En Línea</option>
+        </select>
+
+        <div class="field-label">Nombre Específico del Proveedor:</div>
+        <input type="text" class="input-field" style="min-height: 35px;" placeholder="Ej: Chase Bank, Navy Federal Credit Union, Ally Bank">
+
+        <div class="field-label">Justificación (¿Por qué este proveedor satisface sus necesidades?):</div>
+        <textarea class="input-field" placeholder="Explique por qué eligió este proveedor para sus necesidades bancarias diarias..."></textarea>
+
+        <div class="field-label">Requisitos que Necesita Cumplir:</div>
+        <textarea class="input-field" placeholder="Ej: Saldo mínimo, depósito directo, membresía, etc."></textarea>
+    </div>
+
+    <div class="plan-section">
+        <div class="section-title">2. Ahorro para Compras Grandes</div>
+        <p style="color: #666; font-size: 14px;">Para ahorrar para un automóvil, educación, u otras compras importantes</p>
+
+        <div class="field-label">Tipo de Proveedor Seleccionado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione un tipo...</option>
+            <option value="banco">Banco</option>
+            <option value="cooperativa">Cooperativa de Crédito</option>
+            <option value="banco-digital">Banco Digital/En Línea</option>
+            <option value="firma-inversion">Firma de Inversión</option>
+        </select>
+
+        <div class="field-label">Nombre Específico del Proveedor:</div>
+        <input type="text" class="input-field" style="min-height: 35px;" placeholder="Ej: Marcus by Goldman Sachs, Discover Bank">
+
+        <div class="field-label">Justificación (¿Por qué este proveedor satisface sus necesidades?):</div>
+        <textarea class="input-field" placeholder="Explique por qué eligió este proveedor para ahorrar..."></textarea>
+
+        <div class="field-label">Requisitos que Necesita Cumplir:</div>
+        <textarea class="input-field" placeholder="Ej: Saldo mínimo, tasa de interés, accesibilidad, etc."></textarea>
+    </div>
+
+    <div class="plan-section">
+        <div class="section-title">3. Inversión para el Futuro</div>
+        <p style="color: #666; font-size: 14px;">Para jubilación, construcción de patrimonio a largo plazo</p>
+
+        <div class="field-label">Tipo de Proveedor Seleccionado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione un tipo...</option>
+            <option value="firma-inversion">Firma de Inversión</option>
+            <option value="casa-bolsa">Casa de Bolsa</option>
+            <option value="robo-advisor">Robo-Advisor</option>
+        </select>
+
+        <div class="field-label">Nombre Específico del Proveedor:</div>
+        <input type="text" class="input-field" style="min-height: 35px;" placeholder="Ej: Vanguard, Fidelity, Charles Schwab, Betterment">
+
+        <div class="field-label">Justificación (¿Por qué este proveedor satisface sus necesidades?):</div>
+        <textarea class="input-field" placeholder="Explique por qué eligió este proveedor para inversiones..."></textarea>
+
+        <div class="field-label">Requisitos que Necesita Cumplir:</div>
+        <textarea class="input-field" placeholder="Ej: Inversión mínima, comisiones de administración, etc."></textarea>
+    </div>
+
+    <div class="plan-section">
+        <div class="section-title">4. Protección de Activos</div>
+        <p style="color: #666; font-size: 14px;">Para seguro de automóvil, salud, vida u otros tipos de protección</p>
+
+        <div class="field-label">Tipo de Proveedor Seleccionado:</div>
+        <select class="dropdown">
+            <option value="">Seleccione un tipo...</option>
+            <option value="compania-seguros">Compañía de Seguros</option>
+            <option value="agente-seguros">Agente de Seguros Independiente</option>
+        </select>
+
+        <div class="field-label">Nombre Específico del Proveedor:</div>
+        <input type="text" class="input-field" style="min-height: 35px;" placeholder="Ej: State Farm, Geico, Progressive">
+
+        <div class="field-label">Justificación (¿Por qué este proveedor satisface sus necesidades?):</div>
+        <textarea class="input-field" placeholder="Explique por qué eligió este proveedor para seguros..."></textarea>
+
+        <div class="field-label">Requisitos que Necesita Cumplir:</div>
+        <textarea class="input-field" placeholder="Ej: Primas mensuales, cobertura requerida, etc."></textarea>
+    </div>
+
+    <h2>Cronograma de Necesidades</h2>
+
+    <div class="timeline-box">
+        <p><strong>Necesidades Inmediatas (Dentro de 1 año):</strong></p>
+        <textarea class="input-field" placeholder="¿Qué servicios financieros necesita ahora? Ej: cuenta corriente, cuenta de ahorros básica"></textarea>
+    </div>
+
+    <div class="timeline-box">
+        <p><strong>Necesidades a Corto Plazo (1-5 años):</strong></p>
+        <textarea class="input-field" placeholder="¿Qué servicios necesitará pronto? Ej: préstamo para automóvil, seguro de inquilino, cuenta de inversión básica"></textarea>
+    </div>
+
+    <div class="timeline-box">
+        <p><strong>Necesidades a Largo Plazo (5+ años):</strong></p>
+        <textarea class="input-field" placeholder="¿Qué servicios anticipa para el futuro? Ej: hipoteca, seguro de vida, planificación de jubilación"></textarea>
+    </div>
+
+    <h2>Alternativas Consideradas</h2>
+    <p>Enumere otras opciones que consideró y por qué decidió no elegirlas en este momento:</p>
+    <textarea class="input-field" style="min-height: 80px;" placeholder="Describa las alternativas que consideró..."></textarea>
+
+    <div class="footer">
+        <p><strong>Nota:</strong> Este plan se utilizará en la actividad de Presentación y Revisión entre Pares. Prepárese para explicar sus elecciones y razonamiento a sus compañeros.</p>
+        <p>© 2025 PFL Academy - Todos los derechos reservados</p>
+    </div>
+</body>
+</html>
